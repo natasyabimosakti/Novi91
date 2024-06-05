@@ -3,8 +3,8 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.9
 // @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/minochi11/minochi11/main/AUTOJOIN/AUTOJOIN.js
-// @downloadURL  https://raw.githubusercontent.com/minochi11/minochi11/main/AUTOJOIN/AUTOJOIN.js
+// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoJoin.js
+// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoJoin.js
 // @author       You
 // @match        http*://*/*
 // @run-at       document-end
