@@ -1,0 +1,33 @@
+Clone 4 Kiwi Browser Rubah nama Kiwi Browser jadi Fb
+
+Settings Keempat Kiwi Browser
+Setelan > Privasi Centang Close All Tabs dan Close Browser when no tabs are open
+
+install user agent switcher
+
+https://chromewebstore.google.com/detail/user-agent-switcher-for-g/oolobapiojdnnempcokpajdiedgdiecl
+
+install tampermonkey
+
+https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
+
+Pasang Useragent
+
+Mozilla/5.0 (Linux; Android 13; SM-S901B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36
+
+Pasang Extension Auto Close
+
+https://chrome.google.com/webstore/detail/close-aboutblank-tabs/njaoeoijchmicpfaoheacmkmnkobedhj
+
+Pasang Extension Auto Cuan
+
+https://drive.google.com/file/d/1sJsAWygI3tIIEb494mmLO7GEIZFRSZNi/view?usp=drivesdk
+
+Pasang Tampermonkey Auto Join
+
+https://github.com/minochi11/minochi11/blob/main/AUTOJOIN%2FAUTOJOIN.js
+
+
+Pasang Script Tampermonkey 
+
+https://github.com/minochi11/minochi11/blob/main/Polos%20V3.js
