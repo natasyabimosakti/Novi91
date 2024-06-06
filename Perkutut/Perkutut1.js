@@ -88,7 +88,7 @@ var Backlist1 = "pemenang lomba";
 var Backlist2 = "rekap";
 var Backlist3 = "hasil";
 var Backlist4 = "room lomba freebet";
-var Backlist5 = "mana";
+var Backlist5 = "done";
 var Backlist6 = "result";
 var Backlist7 = "result";
 
@@ -153,17 +153,17 @@ var myInterval = setInterval(function(){
     }
 
     console.log(" ");
-
-        if (document.querySelectorAll('[data-tracking-duration-id')[0]){
+    for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
+        if (document.querySelectorAll('[data-tracking-duration-id')[ntv]){
             // Nama FB
-            var namafb = document.querySelectorAll('[data-tracking-duration-id]')[0].getElementsByClassName('native-text')[0];
+            var namafb = document.querySelectorAll('[data-tracking-duration-id]')[ntv].getElementsByClassName('native-text')[0];
             //Jam
-            var jamposting = document.querySelectorAll('[data-tracking-duration-id]')[0].getElementsByClassName('native-text')[1];
+            var jamposting = document.querySelectorAll('[data-tracking-duration-id]')[ntv].getElementsByClassName('native-text')[1];
             //Postingan
-            var postingan =document.querySelectorAll('[data-tracking-duration-id')[0].getElementsByClassName('native-text')[3];
+            var postingan =document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')[3];
             //Comment Box
-            var datacommentbox = document.querySelectorAll('[data-tracking-duration-id')[0].getElementsByClassName('native-text').length -1
-            var commentbox = document.querySelectorAll('[data-tracking-duration-id')[0].getElementsByClassName('native-text')[datacommentbox];
+            var datacommentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text').length -1
+            var commentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')[datacommentbox];
 
             // Cek Jam
             var ret = jamposting.textContent.replace(/  Admin   |  Moderator   /g, "");
@@ -360,7 +360,7 @@ var myInterval = setInterval(function(){
                 }
             }
         }
-
+    }
 
 
 
