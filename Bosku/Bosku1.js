@@ -9,9 +9,9 @@
 // @match        http*://*/*
 // @run-at       document-end
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
-// @grant       GM.setValue
-// @grant       GM.getValue
-// @grant       window.close
+// @grant        GM.setValue
+// @grant        GM.getValue
+// @grant        window.close
 // ==/UserScript==
 var refresh = 60;
 
