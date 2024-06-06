@@ -386,7 +386,7 @@ function clicksend() {
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},2000)
+    setTimeout(function(){location.href = "about:blank"},600)
     
     
 }
