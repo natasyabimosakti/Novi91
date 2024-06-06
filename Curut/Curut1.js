@@ -381,7 +381,7 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
-        
+        closer()
         /*Tekan TOMBOL SEND*/
     }
 }
