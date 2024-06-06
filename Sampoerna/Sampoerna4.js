@@ -385,7 +385,13 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
-        location.href = "about:blank"
+        closer()
         /*Tekan TOMBOL SEND*/
     }
+}
+
+function closer() {
+    setTimeout(function(){location.href = "about:blank"},500)
+    
+    
 }
