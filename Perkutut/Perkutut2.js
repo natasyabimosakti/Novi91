@@ -90,7 +90,7 @@ var Backlist1 = "pemenang lomba";
 var Backlist2 = "rekap";
 var Backlist3 = "hasil";
 var Backlist4 = "room lomba freebet";
-var Backlist5 = "done";
+var Backlist5 = "mana";
 var Backlist6 = "result";
 var Backlist7 = "result";
 
