@@ -10,6 +10,9 @@
 // ==/UserScript==
 
 setInterval(function(){
+     if(document.querySelectorAll("[aria-label='Facebook']").length >= 1){
+        window.location.reload()
+    }
     'use strict';
 if(document.getElementsByClassName("native-text")[1]){
         if(document.getElementsByClassName("native-text")[1].textContent.includes("Postingan")){
