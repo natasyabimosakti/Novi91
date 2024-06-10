@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 1
 // @namespace    http://tampermonkey.net/
-// @version      3.22
+// @version      3.23
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
@@ -388,7 +388,7 @@ function clicksend() {
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},800)
+    setTimeout(function(){location.href = "about:blank"},200)
     
     
 }
