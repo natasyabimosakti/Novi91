@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF4
 // @namespace    http://tampermonkey.net/
-// @version      3.97
+// @version      3.98
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf4.js
@@ -388,7 +388,7 @@ function clicksend() {
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},800)
+    setTimeout(function(){location.href = "about:blank"},200)
     
     
 }
