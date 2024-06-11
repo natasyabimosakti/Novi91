@@ -65,7 +65,7 @@ var Comment14 = 'BETT*SingasariTOTO(BO)*GUNGSIPP*59*95*87';
 var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (GUNGSNIPE)  18*28*38 BETTING'; 
 
-var namagroup16 = 'LUCK';
+var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*GUNGHJ6*13*36*58';
 
 
