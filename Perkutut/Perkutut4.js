@@ -66,7 +66,7 @@ var Comment14 = 'BETT*SingasariTOTO(BO)*PLECINDI23*69*10*89';
 var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (PLECIKUS1)  84*94*15 BETTING'; 
 
-var namagroup16 = 'LUCK';
+var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*PLECIKAWAT*04*11*13';
 
 
