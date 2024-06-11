@@ -66,7 +66,7 @@ var Comment14 = 'BETT*SingasariTOTO(BO)*ZORLETA*25*95*21';
 var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (ZONIAK26)  42*60*91 BETTING'; 
 
-var namagroup16 = 'LUCK';
+var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*ZOWINDO*80*69*07';
 
 
