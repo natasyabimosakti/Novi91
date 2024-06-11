@@ -66,7 +66,7 @@ var Comment14 = 'BETT*SingasariTOTO(BO)*YOJUAH63*81*56*99';
 var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (YOREAN63)  90*58*33 BETTING'; 
 
-var namagroup16 = 'LUCK';
+var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*YOKWIK47*05*51*88';
 
 
