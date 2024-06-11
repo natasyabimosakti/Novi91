@@ -65,7 +65,7 @@ var Comment14 = 'BETT*SingasariTOTO(BO)*FERSIP*73*04*81';
 var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (FERPERS)  85*08*60 BETTING'; 
 
-var namagroup16 = 'LUCK';
+var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*FERKEII*19*17*33';
 
 
