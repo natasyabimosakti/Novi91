@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 4
 // @namespace    http://tampermonkey.net/
-// @version      3.25
+// @version      3.26
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk4.js
@@ -65,8 +65,6 @@ var Comment15 = 'VESPATOGEL (PLECIKUS1)  46*33*02';
 var namagroup16 = '2131231';
 var Comment16 = '';
  
-
-
 
 
 var admin = ["aldi","baru","baru","sonia","serena","alde","puput","mad","hefi","dika","iyatoto","adm","celsia","jne","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","tiktak","nella","novi","sandiego","nasution","ratu","priyan","san","ria","sanjaya","siska","Baru","aditia","keitogel","safar","mahendra","multi","mariana","neman","tatang","dewi","primus","roy","dewi","melati","kumbara","dentoto","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
@@ -407,7 +405,7 @@ function clicksend() {
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},50)
+    setTimeout(function(){location.href = "about:blank"},5)
 
 
 }
