@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE2
 // @namespace    http://tampermonkey.net/
-// @version      3.33
+// @version      3.34
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
@@ -86,9 +86,9 @@ var Backlist5 = "prediksi";
 var Backlist6 = "result";
 var Backlist7 = "result";
 
+var myrefresh = setInterval(function(){
 
-var myInterval = setInterval(function(){
-    var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
+  var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
     var urutkan2 = document.querySelectorAll("[data-mcomponent='TextArea']");
     var waktupost = document.getElementsByClassName("native-text");
     window.scrollTo(0, 2000);
@@ -123,6 +123,10 @@ var myInterval = setInterval(function(){
         }
 
     }
+}, refresh * 10)
+
+var myInterval = setInterval(function(){
+    
 
     var ceknamagroup
     var ceknamagroup1
@@ -206,6 +210,7 @@ var myInterval = setInterval(function(){
                                 document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment1;
                                 clicksend();
                                 clearInterval(myInterval);
+                                clearInterval(myrefresh);
                                 console.log("Sudah Comment")
                                 return;
                             }
@@ -215,6 +220,7 @@ var myInterval = setInterval(function(){
                                 document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment2;
                                 clicksend();
                                 clearInterval(myInterval);
+                                clearInterval(myrefresh);
                                 console.log("Sudah Comment")
                                 return;
                             }
@@ -224,6 +230,7 @@ var myInterval = setInterval(function(){
                                 document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment3;
                                 clicksend();
                                 clearInterval(myInterval);
+                                clearInterval(myrefresh);
                                 console.log("Sudah Comment")
                                 return;
                             }
@@ -233,6 +240,7 @@ var myInterval = setInterval(function(){
                                 document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment4;
                                 clicksend();
                                 clearInterval(myInterval);
+                                clearInterval(myrefresh);
                                 console.log("Sudah Comment")
                                 return;
                             }
@@ -242,6 +250,7 @@ var myInterval = setInterval(function(){
                                 document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment5;
                                 clicksend();
                                 clearInterval(myInterval);
+                                clearInterval(myrefresh);
                                 console.log("Sudah Comment")
                                 return;
                             }
@@ -251,6 +260,7 @@ var myInterval = setInterval(function(){
                                 document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment6;
                                 clicksend();
                                 clearInterval(myInterval);
+                                clearInterval(myrefresh);
                                 console.log("Sudah Comment")
                                 return;
                             }
@@ -260,7 +270,8 @@ var myInterval = setInterval(function(){
                                 document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment7;
                                 clicksend();
                                 clearInterval(myInterval);
-                                console.log("Sudah Comment");
+                                clearInterval(myrefresh);
+                                console.log("Sudah Comment")
                                 return;
                             }
 
@@ -269,7 +280,8 @@ var myInterval = setInterval(function(){
                                 document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment8;
                                 clicksend();
                                 clearInterval(myInterval);
-                                console.log("Sudah Comment");
+                                clearInterval(myrefresh);
+                                console.log("Sudah Comment")
                                 return;
                             }
 
@@ -278,6 +290,7 @@ var myInterval = setInterval(function(){
                                 document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment9;
                                 clicksend();
                                 clearInterval(myInterval);
+                                clearInterval(myrefresh);
                                 console.log("Sudah Comment")
                                 return;
                             }
@@ -287,6 +300,7 @@ var myInterval = setInterval(function(){
                                 document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment10;
                                 clicksend();
                                 clearInterval(myInterval);
+                                clearInterval(myrefresh);
                                 console.log("Sudah Comment")
                                 return;
                             }
@@ -296,6 +310,7 @@ var myInterval = setInterval(function(){
                                 document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment11;
                                 clicksend();
                                 clearInterval(myInterval);
+                                clearInterval(myrefresh);
                                 console.log("Sudah Comment")
                                 return;
                             }
@@ -306,6 +321,7 @@ var myInterval = setInterval(function(){
                                 document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment12;
                                 clicksend();
                                 clearInterval(myInterval);
+                                clearInterval(myrefresh);
                                 console.log("Sudah Comment")
                                 return;
                             }
@@ -315,6 +331,7 @@ var myInterval = setInterval(function(){
                                 document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment13;
                                 clicksend();
                                 clearInterval(myInterval);
+                                clearInterval(myrefresh);
                                 console.log("Sudah Comment")
                                 return;
                             }
@@ -324,6 +341,7 @@ var myInterval = setInterval(function(){
                                 document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment14;
                                 clicksend();
                                 clearInterval(myInterval);
+                                clearInterval(myrefresh);
                                 console.log("Sudah Comment")
                                 return;
                             }
@@ -333,6 +351,7 @@ var myInterval = setInterval(function(){
                                 document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment15;
                                 clicksend();
                                 clearInterval(myInterval);
+                                clearInterval(myrefresh);
                                 console.log("Sudah Comment")
                                 return;
                             }
@@ -342,6 +361,7 @@ var myInterval = setInterval(function(){
                                 document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment16;
                                 clicksend();
                                 clearInterval(myInterval);
+                                clearInterval(myrefresh);
                                 console.log("Sudah Comment")
                                 return;
                             }
@@ -358,7 +378,7 @@ var myInterval = setInterval(function(){
 
 
 
-}, refresh * 10)
+}, 10)
 
 
 
@@ -384,7 +404,7 @@ function clicksend() {
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},50)
-    
-    
+    setTimeout(function(){location.href = "about:blank"},5)
+
+
 }
