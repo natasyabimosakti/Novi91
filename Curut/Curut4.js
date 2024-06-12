@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.31
+// @version      3.32
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
@@ -64,6 +64,7 @@ var Comment15 = 'VESPATOGEL (TUKULENG12)  25*54*90';
 
 var namagroup16 = 'Jawatengah';
 var Comment16 = 'Setuju';
+
 
 
 
@@ -405,7 +406,7 @@ function clicksend() {
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},50)
+    setTimeout(function(){location.href = "about:blank"},5)
 
 
 }
