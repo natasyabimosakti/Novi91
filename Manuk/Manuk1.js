@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 1
 // @namespace    http://tampermonkey.net/
-// @version      3.25
+// @version      3.26
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
@@ -65,7 +65,6 @@ var Comment15 = 'VESPATOGEL (MANUKAN11)  56*83*68';
 
 var namagroup16 = '123123';
 var Comment16 = '';
-
 
 
 
@@ -409,7 +408,7 @@ function clicksend() {
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},50)
+    setTimeout(function(){location.href = "about:blank"},5)
 
 
 }
