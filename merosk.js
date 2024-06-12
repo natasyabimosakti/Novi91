@@ -85,4 +85,5 @@ fetch(document.querySelectorAll("[method='post']")[0].action, requestOptions)
   .then((result) => console.log(result))
   .catch((error) => console.error(error));
     // Your code here...
+location.href="about:blank";
 })();
