@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.30
+// @version      3.31
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
@@ -68,6 +68,27 @@ var namagroup16 = 'Jawatengah';
 var Comment16 = 'siap';
 
 
+
+
+var admin = ["aldi","baru","baru","sonia","serena","alde","puput","mad","hefi","dika","iyatoto","adm","celsia","jne","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","tiktak","nella","novi","sandiego","nasution","ratu","priyan","san","ria","sanjaya","siska","Baru","aditia","keitogel","safar","mahendra","multi","mariana","neman","tatang","dewi","primus","roy","dewi","melati","kumbara","dentoto","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
+var keyword1 = "ROOM"
+var keyword2 = "𝗥𝗢𝗢𝗠"
+var keyword3 = "LOMBA"
+var keyword4 = "𝗟𝗢𝗠𝗕𝗔"
+var keyword5 = "𝐋𝐎𝐌𝐁𝐀"
+var keyword6 = "LIMBA"
+var keyword7 = "ROM"
+var keyword8 = "R00M"
+var keyword9 = "R0M"
+var keyword10 = "🎱"
+
+var Backlist1 = "pemenang lomba";
+var Backlist2 = "rekap";
+var Backlist3 = "hasil";
+var Backlist4 = "room lomba freebet";
+var Backlist5 = "prediksi";
+var Backlist6 = "result";
+var Backlist7 = "result";
 
 var myrefresh = setInterval(function(){
 
