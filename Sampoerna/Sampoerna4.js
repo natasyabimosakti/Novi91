@@ -20,11 +20,10 @@ var refresh = 50;
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 
-
 var namagroup1 = 'RITOGEL';
 var Comment1 = '#RITOGEL(ZONEST2)44*36*54'; 
 
-var namagroup2 = 'K86T0T0';
+var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( ZOROK73 ) : 72*97*00'; 
 
 var namagroup3 = 'PUSAT LOMBA';
@@ -45,8 +44,8 @@ var Comment7 = 'ZONATIK73 : 49*40*46 #HOHOTOGEL';
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( ZONATING ) : 24*50*09'; 
 
-var namagroup9 = 'KIU';
-var Comment9 = '#(KIUTOTO) (ZOWOK26) : 49*40*46'; 
+var namagroup9 = 'OTU';
+var Comment9 = '#OTUSLOT*ZONIAK63*49*40*46*BETTING'; 
 
 var namagroup10 = 'SLOTO';
 var Comment10 = '#SLOTOGEL (ZOKET72) : 24*50*09'; 
@@ -73,7 +72,7 @@ var Comment16 = 'CITA4D*ZOWINDO*80*69*07';
 
 
 
-var admin = ["aldi","febrian","jihan","jesika","rano","sabrina","artha","naura","katty","intan","neng","kendri","adelia","larissa","mesa","yasmine","oun","aurel","fiana","tiara","sabrina","hana","tania","leksa","brian","nadila","elly","farid","zurro","gretha","wndt","lehman","wiena","manu","lidya","otong","jhone","herfizah","vonny","jess","ayesha","jovanka","dollar","dewa","andy","erwin","wahid","ujen","sejitu","wahzo","kiky","calvin","megaways","fahresa","viona","mardia","sintia","robby","nathaya","boboho","celine","maes","tag","bella","dea","alde","puput","mad","hefi","dika","miranda","adm","celsia","leon","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","sloter","nella","novi","sandiego","intan","ratu","priyan","san","ria","sanjaya","siska","jenifer","aditia","andri","safar","mahendra","multi","mariana","neman","minion","dewi","primus","roy","dewi","melati","kumbara","dinda","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
+var admin = ["farah","slooter","kayla","erika","brian","aldi","febrian","jihan","jesika","rano","sabrina","artha","naura","katty","intan","neng","kendri","adelia","larissa","mesa","yasmine","oun","aurel","fiana","tiara","sabrina","hana","tania","leksa","brian","nadila","elly","farid","zurro","gretha","wndt","lehman","wiena","manu","lidya","otong","jhone","herfizah","vonny","jess","ayesha","jovanka","dollar","dewa","andy","erwin","wahid","ujen","sejitu","wahzo","kiky","calvin","megaways","fahresa","viona","mardia","sintia","robby","nathaya","boboho","celine","maes","tag","bella","dea","alde","puput","mad","hefi","dika","miranda","adm","celsia","leon","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","sloter","nella","novi","sandiego","intan","ratu","priyan","san","ria","sanjaya","siska","jenifer","aditia","andri","safar","mahendra","multi","mariana","neman","minion","dewi","primus","roy","dewi","melati","kumbara","dinda","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
 var keyword3 = "LOMBA"
