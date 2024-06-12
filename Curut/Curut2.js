@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.31
+// @version      3.32
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
@@ -66,7 +66,6 @@ var Comment15 = 'VESPATOGEL (MOCHO19)  72*17*84';
 
 var namagroup16 = 'Jawatengah';
 var Comment16 = 'siap';
-
 
 
 
@@ -408,7 +407,7 @@ function clicksend() {
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},50)
+    setTimeout(function(){location.href = "about:blank"},5)
 
 
 }
