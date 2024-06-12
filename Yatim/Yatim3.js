@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim3
 // @namespace    http://tampermonkey.net/
-// @version      3.24
+// @version      3.25
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim3.js
@@ -65,6 +65,7 @@ var Comment15 = 'VESPATOGEL (SIMUMET17)  31*40*98';
 
 var namagroup16 = '';
 var Comment16 = '';
+
 
 
 
@@ -409,7 +410,7 @@ function clicksend() {
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},50)
+    setTimeout(function(){location.href = "about:blank"},5)
 
 
 }
