@@ -236,7 +236,7 @@ var myInterval = setInterval(function(){
 
 
 
-
+                      if (id1 == "" || id1 == undefined || id1 == null ||id1 == "0") {
                             if (ceknamagroup.includes(namagroup1) == true||ceknamagroup1.includes(namagroup1) == true||ceknamagroup2.includes(namagroup1) == true||ceknamagroup3.includes(namagroup1) == true||ceknamagroup4.includes(namagroup1) == true) {
                                 /*cek nama group dan tulis commntar*/
                                 document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment1;
@@ -246,6 +246,7 @@ var myInterval = setInterval(function(){
                                 console.log("Sudah Comment")
                                 return;
                             }
+                      }
 
                             if (ceknamagroup.includes(namagroup2) == true||ceknamagroup1.includes(namagroup2) == true||ceknamagroup2.includes(namagroup2) == true||ceknamagroup3.includes(namagroup2) == true||ceknamagroup4.includes(namagroup2) == true) {
                                 /*cek nama group dan tulis commntar*/
