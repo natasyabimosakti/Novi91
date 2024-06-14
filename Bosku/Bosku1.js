@@ -66,7 +66,27 @@ var Comment16 = '';
 
 
 
+var d = new Date();
+var hour = d.getHours();
+var tm = await GM.getValue("time");
 
+var id1 = await GM.getValue(1);
+var id2 = await GM.getValue(2);
+var id3 = await GM.getValue(3);
+var id4 = await GM.getValue(4);
+var id5 = await GM.getValue(5);
+var id6 = await GM.getValue(6);
+var id7 = await GM.getValue(7);
+var id8 = await GM.getValue(8);
+var id9 = await GM.getValue(9);
+var id10 = await GM.getValue(10);
+var id11 = await GM.getValue(11);
+var id12 = await GM.getValue(12);
+var id13 = await GM.getValue(13);
+var id14 = await GM.getValue(14);
+var id15 = await GM.getValue(15);
+var id16 = await GM.getValue(16);
+var id17 = await GM.getValue(17);
 var admin = ["aldi","baru","baru","sonia","serena","alde","puput","mad","hefi","dika","iyatoto","adm","celsia","jne","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","tiktak","nella","novi","sandiego","nasution","ratu","priyan","san","ria","sanjaya","siska","Baru","aditia","keitogel","safar","mahendra","multi","mariana","neman","tatang","dewi","primus","roy","dewi","melati","kumbara","dentoto","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
