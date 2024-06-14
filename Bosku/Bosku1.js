@@ -236,9 +236,11 @@ var myInterval = setInterval(function(){
 
 
 
-                      if (id1 == "" || id1 == undefined || id1 == null ||id1 == "0") {
+                      
                             if (ceknamagroup.includes(namagroup1) == true||ceknamagroup1.includes(namagroup1) == true||ceknamagroup2.includes(namagroup1) == true||ceknamagroup3.includes(namagroup1) == true||ceknamagroup4.includes(namagroup1) == true) {
-                                /*cek nama group dan tulis commntar*/
+                                if (id1 == "" || id1 == undefined || id1 == null ||id1 == "0") {
+                                    /*cek nama group dan tulis commntar*/
+                                GM.setValue( 1,1);
                                 document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment1;
                                 clicksend();
                                 clearInterval(myInterval);
