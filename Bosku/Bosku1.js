@@ -108,7 +108,18 @@ var Backlist6 = "result";
 var Backlist7 = "result";
 
 var myrefresh = setInterval(function(){
+if (tm == "" || tm == undefined || tm == null) {
+        GM.setValue("time", hour);
+    }
 
+
+    if ( hour > tm + 2 || hour < tm||document.URL.includes("google") == true||hour == undefined||hour == null){
+        for (var kr = 1; kr < 18; kr++) {
+            GM.setValue( kr,0);
+        }
+        GM.setValue("time", hour);
+
+    }
   var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
     var urutkan2 = document.querySelectorAll("[data-mcomponent='TextArea']");
     var waktupost = document.getElementsByClassName("native-text");
