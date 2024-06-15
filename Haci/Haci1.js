@@ -70,6 +70,8 @@ var Comment16 = 'CITA4D*GUNGHJ6*13*36*58';
 
 
 
+
+
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
@@ -91,7 +93,7 @@ var id14 = await GM.getValue(14);
 var id15 = await GM.getValue(15);
 var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
-var admin = ["farah","slooter","kayla","erika","brian","aldi","febrian","jihan","jesika","rano","sabrina","artha","naura","katty","intan","neng","kendri","adelia","larissa","mesa","yasmine","oun","aurel","fiana","tiara","sabrina","hana","tania","leksa","brian","nadila","elly","farid","zurro","gretha","wndt","lehman","wiena","manu","lidya","otong","jhone","herfizah","vonny","jess","ayesha","jovanka","dollar","dewa","andy","erwin","wahid","ujen","sejitu","wahzo","kiky","calvin","megaways","fahresa","viona","mardia","sintia","robby","nathaya","boboho","celine","maes","tag","bella","dea","alde","puput","mad","hefi","dika","miranda","adm","celsia","leon","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","sloter","nella","novi","sandiego","intan","ratu","priyan","san","ria","sanjaya","siska","jenifer","aditia","andri","safar","mahendra","multi","mariana","neman","minion","dewi","primus","roy","dewi","melati","kumbara","dinda","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
+var admin = ["aldi","baru","baru","sonia","serena","alde","puput","mad","hefi","dika","iyatoto","adm","celsia","jne","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","tiktak","nella","novi","sandiego","nasution","ratu","priyan","san","ria","sanjaya","siska","Baru","aditia","keitogel","safar","mahendra","multi","mariana","neman","tatang","dewi","primus","roy","dewi","melati","kumbara","dentoto","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
 var keyword3 = "LOMBA"
@@ -246,11 +248,15 @@ var myInterval = setInterval(function(){
                                     /*cek nama group dan tulis commntar*/
                                     GM.setValue( 1,1);
                                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment1;
-                                    clicksend();
+
                                     clearInterval(myInterval);
                                     clearInterval(myrefresh);
                                     console.log("Sudah Comment")
+                                    clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -260,25 +266,32 @@ var myInterval = setInterval(function(){
                                     GM.setValue( 2,1);
                                     /*cek nama group dan tulis commntar*/
                                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment2;
-                                    clicksend();
+
                                     clearInterval(myInterval);
                                     clearInterval(myrefresh);
                                     console.log("Sudah Comment")
+                                    clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
-
                             if (ceknamagroup.includes(namagroup3) == true||ceknamagroup1.includes(namagroup3) == true||ceknamagroup2.includes(namagroup3) == true||ceknamagroup3.includes(namagroup3) == true||ceknamagroup4.includes(namagroup3) == true) {
                                 if (id3 == "" || id3 == undefined || id3 == null ||id3 == "0") {
                                     /*cek nama group dan tulis commntar*/
                                     GM.setValue( 3,1);
                                     /*cek nama group dan tulis commntar*/
                                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment3;
-                                    clicksend();
+
                                     clearInterval(myInterval);
                                     clearInterval(myrefresh);
                                     console.log("Sudah Comment")
+                                    clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -288,11 +301,15 @@ var myInterval = setInterval(function(){
                                     /*cek nama group dan tulis commntar*/
                                     GM.setValue( 4,1);
                                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment4;
-                                    clicksend();
+
                                     clearInterval(myInterval);
                                     clearInterval(myrefresh);
                                     console.log("Sudah Comment")
+                                    clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -302,11 +319,15 @@ var myInterval = setInterval(function(){
                                     /*cek nama group dan tulis commntar*/
                                     GM.setValue( 5,1);
                                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment5;
-                                    clicksend();
+
                                     clearInterval(myInterval);
                                     clearInterval(myrefresh);
                                     console.log("Sudah Comment")
+                                    clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -316,11 +337,15 @@ var myInterval = setInterval(function(){
                                     /*cek nama group dan tulis commntar*/
                                     GM.setValue( 6,1);
                                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment6;
-                                    clicksend();
+
                                     clearInterval(myInterval);
                                     clearInterval(myrefresh);
                                     console.log("Sudah Comment")
+                                    clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -330,11 +355,15 @@ var myInterval = setInterval(function(){
                                     /*cek nama group dan tulis commntar*/
                                     GM.setValue( 7,1);
                                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment7;
-                                    clicksend();
+
                                     clearInterval(myInterval);
                                     clearInterval(myrefresh);
                                     console.log("Sudah Comment")
+                                    clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -344,11 +373,15 @@ var myInterval = setInterval(function(){
                                     /*cek nama group dan tulis commntar*/
                                     GM.setValue( 8,1);
                                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment8;
-                                    clicksend();
+
                                     clearInterval(myInterval);
                                     clearInterval(myrefresh);
                                     console.log("Sudah Comment")
+                                    clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -358,11 +391,15 @@ var myInterval = setInterval(function(){
                                     /*cek nama group dan tulis commntar*/
                                     GM.setValue( 9,1);
                                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment9;
-                                    clicksend();
+
                                     clearInterval(myInterval);
                                     clearInterval(myrefresh);
                                     console.log("Sudah Comment")
+                                    clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -372,11 +409,15 @@ var myInterval = setInterval(function(){
                                     /*cek nama group dan tulis commntar*/
                                     GM.setValue( 10,1);
                                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment10;
-                                    clicksend();
+
                                     clearInterval(myInterval);
                                     clearInterval(myrefresh);
                                     console.log("Sudah Comment")
+                                    clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -386,11 +427,15 @@ var myInterval = setInterval(function(){
                                     /*cek nama group dan tulis commntar*/
                                     GM.setValue( 11,1);
                                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment11;
-                                    clicksend();
+
                                     clearInterval(myInterval);
                                     clearInterval(myrefresh);
                                     console.log("Sudah Comment")
+                                    clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -401,11 +446,15 @@ var myInterval = setInterval(function(){
                                     /*cek nama group dan tulis commntar*/
                                     GM.setValue( 12,1);
                                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment12;
-                                    clicksend();
+
                                     clearInterval(myInterval);
                                     clearInterval(myrefresh);
                                     console.log("Sudah Comment")
+                                    clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -415,11 +464,15 @@ var myInterval = setInterval(function(){
                                     /*cek nama group dan tulis commntar*/
                                     GM.setValue( 13,1);
                                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment13;
-                                    clicksend();
+
                                     clearInterval(myInterval);
                                     clearInterval(myrefresh);
                                     console.log("Sudah Comment")
+                                    clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -429,11 +482,15 @@ var myInterval = setInterval(function(){
                                     /*cek nama group dan tulis commntar*/
                                     GM.setValue( 14,1);
                                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment14;
-                                    clicksend();
+
                                     clearInterval(myInterval);
                                     clearInterval(myrefresh);
                                     console.log("Sudah Comment")
+                                    clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -443,11 +500,15 @@ var myInterval = setInterval(function(){
                                     /*cek nama group dan tulis commntar*/
                                     GM.setValue( 15,1);
                                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment15;
-                                    clicksend();
+
                                     clearInterval(myInterval);
                                     clearInterval(myrefresh);
                                     console.log("Sudah Comment")
+                                    clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -457,11 +518,15 @@ var myInterval = setInterval(function(){
                                     /*cek nama group dan tulis commntar*/
                                     GM.setValue( 16,1);
                                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment16;
-                                    clicksend();
+
                                     clearInterval(myInterval);
                                     clearInterval(myrefresh);
                                     console.log("Sudah Comment")
+                                    clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
