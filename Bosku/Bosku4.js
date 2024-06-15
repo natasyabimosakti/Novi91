@@ -64,7 +64,6 @@ var namagroup16 = 'hdnqkwg7';
 var Comment16 = '';
 
 
-
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
@@ -247,6 +246,9 @@ var myInterval = setInterval(function(){
                                     console.log("Sudah Comment")
                                     clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -262,9 +264,11 @@ var myInterval = setInterval(function(){
                                     console.log("Sudah Comment")
                                     clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
-
                             if (ceknamagroup.includes(namagroup3) == true||ceknamagroup1.includes(namagroup3) == true||ceknamagroup2.includes(namagroup3) == true||ceknamagroup3.includes(namagroup3) == true||ceknamagroup4.includes(namagroup3) == true) {
                                 if (id3 == "" || id3 == undefined || id3 == null ||id3 == "0") {
                                     /*cek nama group dan tulis commntar*/
@@ -277,6 +281,9 @@ var myInterval = setInterval(function(){
                                     console.log("Sudah Comment")
                                     clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -292,6 +299,9 @@ var myInterval = setInterval(function(){
                                     console.log("Sudah Comment")
                                     clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -307,6 +317,9 @@ var myInterval = setInterval(function(){
                                     console.log("Sudah Comment")
                                     clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -322,6 +335,9 @@ var myInterval = setInterval(function(){
                                     console.log("Sudah Comment")
                                     clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -337,6 +353,9 @@ var myInterval = setInterval(function(){
                                     console.log("Sudah Comment")
                                     clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -352,6 +371,9 @@ var myInterval = setInterval(function(){
                                     console.log("Sudah Comment")
                                     clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -367,6 +389,9 @@ var myInterval = setInterval(function(){
                                     console.log("Sudah Comment")
                                     clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -382,6 +407,9 @@ var myInterval = setInterval(function(){
                                     console.log("Sudah Comment")
                                     clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -397,6 +425,9 @@ var myInterval = setInterval(function(){
                                     console.log("Sudah Comment")
                                     clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -413,6 +444,9 @@ var myInterval = setInterval(function(){
                                     console.log("Sudah Comment")
                                     clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -428,6 +462,9 @@ var myInterval = setInterval(function(){
                                     console.log("Sudah Comment")
                                     clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -443,6 +480,9 @@ var myInterval = setInterval(function(){
                                     console.log("Sudah Comment")
                                     clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -458,6 +498,9 @@ var myInterval = setInterval(function(){
                                     console.log("Sudah Comment")
                                     clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
@@ -473,6 +516,9 @@ var myInterval = setInterval(function(){
                                     console.log("Sudah Comment")
                                     clicksend();
                                     return;
+                                } else {
+                                    location.href = "about:blank"
+
                                 }
                             }
 
