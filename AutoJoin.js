@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AUTO  JOIN
 // @namespace    http://tampermonkey.net/
-// @version      0.9
+// @version      0.10
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoJoin.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoJoin.js
@@ -21,19 +21,24 @@ var cekjoin3 = document.getElementsByClassName('native-text')[12]
 var cekjoin4 = document.getElementsByClassName('native-text')[13]
 var cekjoin5 = document.getElementsByClassName('native-text')[14]
 setInterval(function(){
+    for(var it = 0; it < document.querySelectorAll("[data-actual-height]").length; it++){
+        if(document.querySelectorAll("[data-actual-height]")[it].textContent.includes("Bergabung")){ 
+            document.querySelectorAll("[data-actual-height]")[it].click()
+        }
+    }
     'use strict';
     if(document.querySelectorAll("[aria-label='Grup']")[0]){
         if(document.querySelectorAll("[aria-label='Grup']")[0].textContent == "Grup"){
             document.querySelectorAll("[aria-label='Grup']")[0].click()
         }
     }
-     if(document.querySelectorAll("[data-store-id='17']")[0]){
+    if(document.querySelectorAll("[data-store-id='17']")[0]){
 
-          if(document.querySelectorAll("[data-store-id='17']")[0].textContent = "Grup"){
-              document.querySelectorAll("[data-store-id='17']")[0].click();
-          }
+        if(document.querySelectorAll("[data-store-id='17']")[0].textContent = "Grup"){
+            document.querySelectorAll("[data-store-id='17']")[0].click();
+        }
 
-      }
+    }
 
     if(cekjoin1||cekjoin2||cekjoin3||cekjoin4||cekjoin5){
         if(cekjoin1.textContent.includes("Bergabung grup")==true) {
@@ -59,33 +64,33 @@ setInterval(function(){
 
 
     }
-  if(document.URL.includes('search')){
-      if(document.getElementsByClassName('native-text')[2]){
-          if(document.getElementsByClassName('native-text')[2].textContent.includes("grup")){
+    if(document.URL.includes('search')){
+        if(document.getElementsByClassName('native-text')[2]){
+            if(document.getElementsByClassName('native-text')[2].textContent.includes("grup")){
 
 
-              if(document.getElementsByClassName('native-text')[8].textContent == "Lihat" || document.getElementsByClassName('native-text')[8].textContent == "Gabung") {
-                  document.getElementsByClassName('native-text')[8].click()
-              }
-              if(document.getElementsByClassName('native-text')[11].textContent == "Lihat" || document.getElementsByClassName('native-text')[11].textContent == "Gabung") {
-                  document.getElementsByClassName('native-text')[11].click()
-              }
-              if(document.getElementsByClassName('native-text')[10].textContent == "Lihat" || document.getElementsByClassName('native-text')[10].textContent == "Gabung") {
-                  document.getElementsByClassName('native-text')[10].click()
-              }
-              if(document.getElementsByClassName('native-text')[9].textContent == "Lihat" || document.getElementsByClassName('native-text')[9].textContent == "Gabung") {
-                  document.getElementsByClassName('native-text')[9].click()
-              }
+                if(document.getElementsByClassName('native-text')[8].textContent == "Lihat" || document.getElementsByClassName('native-text')[8].textContent == "Gabung") {
+                    document.getElementsByClassName('native-text')[8].click()
+                }
+                if(document.getElementsByClassName('native-text')[11].textContent == "Lihat" || document.getElementsByClassName('native-text')[11].textContent == "Gabung") {
+                    document.getElementsByClassName('native-text')[11].click()
+                }
+                if(document.getElementsByClassName('native-text')[10].textContent == "Lihat" || document.getElementsByClassName('native-text')[10].textContent == "Gabung") {
+                    document.getElementsByClassName('native-text')[10].click()
+                }
+                if(document.getElementsByClassName('native-text')[9].textContent == "Lihat" || document.getElementsByClassName('native-text')[9].textContent == "Gabung") {
+                    document.getElementsByClassName('native-text')[9].click()
+                }
 
 
-          }
-      }
+            }
+        }
 
-      if (document.querySelectorAll("[data-module-result-type='group']")[0]){
-          document.querySelectorAll("[type='submit']")[0].click()
+        if (document.querySelectorAll("[data-module-result-type='group']")[0]){
+            document.querySelectorAll("[type='submit']")[0].click()
 
-      }
+        }
 
-  }
+    }
 
 },refresh * 10)
