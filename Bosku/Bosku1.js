@@ -13,7 +13,7 @@
 // @grant        GM.getValue
 // @grant        window.close
 // ==/UserScript==
-var refresh = 60;
+var refresh = 40;
 
 
 var namagroup1 = 'SHIOKELINCI';
