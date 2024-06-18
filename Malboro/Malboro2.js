@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 2
 // @namespace    http://tampermonkey.net/
-// @version      3.30
+// @version      3.31
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
@@ -13,7 +13,7 @@
 // @grant        GM.getValue
 // @grant        window.close
 // ==/UserScript==
-var refresh = 60;
+var refresh = 40;
 
 
 var namagroup1 = 'SHIOKELINCI';
