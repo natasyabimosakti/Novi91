@@ -131,7 +131,7 @@ var myrefresh = setInterval(function(){
     var urutkan2 = document.querySelectorAll("[data-mcomponent='TextArea']");
     var waktupost = document.getElementsByClassName("native-text");
     window.scrollTo(0, 2000);
-    if (document.readyState === "complete") {
+    
         for (var coke = 0; coke < urutkan2.length; coke++) {
             if (urutkan2[coke].textContent.includes("URUTKAN")) {
 
@@ -141,8 +141,8 @@ var myrefresh = setInterval(function(){
             }
         }
 
-    }
-    if (document.readyState === "complete") {
+    
+    
         for (var cok = 0; cok < urutkan.length; cok++) {
             if(urutkan[cok].textContent.includes("URUTKAN")) {
                 urutkan[cok].click()
@@ -150,10 +150,10 @@ var myrefresh = setInterval(function(){
             }
         }
 
-    }
+    
 
 
-    if (document.readyState === "complete") {
+    
         for (var coki = 0; coki < waktupost.length; coki++) {
             if(waktupost[coki].textContent.includes("Aktivitas")) {
                 waktupost[coki].click()
@@ -161,7 +161,7 @@ var myrefresh = setInterval(function(){
             }
         }
 
-    }
+    
 }, refresh * 10)
 
 var myInterval = setInterval(function(){
