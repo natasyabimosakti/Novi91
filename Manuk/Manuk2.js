@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 2
 // @namespace    http://tampermonkey.net/
-// @version      3.30
+// @version      3.31
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk2.js
@@ -19,49 +19,49 @@ var refresh = 40;
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*ELANG181*10*76'; 
+var Comment1 = '#shiokelinci4d*ELANG187*10*76'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO ELANG32 25*63*93'; 
+var Comment2 = 'IYATOTO ELANG33 25*63*93'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = '#Tiktaktogel / ELANG93 / 87 , 41 , 54'; 
+var Comment3 = '#Tiktaktogel / ELANG99 / 87 , 41 , 54'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=ELANG768=87*41*66'; 
+var Comment4 = 'GAIB4D=ELANG76=87*41*66'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (ELANG0892) = 19*08*74'; 
+var Comment5 = '#keitogel = (ELANG942) = 19*08*74'; 
 
 var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=ELANG381=09*61*31'; 
+var Comment6 = 'KIOSTOTO=ELANG38=09*61*31'; 
 
 var namagroup7 = 'ASEP';
-var Comment7 = '#ASEPTOGEL ELANG942 19*08*74'; 
+var Comment7 = '#ASEPTOGEL ELANG94 19*08*74'; 
 
 var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=ELANG517=69*67*15'; 
+var Comment8 = 'ANGKER4D=ELANG51=69*67*15'; 
 
 var namagroup9 = 'GILA';
-var Comment9 = 'GILA4D=ELANG947=69*67*15'; 
+var Comment9 = 'GILA4D=ELANG94=69*67*15'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(ELANG721)*69*67*15'; 
+var Comment10 = '#JNETOTO(ELANG72)*69*67*15'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*ELANGY3*09*61*31*'; 
+var Comment11 = '#TA*ELANGY33*09*61*31*'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY ELANGX38 60*34*00'; 
+var Comment12 = 'TOGELKUY ELANGX3 60*34*00'; 
 
 var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( ELANGSH1 ) : 25*63*93'; 
+var Comment13 = '#TOYIBSLOT ( ELANGSH13 ) : 25*63*93'; 
 
 var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 60*34*00 ( ELANG47 )'; 
+var Comment14 = '#DENTOTO 60*34*00 ( ELANG4739 )'; 
 
 var namagroup15 = 'HATRICK';
-var Comment15 = 'VESPATOGEL (ELANG728)  92*17*21'; 
+var Comment15 = 'VESPATOGEL (ELANG72)  92*17*21'; 
 
 var namagroup16 = '123123123';
 var Comment16 = '';
