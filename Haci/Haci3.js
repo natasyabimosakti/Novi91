@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi3
 // @namespace    http://tampermonkey.net/
-// @version      3.41
+// @version      3.42
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci3.js
@@ -45,8 +45,8 @@ var Comment7 = 'SIPIRIT10 : 35*12*78 #HOHOTOGEL';
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( SIPIRIT10 ) : 75*77*41'; 
 
-var namagroup9 = 'OTU';
-var Comment9 = '#OTUSLOT*SIMPAK17*01*53*52*BETTING'; 
+var namagroup9 = 'Wellz';
+var Comment9 = 'SIJITOGEL SIMPAK17 01*53*52'; 
 
 var namagroup10 = 'SLOTO';
 var Comment10 = '#SLOTOGEL (SIKLUWER) : 56*43*31'; 
