@@ -37,7 +37,7 @@ var Comment5 = '#keitogel = (QOMAR26) = 48*74*27';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=QUMU17=76*59*38';
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL QOMIR23 37*94*79';
 
 var namagroup8 = 'ANGKER';
