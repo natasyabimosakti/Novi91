@@ -36,7 +36,7 @@ var Comment5 = '#keitogel = (GUNGBUTZ) = 66*72*93';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=GUNGCEL=76*50*10'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL GUNGKLIKK 07*08*03'; 
 
 var namagroup8 = 'ANGKER';
