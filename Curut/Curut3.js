@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.36
+// @version      3.37
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut3.js
@@ -36,7 +36,7 @@ var Comment5 = '#keitogel = (ALIMN26) = 42*16*50';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=ALKODAR13=52*65*12'; 
 
-var namagroup7 = 'ASEP';
+var namagroup7 = 'IYA';
 var Comment7 = '#ASEPTOGEL ALAKADUR14 04*46*75'; 
 
 var namagroup8 = 'ANGKER';
