@@ -35,7 +35,7 @@ var Comment5 = '#keitogel = (DORODOR12) = 47*65*24';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=DOROWIS12=96*53*37'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL DOROMAN12 47*65*24'; 
 
 var namagroup8 = 'ANGKER';
