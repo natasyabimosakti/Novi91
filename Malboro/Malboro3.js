@@ -34,7 +34,7 @@ var Comment5 = '#keitogel = (CANGKIR28) = 92*00*90';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=CANGKUL24=76*14*26'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL CARJER34 08*98*24'; 
 
 var namagroup8 = 'ANGKER';
