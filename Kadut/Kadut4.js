@@ -37,7 +37,7 @@ var Comment5 = '#keitogel = (SANDALMABUR) = 74*19*18';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=SAKEMBER=60*08*09'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL SAMBATAE 74*19*18'; 
 
 var namagroup8 = 'ANGKER';
