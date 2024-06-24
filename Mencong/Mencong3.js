@@ -37,7 +37,7 @@ var Comment5 = '#keitogel = (NOVIATOS12) = 28*04*91';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=NOVIRAMBU3=60*10*26'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL NOVITARU34 60*10*26'; 
 
 var namagroup8 = 'ANGKER';
