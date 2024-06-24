@@ -37,7 +37,7 @@ var Comment5 = '#keitogel = (MONTIR36) = 81*93*34';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=MROTO15=55*86*06'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL MOMER14 18*53*20'; 
 
 var namagroup8 = 'ANGKER';
