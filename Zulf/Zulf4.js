@@ -36,7 +36,7 @@ var Comment5 = '#TOYIBSLOT ( FAISAMIR36 ) : 01*74*53';
 var namagroup6 = 'TIKTAK';
 var Comment6 = '#Tiktaktogel / FANAFILL / 30 , 60 , 77'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL FAISALAMIR12 71*33*15'; 
 
 var namagroup8 = 'MASTER KUY';
