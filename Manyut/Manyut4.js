@@ -37,7 +37,7 @@ var Comment5 = '#keitogel = (CANTOLKAWAT) = 13*45*12';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=CARIK25=28*36*78'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL CANDRAWIJ 01*56*16'; 
 
 var namagroup8 = 'ANGKER';
