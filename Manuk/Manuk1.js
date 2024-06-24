@@ -36,7 +36,7 @@ var Comment5 = '#keitogel = (MANANUK213) = 45*51*84';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=MANUKGENI12=13*11*91'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL MANUKX12 03*70*62'; 
 
 var namagroup8 = 'ANGKER';
