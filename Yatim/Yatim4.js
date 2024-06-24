@@ -36,7 +36,7 @@ var Comment5 = '#keitogel = (YAAJAH19) = 97*87*27';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=YANIRI03=06*12*92'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL YANNCOK84 48*44*74'; 
 
 var namagroup8 = 'ANGKER';
