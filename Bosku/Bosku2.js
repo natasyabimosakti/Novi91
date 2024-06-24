@@ -33,7 +33,7 @@ var Comment5 = '#keitogel = (BOSMAN67) = 39*96*29';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=BOSMINI88=43*11*89'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL BOSNOM63 43*11*89'; 
 
 var namagroup8 = 'ANGKER';
