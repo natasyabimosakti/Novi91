@@ -33,7 +33,7 @@ var Comment5 = '#keitogel = (ZONIAK63) = 25*54*74';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=ZOMING82=44*94*05'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL ZONATIK73 44*94*05'; 
 
 var namagroup8 = 'ANGKER';
