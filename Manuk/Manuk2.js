@@ -36,7 +36,7 @@ var Comment5 = '#keitogel = (ELANG942) = 19*08*74';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=ELANG38=09*61*31'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL ELANG94 19*08*74'; 
 
 var namagroup8 = 'ANGKER';
