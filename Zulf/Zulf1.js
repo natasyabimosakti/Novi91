@@ -36,7 +36,7 @@ var Comment5 = '#TOYIBSLOT ( ZULIKA00 ) : 28*34*25';
 var namagroup6 = 'TIKTAK';
 var Comment6 = '#Tiktaktogel / ZULFGOLD / 31 , 83 , 45'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL ZULFCANTIK 72*24*92'; 
 
 var namagroup8 = 'MASTER KUY';
