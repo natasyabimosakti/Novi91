@@ -35,7 +35,7 @@ var Comment5 = '#keitogel = (KRISAN41) = 06*29*21';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=KRISMANDA23=34*64*68'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL KRISMA56 34*64*68'; 
 
 var namagroup8 = 'ANGKER';
