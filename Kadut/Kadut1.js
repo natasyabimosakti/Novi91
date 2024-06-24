@@ -37,7 +37,7 @@ var Comment5 = '#keitogel = (BUDEGKOWE) = 80*59*12';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=BURUNG69=51*68*91'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL BOLINA61 80*59*12'; 
 
 var namagroup8 = 'ANGKER';
