@@ -36,7 +36,7 @@ var Comment5 = '#TOYIBSLOT ( TRIWIDA91 ) : 38*79*85';
 var namagroup6 = 'TIKTAK';
 var Comment6 = '#Tiktaktogel / TRIGERING / 36 , 08 , 09'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL TIMTIM57 20*69*64'; 
 
 var namagroup8 = 'MASTER KUY';
