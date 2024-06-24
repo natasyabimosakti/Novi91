@@ -37,7 +37,7 @@ var Comment5 = '#TOYIBSLOT ( BABIBU76 ) : 72*35*84';
 var namagroup6 = 'TIKTAK';
 var Comment6 = '#Tiktaktogel / BOBOHO55 / 72 , 35 , 84'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL BAMIN12 04*10*41'; 
 
 var namagroup8 = 'MASTER KUY';
