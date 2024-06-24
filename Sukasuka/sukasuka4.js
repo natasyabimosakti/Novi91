@@ -36,7 +36,7 @@ var Comment5 = '#TOYIBSLOT ( DANUDNI12 ) : 57*52*68';
 var namagroup6 = 'TIKTAK';
 var Comment6 = '#Tiktaktogel / DICIAKKUCING / 57 , 52 , 68'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL DIANUMAMI12 09*14*77'; 
 
 var namagroup8 = 'MASTER KUY';
