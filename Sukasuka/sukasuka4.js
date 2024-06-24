@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BENT4
 // @namespace    http://tampermonkey.net/
-// @version      3.33
+// @version      3.34
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka4.js
@@ -36,8 +36,8 @@ var Comment5 = '#TOYIBSLOT ( DANUDNI12 ) : 57*52*68';
 var namagroup6 = 'TIKTAK';
 var Comment6 = '#Tiktaktogel / DICIAKKUCING / 57 , 52 , 68'; 
 
-var namagroup7 = 'ASEP';
-var Comment7 = '#ASEPTOGEL DIANUMAMI12 09*14*77'; 
+var namagroup7 = 'IYA';
+var Comment7 = 'ASEPTOGEL DIANUMAMI12 09*14*77'; 
 
 var namagroup8 = 'MASTER KUY';
 var Comment8 = 'TOGELKUY DINDAMANIS13 85*64*47'; 
