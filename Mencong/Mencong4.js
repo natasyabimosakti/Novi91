@@ -37,7 +37,7 @@ var Comment5 = '#keitogel = (TOMBLOK32) = 35*92*32';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=TOMBOY23=12*65*52'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL TOMPAKAN23 12*65*52'; 
 
 var namagroup8 = 'ANGKER';
