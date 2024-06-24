@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim3
 // @namespace    http://tampermonkey.net/
-// @version      3.29
+// @version      3.30
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim3.js
@@ -36,8 +36,8 @@ var Comment5 = '#keitogel = (SIMPAK17) = 69*57*34';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=SINDOLI39=14*65*30'; 
 
-var namagroup7 = 'ASEP';
-var Comment7 = '#ASEPTOGEL SIPIRIT10 32*70*33'; 
+var namagroup7 = 'IYA';
+var Comment7 = 'ASEPTOGEL SIPIRIT10 32*70*33'; 
 
 var namagroup8 = 'ANGKER';
 var Comment8 = 'ANGKER4D=SIPIRIT10=32*70*16'; 
