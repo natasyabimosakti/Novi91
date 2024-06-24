@@ -36,7 +36,7 @@ var Comment5 = '#keitogel = (SIMPAK17) = 69*57*34';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=SINDOLI39=14*65*30'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL SIPIRIT10 32*70*33'; 
 
 var namagroup8 = 'ANGKER';
