@@ -35,7 +35,7 @@ var Comment5 = '#keitogel = (TELELENG) = 32*14*57';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=TENGKLENG=29*07*88'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = '#ASEPTOGEL TELETET12 91*64*63'; 
 
 var namagroup8 = 'ANGKER';
