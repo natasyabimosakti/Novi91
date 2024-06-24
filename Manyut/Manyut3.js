@@ -37,7 +37,7 @@ var Comment5 = '#keitogel = (ERAKOL156) = 43*48*31';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=ERJOK64=06*53*61'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL EROSI52 98*92*67'; 
 
 var namagroup8 = 'ANGKER';
