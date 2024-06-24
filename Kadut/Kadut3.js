@@ -37,7 +37,7 @@ var Comment5 = '#keitogel = (JOSUWISUWI) = 92*82*13';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=JOSRAIMU=05*29*44'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL JOROKKWE 92*82*13'; 
 
 var namagroup8 = 'ANGKER';
