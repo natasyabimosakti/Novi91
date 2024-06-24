@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.124
+// @version      3.125
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut3.js
@@ -37,8 +37,8 @@ var Comment5 = '#keitogel = (ERAKOL156) = 43*48*31';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=ERJOK64=06*53*61'; 
 
-var namagroup7 = 'ASEP';
-var Comment7 = '#ASEPTOGEL EROSI52 98*92*67'; 
+var namagroup7 = 'IYA';
+var Comment7 = 'ASEPTOGEL EROSI52 98*92*67'; 
 
 var namagroup8 = 'ANGKER';
 var Comment8 = 'ANGKER4D=ERFANGUN15=32*46*70'; 
