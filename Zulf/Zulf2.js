@@ -36,7 +36,7 @@ var Comment5 = '#TOYIBSLOT ( CUNTRUS ) : 75*55*52';
 var namagroup6 = 'TIKTAK';
 var Comment6 = '#Tiktaktogel / MERTUA66 / 05 , 22 , 59'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL TERMINATO003 18*12*98'; 
 
 var namagroup8 = 'MASTER KUY';
