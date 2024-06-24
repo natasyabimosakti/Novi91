@@ -37,7 +37,7 @@ var Comment5 = '#keitogel = (SRIANU36) = 15*64*16';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=SRIWIDURTI=55*78*67'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL SRINDIM63 15*64*16'; 
 
 var namagroup8 = 'ANGKER';
