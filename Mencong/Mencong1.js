@@ -37,7 +37,7 @@ var Comment5 = '#keitogel = (MAKIMUNG31) = 31*90*85';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=MATIO50=08*69*36'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL MAKDUNGDUNG 08*69*36'; 
 
 var namagroup8 = 'ANGKER';
