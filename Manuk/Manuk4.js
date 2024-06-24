@@ -35,7 +35,7 @@ var Comment5 = '#keitogel = (PLECIKICIK) = 59*01*04';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=PLECIAHAH=14*88*48'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL PLECICILAN 59*01*04'; 
 
 var namagroup8 = 'ANGKER';
