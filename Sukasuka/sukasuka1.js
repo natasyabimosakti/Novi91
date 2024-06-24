@@ -37,7 +37,7 @@ var Comment5 = '#TOYIBSLOT ( ASEKASEK12 ) : 31*19*06';
 var namagroup6 = 'TIKTAK';
 var Comment6 = '#Tiktaktogel / AZKALAN / 31 , 19 , 06'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL ASIZAN33 86*01*94'; 
 
 var namagroup8 = 'MASTER KUY';
