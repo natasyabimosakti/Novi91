@@ -36,7 +36,7 @@ var Comment5 = '#keitogel = (ALIMN26) = 42*16*50';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=ALKODAR13=52*65*12'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = '#ASEPTOGEL ALAKADUR14 04*46*75'; 
 
 var namagroup8 = 'ANGKER';
