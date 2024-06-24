@@ -36,7 +36,7 @@ var Comment5 = '#keitogel = (FERKEII) = 43*75*41';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=FERYOS=95*36*17'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL FERCAU 54*09*67'; 
 
 var namagroup8 = 'ANGKER';
