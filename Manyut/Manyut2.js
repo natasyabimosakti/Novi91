@@ -37,7 +37,7 @@ var Comment5 = '#keitogel = (EKOROK64) = 14*04*65';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=EKONDANG12=58*84*62'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL EKOCOK75 88*90*34'; 
 
 var namagroup8 = 'ANGKER';
