@@ -33,7 +33,7 @@ var Comment5 = '#keitogel = (YONOBO74) = 98*63*12';
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=YONOBO74=04*50*24'; 
 
-var namagroup7 = 'IYA';
+var namagroup7 = '453P';
 var Comment7 = 'ASEPTOGEL YONOBO74 04*50*24'; 
 
 var namagroup8 = 'ANGKER';
