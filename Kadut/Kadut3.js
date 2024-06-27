@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW KADUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.36
+// @version      3.37
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut3.js
@@ -28,7 +28,7 @@ var Comment2 = 'IYATOTO JOMPLANG 56*26*54';
 var namagroup3 = 'TIKTAK';
 var Comment3 = '#Tiktaktogel / JONTOR6 / 87 , 41 , 20'; 
 
-var namagroup4 = 'GAIB';
+var namagroup4 = 'GA1B';
 var Comment4 = 'GAIB4D=JOKOBODO=87*41*20'; 
 
 var namagroup5 = 'KEITOGEL';
