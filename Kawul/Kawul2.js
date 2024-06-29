@@ -18,7 +18,53 @@ var refresh = 40;
 
 
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
+"var namagroup1 = 'RITOGEL';
+var Comment1 = '#RITOGEL(SRIWLIT62)88*99*82'; 
 
+var namagroup2 = 'K86';
+var Comment2 = 'K86TOTO ( SRIWING72 ) : 29*33*32'; 
+
+var namagroup3 = 'PUSAT LOMBA';
+var Comment3 = 'Shiotogel4d (SRIMIT64) 09*38*66'; 
+
+var namagroup4 = 'SEJ1TU';
+var Comment4 = '#SEJITU ( SRIWET67 ) : 05*83*55'; 
+
+var namagroup5 = 'RNR';
+var Comment5 = '‌#RNR303(SRITILKON) : 61*30*93'; 
+
+var namagroup6 = 'DIVA4D';
+var Comment6 = '#DIVA4D (SRIWIDURTI) = 95*42*36'; 
+
+var namagroup7 = 'Hoho';
+var Comment7 = 'SRINDIM63 : 06*76*46 #HOHOTOGEL'; 
+
+var namagroup8 = 'TOK99T0T0';
+var Comment8 = 'Tok99Toto ( SRINDIM63 ) : 26*56*97'; 
+
+var namagroup9 = 'Wellz';
+var Comment9 = 'SIJITOGEL SRIWEL74 09*38*58'; 
+
+var namagroup10 = 'SLOTO';
+var Comment10 = '#SLOTOGEL (SRIWING67) : 05*83*55'; 
+
+var namagroup11 = 'KEBAYA';
+var Comment11 = '(KEBAYA4D) = (SRIANU36) 61*30*93'; 
+
+var namagroup12 = 'BESTOTO';
+var Comment12 = 'SRISUWING : 95*42*36 #BESTOTO88'; 
+
+var namagroup13 = 'GOHT0G3L';
+var Comment13 = 'GOHTOGEL=SRIMBELEWEL=06*76*46'; 
+
+var namagroup14 = 'MAYAPADA';
+var Comment14 = 'BETT*SingasariTOTO(BO)*SRILAKCU*26*56*97'; 
+
+var namagroup15 = 'XX1';
+var Comment15 = '#XX1TOTO (SRILAKCU)  88*99*82 BETTING'; 
+
+var namagroup16 = 'KECERDASAN';
+var Comment16 = 'CITA4D*SRIWING72*29*33*32';"
 
 
 
