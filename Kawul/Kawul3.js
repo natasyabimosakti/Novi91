@@ -16,7 +16,7 @@
 var refresh = 40;
 
 
-"var namagroup1 = 'RITOGEL';
+var namagroup1 = 'RITOGEL';
 var Comment1 = '#RITOGEL(JOROKLU63)52*31*50'; 
 
 var namagroup2 = 'K86';
@@ -62,7 +62,7 @@ var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (JOROKLUH)  52*31*50 BETTING'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*JOROKKWE*90*23*65';"
+var Comment16 = 'CITA4D*JOROKKWE*90*23*65';
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 
