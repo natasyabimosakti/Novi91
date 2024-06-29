@@ -18,7 +18,7 @@ var refresh = 40;
 
 
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
-"var namagroup1 = 'RITOGEL';
+var namagroup1 = 'RITOGEL';
 var Comment1 = '#RITOGEL(SRIWLIT62)88*99*82'; 
 
 var namagroup2 = 'K86';
@@ -64,7 +64,7 @@ var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (SRILAKCU)  88*99*82 BETTING'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*SRIWING72*29*33*32';"
+var Comment16 = 'CITA4D*SRIWING72*29*33*32';
 
 
 
