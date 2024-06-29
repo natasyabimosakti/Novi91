@@ -16,7 +16,53 @@
 var refresh = 40;
 
 
+var namagroup1 = 'RITOGEL';
+var Comment1 = '#RITOGEL(SAKBIL)85*67*18'; 
 
+var namagroup2 = 'K86';
+var Comment2 = 'K86TOTO ( SAKUWIL ) : 47*12*94'; 
+
+var namagroup3 = 'PUSAT LOMBA';
+var Comment3 = 'Shiotogel4d (SANGEKABEH) 37*00*70'; 
+
+var namagroup4 = 'SEJ1TU';
+var Comment4 = '#SEJITU ( SAKAREPMU ) : 73*54*51'; 
+
+var namagroup5 = 'RNR';
+var Comment5 = '‌#RNR303(SAKAUBEN) : 25*03*91'; 
+
+var namagroup6 = 'DIVA4D';
+var Comment6 = '#DIVA4D (SAKEMBER) = 04*84*96'; 
+
+var namagroup7 = 'Hoho';
+var Comment7 = 'SAMBATAE : 24*79*08 #HOHOTOGEL'; 
+
+var namagroup8 = 'TOK99T0T0';
+var Comment8 = 'Tok99Toto ( SAMBATAE ) : 69*41*62'; 
+
+var namagroup9 = 'Wellz';
+var Comment9 = 'SIJITOGEL SALAMANSEK 37*00*70'; 
+
+var namagroup10 = 'SLOTO';
+var Comment10 = '#SLOTOGEL (SAIKIPIYE) : 73*54*51'; 
+
+var namagroup11 = 'KEBAYA';
+var Comment11 = '(KEBAYA4D) = (SANTAYBOSKU) 25*03*91'; 
+
+var namagroup12 = 'BESTOTO';
+var Comment12 = 'SAWERBOSE0 : 04*84*96 #BESTOTO88'; 
+
+var namagroup13 = 'GOHT0G3L';
+var Comment13 = 'GOHTOGEL=SAWERSEK=24*79*08'; 
+
+var namagroup14 = 'MAYAPADA';
+var Comment14 = 'BETT*SingasariTOTO(BO)*SALAMANAE*01*41*62'; 
+
+var namagroup15 = 'XX1';
+var Comment15 = '#XX1TOTO (SALAMANAE)  85*67*18 BETTING'; 
+
+var namagroup16 = 'KECERDASAN';
+var Comment16 = 'CITA4D*SANGEKABEH*47*12*94';
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 
