@@ -16,7 +16,53 @@
 var refresh = 40;
 
 
+var namagroup1 = 'RITOGEL';
+var Comment1 = '#RITOGEL(NOVITASURI12)84*76*86'; 
 
+var namagroup2 = 'K86';
+var Comment2 = 'K86TOTO ( NOVINOVA231 ) : 85*91*42'; 
+
+var namagroup3 = 'PUSAT LOMBA';
+var Comment3 = 'Shiotogel4d (NOVIRAS34) 64*43*30'; 
+
+var namagroup4 = 'SEJ1TU';
+var Comment4 = '#SEJITU ( NOVITAS3 ) : 27*74*46'; 
+
+var namagroup5 = 'RNR';
+var Comment5 = '‌#RNR303(NOVISAN31) : 82*25*04'; 
+
+var namagroup6 = 'DIVA4D';
+var Comment6 = '#DIVA4D (NOVIRAMBU3) = 13*26*51'; 
+
+var namagroup7 = 'Hoho';
+var Comment7 = 'NOVITARU34 : 36*17*31 #HOHOTOGEL'; 
+
+var namagroup8 = 'TOK99T0T0';
+var Comment8 = 'Tok99Toto ( NOVITAS53 ) : 16*18*12'; 
+
+var namagroup9 = 'Wellz';
+var Comment9 = 'SIJITOGEL NOVINANU83 13*26*51'; 
+
+var namagroup10 = 'SLOTO';
+var Comment10 = '#SLOTOGEL (NOVIKARMA11) : 36*17*31'; 
+
+var namagroup11 = 'KEBAYA';
+var Comment11 = '(KEBAYA4D) = (NOVINDOL) 16*18*62'; 
+
+var namagroup12 = 'BESTOTO';
+var Comment12 = 'NOVIKAR23 : 84*76*86 #BESTOTO88'; 
+
+var namagroup13 = 'GOHT0G3L';
+var Comment13 = 'GOHTOGEL=NOVIAN24=85*91*42'; 
+
+var namagroup14 = 'MAYAPADA';
+var Comment14 = 'BETT*SingasariTOTO(BO)*NOVIPAL34*64*43*30'; 
+
+var namagroup15 = 'XX1';
+var Comment15 = '#XX1TOTO (NOVIPAL34)  27*74*46 BETTING'; 
+
+var namagroup16 = 'KECERDASAN';
+var Comment16 = 'CITA4D*NOVIRAS34*82*25*04';
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 
