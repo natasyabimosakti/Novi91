@@ -16,7 +16,53 @@
 var refresh = 40;
 
 
+var namagroup1 = 'RITOGEL';
+var Comment1 = '#RITOGEL(KRISWATI89)73*87*05'; 
 
+var namagroup2 = 'K86';
+var Comment2 = 'K86TOTO ( KRISAKTI1 ) : 50*41*60'; 
+
+var namagroup3 = 'PUSAT LOMBA';
+var Comment3 = 'Shiotogel4d (KRISMANDA23) 53*63*08'; 
+
+var namagroup4 = 'SEJ1TU';
+var Comment4 = '#SEJITU ( KRISEMPU51 ) : 89*90*56'; 
+
+var namagroup5 = 'RNR';
+var Comment5 = '‌#RNR303(KRIKAR23) : 02*19*68'; 
+
+var namagroup6 = 'DIVA4D';
+var Comment6 = '#DIVA4D (KRISMANDA23) = 78*55*07'; 
+
+var namagroup7 = 'Hoho';
+var Comment7 = 'KRISMA56 : 58*80*28 #HOHOTOGEL'; 
+
+var namagroup8 = 'TOK99T0T0';
+var Comment8 = 'Tok99Toto ( KRISTANTI34 ) : 61*97*69'; 
+
+var namagroup9 = 'Wellz';
+var Comment9 = 'SIJITOGEL KRISMALI2 78*55*75'; 
+
+var namagroup10 = 'SLOTO';
+var Comment10 = '#SLOTOGEL (KRISANTI46) : 58*80*28'; 
+
+var namagroup11 = 'KEBAYA';
+var Comment11 = '(KEBAYA4D) = (KRISUNDEL5) 61*97*69'; 
+
+var namagroup12 = 'BESTOTO';
+var Comment12 = 'KRISING47 : 73*87*05 #BESTOTO88'; 
+
+var namagroup13 = 'GOHT0G3L';
+var Comment13 = 'GOHTOGEL=KRISAN24=50*41*60'; 
+
+var namagroup14 = 'MAYAPADA';
+var Comment14 = 'BETT*SingasariTOTO(BO)*KRISNA46*53*63*08'; 
+
+var namagroup15 = 'XX1';
+var Comment15 = '#XX1TOTO (KRISNA46)  89*90*56 BETTING'; 
+
+var namagroup16 = 'KECERDASAN';
+var Comment16 = 'CITA4D*KRISMANDA23*02*19*68';
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 
