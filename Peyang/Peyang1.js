@@ -16,7 +16,53 @@
 var refresh = 40;
 
 
+var namagroup1 = 'RITOGEL';
+var Comment1 = '#RITOGEL(METALIKA41)59*47*96'; 
 
+var namagroup2 = 'K86';
+var Comment2 = 'K86TOTO ( MENTARI17 ) : 39*15*71'; 
+
+var namagroup3 = 'PUSAT LOMBA';
+var Comment3 = 'Shiotogel4d (MERANTAU41) 22*57*94'; 
+
+var namagroup4 = 'SEJ1TU';
+var Comment4 = '#SEJITU ( MERATIH14 ) : 81*49*72'; 
+
+var namagroup5 = 'RNR';
+var Comment5 = '‌#RNR303(MASAK741) : 20*44*38'; 
+
+var namagroup6 = 'DIVA4D';
+var Comment6 = '#DIVA4D (MATIO50) = 06*09*45'; 
+
+var namagroup7 = 'Hoho';
+var Comment7 = 'MAKDUNGDUNG : 99*24*92 #HOHOTOGEL'; 
+
+var namagroup8 = 'TOK99T0T0';
+var Comment8 = 'Tok99Toto ( MACRONI52 ) : 11*95*66'; 
+
+var namagroup9 = 'Wellz';
+var Comment9 = 'SIJITOGEL MEROJAYA51 06*09*45'; 
+
+var namagroup10 = 'SLOTO';
+var Comment10 = '#SLOTOGEL (MELAMUN44) : 99*24*88'; 
+
+var namagroup11 = 'KEBAYA';
+var Comment11 = '(KEBAYA4D) = (MAUEWEK5X) 11*95*66'; 
+
+var namagroup12 = 'BESTOTO';
+var Comment12 = 'MAKTUNG52 : 59*47*96 #BESTOTO88'; 
+
+var namagroup13 = 'GOHT0G3L';
+var Comment13 = 'GOHTOGEL=MADUL45=39*15*71'; 
+
+var namagroup14 = 'MAYAPADA';
+var Comment14 = 'BETT*SingasariTOTO(BO)*MERAHKU75*22*57*94'; 
+
+var namagroup15 = 'XX1';
+var Comment15 = '#XX1TOTO (MERAHKU75)  81*49*72 BETTING'; 
+
+var namagroup16 = 'KECERDASAN';
+var Comment16 = 'CITA4D*MERANTAU41*20*44*38';
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 
