@@ -59,8 +59,8 @@ var Comment12 = 'BOSBIS48 : 02*19*45 #BESTOTO88';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=BOSLEM64=92*79*74'; 
 
-var namagroup14 = 'WARUNG';
-var Comment14 = '#(WARUNGTOTO) = (BOSBEN64) 39*94*30'; 
+var namagroup14 = 'BLITAR';
+var Comment14 = '#BLITAR4D ( BOSBEN64 ) : 39*94*30'; 
 
 var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (BOSBOS64)  67*03*59 BETTING'; 
