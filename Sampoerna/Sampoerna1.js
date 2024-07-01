@@ -59,8 +59,8 @@ var Comment12 = 'XIANTAR6 : 27*76*89 #BESTOTO88';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=XIOYIB47=23*64*35'; 
 
-var namagroup14 = 'WARUNG';
-var Comment14 = '#(WARUNGTOTO) = (XIAOLAN6) 65*84*78'; 
+var namagroup14 = 'BLITAR';
+var Comment14 = '#BLITAR4D ( XIAOLAN6 ) : 65*84*78'; 
 
 var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (XIONGYU6)  68*10*52 BETTING'; 
