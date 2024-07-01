@@ -61,7 +61,7 @@ var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=PLECIKI21=51*09*20'; 
 
 var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D ( PLECINDI23 ) : 69*10*89'; 
+var Comment14 = '#BLITAR4D ( PLECIAHAH ) : 69*10*89'; 
 
 var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (PLECIKUS1)  84*94*15 BETTING'; 
