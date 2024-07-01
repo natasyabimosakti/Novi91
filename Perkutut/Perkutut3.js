@@ -61,7 +61,7 @@ var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=DOROWIS12=19*99*17'; 
 
 var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D ( DOROMAN12 ) : 33*98*16'; 
+var Comment14 = '#BLITAR4D ( DOROWIS12 ) : 33*98*16'; 
 
 var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (DOROKU21)  27*01*82 BETTING'; 
