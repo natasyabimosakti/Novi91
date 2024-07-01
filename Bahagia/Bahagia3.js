@@ -17,52 +17,52 @@ var refresh = 40;
 
 
 var namagroup1 = 'RITOGEL';
-var Comment1 = '#RITOGEL(JOROKLU63)52*31*50'; 
+var Comment1 = '#RITOGEL(CINOIRENG12)80*26*51'; 
 
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( JOMPLANG ) : 90*23*65'; 
+var Comment2 = 'K86TOTO ( CUILANSENG12 ) : 90*65*84'; 
 
 var namagroup3 = 'PUSAT LOMBA';
-var Comment3 = 'Shiotogel4d (JONTOR6) 64*48*86'; 
+var Comment3 = 'Shiotogel4d (CACINGAN54) 58*00*29'; 
 
 var namagroup4 = 'SEJ1TU';
-var Comment4 = '#SEJITU ( JOKOBODO ) : 43*53*16'; 
+var Comment4 = '#SEJITU ( CACINGAN54 ) : 32*55*63'; 
 
 var namagroup5 = 'RNR';
-var Comment5 = '‌#RNR303(JOVINDUL) : 20*27*60'; 
+var Comment5 = '‌#RNR303(CINCANG65) : 41*04*64'; 
 
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (JOSRAIMU) = 72*14*35'; 
+var Comment6 = '#DIVA4D (CUKAPASAR56) = 97*07*08'; 
 
 var namagroup7 = 'Hoho';
-var Comment7 = 'JOROKKWE : 87*22*02 #HOHOTOGEL'; 
+var Comment7 = 'CUCUBUAYA65 : 25*45*83 #HOHOTOGEL'; 
 
 var namagroup8 = 'TOK99T0T0';
-var Comment8 = 'Tok99Toto ( JOROKKWE ) : 74*15*89'; 
+var Comment8 = 'Tok99Toto ( CNDAKARTA76 ) : 68*70*87'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL JOMLANG63 64*48*86'; 
+var Comment9 = 'SIJITOGEL CACING65 41*04*64'; 
 
 var namagroup10 = 'SLOTO';
-var Comment10 = '#SLOTOGEL (JOMNDUL73) : 43*53*16'; 
+var Comment10 = '#SLOTOGEL (CUALINSENG41) : 97*07*08'; 
 
 var namagroup11 = 'KEBAYA';
-var Comment11 = '(KEBAYA4D) = (JONTOR64) 98*27*60'; 
+var Comment11 = '(KEBAYA4D) = (CUCUKU76) 25*45*83'; 
 
 var namagroup12 = 'BESTOTO';
-var Comment12 = 'JOJONBETAWI : 72*14*35 #BESTOTO88'; 
+var Comment12 = 'CUCUBUAYA65 : 68*70*87 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=JONGONO=87*22*02'; 
+var Comment13 = 'GOHTOGEL=CIANGSUI54=80*26*51'; 
 
 var namagroup14 = 'WARUNG';
-var Comment14 = '#(WARUNGTOTO) = (JOROKLUH) 74*15*89'; 
+var Comment14 = '#(WARUNGTOTO) = (CUCUKU76) 90*65*84'; 
 
 var namagroup15 = 'XX1';
-var Comment15 = '#XX1TOTO (JOROKLUH)  52*31*50 BETTING'; 
+var Comment15 = '#XX1TOTO (CACING65)  58*88*29 BETTING'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*JOROKKWE*90*23*65';
+var Comment16 = 'CITA4D*CINCANG65*32*55*63';
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 
