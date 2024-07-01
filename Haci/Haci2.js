@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi2
 // @namespace    http://tampermonkey.net/
-// @version      3.44
+// @version      3.45
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci2.js
@@ -66,7 +66,7 @@ var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (FERPERS)  85*08*60 BETTING'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*FERKEII*19*17*33';
+var Comment16 = 'CITA4D*FERKEIII*19*17*33';
 
 
 
