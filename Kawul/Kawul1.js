@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul1
 // @namespace    http://tampermonkey.net/
-// @version      3.01
+// @version      3.02
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
@@ -54,8 +54,8 @@ var Comment12 = 'BUSUNGMU62 : 77*80*19 #BESTOTO88';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=BUANGKABEH=10*81*34'; 
 
-var namagroup14 = 'WARUNG';
-var Comment14 = '#(WARUNGTOTO) = (BOTAP27) 44*17*92'; 
+var namagroup14 = 'BLITAR';
+var Comment14 = '#BLITAR4D ( BOTAP27 ) : 44*17*92'; 
 
 var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (BOTAP27)  71*11*45 BETTING'; 
@@ -93,7 +93,7 @@ var id14 = await GM.getValue(14);
 var id15 = await GM.getValue(15);
 var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
-var admin = ["conny","garda","denis","thonex","echa","farah","slooter","kayla","erika","brian","aldi","febrian","jihan","jesika","rano","sabrina","artha","naura","katty","intan","neng","kendri","adelia","larissa","mesa","yasmine","oun","aurel","fiana","tiara","sabrina","hana","tania","leksa","brian","nadila","elly","farid","zurro","gretha","wndt","lehman","wiena","manu","lidya","otong","jhone","herfizah","vonny","jess","ayesha","jovanka","dollar","dewa","andy","erwin","wahid","ujen","sejitu","wahzo","kiky","calvin","megaways","fahresa","viona","mardia","sintia","robby","nathaya","boboho","celine","maes","tag","bella","dea","alde","puput","mad","hefi","dika","miranda","adm","celsia","leon","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","sloter","nella","novi","sandiego","intan","ratu","priyan","san","ria","sanjaya","siska","jenifer","aditia","andri","safar","mahendra","multi","mariana","neman","minion","dewi","primus","roy","dewi","melati","kumbara","dinda","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
+var admin = ["inisial","bonar","ruto","riko","kemon","denis","thonex","echa","farah","slooter","kayla","erika","brian","aldi","febrian","jihan","jesika","rano","sabrina","artha","naura","katty","intan","neng","kendri","adelia","larissa","mesa","yasmine","oun","aurel","fiana","tiara","sabrina","hana","tania","leksa","brian","nadila","elly","farid","zurro","gretha","wndt","lehman","wiena","manu","lidya","otong","jhone","herfizah","vonny","jess","ayesha","jovanka","dollar","dewa","andy","erwin","wahid","ujen","sejitu","wahzo","kiky","calvin","megaways","fahresa","viona","mardia","sintia","robby","nathaya","boboho","celine","maes","tag","bella","dea","alde","puput","mad","hefi","dika","miranda","adm","celsia","leon","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","sloter","nella","novi","sandiego","intan","ratu","priyan","san","ria","sanjaya","siska","jenifer","aditia","andri","safar","mahendra","multi","mariana","neman","minion","dewi","primus","roy","dewi","melati","kumbara","dinda","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
 var keyword3 = "LOMBA"
