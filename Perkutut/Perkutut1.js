@@ -59,7 +59,7 @@ var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=MANUKX12=29*35*21'; 
 
 var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D ( MAUKUR287 ) : 80*25*72'; 
+var Comment14 = '#BLITAR4D ( MANUKGENI12 ) : 80*25*72'; 
 
 var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (MANUKAN11)  68*87*96 BETTING'; 
