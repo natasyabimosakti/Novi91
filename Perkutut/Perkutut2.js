@@ -61,7 +61,7 @@ var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=ELANGSH=14*31*28'; 
 
 var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D ( ELANG4 ) : 77*86*61'; 
+var Comment14 = '#BLITAR4D ( ELANG38 ) : 77*86*61'; 
 
 var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (ELANG72)  50*03*30 BETTING'; 
