@@ -60,7 +60,7 @@ var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=ZOWINDO=17*04*08'; 
 
 var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D ( ZORLETA ) : 25*95*21'; 
+var Comment14 = '#BLITAR4D ( ZOMING82 ) : 25*95*21'; 
 
 var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (ZONIAK26)  42*60*91 BETTING'; 
