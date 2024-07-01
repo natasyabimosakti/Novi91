@@ -17,52 +17,52 @@ var refresh = 40;
 
 
 var namagroup1 = 'RITOGEL';
-var Comment1 = '#RITOGEL(BUNDER0)71*11*45'; 
+var Comment1 = '#RITOGEL(ASHBUN)56*38*31'; 
 
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( BOLINA61 ) : 49*40*28'; 
+var Comment2 = 'K86TOTO ( ASRIN32 ) : 59*01*11'; 
 
 var namagroup3 = 'PUSAT LOMBA';
-var Comment3 = 'Shiotogel4d (BUANG31) 59*78*39'; 
+var Comment3 = 'Shiotogel4d (ASABKUBUR12) 71*82*14'; 
 
 var namagroup4 = 'SEJ1TU';
-var Comment4 = '#SEJITU ( BUANA87 ) : 21*57*13'; 
+var Comment4 = '#SEJITU ( ASKIPLI99 ) : 36*81*89'; 
 
 var namagroup5 = 'RNR';
-var Comment5 = '‌#RNR303(BUKABEH) : 07*75*63'; 
+var Comment5 = '‌#RNR303(ASEKASEK12) : 06*95*79'; 
 
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (BURUNG69) = 77*80*19'; 
+var Comment6 = '#DIVA4D (AZKALAN) = 17*98*19'; 
 
 var namagroup7 = 'Hoho';
-var Comment7 = 'BOLINA61 : 10*81*34 #HOHOTOGEL'; 
+var Comment7 = 'ASIZAN33 : 34*44*76 #HOHOTOGEL'; 
 
 var namagroup8 = 'TOK99T0T0';
-var Comment8 = 'Tok99Toto ( BUDELTUNG ) : 68*17*92'; 
+var Comment8 = 'Tok99Toto ( ASKALIMAN ) : 48*18*72'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL BUANGKALI 59*78*39'; 
+var Comment9 = 'SIJITOGEL ASLISUPER12 06*95*79'; 
 
 var namagroup10 = 'SLOTO';
-var Comment10 = '#SLOTOGEL (BUWOSOK12) : 21*57*13'; 
+var Comment10 = '#SLOTOGEL (ASALAM44) : 17*98*19'; 
 
 var namagroup11 = 'KEBAYA';
-var Comment11 = '(KEBAYA4D) = (BUNTOTASU) 07*75*63'; 
+var Comment11 = '(KEBAYA4D) = (ASABKUBUR12) 34*44*76'; 
 
 var namagroup12 = 'BESTOTO';
-var Comment12 = 'BUSUNGMU62 : 77*80*19 #BESTOTO88'; 
+var Comment12 = 'ASIZAN33 : 48*18*72 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=BUANGKABEH=10*81*34'; 
+var Comment13 = 'GOHTOGEL=ASIMATJUMBO=56*38*31'; 
 
 var namagroup14 = 'WARUNG';
-var Comment14 = '#(WARUNGTOTO) = (BOTAP27) 44*17*92'; 
+var Comment14 = '#(WARUNGTOTO) = (ASTADINA12) 59*01*03'; 
 
 var namagroup15 = 'XX1';
-var Comment15 = '#XX1TOTO (BOTAP27)  71*11*45 BETTING'; 
+var Comment15 = '#XX1TOTO (ASLISUPER12)  71*82*14 BETTING'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*BOLINA61*49*40*28';
+var Comment16 = 'CITA4D*ASBHUL*36*81*89';
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 
