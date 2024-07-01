@@ -59,8 +59,8 @@ var Comment12 = 'YOKOJO3 : 63*96*98 #BESTOTO88';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=YOKWIK47=73*85*38'; 
 
-var namagroup14 = 'WARUNG';
-var Comment14 = '#(WARUNGTOTO) = (YOJUAH63) 81*56*99'; 
+var namagroup14 = 'BLITAR';
+var Comment14 = '#BLITAR4D ( YOJUAH63 ) : 81*56*99'; 
 
 var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (YOREAN63)  90*58*33 BETTING'; 
