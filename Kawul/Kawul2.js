@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul2
 // @namespace    http://tampermonkey.net/
-// @version      3.02
+// @version      3.03
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul2.js
@@ -95,6 +95,7 @@ var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
             
                     
+
 var admin = ["aldi","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","andy","ayesha",
              "brian","boboho","bobby","bonar","bella","bastian",
              "cinta","calvin","celsia","celine",
@@ -118,7 +119,8 @@ var admin = ["aldi","artha","adelia","ananda","aditia","andri","ayesha","aurel",
              "vonny","viona",
              "wahid","wahzo","wok","wndt","wiena",
              "yoky","yasmine","yohana",
-             "zurro"]
+             "zurro"];
+
 
 
 var keyword1 = "ROOM"
