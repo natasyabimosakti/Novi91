@@ -104,7 +104,7 @@ var admin = ["aldi","artha","adelia","ananda","aditia","andri","ayesha","aurel",
              "farah","febrian","fiana","farid","fahresa",
              "gretha",
              "herfizah","hana","hoihai","hefi",
-             "inisial","intan","icha","irfan"
+             "inisial","intan","icha","irfan",
              "jhone","jess","jovanka","jenifer","jihan","jesika",
              "kumbara","kemon","kayla","katty","kendri","kembar","kotna","kiky",
              "lehman","lianda","laura","leon","lidya","larissa","leksa","lina",
