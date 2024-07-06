@@ -17,7 +17,7 @@ var refresh = 40;
 
 
 var namagroup1 = 'RITOGEL';
-var Comment1 = '#RITOGEL(ASHBUN)56*38*31'; 
+var Comment1 = '#RITOGEL(ASTRI29)56*38*31'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( ASRIN32 ) : 59*01*11'; 
