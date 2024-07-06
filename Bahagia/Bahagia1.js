@@ -62,7 +62,7 @@ var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (ASLISUPER12)  71*82*14 BETTING'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*ASBHUL*36*81*89';
+var Comment16 = 'CITA4D*ASBHUN*36*81*89';
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 
