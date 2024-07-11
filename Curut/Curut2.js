@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.43
+// @version      3.44
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
@@ -92,7 +92,7 @@ var id14 = await GM.getValue(14);
 var id15 = await GM.getValue(15);
 var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
-var admin = ["neng","arxidi","che","aldi","nino","sofia","sonia","serena","alde","puput","mad","hefi","dika","iyatoto","adm","celsia","jne","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","tiktak","nella","novi","sandiego","nasution","ratu","priyan","san","ria","sanjaya","siska","Baru","aditia","keitogel","safar","mahendra","multi","mariana","neman","tatang","dewi","primus","roy","dewi","melati","kumbara","dentoto","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
+var admin = ["habib","sofia","neng","arxidi","che","aldi","nino","sofia","sonia","serena","alde","puput","mad","hefi","dika","iyatoto","adm","celsia","jne","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","tiktak","nella","novi","sandiego","nasution","ratu","priyan","san","ria","sanjaya","siska","Baru","aditia","keitogel","safar","mahendra","multi","mariana","neman","tatang","dewi","primus","roy","dewi","melati","kumbara","dentoto","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
 var keyword3 = "LOMBA"
