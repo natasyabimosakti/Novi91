@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut2
 // @namespace    http://tampermonkey.net/
-// @version      3.46
+// @version      3.47
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut2.js
@@ -102,9 +102,9 @@ var admin = ["aldi","artha","adelia","ananda","aditia","andri","ayesha","aurel",
              "echa","erika","elly","erwin",
              "farah","febrian","fiana","farid","fahresa",
              "gretha",
-             "herfizah","hana","hoihai","hefi",
+             "herfizah","hana","hoihai","hefi","habib",
              "inisial","intan","icha","irfan",
-             "jhone","jess","jovanka","jenifer","jihan","jesika",
+             "jhone","jess","jovanka","jenifer","jihan","jesika","je pe",
              "kumbara","kemon","kayla","katty","kendri","kembar","kotna","kiky",
              "lehman","lianda","laura","leon","lidya","larissa","leksa","lina",
              "manu","mesa","mardia","maes","mad","miranda","melati","minion","mariana","mahendra","multi","megaways",
@@ -115,7 +115,7 @@ var admin = ["aldi","artha","adelia","ananda","aditia","andri","ayesha","aurel",
              "sanchez","siska","safar","sanjaya","san","sandiego","sloter","sinta","slooter","sabrina","salsabila","sintia","sejitu",
              "tink","thonex","tiara","tania","tag",
              "ujen",
-             "vonny","viona",
+             "vonny","viona","virna",
              "wahid","wahzo","wok","wndt","wiena",
              "yoky","yasmine","yohana",
              "zurro"];
