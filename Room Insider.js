@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ROOM Insider
 // @namespace    http://tampermonkey.net/
-// @version      3.05
+// @version      3.06
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Room%20Insider.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Room%20Insider.js
@@ -17,30 +17,8 @@ var refresh = 40;
 
 
 
-var admin = [" ","aldi","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","andy","ayesha",
-             "brian","boboho","bobby","bonar","bella","bastian",
-             "cinta","calvin","celsia","celine",
-             "denis","dollar","dewa","dewi","dinda","dika","dea",
-             "echa","erika","elly","erwin",
-             "farah","febrian","fiana","farid","fahresa",
-             "gretha",
-             "herfizah","hana","hoihai","hefi","habib",
-             "inisial","intan","icha","irfan",
-             "jhone","jess","jovanka","jenifer","jihan","jesika","je pe",
-             "kumbara","kemon","kayla","katty","kendri","kembar","kotna","kiky",
-             "lehman","lianda","laura","leon","lidya","larissa","leksa","lina",
-             "manu","mesa","mardia","maes","mad","miranda","melati","minion","mariana","mahendra","multi","megaways",
-             "nadila","neng","naura","nathaya","nella","neman","novi",
-             "oun","oscar","otong",
-             "puput","primus","priyan",
-             "ratu","roy","rendy","ria","ruto","riko","rano","robby",
-             "sanchez","siska","safar","sanjaya","san","sandiego","sloter","sinta","slooter","sabrina","salsabila","sintia","sejitu",
-             "tink","thonex","tiara","tania","tag",
-             "ujen",
-             "vonny","viona","virna",
-             "wahid","wahzo","wok","wndt","wiena",
-             "yoky","yasmine","yohana",
-             "zurro"];
+var admin = ["habib","sofia","neng","arxidi","che","aldi","nino","sofia","sonia","serena","alde","puput","mad","hefi","dika","iyatoto","adm","celsia","jne","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","tiktak","nella","novi","sandiego","nasution","ratu","priyan","san","ria","sanjaya","siska","Baru","aditia","keitogel","safar","mahendra","multi","mariana","neman","tatang","dewi","primus","roy","dewi","melati","kumbara","dentoto","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
+
 
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
@@ -122,6 +100,7 @@ var myInterval = setInterval(function(){
             var postingan =document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')[3];
             //Comment Box
             var datacommentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text').length -1
+            var clickboot = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')[0]
             var commentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')[datacommentbox];
 
             // Cek Jam
@@ -161,8 +140,9 @@ var myInterval = setInterval(function(){
                                 console.log("Admin yang Memosting = " + admin[adm]);
                             }
                             // Click Comment Box
-                            postingan.click()
-                            clearInterval(myInterval);
+                            clickboot.click()
+
+                            postingan(myInterval);
                             clearInterval(myrefresh);
                             return;
                         }
@@ -175,7 +155,3 @@ var myInterval = setInterval(function(){
 
 
 }, 10)
-
-
-
-
