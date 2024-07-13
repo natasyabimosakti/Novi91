@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         MAN1
+// @name         POLOS
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  try to take over the world!
@@ -45,82 +45,8 @@ var id18 = await GM.getValue(18);
 
 var namaadmin = [];
 
-
-
-
-var namagroup1 = "HIGH4D";
-var Comment1 = "DIPERKOSA99 = 82*95*86 #HIGH4D #TOGELHIGH4D";
-
-var namagroup2 = "TOK99TOTO OFFICIAL";
-var Comment2 = "Tok99Toto ( DISCO91 ) : 46*34*70";
-
-var namagroup3 = "HOTPLAY88";
-var Comment3 = "#HOTPLAY88(DISMEX78):02*76*89";
-
-var namagroup4 = "GOSIPTOTO";
-var Comment4 = "#GOSIPTOTO (DISGRA23) : *87*39*30";
-
-var namagroup5 = "TOTOAKURAT Official";
-var Comment5 = "#TA*DISPASTI21*99*82*95*";
-
-var namagroup6 = "CAK4D";
-var Comment6 = "#CAK4D*DISUNGU74*31*38*17"
-
-var namagroup7 = "ANGKER4D";
-var Comment7 = "ANGKER4D=DISOGOK91=46*34*70";
-
-var namagroup8 = "Group OFFICIAL DENTOTO";
-var Comment8 = "#DENTOTO 01*20*56 ( DISCO71 )";
-
-var namagroup9 = "GILA4D GROUP";
-var Comment9 = "GILA4D=DISTRO91=35*73*60";
-
-var namagroup10 = "OFFICIAL KEITOGEL";
-var Comment10 = "#Keitogel = (DISTOG84) = 82*95*86";
-
-var namagroup11 = "SNIPER NUSANTARA";
-var Comment11 = "#VESPATOGEL (DIMUTKOE71) 01*20*56";
-
-var namagroup12 = "KHUSUS MACAU";
-var Comment12 = "#ASEPTOGEL DILEBOKE12 49*97*83";
-
-var namagroup13 = "BOCORAN PREDIKSI SDY - SGP - HK";
-var Comment13 = "#TOGELKUY DILEBOKE12 35*73*60";
-
-var namagroup14 = "TiktakTogel Official";
-var Comment14 = "#Tiktaktogel / DISNOS12 / 49 , 97 , 83";
-
-var namagroup15 = "GohTogel";
-var Comment15 = "GOHTOGEL=DIKICEK73=31*38*17";
-
-var namagroup16 = "KiosToto";
-var Comment16 = "KIOSTOTO=DIMUTTRS12=87*39*30";
-
-var namagroup17 = "HK-SYD-SGP x JNETOTO";
-var Comment17 = "#JNETOTO(DICUEKIN71)*02*76*89";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+var namagroup17 = "Jawatengah";
+var Comment17 = "2D Hadir";
 
 
 
