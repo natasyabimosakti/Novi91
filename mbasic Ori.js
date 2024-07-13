@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         POLOS
+// @name         Polos
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  try to take over the world!
@@ -11,12 +11,68 @@
 // @grant       window.close
 // ==/UserScript==
 
-
-
-
-
-
 //var restart = res();
+
+
+
+
+
+var namagroup1 = 'SHIOKELINCI';
+var Comment1 = '#shiokelinci4d*ANANDA122*03*38';
+
+var namagroup2 = 'MIMPI';
+var Comment2 = 'IYATOTO ANAKCODA83 10*17*97';
+
+var namagroup3 = 'TIKTAK';
+var Comment3 = '#Tiktaktogel / ASUKAU348 / 52 , 36 , 32';
+
+var namagroup4 = 'GA1B';
+var Comment4 = 'GAIB4D=ANJANI48=47*06*04';
+
+var namagroup5 = 'KEITOGEL';
+var Comment5 = '#keitogel = (ANITI348) = 45*91*44';
+
+var namagroup6 = 'KIOST0T0';
+var Comment6 = 'KIOSTOTO=ANDONG49=56*30*11';
+
+var namagroup7 = '453P';
+var Comment7 = 'ASEPTOGEL ANJLOK549 09*73*80';
+
+var namagroup8 = 'ANGKER';
+var Comment8 = 'ANGKER4D=ANUNTU284=52*36*77';
+
+var namagroup9 = 'GILA';
+var Comment9 = 'GILA4D=ANALOH49=09*73*80';
+
+var namagroup10 = 'JNE';
+var Comment10 = '#JNETOTO(ALORJI3)*87*48*49';
+
+var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
+var Comment11 = '#TA*AMPEK43*03*38*81*';
+
+var namagroup12 = 'MASTER KUY';
+var Comment12 = 'TOGELKUY AMARE45 47*06*04';
+
+var namagroup13 = 'TOYIBSLOT';
+var Comment13 = '#TOYIBSLOT ( AMBOH45 ) : 56*30*11';
+
+var namagroup14 = 'DENTOTO';
+var Comment14 = '#DENTOTO 45*91*44 ( ARAKROH57 )';
+
+var namagroup15 = 'HATRICK';
+var Comment15 = 'VESPATOGEL (AMITAMI4)  10*17*97';
+
+var namagroup16 = '';
+var Comment16 = '';
+
+
+
+
+
+
+var namagroup17 = 'Jawatengah';
+var Comment17 = 'Hadir';
+
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
@@ -40,21 +96,7 @@ var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
 var id18 = await GM.getValue(18);
 
-
-
-
-var namaadmin = [];
-
-var namagroup17 = "Jawatengah";
-var Comment17 = "2D Hadir";
-
-
-
-
-setTimeout(function() {
-
-    try{
-
+(function() {
     if (tm == "" || tm == undefined || tm == null) {
         GM.setValue("time", hour);
     }
@@ -62,786 +104,413 @@ setTimeout(function() {
 
     if ( hour > tm + 2 || hour < tm||document.URL.includes("google") == true){
         for (var kr = 1; kr < 18; kr++) {
-        GM.setValue( kr,0);
-    }
-    GM.setValue("time", hour);
+            GM.setValue( kr,0);
+        }
+        GM.setValue("time", hour);
 
     }
 
     var ia = document.getElementById('m_group_stories_container');
     if (ia) {
-    var g = ia.getElementsByTagName("article")[0];
-    var postingan = g.getElementsByTagName('span')[2].textContent;
-    var postingan1 = postingan.toLowerCase();
-    if (postingan1) {
+        var g = ia.getElementsByTagName("article")[0];
+        var postingan = g.getElementsByTagName('span')[2].textContent;
+        var postingan1 = postingan.toLowerCase();
+        if (postingan1) {
 
-        return;
-    }
-    }
-
-var dtsg = document.querySelector("input[name='fb_dtsg']").value
-var jazoest = document.querySelector("input[name='jazoest']").value
-var docuril = document.querySelector("[method='post']").action
-var details1 = {'jazoest':jazoest,'fb_dtsg':dtsg,'comment_text':Comment1 };
-    var details2 = {'jazoest':jazoest,'fb_dtsg':dtsg,'comment_text':Comment2 };
-    var details3 = {'jazoest':jazoest,'fb_dtsg':dtsg,'comment_text':Comment3 };
-    var details4 = {'jazoest':jazoest,'fb_dtsg':dtsg,'comment_text':Comment4 };
-    var details5 = {'jazoest':jazoest,'fb_dtsg':dtsg,'comment_text':Comment5 };
-    var details6 = {'jazoest':jazoest,'fb_dtsg':dtsg,'comment_text':Comment6 };
-    var details7 = {'jazoest':jazoest,'fb_dtsg':dtsg,'comment_text':Comment7 };
-    var details8 = {'jazoest':jazoest,'fb_dtsg':dtsg,'comment_text':Comment8 };
-    var details9 = {'jazoest':jazoest,'fb_dtsg':dtsg,'comment_text':Comment9 };
-    var details10 = {'jazoest':jazoest,'fb_dtsg':dtsg,'comment_text':Comment10 };
-    var details11 = {'jazoest':jazoest,'fb_dtsg':dtsg,'comment_text':Comment11 };
-    var details12 = {'jazoest':jazoest,'fb_dtsg':dtsg,'comment_text':Comment12 };
-    var details13 = {'jazoest':jazoest,'fb_dtsg':dtsg,'comment_text':Comment13 };
-    var details14 = {'jazoest':jazoest,'fb_dtsg':dtsg,'comment_text':Comment14 };
-    var details15 = {'jazoest':jazoest,'fb_dtsg':dtsg,'comment_text':Comment15 };
-    var details16 = {'jazoest':jazoest,'fb_dtsg':dtsg,'comment_text':Comment16 };
-    var details17 = {'jazoest':jazoest,'fb_dtsg':dtsg,'comment_text':Comment17 };
-
-
-var formBody = [];
-
-
-if(document.start){
-    return;
-}
-
-
-    var gtact = document.getElementsByTagName('h3');
-    if (gtact.length > 0){
-        for (var lke = 0; lke < gtact.length; lke++) {
-            if (gtact[lke].textContent == "Pengumuman" || gtact[lke].textContent == "Aktivitas Terbaru") {
-                return;
-            }
+            return;
         }
     }
+    if(document.querySelector("[value='Komentari']")){
+        'use strict';
+        const myHeaders = new Headers();
+        myHeaders.append("dpr", "1");
+        myHeaders.append("viewport-width", "400");
+        myHeaders.append("sec-ch-ua", "\"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"126\", \"Google Chrome\";v=\"126\"");
+        myHeaders.append("sec-ch-ua-mobile", "?1");
+        myHeaders.append("sec-ch-ua-platform", "\"Android\"");
+        myHeaders.append("sec-ch-ua-platform-version", "\"6.0\"");
+        myHeaders.append("sec-ch-ua-model", "\"Nexus 5\"");
+        myHeaders.append("sec-ch-ua-full-version-list", "\"Not/A)Brand\";v=\"8.0.0.0\", \"Chromium\";v=\"126.0.6478.127\", \"Google Chrome\";v=\"126.0.6478.127\"");
+        myHeaders.append("sec-ch-prefers-color-scheme", "dark");
+        myHeaders.append("Upgrade-Insecure-Requests", "1");
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+        myHeaders.append("User-Agent", "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36");
+        myHeaders.append("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7");
+        myHeaders.append("Sec-Fetch-Site", "same-origin");
+        myHeaders.append("Sec-Fetch-Mode", "navigate");
+        myHeaders.append("Sec-Fetch-User", "?1");
+        myHeaders.append("Sec-Fetch-Dest", "document");
+        myHeaders.append("host", "mbasic.facebook.com");
 
-     var aTags1 = document.getElementsByTagName("a");
+        const urlencoded = new URLSearchParams();
 
-    for (var i = 0; i < aTags1.length; i++) {
-var aldro = aTags1[i].textContent.toLocaleUpperCase();
-        /*comment1*/
-        if (aldro.includes(namagroup1.toLocaleUpperCase()) == true) {
-            for (var property1 in details1) {
-                    var encodedKey1 = encodeURIComponent(property1);
-                    var encodedValue1 = encodeURIComponent(details1[property1]);
-                    formBody.push(encodedKey1 + "=" + encodedValue1);
-                }
-                formBody = formBody.join("&");
+        if(document.title.toLocaleUpperCase().includes(namagroup1.toLocaleUpperCase())){
             if (id1 == "" || id1 == undefined || id1 == null ||id1 == "0") {
-                 GM.setValue( 1,1);
+                GM.setValue( 1,1);
+                urlencoded.append("comment_text", Comment1);
+                urlencoded.append("fb_dtsg", document.querySelector("[name='fb_dtsg']").value);
+                urlencoded.append("jazoest", document.querySelector("[name='jazoest']").value);
+                const requestOptions = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: "follow"
+                };
 
-                /*star*/
-                fetch(docuril , {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                        'Sec-Fetch-Site' : 'same-origin',
-                    },
-                    body: formBody
-                })
-                window.close();
-                /*end*/
-            } else {
-                if (confirm("Comment Ulang?") == true) {
-                    GM.setValue( 1,1);
-                   /*star*/
-
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    alert("Done");
-                /*end*/
-                }
+                fetch(document.querySelector("[method='post']").action, requestOptions)
+                    .then((response) => response.text())
+                    .then((result) => console.log(result))
+                    .catch((error) => console.error(error));
             }
         }
 
-        /*comment2*/
-        if (aldro.includes(namagroup2.toLocaleUpperCase()) == true) {
-            for (var property2 in details2) {
-                    var encodedKey2 = encodeURIComponent(property2);
-                    var encodedValue2 = encodeURIComponent(details2[property2]);
-                    formBody.push(encodedKey2 + "=" + encodedValue2);
-                }
-                formBody = formBody.join("&");
+
+
+        if(document.title.toLocaleUpperCase().includes(namagroup2.toLocaleUpperCase())){
             if (id2 == "" || id2 == undefined || id2 == null ||id2 == "0") {
                 GM.setValue( 2,1);
-                   /*star*/
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    window.close();
-                /*end*/
+                urlencoded.append("comment_text", Comment2);
+                urlencoded.append("fb_dtsg", document.querySelector("[name='fb_dtsg']").value);
+                urlencoded.append("jazoest", document.querySelector("[name='jazoest']").value);
+                const requestOptions = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: "follow"
+                };
 
-            } else {
-                if (confirm("Comment Ulang?") == true) {
-                    GM.setValue( 2,1);
-                   /*star*/
-
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    alert("Done");
-                /*end*/
-                }
+                fetch(document.querySelector("[method='post']").action, requestOptions)
+                    .then((response) => response.text())
+                    .then((result) => console.log(result))
+                    .catch((error) => console.error(error));
             }
         }
-        /*comment3*/
-        if (aldro.includes(namagroup3.toLocaleUpperCase()) == true) {
-            for (var property3 in details3) {
-                var encodedKey3 = encodeURIComponent(property3);
-                var encodedValue3 = encodeURIComponent(details3[property3]);
-                formBody.push(encodedKey3 + "=" + encodedValue3);
-            }
-            formBody = formBody.join("&");
+
+
+
+        if(document.title.toLocaleUpperCase().includes(namagroup3.toLocaleUpperCase())){
             if (id3 == "" || id3 == undefined || id3 == null ||id3 == "0") {
                 GM.setValue( 3,1);
-                   /*star*/
+                urlencoded.append("comment_text", Comment3);
+                urlencoded.append("fb_dtsg", document.querySelector("[name='fb_dtsg']").value);
+                urlencoded.append("jazoest", document.querySelector("[name='jazoest']").value);
+                const requestOptions = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: "follow"
+                };
 
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                   window.close();
-                /*end*/
-
-            } else {
-                if (confirm("Comment Ulang?") == true) {
-                    GM.setValue( 3,1);
-                   /*star*/
-
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    alert("Done");
-                /*end*/
-                }
+                fetch(document.querySelector("[method='post']").action, requestOptions)
+                    .then((response) => response.text())
+                    .then((result) => console.log(result))
+                    .catch((error) => console.error(error));
             }
         }
 
-        /*comment4*/
-        if (aldro.includes(namagroup4.toLocaleUpperCase()) == true) {
-            for (var property4 in details4) {
-                var encodedKey4 = encodeURIComponent(property4);
-                var encodedValue4 = encodeURIComponent(details4[property4]);
-                formBody.push(encodedKey4 + "=" + encodedValue4);
-            }
-            formBody = formBody.join("&");
+
+        if(document.title.toLocaleUpperCase().includes(namagroup4.toLocaleUpperCase())){
             if (id4 == "" || id4 == undefined || id4 == null ||id4 == "0") {
                 GM.setValue( 4,1);
-                   /*star*/
+                urlencoded.append("comment_text", Comment4);
+                urlencoded.append("fb_dtsg", document.querySelector("[name='fb_dtsg']").value);
+                urlencoded.append("jazoest", document.querySelector("[name='jazoest']").value);
+                const requestOptions = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: "follow"
+                };
 
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                   window.close();
-                /*end*/
-            } else {
-                if (confirm("Comment Ulang?") == true) {
-                     GM.setValue( 4,1);
-                   /*star*/
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    alert("Done");
-                /*end*/
-                }
+                fetch(document.querySelector("[method='post']").action, requestOptions)
+                    .then((response) => response.text())
+                    .then((result) => console.log(result))
+                    .catch((error) => console.error(error));
             }
         }
-        /*comment5*/
-        if (aldro.includes(namagroup5.toLocaleUpperCase()) == true) {
+
+
+        if(document.title.toLocaleUpperCase().includes(namagroup5.toLocaleUpperCase())){
             if (id5 == "" || id5 == undefined || id5 == null ||id5 == "0") {
                 GM.setValue( 5,1);
-                   /*star*/
-                  for (var property5 in details5) {
-                    var encodedKey5 = encodeURIComponent(property5);
-                    var encodedValue5 = encodeURIComponent(details5[property5]);
-                    formBody.push(encodedKey5 + "=" + encodedValue5);
-                }
-                formBody = formBody.join("&");
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    window.close();
-                /*end*/
+                urlencoded.append("comment_text", Comment5);
+                urlencoded.append("fb_dtsg", document.querySelector("[name='fb_dtsg']").value);
+                urlencoded.append("jazoest", document.querySelector("[name='jazoest']").value);
+                const requestOptions = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: "follow"
+                };
 
-            } else {
-               if (confirm("Comment Ulang?") == true) {
-                   GM.setValue( 5,1);
-                   /*star*/
-
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    alert("Done");
-                /*end*/
-                }
+                fetch(document.querySelector("[method='post']").action, requestOptions)
+                    .then((response) => response.text())
+                    .then((result) => console.log(result))
+                    .catch((error) => console.error(error));
             }
         }
 
-        /*comment6*/
-        if (aldro.includes(namagroup6.toLocaleUpperCase()) == true) {
-            for (var property6 in details6) {
-                    var encodedKey6 = encodeURIComponent(property6);
-                    var encodedValue6 = encodeURIComponent(details6[property6]);
-                    formBody.push(encodedKey6 + "=" + encodedValue6);
-                }
-                formBody = formBody.join("&");
+
+        if(document.title.toLocaleUpperCase().includes(namagroup6.toLocaleUpperCase())){
             if (id6 == "" || id6 == undefined || id6 == null ||id6 == "0") {
                 GM.setValue( 6,1);
-                   /*star*/
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                   window.close();
-                /*end*/
+                urlencoded.append("comment_text", Comment6);
+                urlencoded.append("fb_dtsg", document.querySelector("[name='fb_dtsg']").value);
+                urlencoded.append("jazoest", document.querySelector("[name='jazoest']").value);
+                const requestOptions = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: "follow"
+                };
 
-            } else {
-                if (confirm("Comment Ulang?") == true) {
-                     GM.setValue( 6,1);
-                   /*star*/
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    alert("Done");
-                /*end*/
-                }
+                fetch(document.querySelector("[method='post']").action, requestOptions)
+                    .then((response) => response.text())
+                    .then((result) => console.log(result))
+                    .catch((error) => console.error(error));
             }
         }
-        /*comment7*/
-        if (aldro.includes(namagroup7.toLocaleUpperCase()) == true) {
-            for (var property7 in details7) {
-                    var encodedKey7 = encodeURIComponent(property7);
-                    var encodedValue7 = encodeURIComponent(details7[property7]);
-                    formBody.push(encodedKey7 + "=" + encodedValue7);
-                }
-                formBody = formBody.join("&");
+
+
+        if(document.title.toLocaleUpperCase().includes(namagroup7.toLocaleUpperCase())){
             if (id7 == "" || id7 == undefined || id7 == null ||id7 == "0") {
                 GM.setValue( 7,1);
-                   /*star*/
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    window.close();
-                /*end*/
-            } else {
-                if (confirm("Comment Ulang?") == true) {
-                    GM.setValue( 7,1);
-                   /*star*/
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    alert("Done");
-                /*end*/
-                }
+                urlencoded.append("comment_text", Comment7);
+                urlencoded.append("fb_dtsg", document.querySelector("[name='fb_dtsg']").value);
+                urlencoded.append("jazoest", document.querySelector("[name='jazoest']").value);
+                const requestOptions = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: "follow"
+                };
+
+                fetch(document.querySelector("[method='post']").action, requestOptions)
+                    .then((response) => response.text())
+                    .then((result) => console.log(result))
+                    .catch((error) => console.error(error));
             }
         }
-        /*comment8*/
-        if (aldro.includes(namagroup8.toLocaleUpperCase()) == true) {
-            for (var property8 in details8) {
-                    var encodedKey8 = encodeURIComponent(property8);
-                    var encodedValue8 = encodeURIComponent(details8[property8]);
-                    formBody.push(encodedKey8 + "=" + encodedValue8);
-                }
-                formBody = formBody.join("&");
+
+
+        if(document.title.toLocaleUpperCase().includes(namagroup8.toLocaleUpperCase())){
             if (id8 == "" || id8 == undefined || id8 == null ||id8 == "0") {
                 GM.setValue( 8,1);
-                   /*star*/
+                urlencoded.append("comment_text", Comment8);
+                urlencoded.append("fb_dtsg", document.querySelector("[name='fb_dtsg']").value);
+                urlencoded.append("jazoest", document.querySelector("[name='jazoest']").value);
+                const requestOptions = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: "follow"
+                };
 
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    window.close();
-                /*end*/
-
-            } else {
-                if (confirm("Comment Ulang?") == true) {
-                    GM.setValue( 8,1);
-                   /*star*/
-
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    alert("Done");
-                /*end*/
-
-                }
+                fetch(document.querySelector("[method='post']").action, requestOptions)
+                    .then((response) => response.text())
+                    .then((result) => console.log(result))
+                    .catch((error) => console.error(error));
             }
         }
-        /*comment9*/
-        if (aldro.includes(namagroup9.toLocaleUpperCase()) == true) {
-            for (var property9 in details9) {
-                var encodedKey9 = encodeURIComponent(property9);
-                var encodedValue9 = encodeURIComponent(details9[property9]);
-                formBody.push(encodedKey9 + "=" + encodedValue9);
-            }
-            formBody = formBody.join("&");
+
+
+
+        if(document.title.toLocaleUpperCase().includes(namagroup9.toLocaleUpperCase())){
             if (id9 == "" || id9 == undefined || id9 == null ||id9 == "0") {
                 GM.setValue( 9,1);
-                   /*star*/
+                urlencoded.append("comment_text", Comment9);
+                urlencoded.append("fb_dtsg", document.querySelector("[name='fb_dtsg']").value);
+                urlencoded.append("jazoest", document.querySelector("[name='jazoest']").value);
+                const requestOptions = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: "follow"
+                };
 
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    window.close();
-                /*end*/
-
-            } else {
-                if (confirm("Comment Ulang?") == true) {
-                    GM.setValue( 9,1);
-                   /*star*/
-
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    alert("Done");
-                /*end*/
-
-                }
+                fetch(document.querySelector("[method='post']").action, requestOptions)
+                    .then((response) => response.text())
+                    .then((result) => console.log(result))
+                    .catch((error) => console.error(error));
             }
         }
-        /*comment10*/
-        if (aldro.includes(namagroup10.toLocaleUpperCase()) == true) {
-            for (var property10 in details10) {
-                    var encodedKey10 = encodeURIComponent(property10);
-                    var encodedValue10 = encodeURIComponent(details10[property10]);
-                    formBody.push(encodedKey10 + "=" + encodedValue10);
-                }
-                formBody = formBody.join("&");
+
+
+
+        if(document.title.toLocaleUpperCase().includes(namagroup10.toLocaleUpperCase())){
             if (id10 == "" || id10 == undefined || id10 == null ||id10 == "0") {
                 GM.setValue( 10,1);
-                   /*star*/
-                fetch(docuril , {
-                        method: 'POST',
-                        headers:{
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                   window.close();
-                /*end*/
-                } else {
-                if (confirm("Comment Ulang?") == true) {
-                     GM.setValue( 10,1);
-                   /*star*/
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    alert("Done");
-                /*end*/
-                }
+                urlencoded.append("comment_text", Comment10);
+                urlencoded.append("fb_dtsg", document.querySelector("[name='fb_dtsg']").value);
+                urlencoded.append("jazoest", document.querySelector("[name='jazoest']").value);
+                const requestOptions = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: "follow"
+                };
+
+                fetch(document.querySelector("[method='post']").action, requestOptions)
+                    .then((response) => response.text())
+                    .then((result) => console.log(result))
+                    .catch((error) => console.error(error));
             }
         }
-        /*comment11*/
-        if (aldro.includes(namagroup11.toLocaleUpperCase()) == true) {
-            for (var property11 in details11) {
-                var encodedKey11= encodeURIComponent(property11);
-                var encodedValue11 = encodeURIComponent(details11[property11]);
-                formBody.push(encodedKey11 + "=" + encodedValue11);
-            }
-            formBody = formBody.join("&");
-           if (id11 == "" || id11 == undefined || id11 == null ||id11 == "0") {
-               GM.setValue(11,1);
-                   /*star*/
 
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    window.close();
-                /*end*/
-                } else {
-                if (confirm("Comment Ulang?") == true) {
-                     GM.setValue(11,1);
-                   /*star*/
 
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    alert("Done");
-                /*end*/
-                }
+
+        if(document.title.toLocaleUpperCase().includes(namagroup11.toLocaleUpperCase())){
+            if (id11 == "" || id11 == undefined || id11 == null ||id11 == "0") {
+                GM.setValue(11,1);
+                urlencoded.append("comment_text", Comment11);
+                urlencoded.append("fb_dtsg", document.querySelector("[name='fb_dtsg']").value);
+                urlencoded.append("jazoest", document.querySelector("[name='jazoest']").value);
+                const requestOptions = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: "follow"
+                };
+
+                fetch(document.querySelector("[method='post']").action, requestOptions)
+                    .then((response) => response.text())
+                    .then((result) => console.log(result))
+                    .catch((error) => console.error(error));
             }
         }
-        /*comment12*/
-            if (aldro.includes(namagroup12.toLocaleUpperCase()) == true) {
-                for (var property12 in details12) {
-                    var encodedKey12 = encodeURIComponent(property12);
-                    var encodedValue12 = encodeURIComponent(details12[property12]);
-                    formBody.push(encodedKey12+ "=" + encodedValue12);
-                }
-                formBody = formBody.join("&");
-           if (id12 == "" || id12 == undefined || id12 == null ||id12 == "0") {
-               GM.setValue(12,1);
-                   /*star*/
-                    ;
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    window.close();
-                /*end*/
-                } else {
-                if (confirm("Comment Ulang?") == true) {
-                    GM.setValue(12,1);
-                   /*star*/
 
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    alert("Done");
-                /*end*/
-                }
+
+        if(document.title.toLocaleUpperCase().includes(namagroup12.toLocaleUpperCase())){
+            if (id12 == "" || id12 == undefined || id12 == null ||id12 == "0") {
+                GM.setValue(12,1);
+                urlencoded.append("comment_text", Comment12);
+                urlencoded.append("fb_dtsg", document.querySelector("[name='fb_dtsg']").value);
+                urlencoded.append("jazoest", document.querySelector("[name='jazoest']").value);
+                const requestOptions = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: "follow"
+                };
+
+                fetch(document.querySelector("[method='post']").action, requestOptions)
+                    .then((response) => response.text())
+                    .then((result) => console.log(result))
+                    .catch((error) => console.error(error));
             }
         }
-        /*comment13*/
-            if (aldro.includes(namagroup13.toLocaleUpperCase()) == true) {
-          if (id13 == "" || id13 == undefined || id13 == null ||id13 == "0") {
-              GM.setValue(13,1);
-                   /*star*/
-                    for (var property13 in details13) {
-                    var encodedKey13 = encodeURIComponent(property13);
-                    var encodedValue13 = encodeURIComponent(details13[property13]);
-                    formBody.push(encodedKey13 + "=" + encodedValue13);
-                }
-                formBody = formBody.join("&");
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    window.close();
-                /*end*/
-                } else {
-                if (confirm("Comment Ulang?") == true) {
-                    GM.setValue(13,1);
-                   /*star*/
 
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    alert("Done");
-                /*end*/
-                }
+
+
+        if(document.title.toLocaleUpperCase().includes(namagroup13.toLocaleUpperCase())){
+            if (id13 == "" || id13 == undefined || id13 == null ||id13 == "0") {
+                GM.setValue(13,1);
+                urlencoded.append("comment_text", Comment13);
+                urlencoded.append("fb_dtsg", document.querySelector("[name='fb_dtsg']").value);
+                urlencoded.append("jazoest", document.querySelector("[name='jazoest']").value);
+                const requestOptions = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: "follow"
+                };
+
+                fetch(document.querySelector("[method='post']").action, requestOptions)
+                    .then((response) => response.text())
+                    .then((result) => console.log(result))
+                    .catch((error) => console.error(error));
             }
         }
-        /*comment14*/
-        if (aldro.includes(namagroup14.toLocaleUpperCase()) == true) {
-            for (var property14 in details14) {
-                    var encodedKey14 = encodeURIComponent(property14);
-                    var encodedValue14 = encodeURIComponent(details14[property14]);
-                    formBody.push(encodedKey14 + "=" + encodedValue14);
-                }
-                formBody = formBody.join("&");
-           if (id14 == "" || id14 == undefined || id14 == null ||id14 == "0") {
-               GM.setValue(14,1);
-                   /*star*/
 
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    window.close();
-                /*end*/
 
-                } else {
-                if (confirm("Comment Ulang?") == true) {
-                    GM.setValue(14,1);
-                   /*star*/
+        if(document.title.toLocaleUpperCase().includes(namagroup14.toLocaleUpperCase())){
+            if (id14 == "" || id14 == undefined || id14 == null ||id14 == "0") {
+                GM.setValue(14,1);
+                urlencoded.append("comment_text", Comment14);
+                urlencoded.append("fb_dtsg", document.querySelector("[name='fb_dtsg']").value);
+                urlencoded.append("jazoest", document.querySelector("[name='jazoest']").value);
+                const requestOptions = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: "follow"
+                };
 
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    alert("Done");
-                /*end*/
-
-                }
+                fetch(document.querySelector("[method='post']").action, requestOptions)
+                    .then((response) => response.text())
+                    .then((result) => console.log(result))
+                    .catch((error) => console.error(error));
             }
         }
-        /*comment15*/
-        if (aldro.includes(namagroup15.toLocaleUpperCase()) == true) {
-            for (var property15 in details15) {
-                    var encodedKey15 = encodeURIComponent(property15);
-                    var encodedValue15 = encodeURIComponent(details15[property15]);
-                    formBody.push(encodedKey15 + "=" + encodedValue15);
-                }
-                formBody = formBody.join("&");
+
+
+
+        if(document.title.toLocaleUpperCase().includes(namagroup15.toLocaleUpperCase())){
             if (id15 == "" || id15 == undefined || id15 == null ||id15 == "0") {
-                GM.setValue(15,1);
-                   /*star*/
+                urlencoded.append("comment_text", Comment15);
+                urlencoded.append("fb_dtsg", document.querySelector("[name='fb_dtsg']").value);
+                urlencoded.append("jazoest", document.querySelector("[name='jazoest']").value);
+                const requestOptions = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: "follow"
+                };
 
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                   window.close();
-                /*end*/
-                } else {
-                if (confirm("Comment Ulang?") == true) {
-                    GM.setValue(15,1);
-                   /*star*/
-
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    alert("Done");
-                /*end*/
-
-                }
+                fetch(document.querySelector("[method='post']").action, requestOptions)
+                    .then((response) => response.text())
+                    .then((result) => console.log(result))
+                    .catch((error) => console.error(error));
             }
         }
-        /*comment16*/
-        if (aldro.includes(namagroup16.toLocaleUpperCase()) == true) {
-            for (var property16 in details16) {
-                    var encodedKey16 = encodeURIComponent(property16);
-                    var encodedValue16 = encodeURIComponent(details16[property16]);
-                    formBody.push(encodedKey16 + "=" + encodedValue16);
-                }
-                formBody = formBody.join("&");
+
+
+
+        if(document.title.toLocaleUpperCase().includes(namagroup16.toLocaleUpperCase())){
             if (id16 == "" || id16 == undefined || id16 == null ||id16 == "0") {
                 GM.setValue(16,1);
-                   /*star*/
+                urlencoded.append("comment_text", Comment16);
+                urlencoded.append("fb_dtsg", document.querySelector("[name='fb_dtsg']").value);
+                urlencoded.append("jazoest", document.querySelector("[name='jazoest']").value);
+                const requestOptions = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: "follow"
+                };
 
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    window.close();
-                /*end*/
-                 } else {
-                if (confirm("Comment Ulang?") == true) {
-                    GM.setValue(16,1);
-                   /*star*/
-
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    alert("Done");
-                /*end*/
-                }
+                fetch(document.querySelector("[method='post']").action, requestOptions)
+                    .then((response) => response.text())
+                    .then((result) => console.log(result))
+                    .catch((error) => console.error(error));
             }
         }
-        /*comment17*/
-        if (aldro.includes(namagroup17.toLocaleUpperCase()) == true) {
-            for (var property17 in details17) {
-                    var encodedKey17 = encodeURIComponent(property17);
-                    var encodedValue17 = encodeURIComponent(details17[property17]);
-                    formBody.push(encodedKey17 + "=" + encodedValue17);
-                }
-                formBody = formBody.join("&");
+
+
+
+        if(document.title.toLocaleUpperCase().includes(namagroup17.toLocaleUpperCase())){
             if (id17 == "" || id17 == undefined || id17 == null ||id17 == "0") {
                 GM.setValue(17,1);
-                   /*star*/
+                urlencoded.append("comment_text", Comment17);
+                urlencoded.append("fb_dtsg", document.querySelector("[name='fb_dtsg']").value);
+                urlencoded.append("jazoest", document.querySelector("[name='jazoest']").value);
+                const requestOptions = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: urlencoded,
+                    redirect: "follow"
+                };
 
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    window.close();
-                /*end*/
-                 } else {
-                if (confirm("Comment Ulang?") == true) {
-                    GM.setValue(17,1);
-                   /*star*/
+                fetch(document.querySelector("[method='post']").action, requestOptions)
+                    .then((response) => response.text())
+                    .then((result) => console.log(result))
+                    .catch((error) => console.error(error));
 
-                    fetch(docuril , {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-                            'Sec-Fetch-Site' : 'same-origin',
-                        },
-                        body: formBody
-                    })
-                    alert("Done");
-                /*end*/
-                }
             }
         }
+
+
     }
-    }
-    catch {
-    }
-}, 10)
+    // Your code here...
+})();
+
