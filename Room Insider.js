@@ -3,8 +3,8 @@
 // @namespace    http://tampermonkey.net/
 // @version      3.05
 // @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia1.js
-// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia1.js
+// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Room%20Insider.js
+// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Room%20Insider.js
 // @author       You
 // @match        http*://*/*
 // @run-at       document-end
