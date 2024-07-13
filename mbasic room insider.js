@@ -39,9 +39,10 @@ var Backlist5 = "prediksi";
 var Backlist6 = "result";
 var Backlist7 = "result";
 
-var myInterval = setInterval(function(){
-
-
+setTimeout(function() {
+if( document.querySelectorAll("[value='Komentari']").length > 0){
+return
+}
     var ceknamagroup
     var ceknamagroup1
     var ceknamagroup2
@@ -100,7 +101,7 @@ var myInterval = setInterval(function(){
                                 console.log("Admin yang Memosting = " + admin[adm]);
                             }
                             // Click Comment Box
-                             clearInterval(myInterval);
+
                             location.href = getlink.href
 
                       
@@ -111,7 +112,7 @@ var myInterval = setInterval(function(){
             }
         }
     }
+window.location.reload()
 
 
-
-}, 10)
+},refresh* 10)
