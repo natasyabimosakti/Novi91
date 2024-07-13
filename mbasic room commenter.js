@@ -49,8 +49,8 @@ var id17 = await GM.getValue(17);
 var id18 = await GM.getValue(18);
 
 
-var namagroup17 = "None";
-var Comment17 = "None";
+var namagroup17 = "Jawatengah";
+var Comment17 = "Joss";
 
 var namaadmin = [];
 
