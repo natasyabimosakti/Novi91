@@ -11,19 +11,25 @@
 // @grant        GM.getValue
 // @grant        window.close
 // ==/UserScript==
+
+
+
+
+
+/*======================================================================Paste Script Tampermonkey di sini===============================================================*/
+
+
+
+
+
+/*======================================================================Paste Script Tampermonkey di sini===============================================================*/
+
 var refresh = 40;
 
 
 
-
-/*======================================================================Paste Script Tampermonkey di sini===============================================================*/
-
-
-
-
-
-/*======================================================================Paste Script Tampermonkey di sini===============================================================*/
-
+var namagroup17 = 'Jawatengah';
+var Comment17 = 'Tester';
 
 var d = new Date();
 var hour = d.getHours();
@@ -47,7 +53,18 @@ var id15 = await GM.getValue(15);
 var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
 var myInterval = setInterval(function(){
+ if (tm == "" || tm == undefined || tm == null) {
+        GM.setValue("time", hour);
+    }
 
+
+    if ( hour > tm + 2 || hour < tm||document.URL.includes("google") == true||hour == undefined||hour == null){
+        for (var kr = 1; kr < 18; kr++) {
+            GM.setValue( kr,0);
+        }
+        GM.setValue("time", hour);
+
+    }
 
     var ceknamagroup
     var ceknamagroup1
@@ -331,6 +348,22 @@ var myInterval = setInterval(function(){
 
                 }
             }
+            if (ceknamagroup.includes(namagroup17) == true) {
+                /*cek nama group dan tulis commntar*/
+                if (id17 == "" || id17 == undefined || id17 == null ||id17 == "0") {
+                    /*cek nama group dan tulis commntar*/
+                    GM.setValue( 17,1);
+                    document.getElementsByClassName("internal-input")[0].value = Comment17;
+
+                    clearInterval(myInterval);
+                    console.log("Sudah Comment")
+                    clicksend();
+                    return;
+                } else {
+                    location.href = "about:blank"
+
+                }
+            }
 
 
         }
@@ -353,13 +386,7 @@ function clicksend() {
     /*Tekan TOMBOL SEND*/
     document.querySelectorAll("[aria-label='Posting komentar']")[0].click()
     console.log("Comment Terkirim");
-    closer()
+
     /*Tekan TOMBOL SEND*/
-
-}
-
-function closer() {
-    setTimeout(function(){location.href = "about:blank"},1000)
-
 
 }
