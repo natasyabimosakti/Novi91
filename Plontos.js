@@ -191,7 +191,7 @@ var myrefresh = setInterval(function(){
 var myInterval = setInterval(function(){
 
 
-   
+
     console.log(" ");
     for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
         if (document.querySelectorAll('[data-tracking-duration-id')[ntv]){
@@ -277,11 +277,12 @@ var myInterval = setInterval(function(){
 var commentanku = setInterval(function(){
      var ceknamagroup
      var ceknamagroup1
+
     'use strict';
 
     ceknamagroup = document.querySelectorAll("[data-mcomponent='ServerTextArea']")[4].textContent;
     ceknamagroup1 = document.querySelectorAll("[data-mcomponent='ServerTextArea']")[3].textContent;
-    ceknamagroup1 = document.querySelectorAll("[data-mcomponent='ServerTextArea']")[3].textContent;
+
 
 
     if (ceknamagroup.includes(namagroup1) == true||ceknamagroup1.includes(namagroup1) == true) {
