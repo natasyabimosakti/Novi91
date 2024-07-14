@@ -72,16 +72,16 @@ return
     if( document.querySelectorAll("[data-mcomponent='ServerTextArea']")[4]){
         ceknamagroup = document.querySelectorAll("[data-mcomponent='ServerTextArea']")[4].textContent;
     }
-    for (let ntv = 0; ntv < document.querySelectorAll("[role='article']").length; ntv++) {
-        if (document.querySelectorAll("[role='article']")[ntv]){
+    for (let ntv = 0; ntv < document.getElementsByTagName("article").length; ntv++) {
+        if (document.getElementsByTagName("article")[ntv]){
             // Nama FB
-            var namafb = document.querySelectorAll("[role='article']")[ntv].querySelectorAll("[role='presentation']")[0];
+            var namafb = document.getElementsByTagName("article")[ntv].querySelectorAll("[role='presentation']")[0];
             //Jam
-            var jamposting = document.querySelectorAll("[role='article']")[ntv].children[1].getElementsByTagName("abbr")[0];
+            var jamposting = document.getElementsByTagName("article")[ntv].children[1].getElementsByTagName("abbr")[0];
             //Postingan
-            var postingan =document.querySelectorAll("[role='article']")[ntv].children[0];
+            var postingan =document.getElementsByTagName("article")[ntv].children[0];
             //Comment Box
-            var getlink = document.querySelectorAll("[role='article']")[ntv].children[1].children[1].getElementsByTagName("a")[2];
+            var getlink = document.getElementsByTagName("article")[ntv].children[1].children[1].getElementsByTagName("a");
 
 
             // Cek Jam
@@ -121,10 +121,18 @@ return
                                 console.log("Admin yang Memosting = " + admin[adm]);
                             }
                             // Click Comment Box
+                            for (var i = 0; i < getlink.length; i++) {
+                                var noah = getlink[i].textContent;
+                                if ( noah.search(/Komentar/) >= 0 || noah.includes("Komentari") == true || noah.includes("Komen") == true || noah.includes("Komentar") == true) {
+                                    var carihref = getlink[i].href ;
+                                    location.href = carihref;
+                                    return;
+                                };
 
-                            location.href = getlink.href
+                            };
 
-                      
+
+
                             return;
                         }
                     }
