@@ -107,30 +107,10 @@ var id17 = await GM.getValue(17);
 
 var refresh = 40;
 
-var admin = ["Siâo","aldi","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","andy","ayesha",
-             "brian","boboho","bobby","bonar","bella","bastian",
-             "cinta","calvin","celsia","celine",
-             "denis","dollar","dewa","dewi","dinda","dika","dea",
-             "echa","erika","elly","erwin",
-             "farah","febrian","fiana","farid","fahresa",
-             "gretha",
-             "herfizah","hana","hoihai","hefi","habib",
-             "inisial","intan","icha","irfan",
-             "jhone","jess","jovanka","jenifer","jihan","jesika","je pe",
-             "kumbara","kemon","kayla","katty","kendri","kembar","kotna","kiky",
-             "lehman","lianda","laura","leon","lidya","larissa","leksa","lina",
-             "manu","mesa","mardia","maes","mad","miranda","melati","minion","mariana","mahendra","multi","megaways",
-             "nadila","neng","naura","nathaya","nella","neman","novi",
-             "oun","oscar","otong",
-             "puput","primus","priyan",
-             "ratu","roy","rendy","ria","ruto","riko","rano","robby",
-             "sanchez","siska","safar","sanjaya","san","sandiego","sloter","sinta","slooter","sabrina","salsabila","sintia","sejitu",
-             "tink","thonex","tiara","tania","tag",
-             "ujen",
-             "vonny","viona","virna",
-             "wahid","wahzo","wok","wndt","wiena",
-             "yoky","yasmine","yohana",
-             "zurro"];
+
+
+var admin = ["Siâo","habib","sofia","neng","arxidi","che","aldi","nino","sofia","sonia","serena","alde","puput","mad","hefi","dika","iyatoto","adm","celsia","jne","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","tiktak","nella","novi","sandiego","nasution","ratu","priyan","san","ria","sanjaya","siska","Baru","aditia","keitogel","safar","mahendra","multi","mariana","neman","tatang","dewi","primus","roy","dewi","melati","kumbara","dentoto","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
+
 
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
@@ -296,13 +276,15 @@ var myInterval = setInterval(function(){
 
 var commentanku = setInterval(function(){
      var ceknamagroup
-
+     var ceknamagroup1
     'use strict';
-    if( document.querySelectorAll("[data-mcomponent='ServerTextArea']")[4]){
-        ceknamagroup = document.querySelectorAll("[data-mcomponent='ServerTextArea']")[4].textContent;
-    }
 
-    if (ceknamagroup.includes(namagroup1) == true) {
+    ceknamagroup = document.querySelectorAll("[data-mcomponent='ServerTextArea']")[4].textContent;
+    ceknamagroup1 = document.querySelectorAll("[data-mcomponent='ServerTextArea']")[3].textContent;
+    ceknamagroup1 = document.querySelectorAll("[data-mcomponent='ServerTextArea']")[3].textContent;
+
+
+    if (ceknamagroup.includes(namagroup1) == true||ceknamagroup1.includes(namagroup1) == true) {
 
         if( document.getElementsByClassName("internal-input")[0] ){
             /*cek nama group dan tulis commntar*/
@@ -317,7 +299,7 @@ var commentanku = setInterval(function(){
 
     }
 
-    if (ceknamagroup.includes(namagroup2) == true) {
+    if (ceknamagroup.includes(namagroup2) == true||ceknamagroup1.includes(namagroup2) == true) {
 
         if( document.getElementsByClassName("internal-input")[0] ){
             /*cek nama group dan tulis commntar*/
@@ -332,7 +314,7 @@ var commentanku = setInterval(function(){
         }
 
     }
-    if (ceknamagroup.includes(namagroup3) == true) {
+    if (ceknamagroup.includes(namagroup3) == true||ceknamagroup1.includes(namagroup3) == true) {
 
         if( document.getElementsByClassName("internal-input")[0] ){
             /*cek nama group dan tulis commntar*/
@@ -348,7 +330,7 @@ var commentanku = setInterval(function(){
 
     }
 
-    if (ceknamagroup.includes(namagroup4) == true) {
+    if (ceknamagroup.includes(namagroup4) == true||ceknamagroup1.includes(namagroup4) == true) {
         /*cek nama group dan tulis commntar*/
 
         if( document.getElementsByClassName("internal-input")[0] ){
@@ -364,7 +346,7 @@ var commentanku = setInterval(function(){
 
     }
 
-    if (ceknamagroup.includes(namagroup5) == true) {
+    if (ceknamagroup.includes(namagroup5) == true||ceknamagroup1.includes(namagroup5) == true) {
         /*cek nama group dan tulis commntar*/
         if( document.getElementsByClassName("internal-input")[0] ){
             /*cek nama group dan tulis commntar*/
@@ -378,7 +360,7 @@ var commentanku = setInterval(function(){
         }
     }
 
-    if (ceknamagroup.includes(namagroup6) == true) {
+    if (ceknamagroup.includes(namagroup6) == true||ceknamagroup1.includes(namagroup6) == true) {
         /*cek nama group dan tulis commntar*/
 
         if( document.getElementsByClassName("internal-input")[0] ){
@@ -394,7 +376,7 @@ var commentanku = setInterval(function(){
 
     }
 
-    if (ceknamagroup.includes(namagroup7) == true) {
+    if (ceknamagroup.includes(namagroup7) == true||ceknamagroup1.includes(namagroup7) == true) {
         /*cek nama group dan tulis commntar*/
 
         if( document.getElementsByClassName("internal-input")[0] ){
@@ -410,7 +392,7 @@ var commentanku = setInterval(function(){
 
     }
 
-    if (ceknamagroup.includes(namagroup8) == true) {
+    if (ceknamagroup.includes(namagroup8) == true||ceknamagroup1.includes(namagroup8) == true) {
         /*cek nama group dan tulis commntar*/
 
         if( document.getElementsByClassName("internal-input")[0] ){
@@ -426,7 +408,7 @@ var commentanku = setInterval(function(){
 
     }
 
-    if (ceknamagroup.includes(namagroup9) == true) {
+    if (ceknamagroup.includes(namagroup9) == true||ceknamagroup1.includes(namagroup9) == true) {
         /*cek nama group dan tulis commntar*/
 
         if( document.getElementsByClassName("internal-input")[0] ){
@@ -442,7 +424,7 @@ var commentanku = setInterval(function(){
 
     }
 
-    if (ceknamagroup.includes(namagroup10) == true) {
+    if (ceknamagroup.includes(namagroup10) == true||ceknamagroup1.includes(namagroup10) == true) {
         /*cek nama group dan tulis commntar*/
 
         if( document.getElementsByClassName("internal-input")[0] ){
@@ -458,7 +440,7 @@ var commentanku = setInterval(function(){
 
     }
 
-    if (ceknamagroup.includes(namagroup11) == true) {
+    if (ceknamagroup.includes(namagroup11) == true||ceknamagroup1.includes(namagroup11) == true) {
         /*cek nama group dan tulis commntar*/
 
         if( document.getElementsByClassName("internal-input")[0] ){
@@ -475,7 +457,7 @@ var commentanku = setInterval(function(){
     }
 
 
-    if (ceknamagroup.includes(namagroup12) == true) {
+    if (ceknamagroup.includes(namagroup12) == true||ceknamagroup1.includes(namagroup12) == true) {
         /*cek nama group dan tulis commntar*/
 
         if( document.getElementsByClassName("internal-input")[0] ){
@@ -491,7 +473,7 @@ var commentanku = setInterval(function(){
 
     }
 
-    if (ceknamagroup.includes(namagroup13) == true) {
+    if (ceknamagroup.includes(namagroup13) == true||ceknamagroup1.includes(namagroup13) == true) {
         /*cek nama group dan tulis commntar*/
 
         if( document.getElementsByClassName("internal-input")[0] ){
@@ -507,7 +489,7 @@ var commentanku = setInterval(function(){
 
     }
 
-    if (ceknamagroup.includes(namagroup14) == true) {
+    if (ceknamagroup.includes(namagroup14) == true||ceknamagroup1.includes(namagroup14) == true) {
         /*cek nama group dan tulis commntar*/
 
         if( document.getElementsByClassName("internal-input")[0] ){
@@ -523,7 +505,7 @@ var commentanku = setInterval(function(){
 
     }
 
-    if (ceknamagroup.includes(namagroup15) == true) {
+    if (ceknamagroup.includes(namagroup15) == true||ceknamagroup1.includes(namagroup15) == true) {
         /*cek nama group dan tulis commntar*/
 
         if( document.getElementsByClassName("internal-input")[0] ){
@@ -539,7 +521,7 @@ var commentanku = setInterval(function(){
 
     }
 
-    if (ceknamagroup.includes(namagroup16) == true) {
+    if (ceknamagroup.includes(namagroup16) == true||ceknamagroup1.includes(namagroup16) == true) {
         /*cek nama group dan tulis commntar*/
 
         if( document.getElementsByClassName("internal-input")[0] ){
@@ -554,7 +536,7 @@ var commentanku = setInterval(function(){
         }
 
     }
-    if (ceknamagroup.includes(namagroup17) == true) {
+    if (ceknamagroup.includes(namagroup17) == true||ceknamagroup1.includes(namagroup17) == true) {
         /*cek nama group dan tulis commntar*/
 
         if( document.getElementsByClassName("internal-input")[0] ){
