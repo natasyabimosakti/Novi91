@@ -24,7 +24,7 @@ var Comment2 = 'IYATOTO YONOBO74 60*56*34';
 var namagroup3 = 'TIKTAK';
 var Comment3 = '#Tiktaktogel / YONOBO74 / 58 , 46 , 10'; 
 
-var namagroup4 = 'GA1B';
+var namagroup4 = 'GAIB';
 var Comment4 = 'GAIB4D=YONOBO74=77*66*79'; 
 
 var namagroup5 = 'KEITOGEL';
