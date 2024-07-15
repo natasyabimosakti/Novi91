@@ -11,7 +11,6 @@
 // @grant        GM.getValue
 // @grant        window.close
 // ==/UserScript==
-/*Script Hanya Untuk Memosting Commentar Belum Termasuk Pencarian Room Lomba, Untuk Mencari Semua Postingan document.querySelectorAll("[role='article']")[0] di ganti length jumlah role='article yang tersedia*/
 
 var refresh = 40
 
@@ -68,10 +67,71 @@ var Comment17 = 'Tester';
 
 
 
-var cariroomlomba = setInterval(function(){
 
 
+var keyword1 = "ROOM"
+var keyword2 = "𝗥𝗢𝗢𝗠"
+var keyword3 = "LOMBA"
+var keyword4 = "𝗟𝗢𝗠𝗕𝗔"
+var keyword5 = "𝐋𝐎𝐌𝐁𝐀"
+var keyword6 = "LIMBA"
+var keyword7 = "ROM"
+var keyword8 = "R00M"
+var keyword9 = "R0M"
+var keyword10 = "𝐑𝐎𝐎𝐌"
 
+var Backlist1 = "pemenang lomba";
+var Backlist2 = "rekap";
+var Backlist3 = "hasil";
+var Backlist4 = "room lomba freebet";
+var Backlist5 = "prediksi";
+var Backlist6 = "result";
+var Backlist7 = "result";
+
+ setTimeout(function(){
+
+
+    var articlefb = document.querySelectorAll("[role='article']");
+    for(var artic = 0; artic < articlefb.length; artic++) {
+        var carikeyword = document.querySelectorAll("[role='article']")[artic].children[0].textContent.toLocaleLowerCase()
+
+        if(carikeyword.includes(keyword1.toLocaleLowerCase())||
+           carikeyword.includes(keyword2.toLocaleLowerCase())||
+           carikeyword.includes(keyword3.toLocaleLowerCase())||
+           carikeyword.includes(keyword4.toLocaleLowerCase())||
+           carikeyword.includes(keyword5.toLocaleLowerCase())||
+           carikeyword.includes(keyword6.toLocaleLowerCase())||
+           carikeyword.includes(keyword7.toLocaleLowerCase())||
+           carikeyword.includes(keyword8.toLocaleLowerCase())||
+           carikeyword.includes(keyword9.toLocaleLowerCase())||
+           carikeyword.includes(keyword10.toLocaleLowerCase()) ){
+            console.log ("Keyword Di Temukan")
+            if(carikeyword.includes(Backlist1.toLocaleLowerCase())||
+               carikeyword.includes(Backlist2.toLocaleLowerCase())||
+               carikeyword.includes(Backlist3.toLocaleLowerCase())||
+               carikeyword.includes(Backlist4.toLocaleLowerCase())||
+               carikeyword.includes(Backlist5.toLocaleLowerCase())||
+               carikeyword.includes(Backlist6.toLocaleLowerCase())||
+               carikeyword.includes(keyword7.toLocaleLowerCase()) ){
+                console.log ("BACKLIST Di Temukan . . . . !")
+               return;
+            }
+            console.log ("Backlist Tidak Di Temukan Lanjutkan Prosess")
+            /*Kirim Postingan*/
+            /*Cek Jam Postingan*/
+            var cekjam = articlefb[artic].children[1].textContent;
+            if(cekjam.slice(0,5).includes("Baru")||cekjam.slice(0,5).includes("1 mnt")||cekjam.slice(0,5).includes("2 mnt")||cekjam.slice(0,5).includes("3 mnt")||cekjam.slice(0,5).includes("4 mnt")){
+                PostComment(artic)
+                return;
+            }else{
+                console.log ("JAM TIDAK DI TEMUKAN")
+
+            }
+             /*Kirim Postingan*/
+        }
+
+    }
+window.location.reload()
 
 }, refresh * 10)
 
@@ -81,11 +141,11 @@ var cariroomlomba = setInterval(function(){
 
 
 
-
+ /*PostComment Jangan DI OTAK ATIK*/
 
 
 function PostComment(numberpost) {
-console.log(numberpost)
+    console.log(numberpost)
 
     var ceknamagroup
     var commentan
@@ -95,7 +155,7 @@ console.log(numberpost)
 
     if (document.title.toLocaleLowerCase().includes(namagroup1.toLocaleLowerCase())){
         /*cek nama group dan tulis commntar*/
-  
+
         commentan = Comment1;
         console.log("Sudah Comment")
     }
@@ -103,112 +163,112 @@ console.log(numberpost)
 
     if (document.title.toLocaleLowerCase().includes(namagroup2.toLocaleLowerCase())){
         /*cek nama group dan tulis commntar*/
-   
+
         commentan = Comment2;
         console.log("Sudah Comment")
     }
 
     if (document.title.toLocaleLowerCase().includes(namagroup3.toLocaleLowerCase())){
         /*cek nama group dan tulis commntar*/
-      
+
         commentan = Comment3;
         console.log("Sudah Comment")
     }
 
     if (document.title.toLocaleLowerCase().includes(namagroup4.toLocaleLowerCase())){
         /*cek nama group dan tulis commntar*/
-     
+
         commentan = Comment4;
         console.log("Sudah Comment")
     }
 
     if (document.title.toLocaleLowerCase().includes(namagroup5.toLocaleLowerCase())){
         /*cek nama group dan tulis commntar*/
-    
+
         commentan = Comment5;
         console.log("Sudah Comment")
     }
 
     if (document.title.toLocaleLowerCase().includes(namagroup6.toLocaleLowerCase())){
         /*cek nama group dan tulis commntar*/
-       
+
         commentan = Comment6;
         console.log("Sudah Comment")
     }
 
     if (document.title.toLocaleLowerCase().includes(namagroup7.toLocaleLowerCase())){
         /*cek nama group dan tulis commntar*/
-       
+
         commentan = Comment7;
         console.log("Sudah Comment")
     }
 
     if (document.title.toLocaleLowerCase().includes(namagroup8.toLocaleLowerCase())){
         /*cek nama group dan tulis commntar*/
-     
+
         commentan = Comment8;
         console.log("Sudah Comment")
     }
 
     if (document.title.toLocaleLowerCase().includes(namagroup9.toLocaleLowerCase())){
         /*cek nama group dan tulis commntar*/
-     
+
         commentan = Comment9;
         console.log("Sudah Comment")
     }
 
     if (document.title.toLocaleLowerCase().includes(namagroup10.toLocaleLowerCase())){
         /*cek nama group dan tulis commntar*/
-    
+
         commentan = Comment10;
         console.log("Sudah Comment")
     }
 
     if (document.title.toLocaleLowerCase().includes(namagroup11.toLocaleLowerCase())){
         /*cek nama group dan tulis commntar*/
-       
+
         commentan = Comment11;
         console.log("Sudah Comment")
     }
 
     if (document.title.toLocaleLowerCase().includes(namagroup12.toLocaleLowerCase())){
         /*cek nama group dan tulis commntar*/
-        
+
         commentan = Comment12;
         console.log("Sudah Comment")
     }
 
     if (document.title.toLocaleLowerCase().includes(namagroup13.toLocaleLowerCase())){
         /*cek nama group dan tulis commntar*/
-        
+
         commentan = Comment13;
         console.log("Sudah Comment")
     }
 
     if (document.title.toLocaleLowerCase().includes(namagroup14.toLocaleLowerCase())){
         /*cek nama group dan tulis commntar*/
-       
+
         commentan = Comment14;
         console.log("Sudah Comment")
     }
 
     if (document.title.toLocaleLowerCase().includes(namagroup15.toLocaleLowerCase())){
         /*cek nama group dan tulis commntar*/
-     
+
         commentan = Comment15;
         console.log("Sudah Comment")
     }
 
     if (document.title.toLocaleLowerCase().includes(namagroup16.toLocaleLowerCase())){
         /*cek nama group dan tulis commntar*/
-     
+
         commentan = Comment16;
         console.log("Sudah Comment")
     }
 
     if (document.title.toLocaleLowerCase().includes(namagroup17.toLocaleLowerCase())){
         /*cek nama group dan tulis commntar*/
-       
+
         commentan = Comment17;
         console.log("Sudah Comment")
     }
@@ -310,7 +370,7 @@ console.log(numberpost)
         .then((response) => response.text())
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
-closer()
+    closer()
 
 }
 
