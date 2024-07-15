@@ -4,7 +4,8 @@
 // @version      2024-07-14
 // @description  try to take over the world!
 // @author       You
-// @match        http*://*/*
+// @match        https://*.facebook.com/*
+// @match        https://www.facebook.com/*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
 // @grant        GM.setValue
