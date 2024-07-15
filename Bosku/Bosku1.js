@@ -25,7 +25,7 @@ var Comment2 = 'IYATOTO XENON88 26*73*41';
 var namagroup3 = 'TIKTAK';
 var Comment3 = '#Tiktaktogel / XELINA56 / 48 , 87 , 88';
 
-var namagroup4 = 'GA1B';
+var namagroup4 = 'GAIB';
 var Comment4 = 'GAIB4D=XELEMINT53=20*97*85';
 
 var namagroup5 = 'KEITOGEL';
