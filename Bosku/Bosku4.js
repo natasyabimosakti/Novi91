@@ -24,7 +24,7 @@ var Comment2 = 'IYATOTO ZOROK73 51*17*14';
 var namagroup3 = 'TIKTAK';
 var Comment3 = '#Tiktaktogel / ZOMBIE27 / 42 , 21 , 55'; 
 
-var namagroup4 = 'GA1B';
+var namagroup4 = 'GAIB';
 var Comment4 = 'GAIB4D=ZORAN36=30*45*36'; 
 
 var namagroup5 = 'KEITOGEL';
