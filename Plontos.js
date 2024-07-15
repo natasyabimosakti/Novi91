@@ -3,8 +3,8 @@
 // @namespace    http://tampermonkey.net/
 // @version      3.05
 // @description  try to take over the world!
-// @updateURL    
-// @downloadURL  
+// @updateURL
+// @downloadURL
 // @author       You
 // @match        http*://*/*
 // @run-at       document-end
@@ -59,9 +59,7 @@ var id17 = await GM.getValue(17);
 
 var refresh = 40;
 
-
-
-var admin = ["Siâo","habib","sofia","neng","arxidi","che","aldi","nino","sofia","sonia","serena","alde","puput","mad","hefi","dika","iyatoto","adm","celsia","jne","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","tiktak","nella","novi","sandiego","nasution","ratu","priyan","san","ria","sanjaya","siska","Baru","aditia","keitogel","safar","mahendra","multi","mariana","neman","tatang","dewi","primus","roy","dewi","melati","kumbara","dentoto","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
+var admin = ["Siâo","primus","habib","cassa","neng","arxidi","che","aldi","nino","sofia","sonia","serena","alde","puput","mad","hefi","dika","iyatoto","adm","celsia","jne","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","tiktak","nella","novi","sandiego","nasution","ratu","priyan","san","ria","sanjaya","siska","Baru","aditia","keitogel","safar","mahendra","multi","mariana","neman","tatang","dewi","primus","roy","dewi","melati","kumbara","dentoto","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
 
 
 var keyword1 = "ROOM"
