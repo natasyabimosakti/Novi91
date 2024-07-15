@@ -120,7 +120,7 @@ var Backlist7 = "result";
             /*Kirim Postingan*/
             /*Cek Jam Postingan*/
             var cekjam = articlefb[artic].children[1].textContent;
-            if(cekjam.slice(0,5).includes("Baru")||cekjam.slice(0,5).includes("1 mnt")||cekjam.slice(0,5).includes("2 mnt")||cekjam.slice(0,5).includes("3 mnt")||cekjam.slice(0,5).includes("4 mnt")){
+            if(cekjam.slice(0,5).includes("Baru")||cekjam.slice(0,5).includes("1 mnt")||cekjam.slice(0,5).includes("2 mnt")||cekjam.slice(0,5).includes("3 mnt")||cekjam.slice(0,5).includes("4 mnt")||cekjam.slice(0,7).includes("1 menit")||cekjam.slice(0,7).includes("2 menit")||cekjam.slice(0,7).includes("3 menit")||cekjam.slice(0,7).includes("4 menit")){
                 PostComment(artic)
                 return;
             }else{
