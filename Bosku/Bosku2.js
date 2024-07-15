@@ -24,7 +24,7 @@ var Comment2 = 'IYATOTO BOSEK64 49*67*64';
 var namagroup3 = 'TIKTAK';
 var Comment3 = '#Tiktaktogel / BOHOSEY3 / 33 , 08 , 16'; 
 
-var namagroup4 = 'GA1B';
+var namagroup4 = 'GAIB';
 var Comment4 = 'GAIB4D=BOSEN68=82*53*31'; 
 
 var namagroup5 = 'KEITOGEL';
