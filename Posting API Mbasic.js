@@ -101,7 +101,7 @@ var Backlist6 = "result";
 var Backlist7 = "result";
 
 setTimeout(function(){
-
+var reloader = document.querySelectorAll("[role='article']")[0].getElementsByTagName("strong")[1].children[0]
 
     var articlefb = document.querySelectorAll("[role='article']");
     for(var artic = 0; artic < articlefb.length; artic++) {
@@ -151,7 +151,7 @@ setTimeout(function(){
         }
 
     }
-    window.location.reload()
+    reloader.click()
 
 }, refresh * 10)
 
