@@ -88,50 +88,51 @@ var Backlist5 = "prediksi";
 var Backlist6 = "result";
 var Backlist7 = "result";
 
- setTimeout(function(){
+setTimeout(function(){
 
 
     var articlefb = document.querySelectorAll("[role='article']");
     for(var artic = 0; artic < articlefb.length; artic++) {
         var carikeyword = document.querySelectorAll("[role='article']")[artic].children[0].textContent.toLocaleLowerCase()
+        /*Cek Jam Postingan*/
+        var cekjam = articlefb[artic].children[1].textContent;
+        if(cekjam.slice(0,5).includes("Baru")||cekjam.slice(0,5).includes("1 mnt")||cekjam.slice(0,5).includes("2 mnt")||cekjam.slice(0,5).includes("3 mnt")||cekjam.slice(0,5).includes("4 mnt")||cekjam.slice(0,7).includes("1 menit")||cekjam.slice(0,7).includes("2 menit")||cekjam.slice(0,7).includes("3 menit")||cekjam.slice(0,7).includes("4 menit")){
 
-        if(carikeyword.includes(keyword1.toLocaleLowerCase())||
-           carikeyword.includes(keyword2.toLocaleLowerCase())||
-           carikeyword.includes(keyword3.toLocaleLowerCase())||
-           carikeyword.includes(keyword4.toLocaleLowerCase())||
-           carikeyword.includes(keyword5.toLocaleLowerCase())||
-           carikeyword.includes(keyword6.toLocaleLowerCase())||
-           carikeyword.includes(keyword7.toLocaleLowerCase())||
-           carikeyword.includes(keyword8.toLocaleLowerCase())||
-           carikeyword.includes(keyword9.toLocaleLowerCase())||
-           carikeyword.includes(keyword10.toLocaleLowerCase()) ){
-            console.log ("Keyword Di Temukan")
-            if(carikeyword.includes(Backlist1.toLocaleLowerCase())||
-               carikeyword.includes(Backlist2.toLocaleLowerCase())||
-               carikeyword.includes(Backlist3.toLocaleLowerCase())||
-               carikeyword.includes(Backlist4.toLocaleLowerCase())||
-               carikeyword.includes(Backlist5.toLocaleLowerCase())||
-               carikeyword.includes(Backlist6.toLocaleLowerCase())||
-               carikeyword.includes(Backlist7.toLocaleLowerCase()) ){
-                console.log ("BACKLIST Di Temukan . . . . !")
-               return;
-            }
-            console.log ("Backlist Tidak Di Temukan Lanjutkan Prosess")
-            /*Kirim Postingan*/
-            /*Cek Jam Postingan*/
-            var cekjam = articlefb[artic].children[1].textContent;
-            if(cekjam.slice(0,5).includes("Baru")||cekjam.slice(0,5).includes("1 mnt")||cekjam.slice(0,5).includes("2 mnt")||cekjam.slice(0,5).includes("3 mnt")||cekjam.slice(0,5).includes("4 mnt")||cekjam.slice(0,7).includes("1 menit")||cekjam.slice(0,7).includes("2 menit")||cekjam.slice(0,7).includes("3 menit")||cekjam.slice(0,7).includes("4 menit")){
+            if(carikeyword.includes(keyword1.toLocaleLowerCase())||
+               carikeyword.includes(keyword2.toLocaleLowerCase())||
+               carikeyword.includes(keyword3.toLocaleLowerCase())||
+               carikeyword.includes(keyword4.toLocaleLowerCase())||
+               carikeyword.includes(keyword5.toLocaleLowerCase())||
+               carikeyword.includes(keyword6.toLocaleLowerCase())||
+               carikeyword.includes(keyword7.toLocaleLowerCase())||
+               carikeyword.includes(keyword8.toLocaleLowerCase())||
+               carikeyword.includes(keyword9.toLocaleLowerCase())||
+               carikeyword.includes(keyword10.toLocaleLowerCase()) ){
+                console.log ("Keyword Di Temukan")
+                if(carikeyword.includes(Backlist1.toLocaleLowerCase())||
+                   carikeyword.includes(Backlist2.toLocaleLowerCase())||
+                   carikeyword.includes(Backlist3.toLocaleLowerCase())||
+                   carikeyword.includes(Backlist4.toLocaleLowerCase())||
+                   carikeyword.includes(Backlist5.toLocaleLowerCase())||
+                   carikeyword.includes(Backlist6.toLocaleLowerCase())||
+                   carikeyword.includes(Backlist7.toLocaleLowerCase()) ){
+                    console.log ("BACKLIST Di Temukan . . . . !")
+                    return;
+                }
+                console.log ("Backlist Tidak Di Temukan Lanjutkan Prosess")
+                /*Kirim Postingan*/
                 PostComment(artic)
                 return;
-            }else{
-                console.log ("JAM TIDAK DI TEMUKAN")
+                /*Kirim Postingan*/
 
             }
-             /*Kirim Postingan*/
+
+        }else{
+            console.log ("JAM TIDAK DI TEMUKAN")
         }
 
     }
-window.location.reload()
+    window.location.reload()
 
 }, refresh * 10)
 
@@ -141,7 +142,7 @@ window.location.reload()
 
 
 
- /*PostComment Jangan DI OTAK ATIK*/
+/*PostComment Jangan DI OTAK ATIK*/
 
 
 function PostComment(numberpost) {
