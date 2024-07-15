@@ -63,7 +63,7 @@ var namagroup16 = '521625';
 var Comment16 = '';
 
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Tester';
+var Comment17 = 'Mbasic';
 
 
 
@@ -112,7 +112,7 @@ var Backlist7 = "result";
                carikeyword.includes(Backlist4.toLocaleLowerCase())||
                carikeyword.includes(Backlist5.toLocaleLowerCase())||
                carikeyword.includes(Backlist6.toLocaleLowerCase())||
-               carikeyword.includes(keyword7.toLocaleLowerCase()) ){
+               carikeyword.includes(Backlist7.toLocaleLowerCase()) ){
                 console.log ("BACKLIST Di Temukan . . . . !")
                return;
             }
