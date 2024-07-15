@@ -12,6 +12,9 @@
 // @grant        window.close
 // ==/UserScript==
 /*Script Hanya Untuk Memosting Commentar Belum Termasuk Pencarian Room Lomba, Untuk Mencari Semua Postingan document.querySelectorAll("[role='article']")[0] di ganti length jumlah role='article yang tersedia*/
+
+var refresh = 40
+
 var namagroup1 = 'SHIOKELINCI';
 var Comment1 = '#shiokelinci4d*XERBIA13*06*80';
 
@@ -65,11 +68,12 @@ var Comment17 = 'Tester';
 
 
 
-(function() {
-    'use strict';
-PostComment()
-    // Your code here...
-})();
+var cariroomlomba = setInterval(function(){
+
+
+
+
+}, refresh * 10)
 
 
 
@@ -77,8 +81,11 @@ PostComment()
 
 
 
-function PostComment() {
 
+
+
+function PostComment(numberpost) {
+console.log(numberpost)
 
     var ceknamagroup
     var commentan
@@ -233,9 +240,9 @@ function PostComment() {
 
     /*cari identifier=*/
     var juson
-    for(var cake = 0; cake < document.querySelectorAll("[role='article']")[0].querySelectorAll("[href]").length; cake++) {
-        if(document.querySelectorAll("[role='article']")[0].querySelectorAll("[href]")[cake].href.includes("identifier=")){
-            juson = document.querySelectorAll("[role='article']")[0].querySelectorAll("[href]")[cake].href.split("identifier=",2).pop().split("&", 1)
+    for(var cake = 0; cake < document.querySelectorAll("[role='article']")[numberpost].querySelectorAll("[href]").length; cake++) {
+        if(document.querySelectorAll("[role='article']")[numberpost].querySelectorAll("[href]")[cake].href.includes("identifier=")){
+            juson = document.querySelectorAll("[role='article']")[numberpost].querySelectorAll("[href]")[cake].href.split("identifier=",2).pop().split("&", 1)
         }
     }
     console.log ("identifier="+juson)
@@ -245,11 +252,11 @@ function PostComment() {
 
     /*cari eav=*/
     var eav
-    for(var c = 0; c < document.querySelectorAll("[role='article']")[0].querySelectorAll("[href]").length; c++) {
-        if(document.querySelectorAll("[role='article']")[0].querySelectorAll("[href]")[c].textContent.includes("Komentar")){
+    for(var c = 0; c < document.querySelectorAll("[role='article']")[numberpost].querySelectorAll("[href]").length; c++) {
+        if(document.querySelectorAll("[role='article']")[numberpost].querySelectorAll("[href]")[c].textContent.includes("Komentar")){
 
-            if(document.querySelectorAll("[role='article']")[0].querySelectorAll("[href]")[c].href.includes("eav=")){
-                eav = document.querySelectorAll("[role='article']")[0].querySelectorAll("[href]")[c].href.split("eav=",2).pop().split('"', 1)
+            if(document.querySelectorAll("[role='article']")[numberpost].querySelectorAll("[href]")[c].href.includes("eav=")){
+                eav = document.querySelectorAll("[role='article']")[numberpost].querySelectorAll("[href]")[c].href.split("eav=",2).pop().split('"', 1)
             }
         }
 
@@ -299,11 +306,11 @@ function PostComment() {
         redirect: "follow"
     };
 
-    fetch("https://mbasic.facebook.com/a/comment.php?fs=8&fr=%2Fwap%2Fprofile_tribe.php&actionsource=0&comment_logging&ft_ent_identifier=1154868399172152&eav=Afbx3Y6M_jv4dH2prbvp6ochNUq6eQxWXDea914N6jKx_8Y_bP-t3c9rbOK3uxNIVag&av=100092568274071&gfid=AQCL513AfL_w82BI-0c&paipv=0&refid=18", requestOptions)
+    fetch(sot, requestOptions)
         .then((response) => response.text())
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
-    closer()
+closer()
 
 }
 
