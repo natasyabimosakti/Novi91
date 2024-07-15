@@ -63,12 +63,23 @@ var Comment15 = 'VESPATOGEL (XIONGYU6)  72*13*38';
 var namagroup16 = '521625';
 var Comment16 = '';
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 var namagroup17 = 'Jawatengah';
 var Comment17 = 'Mbasic';
 
-
-
-
+var admin = ["Siâo","primus","habib","cassa","neng","arxidi","che","aldi","nino","sofia","sonia","serena","alde","puput","mad","hefi","dika","iyatoto","adm","celsia","jne","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","tiktak","nella","novi","sandiego","nasution","ratu","priyan","san","ria","sanjaya","siska","Baru","aditia","keitogel","safar","mahendra","multi","mariana","neman","tatang","dewi","primus","roy","dewi","melati","kumbara","dentoto","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
 
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
@@ -120,11 +131,18 @@ setTimeout(function(){
                     console.log ("BACKLIST Di Temukan . . . . !")
                     return;
                 }
-                console.log ("Backlist Tidak Di Temukan Lanjutkan Prosess")
-                /*Kirim Postingan*/
-                PostComment(artic)
-                return;
-                /*Kirim Postingan*/
+                console.log ("Backlist Tidak Di Temukan Lanjutkan Prosess Cek Admin")
+
+                for (var adm in admin){
+                    var cekadmin = articlefb[artic].children[0].children[0].textContent.toLocaleLowerCase()
+                    if(cekadmin.includes(admin[adm].toLocaleLowerCase())){
+                         console.log ("Admin ditemukan = " + admin[adm] )
+                        /*Kirim Postingan*/
+                        PostComment(artic)
+                        return;
+                        /*Kirim Postingan*/
+                    }
+                }
 
             }
 
