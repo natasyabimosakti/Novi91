@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW KADUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.39
+// @version      3.40
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut2.js
@@ -28,7 +28,7 @@ var Comment2 = 'IYATOTO SRIWING72 98*95*76';
 var namagroup3 = 'TIKTAK';
 var Comment3 = '#Tiktaktogel / SRIMIT64 / 79 , 36 , 61'; 
 
-var namagroup4 = 'GA1B';
+var namagroup4 = 'GAIB';
 var Comment4 = 'GAIB4D=SRIWET67=79*36*61'; 
 
 var namagroup5 = 'KEITOGEL';
