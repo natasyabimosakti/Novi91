@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AUTO  JOIN
 // @namespace    http://tampermonkey.net/
-// @version      0.10
+// @version      0.11
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoJoin.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoJoin.js
@@ -14,31 +14,14 @@
 // @grant       window.close
 // ==/UserScript==
 
-var refresh = 250;
+var refresh = 400;
 var cekjoin1 = document.getElementsByClassName('native-text')[10]
 var cekjoin2 = document.getElementsByClassName('native-text')[11]
 var cekjoin3 = document.getElementsByClassName('native-text')[12]
 var cekjoin4 = document.getElementsByClassName('native-text')[13]
 var cekjoin5 = document.getElementsByClassName('native-text')[14]
 setInterval(function(){
-    for(var it = 0; it < document.querySelectorAll("[data-actual-height]").length; it++){
-        if(document.querySelectorAll("[data-actual-height]")[it].textContent.includes("Bergabung")){ 
-            document.querySelectorAll("[data-actual-height]")[it].click()
-        }
-    }
-    'use strict';
-    if(document.querySelectorAll("[aria-label='Grup']")[0]){
-        if(document.querySelectorAll("[aria-label='Grup']")[0].textContent == "Grup"){
-            document.querySelectorAll("[aria-label='Grup']")[0].click()
-        }
-    }
-    if(document.querySelectorAll("[data-store-id='17']")[0]){
-
-        if(document.querySelectorAll("[data-store-id='17']")[0].textContent = "Grup"){
-            document.querySelectorAll("[data-store-id='17']")[0].click();
-        }
-
-    }
+    document.querySelectorAll("[aria-label='Bergabung grup']")[0].click()
 
     if(cekjoin1||cekjoin2||cekjoin3||cekjoin4||cekjoin5){
         if(cekjoin1.textContent.includes("Bergabung grup")==true) {
