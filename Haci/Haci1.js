@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi1
 // @namespace    http://tampermonkey.net/
-// @version      3.48
+// @version      3.49
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci1.js
@@ -112,7 +112,7 @@ var admin = ["aldi","artha","adelia","ananda","aditia","andri","ayesha","aurel",
              "oun","oscar","otong",
              "puput","primus","priyan",
              "ratu","roy","rendy","ria","ruto","riko","rano","robby",
-             "sanchez","sutanti","siska","safar","sanjaya","san","sandiego","sloter","sinta","slooter","sabrina","salsabila","sintia","sejitu",
+             "sanchez","sutanti","siska","safar","sanjaya","san","sandiego","sloter","sinta","selly","slooter","sabrina","salsabila","sintia","sejitu",
              "tink","thonex","tiara","tania","tag",
              "ujen",
              "vonny","viona","virna",
