@@ -13,8 +13,6 @@
 // @grant        GM.getValue
 // @grant        window.close
 // ==/UserScript==
-var refresh = 40;
-
 
 
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
