@@ -96,7 +96,7 @@ var id17 = await GM.getValue(17);
             
                     
 
-var admin = ["aldi","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","andy","ayesha",
+var admin = ["Siâo","aldi","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","andy","ayesha",
              "brian","boboho","bobby","bonar","bella","bastian","bungaps",
              "cinta","calvin","celsia","celine",
              "denis","dollar","dewa","dewi","dinda","dika","dea",
