@@ -19,8 +19,8 @@
 
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
-var namagroup1 = 'RITOGEL';
-var Comment1 = '#RITOGEL(YATIMART)86*66*46'; 
+var namagroup1 = 'YAO';
+var Comment1 = '#YAOTOGEL YATIMART 86*66*46'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( YAKUZA16 ) : 26*54*34'; 
