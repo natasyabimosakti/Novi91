@@ -146,7 +146,7 @@ var refresh = 70;
 
 
 
-var admin = ["Siâo","aldi","alenta","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","andy","ayesha",
+var admin = ["Siâo","aldi","alenta","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","asmani","andy","ayesha",
 
              "brian","boboho","bobby","bonar","bella","bastian","bungaps",
 
@@ -170,13 +170,13 @@ var admin = ["Siâo","aldi","alenta","artha","adelia","ananda","aditia","andri",
 
              "lehman","lianda","laura","leon","lidya","larissa","leksa","lina",
 
-             "manu","mesa","mardia","maes","mad","miranda","melati","minion","mariana","mahendra","multi","megaways",
+             "manu","mesa","mardia","mila","maes","mad","miranda","melati","minion","mariana","mahendra","multi","megaways",
 
-             "nadila","neng","naura","nathaya","nella","neman","novi",
+             "nadila","neng","naura","nathaya","nick","nella","neman","novi",
 
              "oun","oscar","otong",
 
-             "puput","primus","priyan",
+             "puput","primus","pura","priyan",
 
              "ratu","roy","rendy","ria","ruto","riko","rano","robby",
 
@@ -190,7 +190,7 @@ var admin = ["Siâo","aldi","alenta","artha","adelia","ananda","aditia","andri",
 
              "wahid","wahzo","wok","wndt","wiena",
 
-             "yoky","yasmine","yohana",
+             "yoky","yasmine","yao","yohana",
 
              "zurro"];
 
