@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna2
 // @namespace    http://tampermonkey.net/
-// @version      3.43
+// @version      3.44
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna2.js
@@ -20,8 +20,8 @@
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 
-var namagroup1 = 'RITOGEL';
-var Comment1 = '#RITOGEL(BOSEY73)06*41*14'; 
+var namagroup1 = 'YAO';
+var Comment1 = '#YAOTOGEL BOSEY73 06*41*14'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( BOSEK64 ) : 45*02*19'; 
