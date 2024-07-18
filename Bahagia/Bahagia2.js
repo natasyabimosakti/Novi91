@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia2
 // @namespace    http://tampermonkey.net/
-// @version      3.07
+// @version      3.08
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia2.js
@@ -19,8 +19,8 @@
 
 
 
-var namagroup1 = 'RITOGEL';
-var Comment1 = '#RITOGEL(BIMBO91)75*40*73'; 
+var namagroup1 = 'YAO';
+var Comment1 = '#YAOTOGEL BIMBO91 75*40*73'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( BIMBO91 ) : 52*35*54'; 
