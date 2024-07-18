@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi1
 // @namespace    http://tampermonkey.net/
-// @version      3.50
+// @version      3.51
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci1.js
@@ -18,8 +18,8 @@
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 
-var namagroup1 = 'RITOGEL';
-var Comment1 = '#RITOGEL(GUNGJI1)59*95*87'; 
+var namagroup1 = 'YAO';
+var Comment1 = '#YAOTOGEL GUNGJI1 59*95*87'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( GUNGHOK4 ) : 18*28*38'; 
