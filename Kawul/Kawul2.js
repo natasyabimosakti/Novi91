@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul2
 // @namespace    http://tampermonkey.net/
-// @version      3.06
+// @version      3.07
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul2.js
@@ -18,8 +18,8 @@
 
 
 /*======================================================================Paste Script Tampermonkeyi sini===============================================================*/
-var namagroup1 = 'RITOGEL';
-var Comment1 = '#RITOGEL(SRIWLIT62)88*99*82'; 
+var namagroup1 = 'YAO';
+var Comment1 = '#YAOTOGEL SRIWLIT62 88*99*82'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( SRIWING72 ) : 29*33*32'; 
