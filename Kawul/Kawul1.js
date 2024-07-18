@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul1
 // @namespace    http://tampermonkey.net/
-// @version      3.06
+// @version      3.07
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
@@ -15,8 +15,8 @@
 // ==/UserScript==
 
 
-var namagroup1 = 'RITOGEL';
-var Comment1 = '#RITOGEL(BUNDER0)71*11*45'; 
+var namagroup1 = 'YAO';
+var Comment1 = '#YAOTOGEL BUNDER0 71*11*45'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( BOLINA61 ) : 49*40*28'; 
