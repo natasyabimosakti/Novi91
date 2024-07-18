@@ -74,7 +74,7 @@ var Comment16 = 'CITA4D*YANIRI03*09*97*29';
 
 var namagroup17 = 'Jawatengah';
 
-var Comment17 = 'Tester';
+var Comment17 = 'Teating';
 
 
 
