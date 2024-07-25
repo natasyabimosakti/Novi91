@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut1
 // @namespace    http://tampermonkey.net/
-// @version      3.52
+// @version      3.53
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut1.js
@@ -48,13 +48,13 @@ var namagroup10 = 'SLOTO';
 var Comment10 = '#SLOTOGEL (MANUK123) : 54*74*88'; 
 
 var namagroup11 = 'KEBAYA';
-var Comment11 = '(KEBAYA4D) = (MANANUK213) 39*90*66'; 
+var Comment11 = '(KEBAYA4D) = (MANANUK213) 29*35*21'; 
 
 var namagroup12 = 'BESTOTO';
 var Comment12 = 'MANUKGENI12 : 22*62*71 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=MANUKX12=29*35*21'; 
+var Comment13 = 'GOHTOGEL=MANUKX12=39*90*66'; 
 
 var namagroup14 = 'BLITAR';
 var Comment14 = '#BLITAR4D ( MANUKGENI12 ) : 80*25*72'; 
