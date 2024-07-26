@@ -15,57 +15,6 @@
 // ==/UserScript==
 
 
-var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*ANANDA122*03*38'; 
-
-var namagroup2 = 'MIMPI';
-var Comment2 = 'IYATOTO ANAKCODA83 10*17*97'; 
-
-var namagroup3 = 'TIKTAK';
-var Comment3 = '#Tiktaktogel / ASUKAU348 / 52 , 36 , 32'; 
-
-var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=ANJANI48=47*06*04'; 
-
-var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (ANITI348) = 45*91*44'; 
-
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=ANDONG49=56*30*11'; 
-
-var namagroup7 = '453P';
-var Comment7 = 'ASEPTOGEL ANJLOK549 09*73*80'; 
-
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=ANUNTU284=52*36*77'; 
-
-var namagroup9 = 'GILA';
-var Comment9 = 'GILA4D=ANALOH49=09*73*80'; 
-
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(ALORJI3)*87*48*49'; 
-
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*AMPEK43*03*38*81*'; 
-
-var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY AMARE45 47*06*04'; 
-
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( AMBOH45 ) : 56*30*11'; 
-
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 45*91*44 ( ARAKROH57 )'; 
-
-var namagroup15 = 'HATRICK';
-var Comment15 = 'VESPATOGEL (AMITAMI4)  10*17*97'; 
-
-var namagroup16 = '';
-var Comment16 = '';
-
-
-
-
 
 
 
@@ -461,3 +410,5 @@ function clicksend() {
 function closer() {
     setTimeout(function(){location.href = "about:blank"},5)
 }
+
+
