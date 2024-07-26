@@ -18,7 +18,56 @@
 
 
 
+var namagroup1 = 'SHIOKELINCI';
+var Comment1 = '#shiokelinci4d*QOMAR26*17*95'; 
 
+var namagroup2 = 'BUKU';
+var Comment2 = 'IYATOTO QOMAR27 55*90*06'; 
+
+var namagroup3 = 'TIKTAK';
+var Comment3 = '#Tiktaktogel / QOMAR28 / 51 , 35 , 01'; 
+
+var namagroup4 = 'GAIB';
+var Comment4 = 'GAIB4D=QOMAR29=36*80*62#100'; 
+
+var namagroup5 = 'KEITOGEL';
+var Comment5 = '#keitogel = (QOMAR26) = 36*80*62'; 
+
+var namagroup6 = 'KIOST0T0';
+var Comment6 = 'KIOSTOTO=QUMU17=37*15*50'; 
+
+var namagroup7 = '453P VIP';
+var Comment7 = 'ASEPTOGEL QOMIR23 14*57*99'; 
+
+var namagroup8 = 'ANGKER';
+var Comment8 = 'ANGKER4D=QOMIR23=65*56*99'; 
+
+var namagroup9 = 'GILA';
+var Comment9 = 'GILA4D=QOMA123=65*56*48'; 
+
+var namagroup10 = 'JNE';
+var Comment10 = '#JNETOTO(QOMARUT14)*14*57*42'; 
+
+var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
+var Comment11 = '#TA*QOMINTO15*37*15*50*'; 
+
+var namagroup12 = 'MASTER KUY';
+var Comment12 = 'TOGELKUY QANAS52 36*80*62'; 
+
+var namagroup13 = 'TOYIBSLOT';
+var Comment13 = '#TOYIBSLOT ( QOECK62 ) : 51*35*01'; 
+
+var namagroup14 = 'DENTOTO';
+var Comment14 = '#DENTOTO 55*90*06 ( QOQOM52 )'; 
+
+var namagroup15 = 'HATRICK';
+var Comment15 = 'VESPATOGEL (QUMUR19)  17*95*61'; 
+
+var namagroup16 = 'LOMBA TEBAK';
+var Comment16 = 'TOYA (QOMINTO15) 47*54*49'; 
+
+var namagroup17 = 'CIVIC';
+var Comment17 = '#CIVICTOTO(QANAS52) = 48*42';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Tester';
