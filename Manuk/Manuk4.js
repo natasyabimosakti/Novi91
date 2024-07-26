@@ -17,57 +17,6 @@
 
 
 
-var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*PLECISILIT*85*06'; 
-
-var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO PLECIKAWAT 43*81*55'; 
-
-var namagroup3 = 'TIKTAK';
-var Comment3 = '#Tiktaktogel / PLECIAMBON / 86 , 05 , 80'; 
-
-var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=PLECICIAK=86*05*90'; 
-
-var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (PLECIKICIK) = 59*01*04'; 
-
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=PLECIAHAH=14*88*48'; 
-
-var namagroup7 = '453P';
-var Comment7 = 'ASEPTOGEL PLECICILAN 59*01*04'; 
-
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=PLECIKLUK=12*32*64'; 
-
-var namagroup9 = 'GILA';
-var Comment9 = 'GILA4D=PLECUAN=12*32*64'; 
-
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(PLECIKAN)*12*32*64'; 
-
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*PLECISAN*14*88*48*'; 
-
-var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY PLECIANS 38*57*77'; 
-
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( PLECIKI21 ) : 43*81*55'; 
-
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 38*57*77 ( PLECINDI23 )'; 
-
-var namagroup15 = 'HATRICK';
-var Comment15 = 'VESPATOGEL (PLECIKUS1)  46*33*02'; 
-
-var namagroup16 = '2131231';
-var Comment16 = '';
- 
-
-
-
 
 
 
@@ -463,3 +412,5 @@ function clicksend() {
 function closer() {
     setTimeout(function(){location.href = "about:blank"},5)
 }
+
+
