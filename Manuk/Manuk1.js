@@ -18,58 +18,6 @@
 
 
 
-var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*MANUKU12*42*26'; 
-
-var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO MANUKU27 03*70*62'; 
-
-var namagroup3 = 'TIKTAK';
-var Comment3 = '#Tiktaktogel / MANUKU478 / 89 , 40 , 07'; 
-
-var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=MANUK123=99*40*07'; 
-
-var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (MANANUK213) = 45*51*84'; 
-
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=MANUKGENI12=13*11*91'; 
-
-var namagroup7 = '453P';
-var Comment7 = 'ASEPTOGEL MANUKX12 03*70*62'; 
-
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=MAUKUR287=97*95*73'; 
-
-var namagroup9 = 'GILA';
-var Comment9 = 'GILA4D=MANUKAN11=97*95*73'; 
-
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(MANUK123)*97*95*73'; 
-
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*MANANUK213*42*26*18*'; 
-
-var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY MANUKGENI12 44*58*27'; 
-
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( MANUKX12 ) : 45*51*84'; 
-
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 44*58*27 ( MAUKUR287 )'; 
-
-var namagroup15 = 'HATRICK';
-var Comment15 = 'VESPATOGEL (MANUKAN11)  56*83*68'; 
-
-var namagroup16 = '123123';
-var Comment16 = '';
-
-
-
-
-
 
 
 var namagroup18 = 'Jawatengah';
@@ -464,3 +412,5 @@ function clicksend() {
 function closer() {
     setTimeout(function(){location.href = "about:blank"},5)
 }
+
+
