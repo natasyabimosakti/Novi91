@@ -14,54 +14,6 @@
 // @grant        window.close
 // ==/UserScript==
 
-var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*ZONEST2*65*32'; 
-
-var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO ZOROK73 51*17*14'; 
-
-var namagroup3 = 'TIKTAK';
-var Comment3 = '#Tiktaktogel / ZOMBIE27 / 42 , 21 , 55'; 
-
-var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=ZORAN36=30*45*36'; 
-
-var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (ZONIAK63) = 25*54*74'; 
-
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=ZOMING82=44*94*05'; 
-
-var namagroup7 = '453P';
-var Comment7 = 'ASEPTOGEL ZONATIK73 44*94*05'; 
-
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=ZONATING=15*86*07'; 
-
-var namagroup9 = 'GILA';
-var Comment9 = 'GILA4D=ZOWOK26=42*21*18'; 
-
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(ZOKET72)*22*83*81'; 
-
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*ZOKUTU72*51*17*14*'; 
-
-var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY ZOWEKNI82 22*83*81'; 
-
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( ZOWINDO ) : 65*32*61'; 
-
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 30*45*36 ( ZORLETA )'; 
-
-var namagroup15 = 'HATRICK';
-var Comment15 = 'VESPATOGEL (ZONIAK26)  25*54*74'; 
-
-var namagroup16 = 'hdnqkwg7';
-var Comment16 = '';
-
 
 
 
@@ -459,3 +411,5 @@ function clicksend() {
 function closer() {
     setTimeout(function(){location.href = "about:blank"},5)
 }
+
+
