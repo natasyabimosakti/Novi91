@@ -15,57 +15,6 @@
 // ==/UserScript==
 
 
-var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*BOSEY73*39*96'; 
-
-var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO BOSEK64 49*67*64'; 
-
-var namagroup3 = 'TIKTAK';
-var Comment3 = '#Tiktaktogel / BOHOSEY3 / 33 , 08 , 16'; 
-
-var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=BOSEN68=82*53*31'; 
-
-var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (BOSMAN67) = 39*96*29'; 
-
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=BOSMINI88=43*11*89'; 
-
-var namagroup7 = '453P';
-var Comment7 = 'ASEPTOGEL BOSNOM63 43*11*89'; 
-
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=BOSTER73=37*99*84'; 
-
-var namagroup9 = 'GILA';
-var Comment9 = 'GILA4D=BOSREN64=57*08*16'; 
-
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(BOSLON89)*35*75*78'; 
-
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*BOSBIG53*49*67*64*'; 
-
-var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY BOSBIS48 35*75*78'; 
-
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( BOSLEM64 ) : 91*27*52'; 
-
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 82*53*31 ( BOSBEN64 )'; 
-
-var namagroup15 = 'HATRICK';
-var Comment15 = 'VESPATOGEL (BOSBOS64)  91*27*52'; 
-
-var namagroup16 = '64926h';
-var Comment16 = '';
-
-
-
-
 
 
 var namagroup18 = 'Jawatengah';
