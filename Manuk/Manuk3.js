@@ -17,57 +17,6 @@
 
 
 
-var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*DOROKERTO*20*71'; 
-
-var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO DOROMIBER 29*52*30'; 
-
-var namagroup3 = 'TIKTAK';
-var Comment3 = '#Tiktaktogel / DORONYOK / 94 , 50 , 28'; 
-
-var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=DOROPOL12=36*50*28'; 
-
-var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (DORODOR12) = 47*65*24'; 
-
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=DOROWIS12=96*53*37'; 
-
-var namagroup7 = '453P';
-var Comment7 = 'ASEPTOGEL DOROMAN12 47*65*24'; 
-
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=DOROKERTO3=98*49*72'; 
-
-var namagroup9 = 'GILA';
-var Comment9 = 'GILA4D=DOROMIBER2=98*49*72'; 
-
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(DORONYOK31)*98*49*72'; 
-
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*DOROPOL12*96*53*37*'; 
-
-var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY DORODOR12 79*23*22'; 
-
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( DOROWIS12 ) : 29*52*30'; 
-
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 79*23*22 ( DOROMAN12 )'; 
-
-var namagroup15 = 'HATRICK';
-var Comment15 = 'VESPATOGEL (DOROKU21)  35*78*82'; 
-
-var namagroup16 = '12312312';
-var Comment16 = '';
- 
-
-
-
 
 
 var namagroup18 = 'Jawatengah';
@@ -462,3 +411,5 @@ function clicksend() {
 function closer() {
     setTimeout(function(){location.href = "about:blank"},5)
 }
+
+
