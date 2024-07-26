@@ -19,57 +19,6 @@
 
 
 
-var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*CANDRA61*66*64'; 
-
-var namagroup2 = 'MIMPI';
-var Comment2 = 'IYATOTO CANDIL68 13*45*12'; 
-
-var namagroup3 = 'TIKTAK';
-var Comment3 = '#Tiktaktogel / CANTOLAN23 / 28 , 36 , 78'; 
-
-var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=CANDRIK23=50*23*94'; 
-
-var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (CANTOLKAWAT) = 13*45*12'; 
-
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=CARIK25=28*36*78'; 
-
-var namagroup7 = '453P';
-var Comment7 = 'ASEPTOGEL CANDRAWIJ 01*56*16'; 
-
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=CANDUL5=21*08*15'; 
-
-var namagroup9 = 'GILA';
-var Comment9 = 'GILA4D=CANDIL68=28*36*78'; 
-
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(CANTOLKAWAT)*66*64*73'; 
-
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*CANDRAWIJ*25*20*40*'; 
-
-var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY CANTOLSEMPAK 21*08*15'; 
-
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( CANDATAWA1 ) : 25*20*40'; 
-
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 50*23*94 ( CANCAN54 )'; 
-
-var namagroup15 = 'HATRICK';
-var Comment15 = 'VESPATOGEL (CUILATEM)  19*86*09'; 
-
-var namagroup16 = 'awdawd1';
-var Comment16 = '';
-
-
-
-
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Tester';
@@ -463,3 +412,5 @@ function clicksend() {
 function closer() {
     setTimeout(function(){location.href = "about:blank"},5)
 }
+
+
