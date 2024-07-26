@@ -17,7 +17,56 @@
 
 
 
+var namagroup1 = 'SHIOKELINCI';
+var Comment1 = '#shiokelinci4d*SAKBIL*93*62'; 
 
+var namagroup2 = 'BUKU';
+var Comment2 = 'IYATOTO SAKUWIL 21*73*87'; 
+
+var namagroup3 = 'TIKTAK';
+var Comment3 = '#Tiktaktogel / SANGEKABEH / 34 , 76 , 24'; 
+
+var namagroup4 = 'GAIB';
+var Comment4 = 'GAIB4D=SAKAREPMU=06*28*27'; 
+
+var namagroup5 = 'KEITOGEL';
+var Comment5 = '#keitogel = (SANDALMABUR) = 37*13*02'; 
+
+var namagroup6 = 'KIOST0T0';
+var Comment6 = 'KIOSTOTO=SAKEMBER=90*79*09'; 
+
+var namagroup7 = '453P VIP';
+var Comment7 = 'ASEPTOGEL SAMBATAE 15*98*86'; 
+
+var namagroup8 = 'ANGKER';
+var Comment8 = 'ANGKER4D=SAMBATAE=37*13*02'; 
+
+var namagroup9 = 'GILA';
+var Comment9 = 'GILA4D=SALAMANSEK=93*62*42'; 
+
+var namagroup10 = 'JNE';
+var Comment10 = '#JNETOTO(SAIKIPIYE)*21*73*87'; 
+
+var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
+var Comment11 = '#TA*SANTAYBOSKU*34*76*24*'; 
+
+var namagroup12 = 'MASTER KUY';
+var Comment12 = 'TOGELKUY SAWERBOSE0 06*28*27'; 
+
+var namagroup13 = 'TOYIBSLOT';
+var Comment13 = '#TOYIBSLOT ( SAWERSEK ) : 16*81*71'; 
+
+var namagroup14 = 'DENTOTO';
+var Comment14 = '#DENTOTO 90*79*09 ( SALAMANAE )'; 
+
+var namagroup15 = 'HATRICK';
+var Comment15 = 'VESPATOGEL (SALAMANAE)  15*98*63'; 
+
+var namagroup16 = 'LOMBA TEBAK';
+var Comment16 = 'TOYA (SAKUWIL) 37*13*63'; 
+
+var namagroup17 = 'CIVIC';
+var Comment17 = '#CIVICTOTO(SANGEKABEH) = 02*86';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Tester';
