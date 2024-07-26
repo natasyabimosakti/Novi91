@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF3
 // @namespace    http://tampermonkey.net/
-// @version      3.115
+// @version      3.116
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf3.js
@@ -18,61 +18,8 @@
 
 
 
-var namagroup1 = 'MIMPI';
-var Comment1 = 'IYATOTO TIGAPASTI 93*23*80'; 
-
-var namagroup2 = 'ANGKER';
-var Comment2 = 'ANGKER4D=TRIWITUA=20*69*64'; 
-
-var namagroup3 = 'JNE';
-var Comment3 = '#JNETOTO(SPVTRIWIDA91)*61*91*95'; 
-
-var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=PAUSTRIWIDA =94*42*21'; 
-
-var namagroup5 = 'TOYIBSLOT';
-var Comment5 = '#TOYIBSLOT ( TRIWIDA91 ) : 38*79*85'; 
-
-var namagroup6 = 'TIKTAK';
-var Comment6 = '#Tiktaktogel / TRIGERING / 36 , 08 , 09'; 
-
-var namagroup7 = '453P';
-var Comment7 = 'ASEPTOGEL TIMTIM57 20*69*64'; 
-
-var namagroup8 = 'MASTER KUY';
-var Comment8 = 'TOGELKUY TRIWITUA 36*08*09'; 
-
-var namagroup9 = 'SHIOKELINCI';
-var Comment9 = '#shiokelinci4d*TRIWIDA91*38*79'; 
-
-var namagroup10 = 'GILA';
-var Comment10 = 'GILA4D=TIRN18=94*42*21'; 
-
-var namagroup11 = 'KEITOGEL';
-var Comment11 = '#keitogel = (TRIWID91) = 61*91*95'; 
-
-var namagroup12 = 'KIOST0T0';
-var Comment12 = 'KIOSTOTO=TIMTIM57=32*02*67'; 
-
-var namagroup13 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment13 = '#TA*TRIWID91*93*23*80*'; 
-
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 56*44*76 ( TRIWID91 )'; 
-
-var namagroup15 = 'HATRICK';
-var Comment15 = ''; 
-
-var namagroup16 = '123213213';
-var Comment16 = '123123';
-
-
-
-
-
-
-var namagroup17 = 'Jawatengah';
-var Comment17 = 'Tester';
+var namagroup18 = 'Jawatengah';
+var Comment18 = 'Tester';
 
 
 
@@ -106,7 +53,7 @@ var refresh = 70;
 
 
 
-var admin = ["camb","jaguar","Siâo","primus","habib","cassa","neng","arxidi","che","aldi","nino","sofia","sonia","serena","alde","puput","mad","hefi","dika","iyatoto","adm","celsia","jne","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","tiktak","nella","novi","sandiego","nasution","ratu","priyan","san","ria","sanjaya","siska","Baru","aditia","keitogel","safar","mahendra","multi","mariana","neman","tatang","dewi","primus","roy","dewi","melati","kumbara","dentoto","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
+var admin = ["lusiana","fahresa","rizal","jordi","surianti","satria","boleng","yanty","pung","tiara","cristina","fira","ayunda","mersya","nona","camb","jaguar","Siâo","primus","habib","cassa","neng","arxidi","che","aldi","nino","sofia","sonia","serena","alde","puput","mad","hefi","dika","iyatoto","adm","celsia","jne","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","tiktak","nella","novi","sandiego","nasution","ratu","priyan","san","ria","sanjaya","siska","Baru","aditia","keitogel","safar","mahendra","multi","mariana","neman","tatang","dewi","primus","roy","dewi","melati","kumbara","dentoto","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
 
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
@@ -420,6 +367,16 @@ var commentanku = setInterval(function(){
                         /*cek nama group dan tulis commntar*/
                         GM.setValue( 17,1);
                         document.getElementsByClassName("internal-input")[0].value = Comment17;
+                        console.log("Sudah Comment")
+                        clicksend();
+                    }
+                }
+                if (ceknamagroup[namag].textContent.includes(namagroup18) ) {
+                    /*cek nama group dan tulis commntar*/
+                    if( document.getElementsByClassName("internal-input")[0] ){
+                        /*cek nama group dan tulis commntar*/
+                        GM.setValue( 18,1);
+                        document.getElementsByClassName("internal-input")[0].value = Comment18;
                         console.log("Sudah Comment")
                         clicksend();
                     }
