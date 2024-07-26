@@ -18,7 +18,56 @@
 
 
 
+var namagroup1 = 'SHIOKELINCI';
+var Comment1 = '#shiokelinci4d*SRIWLIT62*56*58'; 
 
+var namagroup2 = 'BUKU';
+var Comment2 = 'IYATOTO SRIWING72 18*52*36'; 
+
+var namagroup3 = 'TIKTAK';
+var Comment3 = '#Tiktaktogel / SRIMIT64 / 00 , 20 , 30'; 
+
+var namagroup4 = 'GAIB';
+var Comment4 = 'GAIB4D=SRIWET67=94*43*12'; 
+
+var namagroup5 = 'KEITOGEL';
+var Comment5 = '#keitogel = (SRIANU36) = 40*92*55'; 
+
+var namagroup6 = 'KIOST0T0';
+var Comment6 = 'KIOSTOTO=SRIWIDURTI=11*45*66'; 
+
+var namagroup7 = '453P VIP';
+var Comment7 = 'ASEPTOGEL SRINDIM63 05*48*07'; 
+
+var namagroup8 = 'ANGKER';
+var Comment8 = 'ANGKER4D=SRINDIM63=70*54*57'; 
+
+var namagroup9 = 'GILA';
+var Comment9 = 'GILA4D=SRIWEL74=56*58*49'; 
+
+var namagroup10 = 'JNE';
+var Comment10 = '#JNETOTO(SRIWING67)*18*52*36'; 
+
+var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
+var Comment11 = '#TA*SRIANU36*00*20*30*'; 
+
+var namagroup12 = 'MASTER KUY';
+var Comment12 = 'TOGELKUY SRISUWING 94*43*12'; 
+
+var namagroup13 = 'TOYIBSLOT';
+var Comment13 = '#TOYIBSLOT ( SRIMBELEWEL ) : 40*92*55'; 
+
+var namagroup14 = 'DENTOTO';
+var Comment14 = '#DENTOTO 11*45*66 ( SRILAKCU )'; 
+
+var namagroup15 = 'HATRICK';
+var Comment15 = 'VESPATOGEL (SRILAKCU)  05*48*91'; 
+
+var namagroup16 = 'LOMBA TEBAK';
+var Comment16 = 'TOYA (SRIWLIT62) 70*54*91'; 
+
+var namagroup17 = 'CIVIC';
+var Comment17 = '#CIVICTOTO(SRIWING72) = 57*07';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Tester';
