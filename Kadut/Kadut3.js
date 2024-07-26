@@ -19,7 +19,56 @@
 
 
 
+var namagroup1 = 'SHIOKELINCI';
+var Comment1 = '#shiokelinci4d*JOROKLU63*72*39'; 
 
+var namagroup2 = 'BUKU';
+var Comment2 = 'IYATOTO JOMPLANG 77*46*69'; 
+
+var namagroup3 = 'TIKTAK';
+var Comment3 = '#Tiktaktogel / JONTOR6 / 61 , 89 , 97'; 
+
+var namagroup4 = 'GAIB';
+var Comment4 = 'GAIB4D=JOKOBODO=47*23*10'; 
+
+var namagroup5 = 'KEITOGEL';
+var Comment5 = '#keitogel = (JOSUWISUWI) = 80*51*95'; 
+
+var namagroup6 = 'KIOST0T0';
+var Comment6 = 'KIOSTOTO=JOSRAIMU=22*35*78'; 
+
+var namagroup7 = '453P VIP';
+var Comment7 = 'ASEPTOGEL JOROKKWE 60*32*38'; 
+
+var namagroup8 = 'ANGKER';
+var Comment8 = 'ANGKER4D=JOROKKWE=80*51*95'; 
+
+var namagroup9 = 'GILA';
+var Comment9 = 'GILA4D=JOMLANG63=72*39*99'; 
+
+var namagroup10 = 'JNE';
+var Comment10 = '#JNETOTO(JOMNDUL73)*77*46*69'; 
+
+var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
+var Comment11 = '#TA*JONTOR64*61*89*97*'; 
+
+var namagroup12 = 'MASTER KUY';
+var Comment12 = 'TOGELKUY JOJONBETAWI 47*23*10'; 
+
+var namagroup13 = 'TOYIBSLOT';
+var Comment13 = '#TOYIBSLOT ( JONGONO ) : 26*53*82'; 
+
+var namagroup14 = 'DENTOTO';
+var Comment14 = '#DENTOTO 22*35*78 ( JOROKLUH )'; 
+
+var namagroup15 = 'HATRICK';
+var Comment15 = 'VESPATOGEL (JOROKLUH)  60*32*64'; 
+
+var namagroup16 = 'LOMBA TEBAK';
+var Comment16 = 'TOYA (JOMPLANG) 80*51*64'; 
+
+var namagroup17 = 'CIVIC';
+var Comment17 = '#CIVICTOTO(JONTOR6) = 95*38';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Tester';
