@@ -16,8 +16,56 @@
 
 
 
+var namagroup1 = 'SHIOKELINCI';
+var Comment1 = '#shiokelinci4d*YONOBO74*47*23'; 
 
+var namagroup2 = 'BUKU';
+var Comment2 = 'IYATOTO YONOBO74 26*53*82'; 
 
+var namagroup3 = 'TIKTAK';
+var Comment3 = '#Tiktaktogel / YONOBO74 / 22 , 35 , 78'; 
+
+var namagroup4 = 'GAIB';
+var Comment4 = 'GAIB4D=YONOBO74=60*32*38'; 
+
+var namagroup5 = 'KEITOGEL';
+var Comment5 = '#keitogel = (YONOBO74) = 80*51*95'; 
+
+var namagroup6 = 'KIOST0T0';
+var Comment6 = 'KIOSTOTO=YONOBO74=72*39*99'; 
+
+var namagroup7 = '453P VIP';
+var Comment7 = 'ASEPTOGEL YONOBO74 77*46*69'; 
+
+var namagroup8 = 'ANGKER';
+var Comment8 = 'ANGKER4D=YOBENWES3=61*89*97'; 
+
+var namagroup9 = 'GILA';
+var Comment9 = 'GILA4D=YOWESBEN6=61*89*97'; 
+
+var namagroup10 = 'JNE';
+var Comment10 = '#JNETOTO(YONEKWIK37)*77*46*64'; 
+
+var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
+var Comment11 = '#TA*YOYOKWIK3*72*39*64*'; 
+
+var namagroup12 = 'MASTER KUY';
+var Comment12 = 'TOGELKUY YOKOJO3 80*51*95'; 
+
+var namagroup13 = 'TOYIBSLOT';
+var Comment13 = '#TOYIBSLOT ( YOKWIK47 ) : 60*32*38'; 
+
+var namagroup14 = 'DENTOTO';
+var Comment14 = '#DENTOTO 22*35*78 ( YOJUAH63 )'; 
+
+var namagroup15 = 'HATRICK';
+var Comment15 = 'VESPATOGEL (YOREAN63)  26*53*82'; 
+
+var namagroup16 = 'LOMBA TEBAK';
+var Comment16 = 'TOYA (YOYOKWIK3) 47*23*10'; 
+
+var namagroup17 = 'CIVIC';
+var Comment17 = '#CIVICTOTO(YOKOJO3) = 69*99';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Tester';
