@@ -19,59 +19,6 @@
 
 
 
-var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*EKODOK33*55*95'; 
-
-var namagroup2 = 'MIMPI';
-var Comment2 = 'IYATOTO EKORENG51 14*04*65'; 
-
-var namagroup3 = 'TIKTAK';
-var Comment3 = '#Tiktaktogel / EKOJIM46 / 58 , 84 , 62'; 
-
-var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=EKODAM375=72*57*76'; 
-
-var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (EKOROK64) = 14*04*65'; 
-
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=EKONDANG12=58*84*62'; 
-
-var namagroup7 = '453P';
-var Comment7 = 'ASEPTOGEL EKOCOK75 88*90*34'; 
-
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=EKORKU42=77*91*68'; 
-
-var namagroup9 = 'GILA';
-var Comment9 = 'GILA4D=EKORENG51=58*84*62'; 
-
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(EKOROK64)*55*95*59'; 
-
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*EKOCOK75*33*10*85*'; 
-
-var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY EKOCONG41 77*91*68'; 
-
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( EKOROP47 ) : 33*10*85'; 
-
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 72*57*76 ( EKOR665 )'; 
-
-var namagroup15 = 'HATRICK';
-var Comment15 = 'VESPATOGEL (EKOWIJAY1)  29*82*83'; 
-
-var namagroup16 = '1231231';
-var Comment16 = '';
-
-
-
-
-
-
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Tester';
 
@@ -464,3 +411,5 @@ function clicksend() {
 function closer() {
     setTimeout(function(){location.href = "about:blank"},5)
 }
+
+
