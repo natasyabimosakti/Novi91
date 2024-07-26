@@ -17,7 +17,56 @@
 
 
 
+var namagroup1 = 'SHIOKELINCI';
+var Comment1 = '#shiokelinci4d*HONO212*17*95'; 
 
+var namagroup2 = 'BUKU';
+var Comment2 = 'IYATOTO HONOS112 55*90*06'; 
+
+var namagroup3 = 'TIKTAK';
+var Comment3 = '#Tiktaktogel / HORESU14 / 51 , 35 , 01'; 
+
+var namagroup4 = 'GAIB';
+var Comment4 = 'GAIB4D=HONDANG41=36*80*62'; 
+
+var namagroup5 = 'KEITOGEL';
+var Comment5 = '#keitogel = (HOMOGEN12) = 37*15*50'; 
+
+var namagroup6 = 'KIOST0T0';
+var Comment6 = 'KIOSTOTO=HOPENG99=14*57*42'; 
+
+var namagroup7 = '453P VIP';
+var Comment7 = 'ASEPTOGEL HORE713 65*56*48'; 
+
+var namagroup8 = 'ANGKER';
+var Comment8 = 'ANGKER4D=HOPRET303=47*54*49'; 
+
+var namagroup9 = 'GILA';
+var Comment9 = 'GILA4D=HONOS112=47*54*99'; 
+
+var namagroup10 = 'JNE';
+var Comment10 = '#JNETOTO(HOMOGEN12)*65*56*99'; 
+
+var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
+var Comment11 = '#TA*HORE713*14*57*42*'; 
+
+var namagroup12 = 'MASTER KUY';
+var Comment12 = 'TOGELKUY HONANI41 37*15*50'; 
+
+var namagroup13 = 'TOYIBSLOT';
+var Comment13 = '#TOYIBSLOT ( HOJOL134 ) : 36*80*62'; 
+
+var namagroup14 = 'DENTOTO';
+var Comment14 = '#DENTOTO 51*35*01 ( HOCIANG12 )'; 
+
+var namagroup15 = 'HATRICK';
+var Comment15 = 'VESPATOGEL (HOKINANN)  55*90*06'; 
+
+var namagroup16 = 'LOMBA TEBAK';
+var Comment16 = 'TOYA (HOPRET303) 17*95*61'; 
+
+var namagroup17 = 'CIVIC';
+var Comment17 = '#CIVICTOTO(HONOS112) = 48*49';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Tester';
