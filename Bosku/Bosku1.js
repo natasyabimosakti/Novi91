@@ -16,57 +16,6 @@
 
 
 
-var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*XERBIA13*06*80';
-
-var namagroup2 = 'MIMPI';
-var Comment2 = 'IYATOTO XENON88 26*73*41';
-
-var namagroup3 = 'TIKTAK';
-var Comment3 = '#Tiktaktogel / XELINA56 / 48 , 87 , 88';
-
-var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=XELEMINT53=20*97*85';
-
-var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (XELOP83) = 06*80*69';
-
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=XANXAN68=68*28*71';
-
-var namagroup7 = '453P';
-var Comment7 = 'ASEPTOGEL XONKING52 23*76*02';
-
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=XELINA56=23*76*02';
-
-var namagroup9 = 'GILA';
-var Comment9 = 'GILA4D=XEROPON=48*87*90';
-
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(XENDION)*95*93*59';
-
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*XERLAK67*26*73*41*';
-
-var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY XIANTAR6 95*93*59';
-
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( XIOYIB47 ) : 72*13*38';
-
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 20*97*85 ( XIAOLAN6 )';
-
-var namagroup15 = 'HATRICK';
-var Comment15 = 'VESPATOGEL (XIONGYU6)  72*13*38';
-
-var namagroup16 = '521625';
-var Comment16 = '';
-
-
-
-
 
 
 var namagroup18 = 'Jawatengah';
