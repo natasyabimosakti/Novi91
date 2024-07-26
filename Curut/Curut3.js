@@ -18,57 +18,6 @@
 
 
 
-var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*ALDIANAS16*04*46'; 
-
-var namagroup2 = 'MIMPI';
-var Comment2 = 'IYATOTO ALAKTRAS 61*67*22'; 
-
-var namagroup3 = 'TIKTAK';
-var Comment3 = '#Tiktaktogel / ALASAN36 / 41 , 83 , 08'; 
-
-var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=ALFATAH16=28*21*15'; 
-
-var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (ALIMN26) = 42*16*50'; 
-
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=ALKODAR13=52*65*12'; 
-
-var namagroup7 = '453P';
-var Comment7 = '#ASEPTOGEL ALAKADUR14 04*46*75'; 
-
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=ALAKADUR14=28*21*15'; 
-
-var namagroup9 = 'GILA';
-var Comment9 = 'GILA4D=ALKON26=28*21*15'; 
-
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(ALKUDIR19)*42*16*50'; 
-
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*ALAHAKBAR*41*83*08*'; 
-
-var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY ALDRUN19 61*67*22'; 
-
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( ALUMNI212 ) : 99*97*95'; 
-
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 99*97*95 ( ALMAR19 )'; 
-
-var namagroup15 = 'HATRICK';
-var Comment15 = 'VESPATOGEL (ALAHMBUH)  09*70*43'; 
-
-var namagroup16 = 'hstqh';
-var Comment16 = 'absen';
-
-
-
-
 
 
 var namagroup18 = 'Jawatengah';
@@ -463,3 +412,5 @@ function clicksend() {
 function closer() {
     setTimeout(function(){location.href = "about:blank"},5)
 }
+
+
