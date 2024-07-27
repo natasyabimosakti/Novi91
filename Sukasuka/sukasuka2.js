@@ -60,7 +60,7 @@ var namagroup14 = 'DENTOTO';
 var Comment14 = '#DENTOTO 02*09*38 ( BIKANG12 )'; 
 
 var namagroup15 = 'HATRICK';
-var Comment15 = 'VESPATOGEL (BAMIN12)  67*98*05'; 
+var Comment15 = 'VESPATOGEL (POCITA19)  67*98*05'; 
 
 var namagroup16 = 'LOMBA TEBAK';
 var Comment16 = 'TOYA (BAMIN12) 78*46*77'; 
