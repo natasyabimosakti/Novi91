@@ -43,8 +43,8 @@ var Comment8 = 'ANGKER4D=ASRIN32=55*90*06';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=ASALAM44=55*90*06'; 
 
-var namagroup10 = 'L0MBA T0T0';
-var Comment10 = '#TOTO4D (ASABKUBUR12) 17*95*61'; 
+var namagroup10 = 'PEJUANG';
+var Comment10 = '#JNETOTO(ASABKUBUR12)*17*95*61'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*ASIMATJUMBO*47*54*49*'; 
