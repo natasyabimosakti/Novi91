@@ -44,8 +44,8 @@ var Comment8 = 'ANGKER4D=ZONATING=34*76*24';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=ZOWOK26=34*76*24'; 
 
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(ZOKET72)*21*73*63'; 
+var namagroup10 = 'L0MBA T0T0';
+var Comment10 = '#TOTO4D (ZOKET72) 21*73*63'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*ZOKUTU72*93*62*63*'; 
