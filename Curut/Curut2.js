@@ -45,8 +45,8 @@ var Comment8 = 'ANGKER4D=MOMER14=11*20*38';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=MOLET25=11*20*83'; 
 
-var namagroup10 = 'L0MBA T0T0';
-var Comment10 = '#TOTO4D (MOSIOM19) 58*88*41'; 
+var namagroup10 = 'PEJUANG';
+var Comment10 = '#JNETOTO(MOSIOM19)*58*88*41'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*MORATUL19*02*09*60*'; 
