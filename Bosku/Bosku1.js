@@ -41,8 +41,8 @@ var Comment8 = 'ANGKER4D=XELINA56=08*14*33';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=XEROPON=08*14*33'; 
 
-var namagroup10 = 'L0MBA T0T0';
-var Comment10 = '#TOTO4D (XENDION) 17*84*51'; 
+var namagroup10 = 'PEJUANG';
+var Comment10 = '#JNETOTO(XENDION)*17*84*51'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*XERLAK67*88*75*61*'; 
