@@ -42,8 +42,8 @@ var Comment8 = 'ANGKER4D=KRISTANTI34=78*46*77';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=KRISMALI2=78*46*77'; 
 
-var namagroup10 = 'L0MBA T0T0';
-var Comment10 = '#TOTO4D (KRISANTI46) 71*96*75'; 
+var namagroup10 = 'PEJUANG';
+var Comment10 = '#JNETOTO(KRISANTI46)*71*96*75'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*KRISUNDEL5*12*86*68*'; 
