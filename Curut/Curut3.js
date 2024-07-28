@@ -45,8 +45,8 @@ var Comment8 = 'ANGKER4D=ALAKADUR14=63*30*97';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=ALKON26=63*30*72'; 
 
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(ALKUDIR19)*73*10*45'; 
+var namagroup10 = 'L0MBA T0T0';
+var Comment10 = '#TOTO4D (ALKUDIR19) 73*10*45'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*ALAHAKBAR*52*26*70*'; 
