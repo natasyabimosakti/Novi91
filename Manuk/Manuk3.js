@@ -44,8 +44,8 @@ var Comment8 = 'ANGKER4D=DOROKERTO3=60*32*38';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=DOROMIBER2=26*53*82'; 
 
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(DORONYOK31)*47*23*10'; 
+var namagroup10 = 'L0MBA T0T0';
+var Comment10 = '#TOTO4D (DORONYOK31) 47*23*10'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*DOROPOL12*61*89*97*'; 
