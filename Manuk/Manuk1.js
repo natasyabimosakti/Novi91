@@ -45,8 +45,8 @@ var Comment8 = 'ANGKER4D=MAUKUR287=25*85*67';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=MANUKAN11=96*83*68'; 
 
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(MANUK123)*29*74*04'; 
+var namagroup10 = 'L0MBA T0T0';
+var Comment10 = '#TOTO4D (MANUK123) 29*74*04'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*MANANUK213*08*14*33*'; 
