@@ -45,8 +45,8 @@ var Comment8 = 'ANGKER4D=CANDUL5=25*16*85';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=CANDIL68=25*16*43'; 
 
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(CANTOLKAWAT)*19*03*43'; 
+var namagroup10 = 'L0MBA T0T0';
+var Comment10 = '#TOTO4D (CANTOLKAWAT) 19*03*43'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*CANDRAWIJ*31*44*59*'; 
