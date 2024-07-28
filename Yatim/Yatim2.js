@@ -43,8 +43,8 @@ var Comment8 = 'ANGKER4D=FERKERR=58*88*41';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=FERGILL=02*09*60'; 
 
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(FERJENS)*67*98*05'; 
+var namagroup10 = 'L0MBA T0T0';
+var Comment10 = '#TOTO4D (FERJENS) 67*98*05'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*FERRAT*78*46*77*'; 
