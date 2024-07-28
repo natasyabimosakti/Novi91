@@ -43,8 +43,8 @@ var Comment8 = 'ANGKER4D=SIPIRIT10=73*10*45';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=SIKUKAKU11=52*26*70'; 
 
-var namagroup10 = 'L0MBA T0T0';
-var Comment10 = '#TOTO4D (SIKLUWER) 04*76*81'; 
+var namagroup10 = 'PEJUANG';
+var Comment10 = '#JNETOTO(SIKLUWER)*04*76*81'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*SINTING19*00*28*07*'; 
