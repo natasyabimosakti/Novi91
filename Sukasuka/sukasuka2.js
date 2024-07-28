@@ -44,8 +44,8 @@ var Comment8 = 'ANGKER4D=BINOMO77=71*96*75';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=BEKOL12=71*96*75'; 
 
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(BINAKARMA54)*12*86*68'; 
+var namagroup10 = 'L0MBA T0T0';
+var Comment10 = '#TOTO4D (BINAKARMA54) 12*86*68'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*BERANAK76*33*92*66*'; 
