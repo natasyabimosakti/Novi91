@@ -44,8 +44,8 @@ var Comment8 = 'ANGKER4D=ELANG51=05*48*07';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=ELANG94=40*92*55'; 
 
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(ELANG72)*94*43*12'; 
+var namagroup10 = 'L0MBA T0T0';
+var Comment10 = '#TOTO4D (ELANG72) 94*43*12'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*ELANGY33*00*20*30*'; 
