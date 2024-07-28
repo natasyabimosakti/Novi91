@@ -45,8 +45,8 @@ var Comment8 = 'ANGKER4D=SRINDIM63=70*54*57';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=SRIWEL74=56*58*49'; 
 
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(SRIWING67)*18*52*36'; 
+var namagroup10 = 'L0MBA T0T0';
+var Comment10 = '#TOTO4D (SRIWING67) 18*52*36'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*SRIANU36*00*20*30*'; 
