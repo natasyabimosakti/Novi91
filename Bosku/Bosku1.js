@@ -14,7 +14,7 @@
 // @grant        window.close
 // ==/UserScript==
 
-"var namagroup1 = 'SHIOKELINCI';
+var namagroup1 = 'SHIOKELINCI';
 var Comment1 = '#shiokelinci4d*XERBIA13*29*74'; 
 
 var namagroup2 = 'BUKU';
@@ -63,7 +63,7 @@ var namagroup16 = 'LOMBA TEBAK';
 var Comment16 = 'TOYA (XENDION) 29*74*04'; 
 
 var namagroup17 = 'CIVIC';
-var Comment17 = '#CIVICTOTO(XERLAK67) = 65*50';"	
+var Comment17 = '#CIVICTOTO(XERLAK67) = 65*50';
 
 
 
