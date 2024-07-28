@@ -44,8 +44,8 @@ var Comment8 = 'ANGKER4D=EKORKU42=33*92*66';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=EKORENG51=33*92*38'; 
 
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(EKOROK64)*11*20*38'; 
+var namagroup10 = 'L0MBA T0T0';
+var Comment10 = '#TOTO4D (EKOROK64) 11*20*38'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*EKOCOK75*58*88*41*'; 
