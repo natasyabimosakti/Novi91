@@ -44,8 +44,8 @@ var Comment8 = 'ANGKER4D=SAMBATAE=37*13*02';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=SALAMANSEK=93*62*42'; 
 
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(SAIKIPIYE)*21*73*87'; 
+var namagroup10 = 'L0MBA T0T0';
+var Comment10 = '#TOTO4D (SAIKIPIYE) 21*73*87'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*SANTAYBOSKU*34*76*24*'; 
