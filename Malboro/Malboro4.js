@@ -44,8 +44,8 @@ var Comment8 = 'ANGKER4D=DORAEMON34=94*89*29';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=DAMIAN12=31*44*59'; 
 
-var namagroup10 = 'L0MBA T0T0';
-var Comment10 = '#TOTO4D (DUGALTOK) 94*89*29'; 
+var namagroup10 = 'PEJUANG';
+var Comment10 = '#JNETOTO(DUGALTOK)*94*89*29'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*DANIELXL*08*87*53*'; 
