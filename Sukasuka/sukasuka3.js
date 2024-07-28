@@ -44,8 +44,8 @@ var Comment8 = 'ANGKER4D=CUILANSENG12=34*13*79';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=CUALINSENG41=34*13*79'; 
 
-var namagroup10 = 'L0MBA T0T0';
-var Comment10 = '#TOTO4D (CACINGAN54) 22*24*21'; 
+var namagroup10 = 'PEJUANG';
+var Comment10 = '#JNETOTO(CACINGAN54)*22*24*21'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*CIANGSUI54*64*40*69*'; 
@@ -67,7 +67,7 @@ var Comment16 = 'TOYA (CUCUKU76) 00*28*07';
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(CUCUBUAYA65) = 70*45';
-
+    
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Tester';
 
