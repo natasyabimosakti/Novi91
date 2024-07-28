@@ -42,8 +42,8 @@ var Comment8 = 'ANGKER4D=GUNGYUDZ=14*57*42';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=GUNGCUAKZ=37*15*50'; 
 
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(GUNGPOKE)*36*80*62'; 
+var namagroup10 = 'L0MBA T0T0';
+var Comment10 = '#TOTO4D (GUNGPOKE) 36*80*62'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*GUNGDUSS*51*35*01*'; 
@@ -64,8 +64,8 @@ var namagroup16 = 'LOMBA TEBAK';
 var Comment16 = 'TOYA (GUNGJI1) 14*57*42'; 
 
 var namagroup17 = 'CIVIC';
-var Comment17 = '#CIVICTOTO(GUNGPOKE) = 01*62';
-
+var Comment17 = '#CIVICTOTO(GUNGPOKE) = 01*62';	
+    
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Tester';
 
