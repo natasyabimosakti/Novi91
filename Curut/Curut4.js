@@ -43,8 +43,8 @@ var Comment8 = 'ANGKER4D=TUKUSAPU12=19*03*43';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=TUKUEMPEK10=19*03*18'; 
 
-var namagroup10 = 'L0MBA T0T0';
-var Comment10 = '#TOTO4D (TUKANGBATU) 31*44*59'; 
+var namagroup10 = 'PEJUANG';
+var Comment10 = '#JNETOTO(TUKANGBATU)*31*44*59'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*TURUSU71*94*89*29*'; 
