@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna1
 // @namespace    http://tampermonkey.net/
-// @version      3.46
+// @version      3.47
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna1.js
@@ -20,52 +20,52 @@
 
 
 var namagroup1 = 'YAO';
-var Comment1 = '#YAOTOGEL XERBIA13 43*31*29'; 
+var Comment1 = '#YAOTOGEL XERBIA13 35*59*02'; 
 
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( XENON88 ) : 89*76*27'; 
+var Comment2 = 'K86TOTO ( XENON88 ) : 92*34*16'; 
 
 var namagroup3 = 'PUSAT LOMBA';
-var Comment3 = 'Shiotogel4d (XEROPON) 23*64*35'; 
+var Comment3 = 'Shiotogel4d (XEROPON) 96*08*85'; 
 
 var namagroup4 = 'SEJ1TU';
-var Comment4 = '#SEJITU ( XELEMINT53 ) : 65*84*78'; 
+var Comment4 = '#SEJITU ( XELEMINT53 ) : 75*65*30'; 
 
 var namagroup5 = 'RNR';
-var Comment5 = '‌#RNR303(XELOP83) : 68*10*52'; 
+var Comment5 = '‌#RNR303(XELOP83) : 50*89*04'; 
 
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (XANXAN68) = 12*57*13'; 
+var Comment6 = '#DIVA4D (XANXAN68) = 37*45*29'; 
 
 var namagroup7 = 'Hoho';
-var Comment7 = 'XONKING52 : 83*87*26 #HOHOTOGEL'; 
+var Comment7 = 'XONKING52 : 40*61*21 #HOHOTOGEL'; 
 
 var namagroup8 = 'TOK99T0T0';
-var Comment8 = 'Tok99Toto ( XELINA56 ) : 15*70*16'; 
+var Comment8 = 'Tok99Toto ( XELINA56 ) : 67*80*74'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL XELOP83 77*87*26'; 
+var Comment9 = 'SIJITOGEL XELOP83 75*65*30'; 
 
 var namagroup10 = 'SLOTO';
-var Comment10 = '#SLOTOGEL (XENDION) : 15*70*16'; 
+var Comment10 = '#SLOTOGEL (XENDION) : 50*89*04'; 
 
 var namagroup11 = 'KEBAYA';
-var Comment11 = '(KEBAYA4D) = (XERLAK67) 23*64*35'; 
+var Comment11 = '(KEBAYA4D) = (XERLAK67) 45*29*94'; 
 
 var namagroup12 = 'BESTOTO';
-var Comment12 = 'XIANTAR6 : 27*76*89 #BESTOTO88'; 
+var Comment12 = 'XIANTAR6 : 40*61*21 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=XIOYIB47=43*31*29'; 
+var Comment13 = 'GOHTOGEL=XIOYIB47=35*59*02'; 
 
 var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D ( XANXAN68 ) : 65*84*78'; 
+var Comment14 = '#BLITAR4D ( XANXAN68 ) : 92*34*16'; 
 
 var namagroup15 = 'XX1';
-var Comment15 = '#XX1TOTO (XIONGYU6)  68*10*52 BETTING'; 
+var Comment15 = '#XX1TOTO (XIONGYU6)  67*80*74 BETTING'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*XIAOLAN6*12*57*13';
+var Comment16 = 'CITA4D*XIAOLAN6*37*96*08';
 
 
 
