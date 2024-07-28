@@ -43,8 +43,8 @@ var Comment8 = 'ANGKER4D=ZULAFRNA002=17*95*61';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=ZUHULU00=17*95*61'; 
 
-var namagroup10 = 'L0MBA T0T0';
-var Comment10 = '#TOTO4D (ZULFCANTIK) 47*54*49'; 
+var namagroup10 = 'PEJUANG';
+var Comment10 = '#JNETOTO(ZULFCANTIK)*47*54*49'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*ZULFANI*65*56*99*'; 
