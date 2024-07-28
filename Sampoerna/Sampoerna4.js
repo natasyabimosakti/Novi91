@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna4
 // @namespace    http://tampermonkey.net/
-// @version      3.46
+// @version      3.47
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna4.js
@@ -21,52 +21,52 @@
 
 
 var namagroup1 = 'YAO';
-var Comment1 = '#YAOTOGEL ZONEST2 44*36*54'; 
+var Comment1 = '#YAOTOGEL ZONEST2 63*73*41'; 
 
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( ZOROK73 ) : 72*97*00'; 
+var Comment2 = 'K86TOTO ( ZOROK73 ) : 86*07*43'; 
 
 var namagroup3 = 'PUSAT LOMBA';
-var Comment3 = 'Shiotogel4d (ZOWOK26) 17*04*08'; 
+var Comment3 = 'Shiotogel4d (ZOWOK26) 90*44*55'; 
 
 var namagroup4 = 'SEJ1TU';
-var Comment4 = '#SEJITU ( ZORAN36 ) : 25*95*21'; 
+var Comment4 = '#SEJITU ( ZORAN36 ) : 19*00*05'; 
 
 var namagroup5 = 'RNR';
-var Comment5 = '‌#RNR303(ZONIAK63) : 42*60*91'; 
+var Comment5 = '‌#RNR303(ZONIAK63) : 25*46*72'; 
 
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (ZOMING82) = 80*69*07'; 
+var Comment6 = '#DIVA4D (ZOMING82) = 15*51*49'; 
 
 var namagroup7 = 'Hoho';
-var Comment7 = 'ZONATIK73 : 49*40*46 #HOHOTOGEL'; 
+var Comment7 = 'ZONATIK73 : 93*99*54 #HOHOTOGEL'; 
 
 var namagroup8 = 'TOK99T0T0';
-var Comment8 = 'Tok99Toto ( ZONATING ) : 24*50*09'; 
+var Comment8 = 'Tok99Toto ( ZONATING ) : 98*64*12'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL ZONIAK63 49*40*46'; 
+var Comment9 = 'SIJITOGEL ZONIAK63 19*00*05'; 
 
 var namagroup10 = 'SLOTO';
-var Comment10 = '#SLOTOGEL (ZOKET72) : 24*50*09'; 
+var Comment10 = '#SLOTOGEL (ZOKET72) : 25*46*72'; 
 
 var namagroup11 = 'KEBAYA';
-var Comment11 = '(KEBAYA4D) = (ZOKUTU72) 04*08#10'; 
+var Comment11 = '(KEBAYA4D) = (ZOKUTU72) 51*49*13'; 
 
 var namagroup12 = 'BESTOTO';
-var Comment12 = 'ZOWEKNI82 : 28*72*97 #BESTOTO88'; 
+var Comment12 = 'ZOWEKNI82 : 93*99*54 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=ZOWINDO=17*44*36'; 
+var Comment13 = 'GOHTOGEL=ZOWINDO=63*73*41'; 
 
 var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D ( ZOMING82 ) : 25*95*21'; 
+var Comment14 = '#BLITAR4D ( ZOMING82 ) : 86*07*43'; 
 
 var namagroup15 = 'XX1';
-var Comment15 = '#XX1TOTO (ZONIAK26)  42*60*91 BETTING'; 
+var Comment15 = '#XX1TOTO (ZONIAK26)  98*64*12 BETTING'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*ZOWINDO*80*69*07';
+var Comment16 = 'CITA4D*ZOWINDO*15*90*44';
 
 
 
