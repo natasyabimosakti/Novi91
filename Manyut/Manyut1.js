@@ -44,8 +44,8 @@ var Comment8 = 'ANGKER4D=HOPRET303=47*54*49';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=HONOS112=47*54*99'; 
 
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(HOMOGEN12)*65*56*99'; 
+var namagroup10 = 'L0MBA T0T0';
+var Comment10 = '#TOTO4D (HOMOGEN12) 65*56*99'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*HORE713*14*57*42*'; 
