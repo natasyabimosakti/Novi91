@@ -45,8 +45,8 @@ var Comment8 = 'ANGKER4D=PLECIKLUK=15*98*86';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=PLECUAN=16*81*71'; 
 
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(PLECIKAN)*06*28*27'; 
+var namagroup10 = 'L0MBA T0T0';
+var Comment10 = '#TOTO4D (PLECIKAN) 06*28*27'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
 var Comment11 = '#TA*PLECISAN*34*76*24*'; 
