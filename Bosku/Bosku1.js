@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE1
 // @namespace    http://tampermonkey.net/
-// @version      3.50
+// @version      3.51
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
@@ -42,10 +42,10 @@ var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=XEROPON=08*14*33'; 
 
 var namagroup10 = 'PEJUANG';
-var Comment10 = '#JNETOTO(XENDION)*17*84*51'; 
+var Comment10 = '#JNETOTO(XENDION)*17*84*41'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*XERLAK67*88*75*61*'; 
+var Comment11 = '#TA*XERLAK67*88*75*41*'; 
 
 var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY XIANTAR6 01*44*31'; 
