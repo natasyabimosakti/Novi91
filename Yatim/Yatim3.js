@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim3
 // @namespace    http://tampermonkey.net/
-// @version      3.41
+// @version      3.42
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim3.js
@@ -58,8 +58,8 @@ var Comment13 = '#TOYIBSLOT ( SIMPAL19 ) : 22*24*21';
 var namagroup14 = 'DENTOTO';
 var Comment14 = '#DENTOTO 64*40*69 ( SIUDUK19 )'; 
 
-var namagroup15 = 'HATRICK';
-var Comment15 = 'VESPATOGEL (SIMUMET17)  63*30*72'; 
+var namagroup15 = 'SIJI';
+var Comment15 = 'SIJITOGEL SIMPAK17 63*30*72'; 
 
 var namagroup16 = 'LOMBA TEBAK';
 var Comment16 = 'TOYA (SILUWET) 73*10*45'; 
@@ -98,7 +98,7 @@ var id17 = await GM.getValue(17);
 
 
 
-var refresh = 70;
+var refresh = 40;
 
 
 
