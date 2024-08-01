@@ -73,6 +73,7 @@ var Comment16 = 'CITA4D*SRIWING72*29*33*32';
 
 
 
+
 var namagroup17 = 'Jawatengah';
 var Comment17 = 'Tester';
 
@@ -104,6 +105,10 @@ var id17 = await GM.getValue(17);
 
 
 
+var refresh = 70;
+
+
+
 var admin = ["Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","asmani","andy","ayesha",
              "brian","boboho","bobby","bonar","bella","bastian","bungaps",
              "cinta","calvin","celsia","cila","cindy","chintya","carole","celine",
@@ -128,6 +133,7 @@ var admin = ["Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia
              "wahid","wahzo","wok","wndt","wiena",
              "yoky","yasmine","yao","yohana",
              "zurro"];
+
 
 
 var keyword1 = "ROOM"
