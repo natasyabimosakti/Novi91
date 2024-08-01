@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF2
 // @namespace    http://tampermonkey.net/
-// @version      3.116
+// @version      3.117
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
@@ -58,8 +58,8 @@ var Comment13 = '#TOYIBSLOT ( CUNTRUS ) : 02*09*60';
 var namagroup14 = 'DENTOTO';
 var Comment14 = '#DENTOTO 67*98*05 ( SUNDEL46 )'; 
 
-var namagroup15 = 'HATRICK';
-var Comment15 = 'VESPATOGEL (RAJANYAJP12)  78*46*77'; 
+var namagroup15 = 'SIJI';
+var Comment15 = 'SIJITOGEL RAJANYAJP12 78*46*77'; 
 
 var namagroup16 = 'LOMBA TEBAK';
 var Comment16 = 'TOYA (ALBAKU13) 71*96*75'; 
@@ -98,7 +98,7 @@ var id17 = await GM.getValue(17);
 
 
 
-var refresh = 70;
+var refresh = 40;
 
 
 
