@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul3
 // @namespace    http://tampermonkey.net/
-// @version      3.43
+// @version      3.44
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul3.js
@@ -33,8 +33,8 @@ var Comment5 = '‌#RNR303(JOVINDUL) : 20*27*60';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (JOSRAIMU) = 72*14*35'; 
 
-var namagroup7 = 'Hoho';
-var Comment7 = 'JOROKKWE : 87*22*02 #HOHOTOGEL'; 
+var namagroup7 = 'ORMAS';
+var Comment7 = 'ORMASTOTO(JOROKKWE) : 87*22*02'; 
 
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( JOROKKWE ) : 74*15*89'; 
@@ -42,8 +42,8 @@ var Comment8 = 'Tok99Toto ( JOROKKWE ) : 74*15*89';
 var namagroup9 = 'Wellz';
 var Comment9 = 'SIJITOGEL JOMLANG63 64*48*86'; 
 
-var namagroup10 = 'SLOTO';
-var Comment10 = '#SLOTOGEL (JOMNDUL73) : 43*53*16'; 
+var namagroup10 = 'LING';
+var Comment10 = 'LING77 (JOMNDUL73) 43*53*16'; 
 
 var namagroup11 = 'KEBAYA';
 var Comment11 = '(KEBAYA4D) = (JONTOR64) 87*22*02'; 
@@ -62,10 +62,6 @@ var Comment15 = '#XX1TOTO (JOROKLUH)  98*27*60 BETTING';
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*JOROKKWE*90*23*65';
-/*======================================================================Paste Script Tampermonkey di sini===============================================================*/
-
-
-
 
 
 
