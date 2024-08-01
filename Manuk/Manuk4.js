@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 4
 // @namespace    http://tampermonkey.net/
-// @version      3.44
+// @version      3.46
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk4.js
@@ -60,8 +60,8 @@ var Comment13 = '#TOYIBSLOT ( PLECIKI21 ) : 93*62*63';
 var namagroup14 = 'DENTOTO';
 var Comment14 = '#DENTOTO 90*79*63 ( PLECINDI23 )'; 
 
-var namagroup15 = 'HATRICK';
-var Comment15 = 'VESPATOGEL (PLECIKUS1)  15*98*86'; 
+var namagroup15 = 'SIJI';
+var Comment15 = 'SIJITOGEL PLECIKICIK 15*98*86'; 
 
 var namagroup16 = 'LOMBA TEBAK';
 var Comment16 = 'TOYA (PLECISILIT) 37*13*02'; 
