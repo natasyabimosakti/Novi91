@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang4
 // @namespace    http://tampermonkey.net/
-// @version      3.42
+// @version      3.43
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang4.js
@@ -34,8 +34,8 @@ var Comment5 = '‌#RNR303(TOMBRENG34) : 52*93*35';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (TOMBOY23) = 14*70*29'; 
 
-var namagroup7 = 'Hoho';
-var Comment7 = 'TOMPAKAN23 : 48*33*34 #HOHOTOGEL'; 
+var namagroup7 = 'ORMAS';
+var Comment7 = 'ORMASTOTO(TOMPAKAN23) : 48*33*34'; 
 
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( TOMBIBI24 ) : 54*10*83'; 
@@ -43,8 +43,8 @@ var Comment8 = 'Tok99Toto ( TOMBIBI24 ) : 54*10*83';
 var namagroup9 = 'Wellz';
 var Comment9 = 'SIJITOGEL TOMBENG34 14*70*29'; 
 
-var namagroup10 = 'SLOTO';
-var Comment10 = '#SLOTOGEL (TOMSENG21) : 48*33*34'; 
+var namagroup10 = 'LING';
+var Comment10 = 'LING77 (TOMSENG21) 48*33*34'; 
 
 var namagroup11 = 'KEBAYA';
 var Comment11 = '(KEBAYA4D) = (TOMLAK12) 67*40*01'; 
@@ -63,9 +63,6 @@ var Comment15 = '#XX1TOTO (TOMASKU34)  79*21*03 BETTING';
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*TOMBOLPENTIL*52*93*35';
-/*======================================================================Paste Script Tampermonkey di sini===============================================================*/
-
-
 
 
 
