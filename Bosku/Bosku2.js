@@ -57,8 +57,8 @@ var Comment13 = '#TOYIBSLOT ( BOSLEM64 ) : 05*48*07';
 var namagroup14 = 'DENTOTO';
 var Comment14 = '#DENTOTO 11*45*66 ( BOSBEN64 )'; 
 
-var namagroup15 = 'HATRICK';
-var Comment15 = 'VESPATOGEL (BOSBOS64)  40*92*55'; 
+var namagroup15 = 'SIJI';
+var Comment15 = 'SIJITOGEL BOSBOS64 40*92*55'; 
 
 var namagroup16 = 'LOMBA TEBAK';
 var Comment16 = 'TOYA (BOSBIG53) 94*43*12'; 
