@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang2
 // @namespace    http://tampermonkey.net/
-// @version      3.42
+// @version      3.43
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang2.js
@@ -33,8 +33,8 @@ var Comment5 = '‌#RNR303(KRIKAR23) : 02*19*68';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (KRISMANDA23) = 78*55*07'; 
 
-var namagroup7 = 'Hoho';
-var Comment7 = 'KRISMA56 : 58*80*28 #HOHOTOGEL'; 
+var namagroup7 = 'ORMAS';
+var Comment7 = 'ORMASTOTO(KRISMA56) : 58*80*28'; 
 
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( KRISTANTI34 ) : 61*97*69'; 
@@ -42,8 +42,8 @@ var Comment8 = 'Tok99Toto ( KRISTANTI34 ) : 61*97*69';
 var namagroup9 = 'Wellz';
 var Comment9 = 'SIJITOGEL KRISMALI2 78*55*75'; 
 
-var namagroup10 = 'SLOTO';
-var Comment10 = '#SLOTOGEL (KRISANTI46) : 58*80*28'; 
+var namagroup10 = 'LING';
+var Comment10 = 'LING77 (KRISANTI46) 58*80*28'; 
 
 var namagroup11 = 'KEBAYA';
 var Comment11 = '(KEBAYA4D) = (KRISUNDEL5) 50*41*60'; 
@@ -62,8 +62,6 @@ var Comment15 = '#XX1TOTO (KRISNA46)  89*90*56 BETTING';
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*KRISMANDA23*02*19*68';
-/*======================================================================Paste Script Tampermonkey di sini===============================================================*/
-
 
 
 
