@@ -69,7 +69,7 @@ var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(EROSI52) = 72*69';
 
 var namagroup18 = 'Jawatengah';
-var Comment18 = 'Tester bosqueh';
+var Comment18 = 'Tester bhshagahahagshsosqueh';
 
 
 
