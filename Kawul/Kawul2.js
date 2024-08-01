@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul2
 // @namespace    http://tampermonkey.net/
-// @version      3.42
+// @version      3.43
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul2.js
@@ -17,7 +17,6 @@
 
 
 
-/*======================================================================Paste Script Tampermonkeyi sini===============================================================*/
 var namagroup1 = 'YAO';
 var Comment1 = '#YAOTOGEL SRIWLIT62 88*99*82'; 
 
@@ -36,8 +35,8 @@ var Comment5 = '‌#RNR303(SRITILKON) : 61*30*93';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (SRIWIDURTI) = 95*42*36'; 
 
-var namagroup7 = 'Hoho';
-var Comment7 = 'SRINDIM63 : 06*76*46 #HOHOTOGEL'; 
+var namagroup7 = 'ORMAS';
+var Comment7 = 'ORMASTOTO(SRINDIM63) : 06*76*46'; 
 
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( SRINDIM63 ) : 26*56*97'; 
@@ -45,8 +44,8 @@ var Comment8 = 'Tok99Toto ( SRINDIM63 ) : 26*56*97';
 var namagroup9 = 'Wellz';
 var Comment9 = 'SIJITOGEL SRIWEL74 09*38*58'; 
 
-var namagroup10 = 'SLOTO';
-var Comment10 = '#SLOTOGEL (SRIWING67) : 05*83*55'; 
+var namagroup10 = 'LING';
+var Comment10 = 'LING77 (SRIWING67) 05*83*55'; 
 
 var namagroup11 = 'KEBAYA';
 var Comment11 = '(KEBAYA4D) = (SRIANU36) 06*76*46'; 
