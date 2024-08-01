@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia2
 // @namespace    http://tampermonkey.net/
-// @version      3.11
+// @version      3.13
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia2.js
@@ -20,7 +20,7 @@
 
 
 var namagroup1 = 'YAO';
-var Comment1 = '#YAOTOGEL BIMBO91 75*40*73'; 
+var Comment1 = '#YAOTOGEL BIMBO91 75*50*73'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( BIMBO91 ) : 52*35*54'; 
@@ -37,8 +37,8 @@ var Comment5 = '‌#RNR303(BINAKARMA54) : 46*91*61';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (BIMBO91) = 69*43*93'; 
 
-var namagroup7 = 'Hoho';
-var Comment7 = 'BAMIN12 : 74*62*57 #HOHOTOGEL'; 
+var namagroup7 = 'ORMAS';
+var Comment7 = 'ORMASTOTO(BAMIN12) : 74*62*57'; 
 
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( BERIKLAH65 ) : 78*12*05'; 
@@ -46,8 +46,8 @@ var Comment8 = 'Tok99Toto ( BERIKLAH65 ) : 78*12*05';
 var namagroup9 = 'Wellz';
 var Comment9 = 'SIJITOGEL BENTOEL12 46*91*61'; 
 
-var namagroup10 = 'SLOTO';
-var Comment10 = '#SLOTOGEL (BEKOL12) : 69*43*93'; 
+var namagroup10 = 'LING';
+var Comment10 = 'LING77 (BIKANG12) 69*43*93'; 
 
 var namagroup11 = 'KEBAYA';
 var Comment11 = '(KEBAYA4D) = (BINAKARMA54) 74*62*57'; 
@@ -65,7 +65,7 @@ var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (BOBOHO55)  28*42*13 BETTING'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*BOMBAa54*15*92*39';
+var Comment16 = 'CITA4D*BOMBA54*15*92*39';
 
 
 
