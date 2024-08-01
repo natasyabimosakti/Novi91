@@ -30,7 +30,7 @@ var namagroup4 = 'GAIB';
 var Comment4 = 'GAIB4D=SAKAREPMU=06*28*27'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (SANDALMABUR) = 37*13*02'; 
+var Comment5 = '#keitogel = (SANDALMABUR) = 16*81*71'; 
 
 var namagroup6 = 'KIOST0T0';
 var Comment6 = 'KIOSTOTO=SAKEMBER=90*79*09'; 
