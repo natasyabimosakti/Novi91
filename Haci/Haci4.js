@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi4
 // @namespace    http://tampermonkey.net/
-// @version      3.56
+// @version      3.57
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci4.js
@@ -16,8 +16,6 @@
 
 
 
-
-/*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 var namagroup1 = 'YAO';
 var Comment1 = '#YAOTOGEL YATIMART 86*66*46'; 
@@ -37,8 +35,8 @@ var Comment5 = '‌#RNR303(YAAJAH19) : 10*63*68';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (YANIRI03) = 49*23*93'; 
 
-var namagroup7 = 'Hoho';
-var Comment7 = 'YANNCOK84 : 99*47*02 #HOHOTOGEL'; 
+var namagroup7 = 'ORMAS';
+var Comment7 = 'ORMASTOTO(YANNCOK84) : 99*47*02'; 
 
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( YADIANI77 ) : 07*44*80'; 
@@ -46,8 +44,8 @@ var Comment8 = 'Tok99Toto ( YADIANI77 ) : 07*44*80';
 var namagroup9 = 'Wellz';
 var Comment9 = 'SIJITOGEL YAAJAH19 65*94*62'; 
 
-var namagroup10 = 'SLOTO';
-var Comment10 = '#SLOTOGEL (YAHWEH00) : 10*63*68'; 
+var namagroup10 = 'LING';
+var Comment10 = 'LING77 (YAHWEH00) 10*63*68'; 
 
 var namagroup11 = 'KEBAYA';
 var Comment11 = '(KEBAYA4D) = (YANURIO47) 23*49*93'; 
