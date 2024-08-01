@@ -59,8 +59,8 @@ var Comment13 = '#TOYIBSLOT ( ERFGUN35 ) : 04*76*81';
 var namagroup14 = 'DENTOTO';
 var Comment14 = '#DENTOTO 00*28*07 ( ERFGUN12 )'; 
 
-var namagroup15 = 'HATRICK';
-var Comment15 = 'VESPATOGEL (ERKON23)  34*13*79'; 
+var namagroup15 = 'SIJI';
+var Comment15 = 'SIJITOGEL ERKON23 34*13*79'; 
 
 var namagroup16 = 'LOMBA TEBAK';
 var Comment16 = 'TOYA (ERAKOL156) 22*24*21'; 
