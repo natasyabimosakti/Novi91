@@ -16,7 +16,7 @@
 
 
 
-"var namagroup1 = 'YAO';
+var namagroup1 = 'YAO';
 var Comment1 = '#YAOTOGEL METALIKA41 59*47*96'; 
 
 var namagroup2 = 'K86';
@@ -62,7 +62,7 @@ var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (MERAHKU75)  81*49*72 BETTING'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*MERANTAU41*20*44*38';"
+var Comment16 = 'CITA4D*MERANTAU41*20*44*38';
 
 
 
