@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut1
 // @namespace    http://tampermonkey.net/
-// @version      3.56
+// @version      3.57
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut1.js
@@ -13,9 +13,6 @@
 // @grant        GM.getValue
 // @grant        window.close
 // ==/UserScript==
-
-
-/*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 var namagroup1 = 'YAO';
 var Comment1 = '#YAOTOGEL MANUKU12 39*90*66'; 
@@ -35,8 +32,8 @@ var Comment5 = '‌#RNR303(MANANUK213) : 80*25*72';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (MANUKGENI12) = 68*87*96'; 
 
-var namagroup7 = 'Hoho';
-var Comment7 = 'MANUKX12 : 56*81*41 #HOHOTOGEL'; 
+var namagroup7 = 'ORMAS';
+var Comment7 = 'ORMASTOTO(MANUKX12) : 56*81*41'; 
 
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( MAUKUR287 ) : 32*67*73'; 
@@ -44,8 +41,8 @@ var Comment8 = 'Tok99Toto ( MAUKUR287 ) : 32*67*73';
 var namagroup9 = 'Wellz';
 var Comment9 = 'SIJITOGEL MANANUK213 32*67*73'; 
 
-var namagroup10 = 'SLOTO';
-var Comment10 = '#SLOTOGEL (MANUK123) : 54*74*88'; 
+var namagroup10 = 'LING';
+var Comment10 = 'LING77 (MANUK123) 54*74*88'; 
 
 var namagroup11 = 'KEBAYA';
 var Comment11 = '(KEBAYA4D) = (MANANUK213) 29*35*21'; 
@@ -64,8 +61,6 @@ var Comment15 = '#XX1TOTO (MANUKAN11)  68*87*96 BETTING';
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*MANUKMU12*56*81*41';
-
-
 
 
 
