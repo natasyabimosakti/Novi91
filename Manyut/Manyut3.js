@@ -62,8 +62,8 @@ var Comment14 = '#DENTOTO 00*28*07 ( ERFGUN12 )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL ERKON23 34*13*79'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (ERAKOL156) 22*24*21'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (ERAKOL156) : 22*24*21'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(EROSI52) = 72*69';
