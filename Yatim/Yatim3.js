@@ -61,8 +61,8 @@ var Comment14 = '#DENTOTO 64*40*69 ( SIUDUK19 )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL SIMPAK17 63*30*72'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (SILUWET) 73*10*45'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (SILUWET) : 73*10*45'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(SIKLUWER) = 07*81';
