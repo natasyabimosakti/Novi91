@@ -16,7 +16,6 @@
 
 
 
-
 var namagroup1 = 'SHIOKELINCI';
 var Comment1 = '#shiokelinci4d*CACING65*00*28'; 
 
@@ -62,8 +61,8 @@ var Comment14 = '#DENTOTO 52*26*97 ( CUCUKU76 )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL CACING65 04*76*81'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (CUCUKU76) 00*28*07'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (CUCUKU76) : 00*28*07'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(CUCUBUAYA65) = 70*45';
