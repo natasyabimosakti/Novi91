@@ -62,8 +62,8 @@ var Comment14 = '#DENTOTO 11*45*91 ( ELANG4739 )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL ELANG089 05*48*07'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (ELANG18) 70*54*57'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (ELANG18) : 70*54*57'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(ELANG942) = 66*49';
