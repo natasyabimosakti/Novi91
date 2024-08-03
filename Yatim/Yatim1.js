@@ -60,8 +60,8 @@ var Comment14 = '#DENTOTO 47*54*49 ( GUNGSIPP )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL GUNGBUTZ 65*56*48'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (GUNGJI1) 14*57*42'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (GUNGJI1) : 14*57*42'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(GUNGPOKE) = 01*62';
