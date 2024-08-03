@@ -61,8 +61,8 @@ var Comment14 = '#DENTOTO 12*86*68 ( BAKEKLO )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL BOSMAN67 33*92*66'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (BOTAX35) 11*20*83'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (BOTAX35) : 11*20*83'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(BONCEL58) = 89*66';
