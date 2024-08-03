@@ -63,8 +63,8 @@ var Comment14 = '#DENTOTO 71*96*75 ( MONTOK69 )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL MOCHO19 12*86*68'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (MOSIOM19) 33*92*66'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (MOSIOM19) : 33*92*66'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(MORATUL19) = 41*83';
