@@ -62,8 +62,8 @@ var Comment14 = '#DENTOTO 73*10*45 ( NOVIPAL34 )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL NOVINANU83 52*26*97'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (NOVIPAL34) 04*76*97'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (NOVIPAL34) : 04*76*97'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(NOVIPAL34) = 91*70';
