@@ -62,8 +62,8 @@ var Comment14 = '#DENTOTO 78*46*77 ( EKOR665 )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL EKOWIJAY1 71*96*75'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (EKORENG51) 12*86*68'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (EKORENG51) : 12*86*68'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(EKOROK64) = 66*83';
