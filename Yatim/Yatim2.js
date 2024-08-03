@@ -61,8 +61,8 @@ var Comment14 = '#DENTOTO 33*92*66 ( FERSIP )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL FERKEII 11*20*83'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (FERTULE) 58*88*41'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (FERTULE) : 58*88*41'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(FERJENS) = 77*05';
