@@ -59,8 +59,8 @@ var Comment14 = '#DENTOTO 19*59*03 ( XIAOLAN6 )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL XIONGYU6 96*83*68'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (XENDION) 29*74*04'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (XENDION) : 29*74*04'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(XERLAK67) = 65*50';
