@@ -62,8 +62,8 @@ var Comment14 = '#DENTOTO 14*57*42 ( MERAHKU75 )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL MEROJAYA51 37*15*99'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (MERAHKU75) 36*80*99'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (MERAHKU75) : 36*80*99'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(MERAHKU75) = 62*50';
