@@ -63,8 +63,8 @@ var Comment14 = '#DENTOTO 90*79*63 ( PLECINDI23 )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL PLECIKICIK 15*98*86'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (PLECISILIT) 37*13*02'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (PLECISILIT) : 37*13*02'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(PLECICIAK) = 09*42';
