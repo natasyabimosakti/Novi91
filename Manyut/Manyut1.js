@@ -62,8 +62,8 @@ var Comment14 = '#DENTOTO 51*35*01 ( HOCIANG12 )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL HOKINANN 55*90*06'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (HOPRET303) 17*95*61'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (HOPRET303) : 17*95*61'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(HONOS112) = 48*49';
