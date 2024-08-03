@@ -60,8 +60,8 @@ var Comment14 = '#DENTOTO 25*16*85 ( YARUWET )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL YAAJAH19 19*03*18'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (YATIMART) 31*44*59'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (YATIMART) : 31*44*59'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(YASALAM64) = 23*53';
