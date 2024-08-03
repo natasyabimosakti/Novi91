@@ -61,8 +61,8 @@ var Comment14 = '#DENTOTO 04*76*81 ( TRIWID91 )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL TIRN18 00*28*07'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (SPVTRIWIDA91) 34*13*79'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (SPVTRIWIDA91) : 34*13*79'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(TRIWID91) = 45*72';
