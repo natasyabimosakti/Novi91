@@ -61,8 +61,8 @@ var Comment14 = '#DENTOTO 31*44*59 ( TOMASKU34 )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL TOMBENG34 94*89*43'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (TOMASKU34) 08*87*43'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (TOMASKU34) : 08*87*43'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(TOMASKU34) = 53*29';
