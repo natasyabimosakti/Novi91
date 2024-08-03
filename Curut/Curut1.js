@@ -63,8 +63,8 @@ var Comment14 = '#DENTOTO 55*90*06 ( QOQOM52 )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL QUMUR19 17*95*61'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (QOMINTO15) 47*54*49'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (QOMINTO15) : 47*54*49'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(QANAS52) = 48*42';
