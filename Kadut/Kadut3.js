@@ -64,8 +64,8 @@ var Comment14 = '#DENTOTO 22*35*78 ( JOROKLUH )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL JOMLANG63 60*32*64'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (JOMPLANG) 80*51*64'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (JOMPLANG1) : 80*51*64'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(JONTOR6) = 95*38';
