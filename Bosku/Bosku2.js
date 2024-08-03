@@ -60,8 +60,8 @@ var Comment14 = '#DENTOTO 11*45*66 ( BOSBEN64 )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL BOSBOS64 40*92*55'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (BOSBIG53) 94*43*12'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (BOSBIG53) : 94*43*12'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(BOSBIS48) = 36*49';
