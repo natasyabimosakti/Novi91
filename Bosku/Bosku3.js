@@ -61,11 +61,11 @@ var Comment14 = '#DENTOTO 22*35*78 ( YOJUAH63 )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL YOREAN63 26*53*82'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (YOYOKWIK3) 47*23*10'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (YOYOKWIK3) : 47*23*10'; 
 
 var namagroup17 = 'CIVIC';
-var Comment17 = '#CIVICTOTO(YOKOJO3) = 69*99';"
+var Comment17 = '#CIVICTOTO(YOKOJO3) = 69*99';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Tester';
