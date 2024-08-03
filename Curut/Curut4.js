@@ -61,8 +61,8 @@ var Comment14 = '#DENTOTO 74*82*84 ( TUMPLEKAH )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL TUKULENG12 39*27*32'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (TUKANGBATU) 25*16*85'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (TUKANGBATU) : 25*16*85'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(TURUSU71) = 59*18';
