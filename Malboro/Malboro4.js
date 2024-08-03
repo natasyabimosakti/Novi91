@@ -62,8 +62,8 @@ var Comment14 = '#DENTOTO 39*27*32 ( DICIUMU12 )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL ZONIAK63 25*16*85'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (DADAKU32) 19*03*18'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (DADAKU32) : 19*03*18'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(DENGKULMU41) = 18*85';
