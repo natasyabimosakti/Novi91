@@ -61,8 +61,8 @@ var Comment14 = '#DENTOTO 17*95*61 ( ARAKROH57 )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL XELOP83 47*54*49'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (ANANDA122) 65*56*48'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (ANANDA122) : 65*56*48'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(ANAKCODA83) = 48*49';
