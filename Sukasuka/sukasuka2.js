@@ -62,8 +62,8 @@ var Comment14 = '#DENTOTO 02*09*38 ( BIKANG12 )';
 var namagroup15 = 'SIJI';
 var Comment15 = 'SIJITOGEL BENTOEL12 67*98*05'; 
 
-var namagroup16 = 'LOMBA TEBAK';
-var Comment16 = 'TOYA (BAMIN12) 78*46*77'; 
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (BAMIN12) : 78*46*77'; 
 
 var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(BINOMO77) = 60*41';
