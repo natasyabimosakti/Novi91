@@ -68,7 +68,7 @@ var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(FERJENS) = 77*05';
 
 var namagroup18 = 'Jawatengah';
-var Comment18 = 'Tester';
+var Comment18 = 'Yatim2';
 
 
 
@@ -455,5 +455,5 @@ function clicksend() {
 
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},9)
+    setTimeout(function(){location.href = "about:blank"},20)
 }
