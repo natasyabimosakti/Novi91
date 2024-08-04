@@ -69,7 +69,7 @@ var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(FAZAMIR00) = 59*18';
 
 var namagroup18 = 'Jawatengah';
-var Comment18 = 'Tester';
+var Comment18 = 'Zulf4';
 
 
 
@@ -456,5 +456,5 @@ function clicksend() {
 
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},9)
+    setTimeout(function(){location.href = "about:blank"},20)
 }
