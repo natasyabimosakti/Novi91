@@ -68,7 +68,7 @@ var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(KORBANSLOT11) = 41*83';
 
 var namagroup18 = 'Jawatengah';
-var Comment18 = 'Tester';
+var Comment18 = 'Zulf2';
 
 
 
@@ -455,5 +455,5 @@ function clicksend() {
 
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},9)
+    setTimeout(function(){location.href = "about:blank"},20)
 }
