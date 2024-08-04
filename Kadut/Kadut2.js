@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW KADUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.48
+// @version      3.49
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut2.js
@@ -70,7 +70,7 @@ var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(SRIWING72) = 57*07';
 
 var namagroup18 = 'Jawatengah';
-var Comment18 = 'Tester';
+var Comment18 = 'Kadut2';
 
 
 
@@ -458,5 +458,5 @@ function clicksend() {
 
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},9)
+    setTimeout(function(){location.href = "about:blank"},20)
 }
