@@ -67,7 +67,7 @@ var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(YASALAM64) = 23*53';
 
 var namagroup18 = 'Jawatengah';
-var Comment18 = 'Tester';
+var Comment18 = 'Yatim4';
 
 
 
@@ -454,5 +454,5 @@ function clicksend() {
 
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},9)
+    setTimeout(function(){location.href = "about:blank"},20)
 }
