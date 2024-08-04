@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna3
 // @namespace    http://tampermonkey.net/
-// @version      3.51
+// @version      3.52
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna3.js
@@ -184,6 +184,7 @@ var myrefresh = setInterval(function(){
         }
     }
 }, refresh * 10)
+
 var myInterval = setInterval(function(){
     for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
         if (document.querySelectorAll('[data-tracking-duration-id')[ntv]){
@@ -240,7 +241,7 @@ var myInterval = setInterval(function(){
                             if(document.querySelectorAll("[data-tracking-duration-id]")[ntv].children[0].children[0]){
                                 console.log("ada")
                                 document.querySelectorAll("[data-tracking-duration-id]")[ntv].children[0].children[0].click()
-                                clearInterval(myInterval);
+
                                 clearInterval(myrefresh);
                                 return
                             }
@@ -271,6 +272,7 @@ var commentanku = setInterval(function(){
                         GM.setValue( 1,1);
                         document.getElementsByClassName("internal-input")[0].value = Comment1;
                         console.log("Sudah Comment")
+                        clearInterval(myInterval);
                         clicksend();
                     }
                 }
@@ -281,6 +283,7 @@ var commentanku = setInterval(function(){
                         /*cek nama group dan tulis commntar*/
                         document.getElementsByClassName("internal-input")[0].value = Comment2;
                         console.log("Sudah Comment")
+                        clearInterval(myInterval);
                         clicksend();
                     }
                 }
@@ -291,6 +294,7 @@ var commentanku = setInterval(function(){
                         /*cek nama group dan tulis commntar*/
                         document.getElementsByClassName("internal-input")[0].value = Comment3;
                         console.log("Sudah Comment")
+                        clearInterval(myInterval);
                         clicksend();
                     }
                 }
@@ -301,6 +305,7 @@ var commentanku = setInterval(function(){
                         GM.setValue( 4,1);
                         document.getElementsByClassName("internal-input")[0].value = Comment4;
                         console.log("Sudah Comment")
+                        clearInterval(myInterval);
                         clicksend();
                     }
                 }
@@ -311,6 +316,7 @@ var commentanku = setInterval(function(){
                         GM.setValue( 5,1);
                         document.getElementsByClassName("internal-input")[0].value = Comment5;
                         console.log("Sudah Comment")
+                        clearInterval(myInterval);
                         clicksend();
                         return;
                     }
@@ -322,6 +328,7 @@ var commentanku = setInterval(function(){
                         GM.setValue( 6,1);
                         document.getElementsByClassName("internal-input")[0].value = Comment6;
                         console.log("Sudah Comment")
+                        clearInterval(myInterval);
                         clicksend();
                     }
                 }
@@ -332,6 +339,7 @@ var commentanku = setInterval(function(){
                         GM.setValue( 7,1);
                         document.getElementsByClassName("internal-input")[0].value = Comment7;
                         console.log("Sudah Comment")
+                        clearInterval(myInterval);
                         clicksend();
                     }
                 }
@@ -342,6 +350,7 @@ var commentanku = setInterval(function(){
                         GM.setValue( 8,1);
                         document.getElementsByClassName("internal-input")[0].value = Comment8;
                         console.log("Sudah Comment")
+                        clearInterval(myInterval);
                         clicksend();
                     }
                 }
@@ -352,6 +361,7 @@ var commentanku = setInterval(function(){
                         GM.setValue( 9,1);
                         document.getElementsByClassName("internal-input")[0].value = Comment9;
                         console.log("Sudah Comment")
+                        clearInterval(myInterval);
                         clicksend();
                     }
                 }
@@ -365,6 +375,7 @@ var commentanku = setInterval(function(){
                         GM.setValue( 10,1);
                         document.getElementsByClassName("internal-input")[0].value = Comment10;
                         console.log("Sudah Comment")
+                        clearInterval(myInterval);
                         clicksend();
                     }
                 }
@@ -375,6 +386,7 @@ var commentanku = setInterval(function(){
                         GM.setValue( 11,1);
                         document.getElementsByClassName("internal-input")[0].value = Comment11;
                         console.log("Sudah Comment")
+                        clearInterval(myInterval);
                         clicksend();
                     }
                 }
@@ -385,6 +397,7 @@ var commentanku = setInterval(function(){
                         GM.setValue( 12,1);
                         document.getElementsByClassName("internal-input")[0].value = Comment12;
                         console.log("Sudah Comment")
+                        clearInterval(myInterval);
                         clicksend();
                     }
                 }
@@ -395,6 +408,7 @@ var commentanku = setInterval(function(){
                         GM.setValue( 13,1);
                         document.getElementsByClassName("internal-input")[0].value = Comment13;
                         console.log("Sudah Comment")
+                        clearInterval(myInterval);
                         clicksend();
                     }
                 }
@@ -405,6 +419,7 @@ var commentanku = setInterval(function(){
                         GM.setValue( 14,1);
                         document.getElementsByClassName("internal-input")[0].value = Comment14;
                         console.log("Sudah Comment")
+                        clearInterval(myInterval);
                         clicksend();
                     }
                 }
@@ -415,6 +430,7 @@ var commentanku = setInterval(function(){
                         GM.setValue( 15,1);
                         document.getElementsByClassName("internal-input")[0].value = Comment15;
                         console.log("Sudah Comment")
+                        clearInterval(myInterval);
                         clicksend();
                     }
                 }
@@ -425,6 +441,7 @@ var commentanku = setInterval(function(){
                         GM.setValue( 16,1);
                         document.getElementsByClassName("internal-input")[0].value = Comment16;
                         console.log("Sudah Comment")
+                        clearInterval(myInterval);
                         clicksend();
                     }
                 }
@@ -435,6 +452,7 @@ var commentanku = setInterval(function(){
                         GM.setValue( 17,1);
                         document.getElementsByClassName("internal-input")[0].value = Comment17;
                         console.log("Sudah Comment")
+                        clearInterval(myInterval);
                         clicksend();
                     }
                 }
