@@ -68,7 +68,7 @@ var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(CUCUBUAYA65) = 70*45';
     
 var namagroup18 = 'Jawatengah';
-var Comment18 = 'Tester';
+var Comment18 = 'sukasuka3';
 
 
 
@@ -455,5 +455,5 @@ function clicksend() {
 
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},9)
+    setTimeout(function(){location.href = "about:blank"},20)
 }
