@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna1
 // @namespace    http://tampermonkey.net/
-// @version      3.52
+// @version      3.53
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna1.js
@@ -160,16 +160,16 @@ var myrefresh = setInterval(function(){
     var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
     var waktupost = document.getElementsByClassName("native-text");
     window.scrollTo(0, 2000);
-  if(!document.querySelectorAll("[role='presentation']")[0]){
-    if (document.readyState === "complete") {
-        for (var cok = 0; cok < urutkan.length; cok++) {
-            if(urutkan[cok].textContent.includes("URUTKAN")) {
-                urutkan[cok].click()
+    if(!document.querySelectorAll("[role='presentation']")[0]){
+        if (document.readyState === "complete") {
+            for (var cok = 0; cok < urutkan.length; cok++) {
+                if(urutkan[cok].textContent.includes("URUTKAN")) {
+                    urutkan[cok].click()
+                }
             }
         }
-    }
 
-       }
+    }
     if(document.querySelectorAll("[role='presentation']")[0]){
         if (document.readyState === "complete") {
             for (var coki = 0; coki < waktupost.length; coki++) {
@@ -251,11 +251,7 @@ var myInterval = setInterval(function(){
             }
         }
     }
-}, 10)
 
-
-
-var commentanku = setInterval(function(){
     try {
         var ceknamagroup
         'use strict';
@@ -469,7 +465,6 @@ function clicksend() {
     if( document.getElementsByClassName("internal-input")[0].value.length > 1){
         document.querySelectorAll("[aria-label='Posting komentar']")[0].click()
         console.log("Comment Terkirim");
-        clearInterval(commentanku);
         closer()
     }
     /*Tekan TOMBOL SEND*/
