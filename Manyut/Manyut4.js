@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.139
+// @version      3.140
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
@@ -70,7 +70,7 @@ var namagroup17 = 'CIVIC';
 var Comment17 = '#CIVICTOTO(CANDRAWIJ) = 85*18';
 
 var namagroup18 = 'Jawatengah';
-var Comment18 = 'Tester';
+var Comment18 = 'Manyut4';
 
 
 
@@ -457,5 +457,5 @@ function clicksend() {
 
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},9)
+    setTimeout(function(){location.href = "about:blank"},20)
 }
