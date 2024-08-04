@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 3
 // @namespace    http://tampermonkey.net/
-// @version      3.50
+// @version      3.51
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk3.js
@@ -99,7 +99,7 @@ var id17 = await GM.getValue(17);
 
 
 
-var refresh = 50
+var refresh = 70
 
 
 
