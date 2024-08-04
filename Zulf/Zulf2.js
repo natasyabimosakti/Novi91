@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF2
 // @namespace    http://tampermonkey.net/
-// @version      3.119
+// @version      3.120
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
