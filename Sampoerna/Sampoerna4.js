@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna4
 // @namespace    http://tampermonkey.net/
-// @version      3.55
+// @version      3.56
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna4.js
@@ -48,7 +48,7 @@ var namagroup9 = 'Wellz';
 var Comment9 = 'SIJITOGEL ZONIAK63 19*00*05'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (ZOKET72) 25*46*72'; 
+var Comment10 = 'LING77 (ZOKET72) 25*46'; 
 
 var namagroup11 = 'KEBAYA';
 var Comment11 = '(KEBAYA4D) = (ZOKUTU72) 51*49*13'; 
