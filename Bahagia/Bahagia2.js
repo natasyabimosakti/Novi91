@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia2
 // @namespace    http://tampermonkey.net/
-// @version      3.17
+// @version      3.18
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia2.js
@@ -506,6 +506,7 @@ function clicksend() {
             console.log("Comment Terkirim");
             clearInterval(commentanku);
             jitter = 0
+          closer()
 
         }
 
