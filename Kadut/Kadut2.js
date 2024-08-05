@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW KADUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.55
+// @version      3.56
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut2.js
@@ -255,7 +255,7 @@ var commentanku = setInterval(function(){
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
                             clicksend();
-                            return;
+                           
                         }
                     }
                     if (ceknamagroup[namag].textContent.includes(namagroup2) ) {
@@ -267,7 +267,7 @@ var commentanku = setInterval(function(){
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
                             clicksend();
-                            return;
+                           
                         }
                     }
                     if (ceknamagroup[namag].textContent.includes(namagroup3) ) {
@@ -279,7 +279,7 @@ var commentanku = setInterval(function(){
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
                             clicksend();
-                            return;
+                            
                         }
                     }
                     if (ceknamagroup[namag].textContent.includes(namagroup4) ) {
@@ -291,7 +291,7 @@ var commentanku = setInterval(function(){
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
                             clicksend();
-                            return;
+                           
                         }
                     }
                     if (ceknamagroup[namag].textContent.includes(namagroup5) ) {
@@ -303,7 +303,7 @@ var commentanku = setInterval(function(){
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
                             clicksend();
-                            return;
+                          
 
                         }
                     }
@@ -316,7 +316,7 @@ var commentanku = setInterval(function(){
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
                             clicksend();
-                            return;
+                       
                         }
                     }
                     if (ceknamagroup[namag].textContent.includes(namagroup7) ) {
@@ -328,7 +328,7 @@ var commentanku = setInterval(function(){
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
                             clicksend();
-                            return;
+                            
                         }
                     }
                     if (ceknamagroup[namag].textContent.includes(namagroup8) ) {
@@ -340,7 +340,7 @@ var commentanku = setInterval(function(){
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
                             clicksend();
-                            return;
+                           
                         }
                     }
                     if (ceknamagroup[namag].textContent.includes(namagroup9) ) {
@@ -352,7 +352,7 @@ var commentanku = setInterval(function(){
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
                             clicksend();
-                            return;
+                           
                         }
                     }
 
@@ -367,7 +367,7 @@ var commentanku = setInterval(function(){
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
                             clicksend();
-                            return;
+                            
                         }
                     }
                     if (ceknamagroup[namag].textContent.includes(namagroup11) ) {
@@ -379,7 +379,7 @@ var commentanku = setInterval(function(){
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
                             clicksend();
-                            return;
+                           
                         }
                     }
                     if (ceknamagroup[namag].textContent.includes(namagroup12) ) {
@@ -391,7 +391,7 @@ var commentanku = setInterval(function(){
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
                             clicksend();
-                            return;
+                            
                         }
                     }
                     if (ceknamagroup[namag].textContent.includes(namagroup13) ) {
@@ -403,7 +403,7 @@ var commentanku = setInterval(function(){
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
                             clicksend();
-                            return;
+                            
                         }
                     }
                     if (ceknamagroup[namag].textContent.includes(namagroup14) ) {
@@ -415,7 +415,7 @@ var commentanku = setInterval(function(){
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
                             clicksend();
-                            return;
+                            
                         }
                     }
                     if (ceknamagroup[namag].textContent.includes(namagroup15) ) {
@@ -427,7 +427,7 @@ var commentanku = setInterval(function(){
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
                             clicksend();
-                            return;
+                           
                         }
                     }
                     if (ceknamagroup[namag].textContent.includes(namagroup16) ) {
@@ -439,7 +439,7 @@ var commentanku = setInterval(function(){
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
                             clicksend();
-                            return;
+                            
                         }
                     }
                     if (ceknamagroup[namag].textContent.includes(namagroup17) ) {
@@ -451,7 +451,7 @@ var commentanku = setInterval(function(){
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
                             clicksend();
-                            return;
+                           
                         }
                     }
                     if (ceknamagroup[namag].textContent.includes(namagroup18) ) {
@@ -463,7 +463,7 @@ var commentanku = setInterval(function(){
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
                             clicksend();
-                            return;
+                            
                         }
                     }
                 }
@@ -473,26 +473,29 @@ var commentanku = setInterval(function(){
         }
     }
 
-},240)
+},0)
 
 
 
 function clicksend() {
-    if(jitter == 0){
-        closer()
-        return;
-    }
-    /*Tampilkan TOMBOL SEND*/
-    /*Tekan TOMBOL SEND*/
-    if( document.getElementsByClassName("internal-input")[0].value.length > 1){
-        document.querySelectorAll("[aria-label='Posting komentar']")[0].click()
-        console.log("Comment Terkirim");
-        clearInterval(commentanku);
-        jitter = 0
+    if (document.getElementsByClassName("fixed-container top")[0].textContent.includes("Postingan")){
+        if(jitter == 0){
+            closer()
+            return;
+        }
+        /*Tampilkan TOMBOL SEND*/
+        /*Tekan TOMBOL SEND*/
+        if( document.getElementsByClassName("internal-input")[0].value.length > 1){
+            document.querySelectorAll("[aria-label='Posting komentar']")[0].click()
+            console.log("Comment Terkirim");
+            clearInterval(commentanku);
+            jitter = 0
 
-    }
+        }
+   
     /*Tekan TOMBOL SEND*/
 }
+    }
 
 
 
