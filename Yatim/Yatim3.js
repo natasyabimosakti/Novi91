@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim3
 // @namespace    http://tampermonkey.net/
-// @version      3.48
+// @version      3.49
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim3.js
@@ -72,6 +72,7 @@ var Comment18 = 'Yatim3';
 
 
 
+
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
@@ -98,43 +99,18 @@ var id17 = await GM.getValue(17);
 
 
 
-var refresh = 50;
+var refresh = 50
 
 
 
-var admin = ["Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","asmani","andy","ayesha",
-             "brian","boboho","bobby","bonar","bella","bastian","bungaps",
-             "cinta","calvin","celsia","cila","cindy","chintya","carole","celine",
-             "denis","dollar","dewa","dewi","dinda","dika","dea",
-             "echa","erika","elly","eugene","erwin",
-             "farah","febrian","fiana","farid","fahresa",
-             "gretha",
-             "herfizah","hana","hoihai","hefi","habib",
-             "inisial","intan","icha","irfan",
-             "jhone","jess","jovanka","jenifer","jihan","jesika","je pe",
-             "kumbara","kemon","katharina","kayla","katty","kendri","kembar","kotna","kiky",
-             "lehman","lianda","laura","leon","lidya","larissa","leksa","lina",
-             "manu","mesa","mardia","mila","maes","mad","miranda","melati","minion","mariana","mahendra","multi","megaways",
-             "nadila","neng","naura","nathaya","nick","nella","neman","novi",
-             "oun","oscar","otong",
-             "puput","primus","payton","pura","priyan",
-             "ratu","roy","rendy","ria","ruto","riko","rano","robby",
-             "sanchez","selly","sutanti","siska","safar","sanjaya","san","sandiego","sloter","sinta","slooter","sabrina","salsabila","sintia","sejitu",
-             "tink","thonex","tiara","tania","tag",
-             "ujen",
-             "vonny","viona","virna",
-             "wahid","wahzo","wok","wndt","wiena",
-             "yoky","yasmine","yao","yohana",
-             "zurro"];
-
-
+var admin = ["rikodo","adiat","david",",dewa","wulan","andy","desi","erwin","mey","lusiana","fahresa","rizal","jordi","surianti","satria","boleng","yanty","pung","tiara","cristina","fira","ayunda","mersya","nona","camb","jaguar","Siâo","primus","habib","cassa","neng","arxidi","che","aldi","nino","sofia","sonia","serena","alde","puput","mad","hefi","dika","iyatoto","adm","celsia","jne","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","tiktak","nella","novi","sandiego","nasution","ratu","priyan","san","ria","sanjaya","siska","biru","aditia","keitogel","safar","mahendra","multi","mariana","neman","tatang","dewi","primus","roy","dewi","melati","kumbara","dentoto","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
 
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
 var keyword3 = "LOMBA"
 var keyword4 = "𝗟𝗢𝗠𝗕𝗔"
 var keyword5 = "𝐋𝐎𝐌𝐁𝐀"
-var keyword6 = "LIMBA"
+var keyword6 = "LOGIN"
 var keyword7 = "ROM"
 var keyword8 = "R00M"
 var keyword9 = "R0M"
@@ -145,7 +121,7 @@ var Backlist2 = "rekap";
 var Backlist3 = "hasil";
 var Backlist4 = "room lomba freebet";
 var Backlist5 = "prediksi";
-var Backlist6 = "result";
+var Backlist6 = "juara lomba";
 var Backlist7 = "result";
 
 var myrefresh = setInterval(function(){
@@ -179,6 +155,7 @@ var myrefresh = setInterval(function(){
         }
     }
 }, refresh * 10)
+
 
 var myInterval = setInterval(function(){
     for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
@@ -236,7 +213,6 @@ var myInterval = setInterval(function(){
                             if(document.querySelectorAll("[data-tracking-duration-id]")[ntv].children[0].children[0]){
                                 console.log("ada")
                                 document.querySelectorAll("[data-tracking-duration-id]")[ntv].children[0].children[0].click()
-
                                 clearInterval(myrefresh);
                                 return
                             }
@@ -309,7 +285,7 @@ var myInterval = setInterval(function(){
                         console.log("Sudah Comment")
                         clearInterval(myInterval);
                         clicksend();
-                        return;
+
                     }
                 }
                 if (ceknamagroup[namag].textContent.includes(namagroup6) ) {
@@ -447,6 +423,17 @@ var myInterval = setInterval(function(){
                         clicksend();
                     }
                 }
+                if (ceknamagroup[namag].textContent.includes(namagroup18) ) {
+                    /*cek nama group dan tulis commntar*/
+                    if( document.getElementsByClassName("internal-input")[0] ){
+                        /*cek nama group dan tulis commntar*/
+                        GM.setValue( 18,1);
+                        document.getElementsByClassName("internal-input")[0].value = Comment18;
+                        console.log("Sudah Comment")
+                        clearInterval(myInterval);
+                        clicksend();
+                    }
+                }
             }
         }
     }catch(err) {
@@ -473,5 +460,5 @@ function clicksend() {
 
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},5)
+    setTimeout(function(){location.href = "about:blank"},20)
 }
