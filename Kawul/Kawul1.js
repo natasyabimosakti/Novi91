@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul1
 // @namespace    http://tampermonkey.net/
-// @version      3.49
+// @version      3.50
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
@@ -43,7 +43,7 @@ var namagroup9 = 'Wellz';
 var Comment9 = 'SIJITOGEL BUANGKALI 59*78*39'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (BOLENAN) 21*57*13'; 
+var Comment10 = 'LING77 (BOLENAN) 21*57'; 
 
 var namagroup11 = 'KEBAYA';
 var Comment11 = '(KEBAYA4D) = (BUNTOTASU) 10*81*34'; 
