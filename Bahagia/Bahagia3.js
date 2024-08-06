@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia3
 // @namespace    http://tampermonkey.net/
-// @version      3.21
+// @version      3.22
 // @description  dunia
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
@@ -502,7 +502,8 @@ var sender = setInterval(function(){
         if (document.getElementsByClassName("fixed-container top")[0].textContent.includes("Postingan") && document.getElementsByClassName("internal-input")[0].value.length > 5){
 
             if(jitter == 0){
-  closer()
+                clearInterval(sender);
+                closer()
                 return;
             }
             /*Tampilkan TOMBOL SEND*/
@@ -510,9 +511,8 @@ var sender = setInterval(function(){
             if( document.getElementsByClassName("internal-input")[0].value.length > 1){
                 document.querySelectorAll("[aria-label='Posting komentar']")[0].click()
                 console.log("Comment Terkirim");
-                clearInterval(sender);
                 jitter = 0
-                closer()
+                return;
 
 
             }
