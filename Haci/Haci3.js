@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi3
 // @namespace    http://tampermonkey.net/
-// @version      3.65
+// @version      3.66
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci3.js
@@ -498,7 +498,8 @@ var sender = setInterval(function(){
         if (document.getElementsByClassName("fixed-container top")[0].textContent.includes("Postingan") && document.getElementsByClassName("internal-input")[0].value.length > 5){
 
             if(jitter == 0){
-  closer()
+                clearInterval(sender);
+                closer()
                 return;
             }
             /*Tampilkan TOMBOL SEND*/
@@ -506,9 +507,8 @@ var sender = setInterval(function(){
             if( document.getElementsByClassName("internal-input")[0].value.length > 1){
                 document.querySelectorAll("[aria-label='Posting komentar']")[0].click()
                 console.log("Comment Terkirim");
-                clearInterval(sender);
                 jitter = 0
-                closer()
+                return;
 
 
             }
