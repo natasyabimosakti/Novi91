@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul1
 // @namespace    http://tampermonkey.net/
-// @version      3.54
+// @version      3.55
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
@@ -280,6 +280,7 @@ var commentanku = setInterval(function(){
                             document.getElementsByClassName("internal-input")[0].value = Comment1;
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
+                          clicksend()
 
                         }
                     }
@@ -292,6 +293,7 @@ var commentanku = setInterval(function(){
                             document.getElementsByClassName("internal-input")[0].value = Comment2;
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
+                          clicksend()
 
                         }
                     }
@@ -304,6 +306,7 @@ var commentanku = setInterval(function(){
                             document.getElementsByClassName("internal-input")[0].value = Comment3;
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
+                          clicksend()
 
                         }
                     }
@@ -316,6 +319,7 @@ var commentanku = setInterval(function(){
                             document.getElementsByClassName("internal-input")[0].value = Comment4;
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
+                          clicksend()
 
                         }
                     }
@@ -328,6 +332,7 @@ var commentanku = setInterval(function(){
                             document.getElementsByClassName("internal-input")[0].value = Comment5;
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
+                          clicksend()
 
 
                         }
@@ -341,6 +346,7 @@ var commentanku = setInterval(function(){
                             document.getElementsByClassName("internal-input")[0].value = Comment6;
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
+                          clicksend()
 
                         }
                     }
@@ -353,6 +359,7 @@ var commentanku = setInterval(function(){
                             document.getElementsByClassName("internal-input")[0].value = Comment7;
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
+                          clicksend()
 
                         }
                     }
@@ -365,6 +372,7 @@ var commentanku = setInterval(function(){
                             document.getElementsByClassName("internal-input")[0].value = Comment8;
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
+                          clicksend()
 
                         }
                     }
@@ -377,6 +385,7 @@ var commentanku = setInterval(function(){
                             document.getElementsByClassName("internal-input")[0].value = Comment9;
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
+                          clicksend()
 
                         }
                     }
@@ -392,6 +401,7 @@ var commentanku = setInterval(function(){
                             document.getElementsByClassName("internal-input")[0].value = Comment10;
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
+                          clicksend()
 
                         }
                     }
@@ -404,6 +414,7 @@ var commentanku = setInterval(function(){
                             document.getElementsByClassName("internal-input")[0].value = Comment11;
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
+                          clicksend()
 
                         }
                     }
@@ -416,6 +427,7 @@ var commentanku = setInterval(function(){
                             document.getElementsByClassName("internal-input")[0].value = Comment12;
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
+                          clicksend()
 
                         }
                     }
@@ -428,6 +440,7 @@ var commentanku = setInterval(function(){
                             document.getElementsByClassName("internal-input")[0].value = Comment13;
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
+                          clicksend()
 
                         }
                     }
@@ -440,6 +453,7 @@ var commentanku = setInterval(function(){
                             document.getElementsByClassName("internal-input")[0].value = Comment14;
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
+                          clicksend()
 
                         }
                     }
@@ -452,6 +466,7 @@ var commentanku = setInterval(function(){
                             document.getElementsByClassName("internal-input")[0].value = Comment15;
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
+                          clicksend()
 
                         }
                     }
@@ -464,6 +479,7 @@ var commentanku = setInterval(function(){
                             document.getElementsByClassName("internal-input")[0].value = Comment16;
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
+                          clicksend()
 
                         }
                     }
@@ -476,6 +492,7 @@ var commentanku = setInterval(function(){
                             document.getElementsByClassName("internal-input")[0].value = Comment17;
                             console.log("Sudah Comment")
                             clearInterval(myInterval);
+                          clicksend()
 
                         }
                     }
@@ -490,35 +507,26 @@ var commentanku = setInterval(function(){
 },0)
 
 
-
-var sender = setInterval(function(){
-    if (document.getElementsByClassName("disable-browser-ptr").length ==0||document.getElementsByClassName("prevent-scrolling").length > 0){
-        return;
-    }
-    if (document.getElementsByClassName("fixed-container top").length>0 && document.getElementsByClassName("internal-input").length>0){
-        if (document.getElementsByClassName("fixed-container top")[0].textContent.includes("Postingan") && document.getElementsByClassName("internal-input")[0].value.length > 2){
-
-            if(jitter == 0){
-                clearInterval(sender);
-                closer()
-                return;
-            }
-            /*Tampilkan TOMBOL SEND*/
-            /*Tekan TOMBOL SEND*/
-            if( document.getElementsByClassName("internal-input")[0].value.length > 1){
-                document.querySelectorAll("[aria-label='Posting komentar']")[0].click()
-                console.log("Comment Terkirim");
-                jitter = 0
-                return;
-
-
-            }
-
-
-            /*Tekan TOMBOL SEND*/
+function clicksend() {
+    if (document.getElementsByClassName("fixed-container top")[0].textContent.includes("Postingan")){
+        if(jitter == 0){
+            closer()
+            return;
         }
+        /*Tampilkan TOMBOL SEND*/
+        /*Tekan TOMBOL SEND*/
+        if( document.getElementsByClassName("internal-input")[0].value.length > 1){
+            document.querySelectorAll("[aria-label='Posting komentar']")[0].click()
+            console.log("Comment Terkirim");
+            clearInterval(commentanku);
+            jitter = 0
+            closer()
+
+        }
+   
+    /*Tekan TOMBOL SEND*/
+}
     }
-},0)
 
 
 
