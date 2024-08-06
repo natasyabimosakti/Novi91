@@ -2,7 +2,7 @@
 // @name         Bahagia3
 // @namespace    http://tampermonkey.net/
 // @version      3.20
-// @description  try to take over the world!
+// @description  dunia
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
 // @author       You
