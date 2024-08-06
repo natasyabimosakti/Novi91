@@ -72,7 +72,6 @@ var Comment17 = 'Perkutut4';
 
 
 
-
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
@@ -495,7 +494,8 @@ var sender = setInterval(function(){
         if (document.getElementsByClassName("fixed-container top")[0].textContent.includes("Postingan") && document.getElementsByClassName("internal-input")[0].value.length > 5){
 
             if(jitter == 0){
-  closer()
+                clearInterval(sender);
+                closer()
                 return;
             }
             /*Tampilkan TOMBOL SEND*/
@@ -503,9 +503,8 @@ var sender = setInterval(function(){
             if( document.getElementsByClassName("internal-input")[0].value.length > 1){
                 document.querySelectorAll("[aria-label='Posting komentar']")[0].click()
                 console.log("Comment Terkirim");
-                clearInterval(sender);
                 jitter = 0
-                closer()
+                return;
 
 
             }
