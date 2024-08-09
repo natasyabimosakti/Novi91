@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut4
 // @namespace    http://tampermonkey.net/
-// @version      3.69
+// @version      3.70
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut4.js
@@ -76,8 +76,7 @@ var Comment18 = 'asek';
 
 
 
-
-var refresh = 50
+var refresh = 40;
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
@@ -206,7 +205,7 @@ var myInterval = setInterval(function(){
             var postingan =document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')[3];
             //Comment Box
             var datacommentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text').length -1
-            var commentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')[datacommentbox -1];
+            var commentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')
 
             // Cek Jam
             var ret = jamposting.textContent.replace(/  Admin   |  Moderator   /g, "");
@@ -245,8 +244,15 @@ var myInterval = setInterval(function(){
                                 console.log("Admin yang Memosting = " + admin[adm]);
                             }
                             // Click Comment Box
-                            commentbox.click()
-
+                           if(commentbox[datacommentbox -1].textContent.toLowerCase().includes("jawab")|| commentbox[datacommentbox -1].textContent.toLowerCase().includes("tulis")){
+                            commentbox[datacommentbox -1].click()
+                           }
+                            if(commentbox[datacommentbox -2].textContent.toLowerCase().includes("jawab")|| commentbox[datacommentbox -2].textContent.toLowerCase().includes("tulis")){
+                            commentbox[datacommentbox -2].click()
+                           }
+                            if(commentbox[datacommentbox -3].textContent.toLowerCase().includes("jawab")|| commentbox[datacommentbox -3].textContent.toLowerCase().includes("tulis")){
+                            commentbox[datacommentbox -3].click()
+                           }
                             var ceknamagroup
                             'use strict';
                             ceknamagroup = [document.querySelectorAll("[data-mcomponent='ServerTextArea']")[3],document.querySelectorAll("[data-mcomponent='ServerTextArea']")[4] ,document.querySelectorAll("[data-mcomponent='ServerTextArea']")[5],document.querySelectorAll("[data-mcomponent='ServerTextArea']")[6] ]
