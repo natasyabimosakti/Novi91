@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi1
 // @namespace    http://tampermonkey.net/
-// @version      3.73
+// @version      3.74
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci1.js
@@ -51,7 +51,7 @@ var Comment10 = 'LING77 (GUNGPOKE) 71*48';
 var namagroup11 = 'KEBAYA';
 var Comment11 = '(KEBAYA4D) = (GUNGDUSS) 39*84*92'; 
 
-var namagroup12 = 'BESTOTO';
+var namagroup12 = 'ROOM LOMBA TEBAK';
 var Comment12 = 'GUNGFREE : 59*95*87 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
