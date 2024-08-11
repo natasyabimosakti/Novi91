@@ -42,7 +42,7 @@ var Comment8 = 'ANGKER4D=GUNGYUDZ=14*57*42';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=GUNGCUAKZ=37*15*50'; 
 
-var namagroup10 = 'JNE';
+var namagroup10 = 'PEJUANG';
 var Comment10 = '#JNETOTO(GUNGPOKE)*36*80*62'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
