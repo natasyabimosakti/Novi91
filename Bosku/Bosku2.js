@@ -42,7 +42,7 @@ var Comment8 = 'ANGKER4D=BOSTER73=00*20*30';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=BOSREN64=00*20*30'; 
 
-var namagroup10 = 'JNE';
+var namagroup10 = 'PEJUANG';
 var Comment10 = '#JNETOTO(BOSLON89)*18*52*91'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
