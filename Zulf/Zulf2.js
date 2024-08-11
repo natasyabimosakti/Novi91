@@ -43,7 +43,7 @@ var Comment8 = 'ANGKER4D=KORBANSLOT11=12*86*68';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=SUKASUKA12=12*86*68'; 
 
-var namagroup10 = 'JNE';
+var namagroup10 = 'PEJUANG';
 var Comment10 = '#JNETOTO(RAJANYAJP12)*33*92*66'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
