@@ -43,7 +43,7 @@ var Comment8 = 'ANGKER4D=BERAK28=02*09*60';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=BAJUKU34=58*88*41'; 
 
-var namagroup10 = 'JNE';
+var namagroup10 = 'PEJUANG';
 var Comment10 = '#JNETOTO(BANANA12)*02*09*60'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
