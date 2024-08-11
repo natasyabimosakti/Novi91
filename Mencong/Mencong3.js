@@ -44,7 +44,7 @@ var Comment8 = 'ANGKER4D=NOVITAS53=00*28*07';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=NOVINANU83=00*28*07'; 
 
-var namagroup10 = 'JNE';
+var namagroup10 = 'PEJUANG';
 var Comment10 = '#JNETOTO(NOVIKARMA11)*34*13*79'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
