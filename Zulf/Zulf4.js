@@ -44,7 +44,7 @@ var Comment8 = 'ANGKER4D=FAISMU=39*27*32';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=FASTON11=39*27*32'; 
 
-var namagroup10 = 'JNE';
+var namagroup10 = 'PEJUANG';
 var Comment10 = '#JNETOTO(FAZAMIR00)*25*16*85'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
