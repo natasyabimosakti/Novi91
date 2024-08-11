@@ -66,7 +66,7 @@ var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (NOVIPAL34) : 04*76*97'; 
 
 var namagroup17 = 'CIVIC';
-var Comment17 = '#CIVICTOTO(NOVIPAL34) = 91*70';
+var Comment17 = '#CIVICTOTO(NOVIPAL34) = 81*70';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Mencong3';
