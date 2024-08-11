@@ -46,7 +46,7 @@ var Comment8 = 'ANGKER4D=JOROKKWE=80*51*95';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=JOMLANG63=72*39*99'; 
 
-var namagroup10 = 'JNE';
+var namagroup10 = 'PEJUANG';
 var Comment10 = '#JNETOTO(JOMNDUL73)*77*46*69'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
