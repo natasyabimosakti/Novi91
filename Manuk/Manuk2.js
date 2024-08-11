@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 2
 // @namespace    http://tampermonkey.net/
-// @version      3.61
+// @version      3.62
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk2.js
@@ -44,7 +44,7 @@ var Comment8 = 'ANGKER4D=ELANG51=05*48*07';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=ELANG94=40*92*55'; 
 
-var namagroup10 = 'PEJUANG';
+var namagroup10 = 'JNE';
 var Comment10 = '#JNETOTO(ELANG72)*94*43*12'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
