@@ -43,7 +43,7 @@ var Comment8 = 'ANGKER4D=CUILANSENG12=34*13*79';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=CUALINSENG41=34*13*79'; 
 
-var namagroup10 = 'JNE';
+var namagroup10 = 'PEJUANG';
 var Comment10 = '#JNETOTO(CACINGAN54)*22*24*21'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
