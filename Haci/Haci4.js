@@ -72,7 +72,7 @@ var Comment16 = 'CITA4D*YANIRI03*09*97*29';
 
 
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Haci2';
+var Comment17 = 'Haci4';
 
 
 var namagroup18 = 'lajw';
