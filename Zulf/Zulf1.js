@@ -71,7 +71,6 @@ var namagroup18 = 'Jawatengah';
 var Comment18 = 'Zulf1';
 
 
-
 var refresh = 40;
 var d = new Date();
 var hour = d.getHours();
