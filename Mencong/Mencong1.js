@@ -74,7 +74,6 @@ var Comment18 = 'Mencong1';
 
 
 
-
 var refresh = 40;
 var d = new Date();
 var hour = d.getHours();
@@ -130,38 +129,46 @@ var myrefresh = setInterval(function(){
 
 
     if ( hour > tm + 2 || hour < tm||document.URL.includes("google") == true||hour == undefined||hour == null){
-        for (var kr = 1; kr < 19; kr++) {
+        for (var kr = 1; kr < 18; kr++) {
             GM.setValue( kr,0);
         }
         GM.setValue("time", hour);
 
     }
     var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
+    var urutkan2 = document.querySelectorAll("[data-mcomponent='TextArea']");
     var waktupost = document.getElementsByClassName("native-text");
     window.scrollTo(0, 2000);
-    if(!document.querySelectorAll("[role='presentation']")[0]){
-        if (document.readyState === "complete") {
-            for (var cok = 0; cok < urutkan.length; cok++) {
-                if(urutkan[cok].textContent.includes("URUTKAN")) {
-                    urutkan[cok].click()
-                }
-            }
-        }
 
-    }
-    if(document.getElementsByClassName("loading-overlay").length == 0 ){
+    for (var coke = 0; coke < urutkan2.length; coke++) {
+        if (urutkan2[coke].textContent.includes("URUTKAN")) {
 
-        if(document.querySelectorAll("[role='presentation']")[0]){
-            if (document.readyState === "complete") {
-                for (var coki = 0; coki < waktupost.length; coki++) {
-                    if(waktupost[coki].textContent.includes("Aktivitas")) {
-                        waktupost[coki].click()
+            urutkan2[coke].click()
 
-                    }
-                }
-            }
+
         }
     }
+
+
+
+    for (var cok = 0; cok < urutkan.length; cok++) {
+        if(urutkan[cok].textContent.includes("URUTKAN")) {
+            urutkan[cok].click()
+
+        }
+    }
+
+
+
+
+
+    for (var coki = 0; coki < waktupost.length; coki++) {
+        if(waktupost[coki].textContent.includes("Aktivitas")) {
+            waktupost[coki].click()
+
+        }
+    }
+
 
 }, refresh * 10)
 
