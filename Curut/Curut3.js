@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.67
+// @version      3.68
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut3.js
@@ -45,7 +45,7 @@ var Comment8 = 'ANGKER4D=ALAKADUR14=63*30*97';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=ALKON26=63*30*72'; 
 
-var namagroup10 = 'PEJUANG';
+var namagroup10 = 'JNE';
 var Comment10 = '#JNETOTO(ALKUDIR19)*73*10*45'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
@@ -137,7 +137,7 @@ var myrefresh = setInterval(function(){
     var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
     var urutkan2 = document.querySelectorAll("[data-mcomponent='TextArea']");
     var waktupost = document.getElementsByClassName("native-text");
-    window.scrollTo(0, 2000);
+     
 
     for (var coke = 0; coke < urutkan2.length; coke++) {
         if (urutkan2[coke].textContent.includes("URUTKAN")) {
