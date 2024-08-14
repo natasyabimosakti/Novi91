@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.149
+// @version      3.150
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
@@ -45,7 +45,7 @@ var Comment8 = 'ANGKER4D=CANDUL5=25*16*85';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=CANDIL68=25*16*43'; 
 
-var namagroup10 = 'PEJUANG';
+var namagroup10 = 'JNE';
 var Comment10 = '#JNETOTO(CANTOLKAWAT)*19*03*43'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
@@ -137,7 +137,7 @@ var myrefresh = setInterval(function(){
     var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
     var urutkan2 = document.querySelectorAll("[data-mcomponent='TextArea']");
     var waktupost = document.getElementsByClassName("native-text");
-    window.scrollTo(0, 2000);
+     
 
     for (var coke = 0; coke < urutkan2.length; coke++) {
         if (urutkan2[coke].textContent.includes("URUTKAN")) {
