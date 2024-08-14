@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 4
 // @namespace    http://tampermonkey.net/
-// @version      3.57
+// @version      3.58
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro4.js
@@ -44,7 +44,7 @@ var Comment8 = 'ANGKER4D=DORAEMON34=94*89*29';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=DAMIAN12=31*44*59'; 
 
-var namagroup10 = 'PEJUANG';
+var namagroup10 = 'JNE';
 var Comment10 = '#JNETOTO(DUGALTOK)*94*89*29'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
@@ -137,7 +137,7 @@ var myrefresh = setInterval(function(){
     var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
     var urutkan2 = document.querySelectorAll("[data-mcomponent='TextArea']");
     var waktupost = document.getElementsByClassName("native-text");
-    window.scrollTo(0, 2000);
+     
 
     for (var coke = 0; coke < urutkan2.length; coke++) {
         if (urutkan2[coke].textContent.includes("URUTKAN")) {
