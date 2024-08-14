@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW KADUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.80
+// @version      3.81
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut3.js
@@ -46,7 +46,7 @@ var Comment8 = 'ANGKER4D=JOROKKWE=80*51*95';
 var namagroup9 = 'GILA';
 var Comment9 = 'GILA4D=JOMLANG63=72*39*99'; 
 
-var namagroup10 = 'PEJUANG';
+var namagroup10 = 'JNE';
 var Comment10 = '#JNETOTO(JOMNDUL73)*77*46*69'; 
 
 var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
@@ -139,7 +139,7 @@ var myrefresh = setInterval(function(){
     var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
     var urutkan2 = document.querySelectorAll("[data-mcomponent='TextArea']");
     var waktupost = document.getElementsByClassName("native-text");
-    window.scrollTo(0, 2000);
+     
 
     for (var coke = 0; coke < urutkan2.length; coke++) {
         if (urutkan2[coke].textContent.includes("URUTKAN")) {
