@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim2
 // @namespace    http://tampermonkey.net/
-// @version      3.60
+// @version      3.61
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim2.js
@@ -126,7 +126,7 @@ var myrefresh = setInterval(function(){
 
 
     if ( hour > tm + 2 || hour < tm||document.URL.includes("google") == true||hour == undefined||hour == null){
-        for (var kr = 1; kr < 18; kr++) {
+        for (var kr = 1; kr < 19; kr++) {
             GM.setValue( kr,0);
         }
         GM.setValue("time", hour);
