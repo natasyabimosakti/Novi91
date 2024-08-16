@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF2
 // @namespace    http://tampermonkey.net/
-// @version      3.131
+// @version      3.132
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
@@ -71,7 +71,6 @@ var namagroup18 = 'Jawatengah';
 var Comment18 = 'Zulf2';
 
 
-
 var refresh = 40;
 var d = new Date();
 var hour = d.getHours();
@@ -127,7 +126,7 @@ var myrefresh = setInterval(function(){
 
 
     if ( hour > tm + 2 || hour < tm||document.URL.includes("google") == true||hour == undefined||hour == null){
-        for (var kr = 1; kr < 18; kr++) {
+        for (var kr = 1; kr < 19; kr++) {
             GM.setValue( kr,0);
         }
         GM.setValue("time", hour);
