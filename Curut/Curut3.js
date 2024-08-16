@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.70
+// @version      3.71
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut3.js
@@ -586,7 +586,7 @@ var myInterval = setInterval(function(){
 
                                         document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment17;
 
-                                       if(document.getElementsByClassName("multi-line-floating-textbox")[0].textContent = Comment17){
+                                        if(document.getElementsByClassName("multi-line-floating-textbox")[0].textContent = Comment17){
                                             GM.setValue( 17,1);
                                             clearInterval(myInterval);
                                             clearInterval(myrefresh);
@@ -602,22 +602,18 @@ var myInterval = setInterval(function(){
 
                                 if (ceknamagroup.textContent.includes(namagroup18) ) {
                                     /*cek nama group dan tulis commntar*/
-                                    if (id18 == "" || id18 == undefined || id18 == null ||id18 == "0") {
-                                        /*cek nama group dan tulis commntar*/
 
-                                        document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment18;
+                                    /*cek nama group dan tulis commntar*/
 
-                                        if(document.getElementsByClassName("multi-line-floating-textbox")[0].textContent = Comment18){
-                                            GM.setValue( 18,1);
-                                            clearInterval(myInterval);
-                                            clearInterval(myrefresh);
-                                            console.log("Sudah Comment")
-                                            clicksend();
-                                            return;
-                                        }
-                                    } else {
-                                        location.href = "about:blank"
+                                    document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment18;
 
+                                    if(document.getElementsByClassName("multi-line-floating-textbox")[0].textContent = Comment18){
+                                        GM.setValue( 18,1);
+                                        clearInterval(myInterval);
+                                        clearInterval(myrefresh);
+                                        console.log("Sudah Comment")
+                                        clicksendtest()
+                                        return;
                                     }
                                 }
                             }
@@ -635,11 +631,26 @@ var myInterval = setInterval(function(){
         }
     }
 
-}, 10)
+}, 50)
 
 
 
+function clicksendtest() {
+    /*Tampilkan TOMBOL SEND*/
+    if(document.getElementsByClassName("textbox-submit-button")[0]){
+        document.getElementsByClassName("textbox-submit-button")[0].style.display=""
 
+        /*Tekan TOMBOL SEND*/
+        var clicksendcoment = document.getElementsByClassName("textbox-submit-button")[0];
+        clicksendcoment.disabled = false;
+        var clickEvent = document.createEvent ('MouseEvents');
+        clickEvent.initEvent ("mousedown", true, true);
+        clicksendcoment.dispatchEvent (clickEvent);
+        console.log("Comment Terkirim");
+
+        /*Tekan TOMBOL SEND*/
+    }
+}
 
 function clicksend() {
     /*Tampilkan TOMBOL SEND*/
@@ -659,7 +670,7 @@ function clicksend() {
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},5)
+    setTimeout(function(){location.href = "about:blank"},20)
 
 
 }
