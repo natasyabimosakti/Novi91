@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG1
 // @namespace    http://tampermonkey.net/
-// @version      3.155
+// @version      3.156
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong1.js
@@ -129,7 +129,7 @@ var myrefresh = setInterval(function(){
 
 
     if ( hour > tm + 2 || hour < tm||document.URL.includes("google") == true||hour == undefined||hour == null){
-        for (var kr = 1; kr < 18; kr++) {
+        for (var kr = 1; kr < 19; kr++) {
             GM.setValue( kr,0);
         }
         GM.setValue("time", hour);
