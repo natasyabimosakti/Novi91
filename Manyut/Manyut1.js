@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT1
 // @namespace    http://tampermonkey.net/
-// @version      3.156
+// @version      3.157
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut1.js
@@ -122,6 +122,7 @@ var Backlist7 = "result";
 
 var jitter = 0
 var myrefresh = setInterval(function(){
+ window.scroll(0,200)
     if (tm == "" || tm == undefined || tm == null) {
         GM.setValue("time", hour);
     }
