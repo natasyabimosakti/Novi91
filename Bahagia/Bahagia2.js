@@ -65,7 +65,7 @@ var namagroup15 = 'XX1';
 var Comment15 = '#XX1TOTO (BOBOHO55)  28*42*13 BETTING'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*BOMBA54*15*92*39';
+var Comment16 = 'CITA4D*BOMBAA54*15*92*39';
 
 
 
