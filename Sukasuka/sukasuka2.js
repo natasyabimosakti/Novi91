@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BENT2
 // @namespace    http://5.net/
-// @version      3.66
+// @version      3.67
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka2.js
@@ -122,6 +122,7 @@ var Backlist7 = "result";
 
 var jitter = 0
 var myrefresh = setInterval(function(){
+ window.scroll(0,200)
     if (tm == "" || tm == undefined || tm == null) {
         GM.setValue("time", hour);
     }
