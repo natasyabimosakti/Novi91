@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.157
+// @version      3.158
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
@@ -78,7 +78,6 @@ var refresh = 40;
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
-
 var id1 = await GM.getValue(1);
 var id2 = await GM.getValue(2);
 var id3 = await GM.getValue(3);
@@ -99,7 +98,6 @@ var id17 = await GM.getValue(17);
 var id18 = await GM.getValue(18);
 
 var admin = [" ","nyocol","gita","rikodo","adiat","david",",dewa","wulan","andy","desi","erwin","mey","lusiana","fahresa","rizal","jordi","surianti","satria","boleng","yanty","pung","tiara","cristina","fira","ayunda","mersya","nona","camb","jaguar","Siâo","primus","habib","cassa","neng","arxidi","che","aldi","nino","sofia","sonia","serena","alde","puput","mad","hefi","dika","iyatoto","adm","celsia","jne","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","tiktak","nella","novi","sandiego","nasution","ratu","priyan","san","ria","sanjaya","siska","biru","aditia","keitogel","safar","mahendra","multi","mariana","neman","tatang","dewi","primus","roy","dewi","melati","kumbara","dentoto","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
- 
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
 var keyword3 = "LOMBA"
@@ -131,10 +129,7 @@ var myrefresh = setInterval(function(){
             GM.setValue( kr,0);
         }
         GM.setValue("time", hour);
-
     }
-
-
     for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
         if (document.querySelectorAll('[data-tracking-duration-id')[ntv]){
             // Nama FB
@@ -145,7 +140,6 @@ var myrefresh = setInterval(function(){
             var postingan =document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')[3];
             //Comment Box
             var commentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')
-
             // Cek Jam
             var ret = jamposting.textContent.replace(/  Admin   |  Moderator   /g, "");
             if (ret.includes("Baru")||ret.slice(0,7).includes("1 menit")||ret.slice(0,7).includes("2 menit")||ret.slice(0,7).includes("3 menit")||ret.slice(0,7).includes("4 menit")||ret.slice(0,7).includes("4 menit")){
@@ -192,9 +186,7 @@ var myrefresh = setInterval(function(){
                                         jitter = 0
                                         game.start()
                                         return;
-
                                     }
-
                                 }
                             }
                             return;
@@ -215,7 +207,6 @@ var myrefresh = setInterval(function(){
                 }
             }
         }
-
     }
     if(document.getElementsByClassName("loading-overlay").length == 0 ){
 
@@ -224,7 +215,6 @@ var myrefresh = setInterval(function(){
                 for (var coki = 0; coki < waktupost.length; coki++) {
                     if(waktupost[coki].textContent.includes("Aktivitas")) {
                         waktupost[coki].click()
-
                     }
                 }
             }
@@ -243,7 +233,6 @@ function gameClosure() {
         }
         console.log('The game is running')
         /* This is just an example, replace this with the body of gameInit() */
-
         if(document.getElementsByClassName("multi-line-floating-textbox").length > 0 ){
             var ceknamagroup
             var ceknamagroup1
@@ -272,14 +261,12 @@ function gameClosure() {
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 1,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment1;
-
-
                     console.log("Sudah Comment")
                     clicksend();
+                     jitter = 1
                     return;
                 } else {
                     location.href = "about:blank"
-
                 }
             }
             if (ceknamagroup.includes(namagroup2) == true||ceknamagroup1.includes(namagroup2) == true||ceknamagroup2.includes(namagroup2) == true||ceknamagroup3.includes(namagroup2) == true||ceknamagroup4.includes(namagroup2) == true) {
@@ -288,14 +275,12 @@ function gameClosure() {
                     GM.setValue( 2,1);
                     /*cek nama group dan tulis commntar*/
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment2;
-
-
                     console.log("Sudah Comment")
                     clicksend();
+                     jitter = 1
                     return;
                 } else {
                     location.href = "about:blank"
-
                 }
             }
             if (ceknamagroup.includes(namagroup3) == true||ceknamagroup1.includes(namagroup3) == true||ceknamagroup2.includes(namagroup3) == true||ceknamagroup3.includes(namagroup3) == true||ceknamagroup4.includes(namagroup3) == true) {
@@ -304,14 +289,12 @@ function gameClosure() {
                     GM.setValue( 3,1);
                     /*cek nama group dan tulis commntar*/
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment3;
-
-
                     console.log("Sudah Comment")
                     clicksend();
+                     jitter = 1
                     return;
                 } else {
                     location.href = "about:blank"
-
                 }
             }
             if (ceknamagroup.includes(namagroup4) == true||ceknamagroup1.includes(namagroup4) == true||ceknamagroup2.includes(namagroup4) == true||ceknamagroup3.includes(namagroup4) == true||ceknamagroup4.includes(namagroup4) == true) {
@@ -320,14 +303,12 @@ function gameClosure() {
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 4,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment4;
-
-
                     console.log("Sudah Comment")
                     clicksend();
+                     jitter = 1
                     return;
                 } else {
                     location.href = "about:blank"
-
                 }
             }
             if (ceknamagroup.includes(namagroup5) == true||ceknamagroup1.includes(namagroup5) == true||ceknamagroup2.includes(namagroup5) == true||ceknamagroup3.includes(namagroup5) == true||ceknamagroup4.includes(namagroup5) == true) {
@@ -336,14 +317,12 @@ function gameClosure() {
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 5,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment5;
-
-
                     console.log("Sudah Comment")
                     clicksend();
+                     jitter = 1
                     return;
                 } else {
                     location.href = "about:blank"
-
                 }
             }
             if (ceknamagroup.includes(namagroup6) == true||ceknamagroup1.includes(namagroup6) == true||ceknamagroup2.includes(namagroup6) == true||ceknamagroup3.includes(namagroup6) == true||ceknamagroup4.includes(namagroup6) == true) {
@@ -352,14 +331,12 @@ function gameClosure() {
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 6,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment6;
-
-
                     console.log("Sudah Comment")
                     clicksend();
+                     jitter = 1
                     return;
                 } else {
                     location.href = "about:blank"
-
                 }
             }
             if (ceknamagroup.includes(namagroup7) == true||ceknamagroup1.includes(namagroup7) == true||ceknamagroup2.includes(namagroup7) == true||ceknamagroup3.includes(namagroup7) == true||ceknamagroup4.includes(namagroup7) == true) {
@@ -368,14 +345,12 @@ function gameClosure() {
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 7,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment7;
-
-
                     console.log("Sudah Comment")
                     clicksend();
+                     jitter = 1
                     return;
                 } else {
                     location.href = "about:blank"
-
                 }
             }
             if (ceknamagroup.includes(namagroup8) == true||ceknamagroup1.includes(namagroup8) == true||ceknamagroup2.includes(namagroup8) == true||ceknamagroup3.includes(namagroup8) == true||ceknamagroup4.includes(namagroup8) == true) {
@@ -384,13 +359,12 @@ function gameClosure() {
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 8,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment8;
-
                     console.log("Sudah Comment")
                     clicksend();
+                     jitter = 1
                     return;
                 } else {
                     location.href = "about:blank"
-
                 }
             }
             if (ceknamagroup.includes(namagroup9) == true||ceknamagroup1.includes(namagroup9) == true||ceknamagroup2.includes(namagroup9) == true||ceknamagroup3.includes(namagroup9) == true||ceknamagroup4.includes(namagroup9) == true) {
@@ -399,14 +373,12 @@ function gameClosure() {
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 9,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment9;
-
-
                     console.log("Sudah Comment")
                     clicksend();
+                     jitter = 1
                     return;
                 } else {
                     location.href = "about:blank"
-
                 }
             }
             if (ceknamagroup.includes(namagroup10) == true||ceknamagroup1.includes(namagroup10) == true||ceknamagroup2.includes(namagroup10) == true||ceknamagroup3.includes(namagroup10) == true||ceknamagroup4.includes(namagroup10) == true) {
@@ -415,14 +387,12 @@ function gameClosure() {
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 10,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment10;
-
-
                     console.log("Sudah Comment")
                     clicksend();
+                     jitter = 1;
                     return;
                 } else {
                     location.href = "about:blank"
-
                 }
             }
             if (ceknamagroup.includes(namagroup11) == true||ceknamagroup1.includes(namagroup11) == true||ceknamagroup2.includes(namagroup11) == true||ceknamagroup3.includes(namagroup11) == true||ceknamagroup4.includes(namagroup11) == true) {
@@ -431,14 +401,12 @@ function gameClosure() {
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 11,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment11;
-
-                    ;
                     console.log("Sudah Comment")
                     clicksend();
+                     jitter = 1;
                     return;
                 } else {
                     location.href = "about:blank"
-
                 }
             }
             if (ceknamagroup.includes(namagroup12) == true||ceknamagroup1.includes(namagroup12) == true||ceknamagroup2.includes(namagroup12) == true||ceknamagroup3.includes(namagroup12) == true||ceknamagroup4.includes(namagroup12) == true) {
@@ -447,14 +415,12 @@ function gameClosure() {
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 12,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment12;
-
-
                     console.log("Sudah Comment")
                     clicksend();
+                     jitter = 1
                     return;
                 } else {
                     location.href = "about:blank"
-
                 }
             }
             if (ceknamagroup.includes(namagroup13) == true||ceknamagroup1.includes(namagroup13) == true||ceknamagroup2.includes(namagroup13) == true||ceknamagroup3.includes(namagroup13) == true||ceknamagroup4.includes(namagroup13) == true) {
@@ -463,14 +429,12 @@ function gameClosure() {
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 13,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment13;
-
-
                     console.log("Sudah Comment")
                     clicksend();
+                     jitter = 1
                     return;
                 } else {
                     location.href = "about:blank"
-
                 }
             }
             if (ceknamagroup.includes(namagroup14) == true||ceknamagroup1.includes(namagroup14) == true||ceknamagroup2.includes(namagroup14) == true||ceknamagroup3.includes(namagroup14) == true||ceknamagroup4.includes(namagroup14) == true) {
@@ -479,14 +443,12 @@ function gameClosure() {
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 14,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment14;
-
-
                     console.log("Sudah Comment")
                     clicksend();
+                     jitter = 1
                     return;
                 } else {
                     location.href = "about:blank"
-
                 }
             }
 
@@ -496,14 +458,12 @@ function gameClosure() {
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 15,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment15;
-
-
                     console.log("Sudah Comment")
                     clicksend();
+                     jitter = 1
                     return;
                 } else {
                     location.href = "about:blank"
-
                 }
             }
 
@@ -513,14 +473,12 @@ function gameClosure() {
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 16,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment16;
-
-
                     console.log("Sudah Comment")
                     clicksend();
+                     jitter = 1
                     return;
                 } else {
                     location.href = "about:blank"
-
                 }
             }
             if (ceknamagroup.includes(namagroup17) == true||ceknamagroup1.includes(namagroup17) == true||ceknamagroup2.includes(namagroup17) == true||ceknamagroup3.includes(namagroup17) == true||ceknamagroup4.includes(namagroup17) == true) {
@@ -529,13 +487,12 @@ function gameClosure() {
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 17,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment17;
-
                     console.log("Sudah Comment")
                     clicksend();
+                     jitter = 1
                     return;
                 } else {
                     location.href = "about:blank"
-
                 }
             }
             if (ceknamagroup.includes(namagroup18) == true||ceknamagroup1.includes(namagroup18) == true||ceknamagroup2.includes(namagroup18) == true||ceknamagroup3.includes(namagroup18) == true||ceknamagroup4.includes(namagroup18) == true) {
@@ -544,33 +501,27 @@ function gameClosure() {
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 18,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment18;
-
-
                     console.log("Sudah Comment")
                     clicksend();
+                     jitter = 1
                     return;
                 } else {
                     location.href = "about:blank"
-
                 }
             }
         }
     }
     var currentGame;
-
     return {
         start() {
-            currentGame = setInterval(game, 60)
+            currentGame = setInterval(game, 5)
         },
         stop() {
             clearInterval(currentGame)
         }
     }
 }
-
 var game = gameClosure()
-
-
 
 function clicksend() {
     game.stop()
