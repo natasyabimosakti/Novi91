@@ -28,7 +28,7 @@ var namagroup4 = 'TEMPO';
 var Comment4 = 'ASKIPLI99 : 36*81*89 #TEMPOTOTO';
 
 var namagroup5 = 'RNR';
-var Comment5 = '‌#RNR303(ASEKASEK12) : 06*95*79';
+var Comment5 = '‌#RNR303(ASBHUN) : 06*95*79';
 
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (AZKALAN) = 17*98*19';
