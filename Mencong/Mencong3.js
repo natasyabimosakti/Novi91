@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG3
 // @namespace    http://tampermonkey.net/
-// @version      3.162
+// @version      3.163
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong3.js
@@ -41,7 +41,7 @@ var Comment7 = 'ASEPTOGEL NOVITARU34 34*13*79';
 var namagroup8 = 'ANGKER';
 var Comment8 = 'ANGKER4D=NOVITAS53=00*28*07'; 
 
-var namagroup9 = 'GILA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=NOVINANU83=00*28*07'; 
 
 var namagroup10 = 'JNE';
@@ -74,7 +74,7 @@ var Comment18 = 'Mencong3';
 
 
 
-var refresh = 40;
+var refresh = 20;
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
@@ -514,7 +514,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 5)
+            currentGame = setInterval(game, 0)
         },
         stop() {
             clearInterval(currentGame)
