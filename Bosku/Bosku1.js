@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE1
 // @namespace    http://tampermonkey.net/
-// @version      3.78
+// @version      3.79
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
@@ -38,7 +38,7 @@ var Comment7 = 'ASEPTOGEL XONKING52 17*84*50';
 var namagroup8 = 'ANGKER';
 var Comment8 = 'ANGKER4D=XELINA56=08*14*33'; 
 
-var namagroup9 = 'GILA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=XEROPON=08*14*33'; 
 
 var namagroup10 = 'JNE';
@@ -70,7 +70,7 @@ var namagroup18 = 'Jawatengah';
 var Comment18 = 'Bosku1';
 
 
-var refresh = 40;
+var refresh = 20;
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
@@ -510,7 +510,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 5)
+            currentGame = setInterval(game, 0)
         },
         stop() {
             clearInterval(currentGame)
