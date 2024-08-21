@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim3
 // @namespace    http://tampermonkey.net/
-// @version      3.70
+// @version      3.71
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim3.js
@@ -71,7 +71,7 @@ var namagroup18 = 'Jawatengah';
 var Comment18 = 'Yatim3';
 
 
-var refresh = 23;
+var refresh = 30;
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
