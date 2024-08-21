@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 4
 // @namespace    http://tampermonkey.net/
-// @version      3.71
+// @version      3.72
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk4.js
@@ -40,7 +40,7 @@ var Comment7 = 'ASEPTOGEL PLECICILAN 90*79*09';
 var namagroup8 = 'ANGKER';
 var Comment8 = 'ANGKER4D=PLECIKLUK=15*98*86'; 
 
-var namagroup9 = 'GILA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=PLECUAN=16*81*71'; 
 
 var namagroup10 = 'JNE';
@@ -72,7 +72,7 @@ var Comment18 = 'Manuk4';
 
 
 
-var refresh = 40;
+var refresh = 20;
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
@@ -512,7 +512,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 5)
+            currentGame = setInterval(game, 0)
         },
         stop() {
             clearInterval(currentGame)
