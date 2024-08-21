@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG4
 // @namespace    http://tampermonkey.net/
-// @version      3.164
+// @version      3.165
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong4.js
@@ -72,7 +72,7 @@ var Comment18 = 'Mencong4';
 
 
 
-var refresh = 30;
+var refresh = 23;
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
@@ -118,7 +118,7 @@ var Backlist7 = "result";
 
 var jitter = 0
 var myrefresh = setInterval(function(){
- window.scroll(0,200)
+ window.scroll(0,100)
     if (tm == "" || tm == undefined || tm == null) {
         GM.setValue("time", hour);
     }
@@ -178,10 +178,11 @@ var myrefresh = setInterval(function(){
                             for (var clk = 0; clk < commentbox.length; clk++) {
                                 if(commentbox[clk]){
                                     if(commentbox[clk].textContent.toLowerCase().includes("jawab")|| commentbox[clk].textContent.toLowerCase().includes("tulis")){
-                                        commentbox[clk].click()
+                                        
                                         clearInterval(myrefresh);
                                         console.log("Click Posting box")
                                         jitter = 0
+                                        commentbox[clk].click()
                                         game.start()
                                         return;
                                     }
