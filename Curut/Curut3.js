@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.76
+// @version      3.77
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut3.js
@@ -42,7 +42,7 @@ var Comment7 = 'ASEPTOGEL ALAKADUR14 73*10*97';
 var namagroup8 = 'ANGKER';
 var Comment8 = 'ANGKER4D=ALAKADUR14=63*30*97'; 
 
-var namagroup9 = 'GILA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=ALKON26=63*30*72'; 
 
 var namagroup10 = 'JNE';
@@ -73,7 +73,7 @@ var namagroup18 = 'Jawatengah';
 var Comment18 = 'Curut3';
 
 
-var refresh = 40;
+var refresh = 20;
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
@@ -513,7 +513,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 5)
+            currentGame = setInterval(game, 0)
         },
         stop() {
             clearInterval(currentGame)
