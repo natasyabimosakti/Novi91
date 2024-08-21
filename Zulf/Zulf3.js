@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF3
 // @namespace    http://tampermonkey.net/
-// @version      3.138
+// @version      3.139
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf3.js
@@ -40,7 +40,7 @@ var Comment7 = 'ASEPTOGEL TIMTIM57 64*40*69';
 var namagroup8 = 'ANGKER';
 var Comment8 = 'ANGKER4D=TRIWITUA=22*24*21'; 
 
-var namagroup9 = 'GILA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=TIRN18=22*24*21'; 
 
 var namagroup10 = 'JNE';
@@ -71,7 +71,7 @@ var namagroup18 = 'Jawatengah';
 var Comment18 = 'Zulf3';
 
 
-var refresh = 40;
+var refresh = 20;
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
@@ -511,7 +511,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 5)
+            currentGame = setInterval(game, 0)
         },
         stop() {
             clearInterval(currentGame)
