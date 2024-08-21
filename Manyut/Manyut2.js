@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.161
+// @version      3.162
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut2.js
@@ -73,7 +73,7 @@ var Comment18 = 'Manyut2';
 
 
 
-var refresh = 23;
+var refresh = 30;
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
