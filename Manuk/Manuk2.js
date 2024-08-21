@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 2
 // @namespace    http://tampermonkey.net/
-// @version      3.72
+// @version      3.73
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk2.js
@@ -73,7 +73,7 @@ var Comment18 = 'Manuk2';
 
 
 
-var refresh = 20;
+var refresh = 30;
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
