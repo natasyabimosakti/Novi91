@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG3
 // @namespace    http://tampermonkey.net/
-// @version      3.165
+// @version      3.166
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong3.js
@@ -74,7 +74,7 @@ var Comment18 = 'Mencong3';
 
 
 
-var refresh = 23;
+var refresh = 30;
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
