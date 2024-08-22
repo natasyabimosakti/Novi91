@@ -2,7 +2,6 @@
 // @name         Kawul1
 // @namespace    http://tampermonkey.net/
 // @version      3.65
-// @version      3.NaN
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
 // @author       You
