@@ -58,8 +58,8 @@ var Comment13 = 'GOHTOGEL=DJASKAL12=47*60*21';
 var namagroup14 = 'BLITAR';
 var Comment14 = '#BLITAR4D ( DINDAKUCING ) : 66*02*94'; 
 
-var namagroup15 = 'XX1';
-var Comment15 = '#XX1TOTO (DUDUKGO81)  16*67*30 BETTING'; 
+var namagroup15 = 'MAIN';
+var Comment15 = '#(MAINTOGEL365) (DUDUKGO81) : 16*67*30'; 
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*DIKENTUKADAL*27*10*53';
