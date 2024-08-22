@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul4
 // @namespace    http://tampermonkey.net/
-// @version      3.64
+// @version      3.65
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul4.js
@@ -58,8 +58,8 @@ var Comment13 = 'GOHTOGEL=SAWERSEK=85*67*18';
 var namagroup14 = 'BLITAR';
 var Comment14 = '#BLITAR4D ( SALAMANAE ) : 01*41*62'; 
 
-var namagroup15 = 'XX1';
-var Comment15 = '#XX1TOTO (SALAMANAE)  25*03*91 BETTING'; 
+var namagroup15 = 'MAIN';
+var Comment15 = '#(MAINTOGEL365) (SALAMANAE) : 25*03*91'; 
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*SANGEKABEH*47*12*94';
@@ -97,15 +97,15 @@ var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
 var id18 = await GM.getValue(18);
 
-var admin = ["Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","asmani","andy","ayesha","aqisya",
-             "brian","boboho","bobby","bonar","bella","bastian","bungaps",
+var admin = ["Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","asmani","andy","ayesha","aqisya","arifin",
+             "brian","boboho","bobby","bonar","bella","bastian","bungaps","budi",
              "cinta","calvin","celsia","cila","cindy","chintya","carole","celine",
-             "denis","dollar","dewa","dewi","dinda","dika","dea",
-             "echa","erika","elly","eugene","erwin",
+             "denis","dollar","dewa","dewi","dinda","dika","dea","debby",
+             "echa","erika","elly","eugene","erwin","erna",
              "farah","febrian","fiana","farid","fahresa",
              "gretha",
              "herfizah","hana","hoihai","hefi","habib",
-             "inisial","intan","icha","irfan",
+             "inisial","intan","icha","irfan","inves",
              "jhone","jess","jovanka","jenifer","jihan","jesika","je pe",
              "kumbara","kemon","katharina","kayla","katty","kendri","kembar","kotna","kiky",
              "lehman","lianda","laura","leon","lidya","larissa","leksa","lina",
@@ -206,11 +206,11 @@ var myrefresh = setInterval(function(){
                             for (var clk = 0; clk < commentbox.length; clk++) {
                                 if(commentbox[clk]){
                                     if(commentbox[clk].textContent.toLowerCase().includes("jawab")|| commentbox[clk].textContent.toLowerCase().includes("tulis")){
-                                        commentbox[clk].click()
                                         clearInterval(myrefresh);
                                         console.log("Click Posting box")
                                         jitter = 0
                                         game.start()
+                                        commentbox[clk].click()
                                         return;
                                     }
                                 }
@@ -540,7 +540,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 5)
+            currentGame = setInterval(game, 0)
         },
         stop() {
             clearInterval(currentGame)
@@ -569,7 +569,7 @@ function clicksend() {
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},5)
+    setTimeout(function(){location.href = "about:blank"},100)
 
 
 }
