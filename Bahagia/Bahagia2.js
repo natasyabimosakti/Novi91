@@ -61,8 +61,8 @@ var Comment13 = 'GOHTOGEL=BERANAK76=75*50*73';
 var namagroup14 = 'BLITAR';
 var Comment14 = '#BLITAR4D ( BIKANG12 ) : 52*35*54'; 
 
-var namagroup15 = 'XX1';
-var Comment15 = '#XX1TOTO (BOBOHO55)  28*42*13 BETTING'; 
+var namagroup15 = 'MAIN';
+var Comment15 = '#(MAINTOGEL365) (BOBOHO55) : 28*42*13'; 
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*BOMBAA54*15*92*39';
