@@ -28,7 +28,7 @@ var namagroup4 = 'TEMPO';
 var Comment4 = 'KRISEMPU51 : 89*90*56 #TEMPOTOTO'; 
 
 var namagroup5 = 'RNR';
-var Comment5 = '‌#RNR303(KRIKAR23) : 02*19*68'; 
+// @version      3.NaN
 
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (KRISMANDA23) = 78*55*07'; 
@@ -76,7 +76,7 @@ var namagroup18 = 'lajw';
 var Comment18 = 'asek';
 
 
-var refresh = 40;
+var refresh = 30;
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
@@ -526,25 +526,26 @@ var myrefresh = setInterval(function(){
 
     var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
     var waktupost = document.getElementsByClassName("native-text");
-     if (document.readyState === "complete") {
-        for (var cok = 0; cok < urutkan.length; cok++) {
-            if(urutkan[cok].textContent.includes("URUTKAN")) {
-                urutkan[cok].click()
-
+    if(!document.querySelectorAll("[role='presentation']")[0]){
+        if (document.readyState === "complete") {
+            for (var cok = 0; cok < urutkan.length; cok++) {
+                if(urutkan[cok].textContent.includes("URUTKAN")) {
+                    urutkan[cok].click()
+                }
             }
         }
-
     }
+    if(document.getElementsByClassName("loading-overlay").length == 0 ){
 
-
-    if (document.readyState === "complete") {
-        for (var coki = 0; coki < waktupost.length; coki++) {
-            if(waktupost[coki].textContent.includes("Aktivitas")) {
-                waktupost[coki].click()
-
+        if(document.querySelectorAll("[role='presentation']")[0]){
+            if (document.readyState === "complete") {
+                for (var coki = 0; coki < waktupost.length; coki++) {
+                    if(waktupost[coki].textContent.includes("Aktivitas")) {
+                        waktupost[coki].click()
+                    }
+                }
             }
         }
-
     }
 
 
