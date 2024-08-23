@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia3
 // @namespace    http://tampermonkey.net/
-// @version      3.35
+// @version      3.36
 // @description  dunia
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
@@ -260,6 +260,7 @@ var myInterval = setInterval(function(){
                                 if(commentbox[clk]){
                                     if(commentbox[clk].textContent.toLowerCase().includes("jawab")|| commentbox[clk].textContent.toLowerCase().includes("tulis")){
                                         commentbox[clk].click()
+                                        clearInterval(myrefresh);
                                     }
                                 }
                             }
@@ -623,7 +624,7 @@ function clicksend() {
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},200)
+    setTimeout(function(){location.href = "about:blank"},500)
 
 
 }
