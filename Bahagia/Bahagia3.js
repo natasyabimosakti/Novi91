@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia3
 // @namespace    http://tampermonkey.net/
-// @version      3.38
+// @version      3.39
 // @description  dunia
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
@@ -76,7 +76,7 @@ var Comment17 = 'Bahagia1';
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
 
-var refresh = 40;
+var refresh = 30;
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
@@ -526,25 +526,26 @@ var myrefresh = setInterval(function(){
 
     var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
     var waktupost = document.getElementsByClassName("native-text");
-     if (document.readyState === "complete") {
-        for (var cok = 0; cok < urutkan.length; cok++) {
-            if(urutkan[cok].textContent.includes("URUTKAN")) {
-                urutkan[cok].click()
-
+    if(!document.querySelectorAll("[role='presentation']")[0]){
+        if (document.readyState === "complete") {
+            for (var cok = 0; cok < urutkan.length; cok++) {
+                if(urutkan[cok].textContent.includes("URUTKAN")) {
+                    urutkan[cok].click()
+                }
             }
         }
-
     }
+    if(document.getElementsByClassName("loading-overlay").length == 0 ){
 
-
-    if (document.readyState === "complete") {
-        for (var coki = 0; coki < waktupost.length; coki++) {
-            if(waktupost[coki].textContent.includes("Aktivitas")) {
-                waktupost[coki].click()
-
+        if(document.querySelectorAll("[role='presentation']")[0]){
+            if (document.readyState === "complete") {
+                for (var coki = 0; coki < waktupost.length; coki++) {
+                    if(waktupost[coki].textContent.includes("Aktivitas")) {
+                        waktupost[coki].click()
+                    }
+                }
             }
         }
-
     }
 
 
