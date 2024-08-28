@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul1
 // @namespace    http://tampermonkey.net/
-// @version      3.71
+// @version      3.72
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
@@ -80,8 +80,8 @@ var Comment18 = 'asek';
 
 
 
-var refresh = 30;
 
+var refresh = 40
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
@@ -209,21 +209,17 @@ var myInterval = setInterval(function(){
     var ceknamagroup3
     var ceknamagroup4
     'use strict';
-    if( document.getElementsByClassName('native-text')[6]){
+     
         ceknamagroup = document.getElementsByClassName('native-text')[6].textContent;
-    }
-    if( document.getElementsByClassName('native-text')[7]){
+    
         ceknamagroup1 = document.getElementsByClassName('native-text')[7].textContent;
-    }
-    if( document.getElementsByClassName('native-text')[8]){
+    
         ceknamagroup2 = document.getElementsByClassName('native-text')[8].textContent;
-    }
-    if( document.getElementsByClassName('native-text')[9]){
+    
         ceknamagroup3 = document.getElementsByClassName('native-text')[9].textContent;
-    }
-    if( document.getElementsByClassName('native-text')[10]){
+     
         ceknamagroup4 = document.getElementsByClassName('native-text')[10].textContent;
-    }
+    
 
     console.log(" ");
     for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
@@ -566,7 +562,7 @@ var myInterval = setInterval(function(){
 
                                 }
                             }
-                            if (ceknamagroup.includes(namagroup16) == true||ceknamagroup1.includes(namagroup17) == true||ceknamagroup2.includes(namagroup17) == true||ceknamagroup3.includes(namagroup17) == true||ceknamagroup4.includes(namagroup17) == true) {
+                            if (ceknamagroup.includes(namagroup17) == true||ceknamagroup1.includes(namagroup17) == true||ceknamagroup2.includes(namagroup17) == true||ceknamagroup3.includes(namagroup17) == true||ceknamagroup4.includes(namagroup17) == true) {
                                 /*cek nama group dan tulis commntar*/
                                 if (id17 == "" || id17 == undefined || id17 == null ||id17 == "0") {
                                     /*cek nama group dan tulis commntar*/
