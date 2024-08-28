@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia4
 // @namespace    http://tampermonkey.net/
-// @version      3.45
+// @version      3.46
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia4.js
@@ -641,7 +641,7 @@ function clicksend() {
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},5)
+    setTimeout(function(){location.href = "about:blank"},500)
 
 
 }
