@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna1
 // @namespace    http://tampermonkey.net/
-// @version      3.84
+// @version      3.85
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna1.js
@@ -103,11 +103,11 @@ var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
 var id18 = await GM.getValue(18);
 
-var admin = ["Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","asmani","andy","ayesha","aqisya","arifin",
+var admin = ["Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","asmani","andy","ayesha","aqisya","arifin","arga",
              "brian","boboho","bobby","bonar","bella","bastian","bungaps","budi",
              "cinta","calvin","celsia","cila","cindy","chintya","carole","celine",
              "denis","dollar","dewa","dewi","dinda","dika","dea","debby",
-             "echa","erika","elly","eugene","erwin","erna",
+             "echa","erika","elly","eugene","erwin","erna","elmira",
              "farah","febrian","fiana","farid","fahresa",
              "gretha",
              "herfizah","hana","hoihai","hefi","habib",
@@ -127,6 +127,7 @@ var admin = ["Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia
              "wahid","wahzo","wok","wndt","wiena",
              "yoky","yasmine","yao","yohana",
              "zurro"];
+
 
 
 
