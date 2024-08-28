@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut4
 // @namespace    http://tampermonkey.net/
-// @version      3.85
+// @version      3.86
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut4.js
@@ -98,6 +98,7 @@ var id14 = await GM.getValue(14);
 var id15 = await GM.getValue(15);
 var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
+var id18 = await GM.getValue(18);
 var admin = ["Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","asmani","andy","ayesha","aqisya","arifin",
              "brian","boboho","bobby","bonar","bella","bastian","bungaps","budi",
              "cinta","calvin","celsia","cila","cindy","chintya","carole","celine",
@@ -205,15 +206,15 @@ var myInterval = setInterval(function(){
     var ceknamagroup4
     'use strict';
      
-        ceknamagroup = document.getElementsByClassName('native-text')[6].textContent;
+        ceknamagroup = document.getElementsByClassName('native-text')[5].textContent;
     
-        ceknamagroup1 = document.getElementsByClassName('native-text')[7].textContent;
+        ceknamagroup1 = document.getElementsByClassName('native-text')[6].textContent;
     
-        ceknamagroup2 = document.getElementsByClassName('native-text')[8].textContent;
+        ceknamagroup2 = document.getElementsByClassName('native-text')[7].textContent;
     
-        ceknamagroup3 = document.getElementsByClassName('native-text')[9].textContent;
+        ceknamagroup3 = document.getElementsByClassName('native-text')[8].textContent;
      
-        ceknamagroup4 = document.getElementsByClassName('native-text')[10].textContent;
+        ceknamagroup4 = document.getElementsByClassName('native-text')[9].textContent;
     
 
     console.log(" ");
@@ -585,7 +586,7 @@ var myInterval = setInterval(function(){
                                 if (id18 == "" || id18 == undefined || id18 == null ||id18 == "0") {
                                     /*cek nama group dan tulis commntar*/
                                   
-                                    document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment16;
+                                    document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment18;
 
                                     clearInterval(myInterval);
                                     clearInterval(myrefresh);
