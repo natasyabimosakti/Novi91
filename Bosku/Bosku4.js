@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE4
 // @namespace    http://tampermonkey.net/
-// @version      3.83
+// @version      3.84
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku4.js
@@ -65,8 +65,8 @@ var Comment15 = 'SIJITOGEL ZONIAK26 16*81*71';
 var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (ZONIAK63) : 06*28*27'; 
 
-var namagroup17 = 'CIVIC';
-var Comment17 = '#CIVICTOTO(ZOMING82) = 87*42';
+var namagroup17 = 'KIKO';
+var Comment17 = '#KIKOTOTO (ZOMING82) = 87*42';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Bosku4';
