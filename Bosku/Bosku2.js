@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE2
 // @namespace    http://tampermonkey.net/
-// @version      3.83
+// @version      3.84
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
@@ -63,8 +63,8 @@ var Comment15 = 'SIJITOGEL BOSBOS64 40*92*55';
 var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (BOSBIG53) : 94*43*12'; 
 
-var namagroup17 = 'CIVIC';
-var Comment17 = '#CIVICTOTO(BOSBIS48) = 36*49';
+var namagroup17 = 'KIKO';
+var Comment17 = '#KIKOTOTO (BOSBIS48) = 36*49';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Bosku2';
