@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia3
 // @namespace    http://tampermonkey.net/
-// @version      3.41
+// @version      3.42
 // @description  dunia
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
@@ -75,6 +75,7 @@ var Comment17 = 'Bahagia1';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
+
 
 
 var refresh = 40
@@ -227,8 +228,14 @@ var myInterval = setInterval(function(){
             //Postingan
             var postingan =document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')[3];
             //Comment Box
-            var datacommentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text').length -2
-            var commentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')[datacommentbox];
+            var datacommentbox1 = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text').length -1
+            var datacommentbox2 = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text').length -2
+            var commentbox 
+          if(document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')[datacommentbox1].textContent.toLowerCase().includes("tulis")){
+            commentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')[datacommentbox1]
+          }else{
+            commentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')[datacommentbox2]
+          }
 
             // Cek Jam
             var ret = jamposting.textContent.replace(/  Admin   |  Moderator   /g, "");
