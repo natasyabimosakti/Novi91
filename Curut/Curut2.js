@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.81
+// @version      3.82
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
@@ -64,8 +64,8 @@ var Comment15 = 'SIJITOGEL MOCHO19 12*86*68';
 var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (MOSIOM19) : 33*92*66'; 
 
-var namagroup17 = 'CIVIC';
-var Comment17 = '#CIVICTOTO(MORATUL19) = 41*83';
+var namagroup17 = 'KIKO';
+var Comment17 = '#KIKOTOTO (MORATUL19) = 41*83';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Curut2';
