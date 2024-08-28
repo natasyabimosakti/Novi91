@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BENT2
 // @namespace    http://5.net/
-// @version      3.73
+// @version      3.74
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka2.js
@@ -65,8 +65,8 @@ var Comment15 = 'SIJITOGEL BENTOEL12 67*98*05';
 var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (BAMIN12) : 78*46*77'; 
 
-var namagroup17 = 'CIVIC';
-var Comment17 = '#CIVICTOTO(BINOMO77) = 60*41';
+var namagroup17 = 'KIKO';
+var Comment17 = '#KIKOTOTO (BINOMO77) = 60*41';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'sukasuka2';
