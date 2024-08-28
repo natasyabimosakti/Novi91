@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna4
 // @namespace    http://tampermonkey.net/
-// @version      3.80
+// @version      3.81
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna4.js
@@ -640,7 +640,7 @@ function clicksend() {
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},5)
+    setTimeout(function(){location.href = "about:blank"},500)
 
 
 }
