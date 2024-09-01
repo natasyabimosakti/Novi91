@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang2
 // @namespace    http://tampermonkey.net/
-// @version      3.79
+// @version      3.80
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang2.js
@@ -101,18 +101,18 @@ var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
 var id18 = await GM.getValue(18);
 
-var admin = ["Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","asmani","andy","ayesha","aqisya","arifin",
+var admin = ["Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","asmani","andy","ayesha","aqisya","arifin","arga",
              "brian","boboho","bobby","bonar","bella","bastian","bungaps","budi",
-             "cinta","calvin","celsia","cila","cindy","chintya","carole","celine",
+             "cinta","calvin","celsia","cila","cindy","chintya","carole","celine","cheline","corene",
              "denis","dollar","dewa","dewi","dinda","dika","dea","debby",
-             "echa","erika","elly","eugene","erwin","erna",
+             "echa","erika","elly","eugene","erwin","erna","elmira",
              "farah","febrian","fiana","farid","fahresa",
              "gretha",
-             "herfizah","hana","hoihai","hefi","habib",
+             "herfizah","hana","hoihai","hefi","habib","harry",
              "inisial","intan","icha","irfan","inves",
              "jhone","jess","jovanka","jenifer","jihan","jesika","je pe",
              "kumbara","kemon","katharina","kayla","katty","kendri","kembar","kotna","kiky",
-             "lehman","lianda","laura","leon","lidya","larissa","leksa","lina",
+             "lehman","lianda","laura","leon","lidya","larissa","leksa","lina","lidia",
              "manu","mesa","mardia","mila","maes","mad","miranda","melati","minion","mariana","mahendra","multi","megaways",
              "nadila","neng","naura","nathaya","nick","nella","neman","novi",
              "oun","oscar","otong",
