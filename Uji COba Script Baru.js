@@ -469,6 +469,8 @@ var myrefresh = setInterval(function(){
                         console.log("Sudah Comment")
                         clearInterval(myrefresh);
                         clicksend();
+                        throw new Error();
+
 
                         return;
                     } else {
@@ -484,6 +486,8 @@ var myrefresh = setInterval(function(){
                         console.log("Sudah Comment")
                         clearInterval(myrefresh);
                         clicksend();
+                        throw new Error();
+
 
                         return;
                     } else {
