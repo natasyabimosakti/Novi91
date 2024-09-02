@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia4
 // @namespace    http://tampermonkey.net/
-// @version      3.57
+// @version      3.58
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia4.js
@@ -81,7 +81,6 @@ var Comment18 = 'asek';
 
 
 
-
 var refresh = 30;
 var d = new Date();
 var hour = d.getHours();
@@ -105,18 +104,18 @@ var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
 var id18 = await GM.getValue(18);
 
-var admin = ["Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","asmani","andy","ayesha","aqisya","arifin",
+var admin = ["Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","asmani","andy","ayesha","aqisya","arifin","arga",
              "brian","boboho","bobby","bonar","bella","bastian","bungaps","budi",
-             "cinta","calvin","celsia","cila","cindy","chintya","carole","celine",
+             "cinta","calvin","celsia","cila","cindy","chintya","carole","celine","cheline","corene",
              "denis","dollar","dewa","dewi","dinda","dika","dea","debby",
-             "echa","erika","elly","eugene","erwin","erna",
+             "echa","erika","elly","eugene","erwin","erna","elmira",
              "farah","febrian","fiana","farid","fahresa",
              "gretha",
-             "herfizah","hana","hoihai","hefi","habib",
+             "herfizah","hana","hoihai","hefi","habib","harry",
              "inisial","intan","icha","irfan","inves",
              "jhone","jess","jovanka","jenifer","jihan","jesika","je pe",
              "kumbara","kemon","katharina","kayla","katty","kendri","kembar","kotna","kiky",
-             "lehman","lianda","laura","leon","lidya","larissa","leksa","lina",
+             "lehman","lianda","laura","leon","lidya","larissa","leksa","lina","lidia",
              "manu","mesa","mardia","mila","maes","mad","miranda","melati","minion","mariana","mahendra","multi","megaways",
              "nadila","neng","naura","nathaya","nick","nella","neman","novi",
              "oun","oscar","otong",
@@ -129,6 +128,7 @@ var admin = ["Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia
              "wahid","wahzo","wok","wndt","wiena",
              "yoky","yasmine","yao","yohana",
              "zurro"];
+
 
 
 
@@ -230,7 +230,7 @@ var myrefresh = setInterval(function(){
                         console.log("Sudah Comment")
                         clearInterval(myrefresh);
                         clicksend();
-
+                        throw new Error();
                         return;
                     } else {
                         location.href = "about:blank"
@@ -245,7 +245,7 @@ var myrefresh = setInterval(function(){
                         console.log("Sudah Comment")
                         clearInterval(myrefresh);
                         clicksend();
-
+                        throw new Error();
                         return;
                     } else {
                         location.href = "about:blank"
@@ -260,7 +260,7 @@ var myrefresh = setInterval(function(){
                         console.log("Sudah Comment")
                         clearInterval(myrefresh);
                         clicksend();
-
+                        throw new Error();
                         return;
                     } else {
                         location.href = "about:blank"
@@ -275,7 +275,7 @@ var myrefresh = setInterval(function(){
                         console.log("Sudah Comment")
                         clearInterval(myrefresh);
                         clicksend();
-
+                        throw new Error();
                         return;
                     } else {
                         location.href = "about:blank"
@@ -290,7 +290,7 @@ var myrefresh = setInterval(function(){
                         console.log("Sudah Comment")
                         clearInterval(myrefresh);
                         clicksend();
-
+                        throw new Error();
                         return;
                     } else {
                         location.href = "about:blank"
@@ -305,7 +305,7 @@ var myrefresh = setInterval(function(){
                         console.log("Sudah Comment")
                         clearInterval(myrefresh);
                         clicksend();
-
+                        throw new Error();
                         return;
                     } else {
                         location.href = "about:blank"
@@ -320,7 +320,7 @@ var myrefresh = setInterval(function(){
                         console.log("Sudah Comment")
                         clearInterval(myrefresh);
                         clicksend();
-
+                        throw new Error();
                         return;
                     } else {
                         location.href = "about:blank"
@@ -335,7 +335,7 @@ var myrefresh = setInterval(function(){
                         console.log("Sudah Comment")
                         clearInterval(myrefresh);
                         clicksend();
-
+                        throw new Error();
                         return;
                     } else {
                         location.href = "about:blank"
@@ -350,7 +350,7 @@ var myrefresh = setInterval(function(){
                         console.log("Sudah Comment")
                         clearInterval(myrefresh);
                         clicksend();
-
+                        throw new Error();
                         return;
                     } else {
                         location.href = "about:blank"
@@ -365,7 +365,7 @@ var myrefresh = setInterval(function(){
                         console.log("Sudah Comment")
                         clearInterval(myrefresh);
                         clicksend();
-
+                        throw new Error();
                         return;
                     } else {
                         location.href = "about:blank"
@@ -380,7 +380,7 @@ var myrefresh = setInterval(function(){
                         console.log("Sudah Comment")
                         clearInterval(myrefresh);
                         clicksend();
-
+                        throw new Error();
                         return;
                     } else {
                         location.href = "about:blank"
@@ -395,7 +395,7 @@ var myrefresh = setInterval(function(){
                         console.log("Sudah Comment")
                         clearInterval(myrefresh);
                         clicksend();
-
+                        throw new Error();
                         return;
                     } else {
                         location.href = "about:blank"
@@ -410,7 +410,7 @@ var myrefresh = setInterval(function(){
                         console.log("Sudah Comment")
                         clearInterval(myrefresh);
                         clicksend();
-
+                        throw new Error();
                         return;
                     } else {
                         location.href = "about:blank"
@@ -425,7 +425,7 @@ var myrefresh = setInterval(function(){
                         console.log("Sudah Comment")
                         clearInterval(myrefresh);
                         clicksend();
-
+                        throw new Error();
                         return;
                     } else {
                         location.href = "about:blank"
@@ -441,7 +441,7 @@ var myrefresh = setInterval(function(){
                         console.log("Sudah Comment")
                         clearInterval(myrefresh);
                         clicksend();
-
+                        throw new Error();
                         return;
                     } else {
                         location.href = "about:blank"
@@ -457,7 +457,7 @@ var myrefresh = setInterval(function(){
                         console.log("Sudah Comment")
                         clearInterval(myrefresh);
                         clicksend();
-
+                        throw new Error();
                         return;
                     } else {
                         location.href = "about:blank"
@@ -504,32 +504,32 @@ var myrefresh = setInterval(function(){
 
     var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
     var waktupost = document.getElementsByClassName("native-text");
-    if (document.readyState === "complete") {
-        for (var cok = 0; cok < urutkan.length; cok++) {
-            if(urutkan[cok].textContent.includes("URUTKAN")) {
-                urutkan[cok].click()
-
+    if(!document.querySelectorAll("[role='presentation']")[0]){
+        if (document.readyState === "complete") {
+            for (var cok = 0; cok < urutkan.length; cok++) {
+                if(urutkan[cok].textContent.includes("URUTKAN")) {
+                    urutkan[cok].click()
+                }
             }
         }
-
     }
+    if(document.getElementsByClassName("loading-overlay").length == 0 ){
 
-
-    if (document.readyState === "complete") {
-        for (var coki = 0; coki < waktupost.length; coki++) {
-            if(waktupost[coki].textContent.includes("Aktivitas")) {
-                waktupost[coki].click()
-
+        if(document.querySelectorAll("[role='presentation']")[0]){
+            if (document.readyState === "complete") {
+                for (var coki = 0; coki < waktupost.length; coki++) {
+                    if(waktupost[coki].textContent.includes("Aktivitas")) {
+                        waktupost[coki].click()
+                    }
+                }
             }
         }
-
     }
 
 }, refresh * 10)
 
 
 function clicksend() {
-
     /*Tampilkan TOMBOL SEND*/
     if(document.getElementsByClassName("textbox-submit-button")[0]){
         document.getElementsByClassName("textbox-submit-button")[0].style.display=""
@@ -545,6 +545,8 @@ function clicksend() {
         /*Tekan TOMBOL SEND*/
     }
 }
+
+
 
 function closer() {
     setTimeout(function(){location.href = "about:blank"},100)
