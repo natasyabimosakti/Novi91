@@ -93,7 +93,31 @@ var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
 var id18 = await GM.getValue(18);
 
-var admin = [" ","naura","rio","andre","sapto","debby","monica","nyocol","gita","rikodo","adiat","david",",dewa","wulan","andy","desi","erwin","mey","lusiana","fahresa","rizal","jordi","surianti","satria","boleng","yanty","pung","tiara","cristina","fira","ayunda","mersya","nona","camb","jaguar","Siâo","primus","habib","cassa","neng","arxidi","che","aldi","nino","sofia","sonia","serena","alde","puput","mad","hefi","dika","iyatoto","adm","celsia","jne","kotna","yoky","audi","lianda","salsabila","yohana","wok","bastian","hoihai","tink","sinta","kembar","laura","ayesha","tiktak","nella","novi","sandiego","nasution","ratu","priyan","san","ria","sanjaya","siska","biru","aditia","keitogel","safar","mahendra","multi","mariana","neman","tatang","dewi","primus","roy","dewi","melati","kumbara","dentoto","ananda","cinta","lina","icha","bobby","sanchez","oscar","rendy"];
+ 
+
+var admin = ["Siâo"," ","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha",
+             "boleng","biru","bobby","bastian",
+             "cristina","camb","cassa","che","cinta","celsia",
+             "david",",dewa","desi","debby","dewi","dentoto","dika",
+             "erwin",
+             "fira","fahresa",
+             "gita",
+             "habib","hefi","hoihai",
+             "icha","iyatoto",
+             "jordi","jaguar","jne",
+             "keitogel","kumbara","kembar","kotna",
+             "lianda","lusiana","lina","laura",
+             "mahendra","monica","mey","mersya","mad","multi","mariana","melati",
+             "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella",
+             "oscar",
+             "pung","puput","priyan","primus","primus",
+             "ratu","rio","ria","rikodo","rizal","roy","rendy",
+             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena",
+             "tink","tiktak","tiara","tatang",
+             "yanty","yoky","yohana",
+             "wulan","wok"];
+
+
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
 var keyword3 = "LOMBA"
