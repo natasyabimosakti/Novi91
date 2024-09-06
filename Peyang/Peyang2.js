@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang2
 // @namespace    http://tampermonkey.net/
-// @version      3.84
+// @version      3.85
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang2.js
@@ -105,7 +105,7 @@ var admin = ["Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia
              "brian","boboho","bobby","bonar","bella","bastian","bungaps","budi",
              "cinta","calvin","celsia","cila","cindy","chintya","carole","celine","cheline","corene",
              "denis","dollar","dewa","dewi","dinda","dika","dea","debby",
-             "echa","erika","elly","eugene","erwin","erna","elmira",
+             "echa","erika","elly","eleano","eugene","erwin","erna","elmira",
              "farah","febrian","fiana","farid","fahresa",
              "gretha",
              "herfizah","hana","hoihai","hefi","habib","harry",
@@ -122,9 +122,10 @@ var admin = ["Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia
              "tink","thonex","tiara","tania","tag",
              "ujen",
              "vonny","viona","virna",
-             "wahid","wahzo","wok","wndt","wiena",
+             "wahid","wahzo","wok","wndt","wiena","wulan",
              "yoky","yasmine","yao","yohana",
              "zurro"];
+
 
 
 
