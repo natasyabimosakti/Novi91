@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang3
 // @namespace    http://tampermonkey.net/
-// @version      3.86
+// @version      3.87
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang3.js
@@ -75,6 +75,7 @@ var Comment17 = 'Peyang3';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
+
 
 
 var refresh = 30;
@@ -156,7 +157,7 @@ var myrefresh = setInterval(function(){
     }else{
         document.location.href = lasturl
     }
-  
+
     if (tm == "" || tm == undefined || tm == null) {
         GM.setValue("time", hour);
     }
@@ -563,3 +564,16 @@ function closer() {
 
 
 }
+
+var lasturlku
+var jar = setInterval(function(){
+
+    if(location.href.includes("group")){
+        lasturlku = location.href;
+
+    }
+    if(location.href.length <= 30 ){
+        location.href = lasturlku
+    }
+
+},1000)
