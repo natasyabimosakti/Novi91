@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG4
 // @namespace    http://tampermonkey.net/
-// @version      3.171
+// @version      3.172
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong4.js
@@ -69,7 +69,6 @@ var Comment17 = '#KIKOTOTO (TOMASKU34) = 53*29';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Mencong4';
-
 
 
 var refresh = 30;
@@ -140,6 +139,15 @@ var Backlist7 = "result";
 
 
 var myrefresh = setInterval(function(){
+    var lasturl
+    if(document.URL.length > 40) {
+        lasturl = document.URL
+    }else{
+        document.location.href = lasturl
+    }
+
+
+
     if (tm == "" || tm == undefined || tm == null) {
         GM.setValue("time", hour);
     }
