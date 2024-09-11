@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna3
 // @namespace    http://tampermonkey.net/
-// @version      3.93
+// @version      3.94
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna3.js
@@ -105,7 +105,7 @@ var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
 var id18 = await GM.getValue(18);
 
-var admin = ["Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","asmani","andy","ayesha","aqisya","arifin","arga",
+var admin = [" ","Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","asmani","andy","ayesha","aqisya","arifin","arga",
              "brian","boboho","bobby","bonar","bella","bastian","bungaps","budi",
              "cinta","calvin","celsia","cila","cindy","chintya","carole","celine","cheline","corene",
              "denis","dollar","dewa","dewi","dinda","dika","dea","debby",
@@ -155,6 +155,13 @@ var Backlist7 = "result";
 
 
 var myrefresh = setInterval(function(){
+  var lasturl
+    if(document.URL.length > 40) {
+        lasturl = document.URL
+    }else{
+        document.location.href = lasturl
+    }
+  
     if (tm == "" || tm == undefined || tm == null) {
         GM.setValue("time", hour);
     }
