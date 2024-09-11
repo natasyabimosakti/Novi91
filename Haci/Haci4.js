@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi4
 // @namespace    http://tampermonkey.net/
-// @version      3.101
+// @version      3.102
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci4.js
@@ -77,6 +77,7 @@ var Comment17 = 'Haci4';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
+
 
 
 
@@ -159,7 +160,7 @@ var myrefresh = setInterval(function(){
     }else{
         document.location.href = lasturl
     }
-  
+
     if (tm == "" || tm == undefined || tm == null) {
         GM.setValue("time", hour);
     }
@@ -566,3 +567,16 @@ function closer() {
 
 
 }
+
+var lasturlku
+var jar = setInterval(function(){
+
+    if(location.href.includes("group")){
+        lasturlku = location.href;
+
+    }
+    if(location.href.length <= 30 ){
+        location.href = lasturlku
+    }
+
+},1000)
