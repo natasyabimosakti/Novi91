@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang4
 // @namespace    http://tampermonkey.net/
-// @version      3.85
+// @version      3.86
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang4.js
@@ -102,7 +102,7 @@ var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
 var id18 = await GM.getValue(18);
 
-var admin = ["Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","asmani","andy","ayesha","aqisya","arifin","arga",
+var admin = [" ","Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia","andri","ayesha","aurel","alde","adm","audi","asmani","andy","ayesha","aqisya","arifin","arga",
              "brian","boboho","bobby","bonar","bella","bastian","bungaps","budi",
              "cinta","calvin","celsia","cila","cindy","chintya","carole","celine","cheline","corene",
              "denis","dollar","dewa","dewi","dinda","dika","dea","debby",
@@ -130,7 +130,6 @@ var admin = ["Siâo","aldi","aprilia","alenta","artha","adelia","ananda","aditia
 
 
 
-
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
 var keyword3 = "LOMBA"
@@ -153,6 +152,13 @@ var Backlist7 = "result";
 
 
 var myrefresh = setInterval(function(){
+  var lasturl
+    if(document.URL.length > 40) {
+        lasturl = document.URL
+    }else{
+        document.location.href = lasturl
+    }
+  
     if (tm == "" || tm == undefined || tm == null) {
         GM.setValue("time", hour);
     }
