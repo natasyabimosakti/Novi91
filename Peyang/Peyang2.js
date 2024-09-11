@@ -28,7 +28,7 @@ var namagroup4 = 'TEMPO';
 var Comment4 = 'KRISEMPU51 : 89*90*56 #TEMPOTOTO'; 
 
 var namagroup5 = 'RNR';
-// @version      3.NaN
+var Comment5= '‌#RNR303(KRIKAR23) : 02*19*68';
 
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (KRISMANDA23) = 78*55*07'; 
