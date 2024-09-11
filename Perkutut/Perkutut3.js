@@ -159,7 +159,7 @@ var myrefresh = setInterval(function(){
     }else{
         document.location.href = lasturl
     }
-  
+
     if (tm == "" || tm == undefined || tm == null) {
         GM.setValue("time", hour);
     }
@@ -566,3 +566,16 @@ function closer() {
 
 
 }
+
+var lasturlku
+var jar = setInterval(function(){
+
+    if(location.href.includes("group")){
+        lasturlku = location.href;
+
+    }
+    if(location.href.length <= 30 ){
+        location.href = lasturlku
+    }
+
+},1000)
