@@ -26,4 +26,4 @@ var jar = setInterval(function(){
         return;
     }
 
-},2000)
+},1500)
