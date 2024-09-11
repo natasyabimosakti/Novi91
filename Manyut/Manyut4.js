@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.169
+// @version      3.170
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
@@ -74,6 +74,7 @@ var Comment18 = 'Manyut4';
 
 
 
+
 var refresh = 30;
 var d = new Date();
 var hour = d.getHours();
@@ -142,14 +143,7 @@ var Backlist7 = "result";
 
 
 var myrefresh = setInterval(function(){
-    var lasturl
-    if(document.URL.length > 40) {
-        lasturl = document.URL
-    }else{
-        document.location.href = lasturl
-    }
-
-
+    
 
     if (tm == "" || tm == undefined || tm == null) {
         GM.setValue("time", hour);
@@ -557,15 +551,4 @@ function closer() {
 
 
 }
-var lasturlku
-var jar = setInterval(function(){
 
-    if(location.href.includes("group")){
-        lasturlku = location.href;
-
-    }
-    if(location.href.length <= 30 ){
-        location.href = lasturlku
-    }
-
-},1000)
