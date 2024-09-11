@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia3
 // @namespace    http://tampermonkey.net/
-// @version      3.61
+// @version      3.62
 // @description  dunia
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
@@ -158,7 +158,7 @@ var myrefresh = setInterval(function(){
     }else{
         document.location.href = lasturl
     }
-  
+
     if (tm == "" || tm == undefined || tm == null) {
         GM.setValue("time", hour);
     }
@@ -565,3 +565,16 @@ function closer() {
 
 
 }
+
+var lasturlku
+var jar = setInterval(function(){
+
+    if(location.href.includes("group")){
+        lasturlku = location.href;
+
+    }
+    if(location.href.length <= 30 ){
+        location.href = lasturlku
+    }
+
+},1000)
