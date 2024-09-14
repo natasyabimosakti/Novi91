@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi2
 // @namespace    http://tampermonkey.net/
-// @version      3.103
+// @version      3.104
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci2.js
@@ -21,7 +21,7 @@
 
 
 var namagroup1 = 'POMPA';
-var Comment1 = '#POMPA4D*FERTULE*73*04*81*'; 
+var Comment1 = '#POMPA4D*FERTULE*73*04*'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( FERCUKZ ) : 85*08*60'; 
