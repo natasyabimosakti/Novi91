@@ -16,7 +16,7 @@
 
 
 var namagroup1 = 'POMPA';
-var Comment1 = '#POMPA4D*ASTRI29*56*38*31*';
+var Comment1 = '#POMPA4D*ASTRI29*56*38*';
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( ASRIN32 ) : 59*01*11';
