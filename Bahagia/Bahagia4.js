@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia4
 // @namespace    http://tampermonkey.net/
-// @version      3.63
+// @version      3.64
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia4.js
@@ -17,7 +17,7 @@
 
 
 var namagroup1 = 'POMPA';
-var Comment1 = '#POMPA4D*DUINIATOTO23*47*60*21*'; 
+var Comment1 = '#POMPA4D*DUINIATOTO23*47*60*'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( DUINIATOTO23 ) : 66*02*94'; 
