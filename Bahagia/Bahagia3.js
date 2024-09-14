@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia3
 // @namespace    http://tampermonkey.net/
-// @version      3.63
+// @version      3.64
 // @description  dunia
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
@@ -17,7 +17,7 @@
 
 
 var namagroup1 = 'POMPA';
-var Comment1 = '#POMPA4D*CINOIRENG12*80*26*51*'; 
+var Comment1 = '#POMPA4D*CINOIRENG12*80*26*'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( CUILANSENG12 ) : 90*65*84'; 
