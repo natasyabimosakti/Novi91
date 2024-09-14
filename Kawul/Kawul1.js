@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul1
 // @namespace    http://tampermonkey.net/
-// @version      3.91
+// @version      3.92
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
@@ -16,7 +16,7 @@
 
 
 var namagroup1 = 'POMPA';
-var Comment1 = '#POMPA4D*BUNDER0*71*11*45*'; 
+var Comment1 = '#POMPA4D*BUNDER0*71*45*'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( BOLINA61 ) : 49*40*28'; 
