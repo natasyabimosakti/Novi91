@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut1
 // @namespace    http://tampermonkey.net/
-// @version      3.102
+// @version      3.103
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut1.js
@@ -15,7 +15,7 @@
 // ==/UserScript==
 
 var namagroup1 = 'POMPA';
-var Comment1 = '#POMPA4D*MANUKU12*39*90*66*'; 
+var Comment1 = '#POMPA4D*MANUKU12*39*90*'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( MANUKU27 ) : 54*74*37'; 
