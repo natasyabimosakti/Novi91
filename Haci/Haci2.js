@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi2
 // @namespace    http://tampermonkey.net/
-// @version      3.104
+// @version      3.105
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci2.js
@@ -62,8 +62,8 @@ var Comment13 = 'GOHTOGEL=FERYEBS=79*74*51';
 var namagroup14 = 'BLITAR';
 var Comment14 = '#BLITAR4D ( FERSIP ) : 82*22*20'; 
 
-var namagroup15 = 'MAIN';
-var Comment15 = '#(MAINTOGEL365) (FERPERS) : 85*08*60'; 
+var namagroup15 = 'Hoho';
+var Comment15 = 'FERCAU : 85*08*60 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*FERKEIII*19*17*33';
