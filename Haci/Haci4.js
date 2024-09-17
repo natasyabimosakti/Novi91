@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi4
 // @namespace    http://tampermonkey.net/
-// @version      3.104
+// @version      3.106
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci4.js
@@ -59,8 +59,8 @@ var Comment13 = 'GOHTOGEL=YAMIENAPI=99*47*02';
 var namagroup14 = 'BLITAR';
 var Comment14 = '#BLITAR4D ( YARUWET ) : 65*94*62'; 
 
-var namagroup15 = 'MAIN';
-var Comment15 = '#(MAINTOGEL365) (YAELAH82) : 26*54*34'; 
+var namagroup15 = 'Hoho';
+var Comment15 = 'YANNCOK84 : 26*54*34 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*YANIRI03*09*97*29';
