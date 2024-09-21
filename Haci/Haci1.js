@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi1
 // @namespace    http://tampermonkey.net/
-// @version      3.106
+// @version      3.107
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci1.js
@@ -18,8 +18,8 @@
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 
-var namagroup1 = 'POMPA';
-var Comment1 = '#POMPA4D*GUNGJI1*59*95*'; 
+var namagroup1 = 'Cancer';
+var Comment1 = 'CANCERTOTO ( GUNGJI1 ) : 59*95*87'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( GUNGHOK4 ) : 18*28*38'; 
