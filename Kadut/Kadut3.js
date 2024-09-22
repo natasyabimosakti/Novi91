@@ -26,7 +26,7 @@ var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO RIMPLANG 77*46*69'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = '#Tiktaktogel / RINTOR6 / 61 , 89 , 97'; 
+var Comment3 = 'Tiktaktogel / RINTOR6 / 61 , 89 , 97'; 
 
 var namagroup4 = 'GAIB';
 var Comment4 = 'GAIB4D=RIKOBODO=47*23*10'; 
