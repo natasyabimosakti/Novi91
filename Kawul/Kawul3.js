@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul3
 // @namespace    http://tampermonkey.net/
-// @version      3.94
+// @version      3.95
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul3.js
@@ -16,52 +16,52 @@
 
 
 var namagroup1 = 'Cancer';
-var Comment1 = 'CANCERTOTO ( JOROKLU63 ) : 52*31*50'; 
+var Comment1 = 'CANCERTOTO ( RIROKLU63 ) : 52*31*50'; 
 
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( JOMPLANG ) : 90*23*65'; 
+var Comment2 = 'K86TOTO ( RIMPLANG ) : 90*23*65'; 
 
 var namagroup3 = 'PUSAT LOMBA';
-var Comment3 = 'Shiotogel4d (JONTOR6) 64*48*86'; 
+var Comment3 = 'Shiotogel4d (RINTOR6) 64*48*86'; 
 
 var namagroup4 = 'TEMPO';
-var Comment4 = 'JOKOBODO1 : 43*53*16 #TEMPOTOTO'; 
+var Comment4 = 'RIKOBODO : 43*53*16 #TEMPOTOTO'; 
 
 var namagroup5 = 'RNR';
-var Comment5 = '‌#RNR303(JOVINDUL) : 20*27*60'; 
+var Comment5 = '‌#RNR303(RISUWISUWI) : 20*27*60'; 
 
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (JOSRAIMU) = 72*14*35'; 
+var Comment6 = '#DIVA4D (RISRAIMU) = 72*14*35'; 
 
 var namagroup7 = 'ORMAS';
-var Comment7 = 'ORMASTOTO(JOROKKWE) : 87*22*02'; 
+var Comment7 = 'ORMASTOTO(RIROKKWE) : 87*22*02'; 
 
 var namagroup8 = 'TOK99T0T0';
-var Comment8 = 'Tok99Toto ( JOROKKWE ) : 74*15*89'; 
+var Comment8 = 'Tok99Toto ( RIROKKWE ) : 74*15*89'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL JOMLANG63 64*48*86'; 
+var Comment9 = 'SIJITOGEL RIMLANG63 64*48*86'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (JOMNDUL73) 43*53'; 
+var Comment10 = 'LING77 (RIMNDUL73) 43*53'; 
 
 var namagroup11 = 'KEBAYA';
-var Comment11 = '(KEBAYA4D) = (JONTOR64) 87*22*02'; 
+var Comment11 = '(KEBAYA4D) = (RINTOR64) 87*22*02'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'JOJONBETAWI : 72*14*35 #BESTOTO88'; 
+var Comment12 = 'RIJONBETAWI : 72*14*35 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=JONGONO=52*31*50'; 
+var Comment13 = 'GOHTOGEL=RINGONO=52*31*50'; 
 
 var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D ( JOROKLUH ) : 74*15*89'; 
+var Comment14 = '#BLITAR4D ( RIROKLUH ) : 74*15*89'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'JOROKKWE : 98*27*60 #HOHOTOGEL'; 
+var Comment15 = 'ROMLANG63 : 98*27*60 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*JOROKKWE*90*23*65';
+var Comment16 = 'CITA4D*ROMPLANG1*90*23*65';
 
 
 
