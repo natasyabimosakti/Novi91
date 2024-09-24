@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF1
 // @namespace    http://tampermonkey.net/
-// @version      3.143
+// @version      3.144
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
@@ -17,55 +17,55 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*ZULFANI12*55*90'; 
+var Comment1 = '#shiokelinci4d*TANASOFI*55*90'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO SUSUANTIK 51*35*01'; 
+var Comment2 = 'IYATOTO TANPLAK123 51*35*01'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = '#Tiktaktogel / ZULFGOLD / 36 , 80 , 62'; 
+var Comment3 = 'Tiktaktogel / TANLOYO12 / 36 , 80 , 62'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=CICIZULFA02=37*15*50'; 
+var Comment4 = 'GAIB4D=TANKOR90=37*15*50'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (ZUZU34) = 14*57*42'; 
+var Comment5 = '#keitogel = (TANMO38) = 14*57*42'; 
 
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=ZULFCANTIK=65*56*48'; 
+var namagroup6 = 'Pasar';
+var Comment6 = 'PAJAKTOTO(TANLALI14) : 65*56'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL ZULFCANTIK 47*54*49'; 
+var Comment7 = 'ASEPTOGEL TANLONTO12 47*54*49'; 
 
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=ZULAFRNA002=17*95*61'; 
+var namagroup8 = 'MENARA';
+var Comment8 = '#MENARA4D=TANDOL78= 17*95'; 
 
-var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=ZUHULU00=17*95*61'; 
+var namagroup9 = 'G1LA';
+var Comment9 = 'GILA4D=TANMEROT2=17*95*61'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(ZULFCANTIK)*47*54*49'; 
+var Comment10 = '#JNETOTO(TANLOLO88)*47*54*49'; 
 
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*ZULFANI*65*56*99*'; 
+var namagroup11 = 'CUYTOTO';
+var Comment11 = '#CUYTOTO*TANLETI72*65*56*99'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY ZULAFRNA002 14*57*99'; 
+var Comment12 = 'TOGELKUY TANLANAS36 14*57*99'; 
 
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( ZULIKA00 ) : 37*15*50'; 
+var namagroup13 = 'L0MBA';
+var Comment13 = '#TOTO4D (TANLOL87) 37*15*50'; 
 
 var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 36*80*62 ( ZUZU34 )'; 
+var Comment14 = '#DENTOTO 36*80*62 ( TANLES78 )'; 
 
-var namagroup15 = 'SIJI';
-var Comment15 = 'SIJITOGEL ZULFCANTIK 51*35*01'; 
+var namagroup15 = 'VESPA';
+var Comment15 = 'VESPATOGEL (TANLES78) 51*35*01'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (ZULFCANTIK) : 55*90*06'; 
+var Comment16 = 'NEMO4D (TANLES78) : 55*90*06'; 
 
-var namagroup17 = 'CIVIC';
-var Comment17 = '#CIVICTOTO(ZULAFRNA002) = 42*48';
+var namagroup17 = 'KIKO';
+var Comment17 = '#KIKOTOTO (TANLES78) = 42*48';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Zulf1';
