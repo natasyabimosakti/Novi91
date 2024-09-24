@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim4
 // @namespace    http://tampermonkey.net/
-// @version      3.79
+// @version      3.80
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim4.js
@@ -30,14 +30,14 @@ var Comment4 = 'GAIB4D=YAPIYEYA=74*82*84';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (YAAJAH19) = 91*93*43'; 
 
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=YANIRI03=08*87*43'; 
+var namagroup6 = 'Pasar';
+var Comment6 = 'PAJAKTOTO(YANIRI03) : 08*87'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL YANNCOK84 94*89*29'; 
 
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=YADIANI77=31*44*59'; 
+var namagroup8 = 'MENARA';
+var Comment8 = '#MENARA4D=YADIANI77= 31*44'; 
 
 var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=YASALAM64=94*89*29'; 
@@ -45,20 +45,20 @@ var Comment9 = 'GILA4D=YASALAM64=94*89*29';
 var namagroup10 = 'JNE';
 var Comment10 = '#JNETOTO(YAHWEH00)*08*87*53'; 
 
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*YANURIO47*91*93*23*'; 
+var namagroup11 = 'CUYTOTO';
+var Comment11 = '#CUYTOTO*YANURIO47*91*93*23'; 
 
 var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY YANCOKSU 74*82*84'; 
 
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( YAMIENAPI ) : 39*27*32'; 
+var namagroup13 = 'L0MBA';
+var Comment13 = '#TOTO4D (YAMIENAPI) 39*27*32'; 
 
 var namagroup14 = 'DENTOTO';
 var Comment14 = '#DENTOTO 25*16*85 ( YARUWET )'; 
 
-var namagroup15 = 'SIJI';
-var Comment15 = 'SIJITOGEL YAAJAH19 19*03*18'; 
+var namagroup15 = 'VESPA';
+var Comment15 = 'VESPATOGEL (YAELAH82) 19*03*18'; 
 
 var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (YATIMART) : 31*44*59'; 
