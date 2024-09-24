@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.171
+// @version      3.172
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
@@ -98,27 +98,28 @@ var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
 var id18 = await GM.getValue(18);
 
-var admin = ["Siâo"," ","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha",
+var admin = ["Siâo"," ","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda",
              "boleng","biru","bobby","bastian",
-             "cristina","camb","cassa","che","cinta","celsia",
-             "david",",dewa","desi","debby","dewi","dentoto","dika",
-             "erwin",
+             "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura",
+             "david",",dewa","desi","debby","dewi","dentoto","dika","delon",
+             "erwin","elvina",
              "fira","fahresa",
-             "gita",
-             "habib","hefi","hoihai",
+             "gita","genzo",
+             "habib","hefi","hoihai","herfizah",
              "icha","iyatoto",
-             "jordi","jaguar","jne",
-             "keitogel","kumbara","kembar","kotna",
-             "lianda","lusiana","lina","laura",
-             "mahendra","monica","mey","mersya","mad","multi","mariana","melati",
-             "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella",
+             "jordi","jaguar","jne","je pe","jess","junior",
+             "kei","kumbara","kembar","kotna","karina",
+             "lianda","lusiana","lina","laura","lia",
+             "mahendra","monica","mey","mersya","mad","multi","mariana","melati","meleqq","megaways","minion","melly",
+             "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nayla","naomi",
              "oscar",
              "pung","puput","priyan","primus","primus",
-             "ratu","rio","ria","rikodo","rizal","roy","rendy",
-             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena",
+             "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma",
+             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis",
              "tink","tiktak","tiara","tatang",
-             "yanty","yoky","yohana",
-             "wulan","wok"];
+             "yanty","yoky","yohana","yura","yaya",
+             "wulan","wok","wak",
+             "zuko"];
 
 
 var keyword1 = "ROOM"
