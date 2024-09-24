@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 3
 // @namespace    http://tampermonkey.net/
-// @version      3.83
+// @version      3.84
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk3.js
@@ -32,14 +32,14 @@ var Comment4 = 'GAIB4D=DOROPOL12=61*89*97';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (DORODOR12) = 47*23*10'; 
 
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=DOROWIS12=26*53*82'; 
+var namagroup6 = 'Pasar';
+var Comment6 = 'PAJAKTOTO(DOROWIS12) : 26*53'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL DOROMAN12 22*35*78'; 
 
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=DOROKERTO3=60*32*38'; 
+var namagroup8 = 'MENARA';
+var Comment8 = '#MENARA4D=DOROKERTO3= 60*32'; 
 
 var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=DOROMIBER2=26*53*82'; 
@@ -47,20 +47,20 @@ var Comment9 = 'GILA4D=DOROMIBER2=26*53*82';
 var namagroup10 = 'JNE';
 var Comment10 = '#JNETOTO(DORONYOK31)*47*23*10'; 
 
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*DOROPOL12*61*89*97*'; 
+var namagroup11 = 'CUYTOTO';
+var Comment11 = '#CUYTOTO*DOROPOL12*61*89*97'; 
 
 var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY DORODOR12 77*46*69'; 
 
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( DOROWIS12 ) : 72*39*64'; 
+var namagroup13 = 'L0MBA';
+var Comment13 = '#TOTO4D (DOROWIS12) 72*39*64'; 
 
 var namagroup14 = 'DENTOTO';
 var Comment14 = '#DENTOTO 22*35*64 ( DOROMAN12 )'; 
 
-var namagroup15 = 'SIJI';
-var Comment15 = 'SIJITOGEL DORODOR12 60*32*38'; 
+var namagroup15 = 'VESPA';
+var Comment15 = 'VESPATOGEL (DOROKU21) 60*32*38'; 
 
 var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (DOROKERTO) : 80*51*95'; 
