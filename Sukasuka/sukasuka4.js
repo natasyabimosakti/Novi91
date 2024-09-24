@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BENT4
 // @namespace    http://tampermonkey.net/
-// @version      3.80
+// @version      3.81
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka4.js
@@ -31,14 +31,14 @@ var Comment4 = 'GAIB4D=DINDAMANIS12=31*44*59';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (DUDUKGO81) = 19*03*18'; 
 
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=DIANUMAMI12=25*16*85'; 
+var namagroup6 = 'Pasar';
+var Comment6 = 'PAJAKTOTO(DIANUMAMI12) : 25*16'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL DIANUMAMI12 39*27*32'; 
 
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=DIANUMAMI12=74*82*84'; 
+var namagroup8 = 'MENARA';
+var Comment8 = '#MENARA4D=DIANUMAMI12= 74*82'; 
 
 var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=DINIMARTIN13=74*82*84'; 
@@ -46,20 +46,20 @@ var Comment9 = 'GILA4D=DINIMARTIN13=74*82*84';
 var namagroup10 = 'JNE';
 var Comment10 = '#JNETOTO(DUDUKGO81)*39*27*32'; 
 
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*DJASKAL12*25*16*85*'; 
+var namagroup11 = 'CUYTOTO';
+var Comment11 = '#CUYTOTO*DUDUKGO81*25*16*85'; 
 
 var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY DINDAMANIS13 19*03*18'; 
 
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( DANUDNI12 ) : 31*44*43'; 
+var namagroup13 = 'L0MBA';
+var Comment13 = '#TOTO4D (DANUDNI12) 31*44*43'; 
 
 var namagroup14 = 'DENTOTO';
 var Comment14 = '#DENTOTO 94*89*43 ( DINDAKUCING )'; 
 
-var namagroup15 = 'SIJI';
-var Comment15 = 'SIJITOGEL DIANCOK13 08*87*53'; 
+var namagroup15 = 'VESPA';
+var Comment15 = 'VESPATOGEL (DUDUKGO81) 08*87*53'; 
 
 var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (DIANUMAMI12) : 91*93*23'; 
