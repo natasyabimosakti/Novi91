@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 2
 // @namespace    http://tampermonkey.net/
-// @version      3.83
+// @version      3.84
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk2.js
@@ -32,14 +32,14 @@ var Comment4 = 'GAIB4D=ELANG76=00*20*30';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (ELANG089) = 94*43*12'; 
 
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=ELANG38=40*92*55'; 
+var namagroup6 = 'Pasar';
+var Comment6 = 'PAJAKTOTO(ELANG380) : 40*92'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL ELANG94 11*45*66'; 
 
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=ELANG51=05*48*07'; 
+var namagroup8 = 'MENARA';
+var Comment8 = '#MENARA4D=ELANG51= 05*48'; 
 
 var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=ELANG94=40*92*55'; 
@@ -47,20 +47,20 @@ var Comment9 = 'GILA4D=ELANG94=40*92*55';
 var namagroup10 = 'JNE';
 var Comment10 = '#JNETOTO(ELANG72)*94*43*12'; 
 
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*ELANGY33*00*20*30*'; 
+var namagroup11 = 'CUYTOTO';
+var Comment11 = '#CUYTOTO*ELANGY*00*20*30'; 
 
 var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY ELANGX3 18*52*36'; 
 
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( ELANGSH13 ) : 56*58*91'; 
+var namagroup13 = 'L0MBA';
+var Comment13 = '#TOTO4D (ELANGSH13) 56*58*91'; 
 
 var namagroup14 = 'DENTOTO';
 var Comment14 = '#DENTOTO 11*45*91 ( ELANG4739 )'; 
 
-var namagroup15 = 'SIJI';
-var Comment15 = 'SIJITOGEL ELANG089 05*48*07'; 
+var namagroup15 = 'VESPA';
+var Comment15 = 'VESPATOGEL (ELANG72) 05*48*07'; 
 
 var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (ELANG18) : 70*54*57'; 
