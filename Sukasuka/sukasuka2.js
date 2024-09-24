@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BENT2
 // @namespace    http://5.net/
-// @version      3.80
+// @version      3.81
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka2.js
@@ -32,14 +32,14 @@ var Comment4 = 'GAIB4D=BISMON76=58*88*41';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (BINAKARMA54) = 11*20*83'; 
 
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=BAMIN12=33*92*66'; 
+var namagroup6 = 'Pasar';
+var Comment6 = 'PAJAKTOTO(BAMIN12) : 33*92'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL BAMIN12 12*86*68'; 
 
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=BINOMO77=71*96*75'; 
+var namagroup8 = 'MENARA';
+var Comment8 = '#MENARA4D=BINOMO77= 71*96'; 
 
 var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=BEKOL12=71*96*75'; 
@@ -47,20 +47,20 @@ var Comment9 = 'GILA4D=BEKOL12=71*96*75';
 var namagroup10 = 'JNE';
 var Comment10 = '#JNETOTO(BINAKARMA54)*12*86*68'; 
 
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*BERANAK76*33*92*66*'; 
+var namagroup11 = 'CUYTOTO';
+var Comment11 = '#CUYTOTO*BINAKARMA54*33*92*66'; 
 
 var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY BERIKLAH65 11*20*83'; 
 
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( BABIBU76 ) : 58*88*38'; 
+var namagroup13 = 'L0MBA';
+var Comment13 = '#TOTO4D (BABIBU76) 58*88*38'; 
 
 var namagroup14 = 'DENTOTO';
 var Comment14 = '#DENTOTO 02*09*38 ( BIKANG12 )'; 
 
-var namagroup15 = 'SIJI';
-var Comment15 = 'SIJITOGEL BENTOEL12 67*98*05'; 
+var namagroup15 = 'VESPA';
+var Comment15 = 'VESPATOGEL (POCITA19) 67*98*05'; 
 
 var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (BAMIN12) : 78*46*77'; 
