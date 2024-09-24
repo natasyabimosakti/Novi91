@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF3
 // @namespace    http://tampermonkey.net/
-// @version      3.143
+// @version      3.144
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf3.js
@@ -17,55 +17,55 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*TRIWIDA91*34*13'; 
+var Comment1 = '#shiokelinci4d*FEBRIANU62*34*13'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO TIGAPASTI 00*28*07'; 
+var Comment2 = 'IYATOTO EREIKU73 00*28*07'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = '#Tiktaktogel / TRIGERING / 04 , 76 , 81'; 
+var Comment3 = 'Tiktaktogel / FREDINAN77 / 04 , 76 , 81'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=PAUSTRIWIDA =52*26*70'; 
+var Comment4 = 'GAIB4D=FEBRI89=52*26*70'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (TRIWID91) = 73*10*45'; 
+var Comment5 = '#keitogel = (FERUSAK66) = 73*10*45'; 
 
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=TIMTIM57=63*30*72'; 
+var namagroup6 = 'Pasar';
+var Comment6 = 'PAJAKTOTO(FERAKUCING77) : 63*30'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL TIMTIM57 64*40*69'; 
+var Comment7 = 'ASEPTOGEL FEROK77 64*40*69'; 
 
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=TRIWITUA=22*24*21'; 
+var namagroup8 = 'MENARA';
+var Comment8 = '#MENARA4D=FERALO78= 22*24'; 
 
-var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=TIRN18=22*24*21'; 
+var namagroup9 = 'G1LA';
+var Comment9 = 'GILA4D=FERNANGDI2=22*24*21'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(SPVTRIWIDA91)*64*40*69'; 
+var Comment10 = '#JNETOTO(FEDERALKU67)*64*40*69'; 
 
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*TRIWID91*63*30*97*'; 
+var namagroup11 = 'CUYTOTO';
+var Comment11 = '#CUYTOTO*FERALO88*63*30*97'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY TRIWITUA 73*10*97'; 
+var Comment12 = 'TOGELKUY FERSULENG23 73*10*97'; 
 
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( TRIWIDA91 ) : 52*26*70'; 
+var namagroup13 = 'L0MBA';
+var Comment13 = '#TOTO4D (FERKONTIL22) 52*26*70'; 
 
 var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 04*76*81 ( TRIWID91 )'; 
+var Comment14 = '#DENTOTO 04*76*81 ( FERDIGOD12 )'; 
 
-var namagroup15 = 'SIJI';
-var Comment15 = 'SIJITOGEL TIRN18 00*28*07'; 
+var namagroup15 = 'VESPA';
+var Comment15 = 'VESPATOGEL (FERDIGOD12) 00*28*07'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (SPVTRIWIDA91) : 34*13*79'; 
+var Comment16 = 'NEMO4D (FERDIGOD12) : 34*13*79'; 
 
-var namagroup17 = 'CIVIC';
-var Comment17 = '#CIVICTOTO(TRIWID91) = 45*72';
+var namagroup17 = 'KIKO';
+var Comment17 = '#KIKOTOTO (FERDIGOD12) = 45*72';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Zulf3';
