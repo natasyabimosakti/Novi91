@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 1
 // @namespace    http://tampermonkey.net/
-// @version      3.80
+// @version      3.81
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro1.js
@@ -136,7 +136,7 @@ var Backlist3 = "hasil";
 var Backlist4 = "room lomba freebet";
 var Backlist5 = "prediksi";
 var Backlist6 = "result";
-var Backlist7 = "result";
+var Backlist7 = "commen";
 
 
 
