@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF2
 // @namespace    http://tampermonkey.net/
-// @version      3.143
+// @version      3.144
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
@@ -17,55 +17,55 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*BELBIRU12*71*96'; 
+var Comment1 = '#shiokelinci4d*MERIDOL36*71*96'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO KAKEKZEUS0077 78*46*77'; 
+var Comment2 = 'IYATOTO MERALMU66 78*46*77'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = '#Tiktaktogel / MERTUA66 / 67 , 98 , 05'; 
+var Comment3 = 'Tiktaktogel / MERSUHKE76 / 67 , 98 , 05'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=CUANTRUS11=02*09*60'; 
+var Comment4 = 'GAIB4D=MERUITOK3=02*09*60'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (SUNDEL46) = 58*88*41'; 
+var Comment5 = '#keitogel = (MERDUS89) = 58*88*41'; 
 
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=TERMINATO003=11*20*83'; 
+var namagroup6 = 'Pasar';
+var Comment6 = 'PAJAKTOTO(MERIKAN55) : 11*20'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL TERMINATO003 33*92*66'; 
+var Comment7 = 'ASEPTOGEL MERCIKA66 33*92*66'; 
 
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=KORBANSLOT11=12*86*68'; 
+var namagroup8 = 'MENARA';
+var Comment8 = '#MENARA4D=MERUCIK789= 12*86'; 
 
-var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=SUKASUKA12=12*86*68'; 
+var namagroup9 = 'G1LA';
+var Comment9 = 'GILA4D=MERANIO98=12*86*68'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(RAJANYAJP12)*33*92*66'; 
+var Comment10 = '#JNETOTO(MERANTU672)*33*92*66'; 
 
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*ALBAKU13*11*20*38*'; 
+var namagroup11 = 'CUYTOTO';
+var Comment11 = '#CUYTOTO*MERPLAK72*11*20*38'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY KORBANSLOT11 58*88*38'; 
+var Comment12 = 'TOGELKUY MERGKAT26 58*88*38'; 
 
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( CUNTRUS ) : 02*09*60'; 
+var namagroup13 = 'L0MBA';
+var Comment13 = '#TOTO4D (MERYAK18) 02*09*60'; 
 
 var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 67*98*05 ( SUNDEL46 )'; 
+var Comment14 = '#DENTOTO 67*98*05 ( MERSLO72 )'; 
 
-var namagroup15 = 'SIJI';
-var Comment15 = 'SIJITOGEL RAJANYAJP12 78*46*77'; 
+var namagroup15 = 'VESPA';
+var Comment15 = 'VESPATOGEL (MERESLO72) 78*46*77'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (ALBAKU13) : 71*96*75'; 
+var Comment16 = 'NEMO4D (MERSLO72) : 71*96*75'; 
 
-var namagroup17 = 'CIVIC';
-var Comment17 = '#CIVICTOTO(KORBANSLOT11) = 41*83';
+var namagroup17 = 'KIKO';
+var Comment17 = '#KIKOTOTO (MERESLO72) = 41*83';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Zulf2';
