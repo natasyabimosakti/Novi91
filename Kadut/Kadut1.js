@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW KADUT1
 // @namespace    http://tampermonkey.net/
-// @version      3.103
+// @version      3.104
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut1.js
@@ -139,7 +139,7 @@ var Backlist3 = "hasil";
 var Backlist4 = "room lomba freebet";
 var Backlist5 = "prediksi";
 var Backlist6 = "result";
-var Backlist7 = "result";
+var Backlist7 = "commen";
 
 
 
