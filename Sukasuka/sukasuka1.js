@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BENT1
 // @namespace    http://tampermonkey.net/
-// @version      3.80
+// @version      3.81
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka1.js
@@ -31,14 +31,14 @@ var Comment4 = 'GAIB4D=ASKIPLI99=14*57*42';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (ASABKUBUR12) = 65*56*48'; 
 
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=ASIZAN33=47*54*49'; 
+var namagroup6 = 'Pasar';
+var Comment6 = 'PAJAKTOTO(ASIZAN33) : 47*54'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL ASIZAN33 17*95*61'; 
 
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=ASRIN32=55*90*06'; 
+var namagroup8 = 'MENARA';
+var Comment8 = '#MENARA4D=ASRIN32= 55*90'; 
 
 var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=ASALAM44=55*90*06'; 
@@ -46,20 +46,20 @@ var Comment9 = 'GILA4D=ASALAM44=55*90*06';
 var namagroup10 = 'JNE';
 var Comment10 = '#JNETOTO(ASABKUBUR12)*17*95*61'; 
 
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*ASIMATJUMBO*47*54*49*'; 
+var namagroup11 = 'CUYTOTO';
+var Comment11 = '#CUYTOTO*ASABKUBUR12*47*54*49'; 
 
 var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY ASKALIMAN 65*56*48'; 
 
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( ASEKASEK12 ) : 14*57*99'; 
+var namagroup13 = 'L0MBA';
+var Comment13 = '#TOTO4D (ASEKASEK12) 14*57*99'; 
 
 var namagroup14 = 'DENTOTO';
 var Comment14 = '#DENTOTO 37*15*99 ( ASTADINA12 )'; 
 
-var namagroup15 = 'SIJI';
-var Comment15 = 'SIJITOGEL ASLISUPER12 36*80*62'; 
+var namagroup15 = 'VESPA';
+var Comment15 = 'VESPATOGEL (ASIZAN33) 36*80*62'; 
 
 var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (ASIZAN33) : 51*35*01'; 
