@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim2
 // @namespace    http://tampermonkey.net/
-// @version      3.79
+// @version      3.80
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim2.js
@@ -31,14 +31,14 @@ var Comment4 = 'GAIB4D=FERIBS=71*96*75';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (FERKEII) = 78*46*38'; 
 
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=FERYOS=67*98*38'; 
+var namagroup6 = 'Pasar';
+var Comment6 = 'PAJAKTOTO(FERYOS) : 67*98'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL FERCAU 02*09*60'; 
 
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=FERKERR=58*88*41'; 
+var namagroup8 = 'MENARA';
+var Comment8 = '#MENARA4D=FERKERR= 58*88'; 
 
 var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=FERGILL=02*09*60'; 
@@ -46,20 +46,20 @@ var Comment9 = 'GILA4D=FERGILL=02*09*60';
 var namagroup10 = 'JNE';
 var Comment10 = '#JNETOTO(FERJENS)*67*98*05'; 
 
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*FERRAT*78*46*77*'; 
+var namagroup11 = 'CUYTOTO';
+var Comment11 = '#CUYTOTO*FERRAT*78*46*77'; 
 
 var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY FERKOYY 71*96*75'; 
 
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( FERYEBS ) : 12*86*68'; 
+var namagroup13 = 'L0MBA';
+var Comment13 = '#TOTO4D (FERYEBS) 12*86*68'; 
 
 var namagroup14 = 'DENTOTO';
 var Comment14 = '#DENTOTO 33*92*66 ( FERSIP )'; 
 
-var namagroup15 = 'SIJI';
-var Comment15 = 'SIJITOGEL FERKEII 11*20*83'; 
+var namagroup15 = 'VESPA';
+var Comment15 = 'VESPATOGEL (FERPERS) 11*20*83'; 
 
 var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (FERTULE) : 58*88*41'; 
