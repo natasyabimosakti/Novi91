@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE3
 // @namespace    http://tampermonkey.net/
-// @version      3.90
+// @version      3.91
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku3.js
@@ -31,14 +31,14 @@ var Comment4 = 'GAIB4D=YONOBO74=60*32*38';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (YONOBO74) = 80*51*95'; 
 
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=YONOBO74=72*39*99'; 
+var namagroup6 = 'Pasar';
+var Comment6 = 'PAJAKTOTO(YONOBO74) : 72*39'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL YONOBO74 77*46*69'; 
 
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=YOBENWES3=61*89*97'; 
+var namagroup8 = 'MENARA';
+var Comment8 = '#MENARA4D=YOBENWES3= 61*89'; 
 
 var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=YOWESBEN6=61*89*97'; 
@@ -46,20 +46,20 @@ var Comment9 = 'GILA4D=YOWESBEN6=61*89*97';
 var namagroup10 = 'JNE';
 var Comment10 = '#JNETOTO(YONEKWIK37)*77*46*64'; 
 
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*YOYOKWIK3*72*39*64*'; 
+var namagroup11 = 'CUYTOTO';
+var Comment11 = '#CUYTOTO*YOYOKWIK3*72*39*64'; 
 
 var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY YOKOJO3 80*51*95'; 
 
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( YOKWIK47 ) : 60*32*38'; 
+var namagroup13 = 'L0MBA';
+var Comment13 = '#TOTO4D (YOKWIK47) 60*32*38'; 
 
 var namagroup14 = 'DENTOTO';
 var Comment14 = '#DENTOTO 22*35*78 ( YOJUAH63 )'; 
 
-var namagroup15 = 'SIJI';
-var Comment15 = 'SIJITOGEL YOREAN63 26*53*82'; 
+var namagroup15 = 'VESPA';
+var Comment15 = 'VESPATOGEL (YOREAN63) 26*53*82'; 
 
 var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (YOYOKWIK3) : 47*23*10'; 
