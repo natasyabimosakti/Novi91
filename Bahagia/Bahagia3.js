@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia3
 // @namespace    http://tampermonkey.net/
-// @version      3.67
+// @version      3.68
 // @description  dunia
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
@@ -46,8 +46,8 @@ var Comment9 = 'SIJITOGEL CACING65 41*04*64';
 var namagroup10 = 'LING';
 var Comment10 = 'LING77 (CUCUKU76) 97*07'; 
 
-var namagroup11 = 'KEBAYA';
-var Comment11 = '(KEBAYA4D) = (CUCUKU76) 25*45*83'; 
+var namagroup11 = 'KELUARGA';
+var Comment11 = '#LTDTOTO =(CIANGSUI54)= 25*45*'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
 var Comment12 = 'CUCUBUAYA65 : 68*70*87 #BESTOTO88'; 
