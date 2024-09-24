@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG2
 // @namespace    http://tampermonkey.net/
-// @version      3.174
+// @version      3.175
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong2.js
@@ -30,14 +30,14 @@ var Comment4 = 'GAIB4D=KRISEMPU51=11*20*83';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (KRISAN41) = 33*92*66'; 
 
-var namagroup6 = 'KIOST0T0';
-var Comment6 = 'KIOSTOTO=KRISMANDA23=12*86*68'; 
+var namagroup6 = 'Pasar';
+var Comment6 = 'PAJAKTOTO(KRISMANDA23) : 12*86'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL KRISMA56 71*96*75'; 
 
-var namagroup8 = 'ANGKER';
-var Comment8 = 'ANGKER4D=KRISTANTI34=78*46*77'; 
+var namagroup8 = 'MENARA';
+var Comment8 = '#MENARA4D=KRISTANTI34= 78*46'; 
 
 var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=KRISMALI2=78*46*77'; 
@@ -45,20 +45,20 @@ var Comment9 = 'GILA4D=KRISMALI2=78*46*77';
 var namagroup10 = 'JNE';
 var Comment10 = '#JNETOTO(KRISANTI46)*71*96*75'; 
 
-var namagroup11 = 'T_O_T_O_A_K_U_R_A_T';
-var Comment11 = '#TA*KRISUNDEL5*12*86*68*'; 
+var namagroup11 = 'CUYTOTO';
+var Comment11 = '#CUYTOTO*KRISUNDEL5*12*86*68'; 
 
 var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY KRISING47 33*92*66'; 
 
-var namagroup13 = 'TOYIBSLOT';
-var Comment13 = '#TOYIBSLOT ( KRISAN24 ) : 11*20*83'; 
+var namagroup13 = 'L0MBA';
+var Comment13 = '#TOTO4D (KRISAN24) 11*20*83'; 
 
 var namagroup14 = 'DENTOTO';
 var Comment14 = '#DENTOTO 58*88*41 ( KRISNA46 )'; 
 
-var namagroup15 = 'SIJI';
-var Comment15 = 'SIJITOGEL KRISMALI2 02*09*38'; 
+var namagroup15 = 'VESPA';
+var Comment15 = 'VESPATOGEL (KRISNA46) 02*09*38'; 
 
 var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (KRISNA46) : 67*98*38'; 
