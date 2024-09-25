@@ -46,7 +46,7 @@ var namagroup10 = 'LING';
 var Comment10 = 'LING77 (ASTADINA12) 17*98';
 
 var namagroup11 = 'KELUARGA';
-var Comment11 = '#LTDTOTO =(ASIMATJUMBO)= 34*44*';
+var Comment11 = '#LTDTOTO =(ASABKUBUR12)= 34*44*';
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
 var Comment12 = 'ASIZAN33 : 48*18*72 #BESTOTO88';
