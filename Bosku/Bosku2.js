@@ -46,7 +46,7 @@ var namagroup10 = 'JNE';
 var Comment10 = '#JNETOTO(BOSLON89)*18*52*91'; 
 
 var namagroup11 = 'CUYTOTO';
-var Comment11 = '#CUYTOTO*BOSBIG53*56*58*91'; 
+var Comment11 = '#CUYTOTO*BOSBIG530*56*58*91'; 
 
 var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY BOSBIS48 70*54*57'; 
