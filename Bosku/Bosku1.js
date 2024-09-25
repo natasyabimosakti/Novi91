@@ -45,7 +45,7 @@ var namagroup10 = 'JNE';
 var Comment10 = '#JNETOTO(XENDION)*17*84*41'; 
 
 var namagroup11 = 'CUYTOTO';
-var Comment11 = '#CUYTOTO*XERLAK67*88*75*41'; 
+var Comment11 = '#CUYTOTO*XERLAK678*88*75*41'; 
 
 var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY XIANTAR6 01*44*31'; 
