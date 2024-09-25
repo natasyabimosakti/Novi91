@@ -47,7 +47,7 @@ var namagroup10 = 'LING';
 var Comment10 = 'LING77 (CUCUKU76) 97*07'; 
 
 var namagroup11 = 'KELUARGA';
-var Comment11 = '#LTDTOTO =(CIANGSUI54)= 25*45*'; 
+var Comment11 = '#LTDTOTO =(CUCUKU76)= 25*45*'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
 var Comment12 = 'CUCUBUAYA65 : 68*70*87 #BESTOTO88'; 
