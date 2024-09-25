@@ -50,7 +50,7 @@ var namagroup10 = 'LING';
 var Comment10 = 'LING77 (BIKANG12) 69*43'; 
 
 var namagroup11 = 'KELUARGA';
-var Comment11 = '#LTDTOTO =(BERANAK76)= 74*62*'; 
+var Comment11 = '#LTDTOTO =(BINAKARMA54)= 74*62*'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
 var Comment12 = 'BAMIN12 : 78*12*05 #BESTOTO88'; 
