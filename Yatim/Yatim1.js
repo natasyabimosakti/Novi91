@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim1
 // @namespace    http://tampermonkey.net/
-// @version      3.82
+// @version      3.83
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim1.js
@@ -46,7 +46,7 @@ var namagroup10 = 'JNE';
 var Comment10 = '#JNETOTO(GUNGPOKE)*36*80*62'; 
 
 var namagroup11 = 'CUYTOTO';
-var Comment11 = '#CUYTOTO*GUNGDUSS*51*35*01'; 
+var Comment11 = 'CUYTOTO*GUNGDUSS*51*35*01'; 
 
 var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY GUNGFREE 55*90*06'; 
