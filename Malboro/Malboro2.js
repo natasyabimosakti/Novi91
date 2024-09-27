@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 2
 // @namespace    http://tampermonkey.net/
-// @version      3.81
+// @version      3.82
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
@@ -47,7 +47,7 @@ var namagroup10 = 'JNE';
 var Comment10 = '#JNETOTO(BANANA12)*02*09*60'; 
 
 var namagroup11 = 'CUYTOTO';
-var Comment11 = '#CUYTOTO*BOSBIG53*67*98*05'; 
+var Comment11 = 'CUYTOTO*BOSBIG53*67*98*05'; 
 
 var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY BANTAISAJA 78*46*77'; 
