@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT1
 // @namespace    http://tampermonkey.net/
-// @version      3.93
+// @version      3.94
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut1.js
@@ -46,8 +46,8 @@ var Comment9 = 'GILA4D=QOMA123=65*56*48';
 var namagroup10 = 'JNE';
 var Comment10 = '#JNETOTO(QOMARUT14)*14*57*42'; 
 
-var namagroup11 = 'CUYTOTO';
-var Comment11 = 'CUYTOTO*QOMINTO15*37*15*50'; 
+var namagroup11 = 'TOYIB';
+var Comment11 = '#TOYIBSLOT ( QOECK62 ) : 37*15*50'; 
 
 var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY QANAS52 36*80*62'; 
