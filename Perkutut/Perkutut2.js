@@ -33,8 +33,8 @@ var Comment5 = '#INSTANTOTO (ELANG089) = 77*86';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (ELANG38) = 50*03*30'; 
 
-var namagroup7 = 'ORMAS';
-var Comment7 = 'ORMASTOTO(ELANG94) : 95*83*23'; 
+var namagroup7 = 'MAIN';
+var Comment7 = '#(MAINTOGEL365) (ELANG94) : 95*83*23'; 
 
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( ELANG51 ) : 93*43*58'; 
