@@ -36,8 +36,8 @@ var Comment5 = '#INSTANTOTO (BINAKARMA54) = 46*91';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (BIMBO91) = 69*43*93'; 
 
-var namagroup7 = 'ORMAS';
-var Comment7 = 'ORMASTOTO(BAMIN12) : 74*62*57'; 
+var namagroup7 = 'MAIN';
+var Comment7 = '#(MAINTOGEL365) (BAMIN12) : 74*62*57'; 
 
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( BERIKLAH65 ) : 78*12*05'; 
