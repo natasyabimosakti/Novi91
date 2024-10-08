@@ -38,8 +38,8 @@ var Comment5 = '#INSTANTOTO (BOSMAN67) = 57*10';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (BOSMINI88) = 32*79*31'; 
 
-var namagroup7 = 'ORMAS';
-var Comment7 = 'ORMASTOTO(BOSNOM63) : 17*76*78'; 
+var namagroup7 = 'MAIN';
+var Comment7 = '#(MAINTOGEL365) (BOSNOM63) : 17*76*78'; 
 
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( BOSTER73 ) : 27*09*87'; 
