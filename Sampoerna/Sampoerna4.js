@@ -38,8 +38,8 @@ var Comment5 = '#INSTANTOTO (ZONIAK63) = 25*46';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (ZOMING82) = 15*51*49'; 
 
-var namagroup7 = 'ORMAS';
-var Comment7 = 'ORMASTOTO(ZONATIK73) : 93*99*54'; 
+var namagroup7 = 'MAIN';
+var Comment7 = '#(MAINTOGEL365) (ZONATIK73) : 93*99*54'; 
 
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( ZONATING ) : 98*64*12'; 
