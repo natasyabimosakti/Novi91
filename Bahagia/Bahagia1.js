@@ -32,8 +32,8 @@ var Comment5 = '#INSTANTOTO (ASBHUN) = 06*95';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (AZKALAN) = 17*98*19'; 
 
-var namagroup7 = 'ORMAS';
-var Comment7 = 'ORMASTOTO(ASIZAN33) : 34*44*76'; 
+var namagroup7 = 'MAIN';
+var Comment7 = '#(MAINTOGEL365) (ASIZAN33) : 34*44*76'; 
 
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( ASKALIMAN ) : 48*18*72'; 
