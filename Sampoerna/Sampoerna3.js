@@ -37,8 +37,8 @@ var Comment5 = '#INSTANTOTO (YONOBO74) = 97*38';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (YONOBO74) = 01*60*33'; 
 
-var namagroup7 = 'ORMAS';
-var Comment7 = 'ORMASTOTO(YONOBO74) : 82*03*70'; 
+var namagroup7 = 'MAIN';
+var Comment7 = '#(MAINTOGEL365) (YONOBO74) : 82*03*70'; 
 
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( YOBENWES3 ) : 23*18*14'; 
