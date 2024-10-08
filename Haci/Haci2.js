@@ -37,8 +37,8 @@ var Comment5 = '#INSTANTOTO (FERKEII) = 70*14';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (FERYOS) = 88*32*57'; 
 
-var namagroup7 = 'ORMAS';
-var Comment7 = 'ORMASTOTO(FERCAU) : 79*74*51'; 
+var namagroup7 = 'MAIN';
+var Comment7 = '#(MAINTOGEL365) (FERCAU) : 79*74*51'; 
 
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( FERKERR ) : 37*89*24'; 
