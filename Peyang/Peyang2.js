@@ -33,8 +33,8 @@ var Comment5 = '#INSTANTOTO (KRIKAR23) = 02*19';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (KRISMANDA23) = 78*55*07'; 
 
-var namagroup7 = 'ORMAS';
-var Comment7 = 'ORMASTOTO(KRISMA56) : 58*80*28'; 
+var namagroup7 = 'MAIN';
+var Comment7 = '#(MAINTOGEL365) (KRISMA56) : 58*80*28'; 
 
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( KRISTANTI34 ) : 61*97*69'; 
