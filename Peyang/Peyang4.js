@@ -34,8 +34,8 @@ var Comment5 = '#INSTANTOTO (TOMBRENG34) = 52*93';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (TOMBOY23) = 14*70*29'; 
 
-var namagroup7 = 'ORMAS';
-var Comment7 = 'ORMASTOTO(TOMPAKAN23) : 48*33*34'; 
+var namagroup7 = 'MAIN';
+var Comment7 = '#(MAINTOGEL365) (TOMPAKAN23) : 48*33*34'; 
 
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( TOMBIBI24 ) : 54*10*83'; 
