@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul4
 // @namespace    http://tampermonkey.net/
-// @version      3.98
+// @version      3.99
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul4.js
@@ -35,7 +35,7 @@ var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (SAKEMBER) = 04*84*96'; 
 
 var namagroup7 = 'MAIN';
-var Comment7 = '#(MAINTOGEL365) (SAMBATAE) : 24*79*08'; 
+var Comment7 = '#(MAINTOGEL365) (SALAMANAE) : 24*79*08'; 
 
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( SAMBATAE ) : 69*41*62'; 
