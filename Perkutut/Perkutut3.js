@@ -35,7 +35,7 @@ var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (DOROWIS12) = 27*01*82'; 
 
 var namagroup7 = 'MAIN';
-var Comment7 = '#(MAINTOGEL365) (DOROMAN12) : 06*18*75'; 
+var Comment7 = '#(MAINTOGEL365) (DOROKU21) : 06*18*75'; 
 
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( DOROKERTO3 ) : 52*46*47'; 
