@@ -35,7 +35,7 @@ var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (PLECIAHAH) = 84*94*15'; 
 
 var namagroup7 = 'MAIN';
-var Comment7 = '#(MAINTOGEL365) (PLECICILAN) : 04*11*13'; 
+var Comment7 = '#(MAINTOGEL365) (PLECIKUS1) : 04*11*13'; 
 
 var namagroup8 = 'TOK99T0T0';
 var Comment8 = 'Tok99Toto ( PLECIKLUK ) : 91*85*64'; 
