@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna4
 // @namespace    http://tampermonkey.net/
-// @version      3.105
+// @version      3.106
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna4.js
@@ -103,25 +103,25 @@ var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
 var id18 = await GM.getValue(18);
 
-var admin = ["Siâo"," ","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha",
-             "boleng","biru","bobby","bastian",
-             "cristina","camb","cassa","che","cinta","celsia",
-             "david",",dewa","desi","debby","dewi","dentoto","dika",
-             "erwin",
+var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin",
+             "boleng","biru","bobby","bastian","boboho","bola",
+             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika",
+             "david",",dewa","desi","debby","dewi","dentoto","dika","dealova",
+             "erwin","emilia",
              "fira","fahresa",
              "gita",
-             "habib","hefi","hoihai",
-             "icha","iyatoto",
-             "jordi","jaguar","jne",
-             "keitogel","kumbara","kembar","kotna",
-             "lianda","lusiana","lina","laura",
-             "mahendra","monica","mey","mersya","mad","multi","mariana","melati",
-             "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella",
-             "oscar",
-             "pung","puput","priyan","primus","primus",
-             "ratu","rio","ria","rikodo","rizal","roy","rendy",
-             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena",
-             "tink","tiktak","tiara","tatang",
+             "habib","hefi","hoihai","hana",
+             "icha","iyatoto","invest","ivanna","inisial",
+             "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
+             "keitogel","kumbara","kembar","kotna","karina","katharina","kemon",
+             "lianda","lusiana","lina","laura","lehman","leader","leon","lidya",
+             "mahendra","monica","mey","mersya","mad","multi","mariana","melati","male","megaways","manu",
+             "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy",
+             "oscar","ozawa",
+             "pung","puput","priyan","primus","primus","pencari","pricilia",
+             "ratu","rio","ria","rikodo","rizal","roy","rendy","rana",
+             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha",
+             "tink","tiktak","tiara","tatang","tania",
              "yanty","yoky","yohana",
              "wulan","wok"];
 
