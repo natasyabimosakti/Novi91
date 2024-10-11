@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE1
 // @namespace    http://tampermonkey.net/
-// @version      3.97
+// @version      3.98
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
@@ -69,7 +69,7 @@ var namagroup18 = 'Jawatengah';
 var Comment18 = 'Bosku1';
 
 
-var refresh = 30;
+var refresh = 40;
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
@@ -92,34 +92,36 @@ var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
 var id18 = await GM.getValue(18);
 
-var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin",
-             "boleng","biru","bobby","bastian","boboho","bola",
-             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika",
-             "david",",dewa","desi","debby","dewi","dentoto","dika","dealova",
-             "erwin","emilia",
+var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda",
+             "boleng","biru","bobby","bastian","bambang",
+             "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura",
+             "david",",dewa","desi","debby","dewi","dentoto","dika","delon",
+             "erwin","elvina",
              "fira","fahresa",
-             "gita",
-             "habib","hefi","hoihai","hana",
-             "icha","iyatoto","invest","ivanna","inisial",
-             "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
-             "keitogel","kumbara","kembar","kotna","karina","katharina","kemon",
-             "lianda","lusiana","lina","laura","lehman","leader","leon","lidya",
-             "mahendra","monica","mey","mersya","mad","multi","mariana","melati","male","megaways","manu",
-             "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy",
-             "oscar","ozawa",
-             "pung","puput","priyan","primus","primus","pencari","pricilia",
-             "ratu","rio","ria","rikodo","rizal","roy","rendy","rana",
-             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha",
-             "tink","tiktak","tiara","tatang","tania",
-             "yanty","yoky","yohana",
-             "wulan","wok"];
+             "gita","genzo",
+             "habib","hefi","hoihai","herfizah",
+             "icha","iyatoto",
+             "jordi","jaguar","jne","je pe","jess","junior",
+             "kei","kumbara","kembar","kotna","karina",
+             "lianda","lusiana","lina","laura","lia",
+             "mahendra","monica","mey","mersya","mad","multi","mariana","melati","meleqq","megaways","minion","melly",
+             "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nayla","naomi",
+             "oscar",
+             "pung","puput","priyan","primus","primus",
+             "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma",
+             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis",
+             "tink","tiktak","tiara","tatang",
+             "yanty","yoky","yohana","yura","yaya",
+             "wulan","wok","wak",
+             "zuko"];
+
 
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
 var keyword3 = "LOMBA"
 var keyword4 = "𝗟𝗢𝗠𝗕𝗔"
 var keyword5 = "𝐋𝐎𝐌𝐁𝐀"
-var keyword6 = "❤️"
+var keyword6 = "LIMBA"
 var keyword7 = "ROM"
 var keyword8 = "R00M"
 var keyword9 = "login"
@@ -131,7 +133,7 @@ var Backlist3 = "hasil";
 var Backlist4 = "room lomba freebet";
 var Backlist5 = "prediksi";
 var Backlist6 = "result";
-var Backlist7 = "result";
+var Backlist7 = "commen";
 
 
 var jitter = 0
