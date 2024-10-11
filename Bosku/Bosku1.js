@@ -101,7 +101,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "gita","genzo",
              "habib","hefi","hoihai","herfizah",
              "icha","iyatoto",
-             "jordi","jaguar","jne","je pe","jess","junior",
+             "jordi","jaguar","jne","je pe","jess","junior","jovanka",
              "kei","kumbara","kembar","kotna","karina",
              "lianda","lusiana","lina","laura","lia",
              "mahendra","monica","mey","mersya","mad","multi","mariana","melati","meleqq","megaways","minion","melly",
