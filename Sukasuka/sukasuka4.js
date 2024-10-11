@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BENT4
 // @namespace    http://tampermonkey.net/
-// @version      3.86
+// @version      3.87
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka4.js
@@ -71,7 +71,7 @@ var namagroup18 = 'Jawatengah';
 var Comment18 = 'sukasuka4';
 
 
-var refresh = 30;
+var refresh = 40;
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
