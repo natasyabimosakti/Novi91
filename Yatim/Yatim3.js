@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim3
 // @namespace    http://tampermonkey.net/
-// @version      3.86
+// @version      3.87
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim3.js
@@ -96,7 +96,7 @@ var id17 = await GM.getValue(17);
 var id18 = await GM.getValue(18);
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda",
-             "boleng","biru","bobby","bastian","bambang",
+             "boleng","biru","bobby","bastian","bambang","bogard",
              "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura",
              "david",",dewa","desi","debby","dewi","dentoto","dika","delon",
              "erwin","elvina",
@@ -104,13 +104,13 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "gita","genzo",
              "habib","hefi","hoihai","herfizah",
              "icha","iyatoto",
-             "jordi","jaguar","jne","je pe","jess","junior",
+             "jordi","jaguar","jne","je pe","jess","junior","jovanka",
              "kei","kumbara","kembar","kotna","karina",
              "lianda","lusiana","lina","laura","lia",
              "mahendra","monica","mey","mersya","mad","multi","mariana","melati","meleqq","megaways","minion","melly",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nayla","naomi",
              "oscar",
-             "pung","puput","priyan","primus","primus",
+             "pung","puput","priyan","primus","primus","prediction",
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma",
              "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis",
              "tink","tiktak","tiara","tatang",
