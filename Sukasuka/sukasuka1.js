@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BENT1
 // @namespace    http://tampermonkey.net/
-// @version      3.86
+// @version      3.87
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka1.js
@@ -73,7 +73,7 @@ var Comment18 = 'sukasuka1';
 
 
 
-var refresh = 30;
+var refresh = 40;
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
