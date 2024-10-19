@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut4
 // @namespace    http://tampermonkey.net/
-// @version      3.112
+// @version      3.113
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut4.js
