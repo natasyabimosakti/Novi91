@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW KADUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.111
+// @version      3.112
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut3.js
@@ -43,7 +43,7 @@ var Comment7 = 'ASEPTOGEL RIROKKWE 60*32*38';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=RIROKKWE= 80*51'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=RIMLANG63=72*39*99'; 
 
 var namagroup10 = 'JNE';
