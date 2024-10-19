@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 4
 // @namespace    http://tampermonkey.net/
-// @version      3.88
+// @version      3.89
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro4.js
@@ -41,7 +41,7 @@ var Comment7 = 'ASEPTOGEL DEDEKLESMONO 08*87*53';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=DORAEMON34= 94*89'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=DAMIAN12=31*44*59'; 
 
 var namagroup10 = 'JNE';
