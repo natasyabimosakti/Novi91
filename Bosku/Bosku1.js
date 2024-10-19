@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE1
 // @namespace    http://tampermonkey.net/
-// @version      3.101
+// @version      3.102
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
