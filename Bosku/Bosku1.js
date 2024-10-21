@@ -93,7 +93,7 @@ var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
 var id18 = await GM.getValue(18);
 
-var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda",
+var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem",
              "boleng","biru","bobby","bastian","bambang","bogard",
              "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura",
              "david",",dewa","desi","debby","dewi","dentoto","dika","delon",
@@ -110,7 +110,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "oscar",
              "pung","puput","priyan","primus","primus","prediction",
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma",
-             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis",
+             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun",
              "tink","tiktak","tiara","tatang",
              "yanty","yoky","yohana","yura","yaya",
              "wulan","wok","wak",
