@@ -99,7 +99,7 @@ var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
 var id18 = await GM.getValue(18);
 
-var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda",
+var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem",
              "boleng","biru","bobby","bastian","bambang","bogard",
              "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura",
              "david",",dewa","desi","debby","dewi","dentoto","dika","delon",
@@ -116,7 +116,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "oscar",
              "pung","puput","priyan","primus","primus","prediction",
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma",
-             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis",
+             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun",
              "tink","tiktak","tiara","tatang",
              "yanty","yoky","yohana","yura","yaya",
              "wulan","wok","wak",
@@ -133,6 +133,9 @@ var keyword7 = "ROM"
 var keyword8 = "R00M"
 var keyword9 = "login"
 var keyword10 = "𝐑𝐎𝐎𝐌"
+var keyword11 = "HONGKONG"
+var keyword12 = "SINGAPUR"
+var keyword13 = "SYDNEY"
 
 var Backlist1 = "pemenang lomba";
 var Backlist2 = "rekap";
@@ -178,7 +181,10 @@ var myrefresh = setInterval(function(){
                    ||postingan.textContent.toLowerCase().includes(keyword7.toLowerCase())
                    ||postingan.textContent.toLowerCase().includes(keyword8.toLowerCase())
                    ||postingan.textContent.toLowerCase().includes(keyword9.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword10.toLowerCase())){
+                   ||postingan.textContent.toLowerCase().includes(keyword10.toLowerCase())
+                   ||postingan.textContent.toLowerCase().includes(keyword11.toLowerCase())
+                   ||postingan.textContent.toLowerCase().includes(keyword12.toLowerCase())            
+                   ||postingan.textContent.toLowerCase().includes(keyword13.toLowerCase())){
                     console.log("Keyword Ditemukan " + postingan.textContent);
                     // Cek Backlist
                     if(postingan.textContent.toLowerCase().includes(Backlist1.toLowerCase())
