@@ -101,7 +101,7 @@ var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
 var id18 = await GM.getValue(18);
 
-var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin",
+var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru",
              "boleng","biru","bobby","bastian","boboho","bola",
              "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika",
              "david",",dewa","desi","debby","dewi","dentoto","dika","dealova",
@@ -111,14 +111,14 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "habib","hefi","hoihai","hana",
              "icha","iyatoto","invest","ivanna","inisial",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
-             "keitogel","kumbara","kembar","kotna","karina","katharina","kemon",
+             "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka",
              "lianda","lusiana","lina","laura","lehman","leader","leon","lidya",
-             "mahendra","monica","mey","mersya","mad","multi","mariana","melati","male","megaways","manu",
+             "mahendra","monica","mey","mersya","mad","multi","mariana","melati","male","megaways","manu","mamad","mas","metha",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy",
              "oscar","ozawa",
              "pung","puput","priyan","primus","primus","pencari","pricilia",
-             "ratu","rio","ria","rikodo","rizal","roy","rendy","rana",
-             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha",
+             "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi",
+             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia",
              "tink","tiktak","tiara","tatang","tania",
              "yanty","yoky","yohana",
              "wulan","wok"];
@@ -128,10 +128,10 @@ var keyword2 = "𝗥𝗢𝗢𝗠"
 var keyword3 = "LOMBA"
 var keyword4 = "𝗟𝗢𝗠𝗕𝗔"
 var keyword5 = "𝐋𝐎𝐌𝐁𝐀"
-var keyword6 = "❤️"
+var keyword6 = "2D 2LINE"
 var keyword7 = "ROM"
 var keyword8 = "R00M"
-var keyword9 = "login"
+var keyword9 = "2D 3LINE"
 var keyword10 = "𝐑𝐎𝐎𝐌"
 
 var Backlist1 = "pemenang lomba";
