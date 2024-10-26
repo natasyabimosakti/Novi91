@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BENT3
 // @namespace    http://tampermonkey.net/
-// @version      3.91
+// @version      3.92
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka3.js
@@ -555,22 +555,7 @@ function gameClosure() {
 var game = gameClosure()
 
 function clicksend() {
-    game.stop()
-    jitter = 1
-    /*Tampilkan TOMBOL SEND*/
-    if(document.getElementsByClassName("textbox-submit-button")[0]){
-        document.getElementsByClassName("textbox-submit-button")[0].style.display=""
-
-        /*Tekan TOMBOL SEND*/
-        var clicksendcoment = document.getElementsByClassName("textbox-submit-button")[0];
-        clicksendcoment.disabled = false;
-        var clickEvent = document.createEvent ('MouseEvents');
-        clickEvent.initEvent ("mousedown", true, true);
-        clicksendcoment.dispatchEvent (clickEvent);
-        console.log("Comment Terkirim");
-        closer()
-        /*Tekan TOMBOL SEND*/
-    }
+   
 }
 
 function closer() {
