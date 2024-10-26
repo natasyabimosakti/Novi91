@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE4
 // @namespace    http://tampermonkey.net/
-// @version      3.103
+// @version      3.104
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku4.js
@@ -557,6 +557,9 @@ function gameClosure() {
 var game = gameClosure()
 
 function clicksend() {
+  document.getElementsByClassName("textbox multi-line-floating-textbox")[0].dispatchEvent(
+  new Event("input", { bubbles: true, cancelable: true })
+);
    
 }
 
