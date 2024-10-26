@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 2
 // @namespace    http://tampermonkey.net/
-// @version      3.94
+// @version      3.95
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk2.js
@@ -558,22 +558,7 @@ function gameClosure() {
 var game = gameClosure()
 
 function clicksend() {
-    game.stop()
-    jitter = 1
-    /*Tampilkan TOMBOL SEND*/
-    if(document.getElementsByClassName("textbox-submit-button")[0]){
-        document.getElementsByClassName("textbox-submit-button")[0].style.display=""
-
-        /*Tekan TOMBOL SEND*/
-        var clicksendcoment = document.getElementsByClassName("textbox-submit-button")[0];
-        clicksendcoment.disabled = false;
-        var clickEvent = document.createEvent ('MouseEvents');
-        clickEvent.initEvent ("mousedown", true, true);
-        clicksendcoment.dispatchEvent (clickEvent);
-        console.log("Comment Terkirim");
-        closer()
-        /*Tekan TOMBOL SEND*/
-    }
+   
 }
 
 function closer() {
