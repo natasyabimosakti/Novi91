@@ -31,7 +31,7 @@ var Comment5 = '#keitogel = (XELOP83) = 01*44*31';
 
 var namagroup6 = 'Pasar';
 var Comment6 = 'PAJAKTOTO(XANXAN68) : 88*75'; 
-
+// @version      3.NaN
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL XONKING52 17*84*50'; 
 
@@ -554,6 +554,9 @@ function gameClosure() {
 var game = gameClosure()
 
 function clicksend() {
+  document.getElementsByClassName("textbox multi-line-floating-textbox")[0].dispatchEvent(
+  new Event("input", { bubbles: true, cancelable: true })
+);
    
 }
 
