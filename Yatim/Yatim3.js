@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim3
 // @namespace    http://tampermonkey.net/
-// @version      3.92
+// @version      3.93
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim3.js
@@ -559,7 +559,22 @@ function clicksend() {
   document.getElementsByClassName("textbox multi-line-floating-textbox")[0].dispatchEvent(
   new Event("input", { bubbles: true, cancelable: true })
 );
-   
+     game.stop()
+    jitter = 1
+    /*Tampilkan TOMBOL SEND*/
+    if(document.getElementsByClassName("textbox-submit-button")[0]){
+        document.getElementsByClassName("textbox-submit-button")[0].style.display=""
+
+        /*Tekan TOMBOL SEND*/
+        var clicksendcoment = document.getElementsByClassName("textbox-submit-button")[0];
+        clicksendcoment.disabled = false;
+        var clickEvent = document.createEvent ('MouseEvents');
+        clickEvent.initEvent ("mousedown", true, true);
+        clicksendcoment.dispatchEvent (clickEvent);
+        console.log("Comment Terkirim");
+        closer()
+        /*Tekan TOMBOL SEND*/
+    }
 }
 
 function closer() {
