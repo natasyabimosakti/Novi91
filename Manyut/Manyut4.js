@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.182
+// @version      3.183
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
@@ -559,6 +559,9 @@ function gameClosure() {
 var game = gameClosure()
 
 function clicksend() {
+  document.getElementsByClassName("textbox multi-line-floating-textbox")[0].dispatchEvent(
+  new Event("input", { bubbles: true, cancelable: true })
+);
    
 }
 
