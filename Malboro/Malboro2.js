@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 2
 // @namespace    http://tampermonkey.net/
-// @version      3.91
+// @version      3.92
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
@@ -557,6 +557,9 @@ function gameClosure() {
 var game = gameClosure()
 
 function clicksend() {
+  document.getElementsByClassName("textbox multi-line-floating-textbox")[0].dispatchEvent(
+  new Event("input", { bubbles: true, cancelable: true })
+);
    
 }
 
