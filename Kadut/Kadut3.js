@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW KADUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.114
+// @version      3.115
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut3.js
@@ -560,6 +560,9 @@ function gameClosure() {
 var game = gameClosure()
 
 function clicksend() {
+  document.getElementsByClassName("textbox multi-line-floating-textbox")[0].dispatchEvent(
+  new Event("input", { bubbles: true, cancelable: true })
+);
    
 }
 
