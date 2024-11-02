@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE3
 // @namespace    http://tampermonkey.net/
-// @version      3.106
+// @version      3.107
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku3.js
@@ -52,8 +52,8 @@ var Comment11 = '#TOYIBSLOT ( YOKWIK47 ) : 72*39*64';
 var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY YOKOJO3 80*51*95'; 
 
-var namagroup13 = 'L0MBA';
-var Comment13 = '#TOTO4D (YOKWIK47) 60*32*38'; 
+var namagroup13 = 'TASIK';
+var Comment13 = '#TASIKTOTO(YOKWIK47) = 60*32'; 
 
 var namagroup14 = 'DENTOTO';
 var Comment14 = '#DENTOTO 22*35*78 ( YOJUAH63 )'; 
