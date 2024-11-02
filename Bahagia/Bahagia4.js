@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia4
 // @namespace    http://tampermonkey.net/
-// @version      3.77
+// @version      3.78
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia4.js
@@ -79,7 +79,7 @@ var Comment18 = 'asek';
 
 
 
-
+var refresh = 30;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta",
              "boleng","biru","bobby","bastian","boboho","bola","bunga",
