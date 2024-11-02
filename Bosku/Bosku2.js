@@ -66,7 +66,8 @@ var Comment16 = 'NEMO4D (BOSBIG53) : 94*43*12';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (BOSBIS48) = 36*49';
 
-
+var namagroup18 = 'Jawatengah';
+var Comment18 = 'bosque2';
 
 
 
