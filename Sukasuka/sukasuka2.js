@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BENT2
 // @namespace    http://5.net/
-// @version      3.99
+// @version      3.100
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka2.js
@@ -56,8 +56,8 @@ var Comment12 = 'TOGELKUY BERIKLAH65 11*20*83';
 var namagroup13 = 'TASIK';
 var Comment13 = '#TASIKTOTO(BABIBU76) = 58*88'; 
 
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 02*09*38 ( BIKANG12 )'; 
+var namagroup14 = 'TGL123';
+var Comment14 = '#(TOGEL123) = (BIKANG12) 02*09*38'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (POCITA19) 67*98*05'; 
