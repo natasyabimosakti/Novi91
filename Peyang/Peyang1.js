@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang1
 // @namespace    http://tampermonkey.net/
-// @version      3.100
+// @version      3.101
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang1.js
@@ -15,8 +15,8 @@
 // ==/UserScript==
 
 
-var namagroup1 = 'XX1';
-var Comment1 = '#XX1TOTO (MERAHKU75) 59*47*96 BETTING'; 
+var namagroup1 = 'LICIN';
+var Comment1 = '#LICIN4D (MERAHKU75) 59*47*96'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( MENTARI17 ) : 39*15*71'; 
@@ -45,8 +45,8 @@ var Comment9 = 'SIJITOGEL MEROJAYA51 06*09*45';
 var namagroup10 = 'LING';
 var Comment10 = 'LING77 (MELAMUN44) 99*24'; 
 
-var namagroup11 = 'KELUARGA';
-var Comment11 = '#LTDTOTO =(MAUEWEK5X)= 39*15*'; 
+var namagroup11 = 'MAYAPADA';
+var Comment11 = 'BETT*Mayapada4D(BO)*MAUEWEK5X*39*15*71'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
 var Comment12 = 'MAKTUNG52 : 11*95*66 #BESTOTO88'; 
@@ -62,7 +62,6 @@ var Comment15 = 'MAKDUNGDUNG : 81*49*72 #HOHOTOGEL';
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*MERANTAU41*20*44*38';
-
 
 
 
