@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul1
 // @namespace    http://tampermonkey.net/
-// @version      3.103
+// @version      3.104
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
@@ -14,8 +14,8 @@
 // @grant        window.close
 // ==/UserScript==
 
-var namagroup1 = 'XX1';
-var Comment1 = '#XX1TOTO (BOTAP27) 71*11*45 BETTING'; 
+var namagroup1 = 'LICIN';
+var Comment1 = '#LICIN4D (BOTAP27) 71*11*45'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( BOLINA61 ) : 49*40*28'; 
@@ -44,8 +44,8 @@ var Comment9 = 'SIJITOGEL BUANGKALI 59*78*39';
 var namagroup10 = 'LING';
 var Comment10 = 'LING77 (BOLENAN) 21*57'; 
 
-var namagroup11 = 'KELUARGA';
-var Comment11 = '#LTDTOTO =(BUNTOTASU)= 10*81*'; 
+var namagroup11 = 'MAYAPADA';
+var Comment11 = 'BETT*Mayapada4D(BO)*BUNTOTASU*10*81*34'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
 var Comment12 = 'BUSUNGMU62 : 77*80*19 #BESTOTO88'; 
@@ -61,13 +61,6 @@ var Comment15 = 'BOLINA61 : 07*75*63 #HOHOTOGEL';
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*BOLINA61*49*40*28';
-
-
-
-
-
-
-
 
 
 
