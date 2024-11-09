@@ -15,7 +15,7 @@
 // ==/UserScript==
 
 
-svar namagroup1 = 'LICIN';
+var namagroup1 = 'LICIN';
 var Comment1 = '#LICIN4D (JOROKLUH) 52*31*50'; 
 
 var namagroup2 = 'K86';
