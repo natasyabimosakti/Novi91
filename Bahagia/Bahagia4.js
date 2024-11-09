@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia4
 // @namespace    http://tampermonkey.net/
-// @version      3.78
+// @version      3.79
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia4.js
@@ -14,8 +14,8 @@
 // @grant        window.close
 // ==/UserScript==
 
-var namagroup1 = 'XX1';
-var Comment1 = '#XX1TOTO (DUDUKGO81) 47*60*21 BETTING'; 
+var namagroup1 = 'LICIN';
+var Comment1 = '#LICIN4D (DUDUKGO81) 47*60*21'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( DUINIATOTO23 ) : 66*02*94'; 
@@ -44,8 +44,8 @@ var Comment9 = 'SIJITOGEL DIANCOK13 09*24*96';
 var namagroup10 = 'LING';
 var Comment10 = 'LING77 (DINDAKUCING) 23*49'; 
 
-var namagroup11 = 'KELUARGA';
-var Comment11 = '#LTDTOTO =(DUDUKGO81)= 86*33*'; 
+var namagroup11 = 'MAYAPADA';
+var Comment11 = 'BETT*Mayapada4D(BO)*DUDUKGO81*86*33*22'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
 var Comment12 = 'DIANUMAMI12 : 99*85*37 #BESTOTO88'; 
@@ -65,13 +65,8 @@ var Comment16 = 'CITA4D*DIKENTUKADAL*27*10*53';
 
 
 
-
-
-
-
-
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Bahagia1';
+var Comment17 = 'Bahagia4';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
