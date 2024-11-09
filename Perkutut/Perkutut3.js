@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut3
 // @namespace    http://tampermonkey.net/
-// @version      3.115
+// @version      3.116
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut3.js
@@ -16,8 +16,8 @@
 
 
 
-var namagroup1 = 'XX1';
-var Comment1 = '#XX1TOTO (DOROKU21) 05*24*48 BETTING'; 
+var namagroup1 = 'LICIN';
+var Comment1 = '#LICIN4D (DOROKU21) 05*24*48'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( DOROMIBER ) : 36*59*02'; 
@@ -46,8 +46,8 @@ var Comment9 = 'SIJITOGEL DORODOR12 52*46*47';
 var namagroup10 = 'LING';
 var Comment10 = 'LING77 (DORONYOK31) 36*59'; 
 
-var namagroup11 = 'KELUARGA';
-var Comment11 = '#LTDTOTO =(DOROPOL12)= 19*99*'; 
+var namagroup11 = 'MAYAPADA';
+var Comment11 = 'BETT*Mayapada4D(BO)*DOROPOL12*19*99*17'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
 var Comment12 = 'DORODOR12 : 63*65*92 #BESTOTO88'; 
@@ -63,7 +63,6 @@ var Comment15 = 'DOROMAN12 : 27*01*82 #HOHOTOGEL';
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*DOROPOL12*06*18*75';
-
 
 
 
