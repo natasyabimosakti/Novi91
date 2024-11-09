@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BENT3
 // @namespace    http://tampermonkey.net/
-// @version      3.98
+// @version      3.99
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka3.js
@@ -55,8 +55,8 @@ var Comment12 = 'TOGELKUY CNDAKARTA76 63*30*72';
 var namagroup13 = 'TASIK';
 var Comment13 = '#TASIKTOTO(CINTAKU43) = 73*10'; 
 
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 52*26*97 ( CUCUKU76 )'; 
+var namagroup14 = 'TGL123';
+var Comment14 = '#(TOGEL123) = (CUCUKU76) 52*26*97'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (CACINGAN54) 04*76*81'; 
