@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG3
 // @namespace    http://tampermonkey.net/
-// @version      3.193
+// @version      3.194
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong3.js
@@ -77,22 +77,22 @@ var refresh = 30;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem",
              "boleng","biru","bobby","bastian","bambang","bogard",
-             "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea",
+             "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista",
              "david",",dewa","desi","debby","dewi","dentoto","dika","delon",
              "erwin","elvina",
-             "fira","fahresa",
+             "fira","fahresa","findlay",
              "gita","genzo",
              "habib","hefi","hoihai","herfizah",
-             "icha","iyatoto",
-             "jordi","jaguar","jne","je pe","jess","junior","jovanka",
+             "icha","iyatoto","intan",
+             "jordi","jaguar","jne","je pe","jess","junior","jovanka","jasmine",
              "kei","kumbara","kembar","kotna","karina",
              "lianda","lusiana","lina","laura","lia",
-             "mahendra","monica","mey","mersya","mad","multi","mariana","melati","meleqq","megaways","minion","melly","monicha",
+             "mahendra","monica","mey","mersya","mad","multi","mariana","melati","meleqq","megaways","minion","melly","monicha","manu","maryam",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nayla","naomi",
              "oscar","ozawa",
              "pung","puput","priyan","primus","primus","prediction",
-             "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma",
-             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia",
+             "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma","ratsa",
+             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia","sifa",
              "tink","tiktak","tiara","tatang",
              "yanty","yoky","yohana","yura","yaya",
              "wulan","wok","wak",
