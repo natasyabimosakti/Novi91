@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim2
 // @namespace    http://tampermonkey.net/
-// @version      3.97
+// @version      3.98
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim2.js
@@ -55,8 +55,8 @@ var Comment12 = 'TOGELKUY FERKOYY 71*96*75';
 var namagroup13 = 'TASIK';
 var Comment13 = '#TASIKTOTO(FERYEBS) = 12*86'; 
 
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 33*92*66 ( FERSIP )'; 
+var namagroup14 = 'TGL123';
+var Comment14 = '#(TOGEL123) = (FERSIP) 33*92*66'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (FERPERS) 11*20*83'; 
