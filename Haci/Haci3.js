@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi3
 // @namespace    http://tampermonkey.net/
-// @version      3.116
+// @version      3.117
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci3.js
@@ -18,8 +18,8 @@
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 
-var namagroup1 = 'XX1';
-var Comment1 = '#XX1TOTO (SIMUMET17) 50*91*21 BETTING'; 
+var namagroup1 = 'LICIN';
+var Comment1 = '#LICIN4D (SIMUMET17) 50*91*21'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( SILITCLING ) : 06*90*83'; 
@@ -48,8 +48,8 @@ var Comment9 = 'SIJITOGEL SIMPAK17 01*53*52';
 var namagroup10 = 'LING';
 var Comment10 = 'LING77 (SIKLUWER) 56*43'; 
 
-var namagroup11 = 'KELUARGA';
-var Comment11 = '#LTDTOTO =(SINTING19)= 15*30*'; 
+var namagroup11 = 'MAYAPADA';
+var Comment11 = 'BETT*Mayapada4D(BO)*SINTING19*15*30*69'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
 var Comment12 = 'SIMBAHMU : 50*91*21 #BESTOTO88'; 
