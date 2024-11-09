@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul3
 // @namespace    http://tampermonkey.net/
-// @version      3.105
+// @version      3.106
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul3.js
@@ -15,8 +15,8 @@
 // ==/UserScript==
 
 
-var namagroup1 = 'XX1';
-var Comment1 = '#XX1TOTO (JOROKLUH) 52*31*50 BETTING'; 
+svar namagroup1 = 'LICIN';
+var Comment1 = '#LICIN4D (JOROKLUH) 52*31*50'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( RIMPLANG ) : 90*23*65'; 
@@ -45,8 +45,8 @@ var Comment9 = 'SIJITOGEL RIMLANG63 64*48*86';
 var namagroup10 = 'LING';
 var Comment10 = 'LING77 (RIMNDUL73) 43*53'; 
 
-var namagroup11 = 'KELUARGA';
-var Comment11 = '#LTDTOTO =(RINTOR64)= 87*22*'; 
+var namagroup11 = 'MAYAPADA';
+var Comment11 = 'BETT*Mayapada4D(BO)*RINTOR64*87*22*02'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
 var Comment12 = 'RIJONBETAWI : 72*14*35 #BESTOTO88'; 
