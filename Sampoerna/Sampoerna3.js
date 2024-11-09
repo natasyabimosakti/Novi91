@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna3
 // @namespace    http://tampermonkey.net/
-// @version      3.110
+// @version      3.111
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna3.js
@@ -83,27 +83,27 @@ var Comment18 = 'asek';
 var refresh = 30;
 
 
-var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta",
+var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha",
              "boleng","biru","bobby","bastian","boboho","bola","bunga",
-             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika",
+             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin",
              "david",",dewa","desi","debby","dewi","dentoto","dika","dealova","diva",
              "erwin","emilia",
-             "fira","fahresa",
+             "fira","fahresa","fiana",
              "gita",
              "habib","hefi","hoihai","hana",",har",
              "icha","iyatoto","invest","ivanna","inisial",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
              "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka",
              "lianda","lusiana","lina","laura","lehman","leader","leon","lidya",
-             "mahendra","monica","mey","mersya","mad","multi","mariana","melati","male","megaways","manu","mamad","mas","metha","maleeqq",
+             "mahendra","monica","mey","mersya","mad","multi","mariana","melati","male","megaways","manu","mamad","mas","metha","maleeqq","mely",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy",
              "oscar","ozawa","otong",
-             "pung","puput","priyan","primus","primus","pencari","pricilia",
+             "pung","puput","priyan","primus","primus","pencari","pricilia","putra",
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi",
              "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa",
              "tink","tiktak","tiara","tatang","tania",
              "yanty","yoky","yohana","yii",
-             "wulan","wok"];
+             "wulan","wok","widya"];
 
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
@@ -116,7 +116,7 @@ var keyword8 = "R00M"
 var keyword9 = "2D 3LINE"
 var keyword10 = "𝐑𝐎𝐎𝐌"
 var keyword11 = "HONGKONG"
-var keyword12 = "SINGAPUR"
+var keyword12 = "SINGA"
 var keyword13 = "SYDNEY"
 
 var Backlist1 = "pemenang lomba";
