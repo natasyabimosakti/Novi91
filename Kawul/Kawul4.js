@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul4
 // @namespace    http://tampermonkey.net/
-// @version      3.104
+// @version      3.105
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul4.js
@@ -16,8 +16,8 @@
 
 
 
-var namagroup1 = 'XX1';
-var Comment1 = '#XX1TOTO (SALAMANAE) 85*67*18 BETTING'; 
+var namagroup1 = 'LICIN';
+var Comment1 = '#LICIN4D (SALAMANAE) 85*67*18'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( SAKUWIL ) : 47*12*94'; 
@@ -38,7 +38,7 @@ var namagroup7 = 'RNR';
 var Comment7 = '#RNR303(SAKAUBEN) : 24*79*08'; 
 
 var namagroup8 = 'TOK99T0T0';
-var Comment8 = 'Tok99Toto ( SAMBATAE ) : 69*41*62'; 
+var Comment8 = 'Tok99Toto ( SALAMANAE ) : 69*41*62'; 
 
 var namagroup9 = 'Wellz';
 var Comment9 = 'SIJITOGEL SALAMANSEK 37*00*70'; 
@@ -46,8 +46,8 @@ var Comment9 = 'SIJITOGEL SALAMANSEK 37*00*70';
 var namagroup10 = 'LING';
 var Comment10 = 'LING77 (SAIKIPIYE) 73*54'; 
 
-var namagroup11 = 'KELUARGA';
-var Comment11 = '#LTDTOTO =(SANTAYBOSKU)= 24*79*'; 
+var namagroup11 = 'MAYAPADA';
+var Comment11 = 'BETT*Mayapada4D(BO)*SANTAYBOSKU*24*79*08'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
 var Comment12 = 'SAWERBOSE0 : 04*84*96 #BESTOTO88'; 
