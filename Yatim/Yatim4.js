@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim4
 // @namespace    http://tampermonkey.net/
-// @version      3.97
+// @version      3.98
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim4.js
@@ -54,8 +54,8 @@ var Comment12 = 'TOGELKUY YANCOKSU 74*82*84';
 var namagroup13 = 'TASIK';
 var Comment13 = '#TASIKTOTO(YAMIENAPI) = 39*27'; 
 
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 25*16*85 ( YARUWET )'; 
+var namagroup14 = 'TGL123';
+var Comment14 = '#(TOGEL123) = (YARUWET) 25*16*85'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (YAELAH82) 19*03*18'; 
