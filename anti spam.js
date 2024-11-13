@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Anti Spam
 // @namespace    http://tampermonkey.net/
-// @version      2024-09-11
+// @version      0.1
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/refs/heads/main/anti%20spam.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/refs/heads/main/anti%20spam.js
