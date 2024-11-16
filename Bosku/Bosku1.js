@@ -26,7 +26,7 @@ var Comment3 = 'Tiktaktogel / XELINA56 / 19 , 59 , 03';
 var namagroup4 = 'GAIB';
 var Comment4 = 'GAIB4D=XELEMINT53=25*85*67'; 
 
-var namagroup5 = 'KEI';
+var namagroup5 = 'HOTBET';
 var Comment5 = '#keitogel = (XELOP83) = 01*44*31'; 
 
 var namagroup6 = 'Pasar';
