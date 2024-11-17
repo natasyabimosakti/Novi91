@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.189
+// @version      3.190
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
@@ -30,7 +30,7 @@ var Comment3 = 'Tiktaktogel / ZETOLAN23 / 91 , 93 , 23';
 var namagroup4 = 'GAIB';
 var Comment4 = 'GAIB4D=ZENDRIK23=08*87*53'; 
 
-var namagroup5 = 'KEITOGEL';
+var namagroup5 = 'HOTBET';
 var Comment5 = '#keitogel = (ZENTOLKAWAT) = 94*89*29'; 
 
 var namagroup6 = 'Pasar';
