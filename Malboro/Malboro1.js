@@ -28,7 +28,7 @@ var Comment3 = 'Tiktaktogel / ASUKAU348 / 47 , 54 , 99';
 var namagroup4 = 'GAIB';
 var Comment4 = 'GAIB4D=ANJANI48=17*95*61'; 
 
-var namagroup5 = 'KEITOGEL';
+var namagroup5 = 'HOTBET';
 var Comment5 = '#keitogel = (ANITI348) = 55*90*06'; 
 
 var namagroup6 = 'Pasar';
