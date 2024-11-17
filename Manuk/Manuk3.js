@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 3
 // @namespace    http://tampermonkey.net/
-// @version      3.102
+// @version      3.103
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk3.js
@@ -29,7 +29,7 @@ var Comment3 = 'Tiktaktogel / DORONYOK / 77 , 46 , 69';
 var namagroup4 = 'GAIB';
 var Comment4 = 'GAIB4D=DOROPOL12=61*89*97'; 
 
-var namagroup5 = 'KEITOGEL';
+var namagroup5 = 'HOTBET';
 var Comment5 = '#keitogel = (DORODOR12) = 47*23*10'; 
 
 var namagroup6 = 'Pasar';
