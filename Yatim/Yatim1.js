@@ -1,9 +1,8 @@
 // ==UserScript==
 // @name         Yatim1
 // @namespace    http://tampermonkey.net/
-// @version      3.97
+// @version      3.98
 // @description  try to take over the world!
-// @version      3.NaN
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim1.js
 // @author       You
 // @match        http*://*/*
@@ -27,7 +26,7 @@ var Comment3 = 'Tiktaktogel / GUNGHJ6 / 17 , 95 , 61';
 var namagroup4 = 'GAIB';
 var Comment4 = 'GAIB4D=GUNGKALIGUNG=55*90*06'; 
 
-var namagroup5 = 'KEITOGEL';
+var namagroup5 = 'HOTBET';
 var Comment5 = '#keitogel = (GUNGBUTZ) = 51*35*99'; 
 
 var namagroup6 = 'Pasar';
