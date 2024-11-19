@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 1
 // @namespace    http://tampermonkey.net/
-// @version      3.101
+// @version      3.102
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro1.js
@@ -55,8 +55,8 @@ var Comment12 = 'TOGELKUY AMARE45 51*35*01';
 var namagroup13 = 'TASIK';
 var Comment13 = '#TASIKTOTO(AMBOH45) = 55*90'; 
 
-var namagroup14 = 'TGL123';
-var Comment14 = '#(TOGEL123) = (ARAKROH57) 17*95*61'; 
+var namagroup14 = 'SILA';
+var Comment14 = '‌#SILATOGEL*ARAKROH57*17*95*61*BETTING'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (AMITAMI4) 47*54*49'; 
@@ -84,15 +84,16 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "habib","hefi","hoihai","herfizah",
              "icha","iyatoto","intan",
              "jordi","jaguar","jne","je pe","jess","junior","jovanka","jasmine",
-             "kei","kumbara","kembar","kotna","karina",
+             "kei","kumbara","kembar","kotna","karina","kopi",
              "lianda","lusiana","lina","laura","lia",
              "mahendra","monica","mey","mersya","mad","multi","mariana","melati","meleqq","megaways","minion","melly","monicha","manu","maryam","mode",
-             "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nayla","naomi",
+             "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nayla","naomi","nica",
              "oscar","ozawa",
              "pung","puput","priyan","primus","primus","prediction",
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma","ratsa",
              "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia","sifa",
              "tink","tiktak","tiara","tatang","tomi",
+             "xian",
              "yanty","yoky","yohana","yura","yaya",
              "wulan","wok","wak",
              "zuko"];
