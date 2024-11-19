@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG2
 // @namespace    http://tampermonkey.net/
-// @version      3.197
+// @version      3.198
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong2.js
@@ -54,8 +54,8 @@ var Comment12 = 'TOGELKUY KRISING47 33*92*66';
 var namagroup13 = 'TASIK';
 var Comment13 = '#TASIKTOTO(KRISAN24) = 11*20'; 
 
-var namagroup14 = 'TGL123';
-var Comment14 = '#(TOGEL123) = (KRISNA46) 58*88*41'; 
+var namagroup14 = 'SILA';
+var Comment14 = '‌#SILATOGEL*KRISNA46*58*88*41*BETTING'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (KRISNA46) 02*09*38'; 
@@ -83,15 +83,16 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "habib","hefi","hoihai","herfizah",
              "icha","iyatoto","intan",
              "jordi","jaguar","jne","je pe","jess","junior","jovanka","jasmine",
-             "kei","kumbara","kembar","kotna","karina",
+             "kei","kumbara","kembar","kotna","karina","kopi",
              "lianda","lusiana","lina","laura","lia",
              "mahendra","monica","mey","mersya","mad","multi","mariana","melati","meleqq","megaways","minion","melly","monicha","manu","maryam","mode",
-             "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nayla","naomi",
+             "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nayla","naomi","nica",
              "oscar","ozawa",
              "pung","puput","priyan","primus","primus","prediction",
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma","ratsa",
              "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia","sifa",
              "tink","tiktak","tiara","tatang","tomi",
+             "xian",
              "yanty","yoky","yohana","yura","yaya",
              "wulan","wok","wak",
              "zuko"];
