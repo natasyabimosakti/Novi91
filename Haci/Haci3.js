@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi3
 // @namespace    http://tampermonkey.net/
-// @version      3.119
+// @version      3.120
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci3.js
@@ -30,8 +30,8 @@ var Comment3 = 'Shiotogel4d (SIKUKAKU11) 05*98*11';
 var namagroup4 = 'TEMPO';
 var Comment4 = 'SILUWET : 75*77*96 #TEMPOTOTO'; 
 
-var namagroup5 = 'INSTANT';
-var Comment5 = '#INSTANTOTO (SIMPAK17) = 56*43'; 
+var namagroup5 = 'WINTER';
+var Comment5 = '#WINTER4D(SIMPAK17) = 56*43'; 
 
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (SINDOLI39) = 15*69*30'; 
