@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul2
 // @namespace    http://tampermonkey.net/
-// @version      3.107
+// @version      3.108
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul2.js
@@ -28,8 +28,8 @@ var Comment3 = 'Shiotogel4d (SRIMIT64) 09*38*66';
 var namagroup4 = 'TEMPO';
 var Comment4 = 'SRIWET67 : 05*83*55 #TEMPOTOTO'; 
 
-var namagroup5 = 'INSTANT';
-var Comment5 = '#INSTANTOTO (SRITILKON) = 61*30'; 
+var namagroup5 = 'WINTER';
+var Comment5 = '#WINTER4D(SRITILKON) = 61*30'; 
 
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (SRIWIDURTI) = 95*42*36'; 
