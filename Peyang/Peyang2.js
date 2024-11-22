@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang2
 // @namespace    http://tampermonkey.net/
-// @version      3.104
+// @version      3.105
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang2.js
@@ -27,8 +27,8 @@ var Comment3 = 'Shiotogel4d (KRISMANDA23) 53*63*08';
 var namagroup4 = 'TEMPO';
 var Comment4 = 'KRISEMPU51 : 89*90*56 #TEMPOTOTO'; 
 
-var namagroup5 = 'INSTANT';
-var Comment5 = '#INSTANTOTO (KRIKAR23) = 02*19'; 
+var namagroup5 = 'WINTER';
+var Comment5 = '#WINTER4D(KRIKAR23) = 02*19'; 
 
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (KRISMANDA23) = 78*55*07'; 
