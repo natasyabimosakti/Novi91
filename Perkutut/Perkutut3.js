@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut3
 // @namespace    http://tampermonkey.net/
-// @version      3.118
+// @version      3.119
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut3.js
@@ -28,8 +28,8 @@ var Comment3 = 'Shiotogel4d (DOROMIBER2) 63*92*65';
 var namagroup4 = 'TEMPO';
 var Comment4 = 'DOROPOL12 : 19*99*17 #TEMPOTOTO'; 
 
-var namagroup5 = 'INSTANT';
-var Comment5 = '#INSTANTOTO (DORODOR12) = 33*98'; 
+var namagroup5 = 'WINTER';
+var Comment5 = '#WINTER4D(DORODOR12) = 33*98'; 
 
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (DOROWIS12) = 27*01*82'; 
