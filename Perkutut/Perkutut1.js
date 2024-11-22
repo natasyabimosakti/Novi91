@@ -26,8 +26,8 @@ var Comment3 = 'Shiotogel4d (MANUKAN11) 22*62*71';
 var namagroup4 = 'TEMPO';
 var Comment4 = 'MANUK007 : 29*35*21 #TEMPOTOTO'; 
 
-var namagroup5 = 'INSTANT';
-var Comment5 = '#INSTANTOTO (MANANUK213) = 80*25'; 
+var namagroup5 = 'WINTER';
+var Comment5 = '#WINTER4D(MANANUK213) = 80*25'; 
 
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (MANUKGENI12) = 68*87*96'; 
