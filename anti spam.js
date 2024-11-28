@@ -26,3 +26,23 @@ var jar = setInterval(function(){
 
 
 },1500)
+
+
+
+var ujar = setInterval(function(){
+    
+
+    if(location.href.includes("group")){
+        lasturlku = location.href;  
+        return;
+    }
+    if(lasturlku.length > 10){
+
+    if(location.href.length <= 40 ){
+        location.href = lasturlku
+        clearInterval(ujar)
+        return;
+    }
+    }
+
+},6000)
