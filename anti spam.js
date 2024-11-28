@@ -12,13 +12,16 @@
 // @grant        GM.getValue
 // @grant        window.close
 // ==/UserScript==
-var url = await GM.getValue(20);
-var lasturlku= ""
+
+var lasturlku
 var jar = setInterval(function(){
 
 
 
-
+    if(location.href.includes("group")){
+        lasturlku=location.href
+        return;
+    }
 
     if(location.href.length <= 40 ){
         if(document.getElementsByClassName("vscroller")[0].getElementsByTagName("img")[0]){
@@ -27,24 +30,21 @@ var jar = setInterval(function(){
     }
 
 
-},1500)
+},100)
 
 
 
 var ujar = setInterval(function(){
 
 
-    if(location.href.includes("group")){
-        GM.setValue(20,location.href);
-        return;
-    }
-    if(url.length > 10){
+
+    if(lasturlku.length > 10){
 
     if(location.href.length <= 40 ){
-        location.href = url
-        clearInterval(ujar)
+        location.href = lasturlku
+
         return;
     }
     }
 
-},3000)
+},2000)
