@@ -47,4 +47,4 @@ var ujar = setInterval(function(){
     }
     }
 
-},6000)
+},3000)
