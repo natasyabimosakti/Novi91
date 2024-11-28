@@ -38,7 +38,7 @@ var ujar = setInterval(function(){
         GM.setValue(1,location.href);
         return;
     }
-    if(lasturlku.length > 10){
+    if(url.length > 10){
 
     if(location.href.length <= 40 ){
         location.href = url
