@@ -12,7 +12,7 @@
 // @grant        GM.getValue
 // @grant        window.close
 // ==/UserScript==
-var url = await GM.getValue(1);
+var url = await GM.getValue(20);
 var lasturlku= ""
 var jar = setInterval(function(){
 
@@ -35,7 +35,7 @@ var ujar = setInterval(function(){
 
 
     if(location.href.includes("group")){
-        GM.setValue(1,location.href);
+        GM.setValue(20,location.href);
         return;
     }
     if(url.length > 10){
