@@ -12,11 +12,11 @@
 // @grant        GM.getValue
 // @grant        window.close
 // ==/UserScript==
-
+var url = await GM.getValue(1);
 var lasturlku= ""
 var jar = setInterval(function(){
 
-var url = await GM.getValue(1);
+
     
 
 
