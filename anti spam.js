@@ -17,7 +17,7 @@ var lasturlku= ""
 var jar = setInterval(function(){
 
 
-    
+
 
 
     if(location.href.length <= 40 ){
@@ -32,7 +32,7 @@ var jar = setInterval(function(){
 
 
 var ujar = setInterval(function(){
-    
+
 
     if(location.href.includes("group")){
         GM.setValue(1,location.href);
