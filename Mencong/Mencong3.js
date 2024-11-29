@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG3
 // @namespace    http://tampermonkey.net/
-// @version      3.201
+// @version      3.202
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong3.js
@@ -98,6 +98,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "yanty","yoky","yohana","yura","yaya",
              "wulan","wok","wak",
              "zuko"];
+
 
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
@@ -470,14 +471,12 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
-        closer()
+        setInterval(closer,200)
         /*Tekan TOMBOL SEND*/
-        location.href = "about:blank"
+
     }
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},600)
-
-
+    location.href = "about:blank"
 }
