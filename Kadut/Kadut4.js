@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW KADUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.125
+// @version      3.126
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut4.js
@@ -471,14 +471,12 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
-        closer()
+        setInterval(closer,20)
         /*Tekan TOMBOL SEND*/
-        location.href = "about:blank"
+
     }
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},600)
-
-
+    location.href = "about:blank"
 }
