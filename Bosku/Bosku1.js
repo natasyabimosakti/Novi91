@@ -15,52 +15,52 @@
 // ==/UserScript==
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*XERBIA13*29*74'; 
+var Comment1 = '#shiokelinci4d*XERBIA13*29*74';
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO XENON88 96*83*68'; 
+var Comment2 = 'IYATOTO XENON88 96*83*68';
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / XELINA56 / 19 , 59 , 03'; 
+var Comment3 = 'Tiktaktogel / XELINA56 / 19 , 59 , 03';
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=XELEMINT53=25*85*67'; 
+var Comment4 = 'GAIB4D=XELEMINT53=25*85*67';
 
 var namagroup5 = 'KEI';
-var Comment5 = '#keitogel = (XELOP83) = 01*44*31'; 
+var Comment5 = '#keitogel = (XELOP83) = 01*44*31';
 
 var namagroup6 = 'Pasar';
-var Comment6 = 'PAJAKTOTO(XANXAN68) : 88*75'; 
+var Comment6 = 'PAJAKTOTO(XANXAN68) : 88*75';
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL XONKING52 17*84*50'; 
+var Comment7 = 'ASEPTOGEL XONKING52 17*84*50';
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=XELINA56= 08*14'; 
+var Comment8 = '#MENARA4D=XELINA56= 08*14';
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=XEROPON=08*14*33'; 
+var Comment9 = 'GILA4D=XEROPON=08*14*33';
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(XENDION)*17*84*41'; 
+var Comment10 = '#JNETOTO(XENDION)*17*84*41';
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( XIOYIB47 ) : 88*75*41'; 
+var Comment11 = '#TOYIBSLOT ( XIOYIB47 ) : 88*75*41';
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY XIANTAR6 01*44*31'; 
+var Comment12 = 'TOGELKUY XIANTAR6 01*44*31';
 
 var namagroup13 = 'TASIK';
-var Comment13 = '#TASIKTOTO(XIOYIB47) = 25*85'; 
+var Comment13 = '#TASIKTOTO(XIOYIB47) = 25*85';
 
 var namagroup14 = 'SILA';
-var Comment14 = '‌#SILATOGEL*XIAOLAN6*19*59*03*BETTING'; 
+var Comment14 = '‌#SILATOGEL*XIAOLAN6*19*59*03*BETTING';
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (XIONGYU6) 96*83*68'; 
+var Comment15 = 'VESPATOGEL (XIONGYU6) 96*83*68';
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (XENDION) : 29*74*04'; 
+var Comment16 = 'NEMO4D (XENDION) : 29*74*04';
 
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (XERLAK67) = 65*50';
@@ -468,14 +468,12 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
-        closer()
+        setInterval(closer,20)
         /*Tekan TOMBOL SEND*/
-        location.href = "about:blank"
+
     }
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},600)
-
-
+    location.href = "about:blank"
 }
