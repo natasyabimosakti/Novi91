@@ -38,7 +38,7 @@ var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL AMIR23 14*57*99'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=AMIR23= 65*56'; 
+var Comment8 = '#MENARA4D=AMIR22= 65*56'; 
 
 var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=AOMA123=65*56*48'; 
