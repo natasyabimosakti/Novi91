@@ -70,7 +70,7 @@ var Comment18 = 'Bosku1';
 
 
 
-var refresh = 60;
+var refresh = 50;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa",
              "boleng","biru","bobby","bastian","bambang","bogard",
@@ -442,7 +442,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 0)
+            currentGame = setInterval(game, 100)
         },
         stop() {
             clearInterval(currentGame)
