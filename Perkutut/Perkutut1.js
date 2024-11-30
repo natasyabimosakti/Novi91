@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut1
 // @namespace    http://tampermonkey.net/
-// @version      3.119
+// @version      3.120
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut1.js
@@ -80,22 +80,22 @@ var refresh = 30;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha",
              "boleng","biru","bobby","bastian","boboho","bola","bunga",
-             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin",
+             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chikaku",
              "david",",dewa","desi","debby","dewi","dentoto","dika","dealova","diva",
              "erwin","emilia",
              "fira","fahresa","fiana",
              "gita",
              "habib","hefi","hoihai","hana",",har",
-             "icha","iyatoto","invest","ivanna","inisial",
+             "icha","iyatoto","invest","ivanna","inisial",",ishaura",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
-             "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka",
+             "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla",
              "lianda","lusiana","lina","laura","lehman","leader","leon","lidya","langit",
-             "mahendra","monica","mey","mersya","mad","multi","mariana","melati","male","megaways","manu","mamad","mas","metha","maleeqq","mely",
+             "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas","metha","maleeqq","mely","mayangsari",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy",
              "oscar","ozawa","otong","ormas",
              "pung","puput","priyan","primus","primus","pencari","pricilia","putra",
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi",
-             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa",
+             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria",
              "tink","tiktak","tiara","tatang","tania",
              "yanty","yoky","yohana","yii",
              "wulan","wok","widya"];
@@ -472,14 +472,13 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
-        closer()
-        /*Tekan TOMBOL SEND*/
         location.href = "about:blank"
+        setInterval(closer,20)
+        /*Tekan TOMBOL SEND*/
+
     }
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},600)
-
-
+    location.href = "about:blank"
 }
