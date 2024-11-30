@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.199
+// @version      3.200
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
@@ -74,8 +74,7 @@ var Comment18 = 'Manyut4';
 
 
 
-
-var refresh = 30;
+var refresh = 50;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa",
              "boleng","biru","bobby","bastian","bambang","bogard",
@@ -100,7 +99,6 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "yanty","yoky","yohana","yura","yaya",
              "wulan","wok","wak",
              "zuko"];
-
 
 
 var keyword1 = "ROOM"
@@ -448,7 +446,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 0)
+            currentGame = setInterval(game, 100)
         },
         stop() {
             clearInterval(currentGame)
@@ -456,7 +454,6 @@ function gameClosure() {
     }
 }
 var game = gameClosure()
-
 function clicksend() {
 
     jitter = 1
