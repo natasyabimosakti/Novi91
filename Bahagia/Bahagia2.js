@@ -58,7 +58,7 @@ var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=BERANAK76=75*50*73'; 
 
 var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D SRILAKCU = 26*56'; 
+var Comment14 = '#BLITAR4D BIKANG12 = 52*35'; 
 
 var namagroup15 = 'Hoho';
 var Comment15 = 'BAMIN12 : 28*42*13 #HOHOTOGEL'; 
