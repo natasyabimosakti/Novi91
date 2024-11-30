@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul3
 // @namespace    http://tampermonkey.net/
-// @version      3.111
+// @version      3.112
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul3.js
@@ -472,13 +472,14 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
+          closer()
         location.href = "about:blank"
-        setInterval(closer,20)
         /*Tekan TOMBOL SEND*/
-
     }
 }
 
 function closer() {
-    location.href = "about:blank"
+    setTimeout(function(){location.href = "about:blank"},100)
+
+
 }
