@@ -54,7 +54,7 @@ var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=ASIMATJUMBO=56*38*31'; 
 
 var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D BOTAP27 = 44*17'; 
+var Comment14 = '#BLITAR4D ASTADINA12 = 59*01'; 
 
 var namagroup15 = 'Hoho';
 var Comment15 = 'ASIZAN33 : 71*82*14 #HOHOTOGEL'; 
