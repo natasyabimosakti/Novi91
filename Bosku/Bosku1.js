@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE1
 // @namespace    http://tampermonkey.net/
-// @version      3.115
+// @version      3.116
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
@@ -450,7 +450,6 @@ function gameClosure() {
     }
 }
 var game = gameClosure()
-
 function clicksend() {
 
     jitter = 1
@@ -468,12 +467,14 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
-        setInterval(closer,20)
+          closer()
+        location.href = "about:blank"
         /*Tekan TOMBOL SEND*/
-
     }
 }
 
 function closer() {
-    location.href = "about:blank"
+    setTimeout(function(){location.href = "about:blank"},100)
+
+
 }
