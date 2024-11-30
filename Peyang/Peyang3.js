@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang3
 // @namespace    http://tampermonkey.net/
-// @version      3.106
+// @version      3.107
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang3.js
@@ -56,7 +56,7 @@ var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=NOVIAN24=84*76*86'; 
 
 var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D ( NOVIPAL34 ) : 64*43*30'; 
+var Comment14 = '#BLITAR4D NOVIPAL34 = 64*43'; 
 
 var namagroup15 = 'Hoho';
 var Comment15 = 'NOVITARU34 : 27*74*46 #HOHOTOGEL'; 
