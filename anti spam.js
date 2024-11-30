@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Anti Spam
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/refs/heads/main/anti%20spam.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/refs/heads/main/anti%20spam.js
@@ -17,7 +17,9 @@ var lasturlku
 var jar = setInterval(function(){
 
 
-
+if(location.href="about:blank"){
+return;
+}
     if(location.href.includes("group")){
         lasturlku=location.href
         return;
@@ -35,7 +37,9 @@ var jar = setInterval(function(){
 
 
 var ujar = setInterval(function(){
-
+if(location.href="about:blank"){
+return;
+}
 
 
     if(lasturlku.length > 10){
