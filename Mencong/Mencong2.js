@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG2
 // @namespace    http://tampermonkey.net/
-// @version      3.204
+// @version      3.205
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong2.js
@@ -71,7 +71,7 @@ var Comment18 = 'Mencong2';
 
 
 
-var refresh = 30;
+var refresh = 50;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa",
              "boleng","biru","bobby","bastian","bambang","bogard",
@@ -96,7 +96,6 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "yanty","yoky","yohana","yura","yaya",
              "wulan","wok","wak",
              "zuko"];
-
 
 
 var keyword1 = "ROOM"
@@ -444,7 +443,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 0)
+            currentGame = setInterval(game, 100)
         },
         stop() {
             clearInterval(currentGame)
@@ -452,7 +451,6 @@ function gameClosure() {
     }
 }
 var game = gameClosure()
-
 function clicksend() {
 
     jitter = 1
