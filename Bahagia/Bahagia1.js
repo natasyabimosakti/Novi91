@@ -86,7 +86,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
              "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka",
              "lianda","lusiana","lina","laura","lehman","leader","leon","lidya","langit",
-             "mahendra","monica","mey","mersya","mad","multi","mariana","melati","male","megaways","manu","mamad","mas","metha","maleeqq","mely",
+             "mahendra","monica","mey","mersya","mad","multi","mariana","melati","male","megaways","manu","mamad","mas","metha","maleeqq","mely","mayangsari",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy",
              "oscar","ozawa","otong","ormas",
              "pung","puput","priyan","primus","primus","pencari","pricilia","putra",
