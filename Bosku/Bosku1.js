@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      3.117
 // @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
+// @version      3.NaN
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
 // @author       You
 // @match        http*://*/*
@@ -70,7 +70,7 @@ var Comment18 = 'Bosku1';
 
 
 
-var refresh = 30;
+var refresh = 60;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa",
              "boleng","biru","bobby","bastian","bambang","bogard",
