@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim1
 // @namespace    http://tampermonkey.net/
-// @version      3.104
+// @version      3.105
 // @description  try to take over the world!
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim1.js
 // @author       You
@@ -468,12 +468,14 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
-        setInterval(closer,200)
+          closer()
+        location.href = "about:blank"
         /*Tekan TOMBOL SEND*/
-
     }
 }
 
 function closer() {
-    location.href = "about:blank"
+    setTimeout(function(){location.href = "about:blank"},100)
+
+
 }
