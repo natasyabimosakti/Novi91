@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna2
 // @namespace    http://tampermonkey.net/
-// @version      3.116
+// @version      3.117
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna2.js
@@ -32,8 +32,8 @@ var Comment3 = 'Shiotogel4d (BOSREN64) 58*69*84';
 var namagroup4 = 'TEMPO';
 var Comment4 = 'BOSEN68 : 20*48*22 #TEMPOTOTO'; 
 
-var namagroup5 = 'WINTER';
-var Comment5 = '#WINTER4D(BOSMAN67) = 57*10'; 
+var namagroup5 = 'ISTANA';
+var Comment5 = 'JANGKAUTOTO(BOSMAN67) : 57*10'; 
 
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (BOSMINI88) = 32*79*31'; 
@@ -51,7 +51,7 @@ var namagroup10 = 'LING';
 var Comment10 = 'LING77 (BOSLON89) 57*10'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*BAJIGUR45*79*31*11'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*BOSBIG53*79*31*11'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
 var Comment12 = 'BOSBIS48 : 17*76*78 #BESTOTO88'; 
@@ -59,8 +59,8 @@ var Comment12 = 'BOSBIS48 : 17*76*78 #BESTOTO88';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=BOSLEM64=95*91*52'; 
 
-var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D BOSMINI88 = 68*62'; 
+var namagroup14 = 'TARUNG';
+var Comment14 = '#TARUNGTOTO (BOSMINI88)=68_62'; 
 
 var namagroup15 = 'Hoho';
 var Comment15 = 'BOSNOM63 : 27*09*87 #HOHOTOGEL'; 
@@ -80,14 +80,14 @@ var Comment17 = 'Sampoerna2';
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
 
-var refresh = 30;
+var refresh = 50;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha",
              "boleng","biru","bobby","bastian","boboho","bola","bunga",
              "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chikaku",
              "david",",dewa","desi","debby","dewi","dentoto","dika","dealova","diva",
              "erwin","emilia",
-             "fira","fahresa","fiana",
+             "fira","fahresa","fiana","fahmi",
              "gita",
              "habib","hefi","hoihai","hana",",har",
              "icha","iyatoto","invest","ivanna","inisial",",ishaura",
@@ -450,7 +450,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 0)
+            currentGame = setInterval(game, 10)
         },
         stop() {
             clearInterval(currentGame)
