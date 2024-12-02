@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna1
 // @namespace    http://tampermonkey.net/
-// @version      3.116
+// @version      3.117
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna1.js
@@ -31,8 +31,8 @@ var Comment3 = 'Shiotogel4d (XEROPON) 96*08*85';
 var namagroup4 = 'TEMPO';
 var Comment4 = 'XELEMINT53 : 75*65*30 #TEMPOTOTO'; 
 
-var namagroup5 = 'WINTER';
-var Comment5 = '#WINTER4D(XELOP83) = 50*89'; 
+var namagroup5 = 'ISTANA';
+var Comment5 = 'JANGKAUTOTO(XELOP83) : 50*89'; 
 
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (XANXAN68) = 37*45*29'; 
@@ -58,8 +58,8 @@ var Comment12 = 'XIANTAR6 : 40*61*21 #BESTOTO88';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=XIOYIB47=35*59*02'; 
 
-var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D XANXAN68 = 92*34'; 
+var namagroup14 = 'TARUNG';
+var Comment14 = '#TARUNGTOTO (XANXAN68)=92_34'; 
 
 var namagroup15 = 'Hoho';
 var Comment15 = 'XONKING52 : 67*80*74 #HOHOTOGEL'; 
@@ -78,14 +78,14 @@ var Comment17 = 'Sampoerna1';
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
 
-var refresh = 30;
+var refresh = 50;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha",
              "boleng","biru","bobby","bastian","boboho","bola","bunga",
              "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chikaku",
              "david",",dewa","desi","debby","dewi","dentoto","dika","dealova","diva",
              "erwin","emilia",
-             "fira","fahresa","fiana",
+             "fira","fahresa","fiana","fahmi",
              "gita",
              "habib","hefi","hoihai","hana",",har",
              "icha","iyatoto","invest","ivanna","inisial",",ishaura",
@@ -448,7 +448,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 0)
+            currentGame = setInterval(game, 10)
         },
         stop() {
             clearInterval(currentGame)
@@ -474,7 +474,7 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
-         closer()
+          closer()
         location.href = "about:blank"
         /*Tekan TOMBOL SEND*/
     }
