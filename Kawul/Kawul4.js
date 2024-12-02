@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul4
 // @namespace    http://tampermonkey.net/
-// @version      3.111
+// @version      3.112
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul4.js
@@ -28,8 +28,8 @@ var Comment3 = 'Shiotogel4d (SANGEKABEH) 37*00*70';
 var namagroup4 = 'TEMPO';
 var Comment4 = 'SAKAREPMU : 73*54*51 #TEMPOTOTO'; 
 
-var namagroup5 = 'WINTER';
-var Comment5 = '#WINTER4D(SAKAUBEN) = 25*03'; 
+var namagroup5 = 'ISTANA';
+var Comment5 = 'JANGKAUTOTO(SAKAUBEN) : 25*03*91'; 
 
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (SAKEMBER) = 04*84*96'; 
@@ -55,8 +55,8 @@ var Comment12 = 'SAWERBOSE0 : 04*84*96 #BESTOTO88';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=SAWERSEK=85*67*18'; 
 
-var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D SALAMANAE = 01*41'; 
+var namagroup14 = 'TARUNG';
+var Comment14 = '#TARUNGTOTO (SALAMANAE)=01_41'; 
 
 var namagroup15 = 'Hoho';
 var Comment15 = 'SAMBATAE : 25*03*91 #HOHOTOGEL'; 
@@ -73,14 +73,14 @@ var namagroup18 = 'lajw';
 var Comment18 = 'asek';
 
 
-var refresh = 30;
+var refresh = 50;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha",
              "boleng","biru","bobby","bastian","boboho","bola","bunga",
              "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chikaku",
              "david",",dewa","desi","debby","dewi","dentoto","dika","dealova","diva",
              "erwin","emilia",
-             "fira","fahresa","fiana",
+             "fira","fahresa","fiana","fahmi",
              "gita",
              "habib","hefi","hoihai","hana",",har",
              "icha","iyatoto","invest","ivanna","inisial",",ishaura",
@@ -443,7 +443,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 0)
+            currentGame = setInterval(game, 10)
         },
         stop() {
             clearInterval(currentGame)
