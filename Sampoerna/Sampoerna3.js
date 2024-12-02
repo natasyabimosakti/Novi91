@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna3
 // @namespace    http://tampermonkey.net/
-// @version      3.116
+// @version      3.117
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna3.js
@@ -31,8 +31,8 @@ var Comment3 = 'Shiotogel4d (YOWESBEN6) 26*47*56';
 var namagroup4 = 'TEMPO';
 var Comment4 = 'YONOBO74 : 36*28*71 #TEMPOTOTO'; 
 
-var namagroup5 = 'WINTER';
-var Comment5 = '#WINTER4D(YONOBO74) = 97*38'; 
+var namagroup5 = 'ISTANA';
+var Comment5 = 'JANGKAUTOTO(YONOBO74) : 97*38'; 
 
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (YONOBO74) = 01*60*33'; 
@@ -58,8 +58,8 @@ var Comment12 = 'YOKOJO3 : 82*03*70 #BESTOTO88';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=YOKWIK47=39*81*66'; 
 
-var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D YONOBO74 = 88*83'; 
+var namagroup14 = 'TARUNG';
+var Comment14 = '#TARUNGTOTO (YONOBO74)=88_83'; 
 
 var namagroup15 = 'Hoho';
 var Comment15 = 'YONOBO74 : 23*18*14 #HOHOTOGEL'; 
@@ -80,14 +80,14 @@ var Comment17 = 'Sampoerna3';
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
 
-var refresh = 30;
+var refresh = 50;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha",
              "boleng","biru","bobby","bastian","boboho","bola","bunga",
              "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chikaku",
              "david",",dewa","desi","debby","dewi","dentoto","dika","dealova","diva",
              "erwin","emilia",
-             "fira","fahresa","fiana",
+             "fira","fahresa","fiana","fahmi",
              "gita",
              "habib","hefi","hoihai","hana",",har",
              "icha","iyatoto","invest","ivanna","inisial",",ishaura",
@@ -450,7 +450,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 0)
+            currentGame = setInterval(game, 10)
         },
         stop() {
             clearInterval(currentGame)
