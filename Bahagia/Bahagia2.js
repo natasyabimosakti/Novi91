@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia2
 // @namespace    http://tampermonkey.net/
-// @version      3.85
+// @version      3.86
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia2.js
@@ -30,8 +30,8 @@ var Comment3 = 'Shiotogel4d (BINAKARMA54) 28*42*13';
 var namagroup4 = 'TEMPO';
 var Comment4 = 'BISMON76 : 15*92*39 #TEMPOTOTO'; 
 
-var namagroup5 = 'WINTER';
-var Comment5 = '#WINTER4D(BINAKARMA54) = 46*91'; 
+var namagroup5 = 'ISTANA';
+var Comment5 = 'JANGKAUTOTO(BINAKARMA54) : 46*91*61'; 
 
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (BIMBO91) = 69*43*93'; 
@@ -57,8 +57,8 @@ var Comment12 = 'BAMIN12 : 78*12*05 #BESTOTO88';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=BERANAK76=75*50*73'; 
 
-var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D BIKANG12 = 52*35'; 
+var namagroup14 = 'TARUNG';
+var Comment14 = '#TARUNGTOTO (BIKANG12)=52_35'; 
 
 var namagroup15 = 'Hoho';
 var Comment15 = 'BAMIN12 : 28*42*13 #HOHOTOGEL'; 
@@ -81,14 +81,14 @@ var Comment18 = 'asek';
 
 
 
-var refresh = 30;
+var refresh = 50;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha",
              "boleng","biru","bobby","bastian","boboho","bola","bunga",
              "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chikaku",
              "david",",dewa","desi","debby","dewi","dentoto","dika","dealova","diva",
              "erwin","emilia",
-             "fira","fahresa","fiana",
+             "fira","fahresa","fiana","fahmi",
              "gita",
              "habib","hefi","hoihai","hana",",har",
              "icha","iyatoto","invest","ivanna","inisial",",ishaura",
@@ -451,7 +451,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 0)
+            currentGame = setInterval(game, 10)
         },
         stop() {
             clearInterval(currentGame)
@@ -477,7 +477,7 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
-         closer()
+          closer()
         location.href = "about:blank"
         /*Tekan TOMBOL SEND*/
     }
