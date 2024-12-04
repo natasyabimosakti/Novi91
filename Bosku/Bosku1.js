@@ -53,7 +53,7 @@ var Comment12 = 'TOGELKUY XIANTAR6 01*44*31';
 var namagroup13 = 'TASIK';
 var Comment13 = '#TASIKTOTO(XIOYIB47) = 25*85';
 
-var namagroup14 = 'DENTOTO';
+var namagroup14 = 'GROUP PREDIKSI';
 var Comment14 = '‌#DENTOTO 19*59*03 ( XIAOLAN6 )';
 
 var namagroup15 = 'VESPA';
