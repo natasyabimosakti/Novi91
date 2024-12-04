@@ -54,7 +54,7 @@ var Comment12 = 'TOGELKUY BOSBIS48 70*54*57';
 var namagroup13 = 'TASIK';
 var Comment13 = '#TASIKTOTO(BOSLEM64 ) = 05*48'; 
 
-var namagroup14 = 'DENTOTO';
+var namagroup14 = 'GROUP PREDIKSI';
 var Comment14 = '‌#DENTOTO 11*45*66 ( BOSBEN64 )'; 
 
 var namagroup15 = 'VESPA';
