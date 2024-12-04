@@ -55,7 +55,7 @@ var Comment12 = 'TOGELKUY YOKOJO3 80*51*95';
 var namagroup13 = 'TASIK';
 var Comment13 = '#TASIKTOTO(YOKWIK47) = 60*32'; 
 
-var namagroup14 = 'DENTOTO';
+var namagroup14 = 'GROUP PREDIKSI';
 var Comment14 = '‌#DENTOTO 22*35*78 ( YOJUAH63 )'; 
 
 var namagroup15 = 'VESPA';
