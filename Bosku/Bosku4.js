@@ -56,7 +56,7 @@ var Comment12 = 'TOGELKUY ZOWEKNI82 37*13*02';
 var namagroup13 = 'TASIK';
 var Comment13 = '#TASIKTOTO(ZOWINDO) = 15*98'; 
 
-var namagroup14 = 'DENTOTO';
+var namagroup14 = 'GROUP PREDIKSI';
 var Comment14 = '‌#DENTOTO 90*79*09 ( ZORLETA )'; 
 
 var namagroup15 = 'VESPA';
