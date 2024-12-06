@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang4
 // @namespace    http://tampermonkey.net/
-// @version      3.109
+// @version      3.110
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang4.js
@@ -80,15 +80,15 @@ var refresh = 50;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha",
              "boleng","biru","bobby","bastian","boboho","bola","bunga",
-             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chikaku",
+             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika",
              "david",",dewa","desi","debby","dewi","dentoto","dika","dealova","diva",
              "erwin","emilia",
              "fira","fahresa","fiana","fahmi",
              "gita",
-             "habib","hefi","hoihai","hana",",har",
+             "habib","hefi","hoihai","hana","har","hoki",
              "icha","iyatoto","invest","ivanna","inisial",",ishaura",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
-             "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla",
+             "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla","komandan",
              "lianda","lusiana","lina","laura","lehman","leader","leon","lidya","langit",
              "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas","metha","maleeqq","mely","mayangsari",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy",
@@ -97,7 +97,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi",
              "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria",
              "tink","tiktak","tiara","tatang","tania",
-             "yanty","yoky","yohana","yii",
+             "yanty","yoky","yohana","yii","vero",
              "wulan","wok","widya"];
 
 var keyword1 = "ROOM"
