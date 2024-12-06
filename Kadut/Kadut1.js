@@ -19,55 +19,55 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*BUNDER0*88*75'; 
+var Comment1 = '#shiokelinci4d*BUNDER0*17*95'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO BOLINA61 17*84*50'; 
+var Comment2 = 'IYATOTO BOLINA61 55*90*06'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / BUANG31 / 08 , 14 , 33'; 
+var Comment3 = 'Tiktaktogel / BUANG31 / 51 , 35 , 01'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=BUANA87=29*74*04'; 
+var Comment4 = 'GAIB4D=BUANA87=36*80*62'; 
 
-var namagroup5 = 'KEI';
-var Comment5 = '#keitogel = (BUDEGKOWE) = 96*83*68'; 
+var namagroup5 = 'KEITOGEL';
+var Comment5 = '#keitogel = (BUDEGKOWE) = 37*15*50'; 
 
 var namagroup6 = 'Pasar';
-var Comment6 = 'PAJAKTOTO(BURUNG69) : 19*59'; 
+var Comment6 = 'PAJAKTOTO(BURUNG69) : 14*57'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL BOLINA61 25*85*67'; 
+var Comment7 = 'ASEPTOGEL BOLINA61 65*56*48'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=BUDELTUNG= 01*44'; 
+var Comment8 = '#MENARA4D=BUDELTUNG= 47*54'; 
 
-var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=BUANGKALI=88*75*65'; 
+var namagroup9 = 'G1LA';
+var Comment9 = 'GILA4D=BUANGKALI=47*54*99'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(BUWOSOK12)*17*84*50'; 
+var Comment10 = '#JNETOTO(BUWOSOK12)*65*56*99'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( BUANGKABEH ) : 08*14*33'; 
+var Comment11 = '#TOYIBSLOT ( BUANGKABEH ) : 14*57*42'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY BUSUNGMU62 29*74*04'; 
+var Comment12 = 'TOGELKUY BUSUNGMU62 37*15*50'; 
 
 var namagroup13 = 'TASIK';
-var Comment13 = '#TASIKTOTO(BUANGKABEH) = 96*83'; 
+var Comment13 = '#TASIKTOTO(BUANGKABEH) = 36*80'; 
 
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 19*59*03 ( BOTAP27 )'; 
+var namagroup14 = 'GROUP PREDIKSI';
+var Comment14 = '# ( BOTAP27 ) : 51*35*01'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (BOTAP27) 25*85*41'; 
+var Comment15 = 'VESPATOGEL (BOTAP27) 55*90*06'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (SRIWLIT62) : 01*44*41'; 
+var Comment16 = 'NEMO4D (SRIWLIT62) : 17*95*61'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (BOLINA61) = 31*67';
+var Comment17 = '#KIKOTOTO (BOLINA61) = 48*49';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Kadut1';
@@ -83,7 +83,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "erwin","elvina",
              "fira","fahresa","findlay",
              "gita","genzo",
-             "habib","hefi","hoihai","herfizah","hanny","hanabi",
+             "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage",
              "icha","iyatoto","intan",
              "jordi","jaguar","jne","je pe","jess","junior","jovanka","jasmine",
              "kei","kumbara","kembar","kotna","karina","kopi",
