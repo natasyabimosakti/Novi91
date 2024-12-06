@@ -65,7 +65,7 @@ var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (AMINTO15) : 55*90*06'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (KANAS52) = 42*48';
+var Comment17 = '#KIKOTOTO (KANAS52) = 48*42';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Curut1';
