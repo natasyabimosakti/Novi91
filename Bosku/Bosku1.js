@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE1
 // @namespace    http://tampermonkey.net/
-// @version      3.117
+// @version      3.118
 // @description  try to take over the world!
 // @version      3.NaN
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
@@ -15,55 +15,55 @@
 // ==/UserScript==
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*XERBIA13*29*74';
+var Comment1 = '#shiokelinci4d*XERBIA13*65*56'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO XENON88 96*83*68';
+var Comment2 = 'IYATOTO XENON88 47*54*49'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / XELINA56 / 19 , 59 , 03';
+var Comment3 = 'Tiktaktogel / XELINA56 / 17 , 95 , 61'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=XELEMINT53=25*85*67';
+var Comment4 = 'GAIB4D=XELEMINT53=55*90*06'; 
 
-var namagroup5 = 'KEI';
-var Comment5 = '#keitogel = (XELOP83) = 01*44*31';
+var namagroup5 = 'KEITOGEL';
+var Comment5 = '#keitogel = (XELOP83) = 51*35*99'; 
 
 var namagroup6 = 'Pasar';
-var Comment6 = 'PAJAKTOTO(XANXAN68) : 88*75';
+var Comment6 = 'PAJAKTOTO(XANXAN68) : 36*80'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL XONKING52 17*84*50';
+var Comment7 = 'ASEPTOGEL XONKING52 37*15*50'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=XELINA56= 08*14';
+var Comment8 = '#MENARA4D=XELINA56= 14*57'; 
 
-var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=XEROPON=08*14*33';
+var namagroup9 = 'G1LA';
+var Comment9 = 'GILA4D=XEROPON=37*15*50'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(XENDION)*17*84*41';
+var Comment10 = '#JNETOTO(XENDION)*36*80*62'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( XIOYIB47 ) : 88*75*41';
+var Comment11 = '#TOYIBSLOT ( XIOYIB47 ) : 51*35*01'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY XIANTAR6 01*44*31';
+var Comment12 = 'TOGELKUY XIANTAR6 55*90*06'; 
 
 var namagroup13 = 'TASIK';
-var Comment13 = '#TASIKTOTO(XIOYIB47) = 25*85';
+var Comment13 = '#TASIKTOTO(XIOYIB47) = 17*95'; 
 
 var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '‌#DENTOTO 19*59*03 ( XIAOLAN6 )';
+var Comment14 = '# ( XIAOLAN6 ) : 47*54*49'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (XIONGYU6) 96*83*68';
+var Comment15 = 'VESPATOGEL (XIONGYU6) 65*56*48'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (XENDION) : 29*74*04';
+var Comment16 = 'NEMO4D (XENDION) : 14*57*42'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (XERLAK67) = 65*50';
+var Comment17 = '#KIKOTOTO (XERLAK67) = 01*62';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Bosku1';
