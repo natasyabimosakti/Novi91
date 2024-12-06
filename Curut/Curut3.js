@@ -66,7 +66,7 @@ var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (CAKUDIR19) : 34*13*79'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (CAHAKBAR) = 45*72';
+var Comment17 = '#KIKOTOTO (CAHAKBAR) = 72*45';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Curut3';
