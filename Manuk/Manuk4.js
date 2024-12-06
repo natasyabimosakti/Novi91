@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 4
 // @namespace    http://tampermonkey.net/
-// @version      3.113
+// @version      3.114
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk4.js
@@ -17,55 +17,55 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*PLECISILIT*37*13'; 
+var Comment1 = '#shiokelinci4d*PLECISILIT*91*93'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO PLECIKAWAT 93*62*42'; 
+var Comment2 = 'IYATOTO PLECIKAWAT 08*87*53'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / PLECIAMBON / 21 , 73 , 87'; 
+var Comment3 = 'Tiktaktogel / PLECIAMBON / 94 , 89 , 29'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=PLECICIAK=34*76*24'; 
+var Comment4 = 'GAIB4D=PLECICIAK=31*44*59'; 
 
-var namagroup5 = 'KEI';
-var Comment5 = '#keitogel = (PLECIKICIK) = 06*28*27'; 
+var namagroup5 = 'KEITOGEL';
+var Comment5 = '#keitogel = (PLECIKICIK) = 19*03*18'; 
 
 var namagroup6 = 'Pasar';
-var Comment6 = 'PAJAKTOTO(PLECIAHAH) : 16*81'; 
+var Comment6 = 'PAJAKTOTO(PLECIAHAH) : 25*16'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL PLECICILAN 90*79*09'; 
+var Comment7 = 'ASEPTOGEL PLECICILAN 39*27*32'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=PLECIKLUK= 15*98'; 
+var Comment8 = '#MENARA4D=PLECIKLUK= 74*82'; 
 
-var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=PLECUAN=16*81*71'; 
+var namagroup9 = 'G1LA';
+var Comment9 = 'GILA4D=PLECUAN=74*82*84'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(PLECIKAN)*06*28*27'; 
+var Comment10 = '#JNETOTO(PLECIKAN)*39*27*32'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( PLECIKI21 ) : 34*76*24'; 
+var Comment11 = '#TOYIBSLOT ( PLECIKI21 ) : 25*16*85'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY PLECIANS 21*73*87'; 
+var Comment12 = 'TOGELKUY PLECIANS 19*03*18'; 
 
 var namagroup13 = 'TASIK';
-var Comment13 = '#TASIKTOTO(PLECIKI21) = 93*62'; 
+var Comment13 = '#TASIKTOTO(PLECIKI21) = 31*44'; 
 
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 90*79*63 ( PLECINDI23 )'; 
+var namagroup14 = 'GROUP PREDIKSI';
+var Comment14 = '# ( PLECINDI23 ) : 94*89*43'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (PLECIKUS1) 15*98*86'; 
+var Comment15 = 'VESPATOGEL (PLECIKUS1) 08*87*53'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (PLECISILIT) : 37*13*02'; 
+var Comment16 = 'NEMO4D (PLECISILIT) : 91*93*23'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (PLECICIAK) = 09*42';
+var Comment17 = '#KIKOTOTO (PLECICIAK) = 29*59';
   
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Manuk4';
@@ -81,7 +81,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "erwin","elvina",
              "fira","fahresa","findlay",
              "gita","genzo",
-             "habib","hefi","hoihai","herfizah","hanny","hanabi",
+             "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage",
              "icha","iyatoto","intan",
              "jordi","jaguar","jne","je pe","jess","junior","jovanka","jasmine",
              "kei","kumbara","kembar","kotna","karina","kopi",
