@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG3
 // @namespace    http://tampermonkey.net/
-// @version      3.206
+// @version      3.207
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong3.js
@@ -18,55 +18,55 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*NOVITASURI12*04*76'; 
+var Comment1 = '#shiokelinci4d*NOVITASURI12*73*10'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO NOVINOVA231 52*26*70'; 
+var Comment2 = 'IYATOTO NOVINOVA231 63*30*97'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / NOVIRAS34 / 73 , 10 , 45'; 
+var Comment3 = 'Tiktaktogel / NOVIRAS34 / 64 , 40 , 97'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=NOVITAS3=63*30*72'; 
+var Comment4 = 'GAIB4D=NOVITAS3=22*24*21'; 
 
-var namagroup5 = 'KEI';
-var Comment5 = '#keitogel = (NOVIATOS12) = 64*40*69'; 
+var namagroup5 = 'KEITOGEL';
+var Comment5 = '#keitogel = (NOVIATOS12) = 34*13*79'; 
 
 var namagroup6 = 'Pasar';
-var Comment6 = 'PAJAKTOTO(NOVIRAMBU3) : 22*24'; 
+var Comment6 = 'PAJAKTOTO(NOVIRAMBU3) : 00*28'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL NOVITARU34 34*13*79'; 
+var Comment7 = 'ASEPTOGEL NOVITARU34 04*76*81'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=NOVITAS53= 00*28'; 
+var Comment8 = '#MENARA4D=NOVITAS53= 52*26'; 
 
-var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=NOVINANU83=00*28*07'; 
+var namagroup9 = 'G1LA';
+var Comment9 = 'GILA4D=NOVINANU83=73*10*45'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(NOVIKARMA11)*34*13*79'; 
+var Comment10 = '#JNETOTO(NOVIKARMA11)*52*26*70'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( NOVIAN24 ) : 22*24*21'; 
+var Comment11 = '#TOYIBSLOT ( NOVIAN24 ) : 04*76*81'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY NOVIKAR23 64*40*69'; 
+var Comment12 = 'TOGELKUY NOVIKAR23 00*28*07'; 
 
 var namagroup13 = 'TASIK';
-var Comment13 = '#TASIKTOTO(NOVIAN24) = 63*30'; 
+var Comment13 = '#TASIKTOTO(NOVIAN24) = 34*13'; 
 
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 73*10*45 ( NOVIPAL34 )'; 
+var namagroup14 = 'GROUP PREDIKSI';
+var Comment14 = '# ( NOVIPAL34 ) : 22*24*21'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (NOVIPAL34) 52*26*97'; 
+var Comment15 = 'VESPATOGEL (NOVIPAL34) 64*40*69'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (NOVIPAL34) : 04*76*97'; 
+var Comment16 = 'NEMO4D (NOVIPAL34) : 63*30*72'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (NOVIPAL34) = 81*70';
+var Comment17 = '#KIKOTOTO (NOVIPAL34) = 72*69';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Mencong3';
@@ -82,7 +82,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "erwin","elvina",
              "fira","fahresa","findlay",
              "gita","genzo",
-             "habib","hefi","hoihai","herfizah","hanny","hanabi",
+             "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage",
              "icha","iyatoto","intan",
              "jordi","jaguar","jne","je pe","jess","junior","jovanka","jasmine",
              "kei","kumbara","kembar","kotna","karina","kopi",
