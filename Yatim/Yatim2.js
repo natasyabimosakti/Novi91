@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim2
 // @namespace    http://tampermonkey.net/
-// @version      3.109
+// @version      3.110
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim2.js
@@ -17,55 +17,55 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*FERTULE*11*20'; 
+var Comment1 = '#shiokelinci4d*FERTULE*94*43'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO FERCUKZ 33*92*66'; 
+var Comment2 = 'IYATOTO FERCUKZ 40*92*55'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / FERPEKZ / 12 , 86 , 68'; 
+var Comment3 = 'Tiktaktogel / FERPEKZ / 11 , 45 , 66'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=FERIBS=71*96*75'; 
+var Comment4 = 'GAIB4D=FERIBS=05*48*07'; 
 
-var namagroup5 = 'KEI';
-var Comment5 = '#keitogel = (FERKEII) = 78*46*38'; 
+var namagroup5 = 'KEITOGEL';
+var Comment5 = '#keitogel = (FERKEII) = 70*54*57'; 
 
 var namagroup6 = 'Pasar';
-var Comment6 = 'PAJAKTOTO(FERYOS) : 67*98'; 
+var Comment6 = 'PAJAKTOTO(GUNGCELL) : 56*58'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL FERCAU 02*09*60'; 
+var Comment7 = 'ASEPTOGEL FERCAU 18*52*36'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=FERKERR= 58*88'; 
+var Comment8 = '#MENARA4D=FERKERR= 00*20'; 
 
-var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=FERGILL=02*09*60'; 
+var namagroup9 = 'G1LA';
+var Comment9 = 'GILA4D=FERGILL=00*20*30'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(FERJENS)*67*98*05'; 
+var Comment10 = '#JNETOTO(FERJENS)*18*52*91'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( FERYEBS ) : 78*46*77'; 
+var Comment11 = '#TOYIBSLOT ( FERYEBS ) : 56*58*91'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY FERKOYY 71*96*75'; 
+var Comment12 = 'TOGELKUY FERKOYY 70*54*57'; 
 
 var namagroup13 = 'TASIK';
-var Comment13 = '#TASIKTOTO(FERYEBS) = 12*86'; 
+var Comment13 = '#TASIKTOTO(FERYEBS) = 05*48'; 
 
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 33*92*66 ( FERSIP )'; 
+var namagroup14 = 'GROUP PREDIKSI';
+var Comment14 = '# ( FERSIP ) : 11*45*66'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (FERPERS) 11*20*83'; 
+var Comment15 = 'VESPATOGEL (FERPERS) 40*92*55'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (FERTULE) : 58*88*41'; 
+var Comment16 = 'NEMO4D (FERTULE) : 94*43*12'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (FERJENS) = 77*05';
+var Comment17 = '#KIKOTOTO (FERJENS) = 36*49';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Yatim2';
@@ -81,7 +81,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "erwin","elvina",
              "fira","fahresa","findlay",
              "gita","genzo",
-             "habib","hefi","hoihai","herfizah","hanny","hanabi",
+             "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage",
              "icha","iyatoto","intan",
              "jordi","jaguar","jne","je pe","jess","junior","jovanka","jasmine",
              "kei","kumbara","kembar","kotna","karina","kopi",
