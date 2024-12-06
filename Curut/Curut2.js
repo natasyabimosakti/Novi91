@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.120
+// @version      3.121
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
@@ -17,52 +17,52 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*BOCHOK52*33*92'; 
+var Comment1 = '#shiokelinci4d*BOCHOK52*71*96'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO BOCHI92 12*86*68'; 
+var Comment2 = 'IYATOTO BOCHI92 78*46*77'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / BODAR17 / 71 , 96 , 75'; 
+var Comment3 = 'Tiktaktogel / BODAR17 / 67 , 98 , 05'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=BOCHOK36=78*46*77'; 
+var Comment4 = 'GAIB4D=BOCHOK36=02*09*60'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (BONTIR36) = 67*98*05'; 
+var Comment5 = '#keitogel = (BONTIR36) = 58*88*41'; 
 
 var namagroup6 = 'Pasar';
-var Comment6 = 'PAJAKTOTO(BROTO15) : 02*09'; 
+var Comment6 = 'PAJAKTOTO(BROTO15) : 11*20'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL BOMER14 58*88*38'; 
+var Comment7 = 'ASEPTOGEL BOMER14 33*92*66'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=BOMER14= 11*20'; 
+var Comment8 = '#MENARA4D=BOMER14= 12*86'; 
 
 var namagroup9 = 'G1LA';
-var Comment9 = 'GILA4D=BOLET25=11*20*83'; 
+var Comment9 = 'GILA4D=BOLET25=12*86*68'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(BOSIOM19)*58*88*41'; 
+var Comment10 = '#JNETOTO(BOSIOM19)*33*92*66'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( BOKONG71 ) : 02*09*60'; 
+var Comment11 = '#TOYIBSLOT ( BOKONG71 ) : 11*20*38'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY BORAK16 67*98*05'; 
+var Comment12 = 'TOGELKUY BORAK16 58*88*38'; 
 
 var namagroup13 = 'TASIK';
-var Comment13 = '#TASIKTOTO(BOKONG71) = 78*46'; 
+var Comment13 = '#TASIKTOTO(BOKONG71) = 02*09'; 
 
-var namagroup14 = 'SILA';
-var Comment14 = '‌#SILATOGEL*BONTOK69*71*96*75*BETTING'; 
+var namagroup14 = 'GROUP PREDIKSI';
+var Comment14 = '# ( BONTOK69 ) : 67*98*05'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (BOCHO19) 12*86*68'; 
+var Comment15 = 'VESPATOGEL (BOCHO19) 78*46*77'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (BOSIOM19) : 33*92*66'; 
+var Comment16 = 'NEMO4D (BOSIOM19) : 71*96*75'; 
 
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (BORATU19) = 41*83';
@@ -81,7 +81,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "erwin","elvina",
              "fira","fahresa","findlay",
              "gita","genzo",
-             "habib","hefi","hoihai","herfizah","hanny","hanabi",
+             "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage",
              "icha","iyatoto","intan",
              "jordi","jaguar","jne","je pe","jess","junior","jovanka","jasmine",
              "kei","kumbara","kembar","kotna","karina","kopi",
