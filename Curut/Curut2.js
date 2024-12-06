@@ -65,7 +65,7 @@ var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (BOSIOM19) : 71*96*75'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (BORATU19) = 41*83';
+var Comment17 = '#KIKOTOTO (BORATU19) = 83*41';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Curut2';
