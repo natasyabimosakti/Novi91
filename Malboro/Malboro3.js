@@ -16,7 +16,7 @@
 
 
 
-Var namagroup1 = 'SHIOKELINCI';
+var namagroup1 = 'SHIOKELINCI';
 var Comment1 = '#shiokelinci4d*CELENGLU*04*76'; 
 
 var namagroup2 = 'BUKU';
