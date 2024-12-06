@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG2
 // @namespace    http://tampermonkey.net/
-// @version      3.205
+// @version      3.206
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong2.js
@@ -16,55 +16,55 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*KRISWATI89*67*98'; 
+var Comment1 = '#shiokelinci4d*KRISWATI89*58*88'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO KRISAKTI1 02*09*60'; 
+var Comment2 = 'IYATOTO KRISAKTI1 11*20*38'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / KRISMANDA23 / 58 , 88 , 41'; 
+var Comment3 = 'Tiktaktogel / KRISMANDA23 / 33 , 92 , 38'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=KRISEMPU51=11*20*83'; 
+var Comment4 = 'GAIB4D=KRISEMPU51=12*86*68'; 
 
-var namagroup5 = 'KEI';
-var Comment5 = '#keitogel = (KRISAN41) = 33*92*66'; 
+var namagroup5 = 'KEITOGEL';
+var Comment5 = '#keitogel = (KRISAN41) = 71*96*75'; 
 
 var namagroup6 = 'Pasar';
-var Comment6 = 'PAJAKTOTO(KRISMANDA23) : 12*86'; 
+var Comment6 = 'PAJAKTOTO(KRISMANDA23) : 78*46'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL KRISMA56 71*96*75'; 
+var Comment7 = 'ASEPTOGEL KRISMA56 67*98*05'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=KRISTANTI34= 78*46'; 
+var Comment8 = '#MENARA4D=KRISTANTI34= 02*09'; 
 
-var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=KRISMALI2=78*46*77'; 
+var namagroup9 = 'G1LA';
+var Comment9 = 'GILA4D=KRISMALI2=58*88*41'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(KRISANTI46)*71*96*75'; 
+var Comment10 = '#JNETOTO(KRISANTI46)*02*09*60'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( KRISAN24 ) : 12*86*68'; 
+var Comment11 = '#TOYIBSLOT ( KRISAN24 ) : 67*98*05'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY KRISING47 33*92*66'; 
+var Comment12 = 'TOGELKUY KRISING47 78*46*77'; 
 
 var namagroup13 = 'TASIK';
-var Comment13 = '#TASIKTOTO(KRISAN24) = 11*20'; 
+var Comment13 = '#TASIKTOTO(KRISAN24) = 71*96'; 
 
-var namagroup14 = 'DENTOTO';
-var Comment14 = '#DENTOTO 58*88*41 ( KRISNA46 )'; 
+var namagroup14 = 'GROUP PREDIKSI';
+var Comment14 = '# ( KRISNA46 ) : 12*86*68'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (KRISNA46) 02*09*38'; 
+var Comment15 = 'VESPATOGEL (KRISNA46) 33*92*66'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (KRISNA46) : 67*98*38'; 
+var Comment16 = 'NEMO4D (KRISNA46) : 11*20*83'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (KRISNA4) = 05*60';
+var Comment17 = '#KIKOTOTO (KRISNA4) = 83*66';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Mencong2';
@@ -80,7 +80,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "erwin","elvina",
              "fira","fahresa","findlay",
              "gita","genzo",
-             "habib","hefi","hoihai","herfizah","hanny","hanabi",
+             "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage",
              "icha","iyatoto","intan",
              "jordi","jaguar","jne","je pe","jess","junior","jovanka","jasmine",
              "kei","kumbara","kembar","kotna","karina","kopi",
