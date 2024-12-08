@@ -40,7 +40,7 @@ var Comment7 = 'ASEPTOGEL AMIR23 47*54*49';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=AMIR22= 17*95'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=AOMA123=17*95*61'; 
 
 var namagroup10 = 'JNE';
