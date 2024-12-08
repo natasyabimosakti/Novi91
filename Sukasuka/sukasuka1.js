@@ -40,7 +40,7 @@ var Comment7 = 'ASEPTOGEL ASIZAN33 19*59*03';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=ASRIN32= 25*85'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=ASALAM44=96*83*68'; 
 
 var namagroup10 = 'JNE';
