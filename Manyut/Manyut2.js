@@ -41,7 +41,7 @@ var Comment7 = 'ASEPTOGEL EKOCOK75 05*48*07';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=EKORKU42= 70*54'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=EKORENG51=56*58*49'; 
 
 var namagroup10 = 'JNE';
