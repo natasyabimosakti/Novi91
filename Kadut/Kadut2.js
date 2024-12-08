@@ -42,7 +42,7 @@ var Comment7 = 'ASEPTOGEL SRINDIM63 11*20*83';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=SRINDIM63= 33*92'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=SRIWEL74=33*92*38'; 
 
 var namagroup10 = 'JNE';
