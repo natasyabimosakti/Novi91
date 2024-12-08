@@ -38,7 +38,7 @@ var Comment7 = 'ASEPTOGEL GUNGKLIKK 17*84*50';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=GUNGYUDZ= 08*14'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=GUNGCUAKZ=08*14*33'; 
 
 var namagroup10 = 'JNE';
