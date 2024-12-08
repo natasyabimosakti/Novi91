@@ -40,7 +40,7 @@ var Comment7 = 'ASEPTOGEL CUCUBUAYA65 22*35*78';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=CUILANSENG12= 60*32'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=CUALINSENG41=26*53*82'; 
 
 var namagroup10 = 'JNE';
