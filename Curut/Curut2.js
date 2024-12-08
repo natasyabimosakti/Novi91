@@ -40,7 +40,7 @@ var Comment7 = 'ASEPTOGEL BOMER14 33*92*66';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=BOMER14= 12*86'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=BOLET25=12*86*68'; 
 
 var namagroup10 = 'JNE';
