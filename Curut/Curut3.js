@@ -41,7 +41,7 @@ var Comment7 = 'ASEPTOGEL CAKADUR14 64*40*69';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=CAKADUR14= 22*24'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=CALKON26=22*24*21'; 
 
 var namagroup10 = 'JNE';
