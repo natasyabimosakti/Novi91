@@ -39,7 +39,7 @@ var Comment7 = 'ASEPTOGEL BOSNOM63 02*09*60';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=BOSTER73= 58*88'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=BOSREN64=02*09*60'; 
 
 var namagroup10 = 'JNE';
