@@ -42,7 +42,7 @@ var Comment7 = 'ASEPTOGEL MANUKX12 17*95*61';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=MAUKUR287= 55*90'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=MANUKAN11=55*90*06'; 
 
 var namagroup10 = 'JNE';
