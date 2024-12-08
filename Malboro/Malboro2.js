@@ -40,7 +40,7 @@ var Comment7 = 'ASEPTOGEL BOGEL438 71*96*75';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=BERAK28= 78*46'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=BAJUKU34=78*46*77'; 
 
 var namagroup10 = 'JNE';
