@@ -41,7 +41,7 @@ var Comment7 = 'ASEPTOGEL HORE713 25*85*67';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=HOPRET303= 01*44'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=HONOS112=88*75*65'; 
 
 var namagroup10 = 'JNE';
