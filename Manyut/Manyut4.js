@@ -42,7 +42,7 @@ var Comment7 = 'ASEPTOGEL ZENDRAWIJ 15*98*86';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=ZENDUL5= 37*13'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=ZENDIL68=93*62*42'; 
 
 var namagroup10 = 'JNE';
