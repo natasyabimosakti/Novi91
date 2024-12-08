@@ -40,7 +40,7 @@ var Comment7 = 'ASEPTOGEL SIPIRIT10 77*46*69';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=SIPIRIT10= 61*89'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=SIKUKAKU11=61*89*97'; 
 
 var namagroup10 = 'JNE';
