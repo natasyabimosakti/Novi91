@@ -40,7 +40,7 @@ var Comment7 = 'ASEPTOGEL ANJLOK549 55*90*06';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=ANUNTU284= 51*35'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=ANALOH49=51*35*01'; 
 
 var namagroup10 = 'JNE';
