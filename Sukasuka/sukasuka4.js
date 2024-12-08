@@ -40,7 +40,7 @@ var Comment7 = 'ASEPTOGEL DIANUMAMI12 90*79*09';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=DIANUMAMI12= 15*98'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=DINIMARTIN13=16*81*71'; 
 
 var namagroup10 = 'JNE';
