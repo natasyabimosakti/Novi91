@@ -41,7 +41,7 @@ var Comment7 = 'ASEPTOGEL BAMIN12 11*45*66';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=BINOMO77= 05*48'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=BEKOL12=40*92*55'; 
 
 var namagroup10 = 'JNE';
