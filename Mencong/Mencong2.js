@@ -39,7 +39,7 @@ var Comment7 = 'ASEPTOGEL KRISMA56 67*98*05';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=KRISTANTI34= 02*09'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=KRISMALI2=58*88*41'; 
 
 var namagroup10 = 'JNE';
