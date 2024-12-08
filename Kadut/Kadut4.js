@@ -41,7 +41,7 @@ var Comment7 = 'ASEPTOGEL SAMBATAE 19*03*18';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=SAMBATAE= 25*16'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=SALAMANSEK=25*16*43'; 
 
 var namagroup10 = 'JNE';
