@@ -40,7 +40,7 @@ var Comment7 = 'ASEPTOGEL FERCAU 18*52*36';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=FERKERR= 00*20'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=FERGILL=00*20*30'; 
 
 var namagroup10 = 'JNE';
