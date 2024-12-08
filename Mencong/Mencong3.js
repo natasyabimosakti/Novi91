@@ -41,7 +41,7 @@ var Comment7 = 'ASEPTOGEL NOVITARU34 04*76*81';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=NOVITAS53= 52*26'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=NOVINANU83=73*10*45'; 
 
 var namagroup10 = 'JNE';
