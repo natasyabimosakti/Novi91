@@ -40,7 +40,7 @@ var Comment7 = 'ASEPTOGEL CARJER34 34*13*79';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=CANTINGAN37= 00*28'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=CAMPRET3=00*28*07'; 
 
 var namagroup10 = 'JNE';
