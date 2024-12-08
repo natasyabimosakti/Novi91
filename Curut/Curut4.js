@@ -40,7 +40,7 @@ var Comment7 = 'ASEPTOGEL DELETET12 25*16*85';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=DUKUSAPU12= 39*27'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=DUKUEMPEK10=39*27*32'; 
 
 var namagroup10 = 'JNE';
