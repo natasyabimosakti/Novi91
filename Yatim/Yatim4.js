@@ -39,7 +39,7 @@ var Comment7 = 'ASEPTOGEL YANNCOK84 21*73*87';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=YADIANI77= 34*76'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=YASALAM64=34*76*24'; 
 
 var namagroup10 = 'JNE';
