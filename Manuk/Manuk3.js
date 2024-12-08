@@ -41,7 +41,7 @@ var Comment7 = 'ASEPTOGEL DOROMAN12 22*24*21';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=DOROKERTO3= 34*13'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=DOROMIBER2=34*13*79'; 
 
 var namagroup10 = 'JNE';
