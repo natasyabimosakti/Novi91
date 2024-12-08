@@ -38,7 +38,7 @@ var Comment7 = 'ASEPTOGEL XONKING52 37*15*50';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=XELINA56= 14*57'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=XEROPON=37*15*50'; 
 
 var namagroup10 = 'JNE';
