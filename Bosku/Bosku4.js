@@ -41,7 +41,7 @@ var Comment7 = 'ASEPTOGEL ZONATIK73 94*89*29';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=ZONATING= 31*44'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=ZOWOK26=94*89*29'; 
 
 var namagroup10 = 'JNE';
