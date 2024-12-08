@@ -41,7 +41,7 @@ var Comment7 = 'ASEPTOGEL DEDEKLESMONO 74*82*84';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=DORAEMON34= 91*93'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=DAMIAN12=91*93*23'; 
 
 var namagroup10 = 'JNE';
