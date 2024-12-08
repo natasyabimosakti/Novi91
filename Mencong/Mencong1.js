@@ -41,7 +41,7 @@ var Comment7 = 'ASEPTOGEL MAKDUNGDUNG 36*80*62';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=MACRONI52= 37*15'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=MEROJAYA51=14*57*42'; 
 
 var namagroup10 = 'JNE';
