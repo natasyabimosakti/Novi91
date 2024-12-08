@@ -40,7 +40,7 @@ var Comment7 = 'ASEPTOGEL TOMPAKAN23 08*87*53';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=TOMBIBI24= 94*89'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=TOMBENG34=31*44*59'; 
 
 var namagroup10 = 'JNE';
