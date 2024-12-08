@@ -40,7 +40,7 @@ var Comment7 = 'ASEPTOGEL YONOBO74 52*26*70';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=YOBENWES3= 73*10'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=YOWESBEN6=52*26*70'; 
 
 var namagroup10 = 'JNE';
