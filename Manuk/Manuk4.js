@@ -40,7 +40,7 @@ var Comment7 = 'ASEPTOGEL PLECICILAN 39*27*32';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=PLECIKLUK= 74*82'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=PLECUAN=74*82*84'; 
 
 var namagroup10 = 'JNE';
