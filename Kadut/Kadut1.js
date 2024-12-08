@@ -42,7 +42,7 @@ var Comment7 = 'ASEPTOGEL BOLINA61 65*56*48';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=BUDELTUNG= 47*54'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=BUANGKALI=47*54*99'; 
 
 var namagroup10 = 'JNE';
