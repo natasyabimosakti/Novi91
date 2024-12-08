@@ -43,7 +43,7 @@ var Comment7 = 'ASEPTOGEL RIROKKWE 63*30*72';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=RIROKKWE= 64*40'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=RIMLANG63=64*40*97'; 
 
 var namagroup10 = 'JNE';
