@@ -41,7 +41,7 @@ var Comment7 = 'ASEPTOGEL EROSI52 60*32*38';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=ERFANGUN15= 80*51'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=ERGUN51=72*39*99'; 
 
 var namagroup10 = 'JNE';
