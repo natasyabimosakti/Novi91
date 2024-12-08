@@ -41,7 +41,7 @@ var Comment7 = 'ASEPTOGEL ELANG94 12*86*68';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=ELANG51= 71*96'; 
 
-var namagroup9 = 'G1LA';
+var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=ELANG94=71*96*75'; 
 
 var namagroup10 = 'JNE';
