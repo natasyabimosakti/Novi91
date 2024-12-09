@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW KADUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.131
+// @version      3.132
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut4.js
@@ -32,8 +32,8 @@ var Comment4 = 'GAIB4D=SAKAREPMU=08*87*53';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (SANDALMABUR) = 94*89*29'; 
 
-var namagroup6 = 'Pasar';
-var Comment6 = 'PAJAKTOTO(SAKEMBER) : 31*44'; 
+var namagroup6 = 'OMASLOT';
+var Comment6 = '#OMASLOT ( SAKEMBER ) : 31*44'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL SAMBATAE 19*03*18'; 
