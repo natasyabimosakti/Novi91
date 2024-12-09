@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul1
 // @namespace    http://tampermonkey.net/
-// @version      3.112
+// @version      3.113
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
@@ -23,8 +23,8 @@ var Comment2 = 'K86TOTO ( BOLINA61 ) : 49*40*28';
 var namagroup3 = 'PUSAT LOMBA';
 var Comment3 = 'Shiotogel4d (BUANG31) 59*78*39'; 
 
-var namagroup4 = 'TEMPO';
-var Comment4 = 'BUANA87 : 21*57*13 #TEMPOTOTO'; 
+var namagroup4 = 'ZODIAK';
+var Comment4 = '#ZODIAKTOTO (BUANA87) : 21*57*13'; 
 
 var namagroup5 = 'ISTANA';
 var Comment5 = 'JANGKAUTOTO(BUKABEH) : 07*75*63'; 
@@ -73,8 +73,8 @@ var Comment18 = 'asek';
 
 var refresh = 50;
 
-var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha",
-             "boleng","biru","bobby","bastian","boboho","bola","bunga",
+var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa",
+             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin",
              "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika",
              "david",",dewa","desi","debby","dewi","dentoto","dika","dealova","diva",
              "erwin","emilia",
@@ -92,7 +92,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi",
              "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria",
              "tink","tiktak","tiara","tatang","tania",
-             "yanty","yoky","yohana","yii","vero",
+             "yanty","yoky","yohana","yii","vero","vaulian",
              "wulan","wok","widya"];
 
 var keyword1 = "ROOM"
