@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang3
 // @namespace    http://tampermonkey.net/
-// @version      3.110
+// @version      3.111
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang3.js
@@ -25,8 +25,8 @@ var Comment2 = 'K86TOTO ( NOVINOVA231 ) : 85*91*42';
 var namagroup3 = 'PUSAT LOMBA';
 var Comment3 = 'Shiotogel4d (NOVIRAS34) 64*43*30'; 
 
-var namagroup4 = 'TEMPO';
-var Comment4 = 'NOVITAS3 : 27*74*46 #TEMPOTOTO'; 
+var namagroup4 = 'ZODIAK';
+var Comment4 = '#ZODIAKTOTO (NOVITAS3) : 27*74*46'; 
 
 var namagroup5 = 'ISTANA';
 var Comment5 = 'JANGKAUTOTO(NOVISAN31) : 82*25'; 
@@ -80,8 +80,8 @@ var Comment18 = 'asek';
 
 var refresh = 50;
 
-var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha",
-             "boleng","biru","bobby","bastian","boboho","bola","bunga",
+var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa",
+             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin",
              "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika",
              "david",",dewa","desi","debby","dewi","dentoto","dika","dealova","diva",
              "erwin","emilia",
@@ -99,7 +99,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi",
              "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria",
              "tink","tiktak","tiara","tatang","tania",
-             "yanty","yoky","yohana","yii","vero",
+             "yanty","yoky","yohana","yii","vero","vaulian",
              "wulan","wok","widya"];
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
