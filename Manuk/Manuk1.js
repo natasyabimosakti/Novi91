@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 1
 // @namespace    http://tampermonkey.net/
-// @version      3.115
+// @version      3.116
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
@@ -33,8 +33,8 @@ var Comment4 = 'GAIB4D=MANUK123=14*57*42';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (MANANUK213) = 65*56*48'; 
 
-var namagroup6 = 'OMASLOT';
-var Comment6 = '#OMASLOT ( MANUKGENI12 ) : 47*54'; 
+var namagroup6 = 'POSO';
+var Comment6 = '#POSOTOTO=MANUKGENI12= 47*54'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL MANUKX12 17*95*61'; 
@@ -81,7 +81,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista",
              "david",",dewa","desi","debby","dewi","dentoto","dika","delon","dewy",
              "erwin","elvina",
-             "fira","fahresa","findlay",
+             "fira","fahresa","findlay","fatimah",
              "gita","genzo",
              "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage",
              "icha","iyatoto","intan",
@@ -91,9 +91,9 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","meleqq","megaways","minion","melly","monicha","manu","maryam","mode",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nayla","naomi","nica",
              "oscar","ozawa",
-             "pung","puput","priyan","primus","primus","prediction",
-             "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma","ratsa","sinta",
-             "sandiego","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia","sifa",
+             "pung","puput","priyan","primus","primus","prediction","pebri",
+             "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma","ratsa","sinta","rara",
+             "sandiego","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia","sifa","seojun",
              "tink","tiktak","tiara","tatang","tomi",
              "xian",
              "yanty","yoky","yohana","yura","yaya",
