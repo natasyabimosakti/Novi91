@@ -3,7 +3,6 @@
 // @namespace    http://tampermonkey.net/
 // @version      3.119
 // @description  try to take over the world!
-// @version      3.NaN
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
 // @author       You
 // @match        http*://*/*
@@ -77,7 +76,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista",
              "david",",dewa","desi","debby","dewi","dentoto","dika","delon","dewy",
              "erwin","elvina",
-             "fira","fahresa","findlay",
+             "fira","fahresa","findlay","fatimah",
              "gita","genzo",
              "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage",
              "icha","iyatoto","intan",
