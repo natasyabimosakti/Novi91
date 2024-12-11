@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna3
 // @namespace    http://tampermonkey.net/
-// @version      3.121
+// @version      3.122
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna3.js
@@ -31,8 +31,8 @@ var Comment3 = 'Shiotogel4d (YOWESBEN6) 26*47*56';
 var namagroup4 = 'ZODIAK';
 var Comment4 = '#ZODIAKTOTO (YONOBO74) : 36*28*71'; 
 
-var namagroup5 = 'ISTANA';
-var Comment5 = 'JANGKAUTOTO(YONOBO74) : 97*38'; 
+var namagroup5 = 'PEDRO';
+var Comment5 = '#PEDRO4D (YONOBO74*97*38*53)'; 
 
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (YONOBO74) = 01*60*33'; 
