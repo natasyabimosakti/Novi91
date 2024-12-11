@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul3
 // @namespace    http://tampermonkey.net/
-// @version      3.117
+// @version      3.118
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul3.js
@@ -27,8 +27,8 @@ var Comment3 = 'Shiotogel4d (RINTOR6) 64*48*86';
 var namagroup4 = 'ZODIAK';
 var Comment4 = '#ZODIAKTOTO (RIKOBODO) : 43*53*16'; 
 
-var namagroup5 = 'ISTANA';
-var Comment5 = 'JANGKAUTOTO(RISUWISUWI) : 20*27*60'; 
+var namagroup5 = 'PEDRO';
+var Comment5 = '#PEDRO4D (RISUWISUWI*20*27*60)'; 
 
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (RISRAIMU) = 72*14*35'; 
