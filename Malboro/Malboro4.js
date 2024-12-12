@@ -32,7 +32,7 @@ var Comment4 = 'GAIB4D=DUANCOKMU3=19*03*18';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (DUKUCABUL23) = 25*16*85'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=DANDANG34= 39*27'; 
 
 var namagroup7 = '453P VIP';
