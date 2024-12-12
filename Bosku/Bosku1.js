@@ -28,7 +28,7 @@ var Comment4 = 'GAIB4D=XELEMINT53=55*90*06';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (XELOP83) = 51*35*99'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=XANXAN68= 36*80'; 
 
 var namagroup7 = '453P VIP';
