@@ -30,7 +30,7 @@ var Comment4 = 'GAIB4D=YAPIYEYA=15*98*86';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (YAAJAH19) = 37*13*02'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=YANIRI03= 93*62'; 
 
 var namagroup7 = '453P VIP';
