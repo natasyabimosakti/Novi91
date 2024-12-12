@@ -31,7 +31,7 @@ var Comment4 = 'GAIB4D=PLECICIAK=31*44*59';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (PLECIKICIK) = 19*03*18'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=PLECIAHAH= 25*16'; 
 
 var namagroup7 = '453P VIP';
