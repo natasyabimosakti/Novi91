@@ -32,7 +32,7 @@ var Comment4 = 'GAIB4D=DOROPOL12=73*10*45';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (DORODOR12) = 63*30*72'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=DOROWIS12= 64*40'; 
 
 var namagroup7 = '453P VIP';
