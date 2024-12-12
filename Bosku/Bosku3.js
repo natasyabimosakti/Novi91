@@ -31,7 +31,7 @@ var Comment4 = 'GAIB4D=YONOBO74=34*13*79';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (YONOBO74) = 00*28*97'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=YONOBO74= 04*76'; 
 
 var namagroup7 = '453P VIP';
