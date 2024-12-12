@@ -32,7 +32,7 @@ var Comment4 = 'GAIB4D=BISMON76=00*20*30';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (BINAKARMA54) = 94*43*12'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=BAMIN12= 40*92'; 
 
 var namagroup7 = '453P VIP';
