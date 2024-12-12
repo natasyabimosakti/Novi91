@@ -32,7 +32,7 @@ var Comment4 = 'GAIB4D=SAKAREPMU=08*87*53';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (SANDALMABUR) = 94*89*29'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=SAKEMBER= 31*44'; 
 
 var namagroup7 = '453P VIP';
