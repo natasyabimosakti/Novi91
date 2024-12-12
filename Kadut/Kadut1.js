@@ -33,7 +33,7 @@ var Comment4 = 'GAIB4D=BUANA87=36*80*62';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (BUDEGKOWE) = 37*15*50'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=BURUNG69= 14*57'; 
 
 var namagroup7 = '453P VIP';
