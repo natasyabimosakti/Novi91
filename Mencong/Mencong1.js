@@ -32,7 +32,7 @@ var Comment4 = 'GAIB4D=MERATIH14=17*95*61';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (MAKIMUNG31) = 55*90*06'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=MATIO50= 51*35'; 
 
 var namagroup7 = '453P VIP';
