@@ -32,7 +32,7 @@ var Comment4 = 'GAIB4D=HONDANG41=29*74*04';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (HOMOGEN12) = 96*83*68'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=HOPENG99= 19*59'; 
 
 var namagroup7 = '453P VIP';
