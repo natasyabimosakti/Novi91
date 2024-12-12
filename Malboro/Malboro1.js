@@ -31,7 +31,7 @@ var Comment4 = 'GAIB4D=ANJANI48=65*56*48';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (ANITI348) = 47*54*49'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA'
 var Comment6 = '#POSOTOTO=ANDONG49= 17*95'; 
 
 var namagroup7 = '453P VIP';
