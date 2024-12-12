@@ -31,7 +31,7 @@ var Comment4 = 'GAIB4D=ASKIPLI99=08*14*33';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (ASABKUBUR12) = 29*74*04'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=ASIZAN33= 96*83'; 
 
 var namagroup7 = '453P VIP';
