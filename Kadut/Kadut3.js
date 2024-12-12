@@ -34,7 +34,7 @@ var Comment4 = 'GAIB4D=RIKOBODO=04*76*81';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (RISUWISUWI) = 52*26*70'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=RISRAIMU= 73*10'; 
 
 var namagroup7 = '453P VIP';
