@@ -31,7 +31,7 @@ var Comment4 = 'GAIB4D=DEMPURUK=94*89*29';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (DELELENG) = 31*44*59'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=DINGLENG= 19*03'; 
 
 var namagroup7 = '453P VIP';
