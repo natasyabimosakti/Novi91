@@ -27,7 +27,7 @@ var namagroup4 = 'ZODIAK';
 var Comment4 = '#ZODIAKTOTO (DINDAMANIS12) : 27*10*53'; 
 
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (DIKENTUKADAL*09*24*96)'; 
+var Comment5 = '#PEDRO4D (DJASKA13*09*24*96)'; 
 
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (DICIAKKUCING) = 23*49*20'; 
