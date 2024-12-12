@@ -32,7 +32,7 @@ var Comment4 = 'GAIB4D=ZORAN36=74*82*84';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (ZONIAK63) = 91*93*43'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=ZOMING82= 08*87'; 
 
 var namagroup7 = '453P VIP';
