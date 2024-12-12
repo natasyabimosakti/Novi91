@@ -30,7 +30,7 @@ var Comment4 = 'GAIB4D=KRISEMPU51=12*86*68';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (KRISAN41) = 71*96*75'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=KRISMANDA23= 78*46'; 
 
 var namagroup7 = '453P VIP';
