@@ -31,7 +31,7 @@ var Comment4 = 'GAIB4D=FERIBS=05*48*07';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (FERKEII) = 70*54*57'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=GUNGCELL= 56*58'; 
 
 var namagroup7 = '453P VIP';
