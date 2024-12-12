@@ -29,7 +29,7 @@ var Comment4 = 'GAIB4D=GUNGKALIGUNG=25*85*67';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (GUNGBUTZ) = 01*44*31'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=GUNGCEL= 88*75'; 
 
 var namagroup7 = '453P VIP';
