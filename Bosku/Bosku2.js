@@ -30,7 +30,7 @@ var Comment4 = 'GAIB4D=BOSEN68=71*96*75';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (BOSMAN67) = 78*46*38'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=BOSMINI88= 67*98'; 
 
 var namagroup7 = '453P VIP';
