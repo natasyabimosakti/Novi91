@@ -33,7 +33,7 @@ var Comment4 = 'GAIB4D=ZENDRIK23=06*28*27';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (ZENTOLKAWAT) = 16*81*71'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=ZERIK25= 90*79'; 
 
 var namagroup7 = '453P VIP';
