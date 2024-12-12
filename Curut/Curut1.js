@@ -31,7 +31,7 @@ var Comment4 = 'GAIB4D=AMAR29=37*15*50';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (AMAR26) = 14*57*42'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=KUMU17= 65*56'; 
 
 var namagroup7 = '453P VIP';
