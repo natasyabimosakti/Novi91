@@ -32,7 +32,7 @@ var Comment4 = 'GAIB4D=CATAH16=52*26*70';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (CIMN26) = 73*10*45'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=CEKODAR13= 63*30'; 
 
 var namagroup7 = '453P VIP';
