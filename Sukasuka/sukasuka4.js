@@ -31,7 +31,7 @@ var Comment4 = 'GAIB4D=DINDAMANIS12=34*76*24';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (DUDUKGO81) = 06*28*27'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=DIANUMAMI12= 16*81'; 
 
 var namagroup7 = '453P VIP';
