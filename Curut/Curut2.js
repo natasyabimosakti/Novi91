@@ -31,7 +31,7 @@ var Comment4 = 'GAIB4D=BOCHOK36=02*09*60';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (BONTIR36) = 58*88*41'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=BROTO15= 11*20'; 
 
 var namagroup7 = '453P VIP';
