@@ -31,7 +31,7 @@ var Comment4 = 'GAIB4D=SILUWET=60*32*38';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (SIMPAK17) = 80*51*95'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=SINDOLI39= 72*39'; 
 
 var namagroup7 = '453P VIP';
