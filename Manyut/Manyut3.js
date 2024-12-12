@@ -32,7 +32,7 @@ var Comment4 = 'GAIB4D=ERGUNA14=47*23*10';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (ERAKOL156) = 26*53*82'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=ERJOK64= 22*35'; 
 
 var namagroup7 = '453P VIP';
