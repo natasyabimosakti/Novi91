@@ -31,7 +31,7 @@ var Comment4 = 'GAIB4D=CEMPAKMAMBU=63*30*72';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (CANGKIR28) = 64*40*69'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=CANGKUL24= 22*24'; 
 
 var namagroup7 = '453P VIP';
