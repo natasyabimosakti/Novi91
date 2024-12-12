@@ -32,7 +32,7 @@ var Comment4 = 'GAIB4D=NOVITAS3=22*24*21';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (NOVIATOS12) = 34*13*79'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=NOVIRAMBU3= 00*28'; 
 
 var namagroup7 = '453P VIP';
