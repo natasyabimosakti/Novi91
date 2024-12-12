@@ -31,7 +31,7 @@ var Comment4 = 'GAIB4D=TOMBOLNUKLIR=39*27*32';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (TOMBLOK32) = 74*82*84'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=TOMBOY23= 91*93'; 
 
 var namagroup7 = '453P VIP';
