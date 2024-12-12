@@ -31,7 +31,7 @@ var Comment4 = 'GAIB4D=BOLANGBALING=11*20*83';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (BOTOLO3) = 33*92*66'; 
 
-var namagroup6 = 'POSO';
+var namagroup6 = 'JOGJA';
 var Comment6 = '#POSOTOTO=BONCOSO23= 12*86'; 
 
 var namagroup7 = '453P VIP';
