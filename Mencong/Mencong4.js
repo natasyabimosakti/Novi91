@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG4
 // @namespace    http://tampermonkey.net/
-// @version      3.208
+// @version      3.209
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong4.js
@@ -17,55 +17,55 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*TOMENJERY12*31*44'; 
+var Comment1 = '#shiokelinci4d*TOMENJERY12*91*93'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO TOMRAIDER13 19*03*43'; 
+var Comment2 = 'IYATOTO TOMRAIDER13 08*87*53'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / TOMBOLPENTIL / 25 , 16 , 43'; 
+var Comment3 = 'Tiktaktogel / TOMBOLPENTIL / 94 , 89 , 29'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=TOMBOLNUKLIR=39*27*32'; 
+var Comment4 = 'GAIB4D=TOMBOLNUKLIR=31*44*59'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (TOMBLOK32) = 74*82*84'; 
+var Comment5 = '#keitogel = (TOMBLOK32) = 19*03*18'; 
 
 var namagroup6 = 'JOGJA';
-var Comment6 = '#POSOTOTO=TOMBOY23= 91*93'; 
+var Comment6 = '#JOGJATOTO (TOMBOY23)= 25-16'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL TOMPAKAN23 08*87*53'; 
+var Comment7 = 'ASEPTOGEL TOMPAKAN23 39*27*32'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=TOMBIBI24= 94*89'; 
+var Comment8 = '#MENARA4D=TOMBIBI24= 74*82'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=TOMBENG34=31*44*59'; 
+var Comment9 = 'GILA4D=TOMBENG34=74*82*84'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(TOMSENG21)*94*89*29'; 
+var Comment10 = '#JNETOTO(TOMSENG21)*39*27*32'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( TOMBOL24 ) : 08*87*53'; 
+var Comment11 = '#TOYIBSLOT ( TOMBOL24 ) : 25*16*85'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY TOMBIS34 91*93*23'; 
+var Comment12 = 'TOGELKUY TOMBIS34 19*03*18'; 
 
-var namagroup13 = 'TASIK';
-var Comment13 = '#TASIKTOTO(TOMBOL24) = 74*82'; 
+var namagroup13 = 'KOI';
+var Comment13 = '#KOITOTO ( TOMBOL24 ) 31*44'; 
 
 var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( TOMASKU34 ) : 39*27*32'; 
+var Comment14 = '# ( TOMASKU34 ) : 94*89*43'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (TOMASKU34) 25*16*85'; 
+var Comment15 = 'VESPATOGEL (TOMASKU34) 08*87*53'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (TOMASKU34) : 19*03*18'; 
+var Comment16 = 'NEMO4D (TOMASKU34) : 91*93*23'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (TOMASKU34) = 18*85';
+var Comment17 = '#KIKOTOTO (TOMASKU34) = 29*59';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Mencong4';
