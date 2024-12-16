@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.203
+// @version      3.204
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
@@ -19,55 +19,55 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*ZENDRA61*93*62'; 
+var Comment1 = '#shiokelinci4d*ZENDRA61*31*44'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO ZENDIL68 21*73*87'; 
+var Comment2 = 'IYATOTO ZENDIL68 19*03*43'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / ZETOLAN23 / 34 , 76 , 24'; 
+var Comment3 = 'Tiktaktogel / ZETOLAN23 / 25 , 16 , 43'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=ZENDRIK23=06*28*27'; 
+var Comment4 = 'GAIB4D=ZENDRIK23=39*27*32'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (ZENTOLKAWAT) = 16*81*71'; 
+var Comment5 = '#keitogel = (ZENTOLKAWAT) = 74*82*84'; 
 
 var namagroup6 = 'JOGJA';
-var Comment6 = '#POSOTOTO=ZERIK25= 90*79'; 
+var Comment6 = '#JOGJATOTO (ZERIK25)= 91-93'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL ZENDRAWIJ 15*98*86'; 
+var Comment7 = 'ASEPTOGEL ZENDRAWIJ 08*87*53'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=ZENDUL5= 37*13'; 
+var Comment8 = '#MENARA4D=ZENDUL5= 94*89'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=ZENDIL68=93*62*42'; 
+var Comment9 = 'GILA4D=ZENDIL68=31*44*59'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(ZENTOLKAWAT)*21*73*87'; 
+var Comment10 = '#JNETOTO(ZENTOLKAWAT)*94*89*29'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( ZENDATAWA1 ) : 34*76*24'; 
+var Comment11 = '#TOYIBSLOT ( ZENDATAWA1 ) : 08*87*53'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY ZENTOLSEMPAK 06*28*27'; 
+var Comment12 = 'TOGELKUY ZENTOLSEMPAK 91*93*23'; 
 
-var namagroup13 = 'TASIK';
-var Comment13 = '#TASIKTOTO(ZENDATAWA1) = 16*81'; 
+var namagroup13 = 'KOI';
+var Comment13 = '#KOITOTO ( ZENDATAWA1 ) 74*82'; 
 
 var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( ZENCAN54 ) : 90*79*09'; 
+var Comment14 = '# ( ZENCAN54 ) : 39*27*32'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (ZEILATEM) 15*98*63'; 
+var Comment15 = 'VESPATOGEL (ZEILATEM) 25*16*85'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (ZERIK25) : 37*13*63'; 
+var Comment16 = 'NEMO4D (ZERIK25) : 19*03*18'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (ZENDRAWIJ) = 02*86';
+var Comment17 = '#KIKOTOTO (ZENDRAWIJ) = 18*85';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Manyut4';
