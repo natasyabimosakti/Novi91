@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BENT1
 // @namespace    http://tampermonkey.net/
-// @version      3.112
+// @version      3.113
 // @description  try to take over the world!
 // @version      3.NaN
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka1.js
@@ -17,55 +17,55 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*ASLISUPER12*01*44'; 
+var Comment1 = '#shiokelinci4d*ASLISUPER12*36*80'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO ASTRI29 88*75*65'; 
+var Comment2 = 'IYATOTO ASTRI29 37*15*50'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / AZKALAN / 17 , 84 , 50'; 
+var Comment3 = 'Tiktaktogel / AZKALAN / 14 , 57 , 42'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=ASKIPLI99=08*14*33'; 
+var Comment4 = 'GAIB4D=ASKIPLI99=65*56*48'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (ASABKUBUR12) = 29*74*04'; 
+var Comment5 = '#keitogel = (ASABKUBUR12) = 47*54*49'; 
 
 var namagroup6 = 'JOGJA';
-var Comment6 = '#POSOTOTO=ASIZAN33= 96*83'; 
+var Comment6 = '#JOGJATOTO (DAWET21)= 17-95'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL ASIZAN33 19*59*03'; 
+var Comment7 = 'ASEPTOGEL ASIZAN33 55*90*06'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=ASRIN32= 25*85'; 
+var Comment8 = '#MENARA4D=ASRIN32= 51*35'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=ASALAM44=96*83*68'; 
+var Comment9 = 'GILA4D=ASALAM44=51*35*01'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(ASABKUBUR12)*29*74*04'; 
+var Comment10 = '#JNETOTO(ASABKUBUR12)*55*90*06'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( ASEKASEK12 ) : 08*14*33'; 
+var Comment11 = '#TOYIBSLOT ( ASEKASEK12 ) : 17*95*61'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY ASKALIMAN 17*84*50'; 
+var Comment12 = 'TOGELKUY ASKALIMAN 47*54*49'; 
 
-var namagroup13 = 'TASIK';
-var Comment13 = '#TASIKTOTO(ASEKASEK12) = 88*75'; 
+var namagroup13 = 'KOI';
+var Comment13 = '#KOITOTO ( ASEKASEK12 ) 65*56'; 
 
 var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( ASTADINA12 ) : 19*59*41'; 
+var Comment14 = '# ( ASTADINA12 ) : 14*57*42'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (ASIZAN33) 25*85*67'; 
+var Comment15 = 'VESPATOGEL (ASIZAN33) 37*15*99'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (ASIZAN33) : 01*44*31'; 
+var Comment16 = 'NEMO4D (ASIZAN33) : 36*80*99'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (ASRIN32) = 03*65';
+var Comment17 = '#KIKOTOTO (ASRIN32) = 62*50';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'sukasuka1';
