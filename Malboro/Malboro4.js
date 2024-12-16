@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 4
 // @namespace    http://tampermonkey.net/
-// @version      3.112
+// @version      3.113
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro4.js
@@ -18,55 +18,55 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*DADAKU32*08*87'; 
+var Comment1 = '#shiokelinci4d*DADAKU32*39*27'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO DENGKULMU41 94*89*29'; 
+var Comment2 = 'IYATOTO DENGKULMU41 74*82*84'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / DUBURMU24 / 31 , 44 , 59'; 
+var Comment3 = 'Tiktaktogel / DUBURMU24 / 91 , 93 , 23'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=DUANCOKMU3=19*03*18'; 
+var Comment4 = 'GAIB4D=DUANCOKMU3=08*87*53'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (DUKUCABUL23) = 25*16*85'; 
+var Comment5 = '#keitogel = (DUKUCABUL23) = 94*89*29'; 
 
 var namagroup6 = 'JOGJA';
-var Comment6 = '#POSOTOTO=DANDANG34= 39*27'; 
+var Comment6 = '#JOGJATOTO (DANDANG34)= 31-44'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL DEDEKLESMONO 74*82*84'; 
+var Comment7 = 'ASEPTOGEL DEDEKLESMONO 19*03*18'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=DORAEMON34= 91*93'; 
+var Comment8 = '#MENARA4D=DORAEMON34= 25*16'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=DAMIAN12=91*93*23'; 
+var Comment9 = 'GILA4D=DAMIAN12=25*16*43'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(DUGALTOK)*74*82*84'; 
+var Comment10 = '#JNETOTO(DUGALTOK)*19*03*43'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( DIEMPLOK ) : 39*27*32'; 
+var Comment11 = '#TOYIBSLOT ( DIEMPLOK ) : 31*44*59'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY DEBORA21 25*16*85'; 
+var Comment12 = 'TOGELKUY DEBORA21 94*89*29'; 
 
-var namagroup13 = 'TASIK';
-var Comment13 = '#TASIKTOTO(DIEMPLOK) = 19*03'; 
+var namagroup13 = 'KOI';
+var Comment13 = '#KOITOTO ( DIEMPLOK ) 08*87'; 
 
 var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( DICIUMU12 ) : 31*44*59'; 
+var Comment14 = '# ( DICIUMU12 ) : 91*93*23'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (DONGKOLSEK) 94*89*43'; 
+var Comment15 = 'VESPATOGEL (DONGKOLSEK) 74*82*84'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (DADAKU32) : 08*87*43'; 
+var Comment16 = 'NEMO4D (DADAKU32) : 39*27*32'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (DENGKULMU41) = 53*29';
+var Comment17 = '#KIKOTOTO (DENGKULMU41) = 85*18';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Malboro4';
