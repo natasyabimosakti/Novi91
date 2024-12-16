@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi4
 // @namespace    http://tampermonkey.net/
-// @version      3.129
+// @version      3.130
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci4.js
@@ -25,8 +25,8 @@ var Comment2 = 'K86TOTO ( YAKUZA16 ) : 26*54*34';
 var namagroup3 = 'PUSAT LOMBA';
 var Comment3 = 'Shiotogel4d (YASALAM64) 09*97*29'; 
 
-var namagroup4 = 'ZODIAK';
-var Comment4 = '#ZODIAKTOTO (YAPIYEYA) : 07*55*80'; 
+var namagroup4 = 'RIATOTO';
+var Comment4 = '#RIATOTO YAPIYEYA = 07*55*80'; 
 
 var namagroup5 = 'PEDRO';
 var Comment5 = '#PEDRO4D (YAAJAH19*10*63*68)'; 
@@ -53,7 +53,7 @@ var namagroup12 = 'ROOM LOMBA TEBAK';
 var Comment12 = 'YANCOKSU : 86*66*46 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=YAMIENAPI=99*47*#1'; 
+var Comment13 = 'GOHTOGEL=YAMIENAPI=99*47*02'; 
 
 var namagroup14 = 'TARUNG';
 var Comment14 = '#TARUNGTOTO (YARUWET)=65_94'; 
