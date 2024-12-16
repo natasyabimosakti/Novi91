@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE2
 // @namespace    http://tampermonkey.net/
-// @version      3.123
+// @version      3.124
 // @version      3.NaN
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
@@ -16,55 +16,55 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*BOSEY73*11*20'; 
+var Comment1 = '#shiokelinci4d*BOSEY73*71*96'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO BOSEK64 33*92*66'; 
+var Comment2 = 'IYATOTO BOSEK64 78*46*77'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / BOHOSEY3 / 12 , 86 , 68'; 
+var Comment3 = 'Tiktaktogel / BOHOSEY3 / 67 , 98 , 05'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=BOSEN68=71*96*75'; 
+var Comment4 = 'GAIB4D=BOSEN68=02*09*60'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (BOSMAN67) = 78*46*38'; 
+var Comment5 = '#keitogel = (BOSMAN67) = 58*88*41'; 
 
 var namagroup6 = 'JOGJA';
-var Comment6 = '#POSOTOTO=BOSMINI88= 67*98'; 
+var Comment6 = '#JOGJATOTO (BOSMINI88)= 11-20'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL BOSNOM63 02*09*60'; 
+var Comment7 = 'ASEPTOGEL BOSNOM63 33*92*66'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=BOSTER73= 58*88'; 
+var Comment8 = '#MENARA4D=BOSTER73= 12*86'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=BOSREN64=02*09*60'; 
+var Comment9 = 'GILA4D=BOSREN64=12*86*68'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(BOSLON89)*67*98*05'; 
+var Comment10 = '#JNETOTO(BOSLON89)*33*92*66'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( BOSLEM64 ) : 78*46*77'; 
+var Comment11 = '#TOYIBSLOT ( BOSLEM64 ) : 11*20*38'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY BOSBIS48 71*96*75'; 
+var Comment12 = 'TOGELKUY BOSBIS48 58*88*38'; 
 
-var namagroup13 = 'TASIK';
-var Comment13 = '#TASIKTOTO(BOSLEM64) = 12*86'; 
+var namagroup13 = 'KOI';
+var Comment13 = '#KOITOTO ( BOSLEM64 ) 02*09'; 
 
 var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( BOSBEN64 ) : 33*92*66'; 
+var Comment14 = '# ( BOSBEN64 ) : 67*98*05'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (BOSBOS64) 11*20*83'; 
+var Comment15 = 'VESPATOGEL (BOSBOS64) 78*46*77'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (BOSBIG53) : 58*88*41'; 
+var Comment16 = 'NEMO4D (BOSBIG53) : 71*96*75'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (BOSBIS48) = 77*05';
+var Comment17 = '#KIKOTOTO (BOSBIS48) = 41*83';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'bosque2';
