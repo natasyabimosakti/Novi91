@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW KADUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.134
+// @version      3.135
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut2.js
@@ -19,55 +19,55 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*SRIWLIT62*12*86'; 
+var Comment1 = '#shiokelinci4d*SRIWLIT62*11*20'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO SRIWING72 71*96*75'; 
+var Comment2 = 'IYATOTO SRIWING72 33*92*66'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / SRIMIT64 / 78 , 46 , 77'; 
+var Comment3 = 'Tiktaktogel / SRIMIT64 / 12 , 86 , 68'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=SRIWET67=67*98*05'; 
+var Comment4 = 'GAIB4D=SRIWET67=71*96*75'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (SRIANU36) = 02*09*60'; 
+var Comment5 = '#keitogel = (SRIANU36) = 78*46*38'; 
 
 var namagroup6 = 'JOGJA';
-var Comment6 = '#POSOTOTO=SRIWIDURTI= 58*88'; 
+var Comment6 = '#JOGJATOTO (SRIWIDURTI)= 67-98'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL SRINDIM63 11*20*83'; 
+var Comment7 = 'ASEPTOGEL SRINDIM63 02*09*60'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=SRINDIM63= 33*92'; 
+var Comment8 = '#MENARA4D=SRINDIM63= 58*88'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=SRIWEL74=33*92*38'; 
+var Comment9 = 'GILA4D=SRIWEL74=02*09*60'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(SRIWING67)*11*20*38'; 
+var Comment10 = '#JNETOTO(SRIWING67)*67*98*05'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( SRIMBELEWEL ) : 58*88*41'; 
+var Comment11 = '#TOYIBSLOT ( SRIMBELEWEL ) : 78*46*77'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY SRISUWING 02*09*60'; 
+var Comment12 = 'TOGELKUY SRISUWING 71*96*75'; 
 
-var namagroup13 = 'TASIK';
-var Comment13 = '#TASIKTOTO(SRIMBELEWEL) = 67*98'; 
+var namagroup13 = 'KOI';
+var Comment13 = '#KOITOTO ( SRIMBELEWEL ) 12*86'; 
 
 var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( SRILAKCU ) : 78*46*77'; 
+var Comment14 = '# ( SRILAKCU ) : 33*92*66'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (SRILAKCU) 71*96*75'; 
+var Comment15 = 'VESPATOGEL (SRILAKCU) 11*20*83'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (BUNDER0) : 12*86*68'; 
+var Comment16 = 'NEMO4D (BUNDER0) : 58*88*41'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (SRIWING72) = 66*83';
+var Comment17 = '#KIKOTOTO (SRIWING72) = 77*05';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Kadut2';
