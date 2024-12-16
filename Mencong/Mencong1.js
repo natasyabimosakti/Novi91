@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG1
 // @namespace    http://tampermonkey.net/
-// @version      3.209
+// @version      3.210
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong1.js
@@ -18,55 +18,55 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*METALIKA41*14*57'; 
+var Comment1 = '#shiokelinci4d*METALIKA41*51*35'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO MENTARI17 65*56*99'; 
+var Comment2 = 'IYATOTO MENTARI17 36*80*62'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / MERANTAU41 / 47 , 54 , 99'; 
+var Comment3 = 'Tiktaktogel / MERANTAU41 / 37 , 15 , 50'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=MERATIH14=17*95*61'; 
+var Comment4 = 'GAIB4D=MERATIH14=14*57*42'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (MAKIMUNG31) = 55*90*06'; 
+var Comment5 = '#keitogel = (MAKIMUNG31) = 65*56*48'; 
 
 var namagroup6 = 'JOGJA';
-var Comment6 = '#POSOTOTO=MATIO50= 51*35'; 
+var Comment6 = '#JOGJATOTO (MATIO50)= 47-54'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL MAKDUNGDUNG 36*80*62'; 
+var Comment7 = 'ASEPTOGEL MAKDUNGDUNG 17*95*61'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=MACRONI52= 37*15'; 
+var Comment8 = '#MENARA4D=MACRONI52= 55*90'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=MEROJAYA51=14*57*42'; 
+var Comment9 = 'GILA4D=MEROJAYA51=55*90*06'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(MELAMUN44)*37*15*50'; 
+var Comment10 = '#JNETOTO(MELAMUN44)*17*95*61'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( MADUL45 ) : 36*80*62'; 
+var Comment11 = '#TOYIBSLOT ( MADUL45 ) : 47*54*49'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY MAKTUNG52 51*35*01'; 
+var Comment12 = 'TOGELKUY MAKTUNG52 65*56*48'; 
 
-var namagroup13 = 'TASIK';
-var Comment13 = '#TASIKTOTO(MADUL45) = 55*90'; 
+var namagroup13 = 'KOI';
+var Comment13 = '#KOITOTO ( MADUL45 ) 14*57'; 
 
 var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( MERAHKU75 ) : 17*95*61'; 
+var Comment14 = '# ( MERAHKU75 ) : 37*15*99'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (MERAHKU75) 47*54*49'; 
+var Comment15 = 'VESPATOGEL (MERAHKU75) 36*80*62'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (MERAHKU75) : 65*56*48'; 
+var Comment16 = 'NEMO4D (MERAHKU75) : 51*35*01'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (MERAHKU75) = 48*49';
+var Comment17 = '#KIKOTOTO (MERAHKU75) = 50*42';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Mencong1';
