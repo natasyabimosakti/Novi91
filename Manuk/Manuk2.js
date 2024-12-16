@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 2
 // @namespace    http://tampermonkey.net/
-// @version      3.116
+// @version      3.117
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk2.js
@@ -18,55 +18,55 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*ELANG187*78*46'; 
+var Comment1 = '#shiokelinci4d*ELANG187*33*92'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO ELANG33 67*98*05'; 
+var Comment2 = 'IYATOTO ELANG33 12*86*68'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / ELANG942 / 02 , 09 , 60'; 
+var Comment3 = 'Tiktaktogel / ELANG942 / 71 , 96 , 75'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=ELANG76=58*88*41'; 
+var Comment4 = 'GAIB4D=ELANG76=78*46*77'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (ELANG089) = 11*20*83'; 
+var Comment5 = '#keitogel = (ELANG089) = 67*98*05'; 
 
 var namagroup6 = 'JOGJA';
-var Comment6 = '#POSOTOTO=ELANG380= 33*92'; 
+var Comment6 = '#JOGJATOTO (ELANG380)= 02-09'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL ELANG94 12*86*68'; 
+var Comment7 = 'ASEPTOGEL ELANG94 58*88*38'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=ELANG51= 71*96'; 
+var Comment8 = '#MENARA4D=ELANG51= 11*20'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=ELANG94=71*96*75'; 
+var Comment9 = 'GILA4D=ELANG94=11*20*83'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(ELANG72)*12*86*68'; 
+var Comment10 = '#JNETOTO(ELANG72)*58*88*41'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( ELANGSH13 ) : 33*92*66'; 
+var Comment11 = '#TOYIBSLOT ( ELANGSH13 ) : 02*09*60'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY ELANGX3 11*20*83'; 
+var Comment12 = 'TOGELKUY ELANGX3 67*98*05'; 
 
-var namagroup13 = 'TASIK';
-var Comment13 = '#TASIKTOTO(ELANGSH13) = 58*88'; 
+var namagroup13 = 'KOI';
+var Comment13 = '#KOITOTO ( ELANGSH13 ) 78*46'; 
 
 var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( ELANG4739 ) : 02*09*38'; 
+var Comment14 = '# ( ELANG4739 ) : 71*96*75'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (ELANG72) 67*98*05'; 
+var Comment15 = 'VESPATOGEL (ELANG72) 12*86*68'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (ELANG18) : 78*46*77'; 
+var Comment16 = 'NEMO4D (ELANG18) : 33*92*66'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (ELANG942) = 60*41';
+var Comment17 = '#KIKOTOTO (ELANG942) = 41*83';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Manuk2';
