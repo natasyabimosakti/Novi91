@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE4
 // @namespace    http://tampermonkey.net/
-// @version      3.125
+// @version      3.126
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku4.js
@@ -18,55 +18,55 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*ZONEST2*19*03'; 
+var Comment1 = '#shiokelinci4d*ZONEST2*74*82'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO ZOROK73 25*16*85'; 
+var Comment2 = 'IYATOTO ZOROK73 91*93*23'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / ZOMBIE27 / 39 , 27 , 32'; 
+var Comment3 = 'Tiktaktogel / ZOMBIE27 / 08 , 87 , 53'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=ZORAN36=74*82*84'; 
+var Comment4 = 'GAIB4D=ZORAN36=94*89*29'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (ZONIAK63) = 91*93*43'; 
+var Comment5 = '#keitogel = (ZONIAK63) = 31*44*59'; 
 
 var namagroup6 = 'JOGJA';
-var Comment6 = '#POSOTOTO=ZOMING82= 08*87'; 
+var Comment6 = '#JOGJATOTO (ZOMING82)= 19-03'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL ZONATIK73 94*89*29'; 
+var Comment7 = 'ASEPTOGEL ZONATIK73 25*16*85'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=ZONATING= 31*44'; 
+var Comment8 = '#MENARA4D=ZONATING= 39*27'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=ZOWOK26=94*89*29'; 
+var Comment9 = 'GILA4D=ZOWOK26=39*27*32'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(ZOKET72)*08*87*53'; 
+var Comment10 = '#JNETOTO(ZOKET72)*25*16*85'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( ZOWINDO ) : 91*93*23'; 
+var Comment11 = '#TOYIBSLOT ( ZOWINDO ) : 19*03*43'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY ZOWEKNI82 74*82*84'; 
+var Comment12 = 'TOGELKUY ZOWEKNI82 31*44*43'; 
 
-var namagroup13 = 'TASIK';
-var Comment13 = '#TASIKTOTO(ZOWINDO) = 39*27'; 
+var namagroup13 = 'KOI';
+var Comment13 = '#KOITOTO ( ZOWINDO ) 94*89'; 
 
 var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( ZORLETA ) : 25*16*85'; 
+var Comment14 = '# ( ZORLETA ) : 08*87*53'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (ZONIAK26) 19*03*18'; 
+var Comment15 = 'VESPATOGEL (ZONIAK26) 91*93*23'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (ZONIAK63) : 31*44*59'; 
+var Comment16 = 'NEMO4D (ZONIAK63) : 74*82*84'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (ZOMING82) = 23*53';
+var Comment17 = '#KIKOTOTO (ZOMING82) = 59*18';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Bosku4';
