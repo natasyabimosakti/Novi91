@@ -37,7 +37,7 @@ var Comment6 = '#DIVA4D (SRIWIDURTI) = 95*42*36';
 var namagroup7 = 'RNR';
 var Comment7 = '#RNR303(SRITILKON) : 06*76*46'; 
 
-var namagroup8 = 'TOK99T0T0';
+var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( SRINDIM63 ) : 26*56*97'; 
 
 var namagroup9 = 'Wellz';
