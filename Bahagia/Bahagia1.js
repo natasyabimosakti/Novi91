@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia1
 // @namespace    http://tampermonkey.net/
-// @version      3.91
+// @version      3.92
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia1.js
@@ -35,7 +35,7 @@ var Comment6 = '#DIVA4D (AZKALAN) = 17*98*19';
 var namagroup7 = 'RNR';
 var Comment7 = '#RNR303(ASBHUN) : 34*44*76'; 
 
-var namagroup8 = 'TOK99T0T0';
+var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( ASKALIMAN ) : 48*18*72'; 
 
 var namagroup9 = 'Wellz';
