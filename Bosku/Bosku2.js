@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE2
 // @namespace    http://tampermonkey.net/
-// @version      3.124
+// @version      3.125
 // @version      3.NaN
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
@@ -77,8 +77,8 @@ var refresh = 50;
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa",
              "boleng","biru","bobby","bastian","bambang","bogard",
              "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista",
-             "david",",dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
-             "erwin","elvina",
+             "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
+             "erwin","elvina","evelyn",
              "fira","fahresa","findlay","fatimah",
              "gita","genzo",
              "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage",
@@ -97,7 +97,6 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "yanty","yoky","yohana","yura","yaya",
              "wulan","wok","wak",
              "zuko"];
-
 
 
 var keyword1 = "ROOM"
