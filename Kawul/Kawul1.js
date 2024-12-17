@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul1
 // @namespace    http://tampermonkey.net/
-// @version      3.118
+// @version      3.119
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
