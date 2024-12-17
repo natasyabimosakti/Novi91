@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG1
 // @namespace    http://tampermonkey.net/
-// @version      3.210
+// @version      3.211
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong1.js
@@ -78,8 +78,8 @@ var refresh = 50;
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa",
              "boleng","biru","bobby","bastian","bambang","bogard",
              "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista",
-             "david",",dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
-             "erwin","elvina",
+             "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
+             "erwin","elvina","evelyn",
              "fira","fahresa","findlay","fatimah",
              "gita","genzo",
              "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage",
