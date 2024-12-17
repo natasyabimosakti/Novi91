@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul3
 // @namespace    http://tampermonkey.net/
-// @version      3.119
+// @version      3.120
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul3.js
@@ -36,7 +36,7 @@ var Comment6 = '#DIVA4D (RISRAIMU) = 72*14*35';
 var namagroup7 = 'RNR';
 var Comment7 = '#RNR303(RISUWISUWI) : 87*22*02'; 
 
-var namagroup8 = 'TOK99T0T0';
+var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( RIROKKWE ) : 74*15*89'; 
 
 var namagroup9 = 'Wellz';
