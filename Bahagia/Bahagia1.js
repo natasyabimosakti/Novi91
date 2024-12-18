@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia1
 // @namespace    http://tampermonkey.net/
-// @version      3.94
+// @version      3.95
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia1.js
@@ -81,10 +81,10 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "erwin","emilia","evelyn",
              "fira","fahresa","fiana","fahmi",
              "gita",
-             "habib","hefi","hoihai","hana","hoki","hoi hai",
+             "habib","hefi","hoihai","hana","hoki",
              "icha","iyatoto","invest","ivanna","inisial","ishaura",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
-             "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla","komandan","kang",
+             "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla","komandan",
              "lianda","lusiana","lina","laura","lehman","leader","leon","lidya","langit",
              "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy",
@@ -95,6 +95,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "tink","tiktak","tiara","tatang","tania",
              "yanty","yoky","yohana","yii","vero","vaulian",
              "wulan","wok","widya"];
+
 
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
