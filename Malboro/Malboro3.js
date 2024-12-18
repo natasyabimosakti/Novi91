@@ -80,7 +80,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "erwin","elvina","evelyn",
              "fira","fahresa","findlay","fatimah",
              "gita","genzo",
-             "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage",
+             "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage","hoi hai",
              "icha","iyatoto","intan",
              "jordi","jaguar","jne","je pe","jess","junior","jovanka","jasmine",
              "kei","kumbara","kembar","kotna","karina","kopi",
