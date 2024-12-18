@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia1
 // @namespace    http://tampermonkey.net/
-// @version      3.93
+// @version      3.94
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia1.js
@@ -72,7 +72,7 @@ var namagroup18 = 'lajw';
 var Comment18 = 'asek';
 
 
-var refresh = 50;
+var refresh = 30;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","fania","ban nee","putri","anisa",
              "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin",
@@ -81,10 +81,10 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "erwin","emilia","evelyn",
              "fira","fahresa","fiana","fahmi",
              "gita",
-             "habib","hefi","hoihai","hana","hoki",
+             "habib","hefi","hoihai","hana","hoki","hoi hai",
              "icha","iyatoto","invest","ivanna","inisial","ishaura",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
-             "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla","komandan",
+             "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla","komandan","kang",
              "lianda","lusiana","lina","laura","lehman","leader","leon","lidya","langit",
              "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy",
@@ -442,7 +442,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 10)
+            currentGame = setInterval(game, 1)
         },
         stop() {
             clearInterval(currentGame)
