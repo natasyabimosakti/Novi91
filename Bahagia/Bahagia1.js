@@ -443,7 +443,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 1)
+            currentGame = setInterval(game, 10)
         },
         stop() {
             clearInterval(currentGame)
