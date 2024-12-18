@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.206
+// @version      3.207
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut3.js
@@ -73,7 +73,8 @@ var Comment18 = 'Manyut3';
 
 
 
-var refresh = 50;
+
+var refresh = 30;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa",
              "boleng","biru","bobby","bastian","bambang","bogard",
@@ -85,7 +86,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage","hoi hai",
              "icha","iyatoto","intan",
              "jordi","jaguar","jne","je pe","jess","junior","jovanka","jasmine",
-             "kei","kumbara","kembar","kotna","karina","kopi",
+             "kei","kumbara","kembar","kotna","karina","kopi","kang",
              "lianda","lusiana","lina","laura","lia",
              "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","meleqq","megaways","minion","melly","monicha","manu","maryam","mode",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nayla","naomi","nica",
@@ -445,7 +446,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 100)
+            currentGame = setInterval(game, 1)
         },
         stop() {
             clearInterval(currentGame)
