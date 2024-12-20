@@ -117,7 +117,7 @@ var Backlist3 = "hasil";
 var Backlist4 = "room lomba freebet";
 var Backlist5 = "prediksi";
 var Backlist6 = "result";
-var Backlist7 = "result";
+var Backlist7 = "totomacau";
 
 
 
