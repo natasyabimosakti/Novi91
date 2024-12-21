@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi2
 // @namespace    http://tampermonkey.net/
-// @version      3.139
+// @version      3.140
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci2.js
@@ -125,8 +125,12 @@ var Backlist7 = "totomacau";
 
 
 var jitter = 0
+var Cutter = 0
 var myrefresh = setInterval(function(){
     window.scroll(0,100)
+    if(Cutter == 1){
+            return;
+        }
     if(jitter == 1){
             return;
     }
@@ -487,14 +491,15 @@ game.stop()
 
             setTimeout(function(){location.href = "about:blank"},500)
         closer()
+        location.href = "about:blank"
 
-
+        Cutter=1
 
         /*Tekan TOMBOL SEND*/
     }
 }
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},1000)
+   location.href = "about:blank"
 
 
 }
