@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi3
 // @namespace    http://tampermonkey.net/
-// @version      3.135
+// @version      3.136
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci3.js
@@ -77,7 +77,7 @@ var namagroup18 = 'lajw';
 var Comment18 = 'asek';
 
 
-var refresh = 30;
+var refresh = 40;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","fania","ban nee","putri","anisa",
              "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin",
@@ -218,7 +218,13 @@ var myrefresh = setInterval(function(){
             if (document.readyState === "complete") {
                 for (var coki = 0; coki < waktupost.length; coki++) {
                     if(waktupost[coki].textContent.includes("Aktivitas")) {
-                        waktupost[coki].click()
+                        if(jitter == 1){
+                            return;
+                        }
+                        if(document.getElementsByClassName("prevent-scrolling")[0]){
+                            waktupost[coki].click()
+                        }
+
                     }
                 }
             }
@@ -233,6 +239,9 @@ function gameClosure() {
     function game() {
         console.log('The game is Start')
         if(jitter == 1){
+            return;
+        }
+        if(document.getElementsByClassName("prevent-scrolling")[0]){
             return;
         }
         console.log('The game is running')
@@ -481,7 +490,7 @@ function clicksend() {
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},100)
+    setTimeout(function(){location.href = "about:blank"},200)
 
 
 }
