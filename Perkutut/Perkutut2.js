@@ -70,7 +70,7 @@ var Comment16 = 'CITA4D*ELANG72*95*83*23';
 
 
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Kawul4';
+var Comment17 = 'Perkutut2';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
