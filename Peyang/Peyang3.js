@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang3
 // @namespace    http://tampermonkey.net/
-// @version      3.126
+// @version      3.127
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang3.js
@@ -474,9 +474,7 @@ var game = gameClosure()
 function clicksend() {
     game.stop()
     jitter = 1
-    if(document.getElementsByClassName("prevent-scrolling")[0]){
-        return;
-    }
+     
     /*Tampilkan TOMBOL SEND*/
     if(document.getElementsByClassName("textbox-submit-button")[0] && document.getElementsByClassName("multi-line-floating-textbox")[0].value.length >= 1){
         document.getElementsByClassName("textbox multi-line-floating-textbox")[0].dispatchEvent(
