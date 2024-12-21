@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul1
 // @namespace    http://tampermonkey.net/
-// @version      3.125
+// @version      3.126
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul1.js
@@ -461,7 +461,7 @@ function gameClosure() {
 var game = gameClosure()
 
 function clicksend() {
-
+game.stop()
     jitter = 1
     /*Tampilkan TOMBOL SEND*/
     if(document.getElementsByClassName("textbox-submit-button")[0] && document.getElementsByClassName("multi-line-floating-textbox")[0].value.length >= 1){
@@ -477,14 +477,18 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
-          closer()
+
+            setTimeout(function(){location.href = "about:blank"},500)
+        closer()
+
+
 
         /*Tekan TOMBOL SEND*/
     }
 }
-
 function closer() {
     setTimeout(function(){location.href = "about:blank"},1000)
 
 
 }
+
