@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE2
 // @namespace    http://tampermonkey.net/
-// @version      3.132
+// @version      3.133
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @author       You
@@ -484,19 +484,15 @@ function clicksend() {
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
         Cutter =1
-        location.href = "about:blank"
+
 
         setTimeout(function(){location.href = "about:blank"},500)
-        closer()
+        setTimeout(function(){location.href = "about:blank"},1000)
+
 
 
 
 
         /*Tekan TOMBOL SEND*/
     }
-}
-function closer() {
-    location.href = "about:blank"
-
-
 }
