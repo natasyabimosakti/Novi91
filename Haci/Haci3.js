@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi3
 // @namespace    http://tampermonkey.net/
-// @version      3.138
+// @version      3.139
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci3.js
@@ -129,6 +129,9 @@ var Backlist7 = "totomacau";
 var jitter = 0
 var myrefresh = setInterval(function(){
     window.scroll(0,100)
+    if(jitter == 1){
+            return;
+    }
 
     for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
         if (document.querySelectorAll('[data-tracking-duration-id')[ntv]){
@@ -497,4 +500,3 @@ function closer() {
 
 
 }
-
