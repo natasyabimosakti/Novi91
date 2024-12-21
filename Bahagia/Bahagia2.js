@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia2
 // @namespace    http://tampermonkey.net/
-// @version      3.99
+// @version      3.100
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia2.js
@@ -133,6 +133,9 @@ var Backlist7 = "totomacau";
 var jitter = 0
 var myrefresh = setInterval(function(){
     window.scroll(0,100)
+    if(jitter == 1){
+            return;
+    }
 
     for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
         if (document.querySelectorAll('[data-tracking-duration-id')[ntv]){
