@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia4
 // @namespace    http://tampermonkey.net/
-// @version      3.97
+// @version      3.98
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia4.js
@@ -453,7 +453,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 10)
+            currentGame = setInterval(game, 50)
         },
         stop() {
             clearInterval(currentGame)
@@ -480,13 +480,13 @@ function clicksend() {
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
           closer()
-        location.href = "about:blank"
+
         /*Tekan TOMBOL SEND*/
     }
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},200)
+    setTimeout(function(){location.href = "about:blank"},1000)
 
 
 }
