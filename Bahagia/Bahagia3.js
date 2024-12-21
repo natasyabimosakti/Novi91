@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia3
 // @namespace    http://tampermonkey.net/
-// @version      3.97
+// @version      3.98
 // @description  dunia
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
@@ -449,7 +449,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 10)
+            currentGame = setInterval(game, 50)
         },
         stop() {
             clearInterval(currentGame)
@@ -476,13 +476,13 @@ function clicksend() {
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
           closer()
-        location.href = "about:blank"
+
         /*Tekan TOMBOL SEND*/
     }
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},200)
+    setTimeout(function(){location.href = "about:blank"},1000)
 
 
 }
