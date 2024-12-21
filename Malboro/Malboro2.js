@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 2
 // @namespace    http://tampermonkey.net/
-// @version      3.117
+// @version      3.118
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
@@ -73,7 +73,7 @@ var Comment18 = 'Malboro2';
 
 
 
-var refresh = 30;
+var refresh = 40;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa",
              "boleng","biru","bobby","bastian","bambang","bogard",
@@ -86,7 +86,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "icha","iyatoto","intan",
              "jordi","jaguar","jne","je pe","jess","junior","jovanka","jasmine",
              "kei","kumbara","kembar","kotna","karina","kopi","kang",
-             "lianda","lusiana","lina","laura","lia",
+             "lianda","lusiana","lina","laura","lia","lollo",
              "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","meleqq","megaways","minion","melly","monicha","manu","maryam","mode",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nayla","naomi","nica",
              "oscar","ozawa",
@@ -230,6 +230,9 @@ function gameClosure() {
     function game() {
         console.log('The game is Start')
         if(jitter == 1){
+            return;
+        }
+        if(document.getElementsByClassName("prevent-scrolling")[0]){
             return;
         }
         console.log('The game is running')
@@ -445,7 +448,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 10)
+            currentGame = setInterval(game, 50)
         },
         stop() {
             clearInterval(currentGame)
@@ -471,13 +474,13 @@ function clicksend() {
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
           closer()
-        location.href = "about:blank"
+
         /*Tekan TOMBOL SEND*/
     }
 }
 
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},100)
+    setTimeout(function(){location.href = "about:blank"},1000)
 
 
 }
