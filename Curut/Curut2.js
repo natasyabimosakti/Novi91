@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.129
+// @version      3.130
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
@@ -123,8 +123,15 @@ var Backlist7 = "commen";
 
 
 var jitter = 0
+var Cutter = 0
 var myrefresh = setInterval(function(){
     window.scroll(0,100)
+    if(Cutter == 1){
+        location.href = "about:blank"
+    }
+    if(jitter == 1){
+        return;
+    }
 
     for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
         if (document.querySelectorAll('[data-tracking-duration-id')[ntv]){
@@ -214,7 +221,13 @@ var myrefresh = setInterval(function(){
             if (document.readyState === "complete") {
                 for (var coki = 0; coki < waktupost.length; coki++) {
                     if(waktupost[coki].textContent.includes("Aktivitas")) {
-                        waktupost[coki].click()
+                        if(jitter == 1){
+                            return;
+                        }
+                        if(document.getElementsByClassName("prevent-scrolling")[0]){
+                            waktupost[coki].click()
+                        }
+
                     }
                 }
             }
@@ -229,9 +242,6 @@ function gameClosure() {
     function game() {
         console.log('The game is Start')
         if(jitter == 1){
-            return;
-        }
-        if(document.getElementsByClassName("prevent-scrolling")[0]){
             return;
         }
         console.log('The game is running')
@@ -455,9 +465,11 @@ function gameClosure() {
     }
 }
 var game = gameClosure()
-function clicksend() {
 
+function clicksend() {
+    game.stop()
     jitter = 1
+
     /*Tampilkan TOMBOL SEND*/
     if(document.getElementsByClassName("textbox-submit-button")[0] && document.getElementsByClassName("multi-line-floating-textbox")[0].value.length >= 1){
         document.getElementsByClassName("textbox multi-line-floating-textbox")[0].dispatchEvent(
@@ -472,14 +484,20 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
-          closer()
+        Cutter =1
+        location.href = "about:blank"
+
+        setTimeout(function(){location.href = "about:blank"},500)
+        closer()
+
+
+
 
         /*Tekan TOMBOL SEND*/
     }
 }
-
 function closer() {
-    setTimeout(function(){location.href = "about:blank"},1000)
+    location.href = "about:blank"
 
 
 }
