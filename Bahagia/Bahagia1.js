@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia1
 // @namespace    http://tampermonkey.net/
-// @version      3.101
+// @version      3.102
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia1.js
@@ -72,7 +72,6 @@ var namagroup18 = 'lajw';
 var Comment18 = 'asek';
 
 
-
 var refresh = 40;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","fania","ban nee","putri","anisa",
@@ -127,10 +126,10 @@ var Cutter = 0
 var myrefresh = setInterval(function(){
     window.scroll(0,100)
     if(Cutter == 1){
-            return;
-        }
+        location.href = "about:blank"
+    }
     if(jitter == 1){
-            return;
+        return;
     }
 
     for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
@@ -242,9 +241,6 @@ function gameClosure() {
     function game() {
         console.log('The game is Start')
         if(jitter == 1){
-            return;
-        }
-        if(document.getElementsByClassName("prevent-scrolling")[0]){
             return;
         }
         console.log('The game is running')
@@ -470,8 +466,11 @@ function gameClosure() {
 var game = gameClosure()
 
 function clicksend() {
-game.stop()
+    game.stop()
     jitter = 1
+    if(document.getElementsByClassName("prevent-scrolling")[0]){
+        return;
+    }
     /*Tampilkan TOMBOL SEND*/
     if(document.getElementsByClassName("textbox-submit-button")[0] && document.getElementsByClassName("multi-line-floating-textbox")[0].value.length >= 1){
         document.getElementsByClassName("textbox multi-line-floating-textbox")[0].dispatchEvent(
@@ -486,18 +485,20 @@ game.stop()
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
-
-            setTimeout(function(){location.href = "about:blank"},500)
-        closer()
+        Cutter==1
         location.href = "about:blank"
 
-        Cutter=1
+        setTimeout(function(){location.href = "about:blank"},500)
+        closer()
+
+
+
 
         /*Tekan TOMBOL SEND*/
     }
 }
 function closer() {
-   location.href = "about:blank"
+    location.href = "about:blank"
 
 
 }
