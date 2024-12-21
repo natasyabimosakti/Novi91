@@ -72,6 +72,7 @@ var namagroup18 = 'lajw';
 var Comment18 = 'asek';
 
 
+
 var refresh = 40;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","fania","ban nee","putri","anisa",
@@ -490,7 +491,7 @@ game.stop()
         closer()
         location.href = "about:blank"
 
-        Cutter==1
+        Cutter=1
 
         /*Tekan TOMBOL SEND*/
     }
