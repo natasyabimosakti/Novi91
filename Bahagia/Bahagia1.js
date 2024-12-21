@@ -479,11 +479,16 @@ game.stop()
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
 
-            setTimeout(function(){location.href = "about:blank"},1000)
-
+            setTimeout(function(){location.href = "about:blank"},500)
+        closer()
 
 
 
         /*Tekan TOMBOL SEND*/
     }
+}
+function closer() {
+    setTimeout(function(){location.href = "about:blank"},1000)
+
+
 }
