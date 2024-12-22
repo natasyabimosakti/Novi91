@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut4
 // @namespace    http://tampermonkey.net/
-// @version      3.143
+// @version      3.144
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut4.js
@@ -15,60 +15,59 @@
 // ==/UserScript==
 
 
-
 var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (PLECIKUS1) 49*12*08'; 
+var Comment1 = '#LICIN4D (PLECIKUS1) 63*73*41'; 
 
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( PLECIKAWAT ) : 53*38*79'; 
+var Comment2 = 'K86TOTO ( PLECIKAWAT ) : 86*07*43'; 
 
 var namagroup3 = 'PUSAT LOMBA';
-var Comment3 = 'Shiotogel4d (PLECUAN) 07*97*57'; 
+var Comment3 = 'Shiotogel4d (PLECUAN) 90*44*55'; 
 
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO PLECICIAK = 51*09*20'; 
+var Comment4 = '#RIATOTO PLECICIAK = 19*00*05'; 
 
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (PLECIKICIK*69*10*89)'; 
+var Comment5 = '#PEDRO4D (PLECIKICIK*25*46*72)'; 
 
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (PLECIAHAH) = 84*94*15'; 
+var Comment6 = '#DIVA4D (PLECIAHAH) = 15*51*49'; 
 
 var namagroup7 = 'RNR';
-var Comment7 = '#RNR303(PLECIKICIK) : 04*11*13'; 
+var Comment7 = '#RNR303(PLECIKICIK) : 93*99*54'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
-var Comment8 = 'Tok99Toto ( PLECIKLUK ) : 91*85*64'; 
+var Comment8 = 'Tok99Toto ( PLECIKLUK ) : 98*64*12'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL PLECIKICIK 91*85*64'; 
+var Comment9 = 'SIJITOGEL PLECIKICIK 19*00*05'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (PLECIKAN) 53*44'; 
+var Comment10 = 'LING77 (PLECIKAN) 25*46'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*PLECISAN*51*09*20'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*PLECISAN*51*49*13'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'PLECIANS : 07*57*97 #BESTOTO88'; 
+var Comment12 = 'PLECIANS : 93*99*54 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=PLECIKI21=49*12*08'; 
+var Comment13 = 'GOHTOGEL=PLECIKI21=63*73*41'; 
 
 var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (PLECIAHAH)=69_10'; 
+var Comment14 = '#TARUNGTOTO (PLECIAHAH)=86_07'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'PLECICILAN : 84*94*15 #HOHOTOGEL'; 
+var Comment15 = 'PLECICILAN : 98*64*12 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*PLECIKAWAT*04*11*13';
+var Comment16 = 'CITA4D*PLECIKAWAT*15*90*44'; 
 
 
 
 
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Perkutut4';
+var Comment17 = 'Baru Perkutut 4';
 
 
 var namagroup18 = 'lajw';
