@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia4
 // @namespace    http://tampermonkey.net/
-// @version      3.104
+// @version      3.105
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia4.js
@@ -15,52 +15,53 @@
 // ==/UserScript==
 
 var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (DUDUKGO81) 47*60*21'; 
+var Comment1 = '#LICIN4D (DUDUKGO81) 85*67*18'; 
 
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( DUINIATOTO23 ) : 66*02*94'; 
+var Comment2 = 'K86TOTO ( DUINIATOTO23 ) : 47*12*94'; 
 
 var namagroup3 = 'PUSAT LOMBA';
-var Comment3 = 'Shiotogel4d (DUDUKGO81) 16*67*30'; 
+var Comment3 = 'Shiotogel4d (DUDUKGO81) 37*00*70'; 
 
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO DINDAMANIS12 = 27*10*53'; 
+var Comment4 = '#RIATOTO DINDAMANIS12 = 73*54*51'; 
 
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (DJASKA13*09*24*96)'; 
+var Comment5 = '#PEDRO4D (DJASKA13*25*03*91)'; 
 
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (DICIAKKUCING) = 23*49*20'; 
+var Comment6 = '#DIVA4D (DICIAKKUCING) = 04*84*96'; 
 
 var namagroup7 = 'RNR';
-var Comment7 = '#RNR303(DIKENTUKADAL) : 86*33*22'; 
+var Comment7 = '#RNR303(DIKENTUKADAL) : 24*79*08'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
-var Comment8 = 'Tok99Toto ( DINDAMANIS13 ) : 77*85*37'; 
+var Comment8 = 'Tok99Toto ( DINDAMANIS13 ) : 69*41*62'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL DIANCOK13 09*24*96'; 
+var Comment9 = 'SIJITOGEL DIANCOK13 37*00*70'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (DINDAKUCING) 23*49'; 
+var Comment10 = 'LING77 (DINDAKUCING) 73*54'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*DUDUKGO81*86*33*22'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*DUDUKGO81*24*79*08'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'DIANUMAMI12 : 99*85*37 #BESTOTO88'; 
+var Comment12 = 'DIANUMAMI12 : 04*84*96 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=DJASKAL12=47*60*21'; 
+var Comment13 = 'GOHTOGEL=DJASKAL12=85*67*18'; 
 
 var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (DINDAKUCING)=66_02'; 
+var Comment14 = '#TARUNGTOTO (DINDAKUCING)=01_41'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'DIANUMAMI12 : 16*67*30 #HOHOTOGEL'; 
+var Comment15 = 'DIANUMAMI12 : 25*03*91 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*DIKENTUKADAL*27*10*53';
+var Comment16 = 'CITA4D*DIKENTUKADAL*47*12*94'; 
+
 
 
 
