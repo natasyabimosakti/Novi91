@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang1
 // @namespace    http://tampermonkey.net/
-// @version      3.126
+// @version      3.127
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang1.js
@@ -15,61 +15,59 @@
 // ==/UserScript==
 
 
-var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (MERAHKU75) 59*47*96'; 
+"var namagroup1 = 'LICIN';
+var Comment1 = '#LICIN4D (MERAHKU75) 59*95*87'; 
 
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( MENTARI17 ) : 39*15*71'; 
+var Comment2 = 'K86TOTO ( MENTARI17 ) : 18*28*38'; 
 
 var namagroup3 = 'PUSAT LOMBA';
-var Comment3 = 'Shiotogel4d (MERANTAU41) 22*57*94'; 
+var Comment3 = 'Shiotogel4d (MERANTAU41) 13*36*58'; 
 
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO MERATIH14 = 81*49*72'; 
+var Comment4 = '#RIATOTO MERATIH14 = 42*76*16'; 
 
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (MASAK741*20*44*38)'; 
+var Comment5 = '#PEDRO4D (MASAK741*71*48*25)'; 
 
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (MATIO50) = 06*09*45'; 
+var Comment6 = '#DIVA4D (MATIO50) = 92*84*39'; 
 
 var namagroup7 = 'RNR';
-var Comment7 = '#RNR303(MASAK741) : 99*24*92'; 
+var Comment7 = '#RNR303(MASAK741) : 72*45*27'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
-var Comment8 = 'Tok99Toto ( MACRONI52 ) : 11*95*66'; 
+var Comment8 = 'Tok99Toto ( MACRONI52 ) : 42*76*00'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL MEROJAYA51 06*09*45'; 
+var Comment9 = 'SIJITOGEL MEROJAYA51 03*40*64'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (MELAMUN44) 99*24'; 
+var Comment10 = 'LING77 (MELAMUN44) 71*48'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*MAUEWEK5X*39*15*71'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*MAUEWEK5X*39*84*92'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'MAKTUNG52 : 11*95*66 #BESTOTO88'; 
+var Comment12 = 'MAKTUNG52 : 59*95*87 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=MADUL45=59*47*96'; 
+var Comment13 = 'GOHTOGEL=MADUL45=72*45*27'; 
 
 var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (MERAHKU75)=22_57'; 
+var Comment14 = '#TARUNGTOTO (MERAHKU75)=03_40'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'MAKDUNGDUNG : 81*49*72 #HOHOTOGEL'; 
+var Comment15 = 'MAKDUNGDUNG : 18*28*38 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*MERANTAU41*20*44*38';
-
-
+var Comment16 = 'CITA4D*MERANTAU41*13*36*58'; 
 
 
 
 
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Peyang1';
+var Comment17 = 'Baru Peyang 1';
 
 
 var namagroup18 = 'lajw';
