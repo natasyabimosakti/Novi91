@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi1
 // @namespace    http://tampermonkey.net/
-// @version      3.143
+// @version      3.144
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci1.js
@@ -18,52 +18,52 @@
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (GUNGSNIPE) 59*95*87'; 
+var Comment1 = '#LICIN4D (GUNGSNIPE) 59*47*96'; 
 
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( GUNGHOK4 ) : 18*28*38'; 
+var Comment2 = 'K86TOTO ( GUNGHOK4 ) : 39*15*71'; 
 
 var namagroup3 = 'PUSAT LOMBA';
-var Comment3 = 'Shiotogel4d (GUNGCUAKZ) 13*36*58'; 
+var Comment3 = 'Shiotogel4d (GUNGCUAKZ) 22*57*94'; 
 
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO GUNGKALIGUNG = 42*76*16'; 
+var Comment4 = '#RIATOTO GUNGKALIGUNG = 81*49*72'; 
 
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (GUNGBUTZ*71*48*25)'; 
+var Comment5 = '#PEDRO4D (GUNGBUTZ*20*44*38)'; 
 
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (GUNGCEL) = 92*84*39'; 
+var Comment6 = '#DIVA4D (GUNGCEL) = 06*09*45'; 
 
 var namagroup7 = 'RNR';
-var Comment7 = '#RNR303(GUNGBUTZ) : 72*45*27'; 
+var Comment7 = '#RNR303(GUNGBUTZ) : 99*24*92'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
-var Comment8 = 'Tok99Toto ( GUNGYUDZ ) : 42*76*00'; 
+var Comment8 = 'Tok99Toto ( GUNGYUDZ ) : 11*95*66'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL GUNGBUTZ 03*40*64'; 
+var Comment9 = 'SIJITOGEL GUNGBUTZ 06*09*45'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (GUNGPOKE) 71*48'; 
+var Comment10 = 'LING77 (GUNGPOKE) 99*24'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*GUNGDUSS*39*84*92'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*GUNGDUSS*39*15*71'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'GUNGFREE : 59*95*87 #BESTOTO88'; 
+var Comment12 = 'GUNGFREE : 11*95*66 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=GUNGYIBS=72*45*27'; 
+var Comment13 = 'GOHTOGEL=GUNGYIBS=59*47*96'; 
 
 var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (GUNGSIPP)=03_40'; 
+var Comment14 = '#TARUNGTOTO (GUNGSIPP)=22_57'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'GUNGKLIKK : 18*28*38 #HOHOTOGEL'; 
+var Comment15 = 'GUNGKLIKK : 81*49*72 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*GUNGHJ6*13*36*58';
+var Comment16 = 'CITA4D*GUNGHJ6*20*44*38';
 
 
 
@@ -71,7 +71,7 @@ var Comment16 = 'CITA4D*GUNGHJ6*13*36*58';
 
 
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Haci1';
+var Comment17 = 'Lama HCI 1';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
