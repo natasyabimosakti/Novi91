@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut2
 // @namespace    http://tampermonkey.net/
-// @version      3.143
+// @version      3.144
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut2.js
@@ -16,53 +16,52 @@
 
 
 var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (ELANG72) 78*26*42'; 
+var Comment1 = '#LICIN4D (ELANG72) 95*91*52'; 
 
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( ELANG3 ) : 34*70*45'; 
+var Comment2 = 'K86TOTO ( ELANG3 ) : 68*62*77'; 
 
 var namagroup3 = 'PUSAT LOMBA';
-var Comment3 = 'Shiotogel4d (ELANG94) 60*76*40'; 
+var Comment3 = 'Shiotogel4d (ELANG94) 58*69*84'; 
 
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO ELANG76 = 14*31*28'; 
+var Comment4 = '#RIATOTO ELANG76 = 20*48*22'; 
 
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (ELANG089*77*86*61)'; 
+var Comment5 = '#PEDRO4D (ELANG089*57*10*42)'; 
 
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (ELANG38) = 50*03*30'; 
+var Comment6 = '#DIVA4D (ELANG38) = 32*79*31'; 
 
 var namagroup7 = 'RNR';
-var Comment7 = '#RNR303(ELANG089) : 95*83*23'; 
+var Comment7 = '#RNR303(ELANG089) : 17*76*78'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
-var Comment8 = 'Tok99Toto ( ELANG51 ) : 93*43*58'; 
+var Comment8 = 'Tok99Toto ( ELANG51 ) : 27*09*87'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL ELANG089 93*43*58'; 
+var Comment9 = 'SIJITOGEL ELANG089 20*48*22'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (ELANG72) 34*70'; 
+var Comment10 = 'LING77 (ELANG72) 57*10'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*ELANGY33*14*31*28'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*ELANGY33*79*31*11'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'ELANGX3 : 40*60*76 #BESTOTO88'; 
+var Comment12 = 'ELANGX3 : 17*76*78 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=ELANGSH=78*26*42'; 
+var Comment13 = 'GOHTOGEL=ELANGSH=95*91*52'; 
 
 var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (ELANG38)=77_86'; 
+var Comment14 = '#TARUNGTOTO (ELANG38)=68_62'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'ELANG94 : 50*03*30 #HOHOTOGEL'; 
+var Comment15 = 'ELANG94 : 27*09*87 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*ELANG72*95*83*23';
-
+var Comment16 = 'CITA4D*ELANG72*32*58*69'; 
 
 
 
@@ -70,7 +69,7 @@ var Comment16 = 'CITA4D*ELANG72*95*83*23';
 
 
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Perkutut2';
+var Comment17 = 'Baru Perkutut 2';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
