@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul2
 // @namespace    http://tampermonkey.net/
-// @version      3.131
+// @version      3.132
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul2.js
@@ -17,58 +17,58 @@
 
 
 var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (SRILAKCU) 88*82*99'; 
+var Comment1 = '#LICIN4D (SRILAKCU) 75*50*73'; 
 
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( SRIWING72 ) : 29*33*32'; 
+var Comment2 = 'K86TOTO ( SRIWING72 ) : 52*35*54'; 
 
 var namagroup3 = 'PUSAT LOMBA';
-var Comment3 = 'Shiotogel4d (SRIMIT64) 09*38*66'; 
+var Comment3 = 'Shiotogel4d (SRIMIT64) 28*42*13'; 
 
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO SRIWET67 = 05*83*55'; 
+var Comment4 = '#RIATOTO SRIWET67 = 15*92*39'; 
 
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (SRITILKON*61*30*93)'; 
+var Comment5 = '#PEDRO4D (SRITILKON*46*91*61)'; 
 
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (SRIWIDURTI) = 95*42*36'; 
+var Comment6 = '#DIVA4D (SRIWIDURTI) = 69*43*93'; 
 
 var namagroup7 = 'RNR';
-var Comment7 = '#RNR303(SRITILKON) : 06*76*46'; 
+var Comment7 = '#RNR303(SRITILKON) : 74*62*57'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
-var Comment8 = 'Tok99Toto ( SRINDIM63 ) : 26*56*97'; 
+var Comment8 = 'Tok99Toto ( SRINDIM63 ) : 78*12*05'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL SRIWEL74 09*38*58'; 
+var Comment9 = 'SIJITOGEL SRIWEL74 46*91*61'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (SRIWING67) 05*83'; 
+var Comment10 = 'LING77 (SRIWING67) 69*43'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*SRIANU36*06*76*46'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*SRIANU36*74*62*57'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'SRISUWING : 95*42*36 #BESTOTO88'; 
+var Comment12 = 'SRISUWING : 78*12*05 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=SRIMBELEWEL=88*99*82'; 
+var Comment13 = 'GOHTOGEL=SRIMBELEWEL=75*50*73'; 
 
 var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (SRILAKCU)=26_56'; 
+var Comment14 = '#TARUNGTOTO (SRILAKCU)=52_35'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'SRINDIM63 : 61*30*93 #HOHOTOGEL'; 
+var Comment15 = 'SRINDIM63 : 28*42*13 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*SRIWING72*29*33*32';
+var Comment16 = 'CITA4D*SRIWING72*15*92*39'; 
 
 
 
 
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Kawul2';
+var Comment17 = 'Baru Kawul 2';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
