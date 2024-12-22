@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi4
 // @namespace    http://tampermonkey.net/
-// @version      3.143
+// @version      3.144
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci4.js
@@ -17,52 +17,52 @@
 
 
 var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (YAELAH82) 86*66*46'; 
+var Comment1 = '#LICIN4D (YAELAH82) 65*98*00'; 
 
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( YAKUZA16 ) : 26*54*34'; 
+var Comment2 = 'K86TOTO ( YAKUZA16 ) : 67*40*01'; 
 
 var namagroup3 = 'PUSAT LOMBA';
-var Comment3 = 'Shiotogel4d (YASALAM64) 09*97*29'; 
+var Comment3 = 'Shiotogel4d (YASALAM64) 32*37*23'; 
 
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO YAPIYEYA = 07*55*80'; 
+var Comment4 = '#RIATOTO YAPIYEYA = 79*21*03'; 
 
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (YAAJAH19*10*63*68)'; 
+var Comment5 = '#PEDRO4D (YAAJAH19*52*93*35)'; 
 
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (YANIRI03) = 49*23*93'; 
+var Comment6 = '#DIVA4D (YANIRI03) = 14*70*29'; 
 
 var namagroup7 = 'RNR';
-var Comment7 = '#RNR303(YAAJAH19) : 99*47*02'; 
+var Comment7 = '#RNR303(YAAJAH19) : 48*33*34'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
-var Comment8 = 'Tok99Toto ( YADIANI77 ) : 07*44*80'; 
+var Comment8 = 'Tok99Toto ( YADIANI77 ) : 54*10*83'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL YAAJAH19 65*94*62'; 
+var Comment9 = 'SIJITOGEL YAAJAH19 14*70*29'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (YAHWEH00) 10*63'; 
+var Comment10 = 'LING77 (YAHWEH00) 48*33'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*YANURIO47*23*49*93'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*YANURIO47*67*40*01'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'YANCOKSU : 86*66*46 #BESTOTO88'; 
+var Comment12 = 'YANCOKSU : 54*77*83 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=YAMIENAPI=99*47*02'; 
+var Comment13 = 'GOHTOGEL=YAMIENAPI=65*98*00'; 
 
 var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (YARUWET)=65_94'; 
+var Comment14 = '#TARUNGTOTO (YARUWET)=32_37'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'YANNCOK84 : 26*54*34 #HOHOTOGEL'; 
+var Comment15 = 'YANNCOK84 : 79*21*03 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*YANIRI03*09*97*29';
+var Comment16 = 'CITA4D*YANIRI03*52*93*35'; 
 
 
 
@@ -71,7 +71,7 @@ var Comment16 = 'CITA4D*YANIRI03*09*97*29';
 
 
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Haci4';
+var Comment17 = 'Baru HAC 4';
 
 
 var namagroup18 = 'lajw';
