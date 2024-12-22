@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 2
 // @namespace    http://tampermonkey.net/
-// @version      3.120
+// @version      3.121
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
@@ -17,58 +17,58 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*BOTAX35*12*86'; 
+var Comment1 = '#shiokelinci4d*BOTAX35*67*98'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO BONCEL58 71*96*75'; 
+var Comment2 = 'IYATOTO BONCEL58 02*09*60'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / BIJILO458 / 78 , 46 , 77'; 
+var Comment3 = 'Tiktaktogel / BIJILO458 / 58 , 88 , 41'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=BOLANGBALING=67*98*05'; 
+var Comment4 = 'GAIB4D=BOLANGBALING=11*20*83'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (BOTOLO3) = 02*09*60'; 
+var Comment5 = '#keitogel = (BOTOLO3) = 33*92*66'; 
 
 var namagroup6 = 'JOGJA';
-var Comment6 = '#JOGJATOTO (BONCOSO23)= 58-88'; 
+var Comment6 = '#JOGJATOTO (BONCOSO23)= 12-86'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL BOGEL438 11*20*83'; 
+var Comment7 = 'ASEPTOGEL BOGEL438 71*96*75'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=BERAK28= 33*92'; 
+var Comment8 = '#MENARA4D=BERAK28= 78*46'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=BAJUKU34=33*92*38'; 
+var Comment9 = 'GILA4D=BAJUKU34=51*35*01'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(BANANA12)*11*20*38'; 
+var Comment10 = '#JNETOTO(BANANA12)*55*90*06'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( BACOTX ) : 58*88*41'; 
+var Comment11 = '#TOYIBSLOT ( BACOTX ) : 17*95*61'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY BANTAISAJA 02*09*60'; 
+var Comment12 = 'TOGELKUY BANTAISAJA 47*54*49'; 
 
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( BACOTX ) 67*98'; 
+var Comment13 = '#KOITOTO ( BACOTX ) 65*56'; 
 
 var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( BAKEKLO ) : 78*46*77'; 
+var Comment14 = '# ( BAKEKLO ) : 14*57*42'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (BAKULAN12) 71*96*75'; 
+var Comment15 = 'VESPATOGEL (BAKULAN12) 37*15*99'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (BOTAX35) : 12*86*68'; 
+var Comment16 = 'NEMO4D (BOTAX35) : 36*80*99'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (BONCEL58) = 66*83';
+var Comment17 = '#KIKOTOTO (BONCEL58) = 62*50';
 
 var namagroup18 = 'Jawatengah';
-var Comment18 = 'Malboro2';
+var Comment18 = 'Group Malb 2';
 
 
 
