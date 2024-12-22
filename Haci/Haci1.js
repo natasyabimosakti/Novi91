@@ -71,7 +71,7 @@ var Comment16 = 'CITA4D*GUNGHJ6*20*44*38';
 
 
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Lama HCI 1';
+var Comment17 = 'Baru HCI 1';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
