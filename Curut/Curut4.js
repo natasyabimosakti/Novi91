@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.131
+// @version      3.132
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
@@ -17,58 +17,58 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*DEKKLUWER*37*13'; 
+var Comment1 = '#shiokelinci4d*DEKKLUWER*74*82'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO DELEKEK 93*62*42'; 
+var Comment2 = 'IYATOTO DELEKEK 91*93*23'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / DOLUNDRO / 21 , 73 , 87'; 
+var Comment3 = 'Tiktaktogel / DOLUNDRO / 08 , 87 , 53'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=DEMPURUK=34*76*24'; 
+var Comment4 = 'GAIB4D=DEMPURUK=94*89*29'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (DELELENG) = 06*28*27'; 
+var Comment5 = '#keitogel = (DELELENG) = 31*44*59'; 
 
 var namagroup6 = 'JOGJA';
-var Comment6 = '#JOGJATOTO (DINGLENG)= 16-81'; 
+var Comment6 = '#JOGJATOTO (DINGLENG)= 19-03'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL DELETET12 90*79*09'; 
+var Comment7 = 'ASEPTOGEL DELETET12 25*16*85'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=DUKUSAPU12= 15*98'; 
+var Comment8 = '#MENARA4D=DUKUSAPU12= 39*27'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=DUKUEMPEK10=16*81*71'; 
+var Comment9 = 'GILA4D=DUKUEMPEK10=39*27*32'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(DUKANGBATU)*06*28*27'; 
+var Comment10 = '#JNETOTO(DUKANGBATU)*25*16*85'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( DUODANCOK ) : 34*76*24'; 
+var Comment11 = '#TOYIBSLOT ( DUODANCOK ) : 19*03*43'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY DULELOT11 21*73*87'; 
+var Comment12 = 'TOGELKUY DULELOT11 31*44*43'; 
 
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( DODANCOK ) 93*62'; 
+var Comment13 = '#KOITOTO ( DODANCOK ) 94*89'; 
 
 var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( DUMPLEKAH ) : 90*79*63'; 
+var Comment14 = '# ( DUMPLEKAH ) : 08*87*53'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (DUKULENG12) 15*98*86'; 
+var Comment15 = 'VESPATOGEL (DUKULENG12) 91*93*23'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (DIKANGBATU) : 37*13*02'; 
+var Comment16 = 'NEMO4D (DIKANGBATU) : 74*82*84'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (DURUSU71) = 09*42';
+var Comment17 = '#KIKOTOTO (DURUSU71) = 59*18';
 
 var namagroup18 = 'Jawatengah';
-var Comment18 = 'Curut4';
+var Comment18 = 'Group Cur 4';
 
 
 
