@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim1
 // @namespace    http://tampermonkey.net/
-// @version      3.119
+// @version      3.120
 // @description  try to take over the world!
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim1.js
 // @author       You
@@ -15,58 +15,58 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*GUNGJI1*88*75'; 
+var Comment1 = '#shiokelinci4d*GUNGJI1*29*74'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO GUNGHOK4 17*84*50'; 
+var Comment2 = 'IYATOTO GUNGHOK4 96*83*68'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / GUNGHJ6 / 08 , 14 , 33'; 
+var Comment3 = 'Tiktaktogel / GUNGHJ6 / 19 , 59 , 03'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=GUNGKALIGUNG=29*74*04'; 
+var Comment4 = 'GAIB4D=GUNGKALIGUNG=25*85*67'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (GUNGBUTZ) = 96*83*68'; 
+var Comment5 = '#keitogel = (GUNGBUTZ) = 01*44*31'; 
 
 var namagroup6 = 'JOGJA';
-var Comment6 = '#JOGJATOTO (GUNGCEL)= 19-59'; 
+var Comment6 = '#JOGJATOTO (GUNGCEL)= 88-75'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL GUNGKLIKK 25*85*67'; 
+var Comment7 = 'ASEPTOGEL GUNGKLIKK 17*84*50'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=GUNGYUDZ= 01*44'; 
+var Comment8 = '#MENARA4D=GUNGYUDZ= 08*14'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=GUNGCUAKZ=88*75*65'; 
+var Comment9 = 'GILA4D=GUNGCUAKZ=00*20*30'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(GUNGPOKE)*17*84*50'; 
+var Comment10 = '#JNETOTO(GUNGPOKE)*18*52*91'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( GUNGYIBS ) : 08*14*33'; 
+var Comment11 = '#TOYIBSLOT ( GUNGYIBS ) : 56*58*91'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY GUNGFREE 29*74*04'; 
+var Comment12 = 'TOGELKUY GUNGFREE 70*54*57'; 
 
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( GUNGYIBS ) 96*83'; 
+var Comment13 = '#KOITOTO ( GUNGYIBS ) 05*48'; 
 
 var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( GUNGSIPP ) : 19*59*03'; 
+var Comment14 = '# ( GUNGSIPP ) : 11*45*66'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (GUNGSNIPE) 25*85*41'; 
+var Comment15 = 'VESPATOGEL (GUNGSNIPE) 40*92*55'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (GUNGJI1) : 01*44*41'; 
+var Comment16 = 'NEMO4D (GUNGJI1) : 94*43*12'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (GUNGPOKE) = 31*67';
+var Comment17 = '#KIKOTOTO (GUNGPOKE) = 36*49';
     
 var namagroup18 = 'Jawatengah';
-var Comment18 = 'Yatim1';
+var Comment18 = 'Group Yatim 1';
 
 
 
