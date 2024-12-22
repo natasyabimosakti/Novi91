@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 1
 // @namespace    http://tampermonkey.net/
-// @version      3.124
+// @version      3.125
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
@@ -19,58 +19,58 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*MANUKU12*47*54'; 
+var Comment1 = '#shiokelinci4d*MANUKU12*51*35'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO MANUKU27 17*95*61'; 
+var Comment2 = 'IYATOTO MANUKU27 36*80*62'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / MANUKU478 / 55 , 90 , 06'; 
+var Comment3 = 'Tiktaktogel / MANUKU478 / 37 , 15 , 50'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=MANUK123=51*35*01'; 
+var Comment4 = 'GAIB4D=MANUK123=14*57*42'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (MANANUK213) = 36*80*62'; 
+var Comment5 = '#keitogel = (MANANUK213) = 65*56*48'; 
 
 var namagroup6 = 'JOGJA';
-var Comment6 = '#JOGJATOTO (MANUKGENI12)= 37-15'; 
+var Comment6 = '#JOGJATOTO (MANUKGENI12)= 47-54'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL MANUKX12 14*57*99'; 
+var Comment7 = 'ASEPTOGEL MANUKX12 17*95*61'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=MAUKUR287= 65*56'; 
+var Comment8 = '#MENARA4D=MAUKUR287= 55*90'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=MANUKAN11=65*56*48'; 
+var Comment9 = 'GILA4D=MANUKAN11=71*96*75'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(MANUK123)*14*57*42'; 
+var Comment10 = '#JNETOTO(MANUK123)*12*86*68'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( MANUKX12 ) : 37*15*50'; 
+var Comment11 = '#TOYIBSLOT ( MANUKX12 ) : 33*92*66'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY MANUKGENI12 36*80*62'; 
+var Comment12 = 'TOGELKUY MANUKGENI12 11*20*83'; 
 
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( MANUKX12 ) 51*35'; 
+var Comment13 = '#KOITOTO ( MANUKX12 ) 58*88'; 
 
 var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( MAUKUR287 ) : 55*90*06'; 
+var Comment14 = '# ( MAUKUR287 ) : 02*09*38'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (MANUKAN11) 17*95*61'; 
+var Comment15 = 'VESPATOGEL (MANUKAN11) 67*98*05'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (MANUKU12) : 47*54*49'; 
+var Comment16 = 'NEMO4D (MANUKU12) : 78*46*77'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (MANUKU27) = 48*42';
+var Comment17 = '#KIKOTOTO (MANUKU27) = 60*41';
   
 var namagroup18 = 'Jawatengah';
-var Comment18 = 'Manuk1';
+var Comment18 = 'Group Manuk 1';
 
 
 
