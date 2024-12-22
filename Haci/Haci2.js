@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi2
 // @namespace    http://tampermonkey.net/
-// @version      3.143
+// @version      3.144
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci2.js
@@ -19,57 +19,57 @@
 
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (FERPERS) 73*04*81'; 
+var Comment1 = '#LICIN4D (FERPERS) 73*87*05'; 
 
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( FERCUKZ ) : 85*08*60'; 
+var Comment2 = 'K86TOTO ( FERCUKZ ) : 50*41*60'; 
 
 var namagroup3 = 'PUSAT LOMBA';
-var Comment3 = 'Shiotogel4d (FERGILL) 19*17*33'; 
+var Comment3 = 'Shiotogel4d (FERGILL) 53*63*08'; 
 
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO FERIBS = 37*89*61'; 
+var Comment4 = '#RIATOTO FERIBS = 89*90*56'; 
 
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (FERKEII*70*14*67)'; 
+var Comment5 = '#PEDRO4D (FERKEII*02*19*68)'; 
 
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (FERYOS) = 88*32*57'; 
+var Comment6 = '#DIVA4D (FERYOS) = 78*55*07'; 
 
 var namagroup7 = 'RNR';
-var Comment7 = '#RNR303(FERKEII) : 79*74*51'; 
+var Comment7 = '#RNR303(FERKEII) : 58*80*28'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
-var Comment8 = 'Tok99Toto ( FERKERR ) : 37*89*24'; 
+var Comment8 = 'Tok99Toto ( FERKERR ) : 61*97*69'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL FERKEII 82*22*20'; 
+var Comment9 = 'SIJITOGEL FERKEII 78*55*75'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (FERJENS) 70*14'; 
+var Comment10 = 'LING77 (FERJENS) 58*80'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*FERRAT*32*57*88'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*FERRAT*50*41*60'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'FERKOYY : 73*04*81 #BESTOTO88'; 
+var Comment12 = 'FERKOYY : 61*97*69 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=FERYEBS=79*74*51'; 
+var Comment13 = 'GOHTOGEL=FERYEBS=73*87*05'; 
 
 var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (FERSIP)=82_22'; 
+var Comment14 = '#TARUNGTOTO (FERSIP)=53_63'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'FERCAU : 85*08*60 #HOHOTOGEL'; 
+var Comment15 = 'FERCAU : 89*90*56 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*FERKEIII*19*17*33';
+var Comment16 = 'CITA4D*FERKEIII*02*19*68'; 
 
  
 
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Haci2';
+var Comment17 = 'Baru HCI 2';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
