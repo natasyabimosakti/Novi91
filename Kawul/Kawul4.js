@@ -38,7 +38,7 @@ var namagroup7 = 'RNR';
 var Comment7 = '#RNR303(SAKAUBEN) : 86*33*22'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
-var Comment8 = 'Tok99Toto ( SALAMANAE ) : 77*85*37'; 
+var Comment8 = 'Tok99Toto ( SAMBATAE ) : 77*85*37'; 
 
 var namagroup9 = 'Wellz';
 var Comment9 = 'SIJITOGEL SALAMANSEK 09*24*96'; 
