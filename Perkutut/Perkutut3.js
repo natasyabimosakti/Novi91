@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut3
 // @namespace    http://tampermonkey.net/
-// @version      3.144
+// @version      3.145
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut3.js
@@ -40,30 +40,28 @@ var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( DOROKERTO3 ) : 23*18*14'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL DORODOR12 36*28*71'; 
+var Comment9 = 'SIJITOGEL DORODOR12 19*00*05'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (DORONYOK31) 97*38'; 
+var Comment10 = 'LING77 (DORONYOK31) 25*46'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*DOROPOL12*60*33*06'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*DOROPOL12*51*49*13'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'DORODOR12 : 82*03*70 #BESTOTO88'; 
+var Comment12 = 'DORODOR12 : 93*99*54 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=DOROWIS12=39*81*66'; 
+var Comment13 = 'GOHTOGEL=DOROWIS12=63*73*41'; 
 
 var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (DOROWIS12)=88_83'; 
+var Comment14 = '#TARUNGTOTO (DOROWIS12)=86_07'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'DOROMAN12 : 23*18*14 #HOHOTOGEL'; 
+var Comment15 = 'DOROMAN12 : 98*64*12 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*DOROPOL12*01*26*47'; 
-
-
+var Comment16 = 'CITA4D*DOROPOL12*15*90*44'; 
 
 
 
