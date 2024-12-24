@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul4
 // @namespace    http://tampermonkey.net/
-// @version      3.132
+// @version      3.133
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul4.js
@@ -41,28 +41,28 @@ var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( SAMBATAE ) : 77*85*37'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL SALAMANSEK 09*24*96'; 
+var Comment9 = 'SIJITOGEL SALAMANSEK 41*04*64'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (SAIKIPIYE) 23*49'; 
+var Comment10 = 'LING77 (SAIKIPIYE) 97*07'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*SANTAYBOSKU*86*33*22'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*SANTAYBOSKU*25*45*83'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'SAWERBOSE0 : 99*85*37 #BESTOTO88'; 
+var Comment12 = 'SAWERBOSE0 : 68*70*87 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=SAWERSEK=47*60*21'; 
+var Comment13 = 'GOHTOGEL=SAWERSEK=80*26*51'; 
 
 var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (SALAMANAE)=66_02'; 
+var Comment14 = '#TARUNGTOTO (SALAMANAE)=90_65'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'SAMBATAE : 16*67*30 #HOHOTOGEL'; 
+var Comment15 = 'SAMBATAE : 58*88*29 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*SANGEKABEH*27*10*53'; 
+var Comment16 = 'CITA4D*SANGEKABEH*32*55*63'; 
 
 
 
