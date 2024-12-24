@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi3
 // @namespace    http://tampermonkey.net/
-// @version      3.144
+// @version      3.145
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci3.js
@@ -43,28 +43,28 @@ var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( SIPIRIT10 ) : 16*18*12'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL SIMPAK17 13*26*51'; 
+var Comment9 = 'SIJITOGEL SIMPAK17 14*70*29'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (SIKLUWER) 36*17'; 
+var Comment10 = 'LING77 (SIKLUWER) 48*33'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*SINTING19*85*91*42'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*SINTING19*67*40*01'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'SIMBAHMU : 16*18*62 #BESTOTO88'; 
+var Comment12 = 'SIMBAHMU : 54*77*83 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=SIMPAL19=84*76*86'; 
+var Comment13 = 'GOHTOGEL=SIMPAL19=65*98*00'; 
 
 var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (SIUDUK19)=64_43'; 
+var Comment14 = '#TARUNGTOTO (SIUDUK19)=32_37'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'SIPIRIT10 : 27*74*46 #HOHOTOGEL'; 
+var Comment15 = 'SIPIRIT10 : 79*21*03 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*SIPIRIT10*82*25*04'; 
+var Comment16 = 'CITA4D*SIPIRIT10*52*93*35'; 
 
 
 
