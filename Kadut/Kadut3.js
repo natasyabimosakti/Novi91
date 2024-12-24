@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW KADUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.144
+// @version      3.145
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kadut/Kadut3.js
@@ -43,31 +43,31 @@ var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=RIROKKWE= 64*40'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=RIMLANG63=64*40*97'; 
+var Comment9 = 'GILA4D=RIMLANG63=25*16*43'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(RIMNDUL73)*63*30*97'; 
+var Comment10 = '#JNETOTO(RIMNDUL73)*19*03*43'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( RINGONO ) : 73*10*45'; 
+var Comment11 = '#TOYIBSLOT ( RINGONO ) : 31*44*59'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY RIJONBETAWI 52*26*70'; 
+var Comment12 = 'TOGELKUY RIJONBETAWI 94*89*29'; 
 
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( RINGONO ) 04*76'; 
+var Comment13 = '#KOITOTO ( RINGONO ) 08*87'; 
 
 var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( RIROKLUH ) : 00*28*07'; 
+var Comment14 = '# ( RIROKLUH ) : 91*93*23'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (RIROKLUH) 34*13*79'; 
+var Comment15 = 'VESPATOGEL (RIROKLUH) 74*82*84'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (ROMPLANG1) : 22*24*21'; 
+var Comment16 = 'NEMO4D (ROMPLANG1) : 39*27*32'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (RONTOR6) = 72*69';
+var Comment17 = '#KIKOTOTO (RONTOR6) = 85*18';
   
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Group KDUT 3';
