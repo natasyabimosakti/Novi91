@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang3
 // @namespace    http://tampermonkey.net/
-// @version      3.128
+// @version      3.129
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang3.js
@@ -41,29 +41,28 @@ var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( NOVITAS53 ) : 75*77*41'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL NOVINANU83 01*53*52'; 
+var Comment9 = 'SIJITOGEL NOVINANU83 65*94*62'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (NOVIKARMA11) 56*43'; 
+var Comment10 = 'LING77 (NOVIKARMA11) 10*63'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*NOVINDOL*15*30*69'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*NOVINDOL*23*49*93'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'NOVIKAR23 : 50*91*21 #BESTOTO88'; 
+var Comment12 = 'NOVIKAR23 : 86*66*46 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=NOVIAN24=35*12*78'; 
+var Comment13 = 'GOHTOGEL=NOVIAN24=99*47*02'; 
 
 var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (NOVIPAL34)=01_53'; 
+var Comment14 = '#TARUNGTOTO (NOVIPAL34)=65_94'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'NOVITARU34 : 06*90*83 #HOHOTOGEL'; 
+var Comment15 = 'NOVITARU34 : 26*54*34 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*NOVIRAS34*05*98*11';
-
+var Comment16 = 'CITA4D*NOVIRAS34*09*97*29';
 
 
 
