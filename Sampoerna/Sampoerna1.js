@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna1
 // @namespace    http://tampermonkey.net/
-// @version      3.136
+// @version      3.137
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna1.js
@@ -44,29 +44,28 @@ var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( XELINA56 ) : 32*67*73'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL XELOP83 32*67*73'; 
+var Comment9 = 'SIJITOGEL XELOP83 93*43*58'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (XENDION) 54*74'; 
+var Comment10 = 'LING77 (XENDION) 34*70'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*AMPEK43*29*35*21'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*AMPEK43*14*31*28'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'XIANTAR6 : 22*62*71 #BESTOTO88'; 
+var Comment12 = 'XIANTAR6 : 40*60*76 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=XIOYIB47=39*90*66'; 
+var Comment13 = 'GOHTOGEL=XIOYIB47=78*26*42'; 
 
 var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (XIAOLAN6)=80_25'; 
+var Comment14 = '#TARUNGTOTO (XIAOLAN6)=77_86'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'XONKING52 : 68*87*96 #HOHOTOGEL'; 
+var Comment15 = 'XONKING52 : 50*03*30 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*XIAOLAN6*56*81*41'; 
-
+var Comment16 = 'CITA4D*XIAOLAN6*95*83*23'; 
 
 
 
