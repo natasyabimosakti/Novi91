@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawul2
 // @namespace    http://tampermonkey.net/
-// @version      3.132
+// @version      3.133
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Kawul/Kawul2.js
@@ -41,28 +41,28 @@ var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( SRINDIM63 ) : 78*12*05'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL SRIWEL74 46*91*61'; 
+var Comment9 = 'SIJITOGEL SRIWEL74 06*95*79'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (SRIWING67) 69*43'; 
+var Comment10 = 'LING77 (SRIWING67) 17*98'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*SRIANU36*74*62*57'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*SRIANU36*34*44*76'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'SRISUWING : 78*12*05 #BESTOTO88'; 
+var Comment12 = 'SRISUWING : 48*18*72 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=SRIMBELEWEL=75*50*73'; 
+var Comment13 = 'GOHTOGEL=SRIMBELEWEL=56*38*31'; 
 
 var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (SRILAKCU)=52_35'; 
+var Comment14 = '#TARUNGTOTO (SRILAKCU)=59_01'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'SRINDIM63 : 28*42*13 #HOHOTOGEL'; 
+var Comment15 = 'SRINDIM63 : 71*82*14 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*SRIWING72*15*92*39'; 
+var Comment16 = 'CITA4D*SRIWING72*36*81*89'; 
 
 
 
