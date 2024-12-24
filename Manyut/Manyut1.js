@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT1
 // @namespace    http://tampermonkey.net/
-// @version      3.212
+// @version      3.213
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut1.js
@@ -42,31 +42,31 @@ var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=HOPRET303= 01*44'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=HONOS112=88*75*65'; 
+var Comment9 = 'GILA4D=HONOS112=56*58*49'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(HOMOGEN12)*17*84*50'; 
+var Comment10 = '#JNETOTO(HOMOGEN12)*18*52*36'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( HOJOL134 ) : 08*14*33'; 
+var Comment11 = '#TOYIBSLOT ( HOJOL134 ) : 00*20*30'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY HONANI41 29*74*04'; 
+var Comment12 = 'TOGELKUY HONANI41 94*43*12'; 
 
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( HOJOL134 ) 96*83'; 
+var Comment13 = '#KOITOTO ( HOJOL134 ) 40*92'; 
 
 var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( HOCIANG12 ) : 19*59*03'; 
+var Comment14 = '# ( HOCIANG12 ) : 11*45*66'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (HOKINANN) 25*85*41'; 
+var Comment15 = 'VESPATOGEL (HOKINANN) 05*48*91'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (HOPRET303) : 01*44*41'; 
+var Comment16 = 'NEMO4D (HOPRET303) : 70*54*91'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (HONOS112) = 31*67';
+var Comment17 = '#KIKOTOTO (HONOS112) = 57*07';
   
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Group Manyut 1';
