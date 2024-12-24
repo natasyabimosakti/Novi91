@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang2
 // @namespace    http://tampermonkey.net/
-// @version      3.128
+// @version      3.129
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang2.js
@@ -40,28 +40,28 @@ var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( KRISTANTI34 ) : 37*89*24'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL KRISMALI2 82*22*20'; 
+var Comment9 = 'SIJITOGEL KRISMALI2 03*40*64'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (KRISANTI46) 70*14'; 
+var Comment10 = 'LING77 (KRISANTI46) 71*48'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*KRISUNDEL5*32*57*88'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*KRISUNDEL5*39*84*92'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'KRISING47 : 73*04*81 #BESTOTO88'; 
+var Comment12 = 'KRISING47 : 59*95*87 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=KRISAN24=79*74*51'; 
+var Comment13 = 'GOHTOGEL=KRISAN24=72*45*27'; 
 
 var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (KRISNA46)=82_22'; 
+var Comment14 = '#TARUNGTOTO (KRISNA46)=03_40'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'KRISMA56 : 85*08*60 #HOHOTOGEL'; 
+var Comment15 = 'KRISMA56 : 18*28*38 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*KRISMANDA23*19*17*33';
+var Comment16 = 'CITA4D*KRISMANDA23*13*36*58';
 
 
 
