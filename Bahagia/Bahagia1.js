@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia1
 // @namespace    http://tampermonkey.net/
-// @version      3.105
+// @version      3.106
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia1.js
@@ -39,28 +39,28 @@ var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( ASKALIMAN ) : 68*17*92'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL ASLISUPER12 59*78*39'; 
+var Comment9 = 'SIJITOGEL ASLISUPER12 09*38*58'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (ASTADINA12) 21*57'; 
+var Comment10 = 'LING77 (ASTADINA12) 05*83'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*ASABKUBUR12*10*81*34'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*ASABKUBUR12*06*76*46'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'ASIZAN33 : 77*80*19 #BESTOTO88'; 
+var Comment12 = 'ASIZAN33 : 95*42*36 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=ASIMATJUMBO=71*11*45'; 
+var Comment13 = 'GOHTOGEL=ASIMATJUMBO=88*99*82'; 
 
 var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (ASTADINA12)=44_17'; 
+var Comment14 = '#TARUNGTOTO (ASTADINA12)=26_56'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'ASIZAN33 : 07*75*63 #HOHOTOGEL'; 
+var Comment15 = 'ASIZAN33 : 61*30*93 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*ASBHUN*49*40*28'; 
+var Comment16 = 'CITA4D*ASBHUN*29*33*32'; 
 
 
 
