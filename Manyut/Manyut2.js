@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.212
+// @version      3.213
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut2.js
@@ -42,31 +42,31 @@ var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=EKORKU42= 70*54'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=EKORENG51=56*58*49'; 
+var Comment9 = 'GILA4D=EKORENG51=88*75*65'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(EKOROK64)*18*52*36'; 
+var Comment10 = '#JNETOTO(EKOROK64)*17*84*50'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( EKOROP47 ) : 00*20*30'; 
+var Comment11 = '#TOYIBSLOT ( EKOROP47 ) : 08*14*33'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY EKOCONG41 94*43*12'; 
+var Comment12 = 'TOGELKUY EKOCONG41 29*74*04'; 
 
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( EKOROP47 ) 40*92'; 
+var Comment13 = '#KOITOTO ( EKOROP47 ) 96*83'; 
 
 var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( EKOR665 ) : 11*45*66'; 
+var Comment14 = '# ( EKOR665 ) : 19*59*03'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (EKOWIJAY1) 05*48*91'; 
+var Comment15 = 'VESPATOGEL (EKOWIJAY1) 25*85*41'; 
 
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (EKORENG51) : 70*54*91'; 
+var Comment16 = 'NEMO4D (EKORENG51) : 01*44*41'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (EKOROK64) = 57*07';
+var Comment17 = '#KIKOTOTO (EKOROK64) = 31*67';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Group Manyut 2';
