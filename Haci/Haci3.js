@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi3
 // @namespace    http://tampermonkey.net/
-// @version      3.145
+// @version      3.146
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci3.js
@@ -36,8 +36,8 @@ var Comment5 = '#PEDRO4D (SIMPAK17*82*25*04)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (SINDOLI39) = 13*26*51'; 
 
-var namagroup7 = 'RNR';
-var Comment7 = '#RNR303(SIMPAK17) : 36*17*31'; 
+var namagroup7 = 'BENIH';
+var Comment7 = '#BENIHTOTO(SIMPAK17) : 36*17*31'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( SIPIRIT10 ) : 16*18*12'; 
