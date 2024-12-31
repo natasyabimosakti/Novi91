@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna2
 // @namespace    http://tampermonkey.net/
-// @version      3.137
+// @version      3.138
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna2.js
@@ -38,8 +38,8 @@ var Comment5 = '#PEDRO4D (BOSMAN67*77*86*61)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (BOSMINI88) = 50*03*30'; 
 
-var namagroup7 = 'RNR';
-var Comment7 = '#RNR303(BOSMAN67) : 95*83*23'; 
+var namagroup7 = 'BENIH';
+var Comment7 = '#BENIHTOTO(BOSMAN67) : 95*83*23'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( BOSTER73 ) : 93*43*58'; 
