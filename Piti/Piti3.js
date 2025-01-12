@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Kawul1
+// @name         Piti3
 // @namespace    http://tampermonkey.net/
 // @version      3.0
 // @description  try to take over the world!
