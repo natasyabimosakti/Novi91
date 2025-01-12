@@ -15,57 +15,57 @@
 // ==/UserScript==
 
 var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (BOTAP27) 56*38*31'; 
+var Comment1 = '#LICIN4D (BOCHOK52) 75*50*73'; 
 
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( BOLINA61 ) : 59*01*11'; 
+var Comment2 = 'K86TOTO ( BOCHI92 ) : 52*35*54'; 
 
-var namagroup3 = 'PUSAT LOMBA';
-var Comment3 = 'Shiotogel4d (BUANG31) 71*82*14'; 
+var namagroup3 = 'ELEVENS';
+var Comment3 = '(ELEVENS4D) = (BODAR17) 28*42*13'; 
 
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO BUWOSOK12  = 36*81*89'; 
+var Comment4 = '#RIATOTO BOCHOK36 = 15*92*39'; 
 
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (BUKABEH*06*95*79)'; 
+var Comment5 = '#PEDRO4D (BONTIR36*46*91*61)'; 
 
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (BURUNG69) = 17*98*19'; 
+var Comment6 = '#DIVA4D (BROTO15) = 69*43*93'; 
 
 var namagroup7 = 'BENIH';
-var Comment7 = '#BENIHTOTO(BUKABEH) : 34*44*76'; 
+var Comment7 = '#BENIHTOTO(BOMER14) : 74*62*57'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
-var Comment8 = 'Tok99Toto ( BUDELTUNG ) : 48*18*72'; 
+var Comment8 = 'Tok99Toto ( BOMER14 ) : 78*12*05'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL BUANGKALI 46*91*61'; 
+var Comment9 = 'SIJITOGEL BOLET25 06*95*79'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (BOLENAN) 69*43'; 
+var Comment10 = 'LING77 (BOSIOM19) 17*98'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*BUNTOTASU*74*62*57'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*BOKONG71*34*44*76'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'BUSUNGMU62 : 78*12*05 #BESTOTO88'; 
+var Comment12 = 'BORAK16 : 48*18*72 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=BUANGKABEH=75*50*73'; 
+var Comment13 = 'GOHTOGEL=BOKONG71=56*38*31'; 
 
 var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (BOTAP27)=52_35'; 
+var Comment14 = '#TARUNGTOTO (BONTOK69)=59_01'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'BOLINA61 : 28*42*13 #HOHOTOGEL'; 
+var Comment15 = 'BOCHO19 : 71*82*14 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*BOLINA61*15*92*39';
+var Comment16 = 'CITA4D*BOSIOM19*36*81*89'; 
 
 
 
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Baru Kawul 1';
+var Comment17 = 'Baru Piti 2';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
