@@ -15,57 +15,56 @@
 // ==/UserScript==
 
 var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (BOTAP27) 56*38*31'; 
+var Comment1 = '#LICIN4D (CIANAS16) 80*26*51'; 
 
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( BOLINA61 ) : 59*01*11'; 
+var Comment2 = 'K86TOTO ( CAKTRAS ) : 90*65*84'; 
 
-var namagroup3 = 'PUSAT LOMBA';
-var Comment3 = 'Shiotogel4d (BUANG31) 71*82*14'; 
+var namagroup3 = 'ELEVENS';
+var Comment3 = '(ELEVENS4D) = (CASAN36) 58*00*29'; 
 
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO BUWOSOK12  = 36*81*89'; 
+var Comment4 = '#RIATOTO CATAH16 = 32*55*63'; 
 
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (BUKABEH*06*95*79)'; 
+var Comment5 = '#PEDRO4D (CIMN26*41*04*64)'; 
 
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (BURUNG69) = 17*98*19'; 
+var Comment6 = '#DIVA4D (CEKODAR13) = 97*07*08'; 
 
 var namagroup7 = 'BENIH';
-var Comment7 = '#BENIHTOTO(BUKABEH) : 34*44*76'; 
+var Comment7 = '#BENIHTOTO(CAKADUR14) : 25*45*83'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
-var Comment8 = 'Tok99Toto ( BUDELTUNG ) : 48*18*72'; 
+var Comment8 = 'Tok99Toto ( CAKADUR14 ) : 68*70*87'; 
 
 var namagroup9 = 'Wellz';
-var Comment9 = 'SIJITOGEL BUANGKALI 46*91*61'; 
+var Comment9 = 'SIJITOGEL CALKON26 09*24*96'; 
 
 var namagroup10 = 'LING';
-var Comment10 = 'LING77 (BOLENAN) 69*43'; 
+var Comment10 = 'LING77 (CAKUDIR19) 23*49'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*BUNTOTASU*74*62*57'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*CUMNI212*86*33*22'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'BUSUNGMU62 : 78*12*05 #BESTOTO88'; 
+var Comment12 = 'CIRUN19 : 99*85*37 #BESTOTO88'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=BUANGKABEH=75*50*73'; 
+var Comment13 = 'GOHTOGEL=CUMNI21=47*60*21'; 
 
 var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (BOTAP27)=52_35'; 
+var Comment14 = '#TARUNGTOTO (CIMAR19)=66_02'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'BOLINA61 : 28*42*13 #HOHOTOGEL'; 
+var Comment15 = 'CAHMBUH : 16*67*30 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*BOLINA61*15*92*39';
-
+var Comment16 = 'CITA4D*CAKUDIR19*27*10*53'; 
 
 
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Baru Kawul 1';
+var Comment17 = 'Baru Piti 3';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
