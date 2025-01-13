@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BENT1
 // @namespace    http://tampermonkey.net/
-// @version      3.121
+// @version      3.122
 // @description  try to take over the world!
 // @version      3.NaN
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka1.js
@@ -61,7 +61,7 @@ var Comment14 = '# ( ASTADINA12 ) : 11*45*91';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (ASIZAN33) 05*48*07'; 
 
-var namagroup16 = 'NEMO';
+var namagroup16 = 'Nemo';
 var Comment16 = 'NEMO4D (ASIZAN33) : 70*54*57'; 
 
 var namagroup17 = 'KIKO';
