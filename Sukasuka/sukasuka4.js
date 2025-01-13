@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BENT4
 // @namespace    http://tampermonkey.net/
-// @version      3.123
+// @version      3.124
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka4.js
@@ -61,7 +61,7 @@ var Comment14 = '# ( DINDAKUCING ) : 22*35*64';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (DUDUKGO81) 60*32*38'; 
 
-var namagroup16 = 'NEMO';
+var namagroup16 = 'Nemo';
 var Comment16 = 'NEMO4D (DIANUMAMI12) : 80*51*95'; 
 
 var namagroup17 = 'KIKO';
