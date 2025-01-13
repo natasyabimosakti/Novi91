@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim1
 // @namespace    http://tampermonkey.net/
-// @version      3.120
+// @version      3.121
 // @description  try to take over the world!
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim1.js
 // @author       You
@@ -59,7 +59,7 @@ var Comment14 = '# ( GUNGSIPP ) : 11*45*66';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (GUNGSNIPE) 40*92*55'; 
 
-var namagroup16 = 'NEMO';
+var namagroup16 = 'Nemo';
 var Comment16 = 'NEMO4D (GUNGJI1) : 94*43*12'; 
 
 var namagroup17 = 'KIKO';
