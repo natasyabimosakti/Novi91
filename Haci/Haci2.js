@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi2
 // @namespace    http://tampermonkey.net/
-// @version      3.146
+// @version      3.147
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci2.js
@@ -24,8 +24,8 @@ var Comment1 = '#LICIN4D (FERPERS) 73*87*05';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( FERCUKZ ) : 50*41*60'; 
 
-var namagroup3 = 'PUSAT LOMBA';
-var Comment3 = 'Shiotogel4d (FERGILL) 53*63*08'; 
+var namagroup3 = 'ELEVENS';
+var Comment3 = '(ELEVENS4D) = (FERGILL) 53*63*08'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO FERIBS = 89*90*56'; 
