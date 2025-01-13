@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG3
 // @namespace    http://tampermonkey.net/
-// @version      3.218
+// @version      3.219
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong3.js
@@ -62,7 +62,7 @@ var Comment14 = '# ( NOVIPAL34 ) : 39*27*32';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (NOVIPAL34) 25*16*85'; 
 
-var namagroup16 = 'NEMO';
+var namagroup16 = 'Nemo';
 var Comment16 = 'NEMO4D (NOVIPAL34) : 19*03*18'; 
 
 var namagroup17 = 'KIKO';
