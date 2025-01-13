@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim4
 // @namespace    http://tampermonkey.net/
-// @version      3.121
+// @version      3.122
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim4.js
@@ -60,7 +60,7 @@ var Comment14 = '# ( YARUWET ) : 22*35*78';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (YAELAH82) 26*53*82'; 
 
-var namagroup16 = 'NEMO';
+var namagroup16 = 'Nemo';
 var Comment16 = 'NEMO4D (YATIMART) : 47*23*10'; 
 
 var namagroup17 = 'KIKO';
