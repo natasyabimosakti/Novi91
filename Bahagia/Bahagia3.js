@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia3
 // @namespace    http://tampermonkey.net/
-// @version      3.110
+// @version      3.111
 // @description  dunia
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
@@ -467,7 +467,7 @@ var game = gameClosure()
 function clicksend() {
     game.stop()
     jitter = 1
-   
+
     /*Tampilkan TOMBOL SEND*/
     if(document.getElementsByClassName("textbox-submit-button")[0] && document.getElementsByClassName("multi-line-floating-textbox")[0].value.length >= 1){
         document.getElementsByClassName("textbox multi-line-floating-textbox")[0].dispatchEvent(
@@ -482,20 +482,16 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
-        Cutter=1
-        location.href = "about:blank"
+        Cutter =1
+
 
         setTimeout(function(){location.href = "about:blank"},500)
-        closer()
+        setTimeout(function(){location.href = "about:blank"},1000)
+
 
 
 
 
         /*Tekan TOMBOL SEND*/
     }
-}
-function closer() {
-    location.href = "about:blank"
-
-
 }
