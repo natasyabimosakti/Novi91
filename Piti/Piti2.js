@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti2
 // @namespace    http://tampermonkey.net/
-// @version      3.3
+// @version      3.4
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti2.js
@@ -145,17 +145,6 @@ var myrefresh = setInterval(function(){
             var ret = jamposting.textContent.replace(/  Admin   |  Moderator   /g, "");
             if (ret.includes("Baru")||ret.slice(0,7).includes("1 menit")||ret.slice(0,7).includes("2 menit")||ret.slice(0,7).includes("3 menit")||ret.slice(0,7).includes("4 menit")||ret.slice(0,7).includes("4 menit")){
                 console.log("Jam Ditemukan " + ret)
-                if(postingan.textContent.toLowerCase().includes(Backlist1.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(Backlist2.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(Backlist3.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(Backlist4.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(Backlist5.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(Backlist6.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(Backlist7.toLowerCase())){
-                    console.log("Terdaftar Backlist...!  ");
-                   break;
-                }
-                console.log("Proses dilanjutkan tidak ada Backlist");
                 if(postingan.textContent.toLowerCase().includes(keyword1.toLowerCase())
                    ||postingan.textContent.toLowerCase().includes(keyword2.toLowerCase())
                    ||postingan.textContent.toLowerCase().includes(keyword3.toLowerCase())
@@ -171,7 +160,46 @@ var myrefresh = setInterval(function(){
                    ||postingan.textContent.toLowerCase().includes(keyword13.toLowerCase())){
                     console.log("Keyword Ditemukan " + postingan.textContent);
                     // Cek Backlist
+                    if(postingan.textContent.toLowerCase().includes(Backlist1.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(Backlist2.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(Backlist3.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(Backlist4.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(Backlist5.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(Backlist6.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(Backlist7.toLowerCase())){
+                        console.log("Terdaftar Backlist...!  ");
+                        var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
+                        var waktupost = document.getElementsByClassName("native-text");
+                        if(!document.querySelectorAll("[role='presentation']")[0]){
+                            if (document.readyState === "complete") {
+                                for (var cok = 0; cok < urutkan.length; cok++) {
+                                    if(urutkan[cok].textContent.includes("URUTKAN")) {
+                                        urutkan[cok].click()
+                                    }
+                                }
+                            }
+                        }
+                        if(document.getElementsByClassName("loading-overlay").length == 0 ){
 
+                            if(document.querySelectorAll("[role='presentation']")[0]){
+                                if (document.readyState === "complete") {
+                                    for (var coki = 0; coki < waktupost.length; coki++) {
+                                        if(waktupost[coki].textContent.includes("Aktivitas")) {
+                                            if(jitter == 1){
+                                                return;
+                                            }
+                                            if(document.getElementsByClassName("prevent-scrolling")[0]){
+                                                waktupost[coki].click()
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        return;
+                    }
+                    console.log("Proses dilanjutkan tidak ada Backlist");
                     // Cek Admin
                     for (var adm in admin){
                         if(namafb.textContent.toLowerCase().includes(admin[adm].toLowerCase())||jamposting.textContent.toLowerCase().includes("admin")||jamposting.textContent.toLowerCase().includes("moderator")){
@@ -203,14 +231,13 @@ var myrefresh = setInterval(function(){
         }
     }
 
-
-    var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
-    var waktupost = document.getElementsByClassName("native-text");
+    var urutkan1 = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
+    var waktupost1 = document.getElementsByClassName("native-text");
     if(!document.querySelectorAll("[role='presentation']")[0]){
         if (document.readyState === "complete") {
-            for (var cok = 0; cok < urutkan.length; cok++) {
-                if(urutkan[cok].textContent.includes("URUTKAN")) {
-                    urutkan[cok].click()
+            for (var cok1 = 0; cok1 < urutkan1.length; cok1++) {
+                if(urutkan1[cok1].textContent.includes("URUTKAN")) {
+                    urutkan1[cok1].click()
                 }
             }
         }
@@ -219,13 +246,13 @@ var myrefresh = setInterval(function(){
 
         if(document.querySelectorAll("[role='presentation']")[0]){
             if (document.readyState === "complete") {
-                for (var coki = 0; coki < waktupost.length; coki++) {
-                    if(waktupost[coki].textContent.includes("Aktivitas")) {
+                for (var coki1 = 0; coki1 < waktupost1.length; coki1++) {
+                    if(waktupost1[coki1].textContent.includes("Aktivitas")) {
                         if(jitter == 1){
                             return;
                         }
                         if(document.getElementsByClassName("prevent-scrolling")[0]){
-                            waktupost[coki].click()
+                            waktupost1[coki1].click()
                         }
 
                     }
@@ -484,16 +511,20 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
-        Cutter =1
-
+        Cutter=1
+        location.href = "about:blank"
 
         setTimeout(function(){location.href = "about:blank"},500)
-        setTimeout(function(){location.href = "about:blank"},1000)
-
+        closer()
 
 
 
 
         /*Tekan TOMBOL SEND*/
     }
+}
+function closer() {
+    location.href = "about:blank"
+
+
 }
