@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia3
 // @namespace    http://tampermonkey.net/
-// @version      3.111
+// @version      3.112
 // @description  dunia
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
@@ -143,17 +143,6 @@ var myrefresh = setInterval(function(){
             var ret = jamposting.textContent.replace(/  Admin   |  Moderator   /g, "");
             if (ret.includes("Baru")||ret.slice(0,7).includes("1 menit")||ret.slice(0,7).includes("2 menit")||ret.slice(0,7).includes("3 menit")||ret.slice(0,7).includes("4 menit")||ret.slice(0,7).includes("4 menit")){
                 console.log("Jam Ditemukan " + ret)
-                if(postingan.textContent.toLowerCase().includes(Backlist1.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(Backlist2.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(Backlist3.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(Backlist4.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(Backlist5.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(Backlist6.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(Backlist7.toLowerCase())){
-                    console.log("Terdaftar Backlist...!  ");
-                   break;
-                }
-                console.log("Proses dilanjutkan tidak ada Backlist");
                 if(postingan.textContent.toLowerCase().includes(keyword1.toLowerCase())
                    ||postingan.textContent.toLowerCase().includes(keyword2.toLowerCase())
                    ||postingan.textContent.toLowerCase().includes(keyword3.toLowerCase())
@@ -169,7 +158,17 @@ var myrefresh = setInterval(function(){
                    ||postingan.textContent.toLowerCase().includes(keyword13.toLowerCase())){
                     console.log("Keyword Ditemukan " + postingan.textContent);
                     // Cek Backlist
-
+                    if(postingan.textContent.toLowerCase().includes(Backlist1.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(Backlist2.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(Backlist3.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(Backlist4.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(Backlist5.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(Backlist6.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(Backlist7.toLowerCase())){
+                        console.log("Terdaftar Backlist...!  ");
+                        return;
+                    }
+                    console.log("Proses dilanjutkan tidak ada Backlist");
                     // Cek Admin
                     for (var adm in admin){
                         if(namafb.textContent.toLowerCase().includes(admin[adm].toLowerCase())||jamposting.textContent.toLowerCase().includes("admin")||jamposting.textContent.toLowerCase().includes("moderator")){
@@ -200,7 +199,6 @@ var myrefresh = setInterval(function(){
             }
         }
     }
-
 
     var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
     var waktupost = document.getElementsByClassName("native-text");
@@ -467,7 +465,7 @@ var game = gameClosure()
 function clicksend() {
     game.stop()
     jitter = 1
-
+     
     /*Tampilkan TOMBOL SEND*/
     if(document.getElementsByClassName("textbox-submit-button")[0] && document.getElementsByClassName("multi-line-floating-textbox")[0].value.length >= 1){
         document.getElementsByClassName("textbox multi-line-floating-textbox")[0].dispatchEvent(
@@ -482,16 +480,20 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
-        Cutter =1
-
+        Cutter=1
+        location.href = "about:blank"
 
         setTimeout(function(){location.href = "about:blank"},500)
-        setTimeout(function(){location.href = "about:blank"},1000)
-
+        closer()
 
 
 
 
         /*Tekan TOMBOL SEND*/
     }
+}
+function closer() {
+    location.href = "about:blank"
+
+
 }
