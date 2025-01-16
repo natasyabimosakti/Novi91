@@ -176,6 +176,35 @@ var myrefresh = setInterval(function(){
                        ||postingan.textContent.toLowerCase().includes(Backlist6.toLowerCase())
                        ||postingan.textContent.toLowerCase().includes(Backlist7.toLowerCase())){
                         console.log("Terdaftar Backlist...!  ");
+                        var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
+                        var waktupost = document.getElementsByClassName("native-text");
+                        if(!document.querySelectorAll("[role='presentation']")[0]){
+                            if (document.readyState === "complete") {
+                                for (var cok = 0; cok < urutkan.length; cok++) {
+                                    if(urutkan[cok].textContent.includes("URUTKAN")) {
+                                        urutkan[cok].click()
+                                    }
+                                }
+                            }
+                        }
+                        if(document.getElementsByClassName("loading-overlay").length == 0 ){
+
+                            if(document.querySelectorAll("[role='presentation']")[0]){
+                                if (document.readyState === "complete") {
+                                    for (var coki = 0; coki < waktupost.length; coki++) {
+                                        if(waktupost[coki].textContent.includes("Aktivitas")) {
+                                            if(jitter == 1){
+                                                return;
+                                            }
+                                            if(document.getElementsByClassName("prevent-scrolling")[0]){
+                                                waktupost[coki].click()
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
                         return;
                     }
                     console.log("Proses dilanjutkan tidak ada Backlist");
@@ -210,13 +239,13 @@ var myrefresh = setInterval(function(){
         }
     }
 
-    var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
-    var waktupost = document.getElementsByClassName("native-text");
+    var urutkan1 = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
+    var waktupost1 = document.getElementsByClassName("native-text");
     if(!document.querySelectorAll("[role='presentation']")[0]){
         if (document.readyState === "complete") {
-            for (var cok = 0; cok < urutkan.length; cok++) {
-                if(urutkan[cok].textContent.includes("URUTKAN")) {
-                    urutkan[cok].click()
+            for (var cok1 = 0; cok1 < urutkan1.length; cok1++) {
+                if(urutkan1[cok1].textContent.includes("URUTKAN")) {
+                    urutkan1[cok1].click()
                 }
             }
         }
@@ -225,13 +254,13 @@ var myrefresh = setInterval(function(){
 
         if(document.querySelectorAll("[role='presentation']")[0]){
             if (document.readyState === "complete") {
-                for (var coki = 0; coki < waktupost.length; coki++) {
-                    if(waktupost[coki].textContent.includes("Aktivitas")) {
+                for (var coki1 = 0; coki1 < waktupost1.length; coki1++) {
+                    if(waktupost1[coki1].textContent.includes("Aktivitas")) {
                         if(jitter == 1){
                             return;
                         }
                         if(document.getElementsByClassName("prevent-scrolling")[0]){
-                            waktupost[coki].click()
+                            waktupost1[coki1].click()
                         }
 
                     }
@@ -475,7 +504,7 @@ var game = gameClosure()
 function clicksend() {
     game.stop()
     jitter = 1
-     
+
     /*Tampilkan TOMBOL SEND*/
     if(document.getElementsByClassName("textbox-submit-button")[0] && document.getElementsByClassName("multi-line-floating-textbox")[0].value.length >= 1){
         document.getElementsByClassName("textbox multi-line-floating-textbox")[0].dispatchEvent(
