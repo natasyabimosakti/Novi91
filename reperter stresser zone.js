@@ -69,7 +69,6 @@ var autologin = setInterval(function (){
         document.getElementById("username").value = username
         document.getElementById("password").value = password
         document.getElementById("loginForm").click()
-
     }
 
 
@@ -77,5 +76,5 @@ var autologin = setInterval(function (){
 
 
 window.setTimeout( function() {
-  window.location.reload();
+  document.location.href=document.location.origin + "/hub"
 }, 10000);
