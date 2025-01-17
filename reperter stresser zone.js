@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         New Userscript
 // @namespace    http://tampermonkey.net/
-// @version      3.01
+// @version      3.NaN
 // @description  try to take over the world!
 // @author       You
 // @match        http*://*/*
@@ -46,7 +46,7 @@ var autoddos1 = setInterval(function (){
         L4btn('flood', '');
     }
 
-},2000)
+},300)
 
 var autoddos2 = setInterval(function (){
     if(document.location.href.includes("hub")){
@@ -61,7 +61,7 @@ var autoddos2 = setInterval(function (){
         L4btn('flood', '');
     }
 
-},2000)
+},300)
 
 
 
@@ -73,6 +73,7 @@ var autologin = setInterval(function (){
         document.getElementById("username").value = username
         document.getElementById("password").value = password
         document.getElementById("loginForm").click()
+        clearInterval(autologin)
     }
 
 
