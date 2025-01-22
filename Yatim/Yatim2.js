@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim2
 // @namespace    http://tampermonkey.net/
-// @version      3.123
+// @version      3.124
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim2.js
@@ -73,6 +73,28 @@ var Comment18 = 'Group Yatim 2';
 
 
 
+var d = new Date();
+var hour = d.getHours();
+var tm = await GM.getValue("time");
+var id1 = await GM.getValue(1);
+var id2 = await GM.getValue(2);
+var id3 = await GM.getValue(3);
+var id4 = await GM.getValue(4);
+var id5 = await GM.getValue(5);
+var id6 = await GM.getValue(6);
+var id7 = await GM.getValue(7);
+var id8 = await GM.getValue(8);
+var id9 = await GM.getValue(9);
+var id10 = await GM.getValue(10);
+var id11 = await GM.getValue(11);
+var id12 = await GM.getValue(12);
+var id13 = await GM.getValue(13);
+var id14 = await GM.getValue(14);
+var id15 = await GM.getValue(15);
+var id16 = await GM.getValue(16);
+var id17 = await GM.getValue(17);
+var id18 = await GM.getValue(18);
+
 var refresh = 40;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa",
@@ -126,6 +148,15 @@ var Backlist7 = "commen";
 var jitter = 0
 var Cutter = 0
 var myrefresh = setInterval(function(){
+    if (tm == "" || tm == undefined || tm == null) {
+        GM.setValue("time", hour);
+    }
+    if ( hour > tm + 2 || hour < tm||document.URL.includes("google") == true||hour == undefined||hour == null){
+        for (var kr = 1; kr < 19; kr++) {
+            GM.setValue( kr,0);
+        }
+        GM.setValue("time", hour);
+    }
     window.scroll(0,100)
     if(Cutter == 1){
         location.href = "about:blank"
@@ -274,7 +305,12 @@ function gameClosure() {
 
             if (document.getElementsByClassName("multi-line-floating-textbox")[0]){
                 if (ceknamagroup.includes(namagroup1) == true||ceknamagroup1.includes(namagroup1) == true||ceknamagroup2.includes(namagroup1) == true||ceknamagroup3.includes(namagroup1) == true||ceknamagroup4.includes(namagroup1) == true) {
-                    /*cek nama group dan tulis commntar*/
+                  if (id1 == "1") {
+                       jitter = 1
+                       Cutter = 1
+                       location.href = "about:blank"
+                     }  
+                  /*cek nama group dan tulis commntar*/
                     GM.setValue( 1,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment1;
                     console.log("Sudah Comment")
@@ -283,6 +319,11 @@ function gameClosure() {
                     return;
                 }
                 if (ceknamagroup.includes(namagroup2) == true||ceknamagroup1.includes(namagroup2) == true||ceknamagroup2.includes(namagroup2) == true||ceknamagroup3.includes(namagroup2) == true||ceknamagroup4.includes(namagroup2) == true) {
+                     if (id2 == "1") {
+                       jitter = 1
+                       Cutter = 1
+                       location.href = "about:blank"
+                     }
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 2,1);
                     /*cek nama group dan tulis commntar*/
@@ -293,6 +334,11 @@ function gameClosure() {
                     return;
                 }
                 if (ceknamagroup.includes(namagroup3) == true||ceknamagroup1.includes(namagroup3) == true||ceknamagroup2.includes(namagroup3) == true||ceknamagroup3.includes(namagroup3) == true||ceknamagroup4.includes(namagroup3) == true) {
+                    if (id3 == "1") {
+                       jitter = 1
+                       Cutter = 1
+                       location.href = "about:blank"
+                     } 
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 3,1);
                     /*cek nama group dan tulis commntar*/
@@ -304,6 +350,11 @@ function gameClosure() {
 
                 }
                 if (ceknamagroup.includes(namagroup4) == true||ceknamagroup1.includes(namagroup4) == true||ceknamagroup2.includes(namagroup4) == true||ceknamagroup3.includes(namagroup4) == true||ceknamagroup4.includes(namagroup4) == true) {
+                    if (id4 == "1") {
+                       jitter = 1
+                       Cutter = 1
+                       location.href = "about:blank"
+                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 4,1);
@@ -314,6 +365,11 @@ function gameClosure() {
                     return;
                 }
                 if (ceknamagroup.includes(namagroup5) == true||ceknamagroup1.includes(namagroup5) == true||ceknamagroup2.includes(namagroup5) == true||ceknamagroup3.includes(namagroup5) == true||ceknamagroup4.includes(namagroup5) == true) {
+                    if (id5 == "1") {
+                       jitter = 1
+                       Cutter = 1
+                       location.href = "about:blank"
+                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 5,1);
@@ -324,6 +380,11 @@ function gameClosure() {
                     return;
                 }
                 if (ceknamagroup.includes(namagroup6) == true||ceknamagroup1.includes(namagroup6) == true||ceknamagroup2.includes(namagroup6) == true||ceknamagroup3.includes(namagroup6) == true||ceknamagroup4.includes(namagroup6) == true) {
+                    if (id6 == "1") {
+                       jitter = 1
+                       Cutter = 1
+                       location.href = "about:blank"
+                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 6,1);
@@ -334,6 +395,11 @@ function gameClosure() {
                     return;
                 }
                 if (ceknamagroup.includes(namagroup7) == true||ceknamagroup1.includes(namagroup7) == true||ceknamagroup2.includes(namagroup7) == true||ceknamagroup3.includes(namagroup7) == true||ceknamagroup4.includes(namagroup7) == true) {
+                    if (id7 == "1") {
+                       jitter = 1
+                       Cutter = 1
+                       location.href = "about:blank"
+                     }  
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 7,1);
@@ -344,6 +410,11 @@ function gameClosure() {
                     return;
                 }
                 if (ceknamagroup.includes(namagroup8) == true||ceknamagroup1.includes(namagroup8) == true||ceknamagroup2.includes(namagroup8) == true||ceknamagroup3.includes(namagroup8) == true||ceknamagroup4.includes(namagroup8) == true) {
+                    if (id8 == "1") {
+                       jitter = 1
+                       Cutter = 1
+                       location.href = "about:blank"
+                     } 
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 8,1);
@@ -354,6 +425,11 @@ function gameClosure() {
                     return;
                 }
                 if (ceknamagroup.includes(namagroup9) == true||ceknamagroup1.includes(namagroup9) == true||ceknamagroup2.includes(namagroup9) == true||ceknamagroup3.includes(namagroup9) == true||ceknamagroup4.includes(namagroup9) == true) {
+                    if (id9 == "1") {
+                       jitter = 1
+                       Cutter = 1
+                       location.href = "about:blank"
+                     } 
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 9,1);
@@ -364,6 +440,11 @@ function gameClosure() {
                     return;
                 }
                 if (ceknamagroup.includes(namagroup10) == true||ceknamagroup1.includes(namagroup10) == true||ceknamagroup2.includes(namagroup10) == true||ceknamagroup3.includes(namagroup10) == true||ceknamagroup4.includes(namagroup10) == true) {
+                    if (id10 == "1") {
+                       jitter = 1
+                       Cutter = 1
+                       location.href = "about:blank"
+                     }  
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 10,1);
@@ -374,6 +455,11 @@ function gameClosure() {
                     return;
                 }
                 if (ceknamagroup.includes(namagroup11) == true||ceknamagroup1.includes(namagroup11) == true||ceknamagroup2.includes(namagroup11) == true||ceknamagroup3.includes(namagroup11) == true||ceknamagroup4.includes(namagroup11) == true) {
+                    if (id11 == "1") {
+                       jitter = 1
+                       Cutter = 1
+                       location.href = "about:blank"
+                     }  
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 11,1);
@@ -384,6 +470,11 @@ function gameClosure() {
                     return;
                 }
                 if (ceknamagroup.includes(namagroup12) == true||ceknamagroup1.includes(namagroup12) == true||ceknamagroup2.includes(namagroup12) == true||ceknamagroup3.includes(namagroup12) == true||ceknamagroup4.includes(namagroup12) == true) {
+                     if (id12 == "1") {
+                       jitter = 1
+                       Cutter = 1
+                       location.href = "about:blank"
+                     } 
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 12,1);
@@ -394,6 +485,11 @@ function gameClosure() {
                     return;
                 }
                 if (ceknamagroup.includes(namagroup13) == true||ceknamagroup1.includes(namagroup13) == true||ceknamagroup2.includes(namagroup13) == true||ceknamagroup3.includes(namagroup13) == true||ceknamagroup4.includes(namagroup13) == true) {
+                     if (id13 == "1") {
+                       jitter = 1
+                       Cutter = 1
+                       location.href = "about:blank"
+                     } 
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 13,1);
@@ -403,6 +499,11 @@ function gameClosure() {
                     jitter = 1
                 }
                 if (ceknamagroup.includes(namagroup14) == true||ceknamagroup1.includes(namagroup14) == true||ceknamagroup2.includes(namagroup14) == true||ceknamagroup3.includes(namagroup14) == true||ceknamagroup4.includes(namagroup14) == true) {
+                    if (id14 == "1") {
+                       jitter = 1
+                       Cutter = 1
+                       location.href = "about:blank"
+                     } 
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 14,1);
@@ -414,6 +515,11 @@ function gameClosure() {
                 }
 
                 if (ceknamagroup.includes(namagroup15) == true||ceknamagroup1.includes(namagroup15) == true||ceknamagroup2.includes(namagroup15) == true||ceknamagroup3.includes(namagroup15) == true||ceknamagroup4.includes(namagroup15) == true) {
+                    if (id15 == "1") {
+                       jitter = 1
+                       Cutter = 1
+                       location.href = "about:blank"
+                     } 
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 15,1);
@@ -425,6 +531,11 @@ function gameClosure() {
                 }
 
                 if (ceknamagroup.includes(namagroup16) == true||ceknamagroup1.includes(namagroup16) == true||ceknamagroup2.includes(namagroup16) == true||ceknamagroup3.includes(namagroup16) == true||ceknamagroup4.includes(namagroup16) == true) {
+                    if (id16 == "1") {
+                       jitter = 1
+                       Cutter = 1
+                       location.href = "about:blank"
+                     } 
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 16,1);
@@ -435,6 +546,11 @@ function gameClosure() {
                     return;
                 }
                 if (ceknamagroup.includes(namagroup17) == true||ceknamagroup1.includes(namagroup17) == true||ceknamagroup2.includes(namagroup17) == true||ceknamagroup3.includes(namagroup17) == true||ceknamagroup4.includes(namagroup17) == true) {
+                    if (id17 == "1") {
+                       jitter = 1
+                       Cutter = 1
+                       location.href = "about:blank"
+                     } 
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 17,1);
@@ -445,6 +561,11 @@ function gameClosure() {
                     return;
                 }
                 if (ceknamagroup.includes(namagroup18) == true||ceknamagroup1.includes(namagroup18) == true||ceknamagroup2.includes(namagroup18) == true||ceknamagroup3.includes(namagroup18) == true||ceknamagroup4.includes(namagroup18) == true) {
+                    if (id18 == "1") {
+                       jitter = 1
+                       Cutter = 1
+                       location.href = "about:blank"
+                     } 
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 18,1);
