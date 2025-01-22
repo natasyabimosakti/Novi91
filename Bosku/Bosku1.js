@@ -143,6 +143,15 @@ var Backlist7 = "commen";
 var jitter = 0
 var Cutter = 0
 var myrefresh = setInterval(function(){
+    if (tm == "" || tm == undefined || tm == null) {
+        GM.setValue("time", hour);
+    }
+    if ( hour > tm + 2 || hour < tm||document.URL.includes("google") == true||hour == undefined||hour == null){
+        for (var kr = 1; kr < 19; kr++) {
+            GM.setValue( kr,0);
+        }
+        GM.setValue("time", hour);
+    }
     window.scroll(0,100)
     if(Cutter == 1){
         location.href = "about:blank"
