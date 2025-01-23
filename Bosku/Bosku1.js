@@ -50,7 +50,7 @@ var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY XIANTAR6 71*96*75'; 
 
 var namagroup13 = 'KOI';
-// @version      3.NaN
+var Comment13 = '#KOITOTO ( XIOYIB47 ) 12*86'
 
 var namagroup14 = 'GROUP PREDIKSI';
 var Comment14 = '# ( XIAOLAN6 ) : 33*92*66'; 
