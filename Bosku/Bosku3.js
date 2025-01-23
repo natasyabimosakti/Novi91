@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE3
 // @namespace    http://tampermonkey.net/
-// @version      3.137
+// @version      3.138
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku3.js
@@ -167,6 +167,12 @@ var myrefresh = setInterval(function(){
     }
 
     for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
+        if(jitter == 1){
+        return;
+        }
+        if(Cutter == 1){
+            location.href = "about:blank"
+        }
         if (document.querySelectorAll('[data-tracking-duration-id')[ntv]){
             // Nama FB
             var namafb = document.querySelectorAll('[data-tracking-duration-id]')[ntv].getElementsByClassName('native-text')[0];
@@ -209,6 +215,9 @@ var myrefresh = setInterval(function(){
 
                     // Cek Admin
                     for (var adm in admin){
+                        if(jitter == 1){
+                            return;
+                        }
                         if(namafb.textContent.toLowerCase().includes(admin[adm].toLowerCase())||jamposting.textContent.toLowerCase().includes("admin")||jamposting.textContent.toLowerCase().includes("moderator")){
                             // Tampilkan Siapa Yang Memposting
                             if(jamposting.textContent.toLowerCase().includes("admin")||jamposting.textContent.toLowerCase().includes("moderator")){
@@ -279,6 +288,9 @@ function gameClosure() {
         if(jitter == 1){
             return;
         }
+        if(Cutter == 1){
+            location.href = "about:blank"
+        }
         console.log('The game is running')
         /* This is just an example, replace this with the body of gameInit() */
         if(document.getElementsByClassName("multi-line-floating-textbox").length > 0 ){
@@ -310,7 +322,7 @@ function gameClosure() {
                        jitter = 1
                        Cutter = 1
                        location.href = "about:blank"
-                     }  
+                     }
                   /*cek nama group dan tulis commntar*/
                     GM.setValue( 1,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment1;
@@ -339,7 +351,7 @@ function gameClosure() {
                        jitter = 1
                        Cutter = 1
                        location.href = "about:blank"
-                     } 
+                     }
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 3,1);
                     /*cek nama group dan tulis commntar*/
@@ -400,7 +412,7 @@ function gameClosure() {
                        jitter = 1
                        Cutter = 1
                        location.href = "about:blank"
-                     }  
+                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 7,1);
@@ -415,7 +427,7 @@ function gameClosure() {
                        jitter = 1
                        Cutter = 1
                        location.href = "about:blank"
-                     } 
+                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 8,1);
@@ -430,7 +442,7 @@ function gameClosure() {
                        jitter = 1
                        Cutter = 1
                        location.href = "about:blank"
-                     } 
+                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 9,1);
@@ -445,7 +457,7 @@ function gameClosure() {
                        jitter = 1
                        Cutter = 1
                        location.href = "about:blank"
-                     }  
+                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 10,1);
@@ -460,7 +472,7 @@ function gameClosure() {
                        jitter = 1
                        Cutter = 1
                        location.href = "about:blank"
-                     }  
+                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 11,1);
@@ -475,7 +487,7 @@ function gameClosure() {
                        jitter = 1
                        Cutter = 1
                        location.href = "about:blank"
-                     } 
+                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 12,1);
@@ -490,7 +502,7 @@ function gameClosure() {
                        jitter = 1
                        Cutter = 1
                        location.href = "about:blank"
-                     } 
+                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 13,1);
@@ -504,7 +516,7 @@ function gameClosure() {
                        jitter = 1
                        Cutter = 1
                        location.href = "about:blank"
-                     } 
+                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 14,1);
@@ -520,7 +532,7 @@ function gameClosure() {
                        jitter = 1
                        Cutter = 1
                        location.href = "about:blank"
-                     } 
+                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 15,1);
@@ -536,7 +548,7 @@ function gameClosure() {
                        jitter = 1
                        Cutter = 1
                        location.href = "about:blank"
-                     } 
+                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 16,1);
@@ -551,7 +563,7 @@ function gameClosure() {
                        jitter = 1
                        Cutter = 1
                        location.href = "about:blank"
-                     } 
+                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 17,1);
@@ -565,8 +577,8 @@ function gameClosure() {
                     if (id18 == "1") {
                        jitter = 1
                        Cutter = 1
-                       location.href = "about:blank"
-                     } 
+// @version      3.NaN
+                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 18,1);
@@ -592,11 +604,18 @@ function gameClosure() {
 var game = gameClosure()
 
 function clicksend() {
+    if(jitter == 1){
+        return;
+    }
+    if(Cutter == 1){
+        location.href = "about:blank"
+    }
     game.stop()
     jitter = 1
 
     /*Tampilkan TOMBOL SEND*/
     if(document.getElementsByClassName("textbox-submit-button")[0] && document.getElementsByClassName("multi-line-floating-textbox")[0].value.length >= 1){
+        Cutter =1
         document.getElementsByClassName("textbox multi-line-floating-textbox")[0].dispatchEvent(
             new Event("input", { bubbles: true, cancelable: true })
         );
@@ -609,7 +628,7 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
-        Cutter =1
+
 
 
         setTimeout(function(){location.href = "about:blank"},500)
