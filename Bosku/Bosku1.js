@@ -3,6 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      3.137
 // @description  try to take over the world!
+// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
 // @author       You
 // @match        http*://*/*
