@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 2
 // @namespace    http://tampermonkey.net/
-// @version      3.127
+// @version      3.128
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
@@ -69,7 +69,6 @@ var Comment17 = '#KIKOTOTO (BONCEL58) = 62*50';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Group Malb 2';
-
 
 
 var d = new Date();
@@ -223,7 +222,7 @@ var myrefresh = setInterval(function(){
                             }else{
                                 console.log("Admin yang Memosting = " + admin[adm]);
                             }
-                            break;
+                            
                             // Click Comment Box
                             for (var clk = 0; clk < commentbox.length; clk++) {
                                 if(commentbox[clk]){
