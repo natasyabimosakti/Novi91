@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 1
 // @namespace    http://tampermonkey.net/
-// @version      3.140
+// @version      3.5
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo1.js
@@ -12,6 +12,7 @@
 // @grant        GM.setValue
 // @grant        GM.getValue
 // @grant        window.close
+// ==/UserScript==
 
 var namagroup1 = 'SHIOKELINCI';
 var Comment1 = '#shiokelinci4d*SIKIL47*17*95'; 
