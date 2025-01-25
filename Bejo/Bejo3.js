@@ -1,9 +1,10 @@
 // ==UserScript==
-// @name         NEW Bejo3
+// @name         NEW Bejo 4
 // @namespace    http://tampermonkey.net/
-// @version      3.4
+// @version      3.5
 // @description  try to take over the world!
-// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo3.js
+// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
+// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
 // @author       You
 // @match        http*://*/*
 // @run-at       document-end
@@ -573,7 +574,7 @@ function gameClosure() {
                     if (id18 == "1") {
                        jitter = 1
                        Cutter = 1
-// @version      3.NaN
+                         location.href = "about:blank"
                      }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
