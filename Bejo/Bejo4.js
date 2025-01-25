@@ -1,8 +1,9 @@
 // ==UserScript==
-// @name         NEW Bejo4
+// @name         NEW Bejo 4
 // @namespace    http://tampermonkey.net/
-// @version      3.4
+// @version      3.5
 // @description  try to take over the world!
+// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
 // @author       You
 // @match        http*://*/*
@@ -12,6 +13,7 @@
 // @grant        GM.getValue
 // @grant        window.close
 // ==/UserScript==
+
 
 var namagroup1 = 'SHIOKELINCI';
 var Comment1 = '#shiokelinci4d*PASTI30*39*27'; 
@@ -572,7 +574,7 @@ function gameClosure() {
                     if (id18 == "1") {
                        jitter = 1
                        Cutter = 1
-// @version      3.NaN
+                        location.href = "about:blank"
                      }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
