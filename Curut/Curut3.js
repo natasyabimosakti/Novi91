@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.136
+// @version      3.137
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut3.js
@@ -134,7 +134,7 @@ var keyword9 = "login"
 var keyword10 = "𝐑𝐎𝐎𝐌"
 var keyword11 = "HONGKONG"
 var keyword12 = "SINGAPUR"
-var keyword13 = "SYDNEY"
+var keyword13 = "nemo"
 
 var Backlist1 = "pemenang lomba";
 var Backlist2 = "rekap";
