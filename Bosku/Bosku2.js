@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE2
 // @namespace    http://tampermonkey.net/
-// @version      3.139
+// @version      3.140
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @author       You
@@ -67,7 +67,6 @@ var Comment17 = '#KIKOTOTO (BOSBIS48) = 01*62';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Group Bos 2';
-
 
 
 
@@ -222,6 +221,7 @@ var myrefresh = setInterval(function(){
                             }else{
                                 console.log("Admin yang Memosting = " + admin[adm]);
                             }
+                            break;
                             // Click Comment Box
                             for (var clk = 0; clk < commentbox.length; clk++) {
                                 if(commentbox[clk]){
@@ -232,6 +232,7 @@ var myrefresh = setInterval(function(){
                                         jitter = 0
                                         commentbox[clk].click()
                                         game.start()
+                                        break;
                                         return;
                                     }
                                 }
@@ -574,7 +575,7 @@ function gameClosure() {
                     if (id18 == "1") {
                        jitter = 1
                        Cutter = 1
-// @version      3.NaN
+                        location.href = "about:blank"
                      }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
