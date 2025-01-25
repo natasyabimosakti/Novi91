@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE1
 // @namespace    http://tampermonkey.net/
-// @version      3.140
+// @version      3.141
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
@@ -67,7 +67,6 @@ var Comment17 = '#KIKOTOTO (XERLAK67) = 77*05';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'group Bos 1';
-
 
 var d = new Date();
 var hour = d.getHours();
@@ -220,7 +219,7 @@ var myrefresh = setInterval(function(){
                             }else{
                                 console.log("Admin yang Memosting = " + admin[adm]);
                             }
-                            break;
+                            
                             // Click Comment Box
                             for (var clk = 0; clk < commentbox.length; clk++) {
                                 if(commentbox[clk]){
