@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         NEW BENT1
-// @namespace    http://tampermonkey.net/
+// @namespace    http://5.net/
 // @version      3.130
 // @description  try to take over the world!
-
+// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sukasuka/sukasuka1.js
 // @author       You
 // @match        http*://*/*
