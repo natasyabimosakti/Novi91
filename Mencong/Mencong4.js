@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG4
 // @namespace    http://tampermonkey.net/
-// @version      3.224
+// @version      3.225
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong4.js
@@ -223,7 +223,7 @@ var myrefresh = setInterval(function(){
                             }else{
                                 console.log("Admin yang Memosting = " + admin[adm]);
                             }
-                            break;
+                            
                             // Click Comment Box
                             for (var clk = 0; clk < commentbox.length; clk++) {
                                 if(commentbox[clk]){
