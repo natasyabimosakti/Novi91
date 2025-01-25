@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.218
+// @version      3.219
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
@@ -225,6 +225,7 @@ var myrefresh = setInterval(function(){
                             }else{
                                 console.log("Admin yang Memosting = " + admin[adm]);
                             }
+                            break;
                             // Click Comment Box
                             for (var clk = 0; clk < commentbox.length; clk++) {
                                 if(commentbox[clk]){
@@ -235,6 +236,7 @@ var myrefresh = setInterval(function(){
                                         jitter = 0
                                         commentbox[clk].click()
                                         game.start()
+                                        break;
                                         return;
                                     }
                                 }
@@ -577,7 +579,7 @@ function gameClosure() {
                     if (id18 == "1") {
                        jitter = 1
                        Cutter = 1
-// @version      3.NaN
+                        location.href = "about:blank"
                      }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
