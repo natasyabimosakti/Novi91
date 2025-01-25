@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         NEW Bejo 4
+// @name         NEW Bejo 3
 // @namespace    http://tampermonkey.net/
 // @version      3.5
 // @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
-// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
+// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo3.js
+// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo3.js
 // @author       You
 // @match        http*://*/*
 // @run-at       document-end
