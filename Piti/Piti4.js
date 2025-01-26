@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti4
 // @namespace    http://tampermonkey.net/
-// @version      3.6
+// @version      3.7
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti4.js
@@ -14,14 +14,14 @@
 // @grant        window.close
 // ==/UserScript==
 
-var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (DEKKLUWER) 47*60*21'; 
+var namagroup1 = 'GEMERLAP';
+var Comment1 = 'GEMERLAP77 ( DEKKLUWER ) 47*60*21'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( DELEKEK ) : 66*02*94'; 
 
-var namagroup3 = 'ELEVENS';
-var Comment3 = '(ELEVENS4D) = (DOLUNDRO) 16*67*30'; 
+var namagroup3 = 'LAST';
+var Comment3 = '(DOLUNDRO) = 16*67*30 LAST4D'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO DEMPURUK = 27*10*53'; 
@@ -32,8 +32,8 @@ var Comment5 = '#PEDRO4D (DELELENG*09*24*96)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (DINGLENG) = 23*49*20'; 
 
-var namagroup7 = 'BENIH';
-var Comment7 = '#BENIHTOTO(DELETET12) : 86*33*22'; 
+var namagroup7 = 'Grup Lomba Tebak';
+var Comment7 = 'ULTRATOGEL88 = (DELETET12) 86*33*22'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( DUKUSAPU12 ) : 77*85*37'; 
@@ -61,6 +61,7 @@ var Comment15 = 'DUKULENG12 : 58*88*29 #HOHOTOGEL';
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*DIKANGBATU*32*55*63'; 
+
 
 
 
@@ -101,7 +102,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara",
              "erwin","emilia","evelyn",
              "fira","fahresa","fiana","fahmi",
-             "gita",
+             "gita","kang bona","hoky","julianti","libra","claudio",
              "habib","hefi","hoihai","hana","hoki","hokage","esse","nurul","leader",
              "icha","iyatoto","invest","ivanna","inisial","ishaura",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
