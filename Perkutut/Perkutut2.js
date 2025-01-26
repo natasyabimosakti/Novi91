@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut2
 // @namespace    http://tampermonkey.net/
-// @version      3.153
+// @version      3.154
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut2.js
@@ -15,14 +15,14 @@
 // ==/UserScript==
 
 
-var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (ELANG72) 95*91*52'; 
+var namagroup1 = 'GEMERLAP';
+var Comment1 = 'GEMERLAP77 ( ELANG72 ) 95*91*52'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( ELANG3 ) : 68*62*77'; 
 
-var namagroup3 = 'ELEVENS';
-var Comment3 = '(ELEVENS4D) = (ELANG94) 58*69*84'; 
+var namagroup3 = 'LAST';
+var Comment3 = '(ELANG94) = 58*69*84 LAST4D'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO ELANG76 = 20*48*22'; 
@@ -33,8 +33,8 @@ var Comment5 = '#PEDRO4D (ELANG089*57*10*42)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (ELANG38) = 32*79*31'; 
 
-var namagroup7 = 'BENIH';
-var Comment7 = '#BENIHTOTO(ELANG089) : 17*76*78'; 
+var namagroup7 = 'Grup Lomba Tebak';
+var Comment7 = 'ULTRATOGEL88 = (ELANG089) 17*76*78'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( ELANG51 ) : 27*09*87'; 
@@ -62,6 +62,7 @@ var Comment15 = 'ELANG94 : 67*80*74 #HOHOTOGEL';
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*ELANG72*37*96*08'; 
+
 
 
 
@@ -104,7 +105,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara",
              "erwin","emilia","evelyn",
              "fira","fahresa","fiana","fahmi",
-             "gita",
+             "gita","kang bona","hoky","julianti","libra","claudio",
              "habib","hefi","hoihai","hana","hoki","hokage","esse","nurul","leader",
              "icha","iyatoto","invest","ivanna","inisial","ishaura",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
