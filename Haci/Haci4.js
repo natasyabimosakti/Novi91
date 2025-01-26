@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi4
 // @namespace    http://tampermonkey.net/
-// @version      3.153
+// @version      3.154
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci4.js
@@ -16,14 +16,14 @@
 
 
 
-var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (YAELAH82) 65*98*00'; 
+var namagroup1 = 'GEMERLAP';
+var Comment1 = 'GEMERLAP77 ( YAELAH82 ) 65*98*00'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( YAKUZA16 ) : 67*40*01'; 
 
-var namagroup3 = 'ELEVENS';
-var Comment3 = '(ELEVENS4D) = (YASALAM64) 32*37*23'; 
+var namagroup3 = 'LAST';
+var Comment3 = '(YASALAM64) = 32*37*23 LAST4D'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO YAPIYEYA = 79*21*03'; 
@@ -34,8 +34,8 @@ var Comment5 = '#PEDRO4D (YAAJAH19*52*93*35)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (YANIRI03) = 14*70*29'; 
 
-var namagroup7 = 'BENIH';
-var Comment7 = '#BENIHTOTO(YAAJAH19) : 48*33*34'; 
+var namagroup7 = 'Grup Lomba Tebak';
+var Comment7 = 'ULTRATOGEL88 = (YAAJAH19) 48*33*34'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( YADIANI77 ) : 54*10*83'; 
@@ -107,7 +107,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara",
              "erwin","emilia","evelyn",
              "fira","fahresa","fiana","fahmi",
-             "gita",
+             "gita","kang bona","hoky","julianti","libra","claudio",
              "habib","hefi","hoihai","hana","hoki","hokage","esse","nurul","leader",
              "icha","iyatoto","invest","ivanna","inisial","ishaura",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
