@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi1
 // @namespace    http://tampermonkey.net/
-// @version      3.153
+// @version      3.154
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci1.js
@@ -17,14 +17,14 @@
 
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
-var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (GUNGSNIPE) 59*47*96'; 
+var namagroup1 = 'GEMERLAP';
+var Comment1 = 'GEMERLAP77 ( GUNGSNIPE ) 59*47*96'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( GUNGHOK4 ) : 39*15*71'; 
 
-var namagroup3 = 'ELEVENS';
-var Comment3 = '(ELEVENS4D) = (GUNGCUAKZ) 22*57*94'; 
+var namagroup3 = 'LAST';
+var Comment3 = '(GUNGCUAKZ) = 22*57*94 LAST4D'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO GUNGKALIGUNG = 81*49*72'; 
@@ -35,8 +35,8 @@ var Comment5 = '#PEDRO4D (GUNGBUTZ*20*44*38)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (GUNGCEL) = 06*09*45'; 
 
-var namagroup7 = 'BENIH';
-var Comment7 = '#BENIHTOTO(GUNGBUTZ) : 99*24*92'; 
+var namagroup7 = 'Grup Lomba Tebak';
+var Comment7 = 'ULTRATOGEL88 = (GUNGBUTZ) 99*24*92'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( GUNGYUDZ ) : 11*95*66'; 
@@ -63,7 +63,8 @@ var namagroup15 = 'Hoho';
 var Comment15 = 'GUNGKLIKK : 89*90*56 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*GUNGHJ6*02*19*68';
+var Comment16 = 'CITA4D*GUNGHJ6*02*19*68'; 
+
 
 
 
@@ -103,7 +104,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin",
              "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika",
              "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara",
-             "erwin","emilia","evelyn",
+             "erwin","emilia","evelyn","kang bona","hoky","julianti","libra","claudio",
              "fira","fahresa","fiana","fahmi",
              "gita",
              "habib","hefi","hoihai","hana","hoki","hokage","esse","nurul","leader",
