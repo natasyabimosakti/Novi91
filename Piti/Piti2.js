@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti2
 // @namespace    http://tampermonkey.net/
-// @version      3.6
+// @version      3.7
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti2.js
@@ -14,14 +14,14 @@
 // @grant        window.close
 // ==/UserScript==
 
-var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (BOCHOK52) 75*50*73'; 
+var namagroup1 = 'GEMERLAP';
+var Comment1 = 'GEMERLAP77 ( BOCHOK52 ) 75*50*73'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( BOCHI92 ) : 52*35*54'; 
 
-var namagroup3 = 'ELEVENS';
-var Comment3 = '(ELEVENS4D) = (BODAR17) 28*42*13'; 
+var namagroup3 = 'LAST';
+var Comment3 = '(BODAR17) = 28*42*13 LAST4D'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO BOCHOK36 = 15*92*39'; 
@@ -32,8 +32,8 @@ var Comment5 = '#PEDRO4D (BONTIR36*46*91*61)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (BROTO15) = 69*43*93'; 
 
-var namagroup7 = 'BENIH';
-var Comment7 = '#BENIHTOTO(BOMER14) : 74*62*57'; 
+var namagroup7 = 'Grup Lomba Tebak';
+var Comment7 = 'ULTRATOGEL88 = (BOMER14) 74*62*57'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( BOMER14 ) : 78*12*05'; 
@@ -61,6 +61,7 @@ var Comment15 = 'BOCHO19 : 71*82*14 #HOHOTOGEL';
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*BOSIOM19*36*81*89'; 
+
 
 
 
@@ -101,7 +102,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara",
              "erwin","emilia","evelyn",
              "fira","fahresa","fiana","fahmi",
-             "gita",
+             "gita","kang bona","hoky","julianti","libra","claudio",
              "habib","hefi","hoihai","hana","hoki","hokage","esse","nurul","leader",
              "icha","iyatoto","invest","ivanna","inisial","ishaura",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
