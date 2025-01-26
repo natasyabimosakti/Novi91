@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia2
 // @namespace    http://tampermonkey.net/
-// @version      3.114
+// @version      3.115
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia2.js
@@ -18,14 +18,14 @@
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 
-var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (BOBOHO55) 88*82*99'; 
+var namagroup1 = 'GEMERLAP';
+var Comment1 = 'GEMERLAP77 ( BOBOHO55 ) 88*82*99'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( BIMBO91 ) : 29*33*32'; 
 
-var namagroup3 = 'ELEVENS';
-var Comment3 = '(ELEVENS4D) = (BINAKARMA54) 09*38*66'; 
+var namagroup3 = 'LAST';
+var Comment3 = '(BINAKARMA54) = 09*38*66 LAST4D'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO BISMON76 = 05*83*55'; 
@@ -36,8 +36,8 @@ var Comment5 = '#PEDRO4D (BONANSA67*61*30*93)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (BIMBO91) = 95*42*36'; 
 
-var namagroup7 = 'BENIH';
-var Comment7 = '#BENIHTOTO(BINAKARMA54) : 06*76*46'; 
+var namagroup7 = 'Grup Lomba Tebak';
+var Comment7 = 'ULTRATOGEL88 = (BINAKARMA54) 06*76*46'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( BERIKLAH65 ) : 26*56*97'; 
@@ -110,7 +110,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "erwin","emilia","evelyn",
              "fira","fahresa","fiana","fahmi",
              "gita",
-             "habib","hefi","hoihai","hana","hoki","hokage","esse","nurul","leader",
+             "habib","hefi","hoihai","hana","hoki","hokage","esse","nurul","leader","kang bona","hoky","julianti","libra","claudio",
              "icha","iyatoto","invest","ivanna","inisial","ishaura",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
              "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla","komandan",
