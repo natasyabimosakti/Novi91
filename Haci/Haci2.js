@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hachi2
 // @namespace    http://tampermonkey.net/
-// @version      3.153
+// @version      3.154
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Haci/Haci2.js
@@ -18,14 +18,14 @@
 
 
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
-var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (FERPERS) 73*87*05'; 
+var namagroup1 = 'GEMERLAP';
+var Comment1 = 'GEMERLAP77 ( FERPERS ) 73*87*05'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( FERCUKZ ) : 50*41*60'; 
 
-var namagroup3 = 'ELEVENS';
-var Comment3 = '(ELEVENS4D) = (FERGILL) 53*63*08'; 
+var namagroup3 = 'LAST';
+var Comment3 = '(FERGILL) = 53*63*08 LAST4D'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO FERIBS = 89*90*56'; 
@@ -36,8 +36,8 @@ var Comment5 = '#PEDRO4D (FERKEII*02*19*68)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (FERYOS) = 78*55*07'; 
 
-var namagroup7 = 'BENIH';
-var Comment7 = '#BENIHTOTO(FERKEII) : 58*80*28'; 
+var namagroup7 = 'Grup Lomba Tebak';
+var Comment7 = 'ULTRATOGEL88 = (FERKEII) 58*80*28'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( FERKERR ) : 61*97*69'; 
@@ -65,6 +65,7 @@ var Comment15 = 'FERCAU : 81*49*72 #HOHOTOGEL';
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*FERKEIII*20*44*38'; 
+
 
  
 
@@ -105,7 +106,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara",
              "erwin","emilia","evelyn",
              "fira","fahresa","fiana","fahmi",
-             "gita",
+             "gita","kang bona","hoky","julianti","libra","claudio",
              "habib","hefi","hoihai","hana","hoki","hokage","esse","nurul","leader",
              "icha","iyatoto","invest","ivanna","inisial","ishaura",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
