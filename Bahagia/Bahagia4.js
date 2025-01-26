@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia4
 // @namespace    http://tampermonkey.net/
-// @version      3.114
+// @version      3.115
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia4.js
@@ -14,14 +14,14 @@
 // @grant        window.close
 // ==/UserScript==
 
-var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (DUDUKGO81) 85*67*18'; 
+var namagroup1 = 'GEMERLAP';
+var Comment1 = 'GEMERLAP77 ( DUDUKGO81 ) 85*67*18'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( DUINIATOTO23 ) : 47*12*94'; 
 
-var namagroup3 = 'ELEVENS';
-var Comment3 = '(ELEVENS4D) = (DUDUKGO81) 37*00*70'; 
+var namagroup3 = 'LAST';
+var Comment3 = '(DUDUKGO81) = 37*00*70 LAST4D'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO DINDAMANIS12 = 73*54*51'; 
@@ -32,8 +32,8 @@ var Comment5 = '#PEDRO4D (DJASKA13*25*03*91)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (DICIAKKUCING) = 04*84*96'; 
 
-var namagroup7 = 'BENIH';
-var Comment7 = '#BENIHTOTO(DIKENTUKADAL) : 24*79*08'; 
+var namagroup7 = 'Grup Lomba Tebak';
+var Comment7 = 'ULTRATOGEL88 = (DIKENTUKADAL) 24*79*08'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( DINDAMANIS13 ) : 69*41*62'; 
@@ -61,6 +61,7 @@ var Comment15 = 'DIANUMAMI12 : 98*27*60 #HOHOTOGEL';
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*DIKENTUKADAL*90*23*65'; 
+
 
 
 
@@ -98,7 +99,7 @@ var refresh = 40;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","fania","ban nee","putri","anisa",
              "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin",
-             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika",
+             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika","kang bona","hoky","julianti","libra","claudio",
              "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara",
              "erwin","emilia","evelyn",
              "fira","fahresa","fiana","fahmi",
