@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna2
 // @namespace    http://tampermonkey.net/
-// @version      3.145
+// @version      3.146
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna2.js
@@ -19,15 +19,14 @@
 
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
-
-var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (BOSBOS64) 78*26*42'; 
+var namagroup1 = 'GEMERLAP';
+var Comment1 = 'GEMERLAP77 ( BOSBOS64 ) 78*26*42'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( BOSEK64 ) : 34*70*45'; 
 
-var namagroup3 = 'ELEVENS';
-var Comment3 = '(ELEVENS4D) = (BOSREN64) 60*76*40'; 
+var namagroup3 = 'LAST';
+var Comment3 = '(BOSREN64) = 60*76*40 LAST4D'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO BOSEN68 = 14*31*28'; 
@@ -38,8 +37,8 @@ var Comment5 = '#PEDRO4D (BOSMAN67*77*86*61)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (BOSMINI88) = 50*03*30'; 
 
-var namagroup7 = 'BENIH';
-var Comment7 = '#BENIHTOTO(BOSMAN67) : 95*83*23'; 
+var namagroup7 = 'Grup Lomba Tebak';
+var Comment7 = 'ULTRATOGEL88 = (BOSMAN67) 95*83*23'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( BOSTER73 ) : 93*43*58'; 
@@ -110,7 +109,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara",
              "erwin","emilia","evelyn",
              "fira","fahresa","fiana","fahmi",
-             "gita",
+             "gita","kang bona","hoky","julianti","libra","claudio",
              "habib","hefi","hoihai","hana","hoki","hokage","esse","nurul","leader",
              "icha","iyatoto","invest","ivanna","inisial","ishaura",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
