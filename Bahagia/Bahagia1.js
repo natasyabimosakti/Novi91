@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia1
 // @namespace    http://tampermonkey.net/
-// @version      3.114
+// @version      3.115
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia1.js
@@ -14,14 +14,14 @@
 // @grant        window.close
 // ==/UserScript==
 
-var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (ASLISUPER12) 71*11*45'; 
+var namagroup1 = 'GEMERLAP';
+var Comment1 = 'GEMERLAP77 ( ASLISUPER12 ) 71*11*45'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( ASRIN32 ) : 49*40*28'; 
 
-var namagroup3 = 'ELEVENS';
-var Comment3 = '(ELEVENS4D) = (ASABKUBUR12) 59*78*39'; 
+var namagroup3 = 'LAST';
+var Comment3 = '(ASABKUBUR12) = 59*78*39 LAST4D'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO ASKIPLI99 = 21*57*13'; 
@@ -32,8 +32,8 @@ var Comment5 = '#PEDRO4D (ASKUTENG12*07*75*63)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (AZKALAN) = 77*80*19'; 
 
-var namagroup7 = 'BENIH';
-var Comment7 = '#BENIHTOTO(ASBHUN) : 10*81*34'; 
+var namagroup7 = 'Grup Lomba Tebak';
+var Comment7 = 'ULTRATOGEL88 = (ASBHUN) 10*81*34'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( ASKALIMAN ) : 68*17*92'; 
@@ -61,6 +61,7 @@ var Comment15 = 'ASIZAN33 : 61*30*93 #HOHOTOGEL';
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*ASBHUN*29*33*32'; 
+
 
 
 
@@ -98,7 +99,7 @@ var refresh = 40;
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","fania","ban nee","putri","anisa",
              "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin",
              "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika",
-             "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara",
+             "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara","kang bona","hoky","julianti","libra","claudio",
              "erwin","emilia","evelyn",
              "fira","fahresa","fiana","fahmi",
              "gita",
