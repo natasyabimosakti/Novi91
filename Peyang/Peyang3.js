@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang3
 // @namespace    http://tampermonkey.net/
-// @version      3.137
+// @version      3.138
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang3.js
@@ -16,14 +16,14 @@
 
 
 
-var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (NOVIPAL34) 50*91*21'; 
+var namagroup1 = 'GEMERLAP';
+var Comment1 = 'GEMERLAP77 ( NOVIPAL34 ) 50*91*21'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( NOVINOVA231 ) : 06*90*83'; 
 
-var namagroup3 = 'ELEVENS';
-var Comment3 = '(ELEVENS4D) = (NOVIRAS34) 05*98*11'; 
+var namagroup3 = 'LAST';
+var Comment3 = '(NOVIRAS34) = 05*98*11 LAST4D'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO NOVITAS3 = 75*77*96'; 
@@ -34,8 +34,8 @@ var Comment5 = '#PEDRO4D (NOVISAN31*56*43*31)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (NOVIRAMBU3) = 15*69*30'; 
 
-var namagroup7 = 'BENIH';
-var Comment7 = '#BENIHTOTO(NOVISAN31) : 35*12*78'; 
+var namagroup7 = 'Grup Lomba Tebak';
+var Comment7 = 'ULTRATOGEL88 = (NOVISAN31) 35*12*78'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( NOVITAS53 ) : 75*77*41'; 
@@ -62,7 +62,8 @@ var namagroup15 = 'Hoho';
 var Comment15 = 'NOVITARU34 : 26*54*34 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*NOVIRAS34*09*97*29';
+var Comment16 = 'CITA4D*NOVIRAS34*09*97*29'; 
+
 
 
 
@@ -105,7 +106,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara",
              "erwin","emilia","evelyn",
              "fira","fahresa","fiana","fahmi",
-             "gita",
+             "gita","kang bona","hoky","julianti","libra","claudio",
              "habib","hefi","hoihai","hana","hoki","hokage","esse","nurul","leader",
              "icha","iyatoto","invest","ivanna","inisial","ishaura",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
