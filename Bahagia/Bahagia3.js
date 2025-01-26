@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia3
 // @namespace    http://tampermonkey.net/
-// @version      3.114
+// @version      3.115
 // @description  dunia
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
@@ -15,14 +15,14 @@
 // ==/UserScript==
 
 
-var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (CACING65) 52*31*50'; 
+var namagroup1 = 'GEMERLAP';
+var Comment1 = 'GEMERLAP77 ( CACING65 ) 52*31*50'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( CUILANSENG12 ) : 90*23*65'; 
 
-var namagroup3 = 'ELEVENS';
-var Comment3 = '(ELEVENS4D) = (CACINGAN54) 64*48*86'; 
+var namagroup3 = 'LAST';
+var Comment3 = '(CACINGAN54) = 64*48*86 LAST4D'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO CACINGAN54 = 43*53*16'; 
@@ -33,8 +33,8 @@ var Comment5 = '#PEDRO4D (CARICINTA54*20*27*60)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (CUKAPASAR56) = 72*14*35'; 
 
-var namagroup7 = 'BENIH';
-var Comment7 = '#BENIHTOTO(CINCANG65) : 87*22*02'; 
+var namagroup7 = 'Grup Lomba Tebak';
+var Comment7 = 'ULTRATOGEL88 = (CINCANG65) 87*22*02'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( CNDAKARTA76 ) : 74*15*89'; 
@@ -101,7 +101,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "erwin","emilia","evelyn",
              "fira","fahresa","fiana","fahmi",
              "gita",
-             "habib","hefi","hoihai","hana","hoki","hokage","esse","nurul","leader",
+             "habib","hefi","hoihai","hana","hoki","hokage","esse","nurul","leader","kang bona","hoky","julianti","libra","claudio",
              "icha","iyatoto","invest","ivanna","inisial","ishaura",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
              "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla","komandan",
