@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang1
 // @namespace    http://tampermonkey.net/
-// @version      3.136
+// @version      3.137
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang1.js
@@ -15,14 +15,14 @@
 // ==/UserScript==
 
 
-var namagroup1 = 'LICIN';
-var Comment1 = '#LICIN4D (MERAHKU75) 59*95*87'; 
+var namagroup1 = 'GEMERLAP';
+var Comment1 = 'GEMERLAP77 ( MERAHKU75 ) 59*95*87'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( MENTARI17 ) : 18*28*38'; 
 
-var namagroup3 = 'ELEVENS';
-var Comment3 = '(ELEVENS4D) = (MERANTAU41) 13*36*58'; 
+var namagroup3 = 'LAST';
+var Comment3 = '(MERANTAU41) = 13*36*58 LAST4D'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO MERATIH14 = 42*76*16'; 
@@ -33,8 +33,8 @@ var Comment5 = '#PEDRO4D (MASAK741*71*48*25)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (MATIO50) = 92*84*39'; 
 
-var namagroup7 = 'BENIH';
-var Comment7 = '#BENIHTOTO(MASAK741) : 72*45*27'; 
+var namagroup7 = 'Grup Lomba Tebak';
+var Comment7 = 'ULTRATOGEL88 = (MASAK741) 72*45*27'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( MACRONI52 ) : 42*76*00'; 
@@ -61,7 +61,8 @@ var namagroup15 = 'Hoho';
 var Comment15 = 'MAKDUNGDUNG : 85*08*60 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*MERANTAU41*19*17*33';
+var Comment16 = 'CITA4D*MERANTAU41*19*17*33'; 
+
 
 
 
@@ -103,7 +104,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara",
              "erwin","emilia","evelyn",
              "fira","fahresa","fiana","fahmi",
-             "gita",
+             "gita","kang bona","hoky","julianti","libra","claudio",
              "habib","hefi","hoihai","hana","hoki","hokage","esse","nurul","leader",
              "icha","iyatoto","invest","ivanna","inisial","ishaura",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
