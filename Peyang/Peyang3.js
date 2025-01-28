@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang3
 // @namespace    http://tampermonkey.net/
-// @version      3.138
+// @version      3.139
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang3.js
@@ -17,7 +17,7 @@
 
 
 var namagroup1 = 'GEMERLAP';
-var Comment1 = 'GEMERLAP77 ( NOVIPAL34 ) 50*91*21'; 
+var Comment1 = 'GEMERLAP77 ( NOVINOVA231 ) 50*91*21'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( NOVINOVA231 ) : 06*90*83'; 
