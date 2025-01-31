@@ -14,7 +14,7 @@
 // @grant        window.close
 // ==/UserScript==
 
-var namagroup1 = 'GEMERLAP';
+var namagroup1 = 'NONGKRONG';
 var Comment1 = 'GEMERLAP77 ( ASTRI29 ) 71*11*45'; 
 
 var namagroup2 = 'K86';
