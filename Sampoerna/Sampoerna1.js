@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna1
 // @namespace    http://tampermonkey.net/
-// @version      3.146
+// @version      3.147
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna1.js
@@ -19,14 +19,14 @@
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 
-var namagroup1 = 'GEMERLAP';
-var Comment1 = 'GEMERLAP77 ( XIONGYU6 ) 39*90*66'; 
+var namagroup1 = 'NONGKRONG';
+var Comment1 = '#AMAVI5D ( XIONGYU6 ) : 39*90*66'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( XENON88 ) : 54*74*37'; 
 
-var namagroup3 = 'LAST';
-var Comment3 = '(XEROPON) = 22*62*71 LAST4D'; 
+var namagroup3 = 'BIDAK';
+var Comment3 = 'BIDAKTOTO ( XEROPON ) 22*62*71'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO XELEMINT53 = 29*35*21'; 
