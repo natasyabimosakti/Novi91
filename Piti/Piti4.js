@@ -14,14 +14,14 @@
 // @grant        window.close
 // ==/UserScript==
 
-var namagroup1 = 'GEMERLAP';
-var Comment1 = 'GEMERLAP77 ( DEKKLUWER ) 47*60*21'; 
+var namagroup1 = 'NONGKRONG';
+var Comment1 = '#AMAVI5D ( DEKKLUWER ) : 47*60*21'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( DELEKEK ) : 66*02*94'; 
 
-var namagroup3 = 'LAST';
-var Comment3 = '(DOLUNDRO) = 16*67*30 LAST4D'; 
+var namagroup3 = 'BIDAK';
+var Comment3 = 'BIDAKTOTO ( DOLUNDRO ) 16*67*30'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO DEMPURUK = 27*10*53'; 
