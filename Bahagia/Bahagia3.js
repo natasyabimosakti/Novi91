@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bahagia3
 // @namespace    http://tampermonkey.net/
-// @version      3.116
+// @version      3.117
 // @description  dunia
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bahagia/Bahagia3.js
@@ -15,14 +15,14 @@
 // ==/UserScript==
 
 
-var namagroup1 = 'GEMERLAP';
-var Comment1 = 'GEMERLAP77 ( CINOIRENG12 ) 52*31*50'; 
+var namagroup1 = 'NONGKRONG';
+var Comment1 = '#AMAVI5D ( CINOIRENG12 ) : 52*31*50'; 
 
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( CUILANSENG12 ) : 90*23*65'; 
 
-var namagroup3 = 'LAST';
-var Comment3 = '(CACINGAN54) = 64*48*86 LAST4D'; 
+var namagroup3 = 'BIDAK';
+var Comment3 = 'BIDAKTOTO ( CACINGAN54 ) 64*48*86'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO CACINGAN54 = 43*53*16'; 
@@ -62,6 +62,7 @@ var Comment15 = 'CUCUBUAYA65 : 25*03*91 #HOHOTOGEL';
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*CINCANG65*47*12*94'; 
+
 
 var namagroup17 = 'Jawatengah';
 var Comment17 = 'Bahagia3';
