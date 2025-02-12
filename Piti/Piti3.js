@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti3
 // @namespace    http://tampermonkey.net/
-// @version      3.8
+// @version      3.9
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti3.js
@@ -20,8 +20,8 @@ var Comment1 = '#AMAVI5D ( CIANAS16 ) : 80*26*51';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( CAKTRAS ) : 90*65*84'; 
 
-var namagroup3 = 'BIDAK';
-var Comment3 = 'BIDAKTOTO ( CASAN36 ) 58*00*29'; 
+var namagroup3 = 'STREMING';
+var Comment3 = 'SAHARA888 ( CASAN36 ) 58*00*29'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO CATAH16 = 32*55*63'; 
