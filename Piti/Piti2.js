@@ -112,7 +112,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy",
              "oscar","ozawa","otong","ormas",
-             "pung","puput","priyan","primus","primus","pencari","pricilia","putra",
+             "pung","puput","priyan","primus","primus","pencari","pricilia","putra","pengurus",
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi",
              "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria","sellia","sintya",
              "tink","tiktak","tiara","tatang","tania",
