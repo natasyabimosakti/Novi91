@@ -29,8 +29,8 @@ var Comment4 = 'GAIB4D=GARUK14=04*76*81';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (GELEM15) = 52*26*70'; 
 
-var namagroup6 = 'JOGJA';
-var Comment6 = '#JOGJATOTO (GINGSUL16)= 73-10'; 
+var namagroup6 = 'Tukang';
+var Comment6 = '( TUKANGTOTO GINGSUL16 : 73*10 )'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL GALAK17 63*30*72'; 
@@ -53,8 +53,8 @@ var Comment12 = 'TOGELKUY GEDANG22 94*89*29';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( GONDOL23 ) 08*87'; 
 
-var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( GEMAR24 ) : 91*93*23'; 
+var namagroup14 = 'GAMELAN';
+var Comment14 = '#GENDANG4D (GEMAR24) : 91*93*23'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (GOLOK25) 74*82*84'; 
@@ -95,24 +95,24 @@ var id18 = await GM.getValue(18);
 
 var refresh = 40;
 
-var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa",
-             "boleng","biru","bobby","bastian","bambang","bogard","bannet",
-             "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista",
+var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa","azahra",
+             "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang",
+             "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista","chin",
              "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
-             "erwin","elvina","evelyn",
+             "erwin","elvina","evelyn","enzo",
              "fira","fahresa","findlay","fatimah",
-             "gita","genzo",
+             "gita","genzo","gambrong",
              "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage","hoi hai",
              "icha","iyatoto","intan",
              "jordi","jaguar","jne","je pe","jess","junior","jovanka","jasmine",
              "kei","kumbara","kembar","kotna","karina","kopi","kang",
-             "lianda","lusiana","lina","laura","lia","lollo",
+             "lianda","lusiana","lina","laura","lia","lollo","lupin",
              "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","meleqq","megaways","minion","melly","monicha","manu","maryam","mode",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nayla","naomi","nica",
              "oscar","ozawa",
-             "pung","puput","priyan","primus","primus","prediction","pebri",
+             "pung","puput","priyan","primus","primus","prediction","pebri","pasil",
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma","ratsa","sinta","rara","ratna","mamad",
-             "sandiego","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia","sifa","seojun",
+             "sandiego","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia","sifa","seojun","sudewo",
              "tink","tiktak","tiara","tatang","tomi",
              "xian",
              "yanty","yoky","yohana","yura","yaya",
