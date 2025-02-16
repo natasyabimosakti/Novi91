@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 2
 // @namespace    http://tampermonkey.net/
-// @version      3.8
+// @version      3.9
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo2.js
@@ -29,8 +29,8 @@ var Comment4 = 'GAIB4D=KHITAN54=67*98*05';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (KANGKUNG55) = 02*09*60'; 
 
-var namagroup6 = 'JOGJA';
-var Comment6 = '#JOGJATOTO (KIDAL56)= 58-88'; 
+var namagroup6 = 'Tukang';
+var Comment6 = '( TUKANGTOTO KIDAL56 : 58*88 )'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL KALUNG57 11*20*83'; 
@@ -51,10 +51,10 @@ var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY KODOK62 37*15*50'; 
 
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( KESELEK63 ) 36*80'; 
+var Comment13 = '#KOITOTO ( KUSAM67 ) 36*80'; 
 
-var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( KAMBING64 ) : 51*35*01'; 
+var namagroup14 = 'GAMELAN';
+var Comment14 = '#GENDANG4D (KAMBING64) : 51*35*01'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (KEMBAR65) 55*90*06'; 
@@ -63,7 +63,7 @@ var namagroup16 = 'Nemo';
 var Comment16 = 'NEMO4D (KADAR66) : 17*95*61'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (KUSAM67) = 48*49';
+var Comment17 = '#KIKOTOTO (KESELEK63 ) = 48*49';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'group Bejo 2';
@@ -95,24 +95,24 @@ var id18 = await GM.getValue(18);
 
 var refresh = 40;
 
-var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa",
-             "boleng","biru","bobby","bastian","bambang","bogard","bannet",
-             "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista",
+var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa","azahra",
+             "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang",
+             "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista","chin",
              "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
-             "erwin","elvina","evelyn",
+             "erwin","elvina","evelyn","enzo",
              "fira","fahresa","findlay","fatimah",
-             "gita","genzo",
+             "gita","genzo","gambrong",
              "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage","hoi hai",
              "icha","iyatoto","intan",
              "jordi","jaguar","jne","je pe","jess","junior","jovanka","jasmine",
              "kei","kumbara","kembar","kotna","karina","kopi","kang",
-             "lianda","lusiana","lina","laura","lia","lollo",
+             "lianda","lusiana","lina","laura","lia","lollo","lupin",
              "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","meleqq","megaways","minion","melly","monicha","manu","maryam","mode",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nayla","naomi","nica",
              "oscar","ozawa",
-             "pung","puput","priyan","primus","primus","prediction","pebri",
+             "pung","puput","priyan","primus","primus","prediction","pebri","pasil",
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma","ratsa","sinta","rara","ratna","mamad",
-             "sandiego","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia","sifa","seojun",
+             "sandiego","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia","sifa","seojun","sudewo",
              "tink","tiktak","tiara","tatang","tomi",
              "xian",
              "yanty","yoky","yohana","yura","yaya",
