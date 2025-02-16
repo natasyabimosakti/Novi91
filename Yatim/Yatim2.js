@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yatim2
 // @namespace    http://tampermonkey.net/
-// @version      3.129
+// @version      3.130
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Yatim/Yatim2.js
@@ -31,8 +31,8 @@ var Comment4 = 'GAIB4D=FERIBS=05*48*07';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (FERKEII) = 70*54*57'; 
 
-var namagroup6 = 'JOGJA';
-var Comment6 = '#JOGJATOTO (GUNGCELL)= 56-58'; 
+var namagroup6 = 'Tukang';
+var Comment6 = '( TUKANGTOTO GUNGCELL : 56*58 )'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL FERCAU 18*52*36'; 
@@ -55,8 +55,8 @@ var Comment12 = 'TOGELKUY FERKOYY 01*44*31';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( FERYEBS ) 25*85'; 
 
-var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( FERSIP ) : 19*59*03'; 
+var namagroup14 = 'GAMELAN';
+var Comment14 = '#GENDANG4D (FERSIP) : 19*59*03'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (FERPERS) 96*83*68'; 
@@ -97,24 +97,24 @@ var id18 = await GM.getValue(18);
 
 var refresh = 40;
 
-var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa",
-             "boleng","biru","bobby","bastian","bambang","bogard","bannet",
-             "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista",
+var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa","azahra",
+             "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang",
+             "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista","chin",
              "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
-             "erwin","elvina","evelyn",
+             "erwin","elvina","evelyn","enzo",
              "fira","fahresa","findlay","fatimah",
-             "gita","genzo",
+             "gita","genzo","gambrong",
              "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage","hoi hai",
              "icha","iyatoto","intan",
              "jordi","jaguar","jne","je pe","jess","junior","jovanka","jasmine",
              "kei","kumbara","kembar","kotna","karina","kopi","kang",
-             "lianda","lusiana","lina","laura","lia","lollo",
+             "lianda","lusiana","lina","laura","lia","lollo","lupin",
              "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","meleqq","megaways","minion","melly","monicha","manu","maryam","mode",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nayla","naomi","nica",
              "oscar","ozawa",
-             "pung","puput","priyan","primus","primus","prediction","pebri",
+             "pung","puput","priyan","primus","primus","prediction","pebri","pasil",
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma","ratsa","sinta","rara","ratna","mamad",
-             "sandiego","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia","sifa","seojun",
+             "sandiego","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia","sifa","seojun","sudewo",
              "tink","tiktak","tiara","tatang","tomi",
              "xian",
              "yanty","yoky","yohana","yura","yaya",
