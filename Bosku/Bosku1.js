@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE1
 // @namespace    http://tampermonkey.net/
-// @version      3.142
+// @version      3.143
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
@@ -15,52 +15,52 @@
 // ==/UserScript==
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*XERBIA13*65*56';
+var Comment1 = '#shiokelinci4d*XERBIA13*65*56'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO XENON88 47*54*49';
+var Comment2 = 'IYATOTO XENON88 47*54*49'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / XELINA56 / 17 , 95 , 61';
+var Comment3 = 'Tiktaktogel / XELINA56 / 17 , 95 , 61'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=XELEMINT53=55*90*06';
+var Comment4 = 'GAIB4D=XELEMINT53=55*90*06'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (XELOP83) = 51*35*99';
+var Comment5 = '#keitogel = (XELOP83) = 51*35*99'; 
 
-var namagroup6 = 'JOGJA';
-var Comment6 = '#JOGJATOTO (XANXAN68)= 36-80';
+var namagroup6 = 'Tukang';
+var Comment6 = '( TUKANGTOTO XANXAN68 : 36*80 )'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL XONKING52 37*15*50';
+var Comment7 = 'ASEPTOGEL XONKING52 37*15*50'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=XELINA56= 14*57';
+var Comment8 = '#MENARA4D=XELINA56= 14*57'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=XEROPON=02*09*60';
+var Comment9 = 'GILA4D=XEROPON=02*09*60'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(XENDION)*67*98*05';
+var Comment10 = '#JNETOTO(XENDION)*67*98*05'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( XIOYIB47 ) : 78*46*77';
+var Comment11 = '#TOYIBSLOT ( XIOYIB47 ) : 78*46*77'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY XIANTAR6 71*96*75';
+var Comment12 = 'TOGELKUY XIANTAR6 71*96*75'; 
 
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( XIOYIB47 ) 12*86'
+var Comment13 = '#KOITOTO ( XIOYIB47 ) 12*86'; 
 
-var namagroup14 = 'GROUP PREDIKSI';
-var Comment14 = '# ( XIAOLAN6 ) : 33*92*66';
+var namagroup14 = 'GAMELAN';
+var Comment14 = '#GENDANG4D (XIAOLAN6) : 33*92*66'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (XIONGYU6) 11*20*83';
+var Comment15 = 'VESPATOGEL (XIONGYU6) 11*20*83'; 
 
 var namagroup16 = 'Nemo';
-var Comment16 = 'NEMO4D (XENDION) : 58*88*41';
+var Comment16 = 'NEMO4D (XENDION) : 58*88*41'; 
 
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (XERLAK67) = 77*05';
@@ -92,24 +92,24 @@ var id18 = await GM.getValue(18);
 
 var refresh = 40;
 
-var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa",
-             "boleng","biru","bobby","bastian","bambang","bogard","bannet",
-             "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista",
+var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa","azahra",
+             "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang",
+             "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista","chin",
              "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
-             "erwin","elvina","evelyn",
+             "erwin","elvina","evelyn","enzo",
              "fira","fahresa","findlay","fatimah",
-             "gita","genzo",
+             "gita","genzo","gambrong",
              "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage","hoi hai",
              "icha","iyatoto","intan",
              "jordi","jaguar","jne","je pe","jess","junior","jovanka","jasmine",
              "kei","kumbara","kembar","kotna","karina","kopi","kang",
-             "lianda","lusiana","lina","laura","lia","lollo",
+             "lianda","lusiana","lina","laura","lia","lollo","lupin",
              "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","meleqq","megaways","minion","melly","monicha","manu","maryam","mode",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nayla","naomi","nica",
              "oscar","ozawa",
-             "pung","puput","priyan","primus","primus","prediction","pebri",
+             "pung","puput","priyan","primus","primus","prediction","pebri","pasil",
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma","ratsa","sinta","rara","ratna","mamad",
-             "sandiego","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia","sifa","seojun",
+             "sandiego","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia","sifa","seojun","sudewo",
              "tink","tiktak","tiara","tatang","tomi",
              "xian",
              "yanty","yoky","yohana","yura","yaya",
