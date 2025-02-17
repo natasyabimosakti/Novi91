@@ -15,58 +15,58 @@
 // ==/UserScript==
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*SIKIL47*17*95'; 
+var Comment1 = '#shiokelinci4d*SUSUMUGEDI*47*23'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO SELOKAN48 55*90*06'; 
+var Comment2 = 'IYATOTO SUSUKUCILIK 26*53*82'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / SENDANG49 / 51 , 35 , 01'; 
+var Comment3 = 'Tiktaktogel / SUKARONDO77 / 22 , 35 , 78'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=SUKET50=36*80*62'; 
+var Comment4 = 'GAIB4D=SUKSUKANBAE=60*32*38'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (SEMPRUL28) = 37*15*50'; 
+var Comment5 = '#keitogel = (SUWUNBOSQU) = 80*51*95'; 
 
 var namagroup6 = 'Tukang';
-var Comment6 = '( TUKANGTOTO SENDER29 : 14*57 )'; 
+var Comment6 = '( TUKANGTOTO SUGEHTERUS12 : 72*39 )'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL SEMBUR68 65*56*48'; 
+var Comment7 = 'ASEPTOGEL SUKMUMETNDES 77*46*69'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=SEMBAB69= 47*54'; 
+var Comment8 = '#MENARA4D=SUMUKSEKALIG= 61*89'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=SUNGKAN79=33*92*38'; 
+var Comment9 = 'GILA4D=SUMEGEHBAE=34*76*24'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(SENENG80)*11*20*38'; 
+var Comment10 = '#JNETOTO(SUNDULUSU)*21*73*63'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( SANGGAR81 ) : 58*88*41'; 
+var Comment11 = '#TOYIBSLOT ( SUWENGLAMBEMU ) : 93*62*63'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY SARUNG82 02*09*60'; 
+var Comment12 = 'TOGELKUY SUSUBERUANG 37*13*02'; 
 
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( SEMPAKK83 ) 67*98'; 
+var Comment13 = '#KOITOTO ( SUKAMAMPIR ) 15*98'; 
 
 var namagroup14 = 'GAMELAN';
-var Comment14 = '#GENDANG4D (SINTING84) : 78*46*77'; 
+var Comment14 = '#GENDANG4D (SUNANMUHIBIN) : 90*79*09'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (SEMBILU85) 71*96*75'; 
+var Comment15 = 'VESPATOGEL (SUNDULKELANGIT) 16*81*71'; 
 
 var namagroup16 = 'Nemo';
-var Comment16 = 'NEMO4D (SEKIAN86) : 12*86*68'; 
+var Comment16 = 'NEMO4D (SUNDRALDUL) : 06*28*27'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (SERDADU87) = 66*83';
+var Comment17 = '#KIKOTOTO (SULENGSU231) = 87*42';
 
 var namagroup18 = 'Jawatengah';
-var Comment18 = 'group Bejo 1';
+var Comment18 = 'group Penyok 3';
 
 
 
