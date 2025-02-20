@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Slamet 2
 // @namespace    http://tampermonkey.net/
-// @version      3.0
+// @version      3.1
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet2.js
@@ -24,7 +24,7 @@ var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / BUNTEL / 18 , 52 , 36'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=BERONDONG=00*20*30'; 
+var Comment4 = 'GAIB4D=BERONDONG1=00*20*30'; 
 
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (BROWNIS) = 94*43*12'; 
@@ -42,7 +42,7 @@ var namagroup9 = 'GIL4';
 var Comment9 = 'GILA4D=BALABALA=96*83*68'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(BOKEK12)*29*74*04'; 
+var Comment10 = '#JNETOTO(BOKEK1)*29*74*04'; 
 
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( BOKER23 ) : 08*14*33'; 
@@ -51,7 +51,7 @@ var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY BNGSAT55 17*84*50'; 
 
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( BAJINDUL ) 88*75'; 
+var Comment13 = '#KOITOTO ( BAJINDUL2 ) 88*75'; 
 
 var namagroup14 = 'GAMELAN';
 var Comment14 = '#GENDANG4D (BLUR005) : 19*59*41'; 
