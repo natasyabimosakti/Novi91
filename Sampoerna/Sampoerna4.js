@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna4
 // @namespace    http://tampermonkey.net/
-// @version      3.149
+// @version      3.150
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna4.js
@@ -105,10 +105,10 @@ var id18 = await GM.getValue(18);
 var refresh = 40;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","fania","ban nee","putri","anisa",
-             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin",
-             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika",
+             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","aru sundawa","agus tiar","imam",
+             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika","calvin","den arkanza","fiona","el givano",
              "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara",
-             "erwin","emilia","evelyn","calvin","den arkanza","fiona","el givano",
+             "erwin","emilia","evelyn",
              "fira","fahresa","fiana","fahmi",
              "gita","kang bona","hoky","julianti","libra","claudio",
              "habib","hefi","hoihai","hana","hoki","hokage","esse","nurul","leader",
