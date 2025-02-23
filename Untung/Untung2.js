@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 2
 // @namespace    http://tampermonkey.net/
-// @version      3.1
+// @version      3.2
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung2.js
@@ -98,8 +98,8 @@ var id18 = await GM.getValue(18);
 var refresh = 40;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","fania","ban nee","putri","anisa",
-             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","calvin","den arkanza","fiona","el givano",
-             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika",
+             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","aru sundawa","agus tiar","imam",
+             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika","calvin","den arkanza","fiona","el givano",
              "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara",
              "erwin","emilia","evelyn",
              "fira","fahresa","fiana","fahmi",
@@ -112,7 +112,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy",
              "oscar","ozawa","otong","ormas",
-             "pung","puput","priyan","primus","primus","pencari","pricilia","putra",
+             "pung","puput","priyan","primus","primus","pencari","pricilia","putra","pengurus",
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi",
              "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria","sellia","sintya",
              "tink","tiktak","tiara","tatang","tania",
