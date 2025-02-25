@@ -35,7 +35,7 @@ var namagroup5 = 'PEDRO';
 var Comment5 = '#PEDRO4D (DENGAKSEKBOL*52*93*35)'; 
 
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (DENGKULKOLOR) = 14*70*29'; 
+var Comment6 = '#DIVA4D (DENGKULLORO) = 14*70*29'; 
 
 var namagroup7 = 'Grup Lomba Tebak';
 var Comment7 = 'ULTRATOGEL88 = (DEMAKDEMEK58) 48*33*34'; 
@@ -74,8 +74,9 @@ var Comment16 = 'CITA4D*DELEKEDELE20*82*25*04';
 
 
 
+
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Baru Cuwil 4';
+var Comment17 = 'Baru Sampo 1';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
@@ -106,7 +107,7 @@ var id18 = await GM.getValue(18);
 var refresh = 40;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","fania","ban nee","putri","anisa",
-             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin",
+             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","aru sundawa","agus tiar","imam",
              "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika","calvin","den arkanza","fiona","el givano",
              "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara",
              "erwin","emilia","evelyn",
