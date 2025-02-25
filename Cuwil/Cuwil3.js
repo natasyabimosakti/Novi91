@@ -50,7 +50,7 @@ var namagroup10 = 'LING';
 var Comment10 = 'LING77 (SUNDULUSU) 48*33'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*SUWENGLAMBEMU*67*40*01'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*SUWENGLAMBE*67*40*01'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
 var Comment12 = 'SUSUBERUANG : 54*77*83 #BESTOTO88'; 
@@ -62,7 +62,7 @@ var namagroup14 = 'TARUNG';
 var Comment14 = '#TARUNGTOTO (SUNANMUHIBIN)=32_37'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'SUNDULKELANGIT : 79*21*03 #HOHOTOGEL'; 
+var Comment15 = 'SUNDULLANGIT : 79*21*03 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*SUNDRALDUL*52*93*35'; 
@@ -75,7 +75,7 @@ var Comment16 = 'CITA4D*SUNDRALDUL*52*93*35';
 
 
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Baru Cuwil 3';
+var Comment17 = 'Baru Sampo 1';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
@@ -106,7 +106,7 @@ var id18 = await GM.getValue(18);
 var refresh = 40;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","fania","ban nee","putri","anisa",
-             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin",
+             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","aru sundawa","agus tiar","imam",
              "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika","calvin","den arkanza","fiona","el givano",
              "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara",
              "erwin","emilia","evelyn",
