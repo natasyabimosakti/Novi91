@@ -50,7 +50,7 @@ var namagroup10 = 'LING';
 var Comment10 = 'LING77 (NYODOKBRINJI) 99*24'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*NYODOPANGAN99*39*15*71'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*NYODOPANGAN9*39*15*71'; 
 
 var namagroup12 = 'ROOM LOMBA TEBAK';
 var Comment12 = 'NYONYAKU69 : 11*95*66 #BESTOTO88'; 
@@ -75,7 +75,7 @@ var Comment16 = 'CITA4D*NYOHNYAHNYOH*20*44*38';
 
 
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Baru Cuwil 2';
+var Comment17 = 'Baru Sampo 1';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
@@ -106,7 +106,7 @@ var id18 = await GM.getValue(18);
 var refresh = 40;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","fania","ban nee","putri","anisa",
-             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin",
+             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","aru sundawa","agus tiar","imam",
              "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika","calvin","den arkanza","fiona","el givano",
              "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara",
              "erwin","emilia","evelyn",
