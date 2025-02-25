@@ -22,7 +22,7 @@
 
 var namagroup1 = 'NONGKRONG';
 var Comment1 = '#AMAVI5D ( OKEGAS321 ) : 59*47*96'; 
-+
+
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( OKTAGON60 ) : 39*15*71'; 
 
