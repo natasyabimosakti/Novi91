@@ -19,9 +19,10 @@
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 
+
 var namagroup1 = 'NONGKRONG';
 var Comment1 = '#AMAVI5D ( OKEGAS321 ) : 59*47*96'; 
-
++
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( OKTAGON60 ) : 39*15*71'; 
 
@@ -73,8 +74,9 @@ var Comment16 = 'CITA4D*OKTOHASI4*02*19*68';
 
 
 
+
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Baru Cuwil 1';
+var Comment17 = 'Baru Sampo 1';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
@@ -105,7 +107,7 @@ var id18 = await GM.getValue(18);
 var refresh = 40;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","fania","ban nee","putri","anisa",
-             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin",
+             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","aru sundawa","agus tiar","imam",
              "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika","calvin","den arkanza","fiona","el givano",
              "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara",
              "erwin","emilia","evelyn",
