@@ -32,7 +32,7 @@ var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO SUKSUKANBAE = 27*74*46'; 
 
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (SUWUNBOSQU*64*43*30)'; 
+var Comment5 = '#PEDRO4D (SUWUNBOSQU*82*25*04)'; 
 
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (SUGEHTERUS12) = 13*26*51'; 
