@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang4
 // @namespace    http://tampermonkey.net/
-// @version      3.142
+// @version      3.143
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang4.js
@@ -40,7 +40,7 @@ var Comment7 = 'ULTRATOGEL88 = (TOMBRENG34) 99*47*02';
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( TOMBIBI24 ) : 07*44*80'; 
 
-var namagroup9 = 'Wellz';
+var namagroup9 = 'TAFSIR MIMPI';
 var Comment9 = 'SIJITOGEL TOMBENG34 01*53*52'; 
 
 var namagroup10 = 'LING';
