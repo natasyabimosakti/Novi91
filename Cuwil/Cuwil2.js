@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 2
 // @namespace    http://tampermonkey.net/
-// @version      3.1
+// @version      3.2
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil2.js
@@ -82,7 +82,7 @@ var Comment18 = 'asek';
 
 
 var d = new Date();
-var hour = d.getHours();
+var hour = d.getMinutes();
 var tm = await GM.getValue("time");
 var id1 = await GM.getValue(1);
 var id2 = await GM.getValue(2);
