@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti4
 // @namespace    http://tampermonkey.net/
-// @version      3.11
+// @version      3.12
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti4.js
@@ -73,7 +73,7 @@ var Comment18 = 'asek';
 
 
 var d = new Date();
-var hour = d.getHours();
+var hour = d.getMinutes();
 var tm = await GM.getValue("time");
 var id1 = await GM.getValue(1);
 var id2 = await GM.getValue(2);
@@ -94,7 +94,7 @@ var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
 var id18 = await GM.getValue(18);
 
-var refresh = 40;
+var refresh = 30;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","fania","ban nee","putri","anisa",
              "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","aru sundawa","agus tiar","imam",
