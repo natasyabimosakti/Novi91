@@ -146,7 +146,7 @@ var Backlist7 = "juara lomba";
 var jitter = 0
 var Cutter = 0
 var myrefresh = setInterval(function(){
-     if (tm == "" || tm == undefined || tm == null) {
+    if (tm == "" || tm == undefined || tm == null) {
         GM.setValue("time", hour);
     }
     if ( hour > tm + 2 || hour < tm||document.URL.includes("google") == true||hour == undefined||hour == null){
@@ -651,6 +651,8 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
+        setTimeout(function(){location.href = "about:blank"},500)
+        setTimeout(function(){location.href = "about:blank"},1000)
 
 
 
