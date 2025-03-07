@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 1
 // @namespace    http://tampermonkey.net/
-// @version      3.4
+// @version      3.5
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung1.js
@@ -74,7 +74,7 @@ var Comment18 = 'asek';
 
 
 var d = new Date();
-var hour = d.getMinutes();
+var hour = d.getHours();
 var tm = await GM.getValue("time");
 var id1 = await GM.getValue(1);
 var id2 = await GM.getValue(2);
@@ -95,29 +95,31 @@ var id16 = await GM.getValue(16);
 var id17 = await GM.getValue(17);
 var id18 = await GM.getValue(18);
 
-var refresh = 30;
+var refresh = 40;
 
-var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","fania","ban nee","putri","anisa",
-             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","aru sundawa","agus tiar","imam",
-             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika","calvin","den arkanza","fiona","el givano",
-             "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara",
-             "erwin","emilia","evelyn",
-             "fira","fahresa","fiana","fahmi",
-             "gita","kang bona","hoky","julianti","libra","claudio",
-             "habib","hefi","hoihai","hana","hoki","hokage","esse","nurul","leader",
-             "icha","iyatoto","invest","ivanna","inisial","ishaura",
-             "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
-             "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla","komandan",
-             "lianda","lusiana","lina","laura","lehman","leader","leon","lidya","langit","leader",
-             "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari",
-             "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy",
-             "oscar","ozawa","otong","ormas",
-             "pung","puput","priyan","primus","primus","pencari","pricilia","putra","pengurus",
-             "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi",
-             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria","sellia","sintya",
-             "tink","tiktak","tiara","tatang","tania",
-             "yanty","yoky","yohana","yii","vero","vaulian",
-             "wulan","wok","widya"];
+var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa","azahra",
+             "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang","aru sundawa","agus tiar","imam",
+             "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista","chin",
+             "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
+             "erwin","elvina","evelyn","enzo",
+             "fira","fahresa","findlay","fatimah",
+             "gita","genzo","gambrong",
+             "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage","hoi hai",
+             "icha","iyatoto","intan",
+             "jordi","jaguar","jne","je pe","jess","junior","jovanka","jasmine",
+             "kei","kumbara","kembar","kotna","karina","kopi","kang",
+             "lianda","lusiana","lina","laura","lia","lollo","lupin",
+             "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","meleqq","megaways","minion","melly","monicha","manu","maryam","mode","mary",
+             "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nayla","naomi","nica",
+             "oscar","ozawa",
+             "pung","puput","priyan","primus","primus","prediction","pebri","pasil",
+             "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma","ratsa","sinta","rara","ratna","mamad",
+             "sandiego","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia","sifa","seojun","sudewo",
+             "tink","tiktak","tiara","tatang","tomi",
+             "xian",
+             "yanty","yoky","yohana","yura","yaya",
+             "wulan","wok","wak",
+             "zuko"];
 
 
 var keyword1 = "ROOM"
@@ -125,14 +127,14 @@ var keyword2 = "𝗥𝗢𝗢𝗠"
 var keyword3 = "LOMBA"
 var keyword4 = "𝗟𝗢𝗠𝗕𝗔"
 var keyword5 = "𝐋𝐎𝐌𝐁𝐀"
-var keyword6 = "2D 2LINE"
+var keyword6 = "LIMBA"
 var keyword7 = "ROM"
 var keyword8 = "R00M"
-var keyword9 = "2D 3LINE"
+var keyword9 = "login"
 var keyword10 = "𝐑𝐎𝐎𝐌"
-var keyword11 = "josgandos"
-var keyword12 = "asukabeh"
-var keyword13 = "jembut"
+var keyword11 = "HONGKONG"
+var keyword12 = "SINGAPUR"
+var keyword13 = "nemo"
 
 var Backlist1 = "pemenang lomba";
 var Backlist2 = "rekap";
@@ -140,14 +142,13 @@ var Backlist3 = "hasil";
 var Backlist4 = "room lomba freebet";
 var Backlist5 = "prediksi";
 var Backlist6 = "result";
-var Backlist7 = "totomacau";
-
+var Backlist7 = "juara lomba";
 
 
 var jitter = 0
 var Cutter = 0
 var myrefresh = setInterval(function(){
-    if (tm == "" || tm == undefined || tm == null) {
+     if (tm == "" || tm == undefined || tm == null) {
         GM.setValue("time", hour);
     }
     if ( hour > tm + 2 || hour < tm||document.URL.includes("google") == true||hour == undefined||hour == null){
@@ -156,142 +157,102 @@ var myrefresh = setInterval(function(){
         }
         GM.setValue("time", hour);
     }
-    window.scroll(0,100)
-    if(Cutter == 1){
-        location.href = "about:blank"
-    }
-    if(jitter == 1){
-        return;
-    }
+    window.scroll(0,1000)
 
     for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
-        if(Cutter == 1){
-            location.href = "about:blank"
-        }
-        if(jitter == 1){
-            return;
-        }
-        if (document.querySelectorAll('[data-tracking-duration-id')[ntv]){
-            // Nama FB
-            var namafb = document.querySelectorAll('[data-tracking-duration-id]')[ntv].getElementsByClassName('native-text')[0];
-            //Jam
-            var jamposting = document.querySelectorAll('[data-tracking-duration-id]')[ntv].getElementsByClassName('native-text')[1];
-            //Postingan
-            var postingan =document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')[3];
-            //Comment Box
-            var commentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')
-            // Cek Jam
-            var ret = jamposting.textContent.replace(/  Admin   |  Moderator   /g, "");
-            if (ret.includes("Baru")||ret.slice(0,7).includes("1 menit")||ret.slice(0,7).includes("2 menit")||ret.slice(0,7).includes("3 menit")||ret.slice(0,7).includes("4 menit")||ret.slice(0,7).includes("4 menit")){
-                console.log("Jam Ditemukan " + ret)
-                if(postingan.textContent.toLowerCase().includes(keyword1.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword2.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword3.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword4.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword5.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword6.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword7.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword8.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword9.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword10.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword11.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword12.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword13.toLowerCase())){
-                    console.log("Keyword Ditemukan " + postingan.textContent);
-                    // Cek Backlist
-                    if(postingan.textContent.toLowerCase().includes(Backlist1.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(Backlist2.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(Backlist3.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(Backlist4.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(Backlist5.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(Backlist6.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(Backlist7.toLowerCase())){
-                        console.log("Terdaftar Backlist...!  ");
-                        var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
-                        var waktupost = document.getElementsByClassName("native-text");
-                        if(!document.querySelectorAll("[role='presentation']")[0]){
-                            if (document.readyState === "complete") {
-                                for (var cok = 0; cok < urutkan.length; cok++) {
-                                    if(urutkan[cok].textContent.includes("URUTKAN")) {
-                                        urutkan[cok].click()
-                                    }
-                                }
-                            }
-                        }
-                        if(document.getElementsByClassName("loading-overlay").length == 0 ){
+        // Nama FB
+        var namafb = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByTagName("span")[0];
+        //Jam
+        var jamposting1 = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByTagName("span")[1].textContent;
+        var jamposting2 = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByTagName("span")[2].textContent;
+        //Postingan
+        var postingan =document.querySelectorAll('[data-tracking-duration-id')[ntv]
+        //Comment Box
+        var commentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')
+        // Cek Jam
 
-                            if(document.querySelectorAll("[role='presentation']")[0]){
-                                if (document.readyState === "complete") {
-                                    for (var coki = 0; coki < waktupost.length; coki++) {
-                                        if(waktupost[coki].textContent.includes("Aktivitas")) {
-                                            if(jitter == 1){
-                                                return;
-                                            }
-                                            if(document.getElementsByClassName("prevent-scrolling")[0]){
-                                                waktupost[coki].click()
-                                            }
+        if (jamposting1.includes("Baru")||jamposting1.slice(0,7).includes("1 men")||jamposting1.slice(0,7).includes("2 men")||jamposting1.slice(0,7).includes("3 men")||jamposting1.slice(0,7).includes("4 men")||jamposting1.slice(0,7).includes("5 men")||jamposting2.includes("Baru")||jamposting2.slice(0,7).includes("1 men")||jamposting2.slice(0,7).includes("2 men")||jamposting2.slice(0,7).includes("3 men")||jamposting2.slice(0,7).includes("4 men")||jamposting2.slice(0,7).includes("5 men")){
+            console.log("Jam Ditemukan " + jamposting1)
+            if(postingan.textContent.toLowerCase().includes(Backlist1.toLowerCase())
+               ||postingan.textContent.toLowerCase().includes(Backlist2.toLowerCase())
+               ||postingan.textContent.toLowerCase().includes(Backlist3.toLowerCase())
+               ||postingan.textContent.toLowerCase().includes(Backlist4.toLowerCase())
+               ||postingan.textContent.toLowerCase().includes(Backlist5.toLowerCase())
+               ||postingan.textContent.toLowerCase().includes(Backlist6.toLowerCase())
+               ||postingan.textContent.toLowerCase().includes(Backlist7.toLowerCase())){
+                console.log("Terdaftar Backlist...!  ");
+                continue;
+            }
+            console.log("Proses dilanjutkan tidak ada Backlist");
+            if(postingan.textContent.toLowerCase().includes(keyword1.toLowerCase())
+               ||postingan.textContent.toLowerCase().includes(keyword2.toLowerCase())
+               ||postingan.textContent.toLowerCase().includes(keyword3.toLowerCase())
+               ||postingan.textContent.toLowerCase().includes(keyword4.toLowerCase())
+               ||postingan.textContent.toLowerCase().includes(keyword5.toLowerCase())
+               ||postingan.textContent.toLowerCase().includes(keyword6.toLowerCase())
+               ||postingan.textContent.toLowerCase().includes(keyword7.toLowerCase())
+               ||postingan.textContent.toLowerCase().includes(keyword8.toLowerCase())
+               ||postingan.textContent.toLowerCase().includes(keyword9.toLowerCase())
+               ||postingan.textContent.toLowerCase().includes(keyword10.toLowerCase())
+               ||postingan.textContent.toLowerCase().includes(keyword11.toLowerCase())
+               ||postingan.textContent.toLowerCase().includes(keyword12.toLowerCase())
+               ||postingan.textContent.toLowerCase().includes(keyword13.toLowerCase())){
+                console.log("Keyword Ditemukan " + postingan.textContent);
 
-                                        }
-                                    }
+                // Cek Backlist
+                for (var adm in admin){
+                    if(namafb.textContent.toLowerCase().includes(admin[adm].toLowerCase())||jamposting1.toLowerCase().includes("admin")||jamposting1.toLowerCase().includes("moderator")||jamposting2.toLowerCase().includes("admin")||jamposting2.toLowerCase().includes("moderator")){
+                        // Tampilkan Siapa Yang Memposting
+                        console.log("Admin yang Memosting Ditemukan= " + admin[adm]);
+                        // Click Comment Box
+                        for (var clk = 0; clk < commentbox.length; clk++) {
+                            if(commentbox[clk]){
+                                if(commentbox[clk].textContent.toLowerCase().includes("jawab")|| commentbox[clk].textContent.toLowerCase().includes("tulis")){
+
+                                    clearInterval(myrefresh);
+                                    console.log("Click Posting box")
+                                    jitter = 0
+                                    commentbox[clk].click()
+                                    game.start()
+                                    break;
+                                    break;
+                                    return;
                                 }
                             }
                         }
                         return;
                     }
-                    console.log("Proses dilanjutkan tidak ada Backlist");
-                    // Cek Admin
-                    for (var adm in admin){
-                        if(namafb.textContent.toLowerCase().includes(admin[adm].toLowerCase())||jamposting.textContent.toLowerCase().includes("admin")||jamposting.textContent.toLowerCase().includes("moderator")){
-                            // Tampilkan Siapa Yang Memposting
-                            if(jamposting.textContent.toLowerCase().includes("admin")||jamposting.textContent.toLowerCase().includes("moderator")){
-                                console.log("Admin yang Memosting = Admin/Moderator");
-                            }else{
-                                console.log("Admin yang Memosting = " + admin[adm]);
-                            }
-                            // Click Comment Box
-                            for (var clk = 0; clk < commentbox.length; clk++) {
-                                if(commentbox[clk]){
-                                    if(commentbox[clk].textContent.toLowerCase().includes("jawab")|| commentbox[clk].textContent.toLowerCase().includes("tulis")){
+                }
+                // Cek Admin
 
-                                        clearInterval(myrefresh);
-                                        console.log("Click Posting box")
-                                        jitter = 0
-                                        commentbox[clk].click()
-                                        game.start()
-                                        return;
-                                    }
-                                }
-                            }
-                            return;
-                        }
+            }
+        }
+    }
+
+    var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
+    var waktupost = document.getElementsByClassName("native-text");
+    if(document.querySelectorAll('[data-tracking-duration-id').length > 1 ){
+        if(!document.querySelectorAll("[role='presentation']")[0]){
+            if (document.readyState === "complete") {
+                for (var cok = 0; cok < urutkan.length; cok++) {
+                    if(urutkan[cok].textContent.includes("URUTKAN")) {
+                        urutkan[cok].click()
                     }
                 }
             }
         }
     }
-
-    var urutkan1 = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
-    var waktupost1 = document.getElementsByClassName("native-text");
-    if(!document.querySelectorAll("[role='presentation']")[0]){
-        if (document.readyState === "complete") {
-            for (var cok1 = 0; cok1 < urutkan1.length; cok1++) {
-                if(urutkan1[cok1].textContent.includes("URUTKAN")) {
-                    urutkan1[cok1].click()
-                }
-            }
-        }
-    }
-    if(document.getElementsByClassName("loading-overlay").length == 0 ){
+    if(document.querySelectorAll('[data-tracking-duration-id').length > 1 ){
 
         if(document.querySelectorAll("[role='presentation']")[0]){
             if (document.readyState === "complete") {
-                for (var coki1 = 0; coki1 < waktupost1.length; coki1++) {
-                    if(waktupost1[coki1].textContent.includes("Aktivitas")) {
+                for (var coki = 0; coki < waktupost.length; coki++) {
+                    if(waktupost[coki].textContent.includes("Aktivitas")) {
                         if(jitter == 1){
                             return;
                         }
                         if(document.getElementsByClassName("prevent-scrolling")[0]){
-                            waktupost1[coki1].click()
+                            waktupost[coki].click()
                         }
 
                     }
@@ -299,6 +260,8 @@ var myrefresh = setInterval(function(){
             }
         }
     }
+
+
 
 
 }, refresh * 10)
@@ -306,13 +269,7 @@ var myrefresh = setInterval(function(){
 
 function gameClosure() {
     function game() {
-        console.log('The game is Start')
-        if(Cutter == 1){
-            location.href = "about:blank"
-        }
-        if(jitter == 1){
-            return;
-        }
+
         console.log('The game is running')
         /* This is just an example, replace this with the body of gameInit() */
         if(document.getElementsByClassName("multi-line-floating-textbox").length > 0 ){
@@ -342,10 +299,11 @@ function gameClosure() {
                 if (ceknamagroup.includes(namagroup1) == true||ceknamagroup1.includes(namagroup1) == true||ceknamagroup2.includes(namagroup1) == true||ceknamagroup3.includes(namagroup1) == true||ceknamagroup4.includes(namagroup1) == true) {
                     if (id1 == "1") {
                         jitter = 1
-                        Cutter = 1
-                        location.href = "about:blank"
+                        setTimeout(function(){location.href = "about:blank"},500)
+                        return;
                     }
                     /*cek nama group dan tulis commntar*/
+                    id1 = 1
                     GM.setValue( 1,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment1;
                     console.log("Sudah Comment")
@@ -356,10 +314,11 @@ function gameClosure() {
                 if (ceknamagroup.includes(namagroup2) == true||ceknamagroup1.includes(namagroup2) == true||ceknamagroup2.includes(namagroup2) == true||ceknamagroup3.includes(namagroup2) == true||ceknamagroup4.includes(namagroup2) == true) {
                     if (id2 == "1") {
                         jitter = 1
-                        Cutter = 1
-                        location.href = "about:blank"
+                        setTimeout(function(){location.href = "about:blank"},500)
+                        return;
                     }
                     /*cek nama group dan tulis commntar*/
+                    id2 = 1
                     GM.setValue( 2,1);
                     /*cek nama group dan tulis commntar*/
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment2;
@@ -371,10 +330,11 @@ function gameClosure() {
                 if (ceknamagroup.includes(namagroup3) == true||ceknamagroup1.includes(namagroup3) == true||ceknamagroup2.includes(namagroup3) == true||ceknamagroup3.includes(namagroup3) == true||ceknamagroup4.includes(namagroup3) == true) {
                     if (id3 == "1") {
                         jitter = 1
-                        Cutter = 1
-                        location.href = "about:blank"
+                        setTimeout(function(){location.href = "about:blank"},500)
+                        return;
                     }
                     /*cek nama group dan tulis commntar*/
+                    id3 = 1
                     GM.setValue( 3,1);
                     /*cek nama group dan tulis commntar*/
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment3;
@@ -387,11 +347,12 @@ function gameClosure() {
                 if (ceknamagroup.includes(namagroup4) == true||ceknamagroup1.includes(namagroup4) == true||ceknamagroup2.includes(namagroup4) == true||ceknamagroup3.includes(namagroup4) == true||ceknamagroup4.includes(namagroup4) == true) {
                     if (id4 == "1") {
                         jitter = 1
-                        Cutter = 1
-                        location.href = "about:blank"
+                        setTimeout(function(){location.href = "about:blank"},500)
+                        return;
                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
+                    id4 = 1
                     GM.setValue( 4,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment4;
                     console.log("Sudah Comment")
@@ -402,11 +363,12 @@ function gameClosure() {
                 if (ceknamagroup.includes(namagroup5) == true||ceknamagroup1.includes(namagroup5) == true||ceknamagroup2.includes(namagroup5) == true||ceknamagroup3.includes(namagroup5) == true||ceknamagroup4.includes(namagroup5) == true) {
                     if (id5 == "1") {
                         jitter = 1
-                        Cutter = 1
-                        location.href = "about:blank"
+                        setTimeout(function(){location.href = "about:blank"},500)
+                        return;
                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
+                    id5 = 1
                     GM.setValue( 5,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment5;
                     console.log("Sudah Comment")
@@ -417,11 +379,12 @@ function gameClosure() {
                 if (ceknamagroup.includes(namagroup6) == true||ceknamagroup1.includes(namagroup6) == true||ceknamagroup2.includes(namagroup6) == true||ceknamagroup3.includes(namagroup6) == true||ceknamagroup4.includes(namagroup6) == true) {
                     if (id6 == "1") {
                         jitter = 1
-                        Cutter = 1
-                        location.href = "about:blank"
+                        setTimeout(function(){location.href = "about:blank"},500)
+                        return;
                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
+                    id6 = 1
                     GM.setValue( 6,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment6;
                     console.log("Sudah Comment")
@@ -432,11 +395,12 @@ function gameClosure() {
                 if (ceknamagroup.includes(namagroup7) == true||ceknamagroup1.includes(namagroup7) == true||ceknamagroup2.includes(namagroup7) == true||ceknamagroup3.includes(namagroup7) == true||ceknamagroup4.includes(namagroup7) == true) {
                     if (id7 == "1") {
                         jitter = 1
-                        Cutter = 1
-                        location.href = "about:blank"
+                        setTimeout(function(){location.href = "about:blank"},500)
+                        return;
                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
+                    id7 = 1
                     GM.setValue( 7,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment7;
                     console.log("Sudah Comment")
@@ -447,11 +411,12 @@ function gameClosure() {
                 if (ceknamagroup.includes(namagroup8) == true||ceknamagroup1.includes(namagroup8) == true||ceknamagroup2.includes(namagroup8) == true||ceknamagroup3.includes(namagroup8) == true||ceknamagroup4.includes(namagroup8) == true) {
                     if (id8 == "1") {
                         jitter = 1
-                        Cutter = 1
-                        location.href = "about:blank"
+                        setTimeout(function(){location.href = "about:blank"},500)
+                        return;
                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
+                    id8 = 1
                     GM.setValue( 8,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment8;
                     console.log("Sudah Comment")
@@ -462,11 +427,12 @@ function gameClosure() {
                 if (ceknamagroup.includes(namagroup9) == true||ceknamagroup1.includes(namagroup9) == true||ceknamagroup2.includes(namagroup9) == true||ceknamagroup3.includes(namagroup9) == true||ceknamagroup4.includes(namagroup9) == true) {
                     if (id9 == "1") {
                         jitter = 1
-                        Cutter = 1
-                        location.href = "about:blank"
+                        setTimeout(function(){location.href = "about:blank"},500)
+                        return;
                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
+                    id9 = 1
                     GM.setValue( 9,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment9;
                     console.log("Sudah Comment")
@@ -477,11 +443,12 @@ function gameClosure() {
                 if (ceknamagroup.includes(namagroup10) == true||ceknamagroup1.includes(namagroup10) == true||ceknamagroup2.includes(namagroup10) == true||ceknamagroup3.includes(namagroup10) == true||ceknamagroup4.includes(namagroup10) == true) {
                     if (id10 == "1") {
                         jitter = 1
-                        Cutter = 1
-                        location.href = "about:blank"
+                        setTimeout(function(){location.href = "about:blank"},500)
+                        return;
                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
+                    id10 = 1
                     GM.setValue( 10,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment10;
                     console.log("Sudah Comment")
@@ -492,11 +459,12 @@ function gameClosure() {
                 if (ceknamagroup.includes(namagroup11) == true||ceknamagroup1.includes(namagroup11) == true||ceknamagroup2.includes(namagroup11) == true||ceknamagroup3.includes(namagroup11) == true||ceknamagroup4.includes(namagroup11) == true) {
                     if (id11 == "1") {
                         jitter = 1
-                        Cutter = 1
-                        location.href = "about:blank"
+                        setTimeout(function(){location.href = "about:blank"},500)
+                        return;
                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
+                    id11 = 1
                     GM.setValue( 11,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment11;
                     console.log("Sudah Comment")
@@ -507,11 +475,12 @@ function gameClosure() {
                 if (ceknamagroup.includes(namagroup12) == true||ceknamagroup1.includes(namagroup12) == true||ceknamagroup2.includes(namagroup12) == true||ceknamagroup3.includes(namagroup12) == true||ceknamagroup4.includes(namagroup12) == true) {
                     if (id12 == "1") {
                         jitter = 1
-                        Cutter = 1
-                        location.href = "about:blank"
+                        setTimeout(function(){location.href = "about:blank"},500)
+                        return;
                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
+                    id12 = 1
                     GM.setValue( 12,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment12;
                     console.log("Sudah Comment")
@@ -522,11 +491,12 @@ function gameClosure() {
                 if (ceknamagroup.includes(namagroup13) == true||ceknamagroup1.includes(namagroup13) == true||ceknamagroup2.includes(namagroup13) == true||ceknamagroup3.includes(namagroup13) == true||ceknamagroup4.includes(namagroup13) == true) {
                     if (id13 == "1") {
                         jitter = 1
-                        Cutter = 1
-                        location.href = "about:blank"
+                        setTimeout(function(){location.href = "about:blank"},500)
+                        return;
                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
+                    id13 = 1
                     GM.setValue( 13,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment13;
                     console.log("Sudah Comment")
@@ -536,11 +506,12 @@ function gameClosure() {
                 if (ceknamagroup.includes(namagroup14) == true||ceknamagroup1.includes(namagroup14) == true||ceknamagroup2.includes(namagroup14) == true||ceknamagroup3.includes(namagroup14) == true||ceknamagroup4.includes(namagroup14) == true) {
                     if (id14 == "1") {
                         jitter = 1
-                        Cutter = 1
-                        location.href = "about:blank"
+                        setTimeout(function(){location.href = "about:blank"},500)
+                        return;
                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
+                    id14 = 1
                     GM.setValue( 14,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment14;
                     console.log("Sudah Comment")
@@ -552,11 +523,12 @@ function gameClosure() {
                 if (ceknamagroup.includes(namagroup15) == true||ceknamagroup1.includes(namagroup15) == true||ceknamagroup2.includes(namagroup15) == true||ceknamagroup3.includes(namagroup15) == true||ceknamagroup4.includes(namagroup15) == true) {
                     if (id15 == "1") {
                         jitter = 1
-                        Cutter = 1
-                        location.href = "about:blank"
+                        setTimeout(function(){location.href = "about:blank"},500)
+                        return;
                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
+                    id15 = 1
                     GM.setValue( 15,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment15;
                     console.log("Sudah Comment")
@@ -568,11 +540,12 @@ function gameClosure() {
                 if (ceknamagroup.includes(namagroup16) == true||ceknamagroup1.includes(namagroup16) == true||ceknamagroup2.includes(namagroup16) == true||ceknamagroup3.includes(namagroup16) == true||ceknamagroup4.includes(namagroup16) == true) {
                     if (id16 == "1") {
                         jitter = 1
-                        Cutter = 1
-                        location.href = "about:blank"
+                        setTimeout(function(){location.href = "about:blank"},500)
+                        return;
                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
+                    id16 = 1
                     GM.setValue( 16,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment16;
                     console.log("Sudah Comment")
@@ -583,11 +556,12 @@ function gameClosure() {
                 if (ceknamagroup.includes(namagroup17) == true||ceknamagroup1.includes(namagroup17) == true||ceknamagroup2.includes(namagroup17) == true||ceknamagroup3.includes(namagroup17) == true||ceknamagroup4.includes(namagroup17) == true) {
                     if (id17 == "1") {
                         jitter = 1
-                        Cutter = 1
-                        location.href = "about:blank"
+                        setTimeout(function(){location.href = "about:blank"},500)
+                        return;
                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
+                    id17 = 1
                     GM.setValue( 17,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment17;
                     console.log("Sudah Comment")
@@ -598,11 +572,12 @@ function gameClosure() {
                 if (ceknamagroup.includes(namagroup18) == true||ceknamagroup1.includes(namagroup18) == true||ceknamagroup2.includes(namagroup18) == true||ceknamagroup3.includes(namagroup18) == true||ceknamagroup4.includes(namagroup18) == true) {
                     if (id18 == "1") {
                         jitter = 1
-                        Cutter = 1
-                        location.href = "about:blank"
+                        setTimeout(function(){location.href = "about:blank"},500)
+                        return;
                     }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
+                    id18 = 1
                     GM.setValue( 18,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment18;
                     console.log("Sudah Comment")
@@ -626,15 +601,7 @@ function gameClosure() {
 var game = gameClosure()
 
 function clicksend() {
-    if(Cutter == 1){
-        location.href = "about:blank"
-    }
-    if(jitter == 1){
-        return;
-    }
-
     game.stop()
-    jitter = 1
 
     /*Tampilkan TOMBOL SEND*/
     if(document.getElementsByClassName("textbox-submit-button")[0] && document.getElementsByClassName("multi-line-floating-textbox")[0].value.length >= 1){
@@ -650,20 +617,13 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
-        Cutter=1
-        location.href = "about:blank"
-
         setTimeout(function(){location.href = "about:blank"},500)
-        closer()
+        setTimeout(function(){location.href = "about:blank"},1000)
+
 
 
 
 
         /*Tekan TOMBOL SEND*/
     }
-}
-function closer() {
-    location.href = "about:blank"
-
-
 }
