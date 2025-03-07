@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 4
 // @namespace    http://tampermonkey.net/
-// @version      3.15
+// @version      3.16
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
@@ -145,7 +145,7 @@ var Backlist7 = "juara lomba";
 var jitter = 0
 var Cutter = 0
 var myrefresh = setInterval(function(){
-     if (tm == "" || tm == undefined || tm == null) {
+    if (tm == "" || tm == undefined || tm == null) {
         GM.setValue("time", hour);
     }
     if ( hour > tm + 2 || hour < tm||document.URL.includes("google") == true||hour == undefined||hour == null){
@@ -304,6 +304,8 @@ function gameClosure() {
                     GM.setValue( 1,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment1;
                     console.log("Sudah Comment")
+                    clearInterval(game)
+
                     clicksend();
                     jitter = 1
                     return;
@@ -320,6 +322,8 @@ function gameClosure() {
                     /*cek nama group dan tulis commntar*/
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment2;
                     console.log("Sudah Comment")
+                    clearInterval(game)
+
                     clicksend();
                     jitter = 1
                     return;
@@ -336,6 +340,8 @@ function gameClosure() {
                     /*cek nama group dan tulis commntar*/
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment3;
                     console.log("Sudah Comment")
+                    clearInterval(game)
+
                     clicksend();
                     jitter = 1
                     return;
@@ -353,6 +359,8 @@ function gameClosure() {
                     GM.setValue( 4,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment4;
                     console.log("Sudah Comment")
+                    clearInterval(game)
+
                     clicksend();
                     jitter = 1
                     return;
@@ -369,6 +377,8 @@ function gameClosure() {
                     GM.setValue( 5,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment5;
                     console.log("Sudah Comment")
+                    clearInterval(game)
+
                     clicksend();
                     jitter = 1
                     return;
@@ -385,6 +395,8 @@ function gameClosure() {
                     GM.setValue( 6,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment6;
                     console.log("Sudah Comment")
+                    clearInterval(game)
+
                     clicksend();
                     jitter = 1
                     return;
@@ -401,6 +413,8 @@ function gameClosure() {
                     GM.setValue( 7,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment7;
                     console.log("Sudah Comment")
+                    clearInterval(game)
+
                     clicksend();
                     jitter = 1
                     return;
@@ -417,6 +431,8 @@ function gameClosure() {
                     GM.setValue( 8,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment8;
                     console.log("Sudah Comment")
+                    clearInterval(game)
+
                     clicksend();
                     jitter = 1
                     return;
@@ -433,6 +449,8 @@ function gameClosure() {
                     GM.setValue( 9,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment9;
                     console.log("Sudah Comment")
+                    clearInterval(game)
+
                     clicksend();
                     jitter = 1
                     return;
@@ -449,6 +467,8 @@ function gameClosure() {
                     GM.setValue( 10,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment10;
                     console.log("Sudah Comment")
+                    clearInterval(game)
+
                     clicksend();
                     jitter = 1;
                     return;
@@ -465,6 +485,8 @@ function gameClosure() {
                     GM.setValue( 11,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment11;
                     console.log("Sudah Comment")
+                    clearInterval(game)
+
                     clicksend();
                     jitter = 1;
                     return;
@@ -481,6 +503,8 @@ function gameClosure() {
                     GM.setValue( 12,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment12;
                     console.log("Sudah Comment")
+                    clearInterval(game)
+
                     clicksend();
                     jitter = 1
                     return;
@@ -497,6 +521,8 @@ function gameClosure() {
                     GM.setValue( 13,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment13;
                     console.log("Sudah Comment")
+                    clearInterval(game)
+
                     clicksend();
                     jitter = 1
                 }
@@ -512,6 +538,8 @@ function gameClosure() {
                     GM.setValue( 14,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment14;
                     console.log("Sudah Comment")
+                    clearInterval(game)
+
                     clicksend();
                     jitter = 1
                     return;
@@ -529,6 +557,8 @@ function gameClosure() {
                     GM.setValue( 15,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment15;
                     console.log("Sudah Comment")
+                    clearInterval(game)
+
                     clicksend();
                     jitter = 1
                     return;
@@ -546,6 +576,8 @@ function gameClosure() {
                     GM.setValue( 16,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment16;
                     console.log("Sudah Comment")
+                    clearInterval(game)
+
                     clicksend();
                     jitter = 1
                     return;
@@ -562,6 +594,8 @@ function gameClosure() {
                     GM.setValue( 17,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment17;
                     console.log("Sudah Comment")
+                    clearInterval(game)
+
                     clicksend();
                     jitter = 1
                     return;
@@ -578,6 +612,8 @@ function gameClosure() {
                     GM.setValue( 18,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment18;
                     console.log("Sudah Comment")
+                    clearInterval(game)
+
                     clicksend();
                     jitter = 1
                     return;
@@ -588,7 +624,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 50)
+            currentGame = setInterval(game, 10)
         },
         stop() {
             clearInterval(currentGame)
@@ -616,6 +652,7 @@ function clicksend() {
         console.log("Comment Terkirim");
         setTimeout(function(){location.href = "about:blank"},500)
         setTimeout(function(){location.href = "about:blank"},1000)
+
 
 
 
