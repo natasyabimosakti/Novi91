@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF2
 // @namespace    http://tampermonkey.net/
-// @version      3.3
+// @version      3.4
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
@@ -200,7 +200,7 @@ var myrefresh = setInterval(function(){
 
                 // Cek Backlist
                 for (var adm in admin){
-                    if(namafb.textContent.toLowerCase().includes(admin[adm].toLowerCase())||jamposting1.textContent.toLowerCase().includes("admin")||jamposting1.textContent.toLowerCase().includes("moderator")||jamposting2.textContent.toLowerCase().includes("admin")||jamposting2.textContent.toLowerCase().includes("moderator")){
+                    if(namafb.textContent.toLowerCase().includes(admin[adm].toLowerCase())||jamposting1.toLowerCase().includes("admin")||jamposting1.toLowerCase().includes("moderator")||jamposting2.toLowerCase().includes("admin")||jamposting2.toLowerCase().includes("moderator")){
                         // Tampilkan Siapa Yang Memposting
                         console.log("Admin yang Memosting Ditemukan= " + admin[adm]);
                         // Click Comment Box
