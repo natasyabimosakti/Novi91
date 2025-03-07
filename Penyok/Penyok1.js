@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Penyok 1
 // @namespace    http://tampermonkey.net/
-// @version      3.6
+// @version      3.7
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok1.js
@@ -67,7 +67,6 @@ var Comment17 = '#KIKOTOTO (OKTOLPEK80) = 36*49';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'group Penyok 1';
-
 
 
 
@@ -199,7 +198,7 @@ var myrefresh = setInterval(function(){
 
                 // Cek Backlist
                 for (var adm in admin){
-                    if(namafb.textContent.toLowerCase().includes(admin[adm].toLowerCase())||jamposting1.textContent.toLowerCase().includes("admin")||jamposting1.textContent.toLowerCase().includes("moderator")||jamposting2.textContent.toLowerCase().includes("admin")||jamposting2.textContent.toLowerCase().includes("moderator")){
+                    if(namafb.textContent.toLowerCase().includes(admin[adm].toLowerCase())||jamposting1.toLowerCase().includes("admin")||jamposting1.toLowerCase().includes("moderator")||jamposting2.toLowerCase().includes("admin")||jamposting2.toLowerCase().includes("moderator")){
                         // Tampilkan Siapa Yang Memposting
                         console.log("Admin yang Memosting Ditemukan= " + admin[adm]);
                         // Click Comment Box
