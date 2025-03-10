@@ -11,6 +11,7 @@
 // @grant        GM.setValue
 // @grant        GM.getValue
 // @grant        window.close
+// @run-at       document-end
 // ==/UserScript==
 
 var lasturlku
