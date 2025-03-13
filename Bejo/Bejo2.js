@@ -594,7 +594,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 30)
+            currentGame = setInterval(game, 20)
         },
         stop() {
             clearInterval(currentGame)
