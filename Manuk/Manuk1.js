@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 1
 // @namespace    http://tampermonkey.net/
-// @version      3.143
+// @version      3.144
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
@@ -597,7 +597,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 50)
+            currentGame = setInterval(game, 20)
         },
         stop() {
             clearInterval(currentGame)
