@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 4
 // @namespace    http://tampermonkey.net/
-// @version      3.142
+// @version      3.143
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk4.js
@@ -116,7 +116,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma","ratsa","sinta","rara","ratna","mamad",
              "sandiego","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia","sifa","seojun","sudewo",
              "tink","tiktak","tiara","tatang","tomi",
-             "xian",
+             "xian","vivi",
              "yanty","yoky","yohana","yura","yaya",
              "wulan","wok","wak",
              "zuko"];
