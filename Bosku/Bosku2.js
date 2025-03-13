@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE2
 // @namespace    http://tampermonkey.net/
-// @version      3.153
+// @version      3.154
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @author       You
@@ -153,7 +153,9 @@ var myrefresh = setInterval(function(){
         }
         GM.setValue("time", hour);
     }
-    window.scroll(0,100)
+    if(document.location.href.includes("group")){
+    window.scroll(0,200)
+    }
     if(Cutter == 1){
         location.href = "about:blank"
     }
