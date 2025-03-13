@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 2
 // @namespace    http://tampermonkey.net/
-// @version      3.18
+// @version      3.19
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo2.js
@@ -594,7 +594,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 50)
+            currentGame = setInterval(game, 30)
         },
         stop() {
             clearInterval(currentGame)
