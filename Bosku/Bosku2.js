@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE2
 // @namespace    http://tampermonkey.net/
-// @version      3.152
+// @version      3.153
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @author       You
@@ -592,7 +592,7 @@ function gameClosure() {
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 50)
+            currentGame = setInterval(game, 20)
         },
         stop() {
             clearInterval(currentGame)
