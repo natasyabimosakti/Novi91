@@ -154,7 +154,9 @@ var myrefresh = setInterval(function(){
         }
         GM.setValue("time", hour);
     }
-    window.scroll(0,100)
+if(document.location.href.includes("group")){
+    window.scroll(0,200)
+}
     if(Cutter == 1){
         location.href = "about:blank"
     }
