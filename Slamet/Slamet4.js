@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Slamet 4
 // @namespace    http://tampermonkey.net/
-// @version      3.11
+// @version      3.12
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet4.js
@@ -155,7 +155,9 @@ var myrefresh = setInterval(function(){
         }
         GM.setValue("time", hour);
     }
-    window.scroll(0,100)
+    if(document.location.href.includes("group")){
+    window.scroll(0,200)
+    }
     if(Cutter == 1){
         location.href = "about:blank"
     }
