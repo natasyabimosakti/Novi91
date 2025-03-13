@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna3
 // @namespace    http://tampermonkey.net/
-// @version      3.152
+// @version      3.153
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna3.js
@@ -159,7 +159,9 @@ var myrefresh = setInterval(function(){
         }
         GM.setValue("time", hour);
     }
-    window.scroll(0,100)
+    if(document.location.href.includes("group")){
+    window.scroll(0,200)
+    }
     if(Cutter == 1){
         location.href = "about:blank"
     }
