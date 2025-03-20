@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut4
 // @namespace    http://tampermonkey.net/
-// @version      3.161
+// @version      3.162
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut4.js
@@ -21,14 +21,14 @@ var Comment1 = '#AMAVI5D ( PLECIKUS1 ) : 63*73*41';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( PLECIKAWAT ) : 86*07*43'; 
 
-var namagroup3 = 'STREMING';
-var Comment3 = 'SAHARA888 ( PLECUAN ) 90*44*55'; 
+var namagroup3 = 'KATA';
+var Comment3 = '#KATATOGEL(PLECUAN) : 90*44*55'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO PLECICIAK = 19*00*05'; 
 
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (PLECIKICIK*25*46*72)'; 
+var Comment5 = '#PEDRO4D (PLECIKICIK**46*72#1)'; 
 
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (PLECIAHAH) = 15*51*49'; 
@@ -42,14 +42,14 @@ var Comment8 = 'Tok99Toto ( PLECIKLUK ) : 98*64*12';
 var namagroup9 = 'TAFSIR MIMPI';
 var Comment9 = 'SIJITOGEL PLECIKICIK 36*28*71'; 
 
-var namagroup10 = 'LING';
-var Comment10 = 'LING77 (PLECIKAN) 97*38'; 
+var namagroup10 = 'PASAR KAGET';
+var Comment10 = 'DAGELAN4D(PLECIKAN) : 97*38'; 
 
 var namagroup11 = 'MAYAPADA';
 var Comment11 = 'BETT*Mayapada4D(BO)*PLECISAN*60*33*06'; 
 
-var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'PLECIANS : 82*03*70 #BESTOTO88'; 
+var namagroup12 = 'OPUNG4D';
+var Comment12 = 'OPUNG4D ( PLECIANS ) : 82*03*70'; 
 
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=PLECIKI21=39*81*66'; 
