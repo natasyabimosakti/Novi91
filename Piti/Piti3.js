@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti3
 // @namespace    http://tampermonkey.net/
-// @version      3.14
+// @version      3.16
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti3.js
@@ -20,8 +20,8 @@ var Comment1 = '#AMAVI5D ( CIANAS16 ) : 80*26*51';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( CAKTRAS ) : 90*65*84'; 
 
-var namagroup3 = 'STREMING';
-var Comment3 = 'SAHARA888 ( CASAN36 ) 58*00*29'; 
+var namagroup3 = 'KATA';
+var Comment3 = '#KATATOGEL(CASAN36) : 58*00*29'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO CATAH16 = 32*55*63'; 
@@ -41,14 +41,14 @@ var Comment8 = 'Tok99Toto ( CAKADUR14 ) : 68*70*87';
 var namagroup9 = 'TAFSIR MIMPI';
 var Comment9 = 'SIJITOGEL CALKON26 09*24*96'; 
 
-var namagroup10 = 'LING';
-var Comment10 = 'LING77 (CAKUDIR19) 23*49'; 
+var namagroup10 = 'PASAR KAGET';
+var Comment10 = 'DAGELAN4D(CAKUDIR19) : 23*49'; 
 
 var namagroup11 = 'MAYAPADA';
 var Comment11 = 'BETT*Mayapada4D(BO)*CUMNI212*86*33*22'; 
 
-var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'CIRUN19 : 99*85*37 #BESTOTO88'; 
+var namagroup12 = 'OPUNG4D';
+var Comment12 = 'OPUNG4D ( CIRUN19 ) : 99*85*37'; 
 
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=CUMNI21=47*60*21'; 
