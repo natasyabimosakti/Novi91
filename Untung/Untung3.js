@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 3
 // @namespace    http://tampermonkey.net/
-// @version      3.6
+// @version      3.8
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung3.js
@@ -20,8 +20,8 @@ var Comment1 = '#AMAVI5D ( HANDUK41 ) : 52*31*50';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( HALAL42 ) : 90*23*65'; 
 
-var namagroup3 = 'STREMING';
-var Comment3 = 'SAHARA888 ( HAMPA43 ) 64*48*86'; 
+var namagroup3 = 'KATA';
+var Comment3 = '#KATATOGEL(HAMPA43) : 64*48*86'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO HAMPIR45 = 43*53*16'; 
@@ -41,14 +41,14 @@ var Comment8 = 'Tok99Toto ( HEDON49 ) : 74*15*89';
 var namagroup9 = 'TAFSIR MIMPI';
 var Comment9 = 'SIJITOGEL HOTEL50 37*00*70'; 
 
-var namagroup10 = 'LING';
-var Comment10 = 'LING77 (HIJAU81) 73*54'; 
+var namagroup10 = 'PASAR KAGET';
+var Comment10 = 'DAGELAN4D(HIJAU81) : 73*54'; 
 
 var namagroup11 = 'MAYAPADA';
 var Comment11 = 'BETT*Mayapada4D(BO)*HUJAN82*24*79*08'; 
 
-var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'HEWAN83 : 04*84*96 #BESTOTO88'; 
+var namagroup12 = 'OPUNG4D';
+var Comment12 = 'OPUNG4D ( HEWAN83 ) : 04*84*96'; 
 
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=HIDUNG84=85*67*18'; 
