@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang4
 // @namespace    http://tampermonkey.net/
-// @version      3.146
+// @version      3.147
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang4.js
@@ -22,8 +22,8 @@ var Comment1 = '#AMAVI5D ( TOMRAIDER13 ) : 86*66*46';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( TOMRAIDER13 ) : 26*54*34'; 
 
-var namagroup3 = 'STREMING';
-var Comment3 = 'SAHARA888 ( TOMBOLPENTIL ) 09*97*29'; 
+var namagroup3 = 'KATA';
+var Comment3 = '#KATATOGEL(TOMBOLPENTIL) : 09*97*29'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO TOMBOLNUKLIR = 07*55*80'; 
@@ -43,14 +43,14 @@ var Comment8 = 'Tok99Toto ( TOMBIBI24 ) : 07*44*80';
 var namagroup9 = 'TAFSIR MIMPI';
 var Comment9 = 'SIJITOGEL TOMBENG34 01*53*52'; 
 
-var namagroup10 = 'LING';
-var Comment10 = 'LING77 (TOMSENG21) 56*43'; 
+var namagroup10 = 'PASAR KAGET';
+var Comment10 = 'DAGELAN4D(TOMSENG21) : 56*43'; 
 
 var namagroup11 = 'MAYAPADA';
 var Comment11 = 'BETT*Mayapada4D(BO)*TOMLAK12*15*30*69'; 
 
-var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'TOMBIS34 : 50*91*21 #BESTOTO88'; 
+var namagroup12 = 'OPUNG4D';
+var Comment12 = 'OPUNG4D ( TOMBIS34 ) : 50*91*21'; 
 
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=TOMBOL24=35*12*78'; 
