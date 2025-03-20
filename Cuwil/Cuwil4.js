@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 4
 // @namespace    http://tampermonkey.net/
-// @version      3.4
+// @version      3.5
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil4.js
@@ -25,8 +25,8 @@ var Comment1 = '#AMAVI5D ( DEVILMONSTER ) : 65*98*00';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( DELAKDELAK78 ) : 67*40*01'; 
 
-var namagroup3 = 'STREMING';
-var Comment3 = 'SAHARA888 ( DENGKIKU246 ) 32*37*23'; 
+var namagroup3 = 'KATA';
+var Comment3 = '#KATATOGEL(DENGKIKU246) : 32*37*23'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO DEKILLING67 = 79*21*03'; 
@@ -46,14 +46,14 @@ var Comment8 = 'Tok99Toto ( DELOPONGBAE ) : 54*10*83';
 var namagroup9 = 'TAFSIR MIMPI';
 var Comment9 = 'SIJITOGEL DEMITSEGORO8 13*26*51'; 
 
-var namagroup10 = 'LING';
-var Comment10 = 'LING77 (DEMIMIKAN71) 36*17'; 
+var namagroup10 = 'PASAR KAGET';
+var Comment10 = 'DAGELAN4D(DEMIMIKAN71) : 36*17'; 
 
 var namagroup11 = 'MAYAPADA';
 var Comment11 = 'BETT*Mayapada4D(BO)*DELOSORBIB*85*91*42'; 
 
-var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'DEMIKIANUDAH : 16*18*62 #BESTOTO88'; 
+var namagroup12 = 'OPUNG4D';
+var Comment12 = 'OPUNG4D ( DEMIKIANUDAH ) : 16*18*62'; 
 
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=DEDEGKATUL2=84*76*86'; 
