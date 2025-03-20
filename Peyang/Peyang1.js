@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang1
 // @namespace    http://tampermonkey.net/
-// @version      3.146
+// @version      3.147
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang1.js
@@ -21,8 +21,8 @@ var Comment1 = '#AMAVI5D ( MENTARI17 ) : 59*95*87';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( MENTARI17 ) : 18*28*38'; 
 
-var namagroup3 = 'STREMING';
-var Comment3 = 'SAHARA888 ( MERANTAU41 ) 13*36*58'; 
+var namagroup3 = 'KATA';
+var Comment3 = '#KATATOGEL(MERANTAU41) : 13*36*58'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO MERATIH14 = 42*76*16'; 
@@ -42,14 +42,14 @@ var Comment8 = 'Tok99Toto ( MACRONI52 ) : 42*76*00';
 var namagroup9 = 'TAFSIR MIMPI';
 var Comment9 = 'SIJITOGEL MEROJAYA51 82*22*20'; 
 
-var namagroup10 = 'LING';
-var Comment10 = 'LING77 (MELAMUN44) 70*14'; 
+var namagroup10 = 'PASAR KAGET';
+var Comment10 = 'DAGELAN4D(MELAMUN44) : 70*14'; 
 
 var namagroup11 = 'MAYAPADA';
 var Comment11 = 'BETT*Mayapada4D(BO)*MAUEWEK5X*32*57*88'; 
 
-var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'MAKTUNG52 : 73*04*81 #BESTOTO88'; 
+var namagroup12 = 'OPUNG4D';
+var Comment12 = 'OPUNG4D ( MAKTUNG52 ) : 73*04*81'; 
 
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=MADUL45=79*74*51'; 
@@ -61,7 +61,7 @@ var namagroup15 = 'Hoho';
 var Comment15 = 'MAKDUNGDUNG : 85*08*60 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*MERANTAU41*19*17*33'; 
+var Comment16 = 'CITA4D*MERANTAU41*19*17*33';  
 
 
 
