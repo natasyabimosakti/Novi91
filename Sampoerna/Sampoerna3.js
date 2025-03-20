@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna3
 // @namespace    http://tampermonkey.net/
-// @version      3.153
+// @version      3.154
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna3.js
@@ -25,8 +25,8 @@ var Comment1 = '#AMAVI5D ( YOREAN63 ) : 05*24*48';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( YONOBO74 ) : 36*59*02'; 
 
-var namagroup3 = 'STREMING';
-var Comment3 = 'SAHARA888 ( YOWESBEN6 ) 63*92*65'; 
+var namagroup3 = 'KATA';
+var Comment3 = '#KATATOGEL(YOWESBEN6) : 63*92*65'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO YONOBO74 = 19*99*17'; 
@@ -46,14 +46,14 @@ var Comment8 = 'Tok99Toto ( YOBENWES3 ) : 52*46*47';
 var namagroup9 = 'TAFSIR MIMPI';
 var Comment9 = 'SIJITOGEL YONOBO74 91*85*64'; 
 
-var namagroup10 = 'LING';
-var Comment10 = 'LING77 (YONEKWIK37) 53*44'; 
+var namagroup10 = 'PASAR KAGET';
+var Comment10 = 'DAGELAN4D(YONEKWIK37) : 53*44'; 
 
 var namagroup11 = 'MAYAPADA';
 var Comment11 = 'BETT*Mayapada4D(BO)*CRTI249*51*09*20'; 
 
-var namagroup12 = 'ROOM LOMBA TEBAK';
-var Comment12 = 'YOKOJO3 : 07*57*97 #BESTOTO88'; 
+var namagroup12 = 'OPUNG4D';
+var Comment12 = 'OPUNG4D ( YOKOJO3 ) : 07*57*97'; 
 
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=YOKWIK47=49*12*08'; 
