@@ -53,7 +53,7 @@ var Comment12 = 'TOGELKUY SARUNG82 02*09*60';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( SEMPAKK83 ) 67*98'; 
 
-var namagroup14 = 'NAM4D';
+// @version      3.NaN
 var Comment14 = 'NAM4D ( SINTING84 ) = 78*46*77'; 
 
 var namagroup15 = 'VESPA';
@@ -95,7 +95,7 @@ var id18 = await GM.getValue(18);
 var refresh = 40;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa","azahra",
-             "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang","aru sundawa","agus tiar","imam","oppe","komandan","melinda",
+             "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang","aru sundawa","agus tiar","imam","oppe","komandan","melinda","ranger",
              "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista","chin",
              "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
              "erwin","elvina","evelyn","enzo",
