@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE2
 // @namespace    http://tampermonkey.net/
-// @version      3.154
+// @version      3.155
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @author       You
@@ -53,8 +53,8 @@ var Comment12 = 'TOGELKUY BOSBIS48 55*90*06';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( BOSLEM64 ) 17*95'; 
 
-var namagroup14 = 'GAMELAN';
-var Comment14 = '#GENDANG4D (BOSBEN64) : 47*54*49'; 
+var namagroup14 = 'NAM4D';
+var Comment14 = 'NAM4D ( BOSBEN64 ) = 47*54*49'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (BOSBOS64) 65*56*48'; 
@@ -97,7 +97,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang","aru sundawa","agus tiar","imam",
              "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista","chin",
              "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
-             "erwin","elvina","evelyn","enzo",
+             "erwin","elvina","evelyn","enzo","oppe","komandan","melinda","ranger",
              "fira","fahresa","findlay","fatimah",
              "gita","genzo","gambrong",
              "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage","hoi hai",
