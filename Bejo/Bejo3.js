@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 3
 // @namespace    http://tampermonkey.net/
-// @version      3.20
+// @version      3.21
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo3.js
@@ -53,8 +53,8 @@ var Comment12 = 'TOGELKUY GEDANG22 94*89*29';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( GONDOL23 ) 08*87'; 
 
-var namagroup14 = 'GAMELAN';
-var Comment14 = '#GENDANG4D (GEMAR24) : 91*93*23'; 
+var namagroup14 = 'NAM4D';
+var Comment14 = 'NAM4D ( GEMAR24 ) = 91*93*23'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (GOLOK25) 74*82*84'; 
@@ -99,7 +99,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang","aru sundawa","agus tiar","imam",
              "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista","chin",
              "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
-             "erwin","elvina","evelyn","enzo",
+             "erwin","elvina","evelyn","enzo","oppe","komandan","melinda",
              "fira","fahresa","findlay","fatimah",
              "gita","genzo","gambrong",
              "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage","hoi hai",
