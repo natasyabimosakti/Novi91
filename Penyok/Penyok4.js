@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Penyok 4
 // @namespace    http://tampermonkey.net/
-// @version      3.12
+// @version      3.13
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok4.js
@@ -53,8 +53,8 @@ var Comment12 = 'TOGELKUY DEMIKIANUDAH 80*51*95';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( DEDEGKATUL2 ) 60*32'; 
 
-var namagroup14 = 'GAMELAN';
-var Comment14 = '#GENDANG4D (DEPAKSILITMU) : 22*35*78'; 
+var namagroup14 = 'NAM4D';
+var Comment14 = 'NAM4D ( DEPAKSILITMU ) = 22*35*78'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (DEKDEKKAN96) 26*53*82'; 
@@ -98,7 +98,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang","aru sundawa","agus tiar","imam",
              "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista","chin",
              "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
-             "erwin","elvina","evelyn","enzo",
+             "erwin","elvina","evelyn","enzo","oppe","komandan","melinda","ranger",
              "fira","fahresa","findlay","fatimah",
              "gita","genzo","gambrong",
              "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage","hoi hai",
