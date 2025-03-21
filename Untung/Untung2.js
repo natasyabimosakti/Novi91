@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 2
 // @namespace    http://tampermonkey.net/
-// @version      3.8
+// @version      3.9
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung2.js
@@ -98,23 +98,23 @@ var id18 = await GM.getValue(18);
 
 var refresh = 30;
 
-var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","fania","ban nee","putri","anisa",
-             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","aru sundawa","agus tiar","imam",
-             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika","calvin","den arkanza","fiona","el givano",
-             "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara",
-             "erwin","emilia","evelyn",
-             "fira","fahresa","fiana","fahmi",
-             "gita","kang bona","hoky","julianti","libra","claudio",
-             "habib","hefi","hoihai","hana","hoki","hokage","esse","nurul","leader",
-             "icha","iyatoto","invest","ivanna","inisial","ishaura",
-             "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer",
+var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","anisa","agus tiar","azahra",
+             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","ban nee","bang wawan",
+             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika","calvin","claudio",
+             "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara","den arkanza",
+             "erwin","emilia","evelyn","el givano","esse",
+             "fira","fahresa","fiana","fahmi","fiona","fania",
+             "gita","kang bona","hoky","julianti","libra",
+             "habib","hefi","hoihai","hana","hoki","hokage",
+             "icha","iyatoto","invest","ivanna","inisial","ishaura","imam",
+             "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer","jhone",
              "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla","komandan",
              "lianda","lusiana","lina","laura","lehman","leader","leon","lidya","langit","leader",
-             "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari",
-             "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy",
+             "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari","momo","mona",
+             "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy","nurul",
              "oscar","ozawa","otong","ormas",
-             "pung","puput","priyan","primus","primus","pencari","pricilia","putra","pengurus",
-             "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi",
+             "pung","puput","priyan","primus","primus","pencari","pricilia","putra","pengurus","putri",
+             "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi","ranger",
              "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria","sellia","sintya",
              "tink","tiktak","tiara","tatang","tania",
              "yanty","yoky","yohana","yii","vero","vaulian",
