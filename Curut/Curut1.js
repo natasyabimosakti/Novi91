@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT1
 // @namespace    http://tampermonkey.net/
-// @version      3.153
+// @version      3.154
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut1.js
@@ -55,8 +55,8 @@ var Comment12 = 'TOGELKUY NANAS52 14*57*99';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( AOECK62 ) 37*15'; 
 
-var namagroup14 = 'GAMELAN';
-var Comment14 = '#GENDANG4D (AOQOM52) : 36*80*62'; 
+var namagroup14 = 'NAM4D';
+var Comment14 = 'NAM4D ( AOQOM52 ) = 36*80*62'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (AUMUR19) 51*35*01'; 
@@ -100,7 +100,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang","aru sundawa","agus tiar","imam",
              "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista","chin",
              "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
-             "erwin","elvina","evelyn","enzo",
+             "erwin","elvina","evelyn","enzo","oppe","komandan","melinda","ranger",
              "fira","fahresa","findlay","fatimah",
              "gita","genzo","gambrong",
              "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage","hoi hai",
