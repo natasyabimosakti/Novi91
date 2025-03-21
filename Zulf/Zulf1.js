@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF1
 // @namespace    http://tampermonkey.net/
-// @version      3.9
+// @version      3.10
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
@@ -55,8 +55,8 @@ var Comment12 = 'TOGELKUY TANLANAS36 01*44*31';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( TANLOL87 ) 25*85'; 
 
-var namagroup14 = 'GAMELAN';
-var Comment14 = '#GENDANG4D (TANLES78) : 19*59*03'; 
+var namagroup14 = 'NAM4D';
+var Comment14 = 'NAM4D ( TANLES78 ) = 19*59*03'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (TANLES78) 96*83*68'; 
@@ -100,7 +100,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang","aru sundawa","agus tiar","imam",
              "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista","chin",
              "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
-             "erwin","elvina","evelyn","enzo",
+             "erwin","elvina","evelyn","enzo","oppe","komandan","melinda","ranger",
              "fira","fahresa","findlay","fatimah",
              "gita","genzo","gambrong",
              "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage","hoi hai",
