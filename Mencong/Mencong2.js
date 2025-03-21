@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG2
 // @namespace    http://tampermonkey.net/
-// @version      3.238
+// @version      3.239
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong2.js
@@ -54,8 +54,8 @@ var Comment12 = 'TOGELKUY KRISING47 51*35*01';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( KRISAN24 ) 55*90'; 
 
-var namagroup14 = 'GAMELAN';
-var Comment14 = '#GENDANG4D (KRISNA46) : 17*95*61'; 
+var namagroup14 = 'NAM4D';
+var Comment14 = 'NAM4D ( KRISNA46 ) = 17*95*61'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (KRISNA46) 47*54*49'; 
@@ -99,7 +99,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang","aru sundawa","agus tiar","imam",
              "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista","chin",
              "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
-             "erwin","elvina","evelyn","enzo",
+             "erwin","elvina","evelyn","enzo","oppe","komandan","melinda","ranger",
              "fira","fahresa","findlay","fatimah",
              "gita","genzo","gambrong",
              "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage","hoi hai",
