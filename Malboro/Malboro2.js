@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 2
 // @namespace    http://tampermonkey.net/
-// @version      3.141
+// @version      3.142
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
@@ -55,8 +55,8 @@ var Comment12 = 'TOGELKUY BANTAISAJA 47*54*49';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( BACOTX ) 65*56'; 
 
-var namagroup14 = 'GAMELAN';
-var Comment14 = '#GENDANG4D (BAKEKLO) : 14*57*42'; 
+var namagroup14 = 'NAM4D';
+var Comment14 = 'NAM4D ( BAKEKLO ) = 14*57*42'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (BAKULAN12) 37*15*99'; 
@@ -99,7 +99,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang","aru sundawa","agus tiar","imam",
              "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista","chin",
              "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
-             "erwin","elvina","evelyn","enzo",
+             "erwin","elvina","evelyn","enzo","oppe","komandan","melinda","ranger",
              "fira","fahresa","findlay","fatimah",
              "gita","genzo","gambrong",
              "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage","hoi hai",
