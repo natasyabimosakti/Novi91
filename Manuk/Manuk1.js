@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 1
 // @namespace    http://tampermonkey.net/
-// @version      3.145
+// @version      3.146
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
@@ -57,8 +57,8 @@ var Comment12 = 'TOGELKUY MANUKGENI12 11*20*83';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( MANUKX12 ) 58*88'; 
 
-var namagroup14 = 'GAMELAN';
-var Comment14 = '#GENDANG4D (MAUKUR287) : 02*09*38'; 
+var namagroup14 = 'NAM4D';
+var Comment14 = 'NAM4D ( MAUKUR287 ) = 02*09*38'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (MANUKAN11) 67*98*05'; 
@@ -102,7 +102,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang","aru sundawa","agus tiar","imam",
              "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista","chin",
              "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
-             "erwin","elvina","evelyn","enzo",
+             "erwin","elvina","evelyn","enzo","oppe","komandan","melinda","ranger",
              "fira","fahresa","findlay","fatimah",
              "gita","genzo","gambrong",
              "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage","hoi hai",
