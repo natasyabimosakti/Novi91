@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AUTO  JOIN
 // @namespace    http://tampermonkey.net/
-// @version      0.11
+// @version      0.12
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoJoin.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoJoin.js
@@ -15,11 +15,15 @@
 // ==/UserScript==
 
 var refresh = 400;
- 
-setInterval(function(){
-    document.querySelectorAll("[aria-label='Bergabung grup']")[0].click()
 
-    
+setInterval(function(){
+    for(var i = 0; i <= document.getElementsByClassName('native-text').length;i++){
+       if( document.getElementsByClassName('native-text')[i].textContent.includes('Bergabung grup')||document.getElementsByClassName('native-text')[i].textContent.includes('Join')){
+           document.getElementsByClassName('native-text')[i].click()
+       }
+    }
+
+
     if(document.URL.includes('search')){
         if(document.getElementsByClassName('native-text')[2]){
             if(document.getElementsByClassName('native-text')[2].textContent.includes("grup")){
