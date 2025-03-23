@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut2
 // @namespace    http://tampermonkey.net/
-// @version      3.164
+// @version      3.165
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut2.js
@@ -48,7 +48,7 @@ var Comment10 = 'DAGELAN4D(ELANG720) : 50*89';
 var namagroup11 = 'MAYAPADA';
 var Comment11 = 'BETT*Mayapada4D(BO)*ELANGY33*45*29*94'; 
 
-var namagroup12 = 'OPUNG4D';
+var namagroup12 = 'OPUNG';
 var Comment12 = 'OPUNG4D ( ELANGX3 ) : 40*61*21'; 
 
 var namagroup13 = 'GOHT0G3L';
