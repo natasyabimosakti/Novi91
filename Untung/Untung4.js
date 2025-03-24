@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 4
 // @namespace    http://tampermonkey.net/
-// @version      3.13
+// @version      3.14
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung4.js
@@ -15,52 +15,52 @@
 // ==/UserScript==
 
 var namagroup1 = 'NONGKRONG';
-var Comment1 = '#AMAVI5D ( JANGKAR89 ) : 85*67*18'; 
+var Comment1 = '#AMAVI5D ( WIRANG89 ) : 85*67*18'; 
 
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( JAJAN90 ) : 47*12*94'; 
+var Comment2 = 'K86TOTO ( WAKUL90 ) : 47*12*94'; 
 
 var namagroup3 = 'KATA';
-var Comment3 = '#KATATOGEL(JAMAK91) : 37*00*70'; 
+var Comment3 = '#KATATOGEL(WATAK91) : 37*00*70'; 
 
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO JAMET92 = 73*54*51'; 
+var Comment4 = '#RIATOTO WEDI92 = 73*54*51'; 
 
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (JANTAN93*25*03*91)'; 
+var Comment5 = '#PEDRO4D (WAGE93*25*03*91)'; 
 
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (JARAK94) = 04*84*96'; 
+var Comment6 = '#DIVA4D (WULING94) = 04*84*96'; 
 
 var namagroup7 = 'Grup Lomba Tebak';
-var Comment7 = 'ULTRATOGEL88 = (JELITA95) 24*79*08'; 
+var Comment7 = 'ULTRATOGEL88 = (WENANG95) 24*79*08'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
-var Comment8 = 'Tok99Toto ( JERNIH96 ) : 69*41*62'; 
+var Comment8 = 'Tok99Toto ( WANGSUL96 ) : 69*41*62'; 
 
 var namagroup9 = 'TAFSIR MIMPI';
-var Comment9 = 'SIJITOGEL JAGUNG97 64*48*86'; 
+var Comment9 = 'SIJITOGEL WANI97 64*48*86'; 
 
 var namagroup10 = 'PASAR KAGET';
-var Comment10 = 'DAGELAN4D(JAMBU98) : 43*53'; 
+var Comment10 = 'DAGELAN4D(WEROH98) : 43*53*16'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*JALANG71*87*22*02'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*WADAH71*87*22*02'; 
 
 var namagroup12 = 'OPUNG';
-var Comment12 = 'OPUNG4D ( JARUM72 ) : 72*14*35'; 
+var Comment12 = 'OPUNG4D ( WEDANG72 ) : 72*14*35'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=JAKET73=52*31*50'; 
+var Comment13 = 'GOHTOGEL=WANGSIT73=52*31*50'; 
 
 var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (JAGUAR74)=74_15'; 
+var Comment14 = '#TARUNGTOTO (WALUYO74)=74_15'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'JERAPAH75 : 98*27*60 #HOHOTOGEL'; 
+var Comment15 = 'WAGINEM75 : 98*27*60 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*JANGKRIK76*90*23*65'; 
+var Comment16 = 'CITA4D*WALI76*90*23*65';  
 
 
 
