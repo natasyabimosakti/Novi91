@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 3
 // @namespace    http://tampermonkey.net/
-// @version      3.8
+// @version      3.9
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil3.js
@@ -47,7 +47,7 @@ var namagroup9 = 'TAFSIR MIMPI';
 var Comment9 = 'SIJITOGEL SUMEGEHBAE 14*70*29'; 
 
 var namagroup10 = 'PASAR KAGET';
-var Comment10 = 'DAGELAN4D(SUNDULUSU) : 48*33'; 
+var Comment10 = 'DAGELAN4D(SUNDULUSU) : 48*33*34'; 
 
 var namagroup11 = 'MAYAPADA';
 var Comment11 = 'BETT*Mayapada4D(BO)*SUWENGLAMBE*67*40*01'; 
