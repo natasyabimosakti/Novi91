@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Anti Spam
 // @namespace    http://tampermonkey.net/
-// @version      3.10
+// @version      3.11
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/refs/heads/main/anti%20spam.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/refs/heads/main/anti%20spam.js
@@ -14,7 +14,7 @@
 // @run-at       document-end
 // ==/UserScript==
 
-var lasturlku
+var lasturlku = 0
 var jar = setInterval(function(){
 
 
@@ -25,8 +25,10 @@ var jar = setInterval(function(){
     }
 
     if(location.href.length <= 40 ){
-        if(document.getElementsByClassName("vscroller")[0].getElementsByTagName("img")[0]){
-            document.getElementsByClassName("vscroller")[0].getElementsByTagName("img")[0].click()
+        if(document.getElementsByClassName("vscroller").length > 0){
+            if(document.getElementsByClassName("vscroller")[0].getElementsByTagName("img")[0]){
+                document.getElementsByClassName("vscroller")[0].getElementsByTagName("img")[0].click()
+            }
         }
     }
 
@@ -41,17 +43,38 @@ var ujar = setInterval(function(){
 
     if(lasturlku.length > 10){
 
-    if(location.href.length <= 40 ){
-        location.href = lasturlku
+        if(location.href.length <= 40 ){
+            location.href = lasturlku
 
-        return;
-    }
+            return;
+        }
     }
 
 },1500)
 setInterval(function(){
-if(document.getElementsByTagName("button")[0].value.includes("Dismiss")||document.getElementsByTagName("button")[0].value.includes("Tutup")){
-document.getElementsByTagName("button")[0].click()
-}
+    if(document.getElementsByTagName("button")[0].value.includes("Dismiss")||document.getElementsByTagName("button")[0].value.includes("Tutup")){
+        document.getElementsByTagName("button")[0].click()
+    }
+
+},1500)
+
+var tas = setInterval(function(){
+    if(location.href.includes("group")){
+        if(document.querySelectorAll("[aria-label='Continue']").length > 0){
+            document.querySelectorAll("[aria-label='Continue']")[0].click()
+        }
+        if(document.querySelectorAll("[aria-label='Lanjutkan']").length > 0){
+            document.querySelectorAll("[aria-label='Lanjutkan']")[0].click()
+        }
+    }
+    if(document.querySelectorAll("[type='password']").length > 0){
+        document.querySelectorAll("[type='password']")[0].value="scorpio1991"
+        if(document.querySelectorAll("[type='password']")[0].value.length > 0 ){
+            document.querySelectorAll("[type='submit']")[0].click()
+            clearInterval(tas)
+        }
+    }
+
+
 
 },1500)
