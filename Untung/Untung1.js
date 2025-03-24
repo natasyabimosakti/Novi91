@@ -42,7 +42,7 @@ var namagroup9 = 'TAFSIR MIMPI';
 var Comment9 = 'SIJITOGEL ERAT88 09*38*58'; 
 
 var namagroup10 = 'PASAR KAGET';
-var Comment10 = DAGELAN4D(EJAAN99) : 05*83*55'; 
+var Comment10 = 'DAGELAN4D(EJAAN99) : 05*83*55'; 
 
 var namagroup11 = 'MAYAPADA';
 var Comment11 = 'BETT*Mayapada4D(BO)*ENGGAN18*06*76*46'; 
