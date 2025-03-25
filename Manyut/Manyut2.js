@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.234
+// @version      3.235
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut2.js
@@ -32,8 +32,8 @@ var Comment4 = 'GAIB4D=EKODAM375=94*43*12';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (EKOROK64) = 40*92*55'; 
 
-var namagroup6 = 'Tukang';
-var Comment6 = '( TUKANGTOTO EKONDANG12 : 11*45 )'; 
+var namagroup6 = 'KIOS';
+var Comment6 = 'KIOSTOTO=EKONDANG12=11*45'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL EKOCOK75 05*48*07'; 
@@ -56,8 +56,8 @@ var Comment12 = 'TOGELKUY EKOCONG41 29*74*04';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( EKOROP47 ) 96*83'; 
 
-var namagroup14 = 'NAM4D';
-var Comment14 = 'NAM4D ( EKOR665 ) = 19*59*03'; 
+var namagroup14 = 'ANGKER';
+var Comment14 = 'ANGKER4D=EKORKU42=19*59*03'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (EKOWIJAY1) 25*85*41'; 
@@ -67,7 +67,7 @@ var Comment16 = 'NEMO4D (EKORENG51) : 01*44*41';
 
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (EKOROK64) = 31*67';
-
+  
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Group Manyut 2';
 
