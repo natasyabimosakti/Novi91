@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Slamet 2
 // @namespace    http://tampermonkey.net/
-// @version      3.13
+// @version      3.14
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet2.js
@@ -29,8 +29,8 @@ var Comment4 = 'GAIB4D=BERONDONG1=00*20*30';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (BROWNIS) = 94*43*12'; 
 
-var namagroup6 = 'Tukang';
-var Comment6 = '( TUKANGTOTO BULEIRENG : 40*92 )'; 
+var namagroup6 = 'KIOS';
+var Comment6 = 'KIOSTOTO=BULEIRENG=40*92'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL BUMBUKU 11*45*66'; 
@@ -53,8 +53,8 @@ var Comment12 = 'TOGELKUY BNGSAT55 17*84*50';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( BAJINDUL2 ) 88*75'; 
 
-var namagroup14 = 'NAM4D';
-var Comment14 = 'NAM4D ( BLUR005 ) = 19*59*41'; 
+var namagroup14 = 'ANGKER';
+var Comment14 = 'ANGKER4D=BLUR005=19*59*41'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (BUKITKEMBAR) 25*85*67'; 
