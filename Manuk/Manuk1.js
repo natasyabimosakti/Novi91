@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 1
 // @namespace    http://tampermonkey.net/
-// @version      3.147
+// @version      3.148
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
@@ -99,10 +99,10 @@ var id18 = await GM.getValue(18);
 var refresh = 40;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa","azahra",
-             "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang","aru sundawa","agus tiar","imam",
+             "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang","aru sundawa","agus tiar","imam","oppe","komandan","melinda","ranger",
              "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista","chin",
              "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
-             "erwin","elvina","evelyn","enzo","oppe","komandan","melinda","ranger",
+             "erwin","elvina","evelyn","enzo",
              "fira","fahresa","findlay","fatimah",
              "gita","genzo","gambrong",
              "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage","hoi hai",
@@ -159,7 +159,7 @@ var myrefresh = setInterval(function(){
         GM.setValue("time", hour);
     }
     if(document.location.href.includes("group")){
-    window.scroll(0,200)
+        window.scroll(0,200)
     }
     if(Cutter == 1){
         location.href = "about:blank"
@@ -167,84 +167,85 @@ var myrefresh = setInterval(function(){
     if(jitter == 1){
         return;
     }
+    if(document.location.href.includes("group")){
+        for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
+            if(jitter == 1){
+                return;
+            }
+            if(Cutter == 1){
+                location.href = "about:blank"
+            }
+            if (document.querySelectorAll('[data-tracking-duration-id')[ntv]){
+                // Nama FB
+                var namafb = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByTagName("span")[0];
+                //Jam
+                var jamposting1 = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByTagName("span")[1].textContent;
+                var jamposting2 = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByTagName("span")[2].textContent;
+                //Postingan
+                var postingan =document.querySelectorAll('[data-tracking-duration-id')[ntv]
+                //Comment Box
+                var commentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')
+                // Cek Jam
 
-    for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
-        if(jitter == 1){
-        return;
-        }
-        if(Cutter == 1){
-            location.href = "about:blank"
-        }
-        if (document.querySelectorAll('[data-tracking-duration-id')[ntv]){
-            // Nama FB
-            var namafb = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByTagName("span")[0];
-        //Jam
-        var jamposting1 = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByTagName("span")[1].textContent;
-        var jamposting2 = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByTagName("span")[2].textContent;
-        //Postingan
-        var postingan =document.querySelectorAll('[data-tracking-duration-id')[ntv]
-        //Comment Box
-        var commentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')
-        // Cek Jam
+                if (jamposting1.includes("Baru")||jamposting1.slice(0,7).includes("1 men")||jamposting1.slice(0,7).includes("2 men")||jamposting1.slice(0,7).includes("3 men")||jamposting1.slice(0,7).includes("4 men")||jamposting1.slice(0,7).includes("5 men")||jamposting2.includes("Baru")||jamposting2.slice(0,7).includes("1 men")||jamposting2.slice(0,7).includes("2 men")||jamposting2.slice(0,7).includes("3 men")||jamposting2.slice(0,7).includes("4 men")||jamposting2.slice(0,7).includes("5 men")){
+                    console.log("Jam Ditemukan " + jamposting1)
+                    if(postingan.textContent.toLowerCase().includes(Backlist1.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(Backlist2.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(Backlist3.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(Backlist4.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(Backlist5.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(Backlist6.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(Backlist7.toLowerCase())){
+                        console.log("Terdaftar Backlist...!  ");
+                        break;
+                    }
+                    console.log("Proses dilanjutkan tidak ada Backlist");
+                    if(postingan.textContent.toLowerCase().includes(keyword1.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(keyword2.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(keyword3.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(keyword4.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(keyword5.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(keyword6.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(keyword7.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(keyword8.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(keyword9.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(keyword10.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(keyword11.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(keyword12.toLowerCase())
+                       ||postingan.textContent.toLowerCase().includes(keyword13.toLowerCase())){
+                        console.log("Keyword Ditemukan " + postingan.textContent);
+                        // Cek Backlist
 
-        if (jamposting1.includes("Baru")||jamposting1.slice(0,7).includes("1 men")||jamposting1.slice(0,7).includes("2 men")||jamposting1.slice(0,7).includes("3 men")||jamposting1.slice(0,7).includes("4 men")||jamposting1.slice(0,7).includes("5 men")||jamposting2.includes("Baru")||jamposting2.slice(0,7).includes("1 men")||jamposting2.slice(0,7).includes("2 men")||jamposting2.slice(0,7).includes("3 men")||jamposting2.slice(0,7).includes("4 men")||jamposting2.slice(0,7).includes("5 men")){
-            console.log("Jam Ditemukan " + jamposting1)
-                if(postingan.textContent.toLowerCase().includes(Backlist1.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(Backlist2.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(Backlist3.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(Backlist4.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(Backlist5.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(Backlist6.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(Backlist7.toLowerCase())){
-                    console.log("Terdaftar Backlist...!  ");
-                   break;
-                }
-                console.log("Proses dilanjutkan tidak ada Backlist");
-                if(postingan.textContent.toLowerCase().includes(keyword1.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword2.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword3.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword4.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword5.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword6.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword7.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword8.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword9.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword10.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword11.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword12.toLowerCase())
-                   ||postingan.textContent.toLowerCase().includes(keyword13.toLowerCase())){
-                    console.log("Keyword Ditemukan " + postingan.textContent);
-                    // Cek Backlist
-
-                    // Cek Admin
-                    for (var adm in admin){
-                        if(jitter == 1){
-                            return;
-                        }
-                        if(namafb.textContent.toLowerCase().includes(admin[adm].toLowerCase())||jamposting2.toLowerCase().includes("admin")||jamposting2.toLowerCase().includes("moderator")){
-                            // Tampilkan Siapa Yang Memposting
-                            if(jamposting2.toLowerCase().includes("admin")||jamposting2.toLowerCase().includes("moderator")){
-                                console.log("Admin yang Memosting = Admin/Moderator");
-                            }else{
-                                console.log("Admin yang Memosting = " + admin[adm]);
+                        // Cek Admin
+                        for (var adm in admin){
+                            if(jitter == 1){
+                                return;
                             }
+                            if(namafb.textContent.toLowerCase().includes(admin[adm].toLowerCase())||jamposting2.toLowerCase().includes("admin")||jamposting2.toLowerCase().includes("moderator")||jamposting1.toLowerCase().includes("admin")||jamposting1.toLowerCase().includes("moderator")){
+                                // Tampilkan Siapa Yang Memposting
+                                if(jamposting2.toLowerCase().includes("admin")||jamposting2.toLowerCase().includes("moderator")){
+                                    console.log("Admin yang Memosting = Admin/Moderator");
+                                }else{
+                                    console.log("Admin yang Memosting = " + admin[adm]);
+                                }
 
-                            // Click Comment Box
-                            for (var clk = 0; clk < commentbox.length; clk++) {
-                                if(commentbox[clk]){
-                                    if(commentbox[clk].textContent.toLowerCase().includes("jawab")|| commentbox[clk].textContent.toLowerCase().includes("tulis")){
-
-                                        clearInterval(myrefresh);
-                                        console.log("Click Posting box")
-                                        jitter = 0
-                                        commentbox[clk].click()
-                                        game.start()
-                                        break;
-                                        return;
+                                // Click Comment Box
+                                for (var clk = 0; clk < commentbox.length; clk++) {
+                                    if(commentbox[clk]){
+                                        console.log("comment box ditemukan")
+                                        if(commentbox[clk].textContent.toLowerCase().includes("jawab")||commentbox[clk].textContent.toLowerCase().includes("tulis")||commentbox[clk].textContent.toLowerCase().includes("komentar")){
+                                            clearInterval(myrefresh);
+                                            console.log("Click Posting box")
+                                            jitter = 0
+                                            commentbox[clk].click()
+                                            game.start()
+                                            break;
+                                            return;
+                                        }
                                     }
                                 }
+                                return;
                             }
-                            return;
                         }
                     }
                 }
@@ -289,7 +290,7 @@ var myrefresh = setInterval(function(){
 
 function gameClosure() {
     function game() {
-        console.log('The game is Start')
+        console.log('Menentukan Komentar')
         if(jitter == 1){
             return;
         }
@@ -323,12 +324,12 @@ function gameClosure() {
 
             if (document.getElementsByClassName("multi-line-floating-textbox")[0]){
                 if (ceknamagroup.includes(namagroup1) == true||ceknamagroup1.includes(namagroup1) == true||ceknamagroup2.includes(namagroup1) == true||ceknamagroup3.includes(namagroup1) == true||ceknamagroup4.includes(namagroup1) == true) {
-                  if (id1 == "1") {
-                       jitter = 1
-                       Cutter = 1
-                       location.href = "about:blank"
-                     }
-                  /*cek nama group dan tulis commntar*/
+                    if (id1 == "1") {
+                        jitter = 1
+                        Cutter = 1
+                        location.href = "about:blank"
+                    }
+                    /*cek nama group dan tulis commntar*/
                     GM.setValue( 1,1);
                     document.getElementsByClassName("multi-line-floating-textbox")[0].value = Comment1;
                     console.log("Sudah Comment")
@@ -337,11 +338,11 @@ function gameClosure() {
                     return;
                 }
                 if (ceknamagroup.includes(namagroup2) == true||ceknamagroup1.includes(namagroup2) == true||ceknamagroup2.includes(namagroup2) == true||ceknamagroup3.includes(namagroup2) == true||ceknamagroup4.includes(namagroup2) == true) {
-                     if (id2 == "1") {
-                       jitter = 1
-                       Cutter = 1
-                       location.href = "about:blank"
-                     }
+                    if (id2 == "1") {
+                        jitter = 1
+                        Cutter = 1
+                        location.href = "about:blank"
+                    }
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 2,1);
                     /*cek nama group dan tulis commntar*/
@@ -353,10 +354,10 @@ function gameClosure() {
                 }
                 if (ceknamagroup.includes(namagroup3) == true||ceknamagroup1.includes(namagroup3) == true||ceknamagroup2.includes(namagroup3) == true||ceknamagroup3.includes(namagroup3) == true||ceknamagroup4.includes(namagroup3) == true) {
                     if (id3 == "1") {
-                       jitter = 1
-                       Cutter = 1
-                       location.href = "about:blank"
-                     }
+                        jitter = 1
+                        Cutter = 1
+                        location.href = "about:blank"
+                    }
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 3,1);
                     /*cek nama group dan tulis commntar*/
@@ -369,10 +370,10 @@ function gameClosure() {
                 }
                 if (ceknamagroup.includes(namagroup4) == true||ceknamagroup1.includes(namagroup4) == true||ceknamagroup2.includes(namagroup4) == true||ceknamagroup3.includes(namagroup4) == true||ceknamagroup4.includes(namagroup4) == true) {
                     if (id4 == "1") {
-                       jitter = 1
-                       Cutter = 1
-                       location.href = "about:blank"
-                     }
+                        jitter = 1
+                        Cutter = 1
+                        location.href = "about:blank"
+                    }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 4,1);
@@ -384,10 +385,10 @@ function gameClosure() {
                 }
                 if (ceknamagroup.includes(namagroup5) == true||ceknamagroup1.includes(namagroup5) == true||ceknamagroup2.includes(namagroup5) == true||ceknamagroup3.includes(namagroup5) == true||ceknamagroup4.includes(namagroup5) == true) {
                     if (id5 == "1") {
-                       jitter = 1
-                       Cutter = 1
-                       location.href = "about:blank"
-                     }
+                        jitter = 1
+                        Cutter = 1
+                        location.href = "about:blank"
+                    }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 5,1);
@@ -399,10 +400,10 @@ function gameClosure() {
                 }
                 if (ceknamagroup.includes(namagroup6) == true||ceknamagroup1.includes(namagroup6) == true||ceknamagroup2.includes(namagroup6) == true||ceknamagroup3.includes(namagroup6) == true||ceknamagroup4.includes(namagroup6) == true) {
                     if (id6 == "1") {
-                       jitter = 1
-                       Cutter = 1
-                       location.href = "about:blank"
-                     }
+                        jitter = 1
+                        Cutter = 1
+                        location.href = "about:blank"
+                    }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 6,1);
@@ -414,10 +415,10 @@ function gameClosure() {
                 }
                 if (ceknamagroup.includes(namagroup7) == true||ceknamagroup1.includes(namagroup7) == true||ceknamagroup2.includes(namagroup7) == true||ceknamagroup3.includes(namagroup7) == true||ceknamagroup4.includes(namagroup7) == true) {
                     if (id7 == "1") {
-                       jitter = 1
-                       Cutter = 1
-                       location.href = "about:blank"
-                     }
+                        jitter = 1
+                        Cutter = 1
+                        location.href = "about:blank"
+                    }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 7,1);
@@ -429,10 +430,10 @@ function gameClosure() {
                 }
                 if (ceknamagroup.includes(namagroup8) == true||ceknamagroup1.includes(namagroup8) == true||ceknamagroup2.includes(namagroup8) == true||ceknamagroup3.includes(namagroup8) == true||ceknamagroup4.includes(namagroup8) == true) {
                     if (id8 == "1") {
-                       jitter = 1
-                       Cutter = 1
-                       location.href = "about:blank"
-                     }
+                        jitter = 1
+                        Cutter = 1
+                        location.href = "about:blank"
+                    }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 8,1);
@@ -444,10 +445,10 @@ function gameClosure() {
                 }
                 if (ceknamagroup.includes(namagroup9) == true||ceknamagroup1.includes(namagroup9) == true||ceknamagroup2.includes(namagroup9) == true||ceknamagroup3.includes(namagroup9) == true||ceknamagroup4.includes(namagroup9) == true) {
                     if (id9 == "1") {
-                       jitter = 1
-                       Cutter = 1
-                       location.href = "about:blank"
-                     }
+                        jitter = 1
+                        Cutter = 1
+                        location.href = "about:blank"
+                    }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 9,1);
@@ -459,10 +460,10 @@ function gameClosure() {
                 }
                 if (ceknamagroup.includes(namagroup10) == true||ceknamagroup1.includes(namagroup10) == true||ceknamagroup2.includes(namagroup10) == true||ceknamagroup3.includes(namagroup10) == true||ceknamagroup4.includes(namagroup10) == true) {
                     if (id10 == "1") {
-                       jitter = 1
-                       Cutter = 1
-                       location.href = "about:blank"
-                     }
+                        jitter = 1
+                        Cutter = 1
+                        location.href = "about:blank"
+                    }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 10,1);
@@ -474,10 +475,10 @@ function gameClosure() {
                 }
                 if (ceknamagroup.includes(namagroup11) == true||ceknamagroup1.includes(namagroup11) == true||ceknamagroup2.includes(namagroup11) == true||ceknamagroup3.includes(namagroup11) == true||ceknamagroup4.includes(namagroup11) == true) {
                     if (id11 == "1") {
-                       jitter = 1
-                       Cutter = 1
-                       location.href = "about:blank"
-                     }
+                        jitter = 1
+                        Cutter = 1
+                        location.href = "about:blank"
+                    }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 11,1);
@@ -488,11 +489,11 @@ function gameClosure() {
                     return;
                 }
                 if (ceknamagroup.includes(namagroup12) == true||ceknamagroup1.includes(namagroup12) == true||ceknamagroup2.includes(namagroup12) == true||ceknamagroup3.includes(namagroup12) == true||ceknamagroup4.includes(namagroup12) == true) {
-                     if (id12 == "1") {
-                       jitter = 1
-                       Cutter = 1
-                       location.href = "about:blank"
-                     }
+                    if (id12 == "1") {
+                        jitter = 1
+                        Cutter = 1
+                        location.href = "about:blank"
+                    }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 12,1);
@@ -503,11 +504,11 @@ function gameClosure() {
                     return;
                 }
                 if (ceknamagroup.includes(namagroup13) == true||ceknamagroup1.includes(namagroup13) == true||ceknamagroup2.includes(namagroup13) == true||ceknamagroup3.includes(namagroup13) == true||ceknamagroup4.includes(namagroup13) == true) {
-                     if (id13 == "1") {
-                       jitter = 1
-                       Cutter = 1
-                       location.href = "about:blank"
-                     }
+                    if (id13 == "1") {
+                        jitter = 1
+                        Cutter = 1
+                        location.href = "about:blank"
+                    }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 13,1);
@@ -518,10 +519,10 @@ function gameClosure() {
                 }
                 if (ceknamagroup.includes(namagroup14) == true||ceknamagroup1.includes(namagroup14) == true||ceknamagroup2.includes(namagroup14) == true||ceknamagroup3.includes(namagroup14) == true||ceknamagroup4.includes(namagroup14) == true) {
                     if (id14 == "1") {
-                       jitter = 1
-                       Cutter = 1
-                       location.href = "about:blank"
-                     }
+                        jitter = 1
+                        Cutter = 1
+                        location.href = "about:blank"
+                    }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 14,1);
@@ -534,10 +535,10 @@ function gameClosure() {
 
                 if (ceknamagroup.includes(namagroup15) == true||ceknamagroup1.includes(namagroup15) == true||ceknamagroup2.includes(namagroup15) == true||ceknamagroup3.includes(namagroup15) == true||ceknamagroup4.includes(namagroup15) == true) {
                     if (id15 == "1") {
-                       jitter = 1
-                       Cutter = 1
-                       location.href = "about:blank"
-                     }
+                        jitter = 1
+                        Cutter = 1
+                        location.href = "about:blank"
+                    }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 15,1);
@@ -550,10 +551,10 @@ function gameClosure() {
 
                 if (ceknamagroup.includes(namagroup16) == true||ceknamagroup1.includes(namagroup16) == true||ceknamagroup2.includes(namagroup16) == true||ceknamagroup3.includes(namagroup16) == true||ceknamagroup4.includes(namagroup16) == true) {
                     if (id16 == "1") {
-                       jitter = 1
-                       Cutter = 1
-                       location.href = "about:blank"
-                     }
+                        jitter = 1
+                        Cutter = 1
+                        location.href = "about:blank"
+                    }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 16,1);
@@ -565,10 +566,10 @@ function gameClosure() {
                 }
                 if (ceknamagroup.includes(namagroup17) == true||ceknamagroup1.includes(namagroup17) == true||ceknamagroup2.includes(namagroup17) == true||ceknamagroup3.includes(namagroup17) == true||ceknamagroup4.includes(namagroup17) == true) {
                     if (id17 == "1") {
-                       jitter = 1
-                       Cutter = 1
-                       location.href = "about:blank"
-                     }
+                        jitter = 1
+                        Cutter = 1
+                        location.href = "about:blank"
+                    }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 17,1);
@@ -580,10 +581,10 @@ function gameClosure() {
                 }
                 if (ceknamagroup.includes(namagroup18) == true||ceknamagroup1.includes(namagroup18) == true||ceknamagroup2.includes(namagroup18) == true||ceknamagroup3.includes(namagroup18) == true||ceknamagroup4.includes(namagroup18) == true) {
                     if (id18 == "1") {
-                       jitter = 1
-                       Cutter = 1
+                        jitter = 1
+                        Cutter = 1
                         location.href = "about:blank"
-                     }
+                    }
                     /*cek nama group dan tulis commntar*/
                     /*cek nama group dan tulis commntar*/
                     GM.setValue( 18,1);
@@ -633,6 +634,7 @@ function clicksend() {
         clickEvent.initEvent ("mousedown", true, true);
         clicksendcoment.dispatchEvent (clickEvent);
         console.log("Comment Terkirim");
+
 
 
 
