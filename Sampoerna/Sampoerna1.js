@@ -81,6 +81,7 @@ var Comment18 = 'asek';
 
 
 
+
 var d = new Date();
 var hour = d.getHours();
 var tm = await GM.getValue("time");
