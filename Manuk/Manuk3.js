@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 3
 // @namespace    http://tampermonkey.net/
-// @version      3.146
+// @version      3.147
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk3.js
@@ -32,8 +32,8 @@ var Comment4 = 'GAIB4D=DOROPOL12=73*10*45';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (DORODOR12) = 63*30*72'; 
 
-var namagroup6 = 'Tukang';
-var Comment6 = '( TUKANGTOTO DOROWIS12 : 64*40 )'; 
+var namagroup6 = 'KIOS';
+var Comment6 = 'KIOSTOTO=DOROWIS12=64*40'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL DOROMAN12 22*24*21'; 
@@ -56,8 +56,8 @@ var Comment12 = 'TOGELKUY DORODOR12 19*03*18';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( DOROWIS12 ) 31*44'; 
 
-var namagroup14 = 'NAM4D';
-var Comment14 = 'NAM4D ( DOROMAN12 ) = 94*89*43'; 
+var namagroup14 = 'ANGKER';
+var Comment14 = 'ANGKER4D=DOROKERTO3=94*89*43'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (DOROKU21) 08*87*53'; 
@@ -67,7 +67,7 @@ var Comment16 = 'NEMO4D (DOROKERTO) : 91*93*23';
 
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (DORODOR12) = 29*59';
-
+  
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Group Manuk 3';
 
