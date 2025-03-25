@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG2
 // @namespace    http://tampermonkey.net/
-// @version      3.239
+// @version      3.240
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong2.js
@@ -30,8 +30,8 @@ var Comment4 = 'GAIB4D=KRISEMPU51=12*86*68';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (KRISAN41) = 71*96*75'; 
 
-var namagroup6 = 'Tukang';
-var Comment6 = '( TUKANGTOTO KRISMANDA23 : 78*46 )'; 
+var namagroup6 = 'KIOS';
+var Comment6 = 'KIOSTOTO=KRISMANDA23=78*46'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL KRISMA56 67*98*05'; 
@@ -54,8 +54,8 @@ var Comment12 = 'TOGELKUY KRISING47 51*35*01';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( KRISAN24 ) 55*90'; 
 
-var namagroup14 = 'NAM4D';
-var Comment14 = 'NAM4D ( KRISNA46 ) = 17*95*61'; 
+var namagroup14 = 'ANGKER';
+var Comment14 = 'ANGKER4D=KRISTANTI34=17*95*61'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (KRISNA46) 47*54*49'; 
