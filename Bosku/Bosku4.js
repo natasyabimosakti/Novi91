@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE4
 // @namespace    http://tampermonkey.net/
-// @version      3.157
+// @version      3.158
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku4.js
@@ -13,7 +13,6 @@
 // @grant        GM.getValue
 // @grant        window.close
 // ==/UserScript==
-
 
 
 
@@ -32,8 +31,8 @@ var Comment4 = 'GAIB4D=ZORAN36=74*82*84';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (ZONIAK63) = 91*93*43'; 
 
-var namagroup6 = 'Tukang';
-var Comment6 = '( TUKANGTOTO ZOMING82 : 08*87 )'; 
+var namagroup6 = 'KIOS';
+var Comment6 = 'KIOSTOTO=ZOMING82=08*87'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL ZONATIK73 94*89*29'; 
@@ -56,8 +55,8 @@ var Comment12 = 'TOGELKUY ZOWEKNI82 34*13*79';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( ZOWINDO ) 22*24'; 
 
-var namagroup14 = 'NAM4D';
-var Comment14 = 'NAM4D ( ZORLETA ) = 64*40*69'; 
+var namagroup14 = 'ANGKER';
+var Comment14 = 'ANGKER4D=ZONATING=64*40*69'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (ZONIAK26) 63*30*72'; 
