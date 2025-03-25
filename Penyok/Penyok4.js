@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Penyok 4
 // @namespace    http://tampermonkey.net/
-// @version      3.13
+// @version      3.14
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok4.js
@@ -29,8 +29,8 @@ var Comment4 = 'GAIB4D=DEKILLING67=15*98*86';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (DENGAKSEKBOL) = 37*13*02'; 
 
-var namagroup6 = 'Tukang';
-var Comment6 = '( TUKANGTOTO DENGKULKOLOR : 93*62 )'; 
+var namagroup6 = 'KIOS';
+var Comment6 = 'KIOSTOTO=DENGKULKOLOR=93*62'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL DEMAKDEMEK58 21*73*87'; 
@@ -53,8 +53,8 @@ var Comment12 = 'TOGELKUY DEMIKIANUDAH 80*51*95';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( DEDEGKATUL2 ) 60*32'; 
 
-var namagroup14 = 'NAM4D';
-var Comment14 = 'NAM4D ( DEPAKSILITMU ) = 22*35*78'; 
+var namagroup14 = 'ANGKER';
+var Comment14 = 'ANGKER4D=DEPAKSILITMU=22*35*78'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (DEKDEKKAN96) 26*53*82'; 
