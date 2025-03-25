@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.234
+// @version      3.235
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
@@ -32,8 +32,8 @@ var Comment4 = 'GAIB4D=ZENDRIK23=06*28*27';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (ZENTOLKAWAT) = 16*81*71'; 
 
-var namagroup6 = 'Tukang';
-var Comment6 = '( TUKANGTOTO ZERIK25 : 90*79 )'; 
+var namagroup6 = 'KIOS';
+var Comment6 = 'KIOSTOTO=ZERIK25=90*79'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL ZENDRAWIJ 15*98*86'; 
@@ -56,8 +56,8 @@ var Comment12 = 'TOGELKUY ZENTOLSEMPAK 47*23*10';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( ZENDATAWA1 ) 26*53'; 
 
-var namagroup14 = 'NAM4D';
-var Comment14 = 'NAM4D ( ZENCAN54 ) = 22*35*78'; 
+var namagroup14 = 'ANGKER';
+var Comment14 = 'ANGKER4D=ZENCAN54=22*35*78'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (ZEILATEM) 60*32*64'; 
