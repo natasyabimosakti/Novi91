@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 1
 // @namespace    http://tampermonkey.net/
-// @version      3.146
+// @version      3.147
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
@@ -33,8 +33,8 @@ var Comment4 = 'GAIB4D=MANUK123=14*57*42';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (MANANUK213) = 65*56*48'; 
 
-var namagroup6 = 'Tukang';
-var Comment6 = '( TUKANGTOTO MANUKGENI12 : 47*54 )'; 
+var namagroup6 = 'KIOS';
+var Comment6 = 'KIOSTOTO=MANUKGENI12=47*54'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL MANUKX12 17*95*61'; 
@@ -57,8 +57,8 @@ var Comment12 = 'TOGELKUY MANUKGENI12 11*20*83';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( MANUKX12 ) 58*88'; 
 
-var namagroup14 = 'NAM4D';
-var Comment14 = 'NAM4D ( MAUKUR287 ) = 02*09*38'; 
+var namagroup14 = 'ANGKER';
+var Comment14 = 'ANGKER4D=MAUKUR287=02*09*38'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (MANUKAN11) 67*98*05'; 
