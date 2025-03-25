@@ -58,23 +58,4 @@ setInterval(function(){
 
 },1500)
 
-var tas = setInterval(function(){
-    if(location.href.includes("group")){
-        if(document.querySelectorAll("[aria-label='Continue']").length > 0){
-            document.querySelectorAll("[aria-label='Continue']")[0].click()
-        }
-        if(document.querySelectorAll("[aria-label='Lanjutkan']").length > 0){
-            document.querySelectorAll("[aria-label='Lanjutkan']")[0].click()
-        }
-    }
-    if(document.querySelectorAll("[type='password']").length > 0){
-        document.querySelectorAll("[type='password']")[0].value="scorpio1991"
-        if(document.querySelectorAll("[type='password']")[0].value.length > 0 ){
-            document.querySelectorAll("[type='submit']")[0].click()
-            clearInterval(tas)
-        }
-    }
 
-
-
-},1500)
