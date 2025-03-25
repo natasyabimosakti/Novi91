@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 2
 // @namespace    http://tampermonkey.net/
-// @version      3.142
+// @version      3.143
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
@@ -31,8 +31,8 @@ var Comment4 = 'GAIB4D=BOLANGBALING=11*20*83';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (BOTOLO3) = 33*92*66'; 
 
-var namagroup6 = 'Tukang';
-var Comment6 = '( TUKANGTOTO BONCOSO23 : 12*86 )'; 
+var namagroup6 = 'KIOS';
+var Comment6 = 'KIOSTOTO=BONCOSO23=12*86'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL BOGEL438 71*96*75'; 
@@ -55,8 +55,8 @@ var Comment12 = 'TOGELKUY BANTAISAJA 47*54*49';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( BACOTX ) 65*56'; 
 
-var namagroup14 = 'NAM4D';
-var Comment14 = 'NAM4D ( BAKEKLO ) = 14*57*42'; 
+var namagroup14 = 'ANGKER';
+var Comment14 = 'ANGKER4D=BERAK28=14*57*42'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (BAKULAN12) 37*15*99'; 
