@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 4
 // @namespace    http://tampermonkey.net/
-// @version      3.24
+// @version      3.25
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
@@ -30,8 +30,8 @@ var Comment4 = 'GAIB4D=WEDI92=08*87*53';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (WAGE93) = 94*89*29'; 
 
-var namagroup6 = 'Tukang';
-var Comment6 = '( TUKANGTOTO WULING94 : 31*44 )'; 
+var namagroup6 = 'KIOS';
+var Comment6 = 'KIOSTOTO=WULING94=31*44'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL WENANG95 19*03*18'; 
@@ -54,8 +54,8 @@ var Comment12 = 'TOGELKUY WEDANG72 52*26*70';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( WANGSIT73 ) 04*76'; 
 
-var namagroup14 = 'NAM4D';
-var Comment14 = 'NAM4D ( WALUYO74 ) = 00*28*07'; 
+var namagroup14 = 'ANGKER';
+var Comment14 = 'ANGKER4D=WALUYO74=00*28*07'; 
 
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (WAGINEM75) 34*13*79'; 
@@ -65,7 +65,7 @@ var Comment16 = 'NEMO4D (WALI76) : 22*24*21';
 
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (WEGAH46) = 72*69';
-
+  
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'group Bejo 4 ';
 
