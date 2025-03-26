@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG3
 // @namespace    http://tampermonkey.net/
-// @version      3.241
+// @version      3.242
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong3.js
@@ -33,7 +33,7 @@ var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (NOVIATOS12) = 34*13*79'; 
 
 var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=NOVIRAMBU3=00*28'; 
+var Comment6 = 'KIOSTOTO=NOVIRAMBU3=00*28*07'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL NOVITARU34 04*76*81'; 
