@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Slamet 4
 // @namespace    http://tampermonkey.net/
-// @version      3.15
+// @version      3.16
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet4.js
@@ -30,7 +30,7 @@ var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (DUKUPUNTANG) = 06*28*27'; 
 
 var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=DESAKU22=16*81'; 
+var Comment6 = 'KIOSTOTO=DESAKU22=16*81*71'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL DUYUNG45 90*79*09'; 
