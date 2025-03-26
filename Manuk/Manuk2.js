@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 2
 // @namespace    http://tampermonkey.net/
-// @version      3.148
+// @version      3.149
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk2.js
@@ -33,7 +33,7 @@ var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (ELANG089) = 11*20*83'; 
 
 var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=ELANG380=33*92'; 
+var Comment6 = 'KIOSTOTO=ELANG38=33*92*66'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL ELANG94 12*86*68'; 
