@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF2
 // @namespace    http://tampermonkey.net/
-// @version      3.12
+// @version      3.13
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
@@ -32,7 +32,7 @@ var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (MERDUS89) = 70*54*57'; 
 
 var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=MERIKAN55=56*58'; 
+var Comment6 = 'KIOSTOTO=MERIKAN55=56*58*49'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL MERCIKA66 18*52*36'; 
