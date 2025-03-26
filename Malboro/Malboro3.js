@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 3
 // @namespace    http://tampermonkey.net/
-// @version      3.144
+// @version      3.145
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro3.js
@@ -32,7 +32,7 @@ var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (CANGKIR28) = 64*40*69'; 
 
 var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=CANGKUL24=22*24'; 
+var Comment6 = 'KIOSTOTO=CANGKUL24=22*24*21'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL CARJER34 34*13*79'; 
