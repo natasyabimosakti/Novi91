@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Penyok 1
 // @namespace    http://tampermonkey.net/
-// @version      3.15
+// @version      3.16
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok1.js
@@ -30,7 +30,7 @@ var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (OKBOSKU555) = 01*44*31'; 
 
 var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=OKBRASKAYU=88*75'; 
+var Comment6 = 'KIOSTOTO=OKBRASKAYU=88*75*65'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL OKBENGTANG 17*84*50'; 
