@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE4
 // @namespace    http://tampermonkey.net/
-// @version      3.159
+// @version      3.160
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku4.js
@@ -32,7 +32,7 @@ var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (ZONIAK63) = 91*93*43'; 
 
 var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=ZOMING82=08*87'; 
+var Comment6 = 'KIOSTOTO=ZOMING82=08*87*43'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL ZONATIK73 94*89*29'; 
