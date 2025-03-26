@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE2
 // @namespace    http://tampermonkey.net/
-// @version      3.158
+// @version      3.159
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @author       You
@@ -30,7 +30,7 @@ var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (BOSMAN67) = 78*46*38'; 
 
 var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=BOSMINI88=67*98'; 
+var Comment6 = 'KIOSTOTO=BOSMINI88=67*98*38'; 
 
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL BOSNOM63 02*09*60'; 
