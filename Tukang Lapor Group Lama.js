@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Tukang Lapor
 // @namespace    http://tampermonkey.net/
-// @version      3.00
+// @version      3.1
 // @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TukangLapor.js
-// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TukangLapor.js
+// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Tukang Lapor Group Lama.js
+// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Tukang Lapor Group Lama.js
 // @author       You
 // @match        http*://*/*
 // @run-at       document-end
