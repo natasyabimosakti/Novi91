@@ -65,7 +65,7 @@ var Backlist6 = "result";
 var Backlist7 = "juara lomba";
 var xht = null;
 
-var game = gameClosure()
+var game2 = gameClosure2()
 function sendMessage(text)
 {
     console.log("Send Telegram")
@@ -78,10 +78,18 @@ function sendMessage(text)
 
 var urutkan = null
 var waktupost = null
-var myrefresh = setInterval(function(){
 
- urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
- waktupost = document.getElementsByClassName("native-text");
+
+
+
+
+
+
+
+function gameClosure2() {
+    function game2() {
+       urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
+    waktupost = document.getElementsByClassName("native-text");
 
     if(document.location.href.includes("group")){
         window.scroll(0,2000)
@@ -140,7 +148,6 @@ var myrefresh = setInterval(function(){
                                 }else{
                                     console.log("Admin yang Memosting = " + admin[adm]);
                                 }
-                                clearInterval(myrefresh);
                                 location.href = "about:blank"
                                 return;
                             }
@@ -154,46 +161,45 @@ var myrefresh = setInterval(function(){
 
 
     if(!document.querySelectorAll("[role='presentation']")[0]){
+        if (document.readyState === "complete") {
+            for (var cok = 0; cok < urutkan.length; cok++) {
+                if(urutkan[cok].textContent.includes("URUTKAN")) {
+                    urutkan[cok].click()
+                }
+            }
+        }
+    }
+    if(document.getElementsByClassName("loading-overlay").length == 0 ){
+
+        if(document.querySelectorAll("[role='presentation']")[0]){
             if (document.readyState === "complete") {
-                for (var cok = 0; cok < urutkan.length; cok++) {
-                    if(urutkan[cok].textContent.includes("URUTKAN")) {
-                        urutkan[cok].click()
-                        game.start()
+                for (var coki = 0; coki < waktupost.length; coki++) {
+                    if(waktupost[coki].textContent.includes("Aktivitas")) {
+                        if(document.getElementsByClassName("prevent-scrolling")[0]){
+                            waktupost[coki].click()
+                        }
 
                     }
                 }
             }
         }
-
-}, refresh * 10)
-
-function gameClosure() {
-    function game() {
-    if (document.readyState === "complete") {
-        for (var coki = 0; coki < waktupost.length; coki++) {
-            if(waktupost[coki].textContent.includes("Aktivitas")) {
-                if(document.getElementsByClassName("prevent-scrolling")[0]){
-                    waktupost[coki].click()
-                     clearInterval(currentGame)
-
-                }
-
-            }
-        }
     }
 
 
     }
-    var currentGame;
+    var currentGame2;
     return {
         start() {
-            currentGame = setInterval(game, 500)
+            currentGame2 = setInterval(game2, 1000)
         },
         stop() {
-            clearInterval(currentGame)
+            clearInterval(currentGame2)
         }
     }
 }
+
+
+
 
 function lapor(){
     console.log("mulai lapor")
@@ -211,19 +217,16 @@ function lapor(){
 
 
 var kirimlaporan = setInterval(function(){
-     if(document.location.href.includes("telegram")){
-         sendMessage(Laporan)
-         console.log("Laporan Terkirim Ke Telegram" )
-         GM.setValue( 1," ");
-         clearInterval(kirimlaporan)
+    if(document.location.href.includes("telegram")){
+        sendMessage(Laporan)
+        console.log("Laporan Terkirim Ke Telegram" )
+        GM.setValue( 1," ");
+        clearInterval(kirimlaporan)
 
-         setTimeout(function(){location.href = "about:blank";}, 3000);
-     }
+        setTimeout(function(){location.href = "about:blank";}, 3000);
+    }
 
 }, 5000);
 
 setTimeout(function(){lapor()}, 240000);
-
-
-
-
+setTimeout(function(){ game2.start()}, 10000);
