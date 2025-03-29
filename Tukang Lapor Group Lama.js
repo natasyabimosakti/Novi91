@@ -68,7 +68,8 @@ var xht = null;
 
 function sendMessage(text)
 {
-    const url = `https://api.telegram.org/bot7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw/sendMessage?chat_id=983068551&text=${text}`; // The url to request
+    console.log("Send Telegram")
+    const url = `https://api.telegram.org/bot7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw/sendMessage?chat_id=983068551&text=${text}`; 
     xht = new XMLHttpRequest();
     xht.open("GET", url);
     xht.send();
@@ -79,15 +80,20 @@ function sendMessage(text)
 var jitter = 0
 var Cutter = 0
 var myrefresh = setInterval(function(){
+    var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
+    var waktupost = document.getElementsByClassName("native-text");
 
     if(document.location.href.includes("group")){
         window.scroll(0,200)
     }
-    if(Cutter == 1){
-        location.href = "about:blank"
-    }
-    if(jitter == 1){
-        return;
+      if(!document.querySelectorAll("[role='presentation']")[0]){
+        if (document.readyState === "complete") {
+            for (var cok = 0; cok < urutkan.length; cok++) {
+                if(urutkan[cok].textContent.includes("URUTKAN")) {
+                    urutkan[cok].click()
+                }
+            }
+        }
     }
     if(document.location.href.includes("group")){
         for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
@@ -150,8 +156,8 @@ var myrefresh = setInterval(function(){
                                 }else{
                                     console.log("Admin yang Memosting = " + admin[adm]);
                                 }
-
                                 clearInterval(myrefresh);
+                                location.href = "about:blank"
                                 return;
                             }
                         }
@@ -162,17 +168,8 @@ var myrefresh = setInterval(function(){
     }
 
 
-    var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
-    var waktupost = document.getElementsByClassName("native-text");
-    if(!document.querySelectorAll("[role='presentation']")[0]){
-        if (document.readyState === "complete") {
-            for (var cok = 0; cok < urutkan.length; cok++) {
-                if(urutkan[cok].textContent.includes("URUTKAN")) {
-                    urutkan[cok].click()
-                }
-            }
-        }
-    }
+   
+  
     if(document.getElementsByClassName("loading-overlay").length == 0 ){
 
         if(document.querySelectorAll("[role='presentation']")[0]){
