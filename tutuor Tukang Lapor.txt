@@ -1,0 +1,12 @@
+Clone Kiwi/Chrome Baru
+Login Ke Telegram di Kiwi atau Chrome
+Login Facebook di Kiwi atau Chrome Untuk Memantau Group
+Join Chanel @BotFather
+Join Chanel @SimpleID_Bot
+Masuk Chanel Bot Father ketik /start, Ketik /newbot untuk membuat akun bot, lalu Tulis Nama Akun Bot tanpa spasi di akhiri nama Belakang Bot. lalu Ketik /mybots untuk dapatin API Token. Copy Code Token lalu simpan
+Masuk Chanel SimpleID ketik /start untuk mendapatkan User ID" lalu simpan
+Buka Script Tukang lapor lalu cari const url = `https://api.telegram.org/bot123456:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw/sendMessage?chat_id=983068551&text=${text}`;  
+ganti Code Token dengan code Token yang di dapat dari Bot Father
+ganti chat_id=12314566 ganti id dengan User ID yang di dapat dari SimpleID
+
+
