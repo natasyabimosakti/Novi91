@@ -64,12 +64,24 @@ var Backlist4 = "room lomba freebet";
 var Backlist5 = "prediksi";
 var Backlist6 = "result";
 var Backlist7 = "juara lomba";
+var xht = null;
 
+
+function sendMessage(text)
+{
+    const url = 'https://api.telegram.org/bot7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw/sendMessage?chat_id=983068551&text=test bot ini'; // The url to request
+    xht = new XMLHttpRequest();
+    xht.open("GET", url);
+    xht.send();
+    return xht.responseText;
+}
+
+sendMessage("hello");
 
 var jitter = 0
 var Cutter = 0
 var myrefresh = setInterval(function(){
-  
+
     if(document.location.href.includes("group")){
         window.scroll(0,200)
     }
@@ -141,7 +153,6 @@ var myrefresh = setInterval(function(){
                                     console.log("Admin yang Memosting = " + admin[adm]);
                                 }
 
-
                                 clearInterval(myrefresh);
                                 return;
                             }
@@ -187,3 +198,4 @@ var myrefresh = setInterval(function(){
 }, refresh * 10)
 
 setTimeout(function(){ document.location.reload(); }, 17000);
+setTimeout(function(){ sendMessage("hello"); }, 240000);
