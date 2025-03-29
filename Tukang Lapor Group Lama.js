@@ -41,7 +41,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "wulan","wok","wak",
              "zuko"];
 
-
+var Laporan = await GM.getValue(1);
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
 var keyword3 = "LOMBA"
@@ -201,19 +201,29 @@ function lapor(){
     if(document.location.href.includes("group")){
         console.log("cek href ")
         if(document.querySelectorAll("[role='heading']").length > 0) {
-            sendMessage("(" + document.querySelectorAll("[role='heading']")[0].textContent + ") Belum Comment " + d.getHours() + ":" + d.getMinutes())
-            console.log("Laporan Terkirim Ke Telegram" )
-
+            GM.setValue( 1,"(" + document.querySelectorAll("[role='heading']")[0].textContent + ") Belum Comment " + d.getHours() + ":" + d.getMinutes());
             console.log("(" + document.querySelectorAll("[role='heading']")[0].textContent + ") Belum Comment " + d.getHours() + ":" + d.getMinutes())
-
+            document.location = "https://telegram.org"
         }
     }
 
 }
 
 
+var kirimlaporan = setInterval(function(){
+     if(document.location.href.includes("telegram")){
+         sendMessage(Laporan)
+         console.log("Laporan Terkirim Ke Telegram" )
+         GM.setValue( 1," ");
+         clearInterval(kirimlaporan)
+
+         setTimeout(function(){location.href = "about:blank";}, 3000);
+     }
+
+}, 5000);
+
 setTimeout(function(){lapor()}, 240000);
-setTimeout(function(){document.location.reload()}, 245000);
+
 
 
 
