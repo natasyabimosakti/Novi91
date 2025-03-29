@@ -15,7 +15,7 @@
 // ==/UserScript==
 
 
-var refresh = 700;
+var refresh = 1000;
 
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa","azahra",
              "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang","aru sundawa","agus tiar","imam","oppe","komandan","melinda","ranger",
@@ -65,44 +65,30 @@ var Backlist6 = "result";
 var Backlist7 = "juara lomba";
 var xht = null;
 
-
+var game = gameClosure()
 function sendMessage(text)
 {
     console.log("Send Telegram")
-    const url = `https://api.telegram.org/bot7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw/sendMessage?chat_id=983068551&text=${text}`; 
+    const url = `https://api.telegram.org/bot7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw/sendMessage?chat_id=983068551&text=${text}`;
     xht = new XMLHttpRequest();
     xht.open("GET", url);
     xht.send();
     return xht.responseText;
 }
 
-
-var jitter = 0
-var Cutter = 0
+var urutkan = null
+var waktupost = null
 var myrefresh = setInterval(function(){
-    var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
-    var waktupost = document.getElementsByClassName("native-text");
+
+ urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
+ waktupost = document.getElementsByClassName("native-text");
 
     if(document.location.href.includes("group")){
-        window.scroll(0,200)
+        window.scroll(0,2000)
     }
-      if(!document.querySelectorAll("[role='presentation']")[0]){
-        if (document.readyState === "complete") {
-            for (var cok = 0; cok < urutkan.length; cok++) {
-                if(urutkan[cok].textContent.includes("URUTKAN")) {
-                    urutkan[cok].click()
-                }
-            }
-        }
-    }
+
     if(document.location.href.includes("group")){
         for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
-            if(jitter == 1){
-                return;
-            }
-            if(Cutter == 1){
-                location.href = "about:blank"
-            }
             if (document.querySelectorAll('[data-tracking-duration-id')[ntv]){
                 // Nama FB
                 var namafb = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByTagName("span")[0];
@@ -146,9 +132,7 @@ var myrefresh = setInterval(function(){
 
                         // Cek Admin
                         for (var adm in admin){
-                            if(jitter == 1){
-                                return;
-                            }
+
                             if(namafb.textContent.toLowerCase().includes(admin[adm].toLowerCase())||jamposting2.toLowerCase().includes("admin")||jamposting2.toLowerCase().includes("moderator")||jamposting1.toLowerCase().includes("admin")||jamposting1.toLowerCase().includes("moderator")){
                                 // Tampilkan Siapa Yang Memposting
                                 if(jamposting2.toLowerCase().includes("admin")||jamposting2.toLowerCase().includes("moderator")){
@@ -168,36 +152,68 @@ var myrefresh = setInterval(function(){
     }
 
 
-   
-  
-    if(document.getElementsByClassName("loading-overlay").length == 0 ){
 
-        if(document.querySelectorAll("[role='presentation']")[0]){
+    if(!document.querySelectorAll("[role='presentation']")[0]){
             if (document.readyState === "complete") {
-                for (var coki = 0; coki < waktupost.length; coki++) {
-                    if(waktupost[coki].textContent.includes("Aktivitas")) {
-                        if(jitter == 1){
-                            return;
-                        }
-                        if(document.getElementsByClassName("prevent-scrolling")[0]){
-                            waktupost[coki].click()
-                        }
+                for (var cok = 0; cok < urutkan.length; cok++) {
+                    if(urutkan[cok].textContent.includes("URUTKAN")) {
+                        urutkan[cok].click()
+                        game.start()
 
                     }
                 }
             }
         }
-    }
-
 
 }, refresh * 10)
 
-setTimeout(function(){
-    const d = new Date();
+function gameClosure() {
+    function game() {
+    if (document.readyState === "complete") {
+        for (var coki = 0; coki < waktupost.length; coki++) {
+            if(waktupost[coki].textContent.includes("Aktivitas")) {
+                if(document.getElementsByClassName("prevent-scrolling")[0]){
+                    waktupost[coki].click()
+                     clearInterval(currentGame)
 
-    if(document.location.href.includes("group")){
-        if(document.querySelectorAll("[role='heading']").ength > 0) {
-            sendMessage(document.querySelectorAll("[role='heading']")[0].textContent + " Belum Comment " + d.getHours() + ":" + d.getMinutes())
+                }
+
+            }
         }
     }
-}, 240000);
+
+
+    }
+    var currentGame;
+    return {
+        start() {
+            currentGame = setInterval(game, 500)
+        },
+        stop() {
+            clearInterval(currentGame)
+        }
+    }
+}
+
+function lapor(){
+    console.log("mulai lapor")
+    const d = new Date();
+    if(document.location.href.includes("group")){
+        console.log("cek href ")
+        if(document.querySelectorAll("[role='heading']").length > 0) {
+            sendMessage("(" + document.querySelectorAll("[role='heading']")[0].textContent + ") Belum Comment " + d.getHours() + ":" + d.getMinutes())
+            console.log("Laporan Terkirim Ke Telegram" )
+
+            console.log("(" + document.querySelectorAll("[role='heading']")[0].textContent + ") Belum Comment " + d.getHours() + ":" + d.getMinutes())
+
+        }
+    }
+
+}
+
+
+setTimeout(function(){lapor()}, 240000);
+setTimeout(function(){document.location.reload()}, 245000);
+
+
+
