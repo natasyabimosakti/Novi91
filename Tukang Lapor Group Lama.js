@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Tukang Lapor
+// @name         Tukang Lapor Group Lama
 // @namespace    http://tampermonkey.net/
 // @version      3.1
 // @description  try to take over the world!
@@ -13,7 +13,6 @@
 // @grant        GM.getValue
 // @grant        window.close
 // ==/UserScript==
-
 
 
 var refresh = 700;
@@ -69,14 +68,13 @@ var xht = null;
 
 function sendMessage(text)
 {
-    const url = 'https://api.telegram.org/bot7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw/sendMessage?chat_id=983068551&text=test bot ini'; // The url to request
+    const url = `https://api.telegram.org/bot7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw/sendMessage?chat_id=983068551&text=${text}`; // The url to request
     xht = new XMLHttpRequest();
     xht.open("GET", url);
     xht.send();
     return xht.responseText;
 }
 
-sendMessage("hello");
 
 var jitter = 0
 var Cutter = 0
@@ -197,5 +195,12 @@ var myrefresh = setInterval(function(){
 
 }, refresh * 10)
 
-setTimeout(function(){ document.location.reload(); }, 17000);
-setTimeout(function(){ sendMessage("hello"); }, 240000);
+setTimeout(function(){
+    const d = new Date();
+
+    if(document.location.href.includes("group")){
+        if(document.querySelectorAll("[role='heading']").ength > 0) {
+            sendMessage(document.querySelectorAll("[role='heading']")[0].textContent + " Belum Comment " + d.getHours() + ":" + d.getMinutes())
+        }
+    }
+}, 240000);
