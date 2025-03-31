@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Tukang Lapor Group Lama
+// @name         Tukang Lapor Group Baru
 // @namespace    http://tampermonkey.net/
 // @version      3.2
 // @description  try to take over the world!
