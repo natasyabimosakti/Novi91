@@ -188,7 +188,7 @@ function gameClosure2() {
     var currentGame2;
     return {
         start() {
-            currentGame2 = setInterval(game2, 1000)
+            currentGame2 = setInterval(game2, 3000)
         },
         stop() {
             clearInterval(currentGame2)
@@ -205,8 +205,8 @@ function lapor(){
     if(document.location.href.includes("group")){
         console.log("cek href ")
         if(document.querySelectorAll("[role='heading']").length > 0) {
-            GM.setValue( 1,"(" + document.querySelectorAll("[role='heading']")[0].textContent + ") Belum Comment " + d.getHours() + ":" + d.getMinutes());
-            console.log("(" + document.querySelectorAll("[role='heading']")[0].textContent + ") Belum Comment " + d.getHours() + ":" + d.getMinutes())
+            GM.setValue( 1,"(" + document.querySelectorAll("[role='heading']")[0].textContent + ") Belum Comment Grup Baru " + d.getHours() + ":" + d.getMinutes());
+            console.log("(" + document.querySelectorAll("[role='heading']")[0].textContent + ") Belum Comment Grup Baru" + d.getHours() + ":" + d.getMinutes())
             document.location = "https://telegram.org"
         }
     }
