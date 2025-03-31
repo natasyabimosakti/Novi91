@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 2
 // @namespace    http://tampermonkey.net/
-// @version      3.15
+// @version      3.16
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung2.js
@@ -186,7 +186,7 @@ var myrefresh = setInterval(function(){
                 var commentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')
                 // Cek Jam
 
-                if (jamposting1.includes("Baru")||jamposting1.slice(0,7).includes("1 men")||jamposting1.slice(0,7).includes("2 men")||jamposting1.slice(0,7).includes("3 men")||jamposting1.slice(0,7).includes("4 men")||jamposting1.slice(0,7).includes("5 men")||jamposting2.includes("Baru")||jamposting2.slice(0,7).includes("1 men")||jamposting2.slice(0,7).includes("2 men")||jamposting2.slice(0,7).includes("3 men")||jamposting2.slice(0,7).includes("4 men")||jamposting2.slice(0,7).includes("5 men")){
+                if (postingan.textContent.includes("Baru")||postingan.textContent.includes(" 1 men")||postingan.textContent.includes(" 2 men")||postingan.textContent.includes(" 3 men")||postingan.textContent.includes(" 4 men")||postingan.textContent.includes(" 5 men")){
                     console.log("Jam Ditemukan " + jamposting1)
                     if(postingan.textContent.toLowerCase().includes(Backlist1.toLowerCase())
                        ||postingan.textContent.toLowerCase().includes(Backlist2.toLowerCase())
