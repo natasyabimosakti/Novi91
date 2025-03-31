@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Tukang Lapor Group Baru
 // @namespace    http://tampermonkey.net/
-// @version      3.2
+// @version      3.3
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Tukang Lapor Group Baru.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Tukang Lapor Group Baru.js
@@ -226,5 +226,5 @@ var kirimlaporan = setInterval(function(){
 
 }, 5000);
 
-setTimeout(function(){lapor()}, 240000);
+setTimeout(function(){lapor()}, 210000);
 setTimeout(function(){ game2.start()}, 10000);
