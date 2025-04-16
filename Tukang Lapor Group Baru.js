@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Tukang Lapor Group Baru
 // @namespace    http://tampermonkey.net/
-// @version      3.4
+// @version      3.5
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Tukang Lapor Group Baru.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Tukang Lapor Group Baru.js
@@ -20,22 +20,22 @@ var refresh = 1000;
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","anisa","agus tiar","azahra",
              "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","ban nee","bang wawan",
              "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika","calvin","claudio",
-             "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara","den arkanza","denis",
+             "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara","den arkanza",
              "erwin","emilia","evelyn","el givano","esse",
              "fira","fahresa","fiana","fahmi","fiona","fania",
-             "gita","kang bona","hoky","julianti","libra","garda",
+             "gita","kang bona","hoky","julianti","libra",
              "habib","hefi","hoihai","hana","hoki","hokage",
              "icha","iyatoto","invest","ivanna","inisial","ishaura","imam",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer","jhone",
              "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla","komandan",
-             "lianda","lusiana","lina","laura","lehman","leader","leon","lidya","langit","leader","loetoe",
-             "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari","momo","mona","mas hoki","maley",
+             "lianda","lusiana","lina","laura","lehman","leader","leon","lidya","langit","leader",
+             "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari","momo","mona",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy","nurul",
              "oscar","ozawa","otong","ormas",
              "pung","puput","priyan","primus","primus","pencari","pricilia","putra","pengurus","putri",
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi","ranger",
              "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria","sellia","sintya",
-             "tink","tiktak","tiara","tatang","tania","thonex",
+             "tink","tiktak","tiara","tatang","tania",
              "yanty","yoky","yohana","yii","vero","vaulian",
              "wulan","wok","widya"];
 
@@ -86,54 +86,57 @@ var waktupost = null
 
 function gameClosure2() {
     function game2() {
-       urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
-    waktupost = document.getElementsByClassName("native-text");
+        urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
+        waktupost = document.getElementsByClassName("native-text");
 
-    if(document.location.href.includes("group")){
-        window.scroll(0,2000)
-    }
+        if(document.location.href.includes("group")){
+            window.scroll(0,2000)
+        }
 
-    if(document.location.href.includes("group")){
-        for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
-            if (document.querySelectorAll('[data-tracking-duration-id')[ntv]){
-                // Nama FB
-                var namafb = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByTagName("span")[0];
-                //Jam
-                var jamposting1 = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByTagName("span")[1].textContent;
-                var jamposting2 = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByTagName("span")[2].textContent;
-                //Postingan
-                var postingan =document.querySelectorAll('[data-tracking-duration-id')[ntv]
-                //Comment Box
-                var commentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')
-                // Cek Jam
+        if(document.location.href.includes("group")){
+            for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
+                if (document.querySelectorAll('[data-tracking-duration-id')[ntv]){
+                    // Nama FB
+                    var namafb = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByTagName("span")[0];
+                    //Jam
+                    var jamposting1 = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByTagName("span")[1].textContent;
+                    var jamposting2 = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByTagName("span")[2].textContent;
+                    //Postingan
+                    var postingan =document.querySelectorAll('[data-tracking-duration-id')[ntv]
+                    //Comment Box
+                    var commentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')
+                    // Cek Jam
 
-                if (postingan.textContent.includes("Baru")||postingan.textContent.includes(" 1 men")||postingan.textContent.includes(" 2 men")||postingan.textContent.includes(" 3 men")||postingan.textContent.includes(" 4 men")||postingan.textContent.includes(" 5 men")){
-                    console.log("Jam Ditemukan " + jamposting1)
-                    if(postingan.textContent.toLowerCase().includes(Backlist1.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(Backlist2.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(Backlist3.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(Backlist4.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(Backlist5.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(Backlist6.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(Backlist7.toLowerCase())){
-                        console.log("Terdaftar Backlist...!  ");
-                        break;
-                    }
-                    console.log("Proses dilanjutkan tidak ada Backlist");
-                    if(postingan.textContent.toLowerCase().includes(keyword1.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(keyword2.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(keyword3.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(keyword4.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(keyword5.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(keyword6.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(keyword7.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(keyword8.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(keyword9.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(keyword10.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(keyword11.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(keyword12.toLowerCase())
-                       ||postingan.textContent.toLowerCase().includes(keyword13.toLowerCase())){
-                        console.log("Keyword Ditemukan " + postingan.textContent);
+                    if (postingan.textContent.includes("Baru")||postingan.textContent.split(' men')[0].slice(-2) == 1||postingan.textContent.split(' men')[0].slice(-2) == 2||postingan.textContent.split(' men')[0].slice(-2) == 3||postingan.textContent.split(' men')[0].slice(-2) == 4||postingan.textContent.split(' men')[0].slice(-2) == 13){
+                        console.log("Jam Ditemukan " + jamposting1)
+                        if(postingan.textContent.toLowerCase().includes(Backlist1.toLowerCase())
+                           ||postingan.textContent.toLowerCase().includes(Backlist2.toLowerCase())
+                           ||postingan.textContent.toLowerCase().includes(Backlist3.toLowerCase())
+                           ||postingan.textContent.toLowerCase().includes(Backlist4.toLowerCase())
+                           ||postingan.textContent.toLowerCase().includes(Backlist5.toLowerCase())
+                           ||postingan.textContent.toLowerCase().includes(Backlist6.toLowerCase())
+                           ||postingan.textContent.toLowerCase().includes(Backlist7.toLowerCase())){
+                            console.log("Terdaftar Backlist...!  ");
+                            continue;
+                        }
+                        console.log("Proses dilanjutkan tidak ada Backlist");
+                        if(postingan.textContent.toLowerCase().includes(keyword1.toLowerCase())
+                           ||postingan.textContent.toLowerCase().includes(keyword2.toLowerCase())
+                           ||postingan.textContent.toLowerCase().includes(keyword3.toLowerCase())
+                           ||postingan.textContent.toLowerCase().includes(keyword4.toLowerCase())
+                           ||postingan.textContent.toLowerCase().includes(keyword5.toLowerCase())
+                           ||postingan.textContent.toLowerCase().includes(keyword6.toLowerCase())
+                           ||postingan.textContent.toLowerCase().includes(keyword7.toLowerCase())
+                           ||postingan.textContent.toLowerCase().includes(keyword8.toLowerCase())
+                           ||postingan.textContent.toLowerCase().includes(keyword9.toLowerCase())
+                           ||postingan.textContent.toLowerCase().includes(keyword10.toLowerCase())
+                           ||postingan.textContent.toLowerCase().includes(keyword11.toLowerCase())
+                           ||postingan.textContent.toLowerCase().includes(keyword12.toLowerCase())
+                           ||postingan.textContent.toLowerCase().includes(keyword13.toLowerCase())){
+                            console.log("Keyword Ditemukan " + postingan.textContent);
+                        }else{
+                            continue;
+                        }
                         // Cek Backlist
 
                         // Cek Admin
@@ -150,38 +153,39 @@ function gameClosure2() {
                                 return;
                             }
                         }
+
+
                     }
                 }
             }
         }
-    }
 
 
 
-    if(!document.querySelectorAll("[role='presentation']")[0]){
-        if (document.readyState === "complete") {
-            for (var cok = 0; cok < urutkan.length; cok++) {
-                if(urutkan[cok].textContent.includes("URUTKAN")) {
-                    urutkan[cok].click()
-                }
-            }
-        }
-    }
-    if(document.getElementsByClassName("loading-overlay").length == 0 ){
-
-        if(document.querySelectorAll("[role='presentation']")[0]){
+        if(!document.querySelectorAll("[role='presentation']")[0]){
             if (document.readyState === "complete") {
-                for (var coki = 0; coki < waktupost.length; coki++) {
-                    if(waktupost[coki].textContent.includes("Aktivitas")) {
-                        if(document.getElementsByClassName("prevent-scrolling")[0]){
-                            waktupost[coki].click()
-                        }
-
+                for (var cok = 0; cok < urutkan.length; cok++) {
+                    if(urutkan[cok].textContent.includes("URUTKAN")) {
+                        urutkan[cok].click()
                     }
                 }
             }
         }
-    }
+        if(document.getElementsByClassName("loading-overlay").length == 0 ){
+
+            if(document.querySelectorAll("[role='presentation']")[0]){
+                if (document.readyState === "complete") {
+                    for (var coki = 0; coki < waktupost.length; coki++) {
+                        if(waktupost[coki].textContent.includes("Aktivitas")) {
+                            if(document.getElementsByClassName("prevent-scrolling")[0]){
+                                waktupost[coki].click()
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
 
 
     }
@@ -226,5 +230,5 @@ var kirimlaporan = setInterval(function(){
 
 }, 5000);
 
-setTimeout(function(){lapor()}, 210000);
+setTimeout(function(){lapor()}, 180000);
 setTimeout(function(){ game2.start()}, 10000);
