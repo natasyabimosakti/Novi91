@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MENCONG2
 // @namespace    http://tampermonkey.net/
-// @version      3.243
+// @version      3.244
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Mencong/Mencong2.js
@@ -184,7 +184,7 @@ var myrefresh = setInterval(function(){
                 var commentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')
                 // Cek Jam
 
-                if (postingan.textContent.includes("Baru")||postingan.textContent.includes(" 1 men")||postingan.textContent.includes(" 2 men")||postingan.textContent.includes(" 3 men")||postingan.textContent.includes(" 4 men")||postingan.textContent.includes(" 5 men")){
+                if (postingan.textContent.includes("Baru")||postingan.textContent.split(' meni')[0].slice(-2) == 1||postingan.textContent.split(' meni')[0].slice(-2) == 2||postingan.textContent.split(' meni')[0].slice(-2) == 3||postingan.textContent.split(' meni')[0].slice(-2) == 4||postingan.textContent.split(' meni')[0].slice(-2) == 5||postingan.textContent.split(' meni')[0].slice(-2) == "‎1"||postingan.textContent.split(' meni')[0].slice(-2) == "‎2"||postingan.textContent.split(' meni')[0].slice(-2) == "‎3"||postingan.textContent.split(' meni')[0].slice(-2) == "‎4"||postingan.textContent.split(' meni')[0].slice(-2) == "‎5"){
                     console.log("Jam Ditemukan " + jamposting1)
                     if(postingan.textContent.toLowerCase().includes(Backlist1.toLowerCase())
                        ||postingan.textContent.toLowerCase().includes(Backlist2.toLowerCase())
@@ -194,7 +194,7 @@ var myrefresh = setInterval(function(){
                        ||postingan.textContent.toLowerCase().includes(Backlist6.toLowerCase())
                        ||postingan.textContent.toLowerCase().includes(Backlist7.toLowerCase())){
                         console.log("Terdaftar Backlist...!  ");
-                        break;
+                        continue;
                     }
                     console.log("Proses dilanjutkan tidak ada Backlist");
                     if(postingan.textContent.toLowerCase().includes(keyword1.toLowerCase())
@@ -211,40 +211,43 @@ var myrefresh = setInterval(function(){
                        ||postingan.textContent.toLowerCase().includes(keyword12.toLowerCase())
                        ||postingan.textContent.toLowerCase().includes(keyword13.toLowerCase())){
                         console.log("Keyword Ditemukan " + postingan.textContent);
-                        // Cek Backlist
+                    }else{
+                        continue;
+                    }
+                    // Cek Backlist
 
-                        // Cek Admin
-                        for (var adm in admin){
-                            if(jitter == 1){
-                                return;
+                    // Cek Admin
+                    for (var adm in admin){
+                        if(jitter == 1){
+                            return;
+                        }
+                        if(namafb.textContent.toLowerCase().includes(admin[adm].toLowerCase())||jamposting2.toLowerCase().includes("admin")||jamposting2.toLowerCase().includes("moderator")||jamposting1.toLowerCase().includes("admin")||jamposting1.toLowerCase().includes("moderator")){
+                            // Tampilkan Siapa Yang Memposting
+                            if(jamposting2.toLowerCase().includes("admin")||jamposting2.toLowerCase().includes("moderator")){
+                                console.log("Admin yang Memosting = Admin/Moderator");
+                            }else{
+                                console.log("Admin yang Memosting = " + admin[adm]);
                             }
-                            if(namafb.textContent.toLowerCase().includes(admin[adm].toLowerCase())||jamposting2.toLowerCase().includes("admin")||jamposting2.toLowerCase().includes("moderator")||jamposting1.toLowerCase().includes("admin")||jamposting1.toLowerCase().includes("moderator")){
-                                // Tampilkan Siapa Yang Memposting
-                                if(jamposting2.toLowerCase().includes("admin")||jamposting2.toLowerCase().includes("moderator")){
-                                    console.log("Admin yang Memosting = Admin/Moderator");
-                                }else{
-                                    console.log("Admin yang Memosting = " + admin[adm]);
-                                }
 
-                                // Click Comment Box
-                                for (var clk = 0; clk < commentbox.length; clk++) {
-                                    if(commentbox[clk]){
-                                        console.log("comment box ditemukan")
-                                        if(commentbox[clk].textContent.toLowerCase().includes("jawab")||commentbox[clk].textContent.toLowerCase().includes("tulis")||commentbox[clk].textContent.toLowerCase().includes("komentar")){
-                                            clearInterval(myrefresh);
-                                            console.log("Click Posting box")
-                                            jitter = 0
-                                            commentbox[clk].click()
-                                            game.start()
-                                            break;
-                                            return;
-                                        }
+                            // Click Comment Box
+                            for (var clk = 0; clk < commentbox.length; clk++) {
+                                if(commentbox[clk]){
+                                    console.log("comment box ditemukan")
+                                    if(commentbox[clk].textContent.toLowerCase().includes("jawab")||commentbox[clk].textContent.toLowerCase().includes("tulis")||commentbox[clk].textContent.toLowerCase().includes("komentar")){
+                                        clearInterval(myrefresh);
+                                        console.log("Click Posting box")
+                                        jitter = 0
+                                        commentbox[clk].click()
+                                        game.start()
+                                        break;
+                                        return;
                                     }
                                 }
-                                return;
                             }
+                            return;
                         }
                     }
+
                 }
             }
         }
