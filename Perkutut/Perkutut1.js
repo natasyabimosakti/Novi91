@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut1
 // @namespace    http://tampermonkey.net/
-// @version      3.168
+// @version      3.169
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut1.js
@@ -20,8 +20,8 @@ var Comment1 = '#AMAVI5D ( MANUKAN11 ) : 35*59*02';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( MANUKU27 ) : 92*34*16'; 
 
-var namagroup3 = 'KATA';
-var Comment3 = '#KATATOGEL(MANUKAN11) : 96*08*85'; 
+var namagroup3 = 'WARUNG';
+var Comment3 = '#(WARUNGTOTO) = (MANUKAN11) 96*08*85'; 
 
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO MANUK007 = 75*65*30'; 
@@ -32,8 +32,8 @@ var Comment5 = '#PEDRO4D (MANANUK213*50*89*04)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (MANUKGENI12) = 37*45*29'; 
 
-var namagroup7 = 'Grup Lomba Tebak';
-var Comment7 = 'ULTRATOGEL88 = (MANANUK213) 40*61*21'; 
+var namagroup7 = 'KASTOTO';
+var Comment7 = '#KASTOTO(MANANUK213) = 40*61*21 #AGENTOGELTERPERCAYA'; 
 
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( MAUKUR287 ) : 67*80*74'; 
@@ -41,7 +41,7 @@ var Comment8 = 'Tok99Toto ( MAUKUR287 ) : 67*80*74';
 var namagroup9 = 'TAFSIR MIMPI';
 var Comment9 = 'SIJITOGEL MANANUK213 20*48*22'; 
 
-var namagroup10 = 'PASAR KAGET';
+var namagroup10 = 'KAGET';
 var Comment10 = 'DAGELAN4D(MANUK1234) : 57*10*42'; 
 
 var namagroup11 = 'MAYAPADA';
@@ -61,6 +61,7 @@ var Comment15 = 'MANUKX12 : 27*09*87 #HOHOTOGEL';
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*MANUKMU12*32*58*69'; 
+
 
 
 
@@ -101,24 +102,25 @@ var refresh = 40;
 var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","anisa","agus tiar","azahra",
              "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","ban nee","bang wawan",
              "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika","calvin","claudio",
-             "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara","den arkanza",
+             "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara","den arkanza","denis",
              "erwin","emilia","evelyn","el givano","esse",
              "fira","fahresa","fiana","fahmi","fiona","fania",
-             "gita","kang bona","hoky","julianti","libra",
+             "gita","kang bona","hoky","julianti","libra","garda",
              "habib","hefi","hoihai","hana","hoki","hokage",
              "icha","iyatoto","invest","ivanna","inisial","ishaura","imam",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer","jhone",
              "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla","komandan",
-             "lianda","lusiana","lina","laura","lehman","leader","leon","lidya","langit","leader",
-             "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari","momo","mona",
+             "lianda","lusiana","lina","laura","lehman","leader","leon","lidya","langit","leader","loetoe",
+             "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari","momo","mona","mas hoki","maley",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy","nurul",
              "oscar","ozawa","otong","ormas",
              "pung","puput","priyan","primus","primus","pencari","pricilia","putra","pengurus","putri",
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi","ranger",
              "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria","sellia","sintya",
-             "tink","tiktak","tiara","tatang","tania",
+             "tink","tiktak","tiara","tatang","tania","thonex",
              "yanty","yoky","yohana","yii","vero","vaulian",
              "wulan","wok","widya"];
+
 
 
 var keyword1 = "ROOM"
