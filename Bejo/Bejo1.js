@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 1
 // @namespace    http://tampermonkey.net/
-// @version      3.28
+// @version      3.29
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo1.js
@@ -183,7 +183,7 @@ var myrefresh = setInterval(function(){
                 var commentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')
                 // Cek Jam
 
-                if (postingan.textContent.includes("Baru")||postingan.textContent.split(' men')[0].slice(-2) == 1||postingan.textContent.split(' men')[0].slice(-2) == 2||postingan.textContent.split(' men')[0].slice(-2) == 3||postingan.textContent.split(' men')[0].slice(-2) == 4||postingan.textContent.split(' men')[0].slice(-2) == 5){
+                if (postingan.textContent.includes("Baru")||postingan.textContent.split(' meni')[0].slice(-2) == 1||postingan.textContent.split(' meni')[0].slice(-2) == 2||postingan.textContent.split(' meni')[0].slice(-2) == 3||postingan.textContent.split(' meni')[0].slice(-2) == 4||postingan.textContent.split(' meni')[0].slice(-2) == 5||postingan.textContent.split(' meni')[0].slice(-2) == "‎1"||postingan.textContent.split(' meni')[0].slice(-2) == "‎2"||postingan.textContent.split(' meni')[0].slice(-2) == "‎3"||postingan.textContent.split(' meni')[0].slice(-2) == "‎4"||postingan.textContent.split(' meni')[0].slice(-2) == "‎5"){
                     console.log("Jam Ditemukan " + jamposting1)
                     if(postingan.textContent.toLowerCase().includes(Backlist1.toLowerCase())
                        ||postingan.textContent.toLowerCase().includes(Backlist2.toLowerCase())
