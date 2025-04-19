@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.161
+// @version      3.162
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
@@ -32,40 +32,40 @@ var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (DUGALTOK) = 31*44*59'; 
 
 var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=DUDADUWEL=19*03*18'; 
+var Comment6 = 'KIOSTOTO=DENGKULMU=19*03*18'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL DUKUMANIS 25*16*85'; 
+var Comment7 = 'ASEPTOGEL DUDADUWEL 25*16*85'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=DEREK25= 39*27'; 
+var Comment8 = '#MENARA4D=DUKUMANIS= 39*27'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=DIYENG23=39*27*32'; 
+var Comment9 = 'GILA4D=DEREK25=39*27*32'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(DULUANGIH)*25*16*85'; 
+var Comment10 = '#JNETOTO(DIYENG23)*25*16*85'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( DRUMBUN ) : 19*03*43'; 
+var Comment11 = '#TOYIBSLOT ( DULUANGIH ) : 19*03*43'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY DELOKDEWE 31*44*43'; 
+var Comment12 = 'TOGELKUY DRUMBUN 31*44*43'; 
 
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( DINGDONG24 ) 94*89'; 
+var Comment13 = '#KOITOTO ( DELOKDEWE ) 94*89'; 
 
 var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=DUNGKEL28=08*87*53'; 
+var Comment14 = 'ANGKER4D=DINGDONG24=08*87*53'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (DANCOAN) 91*93*23'; 
+var Comment15 = 'VESPATOGEL (DUNGKEL28) 91*93*23'; 
 
 var namagroup16 = 'Nemo';
-var Comment16 = 'NEMO4D (DIANUKAE) : 74*82*84'; 
+var Comment16 = 'NEMO4D (DANCOAN) : 74*82*84'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO () = 59*18';
+var Comment17 = '#KIKOTOTO (DIANUKAE) = 59*18';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Group Cur 4';
