@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE2
 // @namespace    http://tampermonkey.net/
-// @version      3.161
+// @version      3.162
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @author       You
@@ -232,7 +232,7 @@ var myrefresh = setInterval(function(){
                             for (var clk = 0; clk < commentbox.length; clk++) {
                                 if(commentbox[clk]){
                                     console.log("comment box ditemukan")
-                                    if(commentbox[clk].textContent.toLowerCase().includes("jawab")||commentbox[clk].textContent.toLowerCase().includes("tulis")||commentbox[clk].textContent.toLowerCase().includes("komentar")){
+                                    if(commentbox[clk].textContent.toLowerCase().includes("jawab")||commentbox[clk].textContent.toLowerCase().includes("tulis")){
                                         clearInterval(myrefresh);
                                         console.log("Click Posting box")
                                         jitter = 0
