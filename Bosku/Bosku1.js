@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE1
 // @namespace    http://tampermonkey.net/
-// @version      3.163
+// @version      3.164
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
@@ -230,7 +230,7 @@ var myrefresh = setInterval(function(){
                             for (var clk = 0; clk < commentbox.length; clk++) {
                                 if(commentbox[clk]){
                                     console.log("comment box ditemukan")
-                                    if(commentbox[clk].textContent.toLowerCase().includes("jawab")||commentbox[clk].textContent.toLowerCase().includes("tulis")){
+                                    if(commentbox[clk].textContent.toLowerCase().includes("jawab")||commentbox[clk].textContent.toLowerCase().includes("tulis")||commentbox[clk].textContent.toLowerCase().includes("komentari")||commentbox[clk].textContent.toLowerCase().includes("postingan")){
                                         clearInterval(myrefresh);
                                         console.log("Click Posting box")
                                         jitter = 0
