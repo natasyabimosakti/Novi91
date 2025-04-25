@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 2
 // @namespace    http://tampermonkey.net/
-// @version      3.13
+// @version      3.14
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil2.js
@@ -243,7 +243,7 @@ var myrefresh = setInterval(function(){
                             for (var clk = 0; clk < commentbox.length; clk++) {
                                 if(commentbox[clk]){
                                     console.log("comment box ditemukan")
-                                    if(commentbox[clk].textContent.toLowerCase().includes("jawab")||commentbox[clk].textContent.toLowerCase().includes("tulis")||commentbox[clk].textContent.toLowerCase().includes("komentar")){
+                                    if(commentbox[clk].textContent.toLowerCase().includes("jawab")||commentbox[clk].textContent.toLowerCase().includes("tulis")){
                                         clearInterval(myrefresh);
                                         console.log("Click Posting box")
                                         jitter = 0
