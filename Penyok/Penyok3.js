@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Penyok 3
 // @namespace    http://tampermonkey.net/
-// @version      3.19
+// @version      3.20
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok3.js
@@ -112,7 +112,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "oscar","ozawa",
              "pung","puput","priyan","primus","primus","prediction","pebri","pasil",
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma","ratsa","sinta","rara","ratna","mamad",
-             "sandiego","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia","sifa","seojun","sudewo",
+             "sandiego","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia","sifa","seojun","sudewo","sembroh",
              "tink","tiktak","tiara","tatang","tomi",
              "xian","vivi",
              "yanty","yoky","yohana","yura","yaya",
