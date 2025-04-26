@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Peyang4
 // @namespace    http://tampermonkey.net/
-// @version      3.158
+// @version      3.159
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Peyang/Peyang4.js
@@ -278,7 +278,7 @@ var myrefresh = setInterval(function(){
         if(document.querySelectorAll("[role='presentation']")[0]){
             if (document.readyState === "complete") {
                 for (var coki = 0; coki < waktupost.length; coki++) {
-                    if(waktupost[coki].textContent.includes("Aktivitas")) {
+                      if(waktupost[coki].textContent === "Aktivitas terbaru") {
                         if(jitter == 1){
                             return;
                         }
