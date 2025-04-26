@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 2
 // @namespace    http://tampermonkey.net/
-// @version      3.33
+// @version      3.34
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo2.js
@@ -270,7 +270,7 @@ var myrefresh = setInterval(function(){
         if(document.querySelectorAll("[role='presentation']")[0]){
             if (document.readyState === "complete") {
                 for (var coki = 0; coki < waktupost.length; coki++) {
-                    if(waktupost[coki].textContent.includes("Aktivitas")) {
+                      if(waktupost[coki].textContent === "Aktivitas terbaru") {
                         if(jitter == 1){
                             return;
                         }
