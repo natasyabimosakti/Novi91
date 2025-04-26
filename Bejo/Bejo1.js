@@ -7,7 +7,7 @@
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo1.js
 // @author       You
 // @match        http*://*/*
-// @run-at       document-end
+// @version      3.NaN
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        GM.setValue
 // @grant        GM.getValue
@@ -269,7 +269,7 @@ var myrefresh = setInterval(function(){
         if(document.querySelectorAll("[role='presentation']")[0]){
             if (document.readyState === "complete") {
                 for (var coki = 0; coki < waktupost.length; coki++) {
-                    if(waktupost[coki].textContent.includes("Aktivitas")) {
+                    if(waktupost[coki].textContent === "Aktivitas terbaru") {
                         if(jitter == 1){
                             return;
                         }
