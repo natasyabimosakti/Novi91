@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna2
 // @namespace    http://tampermonkey.net/
-// @version      3.165
+// @version      3.166
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna2.js
@@ -40,7 +40,7 @@ var Comment6 = '#DIVA4D (BOSMINI88) = 50*03*30';
 var namagroup7 = 'KASTOTO';
 var Comment7 = '#KASTOTO(BOSMAN67) = 95*83*23 #AGENTOGELTERPERCAYA'; 
 
-var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
+var namagroup8 = 'TOK99';
 var Comment8 = 'Tok99Toto ( BOSTER73 ) : 93*43*58'; 
 
 var namagroup9 = 'TAFSIR MIMPI';
@@ -58,15 +58,14 @@ var Comment12 = 'OPUNG4D ( BOSBIS48 ) : 22*62*71';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=BOSLEM64=39*90*66'; 
 
-var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (BOSBEN64)=80_25'; 
+var namagroup14 = 'COMO';
+var Comment14 = '( #COMOTOTO BOSBEN64 : 80*25 )'; 
 
 var namagroup15 = 'Hoho';
 var Comment15 = 'BOSNOM63 : 68*87*96 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
 var Comment16 = 'CITA4D*BOSBIS48*56*81*41'; 
-
 
 
 
