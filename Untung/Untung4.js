@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 4
 // @namespace    http://tampermonkey.net/
-// @version      3.21
+// @version      3.22
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung4.js
@@ -35,7 +35,7 @@ var Comment6 = '#DIVA4D (WULING94) = 04*84*96';
 var namagroup7 = 'KASTOTO';
 var Comment7 = '#KASTOTO(WENANG95) = 24*79*08 #AGENTOGELTERPERCAYA'; 
 
-var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
+var namagroup8 = 'TOK99';
 var Comment8 = 'Tok99Toto ( WANGSUL96 ) : 69*41*62'; 
 
 var namagroup9 = 'TAFSIR MIMPI';
@@ -53,8 +53,8 @@ var Comment12 = 'OPUNG4D ( WEDANG72 ) : 72*14*35';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=WANGSIT73=52*31*50'; 
 
-var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (WALUYO74)=74_15'; 
+var namagroup14 = 'COMO';
+var Comment14 = '( #COMOTOTO WALUYO74 : 74*15 )'; 
 
 var namagroup15 = 'Hoho';
 var Comment15 = 'WAGINEM75 : 98*27*60 #HOHOTOGEL'; 
