@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut4
 // @namespace    http://tampermonkey.net/
-// @version      3.173
+// @version      3.174
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut4.js
@@ -36,7 +36,7 @@ var Comment6 = '#DIVA4D (PLECIAHAH) = 15*51*49';
 var namagroup7 = 'KASTOTO';
 var Comment7 = '#KASTOTO(PLECIKICIK) = 93*99*54 #AGENTOGELTERPERCAYA'; 
 
-var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
+var namagroup8 = 'TOK99';
 var Comment8 = 'Tok99Toto ( PLECIKLUK ) : 98*64*12'; 
 
 var namagroup9 = 'TAFSIR MIMPI';
@@ -54,8 +54,8 @@ var Comment12 = 'OPUNG4D ( PLECIANS ) : 82*03*70';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=PLECIKI21=39*81*66'; 
 
-var namagroup14 = 'TARUNG';
-var Comment14 = '#TARUNGTOTO (PLECIAHAH)=88_83'; 
+var namagroup14 = 'COMO';
+var Comment14 = '( #COMOTOTO PLECIAHAH : 88*83 )'; 
 
 var namagroup15 = 'Hoho';
 var Comment15 = 'PLECICILAN : 23*18*14 #HOHOTOGEL'; 
