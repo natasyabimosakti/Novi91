@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE4
 // @namespace    http://tampermonkey.net/
-// @version      3.166
+// @version      3.167
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku4.js
@@ -69,7 +69,6 @@ var Comment17 = '#KIKOTOTO (ZOMING82) = 07*81';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Group Bos 4';
-
 
 
 var d = new Date();
@@ -271,7 +270,7 @@ var myrefresh = setInterval(function(){
         if(document.querySelectorAll("[role='presentation']")[0]){
             if (document.readyState === "complete") {
                 for (var coki = 0; coki < waktupost.length; coki++) {
-                       if(waktupost[coki].textContent === "Aktivitas terbaru") {
+                      if(waktupost[coki].textContent === "Aktivitas terbaru") {
                         if(jitter == 1){
                             return;
                         }
