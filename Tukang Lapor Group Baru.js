@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Tukang Lapor Group Baru
 // @namespace    http://tampermonkey.net/
-// @version      3.8
+// @version      3.9
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Tukang Lapor Group Baru.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Tukang Lapor Group Baru.js
@@ -25,7 +25,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "fira","fahresa","fiana","fahmi","fiona","fania",
              "gita","kang bona","hoky","julianti","libra","garda",
              "habib","hefi","hoihai","hana","hoki","hokage",
-             "icha","iyatoto","invest","ivanna","inisial","ishaura","imam",
+             "icha","iyatoto","invest","ivanna","inisial","ishaura","imam","isticharo",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer","jhone",
              "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla","komandan",
              "lianda","lusiana","lina","laura","lehman","leader","leon","lidya","langit","leader","loetoe",
