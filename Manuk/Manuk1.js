@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 1
 // @namespace    http://tampermonkey.net/
-// @version      3.155
+// @version      3.156
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
@@ -120,7 +120,8 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "xian","vivi",
              "yanty","yoky","yohana","yura","yaya",
              "wulan","wok","wak",
-             "zuko"];
+             "zuko",
+             "kanaya","dealova","amel lia","keyza"];
 
 
 var keyword1 = "ROOM"
