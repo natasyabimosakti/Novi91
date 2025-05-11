@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 1
 // @namespace    http://tampermonkey.net/
-// @version      3.23
+// @version      3.24
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung1.js
@@ -53,7 +53,7 @@ var Comment12 = 'OPUNG4D ( EGOIS19 ) : 95*42*36';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=ERANG20=88*99*82'; 
 
-// @version      3.NaN
+var namagroup14 = 'COMO';
 var Comment14 = '( #COMOTOTO ENDANGG21  : 26*56 )'; 
 
 var namagroup15 = 'Hoho';
