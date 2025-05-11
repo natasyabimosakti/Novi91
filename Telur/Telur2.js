@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         AYAM 2
+// @name         TELUR 2
 // @namespace    http://tampermonkey.net/
 // @version      3.0
 // @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ayam/Ayam2.js
-// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ayam/Ayam2.js
+// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Telur/Telur2.js
+// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Telur/Telur2.js
 // @author       You
 // @match        http*://*/*
 // @run-at       document-end
@@ -20,7 +20,7 @@
 
 
 var namagroup18 = 'Jawatengah';
-var Comment18 = 'Ayam 2';
+var Comment18 = 'Telur 2';
 
 
 
