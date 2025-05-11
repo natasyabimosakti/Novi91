@@ -23,8 +23,7 @@
 
 
 
-
-// @version      3.NaN
+ 
 
 var namagroup17 = 'Jawatengah';
 var Comment17 = 'Baru Babon 1';
