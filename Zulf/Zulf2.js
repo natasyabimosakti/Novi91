@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF2
 // @namespace    http://tampermonkey.net/
-// @version      3.19
+// @version      3.20
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
@@ -118,7 +118,8 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "xian","vivi",
              "yanty","yoky","yohana","yura","yaya",
              "wulan","wok","wak",
-             "zuko"];
+             "zuko",
+             "kanaya","dealova","amel lia","keyza"];
 
 
 var keyword1 = "ROOM"
