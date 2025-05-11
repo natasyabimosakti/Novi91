@@ -24,7 +24,7 @@
 
 
 
-
+// @version      3.NaN
 
 var namagroup17 = 'Jawatengah';
 var Comment17 = 'Baru Babon 1';
@@ -74,7 +74,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "oscar","ozawa","otong","ormas",
              "pung","puput","priyan","primus","primus","pencari","pricilia","putra","pengurus","putri",
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi","ranger",
-             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria","sellia","sintya",
+             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria","sellia","sintya","stevent",
              "tink","tiktak","tiara","tatang","tania","thonex",
              "yanty","yoky","yohana","yii","vero","vaulian",
              "wulan","wok","widya"];
