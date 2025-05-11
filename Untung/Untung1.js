@@ -53,7 +53,7 @@ var Comment12 = 'OPUNG4D ( EGOIS19 ) : 95*42*36';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=ERANG20=88*99*82'; 
 
-var namagroup14 = 'COMO';
+// @version      3.NaN
 var Comment14 = '( #COMOTOTO ENDANGG21  : 26*56 )'; 
 
 var namagroup15 = 'Hoho';
@@ -115,7 +115,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","a
              "oscar","ozawa","otong","ormas",
              "pung","puput","priyan","primus","primus","pencari","pricilia","putra","pengurus","putri",
              "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi","ranger",
-             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria","sellia","sintya",
+             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria","sellia","sintya","stevent",
              "tink","tiktak","tiara","tatang","tania","thonex",
              "yanty","yoky","yohana","yii","vero","vaulian",
              "wulan","wok","widya"];
