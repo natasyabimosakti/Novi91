@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         AYAM 1
+// @name         TELUR 1
 // @namespace    http://tampermonkey.net/
 // @version      3.0
 // @description  try to take over the world!
