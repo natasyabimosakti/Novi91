@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         TELUR 1
+// @name         JAGO 1
 // @namespace    http://tampermonkey.net/
 // @version      3.0
 // @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Telur/Telur1.js
-// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Telur/Telur1.js
+// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago1.js
+// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago1.js
 // @author       You
 // @match        http*://*/*
 // @run-at       document-end
@@ -20,7 +20,7 @@
 
 
 var namagroup18 = 'Jawatengah';
-var Comment18 = 'Telur 1';
+var Comment18 = 'Jago 1';
 
 
 
