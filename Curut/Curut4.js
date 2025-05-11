@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.166
+// @version      3.167
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
@@ -118,7 +118,8 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "xian","vivi",
              "yanty","yoky","yohana","yura","yaya",
              "wulan","wok","wak",
-             "zuko"];
+             "zuko",
+             "Kanaya","Dealova","Amel Lia","Keyza"];
 
 
 var keyword1 = "ROOM"
