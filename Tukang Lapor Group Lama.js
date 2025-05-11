@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Tukang Lapor Group Lama
 // @namespace    http://tampermonkey.net/
-// @version      3.6
+// @version      3.7
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Tukang Lapor Group Lama.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Tukang Lapor Group Lama.js
@@ -39,7 +39,8 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "xian","vivi",
              "yanty","yoky","yohana","yura","yaya",
              "wulan","wok","wak",
-             "zuko"];
+             "zuko",
+             "kanaya","dealova","amel lia","keyza"];
 
 var Laporan = await GM.getValue(1);
 var keyword1 = "ROOM"
