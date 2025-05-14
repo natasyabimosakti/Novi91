@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Babon 3
 // @namespace    http://tampermonkey.net/
-// @version      3.1
+// @version      3.2
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon3.js
@@ -20,54 +20,53 @@
 
 
 
-
 var namagroup1 = 'NONGKRONG';
-var Comment1 = '#AMAVI5D ( MASIHMARIS ) : 84*76*86'; 
+var Comment1 = '#AMAVI5D ( MASIHMARIS ) : 50*91*21'; 
 
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( MANDINI28 ) : 85*91*42'; 
+var Comment2 = 'K86TOTO ( MANDINI28 ) : 06*90*83'; 
 
 var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = (MASKURAWAN) 64*43*30'; 
+var Comment3 = '#(WARUNGTOTO) = (MASKURAWAN) 05*98*11'; 
 
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO MUMUBELONG = 27*74*46'; 
+var Comment4 = '#RIATOTO MUMUBELONG = 75*77*96'; 
 
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (MUBENGAN52*82*25*04)'; 
+var Comment5 = '#PEDRO4D (MUBENGAN52*56*43*31)'; 
 
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (MANCURMUJUR) = 13*26*51'; 
+var Comment6 = '#DIVA4D (MANCURMUJUR) = 15*69*30'; 
 
 var namagroup7 = 'KASTOTO';
-var Comment7 = '#KASTOTO(MULETENAK) = 36*17*31 #AGENTOGELTERPERCAYA'; 
+var Comment7 = '#KASTOTO(MULETENAK) = 35*12*78 #AGENTOGELTERPERCAYA'; 
 
 var namagroup8 = 'TOK99';
-var Comment8 = 'Tok99Toto ( MELONGOBEGOK ) : 16*18*12'; 
+var Comment8 = 'Tok99Toto ( MELONGOBEGOK ) : 75*77*41'; 
 
 var namagroup9 = 'TAFSIR MIMPI';
-var Comment9 = 'SIJITOGEL MANAHIWAK 13*26*51'; 
+var Comment9 = 'SIJITOGEL MANAHIWAK 65*94*62'; 
 
 var namagroup10 = 'KAGET';
-var Comment10 = 'DAGELAN4D(MANOKNURI) : 36*17*31'; 
+var Comment10 = 'DAGELAN4D(MANOKNURI) : 10*63*68'; 
 
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*MEKASIH92*85*91*42'; 
+var Comment11 = 'BETT*Mayapada4D(BO)*MEKASIH92*23*49*93'; 
 
 var namagroup12 = 'OPUNG';
-var Comment12 = 'OPUNG4D ( MENCLOKCUK ) : 16*18*62'; 
+var Comment12 = 'OPUNG4D ( MENCLOKCUK ) : 86*66*46'; 
 
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=MENDUNGKUL=84*76*86'; 
+var Comment13 = 'GOHTOGEL=MENDUNGKUL=99*47*02'; 
 
 var namagroup14 = 'COMO';
-var Comment14 = '( #COMOTOTO MRIPATKUSIPIT : 64*43 )'; 
+var Comment14 = '( #COMOTOTO MRIPATKUSIPIT : 65*94 )'; 
 
 var namagroup15 = 'Hoho';
-var Comment15 = 'MARISUWEK : 27*74*46 #HOHOTOGEL'; 
+var Comment15 = 'MARISUWEK : 26*54*34 #HOHOTOGEL'; 
 
 var namagroup16 = 'KECERDASAN';
-var Comment16 = 'CITA4D*MAMALAMA*82*25*04'; 
+var Comment16 = 'CITA4D*MAMALAMA*09*97*29'; 
 
 
 
