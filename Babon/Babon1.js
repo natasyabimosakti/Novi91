@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Babon 1
 // @namespace    http://tampermonkey.net/
-// @version      3.0
+// @version      3.1
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon1.js
@@ -21,7 +21,53 @@
 
 
 
+var namagroup1 = 'NONGKRONG';
+var Comment1 = '#AMAVI5D ( SUNTIKMATI ) : 59*47*96'; 
 
+var namagroup2 = 'K86';
+var Comment2 = 'K86TOTO ( SETIASAJA ) : 39*15*71'; 
+
+var namagroup3 = 'WARUNG';
+var Comment3 = '#(WARUNGTOTO) = (SUKUMLAKU) 22*57*94'; 
+
+var namagroup4 = 'RIATOTO';
+var Comment4 = '#RIATOTO SAMBUTAN20 = 81*49*72'; 
+
+var namagroup5 = 'PEDRO';
+var Comment5 = '#PEDRO4D (SASISU42*20*44*38)'; 
+
+var namagroup6 = 'DIVA4D';
+var Comment6 = '#DIVA4D (SISWARUK) = 06*09*45'; 
+
+var namagroup7 = 'KASTOTO';
+var Comment7 = '#KASTOTO(SEMBODOH) = 99*24*92 #AGENTOGELTERPERCAYA'; 
+
+var namagroup8 = 'TOK99';
+var Comment8 = 'Tok99Toto ( SINGKONGTHAI ) : 11*95*66'; 
+
+var namagroup9 = 'TAFSIR MIMPI';
+var Comment9 = 'SIJITOGEL SUMURMATI 06*09*45'; 
+
+var namagroup10 = 'KAGET';
+var Comment10 = 'DAGELAN4D(SUNDALA23) : 99*24*88'; 
+
+var namagroup11 = 'MAYAPADA';
+var Comment11 = 'BETT*Mayapada4D(BO)*SAKUKUTARA*39*15*71'; 
+
+var namagroup12 = 'OPUNG';
+var Comment12 = 'OPUNG4D ( SIANGANAJA ) : 11*95*66'; 
+
+var namagroup13 = 'GOHT0G3L';
+var Comment13 = 'GOHTOGEL=SUMBUBULU=59*47*96'; 
+
+var namagroup14 = 'COMO';
+var Comment14 = '( #COMOTOTO SAMBUNGBAYAM : 22*57 )'; 
+
+var namagroup15 = 'Hoho';
+var Comment15 = 'SUKAJANTUA : 81*49*72 #HOHOTOGEL'; 
+
+var namagroup16 = 'KECERDASAN';
+var Comment16 = 'CITA4D*SLEMPANG26*20*44*38'; 
 
  
 
