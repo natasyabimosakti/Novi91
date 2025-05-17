@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 1
 // @namespace    http://tampermonkey.net/
-// @version      3.24
+// @version      3.25
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung1.js
@@ -235,7 +235,7 @@ var myrefresh = setInterval(function(){
                             for (var clk = 0; clk < commentbox.length; clk++) {
                                 if(commentbox[clk]){
                                     console.log("comment box ditemukan")
-                                    if(commentbox[clk].textContent.toLowerCase().includes("jawab")||commentbox[clk].textContent.toLowerCase().includes("tulis")||commentbox[clk].textContent.toLowerCase().includes("komentari")||commentbox[clk].textContent.toLowerCase().includes("postingan")){
+                                    if(commentbox[clk].textContent.toLowerCase().includes("jawab")||commentbox[clk].textContent.toLowerCase().includes("tulis")||commentbox[clk].textContent.toLowerCase().includes("komentari")||commentbox[clk].textContent.toLowerCase().includes("postingan")||commentbox[clk].textContent.toLowerCase().includes("beri")){
                                         clearInterval(myrefresh);
                                         console.log("Click Posting box")
                                         jitter = 0
@@ -272,7 +272,7 @@ var myrefresh = setInterval(function(){
         if(document.querySelectorAll("[role='presentation']")[0]){
             if (document.readyState === "complete") {
                 for (var coki = 0; coki < waktupost.length; coki++) {
-                      if(waktupost[coki].textContent === "Aktivitas terbaru") {
+                       if(waktupost[coki].textContent === "Aktivitas terbaru") {
                         if(jitter == 1){
                             return;
                         }
