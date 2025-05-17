@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JAGO 4
 // @namespace    http://tampermonkey.net/
-// @version      3.2
+// @version      3.3
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago4.js
@@ -97,27 +97,30 @@ var id18 = await GM.getValue(18);
 
 var refresh = 40;
 
-var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","anisa","agus tiar","azahra",
-             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","ban nee","bang wawan",
-             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika","calvin","claudio",
-             "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara","den arkanza","denis",
-             "erwin","emilia","evelyn","el givano","esse",
-             "fira","fahresa","fiana","fahmi","fiona","fania",
-             "gita","kang bona","hoky","julianti","libra","garda",
-             "habib","hefi","hoihai","hana","hoki","hokage",
-             "icha","iyatoto","invest","ivanna","inisial","ishaura","imam","isticharo",
-             "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer","jhone",
-             "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla","komandan",
-             "lianda","lusiana","lina","laura","lehman","leader","leon","lidya","langit","leader","loetoe",
-             "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari","momo","mona","mas hoki","maley",
-             "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy","nurul",
-             "oscar","ozawa","otong","ormas",
-             "pung","puput","priyan","primus","primus","pencari","pricilia","putra","pengurus","putri",
-             "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi","ranger",
-             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria","sellia","sintya","stevent",
-             "tink","tiktak","tiara","tatang","tania","thonex",
-             "yanty","yoky","yohana","yii","vero","vaulian",
-             "wulan","wok","widya"];
+var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa","azahra",
+             "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang","aru sundawa","agus tiar","imam","oppe","komandan","melinda","ranger",
+             "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista","chin",
+             "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
+             "erwin","elvina","evelyn","enzo",
+             "fira","fahresa","findlay","fatimah",
+             "gita","genzo","gambrong",
+             "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage","hoi hai",
+             "icha","iyatoto","intan",
+             "jordi","jaguar","jne","je pe","jess","junior","jovanka","jasmine",
+             "kei","kumbara","kembar","kotna","karina","kopi","kang",
+             "lianda","lusiana","lina","laura","lia","lollo","lupin",
+             "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","meleqq","megaways","minion","melly","monicha","manu","maryam","mode","mary",
+             "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nayla","naomi","nica",
+             "oscar","ozawa",
+             "pung","puput","priyan","primus","primus","prediction","pebri","pasil",
+             "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma","ratsa","sinta","rara","ratna","mamad",
+             "sandiego","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia","sifa","seojun","sudewo","sembroh",
+             "tink","tiktak","tiara","tatang","tomi",
+             "xian","vivi",
+             "yanty","yoky","yohana","yura","yaya",
+             "wulan","wok","wak",
+             "zuko",
+             "kanaya","dealova","amel lia","keyza"];
 
 
 
