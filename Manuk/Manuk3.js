@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 3
 // @namespace    http://tampermonkey.net/
-// @version      3.156
+// @version      3.157
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk3.js
@@ -123,6 +123,7 @@ var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi
              "kanaya","dealova","amel lia","keyza"];
 
 
+
 var keyword1 = "ROOM"
 var keyword2 = "𝗥𝗢𝗢𝗠"
 var keyword3 = "LOMBA"
@@ -236,7 +237,7 @@ var myrefresh = setInterval(function(){
                             for (var clk = 0; clk < commentbox.length; clk++) {
                                 if(commentbox[clk]){
                                     console.log("comment box ditemukan")
-                                    if(commentbox[clk].textContent.toLowerCase().includes("jawab")||commentbox[clk].textContent.toLowerCase().includes("tulis")||commentbox[clk].textContent.toLowerCase().includes("komentari")||commentbox[clk].textContent.toLowerCase().includes("postingan")){
+                                    if(commentbox[clk].textContent.toLowerCase().includes("jawab")||commentbox[clk].textContent.toLowerCase().includes("tulis")||commentbox[clk].textContent.toLowerCase().includes("komentari")||commentbox[clk].textContent.toLowerCase().includes("postingan")||commentbox[clk].textContent.toLowerCase().includes("beri")){
                                         clearInterval(myrefresh);
                                         console.log("Click Posting box")
                                         jitter = 0
