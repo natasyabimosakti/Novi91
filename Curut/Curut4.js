@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.173
+// @version      3.174
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
@@ -242,6 +242,10 @@ var refreshPage = setInterval(function(){
                 for (var coki = 0; coki < waktupost.length; coki++) {
                     if(waktupost[coki].textContent === "Aktivitas terbaru") {
                         if(document.getElementsByClassName("prevent-scrolling")[0]){
+                             if (isDound) {
+
+                                 clickAt(1, 1);
+                             }
                             waktupost[coki].click()
                         }
 
