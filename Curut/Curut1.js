@@ -12,7 +12,7 @@
 // @grant        GM.setValue
 // @grant        GM.getValue
 // @grant        window.close
-// ==/UserScript==
+// @version      3.NaN
 
 
 
@@ -339,7 +339,7 @@ function postComment(comment) {
     isCommenting = true;
     setTimeout(() => {
         location.href = "about:blank";
-    }, 500);
+    }, 1000);
 }
 async function scanPosts() {
     if (isCommenting) return; // Jangan komentar kalau sedang proses komentar
