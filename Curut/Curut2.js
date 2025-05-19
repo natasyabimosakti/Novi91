@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.168
+// @version      3.169
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
@@ -339,7 +339,7 @@ function postComment(comment) {
     isCommenting = true;
     setTimeout(() => {
         location.href = "about:blank";
-    }, 500);
+    }, 1000);
 }
 async function scanPosts() {
     if (isCommenting) return; // Jangan komentar kalau sedang proses komentar
