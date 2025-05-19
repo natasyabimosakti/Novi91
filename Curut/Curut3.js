@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.170
+// @version      3.171
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut3.js
@@ -194,14 +194,14 @@ var myrefresh = setInterval(function(){
                             let tombolKirim = Array.from(document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text'))
                             .find(el => el.textContent.toLowerCase().includes("jawab") || el.textContent.toLowerCase().includes("tulis") || el.textContent.toLowerCase().includes("komentari")|| el.textContent.toLowerCase().includes("postingan")|| el.textContent.toLowerCase().includes("beri"));
                             if(tombolKirim){
+                                isDound = true;
+                                clickAt(1, 1);
                                 console.log("comment box ditemukan")
                                 clearInterval(myrefresh);
                                 clearInterval(refreshPage);
                                 console.log("Click Posting box")
                                 tombolKirim.click();
-                                isDound = true;
                                 game.start()
-
                             }
                             break;
 
@@ -213,7 +213,9 @@ var myrefresh = setInterval(function(){
         }
     }
 
+
 },10)
+
 
 var refreshPage = setInterval(function(){
 
@@ -223,12 +225,17 @@ var refreshPage = setInterval(function(){
         if (document.readyState === "complete") {
             for (var cok = 0; cok < urutkan.length; cok++) {
                 if(urutkan[cok].textContent.includes("URUTKAN")) {
+
                     if (isDound) return;
                     urutkan[cok].click()
                 }
             }
         }
     }
+       if (isDound) {
+
+            clickAt(1, 1);
+       }
     if(document.getElementsByClassName("loading-overlay").length == 0 ){
 
         if(document.querySelectorAll("[role='presentation']")[0]){
@@ -245,6 +252,7 @@ var refreshPage = setInterval(function(){
         }
     }
 }, refresh * 10)
+
 
 var commentToPost = '';
 
@@ -309,7 +317,28 @@ function gameClosure() {
 }
 
 
+function clickAt(x, y) {
+    const el = document.elementFromPoint(x, y);
+    if (el) {
+        const eventOptions = {
+            bubbles: true,
+            cancelable: true,
+            clientX: x,
+            clientY: y
+        };
 
+        el.dispatchEvent(new MouseEvent("mousedown", eventOptions));
+        el.dispatchEvent(new MouseEvent("mouseup", eventOptions));
+        el.dispatchEvent(new MouseEvent("click", eventOptions));
+
+        console.log("Clicked at:", x, y, "on", el);
+    } else {
+        console.log("No element found at", x, y);
+    }
+}
+
+
+// Contoh penggunaan:
 
 
 var game = gameClosure()
