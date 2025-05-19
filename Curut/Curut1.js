@@ -12,7 +12,7 @@
 // @grant        GM.setValue
 // @grant        GM.getValue
 // @grant        window.close
-// @version      3.NaN
+
 
 
 
