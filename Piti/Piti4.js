@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti4
 // @namespace    http://tampermonkey.net/
-// @version      3.37
+// @version      3.38
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti4.js
@@ -121,15 +121,77 @@ var Backlist5 = "prediksi";
 var Backlist6 = "result";
 var Backlist7 = "juara lomba";
 
-let isCommenting = false;
-let isDound = false;
+var isCommenting = false;
+var isDound = false;
+var EXPIRATION_MS = 8 * 60 * 1000; // 5 minutes
+var now = Date.now();
+
+// ✅ Daftar grup dan nilai default yang ingin disimpan
+var groups = [
+    { groupId: namagroup1, defaultValue: false },
+    { groupId: namagroup2, defaultValue: false },
+    { groupId: namagroup3, defaultValue: false },
+    { groupId: namagroup4, defaultValue: false },
+    { groupId: namagroup5, defaultValue: false },
+    { groupId: namagroup6, defaultValue: false },
+    { groupId: namagroup7, defaultValue: false },
+    { groupId: namagroup8, defaultValue: false },
+    { groupId: namagroup9, defaultValue: false },
+    { groupId: namagroup10, defaultValue: false },
+    { groupId: namagroup11, defaultValue: false },
+    { groupId: namagroup12, defaultValue: false },
+    { groupId: namagroup13, defaultValue: false },
+    { groupId: namagroup14, defaultValue: false },
+    { groupId: namagroup15, defaultValue: false },
+    { groupId: namagroup16, defaultValue: false },
+    { groupId: namagroup17, defaultValue: false },
+    { groupId: namagroup18, defaultValue: false }
+    // Tambahkan groupId lain sesuai kebutuhan
+];
+var datakomen = {
+                    [namagroup1]: await GM.getValue(`group_${namagroup1}`),
+                    [namagroup2]: await GM.getValue(`group_${namagroup2}`),
+                    [namagroup3]: await GM.getValue(`group_${namagroup3}`),
+                    [namagroup4]: await GM.getValue(`group_${namagroup4}`),
+                    [namagroup5]: await GM.getValue(`group_${namagroup5}`),
+                    [namagroup6]: await GM.getValue(`group_${namagroup6}`),
+                    [namagroup7]: await GM.getValue(`group_${namagroup7}`),
+                    [namagroup8]: await GM.getValue(`group_${namagroup8}`),
+                    [namagroup9]: await GM.getValue(`group_${namagroup9}`),
+                    [namagroup10]: await GM.getValue(`group_${namagroup10}`),
+                    [namagroup11]: await GM.getValue(`group_${namagroup11}`),
+                    [namagroup12]: await GM.getValue(`group_${namagroup12}`),
+                    [namagroup13]: await GM.getValue(`group_${namagroup13}`),
+                    [namagroup14]: await GM.getValue(`group_${namagroup14}`),
+                    [namagroup15]: await GM.getValue(`group_${namagroup15}`),
+                    [namagroup16]: await GM.getValue(`group_${namagroup16}`),
+                    [namagroup17]: await GM.getValue(`group_${namagroup17}`),
+                    [namagroup18]: await GM.getValue(`group_${namagroup18}`)
+                };
+
+async function manageGroups() {
+    for (const { groupId, defaultValue } of groups) {
+        const key = `group_${groupId}`;
+        const expireKey = `${key}_expire`;
+        const expireAt = await GM.getValue(expireKey, 0);
+
+        if (now > expireAt) {
+            console.log(`Group ${groupId} expired. Resetting.`);
+            await GM.setValue(key, defaultValue);
+            await GM.setValue(expireKey, now + EXPIRATION_MS);
+        }
+    }
+}
+
+manageGroups()
+
 var myrefresh = setInterval(function(){
 
     if(document.location.href.includes("group")){
         window.scroll(0,200)
     }
     if(isCommenting){
-        location.href = "about:blank"
+        startAutoTask();
     }
     if(document.location.href.includes("group")){
         for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
@@ -229,10 +291,10 @@ var refreshPage = setInterval(function(){
             }
         }
     }
-       if (isDound) {
+    if (isDound) {
 
-            clickAt(1, 1);
-       }
+        clickAt(1, 1);
+    }
     if(document.getElementsByClassName("loading-overlay").length == 0 ){
 
         if(document.querySelectorAll("[role='presentation']")[0]){
@@ -240,10 +302,10 @@ var refreshPage = setInterval(function(){
                 for (var coki = 0; coki < waktupost.length; coki++) {
                     if(waktupost[coki].textContent === "Aktivitas terbaru") {
                         if(document.getElementsByClassName("prevent-scrolling")[0]){
-                             if (isDound) {
+                            if (isDound) {
 
-                                 clickAt(1, 1);
-                             }
+                                clickAt(1, 1);
+                            }
                             waktupost[coki].click()
                         }
 
@@ -256,10 +318,7 @@ var refreshPage = setInterval(function(){
 
 
 var commentToPost = '';
-
-
-
-
+var grouptToPost = '';
 function gameClosure() {
     if (isCommenting) return;
 
@@ -303,6 +362,7 @@ function gameClosure() {
                         ceknamagroup4.includes(groupName)
                     ) {
                         commentToPost = commentMap[groupName];
+                        grouptToPost = groupName
                         console.log("Nama grup ditemukan: " + groupName);
                         scanPosts();
                         break;
@@ -347,11 +407,13 @@ function clickAt(x, y) {
     }
 }
 
-
-
 function scanPosts() {
     if (isCommenting) return;
     isCommenting = true;
+      if( datakomen[grouptToPost]){
+          startAutoTask();
+          return;
+      }
 
     const textarea = document.querySelector(".multi-line-floating-textbox");
     const sendBtn = document.querySelector(".textbox-submit-button");
@@ -369,15 +431,31 @@ function scanPosts() {
             const clickEvent = document.createEvent("MouseEvents");
             clickEvent.initEvent("mousedown", true, true);
             sendBtn.dispatchEvent(clickEvent);
-
+            GM.setValue("group_" + grouptToPost, true);
+            GM.setValue("group_"+grouptToPost+"_expire", Date.now() + EXPIRATION_MS);
             console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
 
             setTimeout(() => {
-                location.href = "about:blank";
+                startAutoTask();
             }, 1000); // Reload ringan setelah kirim
         });
     } else {
         console.log("❌ Textarea atau tombol kirim tidak ditemukan.");
         isCommenting = false;
+    }
+}
+
+
+
+var intervalId = null;
+// Fungsi yang akan dijalankan berulang
+function autoTask() {
+location.href = "about:blank";
+}
+
+// Fungsi untuk memulai interval — tidak langsung dipanggil
+function startAutoTask() {
+    if (intervalId === null) {
+        intervalId = setInterval(autoTask, 1000); // jalan tiap 1 detik
     }
 }
