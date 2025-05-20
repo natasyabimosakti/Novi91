@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Slamet 3
 // @namespace    http://tampermonkey.net/
-// @version      3.25
+// @version      3.26
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet3.js
@@ -212,7 +212,7 @@ var myrefresh = setInterval(function(){
     }
 
 
-},10)
+},1)
 
 
 var refreshPage = setInterval(function(){
@@ -263,18 +263,17 @@ var commentToPost = '';
 
 function gameClosure() {
     if (isCommenting) return;
-    function game() {
 
-        console.log('Menentukan Komentar')
-        /* This is just an example, replace this with the body of gameInit() */
-        if(document.getElementsByClassName("multi-line-floating-textbox").length > 0 ){
-            var ceknamagroup =document.getElementsByClassName("fixed-container")[0].textContent;
-            var ceknamagroup1 =document.getElementsByClassName('native-text')[5].textContent;
-            var ceknamagroup2 =document.getElementsByClassName('native-text')[6].textContent;
-            var ceknamagroup3 = document.getElementsByClassName('native-text')[7].textContent;
-            var ceknamagroup4 = document.getElementsByClassName('native-text')[8].textContent;
-            'use strict';
-            if (document.getElementsByClassName("multi-line-floating-textbox")[0]){
+    function game() {
+        console.log('Menentukan Komentar');
+        if (document.getElementsByClassName("multi-line-floating-textbox").length > 0) {
+            var ceknamagroup = document.getElementsByClassName("fixed-container")[0]?.textContent || '';
+            var ceknamagroup1 = document.getElementsByClassName('native-text')[5]?.textContent || '';
+            var ceknamagroup2 = document.getElementsByClassName('native-text')[6]?.textContent || '';
+            var ceknamagroup3 = document.getElementsByClassName('native-text')[7]?.textContent || '';
+            var ceknamagroup4 = document.getElementsByClassName('native-text')[8]?.textContent || '';
+
+            if (document.getElementsByClassName("multi-line-floating-textbox")[0]) {
                 let commentMap = {
                     [namagroup1]: Comment1,
                     [namagroup2]: Comment2,
@@ -297,26 +296,36 @@ function gameClosure() {
                 };
 
                 for (let groupName in commentMap) {
-                    if (ceknamagroup.includes(groupName)||ceknamagroup1.includes(groupName)||ceknamagroup2.includes(groupName)||ceknamagroup3.includes(groupName)||ceknamagroup4.includes(groupName)) {
+                    if (
+                        ceknamagroup.includes(groupName) ||
+                        ceknamagroup1.includes(groupName) ||
+                        ceknamagroup2.includes(groupName) ||
+                        ceknamagroup3.includes(groupName) ||
+                        ceknamagroup4.includes(groupName)
+                    ) {
                         commentToPost = commentMap[groupName];
-                        console.log("nama group di temukan")
-                        scanPosts()
+                        console.log("Nama grup ditemukan: " + groupName);
+                        scanPosts();
                         break;
                     }
                 }
             }
         }
     }
+
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 1)
+            if (currentGame) clearInterval(currentGame);
+            currentGame = setInterval(game, 100);
         },
         stop() {
-            clearInterval(currentGame)
+            if (currentGame) clearInterval(currentGame);
         }
-    }
+    };
 }
+
+var game = gameClosure();
 
 
 function clickAt(x, y) {
@@ -340,41 +349,36 @@ function clickAt(x, y) {
 }
 
 
-// Contoh penggunaan:
 
+function scanPosts() {
+    if (isCommenting) return;
+    isCommenting = true;
 
-var game = gameClosure()
-function postComment(comment) {
     const textarea = document.querySelector(".multi-line-floating-textbox");
     const sendBtn = document.querySelector(".textbox-submit-button");
 
-    if (!textarea || !sendBtn) {
-        console.log("Textarea atau tombol send tidak ditemukan");
+    if (textarea && sendBtn) {
+        textarea.focus();
+        textarea.value = commentToPost;
+        textarea.dispatchEvent(new Event("input", { bubbles: true }));
+
+        requestAnimationFrame(() => {
+            // Aktifkan tombol jika disabled
+            sendBtn.disabled = false;
+
+            // Buat dan dispatch event mousedown (bukan .click())
+            const clickEvent = document.createEvent("MouseEvents");
+            clickEvent.initEvent("mousedown", true, true);
+            sendBtn.dispatchEvent(clickEvent);
+
+            console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
+
+            setTimeout(() => {
+                location.href = "about:blank";
+            }, 1000); // Reload ringan setelah kirim
+        });
+    } else {
+        console.log("❌ Textarea atau tombol kirim tidak ditemukan.");
         isCommenting = false;
-        return;
     }
-
-    textarea.value = comment;
-    textarea.dispatchEvent(new Event("input", { bubbles: true, cancelable: true }));
-
-    sendBtn.style.display = ""; // pastikan tombol terlihat
-    sendBtn.disabled = false;
-
-    // Klik tombol kirim
-    var clicksendcoment = sendBtn
-    clicksendcoment.disabled = false;
-    var clickEvent = document.createEvent ('MouseEvents');
-    clickEvent.initEvent ("mousedown", true, true);
-    sendBtn.dispatchEvent (clickEvent);
-    console.log("Komentar terkirim:", comment);
-    game.stop()
-    isCommenting = true;
-    setTimeout(() => {
-        location.href = "about:blank";
-    }, 1000);
-}
-async function scanPosts() {
-    if (isCommenting) return; // Jangan komentar kalau sedang proses komentar
-    if (!document.location.href.includes("group")) return; // hanya di halaman grup
-    postComment(commentToPost)
 }
