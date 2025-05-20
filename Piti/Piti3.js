@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti3
 // @namespace    http://tampermonkey.net/
-// @version      3.38
+// @version      3.39
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti3.js
@@ -256,7 +256,6 @@ var myrefresh = setInterval(function(){
                                 clickAt(1, 1);
                                 console.log("comment box ditemukan")
                                 clearInterval(myrefresh);
-                                clearInterval(refreshPage);
                                 console.log("Click Posting box")
                                 tombolKirim.click();
                                 game.start()
@@ -269,15 +268,7 @@ var myrefresh = setInterval(function(){
                 }
             }
         }
-    }
-
-
-},1)
-
-
-var refreshPage = setInterval(function(){
-
-    var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
+        var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
     var waktupost = document.getElementsByClassName("native-text");
     if(!document.querySelectorAll("[role='presentation']")[0]){
         if (document.readyState === "complete") {
@@ -313,8 +304,10 @@ var refreshPage = setInterval(function(){
             }
         }
     }
-}, refresh * 10)
+    }
 
+
+},refresh * 10)
 
 var commentToPost = '';
 var grouptToPost = '';
@@ -375,7 +368,7 @@ function gameClosure() {
     return {
         start() {
             if (currentGame) clearInterval(currentGame);
-            currentGame = setInterval(game, 100);
+            currentGame = setInterval(game, 10);
         },
         stop() {
             if (currentGame) clearInterval(currentGame);
@@ -433,10 +426,9 @@ function scanPosts() {
             GM.setValue("group_" + grouptToPost, true);
             GM.setValue("group_"+grouptToPost+"_expire", Date.now() + EXPIRATION_MS);
             console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
-
             setTimeout(() => {
                 startAutoTask();
-            }, 1000); // Reload ringan setelah kirim
+            }, 2000); // Reload ringan setelah kirim
         });
     } else {
         console.log("❌ Textarea atau tombol kirim tidak ditemukan.");
