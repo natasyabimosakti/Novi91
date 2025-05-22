@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut4
 // @namespace    http://tampermonkey.net/
-// @version      3.185
+// @version      3.186
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut4.js
@@ -371,7 +371,7 @@ function gameClosure() {
     return {
         start() {
             if (currentGame) clearInterval(currentGame);
-            currentGame = setInterval(game, 10);
+            currentGame = setInterval(game, 5);
         },
         stop() {
             if (currentGame) clearInterval(currentGame);
