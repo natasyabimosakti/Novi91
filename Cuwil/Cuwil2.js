@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 2
 // @namespace    http://tampermonkey.net/
-// @version      3.28
+// @version      3.29
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil2.js
@@ -377,7 +377,7 @@ function gameClosure() {
     return {
         start() {
             if (currentGame) clearInterval(currentGame);
-            currentGame = setInterval(game, 10);
+            currentGame = setInterval(game, 5);
         },
         stop() {
             if (currentGame) clearInterval(currentGame);
