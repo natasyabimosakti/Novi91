@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE4
 // @namespace    http://tampermonkey.net/
-// @version      3.175
+// @version      3.176
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku4.js
@@ -341,7 +341,7 @@ function scanPosts() {
 
 var intervalId = null;
 function autoTask() {
-    //location.href = "about:blank";
+   location.href = "about:blank";
 }
 
 // Fungsi untuk memulai interval — tidak langsung dipanggil
