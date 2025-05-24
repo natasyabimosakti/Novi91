@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 1
 // @namespace    http://tampermonkey.net/
-// @version      3.163
+// @version      3.164
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
@@ -344,7 +344,7 @@ function scanPosts() {
 
 var intervalId = null;
 function autoTask() {
-    //location.href = "about:blank";
+   location.href = "about:blank";
 }
 
 // Fungsi untuk memulai interval — tidak langsung dipanggil
