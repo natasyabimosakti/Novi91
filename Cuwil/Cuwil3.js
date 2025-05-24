@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 3
 // @namespace    http://tampermonkey.net/
-// @version      3.30
+// @version      3.31
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil3.js
@@ -348,7 +348,7 @@ function scanPosts() {
 
 var intervalId = null;
 function autoTask() {
-    //location.href = "about:blank";
+    location.href = "about:blank";
 }
 
 // Fungsi untuk memulai interval — tidak langsung dipanggil
