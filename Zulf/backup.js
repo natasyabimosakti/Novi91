@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         NEW ZULF4
+// @name         NEW ZULF1
 // @namespace    http://tampermonkey.net/
-// @version      3.23
+// @version      3.25
 // @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf4.js
-// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf4.js
+// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
+// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
 // @author       You
 // @match        http*://*/*
 // @run-at       document-end
@@ -16,61 +16,59 @@
 
 
 
-
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*MINHARYOSU73*06*28'; 
+var Comment1 = '#shiokelinci4d*TANASOFI*29*74'; 
 
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO MINHAYOLO77 16*81*71'; 
+var Comment2 = 'IYATOTO TANPLAK123 96*83*68'; 
 
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / MINYORASU97 / 90 , 79 , 09'; 
+var Comment3 = 'Tiktaktogel / TANLOYO12 / 19 , 59 , 03'; 
 
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=MINHAROKOK87=15*98*86'; 
+var Comment4 = 'GAIB4D=TANKOR90=25*85*67'; 
 
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (MINHARMATI77) = 37*13*02'; 
+var Comment5 = '#keitogel = (TANMO38) = 01*44*31'; 
 
 var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=MINHARIMAU67=93*62*42'; 
+var Comment6 = 'KIOSTOTO=TANLALI14=88*75*65'; 
 
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL MINHAROLOL77 21*73*87'; 
+var Comment7 = 'ASEPTOGEL TANLONTO12 17*84*50'; 
 
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=MINHANTULO89= 34*76'; 
+var Comment8 = '#MENARA4D=TANDOL78= 08*14'; 
 
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=MINHIKABOR99=34*76*24'; 
+var Comment9 = 'GILA4D=TANMEROT2=08*14*33'; 
 
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(MINHARIASU27)*21*73*63'; 
+var Comment10 = '#JNETOTO(TANLOLO88)*17*84*41'; 
 
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( MINHARELOK88 ) : 93*62*63'; 
+var Comment11 = '#TOYIBSLOT ( TANLOL87 ) : 88*75*41'; 
 
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY MINARMANUK77 37*13*02'; 
+var Comment12 = 'TOGELKUY TANLANAS36 01*44*31'; 
 
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( MINHARELOK88 ) 15*98'; 
+var Comment13 = '#KOITOTO ( TANLOL87 ) 25*85'; 
 
 var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=MINHANTULO89=90*79*09'; 
+var Comment14 = 'ANGKER4D=TANDOL78=19*59*03'; 
 
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (MINARVESTO98) 16*81*71'; 
+var Comment15 = 'VESPATOGEL (TANLES78) 96*83*68'; 
 
 var namagroup16 = 'Nemo';
-var Comment16 = 'NEMO4D (MINARVESTO98) : 06*28*27'; 
+var Comment16 = 'NEMO4D (TANLES78) : 29*74*04'; 
 
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (MINARVESTO98) = 87*42';
+var Comment17 = '#KIKOTOTO (TANLES78) = 65*50';
 
 var namagroup18 = 'Jawatengah';
-var Comment18 = 'Zulf4';
-
+var Comment18 = 'Zulf1';
 
 
 
@@ -126,15 +124,77 @@ var Backlist5 = "prediksi";
 var Backlist6 = "result";
 var Backlist7 = "juara lomba";
 
-let isCommenting = false;
-let isDound = false;
+var isCommenting = false;
+var isDound = false;
+var EXPIRATION_MS = 8 * 60 * 1000; // 5 minutes
+var now = Date.now();
+
+// ✅ Daftar grup dan nilai default yang ingin disimpan
+var groups = [
+    { groupId: namagroup1, defaultValue: false },
+    { groupId: namagroup2, defaultValue: false },
+    { groupId: namagroup3, defaultValue: false },
+    { groupId: namagroup4, defaultValue: false },
+    { groupId: namagroup5, defaultValue: false },
+    { groupId: namagroup6, defaultValue: false },
+    { groupId: namagroup7, defaultValue: false },
+    { groupId: namagroup8, defaultValue: false },
+    { groupId: namagroup9, defaultValue: false },
+    { groupId: namagroup10, defaultValue: false },
+    { groupId: namagroup11, defaultValue: false },
+    { groupId: namagroup12, defaultValue: false },
+    { groupId: namagroup13, defaultValue: false },
+    { groupId: namagroup14, defaultValue: false },
+    { groupId: namagroup15, defaultValue: false },
+    { groupId: namagroup16, defaultValue: false },
+    { groupId: namagroup17, defaultValue: false },
+    { groupId: namagroup18, defaultValue: false }
+    // Tambahkan groupId lain sesuai kebutuhan
+];
+var datakomen = {
+                    [namagroup1]: await GM.getValue(`group_${namagroup1}`),
+                    [namagroup2]: await GM.getValue(`group_${namagroup2}`),
+                    [namagroup3]: await GM.getValue(`group_${namagroup3}`),
+                    [namagroup4]: await GM.getValue(`group_${namagroup4}`),
+                    [namagroup5]: await GM.getValue(`group_${namagroup5}`),
+                    [namagroup6]: await GM.getValue(`group_${namagroup6}`),
+                    [namagroup7]: await GM.getValue(`group_${namagroup7}`),
+                    [namagroup8]: await GM.getValue(`group_${namagroup8}`),
+                    [namagroup9]: await GM.getValue(`group_${namagroup9}`),
+                    [namagroup10]: await GM.getValue(`group_${namagroup10}`),
+                    [namagroup11]: await GM.getValue(`group_${namagroup11}`),
+                    [namagroup12]: await GM.getValue(`group_${namagroup12}`),
+                    [namagroup13]: await GM.getValue(`group_${namagroup13}`),
+                    [namagroup14]: await GM.getValue(`group_${namagroup14}`),
+                    [namagroup15]: await GM.getValue(`group_${namagroup15}`),
+                    [namagroup16]: await GM.getValue(`group_${namagroup16}`),
+                    [namagroup17]: await GM.getValue(`group_${namagroup17}`),
+                    [namagroup18]: await GM.getValue(`group_${namagroup18}`)
+                };
+
+async function manageGroups() {
+    for (const { groupId, defaultValue } of groups) {
+        const key = `group_${groupId}`;
+        const expireKey = `${key}_expire`;
+        const expireAt = await GM.getValue(expireKey, 0);
+
+        if (now > expireAt) {
+            console.log(`Group ${groupId} expired. Resetting.`);
+            await GM.setValue(key, defaultValue);
+            await GM.setValue(expireKey, now + EXPIRATION_MS);
+        }
+    }
+}
+
+manageGroups()
+
 var myrefresh = setInterval(function(){
 
     if(document.location.href.includes("group")){
         window.scroll(0,200)
     }
     if(isCommenting){
-        location.href = "about:blank"
+        startAutoTask();
     }
     if(document.location.href.includes("group")){
         for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
@@ -200,7 +260,6 @@ var myrefresh = setInterval(function(){
                                 clickAt(1, 1);
                                 console.log("comment box ditemukan")
                                 clearInterval(myrefresh);
-                                clearInterval(refreshPage);
                                 console.log("Click Posting box")
                                 tombolKirim.click();
                                 game.start()
@@ -213,15 +272,7 @@ var myrefresh = setInterval(function(){
                 }
             }
         }
-    }
-
-
-},10)
-
-
-var refreshPage = setInterval(function(){
-
-    var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
+        var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
     var waktupost = document.getElementsByClassName("native-text");
     if(!document.querySelectorAll("[role='presentation']")[0]){
         if (document.readyState === "complete") {
@@ -234,10 +285,10 @@ var refreshPage = setInterval(function(){
             }
         }
     }
-       if (isDound) {
+    if (isDound) {
 
-            clickAt(1, 1);
-       }
+        clickAt(1, 1);
+    }
     if(document.getElementsByClassName("loading-overlay").length == 0 ){
 
         if(document.querySelectorAll("[role='presentation']")[0]){
@@ -245,10 +296,10 @@ var refreshPage = setInterval(function(){
                 for (var coki = 0; coki < waktupost.length; coki++) {
                     if(waktupost[coki].textContent === "Aktivitas terbaru") {
                         if(document.getElementsByClassName("prevent-scrolling")[0]){
-                             if (isDound) {
+                            if (isDound) {
 
-                                 clickAt(1, 1);
-                             }
+                                clickAt(1, 1);
+                            }
                             waktupost[coki].click()
                         }
 
@@ -257,28 +308,26 @@ var refreshPage = setInterval(function(){
             }
         }
     }
-}, refresh * 10)
+    }
 
+
+},refresh * 10)
 
 var commentToPost = '';
-
-
-
-
+var grouptToPost = '';
 function gameClosure() {
     if (isCommenting) return;
-    function game() {
 
-        console.log('Menentukan Komentar')
-        /* This is just an example, replace this with the body of gameInit() */
-        if(document.getElementsByClassName("multi-line-floating-textbox").length > 0 ){
-            var ceknamagroup =document.getElementsByClassName("fixed-container")[0].textContent;
-            var ceknamagroup1 =document.getElementsByClassName('native-text')[5].textContent;
-            var ceknamagroup2 =document.getElementsByClassName('native-text')[6].textContent;
-            var ceknamagroup3 = document.getElementsByClassName('native-text')[7].textContent;
-            var ceknamagroup4 = document.getElementsByClassName('native-text')[8].textContent;
-            'use strict';
-            if (document.getElementsByClassName("multi-line-floating-textbox")[0]){
+    function game() {
+        console.log('Menentukan Komentar');
+        if (document.getElementsByClassName("multi-line-floating-textbox").length > 0) {
+            var ceknamagroup = document.getElementsByClassName("fixed-container")[0]?.textContent || '';
+            var ceknamagroup1 = document.getElementsByClassName('native-text')[5]?.textContent || '';
+            var ceknamagroup2 = document.getElementsByClassName('native-text')[6]?.textContent || '';
+            var ceknamagroup3 = document.getElementsByClassName('native-text')[7]?.textContent || '';
+            var ceknamagroup4 = document.getElementsByClassName('native-text')[8]?.textContent || '';
+
+            if (document.getElementsByClassName("multi-line-floating-textbox")[0]) {
                 let commentMap = {
                     [namagroup1]: Comment1,
                     [namagroup2]: Comment2,
@@ -301,26 +350,37 @@ function gameClosure() {
                 };
 
                 for (let groupName in commentMap) {
-                    if (ceknamagroup.includes(groupName)||ceknamagroup1.includes(groupName)||ceknamagroup2.includes(groupName)||ceknamagroup3.includes(groupName)||ceknamagroup4.includes(groupName)) {
+                    if (
+                        ceknamagroup.includes(groupName) ||
+                        ceknamagroup1.includes(groupName) ||
+                        ceknamagroup2.includes(groupName) ||
+                        ceknamagroup3.includes(groupName) ||
+                        ceknamagroup4.includes(groupName)
+                    ) {
                         commentToPost = commentMap[groupName];
-                        console.log("nama group di temukan")
-                        scanPosts()
+                        grouptToPost = groupName
+                        console.log("Nama grup ditemukan: " + groupName);
+                        scanPosts();
                         break;
                     }
                 }
             }
         }
     }
+
     var currentGame;
     return {
         start() {
-            currentGame = setInterval(game, 1)
+            if (currentGame) clearInterval(currentGame);
+            currentGame = setInterval(game, 10);
         },
         stop() {
-            clearInterval(currentGame)
+            if (currentGame) clearInterval(currentGame);
         }
-    }
+    };
 }
+
+var game = gameClosure();
 
 
 function clickAt(x, y) {
@@ -343,42 +403,54 @@ function clickAt(x, y) {
     }
 }
 
+function scanPosts() {
+    if (isCommenting) return;
+    isCommenting = true;
+      if( datakomen[grouptToPost]){
+          startAutoTask();
+          return;
+      }
 
-// Contoh penggunaan:
-
-
-var game = gameClosure()
-function postComment(comment) {
     const textarea = document.querySelector(".multi-line-floating-textbox");
     const sendBtn = document.querySelector(".textbox-submit-button");
 
-    if (!textarea || !sendBtn) {
-        console.log("Textarea atau tombol send tidak ditemukan");
+    if (textarea && sendBtn) {
+        textarea.focus();
+        textarea.value = commentToPost;
+        textarea.dispatchEvent(new Event("input", { bubbles: true }));
+
+        requestAnimationFrame(() => {
+            // Aktifkan tombol jika disabled
+            sendBtn.disabled = false;
+
+            // Buat dan dispatch event mousedown (bukan .click())
+            const clickEvent = document.createEvent("MouseEvents");
+            clickEvent.initEvent("mousedown", true, true);
+            sendBtn.dispatchEvent(clickEvent);
+            GM.setValue("group_" + grouptToPost, true);
+            GM.setValue("group_"+grouptToPost+"_expire", Date.now() + EXPIRATION_MS);
+            console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
+            setTimeout(() => {
+                startAutoTask();
+            }, 2000); // Reload ringan setelah kirim
+        });
+    } else {
+        console.log("❌ Textarea atau tombol kirim tidak ditemukan.");
         isCommenting = false;
-        return;
     }
-
-    textarea.value = comment;
-    textarea.dispatchEvent(new Event("input", { bubbles: true, cancelable: true }));
-
-    sendBtn.style.display = ""; // pastikan tombol terlihat
-    sendBtn.disabled = false;
-
-    // Klik tombol kirim
-    var clicksendcoment = sendBtn
-    clicksendcoment.disabled = false;
-    var clickEvent = document.createEvent ('MouseEvents');
-    clickEvent.initEvent ("mousedown", true, true);
-    sendBtn.dispatchEvent (clickEvent);
-    console.log("Komentar terkirim:", comment);
-    game.stop()
-    isCommenting = true;
-    setTimeout(() => {
-        location.href = "about:blank";
-    }, 1000);
 }
-async function scanPosts() {
-    if (isCommenting) return; // Jangan komentar kalau sedang proses komentar
-    if (!document.location.href.includes("group")) return; // hanya di halaman grup
-    postComment(commentToPost)
+
+
+
+var intervalId = null;
+// Fungsi yang akan dijalankan berulang
+function autoTask() {
+location.href = "about:blank";
+}
+
+// Fungsi untuk memulai interval — tidak langsung dipanggil
+function startAutoTask() {
+    if (intervalId === null) {
+        intervalId = setInterval(autoTask, 1000); // jalan tiap 1 detik
+    }
 }
