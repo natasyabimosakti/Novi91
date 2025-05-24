@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 2
 // @namespace    http://tampermonkey.net/
-// @version      3.37
+// @version      3.38
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung2.js
@@ -83,7 +83,7 @@ var adminList = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia
              "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara","den arkanza","denis",
              "erwin","emilia","evelyn","el givano","esse",
              "fira","fahresa","fiana","fahmi","fiona","fania",
-             "gita","kang bona","hoky","julianti","libra","garda",
+             "gita","kang bona","hoky","julianti","libra","garda","gebby",
              "habib","hefi","hoihai","hana","hoki","hokage",
              "icha","iyatoto","invest","ivanna","inisial","ishaura","imam","isticharo",
              "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer","jhone",
