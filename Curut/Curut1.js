@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT1
 // @namespace    http://tampermonkey.net/
-// @version      3.176
+// @version      3.177
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut1.js
@@ -342,7 +342,7 @@ function scanPosts() {
 
 var intervalId = null;
 function autoTask() {
-    //location.href = "about:blank";
+    location.href = "about:blank";
 }
 
 // Fungsi untuk memulai interval — tidak langsung dipanggil
