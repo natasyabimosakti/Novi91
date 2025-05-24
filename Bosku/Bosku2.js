@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE2
 // @namespace    http://tampermonkey.net/
-// @version      3.173
+// @version      3.174
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @author       You
@@ -341,7 +341,7 @@ function scanPosts() {
 
 var intervalId = null;
 function autoTask() {
-    //location.href = "about:blank";
+    location.href = "about:blank";
 }
 
 // Fungsi untuk memulai interval — tidak langsung dipanggil
