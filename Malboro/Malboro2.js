@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 2
 // @namespace    http://tampermonkey.net/
-// @version      3.163
+// @version      3.164
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
@@ -97,8 +97,6 @@ var adminList = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","
              "wulan","wok","wak",
              "zuko",
              "kanaya","dealova","amel lia","keyza"];
-
-
 
 var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo"]
 var Backlist =["pemenang lomba","rekap","natidulu","room lomba freebet","prediksi","result","juara lomba"]
@@ -328,9 +326,34 @@ function scanPosts() {
             GM.setValue("group_" + grouptToPost, true);
             GM.setValue("group_"+grouptToPost+"_expire", Date.now() + EXPIRATION_MS);
             console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
+
+
+
+            const targetNode = document.body; // atau elemen spesifik yang ingin diawasi
+
+            const configs = { childList: true, subtree: true };
+
+            const callback = function(mutationsList, observer) {
+                for (let mutation of mutationsList) {
+                    if (mutation.addedNodes.length) {
+                        // Cek jika elemen yang diinginkan muncul
+                        mutation.addedNodes.forEach(node => {
+                            if (node.nodeType === 1 && node.textContent.toLowerCase().includes('diposting')||node.textContent.toLowerCase().includes('berhasil')) {
+                                console.log('Notifikasi Postingan Terkirim:', node.textContent.toLowerCase());
+                                startAutoTask();
+                                // Lakukan aksi di sini
+                            }
+                        });
+                    }
+                }
+            };
+
+            const observer = new MutationObserver(callback);
+            observer.observe(targetNode, configs);
+
             setTimeout(() => {
                 startAutoTask();
-            }, 6000); // Reload ringan setelah kirim
+            }, 15000); // Reload ringan setelah kirim
         });
     } else {
         console.log("❌ Textarea atau tombol kirim tidak ditemukan.");
@@ -346,6 +369,6 @@ function autoTask() {
 // Fungsi untuk memulai interval — tidak langsung dipanggil
 function startAutoTask() {
     if (intervalId === null) {
-        intervalId = setInterval(autoTask, 1000); // jalan tiap 1 detik
+        intervalId = setInterval(autoTask, 15000); // jalan tiap 1 detik
     }
 }
