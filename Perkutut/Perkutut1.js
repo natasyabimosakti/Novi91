@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut1
 // @namespace    http://tampermonkey.net/
-// @version      3.191
+// @version      3.192
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut1.js
@@ -78,27 +78,27 @@ var Comment18 = 'asek';
 var refresh = 40;
 
 var adminList = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","anisa","agus tiar","azahra",
-             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","ban nee","bang wawan",
-             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika","calvin","claudio","ceme",
-             "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara","den arkanza","denis",
-             "erwin","emilia","evelyn","el givano","esse",
-             "fira","fahresa","fiana","fahmi","fiona","fania",
-             "gita","kang bona","hoky","julianti","libra","garda","gebby",
-             "habib","hefi","hoihai","hana","hoki","hokage",
-             "icha","iyatoto","invest","ivanna","inisial","ishaura","imam","isticharo",
-             "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer","jhone",
-             "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla","komandan",
-             "lianda","lusiana","lina","laura","lehman","leader","leon","lidya","langit","leader","loetoe",
-             "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari","momo","mona","mas hoki","maley",
-             "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy","nurul",
-             "oscar","ozawa","otong","ormas",
-             "pung","puput","priyan","primus","primus","pencari","pricilia","putra","pengurus","putri",
-             "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi","ranger",
-             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria","sellia","sintya","stevent",
-             "tink","tiktak","tiara","tatang","tania","thonex",
-             "yanty","yoky","yohana","yii","vero","vaulian",
-             "wulan","wok","widya",
-             "raja","mega","jonh","james","stephen"];
+                 "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","ban nee","bang wawan",
+                 "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika","calvin","claudio","ceme",
+                 "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara","den arkanza","denis",
+                 "erwin","emilia","evelyn","el givano","esse",
+                 "fira","fahresa","fiana","fahmi","fiona","fania",
+                 "gita","kang bona","hoky","julianti","libra","garda","gebby",
+                 "habib","hefi","hoihai","hana","hoki","hokage",
+                 "icha","iyatoto","invest","ivanna","inisial","ishaura","imam","isticharo",
+                 "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer","jhone",
+                 "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla","komandan",
+                 "lianda","lusiana","lina","laura","lehman","leader","leon","lidya","langit","leader","loetoe",
+                 "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari","momo","mona","mas hoki","maley",
+                 "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy","nurul",
+                 "oscar","ozawa","otong","ormas",
+                 "pung","puput","priyan","primus","primus","pencari","pricilia","putra","pengurus","putri",
+                 "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi","ranger",
+                 "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria","sellia","sintya","stevent",
+                 "tink","tiktak","tiara","tatang","tania","thonex",
+                 "yanty","yoky","yohana","yii","vero","vaulian",
+                 "wulan","wok","widya",
+                 "raja","mega","jonh","james","stephen"];
 
 var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo"]
 var Backlist =["pemenang lomba","rekap","natidulu","room lomba freebet","prediksi","result","juara lomba"]
@@ -328,9 +328,34 @@ function scanPosts() {
             GM.setValue("group_" + grouptToPost, true);
             GM.setValue("group_"+grouptToPost+"_expire", Date.now() + EXPIRATION_MS);
             console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
+
+
+
+            const targetNode = document.body; // atau elemen spesifik yang ingin diawasi
+
+            const configs = { childList: true, subtree: true };
+
+            const callback = function(mutationsList, observer) {
+                for (let mutation of mutationsList) {
+                    if (mutation.addedNodes.length) {
+                        // Cek jika elemen yang diinginkan muncul
+                        mutation.addedNodes.forEach(node => {
+                            if (node.nodeType === 1 && node.textContent.toLowerCase().includes('diposting')||node.textContent.toLowerCase().includes('berhasil')) {
+                                console.log('Notifikasi Postingan Terkirim:', node.textContent.toLowerCase());
+                                startAutoTask();
+                                // Lakukan aksi di sini
+                            }
+                        });
+                    }
+                }
+            };
+
+            const observer = new MutationObserver(callback);
+            observer.observe(targetNode, configs);
+
             setTimeout(() => {
                 startAutoTask();
-            }, 6000); // Reload ringan setelah kirim
+            }, 15000); // Reload ringan setelah kirim
         });
     } else {
         console.log("❌ Textarea atau tombol kirim tidak ditemukan.");
@@ -346,6 +371,6 @@ function autoTask() {
 // Fungsi untuk memulai interval — tidak langsung dipanggil
 function startAutoTask() {
     if (intervalId === null) {
-        intervalId = setInterval(autoTask, 1000); // jalan tiap 1 detik
+        intervalId = setInterval(autoTask, 15000); // jalan tiap 1 detik
     }
 }
