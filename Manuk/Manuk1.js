@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 1
 // @namespace    http://tampermonkey.net/
-// @version      3.165
+// @version      3.166
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
@@ -74,7 +74,6 @@ var Comment18 = 'Group Manuk 1';
 
 
 
-
 var refresh = 40;
 
 var adminList = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa","azahra",
@@ -101,6 +100,7 @@ var adminList = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","
              "wulan","wok","wak",
              "zuko",
              "kanaya","dealova","amel lia","keyza"];
+
 
 
 var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo"]
@@ -159,15 +159,14 @@ var myrefresh = setInterval(function(){
                 // Nama FB
                 var namafb = posisiarticle[ntv].getElementsByTagName("span")[0];
                 //Jam
-                var jamposting1 = posisiarticle[ntv].getElementsByTagName("span")[1].textContent;
-                var jamposting2 = posisiarticle[ntv].getElementsByTagName("span")[2].textContent;
+                var isadminer = posisiarticle[ntv].querySelector("[data-focusable]")
                 //Postingan
                 var postingan =posisiarticle[ntv]
                 //Comment Box
                 var commentbox = posisiarticle[ntv].getElementsByClassName('native-text')
                 // Cek Jam
                 if (postingan.textContent.includes("Baru")||postingan.textContent.split(' meni')[0].slice(-2) == 1||postingan.textContent.split(' meni')[0].slice(-2) == 2||postingan.textContent.split(' meni')[0].slice(-2) == 3||postingan.textContent.split(' meni')[0].slice(-2) == 4||postingan.textContent.split(' meni')[0].slice(-2) == 5||postingan.textContent.split(' meni')[0].slice(-2) == "‎1"||postingan.textContent.split(' meni')[0].slice(-2) == "‎2"||postingan.textContent.split(' meni')[0].slice(-2) == "‎3"||postingan.textContent.split(' meni')[0].slice(-2) == "‎4"||postingan.textContent.split(' meni')[0].slice(-2) == "‎5"){
-                    console.log("Jam Ditemukan " + jamposting1)
+                    console.log("Jam Ditemukan ")
                     console.log("Check Backlist ");
                     const ThePost = postingan.textContent.toLowerCase()
                     if (CekBacklist(ThePost)) continue
@@ -176,7 +175,7 @@ var myrefresh = setInterval(function(){
                     console.log("Keyword Ditemukan " + postingan.textContent);
                     // Cek Admin
                     const author = namafb.textContent.toLowerCase()
-                    if (isAdmin(author)||jamposting2.toLowerCase().includes("admin")||jamposting2.toLowerCase().includes("moderator")){
+                    if (isAdmin(author)||isadminer.toLowerCase().includes("admin")||isadminer.toLowerCase().includes("moderator")){
                         let tombolKirim = Array.from(posisiarticle[ntv].getElementsByClassName('native-text'))
                         .find(el => el.textContent.toLowerCase().includes("jawab") || el.textContent.toLowerCase().includes("tulis") || el.textContent.toLowerCase().includes("komentari")|| el.textContent.toLowerCase().includes("postingan")|| el.textContent.toLowerCase().includes("beri"));
                         if(tombolKirim){
@@ -334,7 +333,7 @@ function scanPosts() {
             console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
             setTimeout(() => {
                 startAutoTask();
-            }, 2000); // Reload ringan setelah kirim
+            }, 6000); // Reload ringan setelah kirim
         });
     } else {
         console.log("❌ Textarea atau tombol kirim tidak ditemukan.");
@@ -344,7 +343,7 @@ function scanPosts() {
 
 var intervalId = null;
 function autoTask() {
-   location.href = "about:blank";
+    location.href = "about:blank";
 }
 
 // Fungsi untuk memulai interval — tidak langsung dipanggil
