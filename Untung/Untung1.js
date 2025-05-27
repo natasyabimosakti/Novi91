@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 1
 // @namespace    http://tampermonkey.net/
-// @version      3.40
+// @version      3.41
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung1.js
@@ -74,6 +74,7 @@ var Comment18 = 'asek';
 
 
 
+
 var refresh = 40;
 
 var adminList = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","anisa","agus tiar","azahra",
@@ -105,12 +106,48 @@ var isCommenting = false;
 var isDound = false;
 var EXPIRATION_MS = 8 * 60 * 1000; // 5 minutes
 var now = Date.now();
-// ✅ Daftar grup dan nilai default yang ingin disimpan
+// ✅ Daftar grup dan nilai default
 const groupNames = [
     namagroup1, namagroup2, namagroup3, namagroup4, namagroup5, namagroup6,
     namagroup7, namagroup8, namagroup9, namagroup10, namagroup11, namagroup12,
     namagroup13, namagroup14, namagroup15, namagroup16, namagroup17, namagroup18
 ];
+var commentToPost = '';
+var grouptToPost = '';
+let myObserver = null;
+var forceOffRefresh = false;
+var cekTombolUrutkan = true;
+
+if(document.location.href.includes("group")){
+    myObserver = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            for (const node of mutation.addedNodes) {
+                if (node.nodeType !== 1) continue; // Bukan elemen
+                const text = node.textContent || "";
+                if (text.includes("URUTKAN")) {
+                    console.log("TOMBOL URUTKAN DITEMUKAN:", node);
+                    cekTombolUrutkan = true;
+                }
+
+                if (text.includes("Aktivitas terbaru")) {
+                    const tombol = node.querySelectorAll("[role='button']");
+                    if (tombol.length >= 2) {
+                        cekTombolUrutkan = false;
+                        console.log("TOMBOL AKTIVITAS TERBARU DITEMUKAN:", node);
+
+                        tombol.forEach(btn => {
+                            if (btn.textContent.includes("Aktivitas terbaru")) {
+                                btn.click();
+                            }
+                        });
+                    }
+                }
+            }
+        }
+    });
+    myObserver.observe(document.body, { childList: true, subtree: true });
+}
+
 var groups = groupNames.map(groupId => ({ groupId, defaultValue: false }));
 const datakomenArray = await Promise.all(
     groupNames.map(name => GM.getValue(`group_${name}`))
@@ -133,6 +170,7 @@ async function manageGroups() {
         }
     }
 }
+
 manageGroups()
 function CekBacklist(postinganBL) {
     return Backlist.some(DataBacklist => postinganBL.includes(DataBacklist.toLowerCase()));
@@ -141,151 +179,165 @@ function CekKeyword(postingan) {
     return keyword.some(DataKeyword => postingan.includes(DataKeyword.toLowerCase()));
 }
 function isAdmin(authorName) {
-    return adminList.some(admin => authorName.includes(admin.toLowerCase()));
+    return adminList.some(admin => authorName.toLowerCase().includes(admin.toLowerCase()));
+
 }
-var myrefresh = setInterval(function(){
-    if(isCommenting){
-        startAutoTask();
-    }
+
+function cekArticle() {
     if(document.location.href.includes("group")){
-        var posisiarticle = document.querySelectorAll('[data-tracking-duration-id')
-        for (let ntv = 0; ntv < posisiarticle.length; ntv++) {
+        const observercontetn = new MutationObserver((mutations) => {
+            for (const mutation of mutations) {
+                for (const node of mutation.addedNodes) {
+                    if (node.nodeType !== 1) continue; // Bukan elemen
+                    const text = node.textContent || "";
+                    if (node.hasAttribute && node.hasAttribute("data-tracking-duration-id")) {
 
-            if (posisiarticle[ntv]){
-                // Nama FB
-                var namafb = posisiarticle[ntv].getElementsByTagName("span")[0];
-                //Jam
-                var isadminer = posisiarticle[ntv].querySelector("[data-focusable]")
-                //Postingan
-                var postingan =posisiarticle[ntv]
-                //Comment Box
-                var commentbox = posisiarticle[ntv].getElementsByClassName('native-text')
-                // Cek Jam
-                if (postingan.textContent.includes("Baru")||postingan.textContent.split(' meni')[0].slice(-2) == 1||postingan.textContent.split(' meni')[0].slice(-2) == 2||postingan.textContent.split(' meni')[0].slice(-2) == 3||postingan.textContent.split(' meni')[0].slice(-2) == 4||postingan.textContent.split(' meni')[0].slice(-2) == 5||postingan.textContent.split(' meni')[0].slice(-2) == "‎1"||postingan.textContent.split(' meni')[0].slice(-2) == "‎2"||postingan.textContent.split(' meni')[0].slice(-2) == "‎3"||postingan.textContent.split(' meni')[0].slice(-2) == "‎4"||postingan.textContent.split(' meni')[0].slice(-2) == "‎5"){
-                    console.log("Jam Ditemukan ")
-                    console.log("Check Backlist ");
-                    const ThePost = postingan.textContent.toLowerCase()
-                    if (CekBacklist(ThePost)) continue
-                    console.log("Proses dilanjutkan tidak ada Backlist");
-                    if (!CekKeyword(ThePost)) continue
-                    console.log("Keyword Ditemukan " + postingan.textContent);
-                    // Cek Admin
-                    const author = namafb.textContent.toLowerCase()
-                    if (isAdmin(author)||isadminer.toLowerCase().includes("admin")||isadminer.toLowerCase().includes("moderator")){
-                        let tombolKirim = Array.from(posisiarticle[ntv].getElementsByClassName('native-text'))
-                        .find(el => el.textContent.toLowerCase().includes("jawab") || el.textContent.toLowerCase().includes("tulis") || el.textContent.toLowerCase().includes("komentari")|| el.textContent.toLowerCase().includes("postingan")|| el.textContent.toLowerCase().includes("beri"));
-                        if(tombolKirim){
-                            isDound = true;
-                            clickAt(1, 1);
-                            console.log("comment box ditemukan")
-                            clearInterval(myrefresh);
-                            console.log("Click Posting box")
-                            tombolKirim.click();
-                            // Click Comment Box
-                            game.start()
-                        }
-                    }else{
-                        continue
-                    }
-                }
-            }
-        }
-        var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
-        var waktupost = document.getElementsByClassName("native-text");
-        if(!document.querySelectorAll("[role='presentation']")[0]){
-            if (document.readyState === "complete") {
-                for (var cok = 0; cok < urutkan.length; cok++) {
-                    if(urutkan[cok].textContent.includes("URUTKAN")) {
-                        if (isDound) return;
-                        urutkan[cok].click()
-                    }
-                }
-            }
-        }
-        if (isDound) {
-            clickAt(1, 1);
-        }
-        if(document.getElementsByClassName("loading-overlay").length == 0 ){
+                        // Cek Jam
+                        if (/(\bBaru saja\b)/.test(text)||/(\b1 menit\b)/.test(text)||/(\b2 menit\b)/.test(text)||/(\b3 menit\b)/.test(text)||/(\b4 menit\b)/.test(text)||/(\b5 menit\b)/.test(text)) {
+                            var namafb = node.getElementsByTagName("span")[0];
+                            //Jam
+                            var isadminer = node.querySelector("[data-focusable]")
+                            //Postingan
+                            var ThePost =node
+                            //Comment Box
+                            var commentbox = node.getElementsByClassName('native-text')
+                            console.log("jam di temukan", node);
+                            console.log("Jam Ditemukan ")
+                            console.log("Check Backlist ");
+                            if (CekBacklist(ThePost.textContent.toLowerCase())) continue
+                            console.log("Proses dilanjutkan tidak ada Backlist");
+                            if (!CekKeyword(ThePost.textContent.toLowerCase())) continue
+                            console.log("Keyword Ditemukan " + ThePost.textContent);
+                            // Cek Admin
+                            const author = namafb.textContent.toLowerCase()
+                            if (isAdmin(author)||isadminer.textContent.toLowerCase().includes("admin")||isadminer.textContent.toLowerCase().includes("moderator")){
+                                const tombolKirim = Array.from(node.getElementsByClassName('native-text')).find(el => {
+                                    const text = el.textContent.toLowerCase();
+                                    return (
+                                        text.includes("jawab") ||
+                                        text.includes("tulis") ||
+                                        text.includes("komentari") ||
+                                        text.includes("postingan") ||
+                                        text.includes("beri")
+                                    );
+                                });
 
-            if(document.querySelectorAll("[role='presentation']")[0]){
-                if (document.readyState === "complete") {
-                    for (var coki = 0; coki < waktupost.length; coki++) {
-                        if(waktupost[coki].textContent === "Aktivitas terbaru") {
-                            if(document.getElementsByClassName("prevent-scrolling")[0]){
-                                if (isDound) {
-                                    clickAt(1, 1);
+                                if (tombolKirim) {
+                                    forceOffRefresh = true;
+                                    clearInterval(myrefresh)
+                                    console.log("Tombol komentar ditemukan:", tombolKirim);
+                                    let intervalId = setInterval(() => {
+                                        if (myObserver) {
+                                            myObserver.disconnect();
+                                            console.log("🛑 Observer refresh dihentikan");
+                                        }
+                                        observercontetn.disconnect();
+                                        tombolKirim.click()
+                                        if (document.getElementsByClassName("multi-line-floating-textbox")[0]) {
+                                            clearInterval(intervalId);
+                                        }
+
+                                    }, 5);
+
                                 }
-                                waktupost[coki].click()
+
                             }
                         }
                     }
+                }
+            }
+        });
+        observercontetn.observe(document.body, { childList: true, subtree: true });
+    }
+}
+cekArticle()
+
+function tungguMentionsContainer() {
+    const observer = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            for (const node of mutation.addedNodes) {
+                if (node.nodeType !== 1) continue; // Skip jika bukan elemen
+                const container = node.querySelector?.('.mentions-shadow-container');
+                if (container) {
+                    console.log("Mentions container ditemukan (subtree):", container);
+                    if (isCommenting) return;
+                    console.log('Menentukan Komentar');
+                    if (document.getElementsByClassName("multi-line-floating-textbox").length > 0) {
+                        var ceknamagroup = document.getElementsByClassName("fixed-container")[0]?.textContent || '';
+                        var ceknamagroup1 = document.getElementsByClassName('native-text')[5]?.textContent || '';
+                        var ceknamagroup2 = document.getElementsByClassName('native-text')[6]?.textContent || '';
+                        var ceknamagroup3 = document.getElementsByClassName('native-text')[7]?.textContent || '';
+                        var ceknamagroup4 = document.getElementsByClassName('native-text')[8]?.textContent || '';
+                        if (document.getElementsByClassName("multi-line-floating-textbox")[0]) {
+                            let commentMap = {
+                                [namagroup1]: Comment1,
+                                [namagroup2]: Comment2,
+                                [namagroup3]: Comment3,
+                                [namagroup4]: Comment4,
+                                [namagroup5]: Comment5,
+                                [namagroup6]: Comment6,
+                                [namagroup7]: Comment7,
+                                [namagroup8]: Comment8,
+                                [namagroup9]: Comment9,
+                                [namagroup10]: Comment10,
+                                [namagroup11]: Comment11,
+                                [namagroup12]: Comment12,
+                                [namagroup13]: Comment13,
+                                [namagroup14]: Comment14,
+                                [namagroup15]: Comment15,
+                                [namagroup16]: Comment16,
+                                [namagroup17]: Comment17,
+                                [namagroup18]: Comment18
+                            };
+                            const allGroups = [ceknamagroup, ceknamagroup1, ceknamagroup2, ceknamagroup3, ceknamagroup4];
+
+                            for (let groupName in commentMap) {
+                                if (allGroups.some(list => list.includes(groupName))) {
+                                    commentToPost = commentMap[groupName];
+                                    grouptToPost = groupName;
+                                    console.log("Nama grup ditemukan: " + groupName);
+                                    scanPosts();
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    observer.disconnect();
+                    return;
+                }
+
+            }
+        }
+    });
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+
+    console.log("Observer aktif, menunggu .mentions-shadow-container...");
+}
+tungguMentionsContainer();
+
+var myrefresh = setInterval(function(){
+    console.log("forceOffRefresh:", forceOffRefresh)
+    if (forceOffRefresh == true){
+        return;
+    }
+    var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
+    var waktupost = document.getElementsByClassName("native-text");
+    if(!document.querySelectorAll("[role='presentation']")[0]){
+        if (document.readyState === "complete") {
+            for (var cok = 0; cok < urutkan.length; cok++) {
+                if(urutkan[cok].textContent.includes("URUTKAN")) {
+                    if (isDound) return;
+                    urutkan[cok].click()
                 }
             }
         }
     }
 },refresh * 10)
 
-var commentToPost = '';
-var grouptToPost = '';
-function gameClosure() {
-    if (isCommenting) return;
-    function game() {
-        console.log('Menentukan Komentar');
-        if (document.getElementsByClassName("multi-line-floating-textbox").length > 0) {
-            var ceknamagroup = document.getElementsByClassName("fixed-container")[0]?.textContent || '';
-            var ceknamagroup1 = document.getElementsByClassName('native-text')[5]?.textContent || '';
-            var ceknamagroup2 = document.getElementsByClassName('native-text')[6]?.textContent || '';
-            var ceknamagroup3 = document.getElementsByClassName('native-text')[7]?.textContent || '';
-            var ceknamagroup4 = document.getElementsByClassName('native-text')[8]?.textContent || '';
-            if (document.getElementsByClassName("multi-line-floating-textbox")[0]) {
-                let commentMap = {
-                    [namagroup1]: Comment1,
-                    [namagroup2]: Comment2,
-                    [namagroup3]: Comment3,
-                    [namagroup4]: Comment4,
-                    [namagroup5]: Comment5,
-                    [namagroup6]: Comment6,
-                    [namagroup7]: Comment7,
-                    [namagroup8]: Comment8,
-                    [namagroup9]: Comment9,
-                    [namagroup10]: Comment10,
-                    [namagroup11]: Comment11,
-                    [namagroup12]: Comment12,
-                    [namagroup13]: Comment13,
-                    [namagroup14]: Comment14,
-                    [namagroup15]: Comment15,
-                    [namagroup16]: Comment16,
-                    [namagroup17]: Comment17,
-                    [namagroup18]: Comment18
-                };
-                const allGroups = [ceknamagroup, ceknamagroup1, ceknamagroup2, ceknamagroup3, ceknamagroup4];
 
-                for (let groupName in commentMap) {
-                    if (allGroups.some(list => list.includes(groupName))) {
-                        commentToPost = commentMap[groupName];
-                        grouptToPost = groupName;
-                        console.log("Nama grup ditemukan: " + groupName);
-                        clearInterval(currentGame);
-                        scanPosts();
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    var currentGame;
-    return {
-        start() {
-            if (currentGame) clearInterval(currentGame);
-            currentGame = setInterval(game, 10);
-        },
-        stop() {
-            if (currentGame) clearInterval(currentGame);
-        }
-    };
-}
-
-var game = gameClosure();
 function clickAt(x, y) {
     const el = document.elementFromPoint(x, y);
     if (el) {
@@ -318,9 +370,7 @@ function scanPosts() {
         textarea.value = commentToPost;
         textarea.dispatchEvent(new Event("input", { bubbles: true }));
         requestAnimationFrame(() => {
-            // Aktifkan tombol jika disabled
             sendBtn.disabled = false;
-            // Buat dan dispatch event mousedown (bukan .click())
             const clickEvent = document.createEvent("MouseEvents");
             clickEvent.initEvent("mousedown", true, true);
             sendBtn.dispatchEvent(clickEvent);
@@ -341,8 +391,8 @@ function scanPosts() {
                         mutation.addedNodes.forEach(node => {
                             if (node.nodeType === 1 && node.textContent.toLowerCase().includes('diposting')||node.textContent.toLowerCase().includes('berhasil')) {
                                 console.log('Notifikasi Postingan Terkirim:', node.textContent.toLowerCase());
-                                startAutoTask();
-                                // Lakukan aksi di sini
+                                location.href = "about:blank";
+                                observer.disconnect();
                             }
                         });
                     }
@@ -367,9 +417,8 @@ function autoTask() {
     location.href = "about:blank";
 }
 
-// Fungsi untuk memulai interval — tidak langsung dipanggil
 function startAutoTask() {
     if (intervalId === null) {
-        intervalId = setInterval(autoTask, 15000); // jalan tiap 1 detik
+        intervalId = setInterval(autoTask, 15000); 
     }
 }
