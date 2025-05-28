@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.255
+// @version      3.256
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
@@ -76,30 +76,30 @@ var Comment18 = 'Group Manyut 4';
 
 var refresh = 40;
 
-var adminList = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa","azahra",
-             "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang","aru sundawa","agus tiar","imam","oppe","komandan","melinda","ranger",
+var adminList = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","adi","aldi","ananda","alde","adm","ayesha","aqisya","anjani","apri","amore","arifin","ayunda","agung","arem","arifa","azahra","agus tiar","aru sundawa","amel lia",
+             "boleng","biru","bobby","bastian","bambang","bogard","bannet","botack","bang","bonar",
              "cristina","camb","cassa","che","cinta","celsia","calista","cahyo","cipto","claura","chelsea","calista","chin",
-             "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara",
+             "david","dewa","desi","debby","dewi","dentoto","dika","delon","dewy","damara","dealova",
              "erwin","elvina","evelyn","enzo",
              "fira","fahresa","findlay","fatimah",
              "gita","genzo","gambrong",
              "habib","hefi","hoihai","herfizah","hanny","hanabi","hokage","hoi hai",
-             "icha","iyatoto","intan",
+             "icha","iyatoto","intan","imam",
              "jordi","jaguar","jne","je pe","jess","junior","jovanka","jasmine",
-             "kei","kumbara","kembar","kotna","karina","kopi","kang",
+             "kei","kumbara","kembar","kotna","karina","kopi","kang","komandan","kanaya",
              "lianda","lusiana","lina","laura","lia","lollo","lupin",
-             "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","meleqq","megaways","minion","melly","monicha","manu","maryam","mode","mary",
+             "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","meleqq","megaways","minion","melly","monicha","manu","maryam","mode","mary","mamad","melinda",
              "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nayla","naomi","nica",
-             "oscar","ozawa",
+             "oscar","ozawa","oppe",
              "pung","puput","priyan","primus","primus","prediction","pebri","pasil",
-             "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma","ratsa","sinta","rara","ratna","mamad",
+             "ratu","rio","ria","rikodo","rizal","roy","rendy","rahma","ratsa","sinta","rara","ratna","ranger",
              "sandiego","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","specialis","seojun","saskia","sifa","seojun","sudewo","sembroh",
              "tink","tiktak","tiara","tatang","tomi",
              "xian","vivi",
              "yanty","yoky","yohana","yura","yaya",
              "wulan","wok","wak",
              "zuko",
-             "kanaya","dealova","amel lia","keyza"];
+             "keyza"];
 
 var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo"]
 var Backlist =["pemenang lomba","rekap","natidulu","room lomba freebet","prediksi","result","juara lomba"]
@@ -356,7 +356,21 @@ function clickAt(x, y) {
         console.log("No element found at", x, y);
     }
 }
-
+function showNotification(message) {
+                const notif = document.createElement("div");
+                notif.textContent = message;
+                notif.style.position = "fixed";
+                notif.style.bottom = "20px";
+                notif.style.right = "20px";
+                notif.style.padding = "10px 20px";
+                notif.style.backgroundColor = "#4caf50";
+                notif.style.color = "white";
+                notif.style.borderRadius = "5px";
+                notif.style.zIndex = 9999;
+                notif.style.fontSize = "16px";
+                document.body.appendChild(notif);
+                setTimeout(() => notif.remove(), 15000);
+            }
 function scanPosts() {
     if (isCommenting) return;
     isCommenting = true;
@@ -378,9 +392,7 @@ function scanPosts() {
             GM.setValue("group_" + grouptToPost, true);
             GM.setValue("group_"+grouptToPost+"_expire", Date.now() + EXPIRATION_MS);
             console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
-
-
-
+            showNotification("Komentar Berhasil Terkirim : " + commentToPost);
             const targetNode = document.body; // atau elemen spesifik yang ingin diawasi
 
             const configs = { childList: true, subtree: true };
