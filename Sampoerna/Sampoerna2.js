@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna2
 // @namespace    http://tampermonkey.net/
-// @version      3.185
+// @version      3.186
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna2.js
@@ -20,52 +20,37 @@
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 var namagroup1 = 'NONGKRONG';
-var Comment1 = '#AMAVI5D ( BOSBOS64 ) : 78*26*42'; 
-
+var Comment1 = '#AMAVI5D ( BOSBOS64 ) : 78*26*42';
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( BOSEK64 ) : 34*70*45'; 
-
+var Comment2 = 'K86TOTO ( BOSEK64 ) : 34*70*45';
 var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = (BOSREN64) 60*76*40'; 
-
+var Comment3 = '#(WARUNGTOTO) = (BOSREN64) 60*76*40';
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO BOSEN68 = 14*31*28'; 
-
+var Comment4 = '#RIATOTO BOSEN68 = 14*31*28';
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (BOSMAN67*77*86*61)'; 
-
+var Comment5 = '#PEDRO4D (BOSMAN67*77*86*61)';
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (BOSMINI88) = 50*03*30'; 
-
+var Comment6 = '#DIVA4D (BOSMINI88) = 50*03*30';
 var namagroup7 = 'KASTOTO';
-var Comment7 = '#KASTOTO(BOSMAN67) = 95*83*23 #AGENTOGELTERPERCAYA'; 
-
+var Comment7 = '#KASTOTO(BOSMAN67) = 95*83*23 #AGENTOGELTERPERCAYA';
 var namagroup8 = 'TOK99';
-var Comment8 = 'Tok99Toto ( BOSTER73 ) : 93*43*58'; 
-
+var Comment8 = 'Tok99Toto ( BOSTER73 ) : 93*43*58';
 var namagroup9 = 'TAFSIR MIMPI';
-var Comment9 = 'SIJITOGEL BOSMAN67 32*67*73'; 
-
+var Comment9 = 'SIJITOGEL BOSMAN67 32*67*73';
 var namagroup10 = 'KAGET';
-var Comment10 = 'DAGELAN4D(BOSLON89) : 54*74*88'; 
-
+var Comment10 = 'DAGELAN4D(BOSLON89) : 54*74*88';
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*BOSBIG53*29*35*21'; 
-
+var Comment11 = 'BETT*Mayapada4D(BO)*BOSBIG53*29*35*21';
 var namagroup12 = 'OPUNG';
-var Comment12 = 'OPUNG4D ( BOSBIS48 ) : 22*62*71'; 
-
+var Comment12 = 'OPUNG4D ( BOSBIS48 ) : 22*62*71';
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=BOSLEM64=39*90*66'; 
-
-var namagroup14 = 'COMO';
-var Comment14 = '( #COMOTOTO BOSBEN64 : 80*25 )'; 
-
+var Comment13 = 'GOHTOGEL=BOSLEM64=39*90*66';
+var namagroup14 = 'SAMSON';
+var Comment14 = '#SAMSONTOTO/BOSBEN64/80*25';
 var namagroup15 = 'Hoho';
-var Comment15 = 'BOSNOM63 : 68*87*96 #HOHOTOGEL'; 
-
-var namagroup16 = 'CEME';
-var Comment16 = '#CEMETOTO ( BOSBIS48 ) : 56*81*41'; 
+var Comment15 = 'BOSNOM63 : 68*87*96 #HOHOTOGEL';
+var namagroup16 = 'GTO';
+var Comment16 = '(GUDANGTOTO) = (BOSBIS48) 56*81*41';
 
 
 
@@ -84,27 +69,27 @@ var Comment18 = 'asek';
 var refresh = 40;
 
 var adminList = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","anisa","agus tiar","azahra",
-                 "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","ban nee","bang wawan",
+                 "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","ban nee","bang wawan","bonar",
                  "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika","calvin","claudio","ceme",
                  "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara","den arkanza","denis",
-                 "erwin","emilia","evelyn","el givano","esse",
+                 "erwin","emilia","evelyn","el givano","esse","erika",
                  "fira","fahresa","fiana","fahmi","fiona","fania",
                  "gita","kang bona","hoky","julianti","libra","garda","gebby",
                  "habib","hefi","hoihai","hana","hoki","hokage",
-                 "icha","iyatoto","invest","ivanna","inisial","ishaura","imam","isticharo",
-                 "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer","jhone",
+                 "icha","iyatoto","invest","ivanna","inisial","ishaura","imam","isticharo","intan",
+                 "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer","jhone","jonh","james",
                  "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla","komandan",
                  "lianda","lusiana","lina","laura","lehman","leader","leon","lidya","langit","leader","loetoe",
-                 "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari","momo","mona","mas hoki","maley",
+                 "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari","momo","mona","mas hoki","maley","mega",
                  "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy","nurul",
                  "oscar","ozawa","otong","ormas",
-                 "pung","puput","priyan","primus","primus","pencari","pricilia","putra","pengurus","putri",
-                 "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi","ranger",
-                 "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria","sellia","sintya","stevent",
+                 "pung","puput","priyan","primus","primus","pencari","pricilia","putra","pengurus","putri","paduka",
+                 "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi","ranger","raja","rudz","riko",
+                 "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria","sellia","sintya","stevent","stephen","siti",
                  "tink","tiktak","tiara","tatang","tania","thonex",
                  "yanty","yoky","yohana","yii","vero","vaulian",
-                 "wulan","wok","widya",
-                 "raja","mega","jonh","james","stephen"];
+                 "wulan","wok","widya"
+                 ];
 
 var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo"]
 var Backlist =["pemenang lomba","rekap","natidulu","room lomba freebet","prediksi","result","juara lomba"]
@@ -361,7 +346,21 @@ function clickAt(x, y) {
         console.log("No element found at", x, y);
     }
 }
-
+function showNotification(message) {
+                const notif = document.createElement("div");
+                notif.textContent = message;
+                notif.style.position = "fixed";
+                notif.style.bottom = "20px";
+                notif.style.right = "20px";
+                notif.style.padding = "10px 20px";
+                notif.style.backgroundColor = "#4caf50";
+                notif.style.color = "white";
+                notif.style.borderRadius = "5px";
+                notif.style.zIndex = 9999;
+                notif.style.fontSize = "16px";
+                document.body.appendChild(notif);
+                setTimeout(() => notif.remove(), 15000);
+            }
 function scanPosts() {
     if (isCommenting) return;
     isCommenting = true;
@@ -383,9 +382,7 @@ function scanPosts() {
             GM.setValue("group_" + grouptToPost, true);
             GM.setValue("group_"+grouptToPost+"_expire", Date.now() + EXPIRATION_MS);
             console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
-
-
-
+            showNotification("Komentar Berhasil Terkirim : " + commentToPost);
             const targetNode = document.body; // atau elemen spesifik yang ingin diawasi
 
             const configs = { childList: true, subtree: true };
