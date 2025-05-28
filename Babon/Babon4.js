@@ -21,7 +21,7 @@
 
 
 
-"var namagroup1 = 'NONGKRONG';
+var namagroup1 = 'NONGKRONG';
 var Comment1 = '#AMAVI5D ( KURNIAKAN ) : 86*66*46';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( KURIKULUM ) : 26*54*34';
@@ -52,7 +52,7 @@ var Comment14 = '#SAMSONTOTO/KILATPETIR/01*53';
 var namagroup15 = 'Hoho';
 var Comment15 = 'KAOSBOLONG : 06*90*83 #HOHOTOGEL';
 var namagroup16 = 'GTO';
-var Comment16 = '(GUDANGTOTO) = (KURUSIN25) 05*98*11';"	
+var Comment16 = '(GUDANGTOTO) = (KURUSIN25) 05*98*11';
 
 
 
