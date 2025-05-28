@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Babon 1
 // @namespace    http://tampermonkey.net/
-// @version      3.18
+// @version      3.19
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon1.js
@@ -81,27 +81,27 @@ var Comment18 = 'asek';
 var refresh = 40;
 
 var adminList = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","anisa","agus tiar","azahra",
-                 "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","ban nee","bang wawan",
+                 "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","ban nee","bang wawan","bonar",
                  "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika","calvin","claudio","ceme",
                  "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara","den arkanza","denis",
-                 "erwin","emilia","evelyn","el givano","esse",
+                 "erwin","emilia","evelyn","el givano","esse","erika",
                  "fira","fahresa","fiana","fahmi","fiona","fania",
                  "gita","kang bona","hoky","julianti","libra","garda","gebby",
                  "habib","hefi","hoihai","hana","hoki","hokage",
-                 "icha","iyatoto","invest","ivanna","inisial","ishaura","imam","isticharo",
-                 "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer","jhone",
+                 "icha","iyatoto","invest","ivanna","inisial","ishaura","imam","isticharo","intan",
+                 "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer","jhone","jonh","james",
                  "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla","komandan",
                  "lianda","lusiana","lina","laura","lehman","leader","leon","lidya","langit","leader","loetoe",
-                 "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari","momo","mona","mas hoki","maley",
+                 "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari","momo","mona","mas hoki","maley","mega",
                  "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy","nurul",
                  "oscar","ozawa","otong","ormas",
-                 "pung","puput","priyan","primus","primus","pencari","pricilia","putra","pengurus","putri",
-                 "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi","ranger",
-                 "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria","sellia","sintya","stevent",
+                 "pung","puput","priyan","primus","primus","pencari","pricilia","putra","pengurus","putri","paduka",
+                 "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi","ranger","raja","rudz","riko",
+                 "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria","sellia","sintya","stevent","stephen","siti",
                  "tink","tiktak","tiara","tatang","tania","thonex",
                  "yanty","yoky","yohana","yii","vero","vaulian",
-                 "wulan","wok","widya",
-                 "raja","mega","jonh","james","stephen"];
+                 "wulan","wok","widya"
+                 ];
 
 var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo"]
 var Backlist =["pemenang lomba","rekap","natidulu","room lomba freebet","prediksi","result","juara lomba"]
@@ -358,7 +358,21 @@ function clickAt(x, y) {
         console.log("No element found at", x, y);
     }
 }
-
+function showNotification(message) {
+                const notif = document.createElement("div");
+                notif.textContent = message;
+                notif.style.position = "fixed";
+                notif.style.bottom = "20px";
+                notif.style.right = "20px";
+                notif.style.padding = "10px 20px";
+                notif.style.backgroundColor = "#4caf50";
+                notif.style.color = "white";
+                notif.style.borderRadius = "5px";
+                notif.style.zIndex = 9999;
+                notif.style.fontSize = "16px";
+                document.body.appendChild(notif);
+                setTimeout(() => notif.remove(), 15000);
+            }
 function scanPosts() {
     if (isCommenting) return;
     isCommenting = true;
@@ -380,9 +394,7 @@ function scanPosts() {
             GM.setValue("group_" + grouptToPost, true);
             GM.setValue("group_"+grouptToPost+"_expire", Date.now() + EXPIRATION_MS);
             console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
-
-
-
+            showNotification("Komentar Berhasil Terkirim : " + commentToPost);
             const targetNode = document.body; // atau elemen spesifik yang ingin diawasi
 
             const configs = { childList: true, subtree: true };
