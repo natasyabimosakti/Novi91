@@ -21,52 +21,37 @@
 
 
 var namagroup1 = 'NONGKRONG';
-var Comment1 = '#AMAVI5D ( SUNTIKMATI ) : 59*95*87'; 
-
+var Comment1 = '#AMAVI5D ( SUNTIKMATI ) : 59*95*87';
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( SETIASAJA ) : 18*28*38'; 
-
+var Comment2 = 'K86TOTO ( SETIASAJA ) : 18*28*38';
 var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = (SUKUMLAKU) 13*36*58'; 
-
+var Comment3 = '#(WARUNGTOTO) = (SUKUMLAKU) 13*36*58';
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO SAMBUTAN20 = 42*76*16'; 
-
+var Comment4 = '#RIATOTO SAMBUTAN20 = 42*76*16';
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (SASISU42*71*48*25)'; 
-
+var Comment5 = '#PEDRO4D (SASISU42*71*48*25)';
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (SISWARUK) = 92*84*39'; 
-
+var Comment6 = '#DIVA4D (SISWARUK) = 92*84*39';
 var namagroup7 = 'KASTOTO';
-var Comment7 = '#KASTOTO(SEMBODOH) = 72*45*27 #AGENTOGELTERPERCAYA'; 
-
+var Comment7 = '#KASTOTO(SEMBODOH) = 72*45*27 #AGENTOGELTERPERCAYA';
 var namagroup8 = 'TOK99';
-var Comment8 = 'Tok99Toto ( SINGKONGTHAI ) : 42*76*00'; 
-
+var Comment8 = 'Tok99Toto ( SINGKONGTHAI ) : 42*76*00';
 var namagroup9 = 'TAFSIR MIMPI';
-var Comment9 = 'SIJITOGEL SUMURMATI 82*22*20'; 
-
+var Comment9 = 'SIJITOGEL SUMURMATI 82*22*20';
 var namagroup10 = 'KAGET';
-var Comment10 = 'DAGELAN4D(SUNDALA23) : 70*14*67'; 
-
+var Comment10 = 'DAGELAN4D(SUNDALA23) : 70*14*67';
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*SAKUKUTARA*32*57*88'; 
-
+var Comment11 = 'BETT*Mayapada4D(BO)*SAKUKUTARA*32*57*88';
 var namagroup12 = 'OPUNG';
-var Comment12 = 'OPUNG4D ( SIANGANAJA ) : 73*04*81'; 
-
+var Comment12 = 'OPUNG4D ( SIANGANAJA ) : 73*04*81';
 var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=SUMBUBULU=79*74*51'; 
-
-var namagroup14 = 'COMO';
-var Comment14 = '( #COMOTOTO SAMBUNGBAYAM : 82*22 )'; 
-
+var Comment13 = 'GOHTOGEL=SUMBUBULU=79*74*51';
+var namagroup14 = 'SAMSON';
+var Comment14 = '#SAMSONTOTO/SAMBUNGBAYAM/82*22';
 var namagroup15 = 'Hoho';
-var Comment15 = 'SUKAJANTUA : 85*08*60 #HOHOTOGEL'; 
-
-var namagroup16 = 'CEME';
-var Comment16 = '#CEMETOTO ( SLEMPANG26 ) : 19*17*33'; 
+var Comment15 = 'SUKAJANTUA : 85*08*60 #HOHOTOGEL';
+var namagroup16 = 'GTO';
+var Comment16 = '(GUDANGTOTO) = (SLEMPANG26) 19*17*33';"
 
  
 
