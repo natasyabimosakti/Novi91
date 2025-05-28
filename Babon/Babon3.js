@@ -19,7 +19,7 @@
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 
-"var namagroup1 = 'NONGKRONG';
+var namagroup1 = 'NONGKRONG';
 var Comment1 = '#AMAVI5D ( MASIHMARIS ) : 50*91*21';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( MANDINI28 ) : 06*90*83';
@@ -50,7 +50,7 @@ var Comment14 = '#SAMSONTOTO/MRIPATKUSIPIT/65*94';
 var namagroup15 = 'Hoho';
 var Comment15 = 'MARISUWEK : 26*54*34 #HOHOTOGEL';
 var namagroup16 = 'GTO';
-var Comment16 = '(GUDANGTOTO) = (MAMALAMA) 09*97*29';"	
+var Comment16 = '(GUDANGTOTO) = (MAMALAMA) 09*97*29';
 
 
 
