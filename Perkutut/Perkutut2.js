@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut2
 // @namespace    http://tampermonkey.net/
-// @version      3.194
+// @version      3.195
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut2.js
@@ -12,6 +12,8 @@
 // @grant        GM.setValue
 // @grant        GM.getValue
 // @grant        window.close
+// @grant        GM_xmlhttpRequest
+// @connect      raw.githubusercontent.com
 // ==/UserScript==
 
 var namagroup1 = 'NONGKRONG';
@@ -63,28 +65,7 @@ var Comment18 = 'asek';
 
 var refresh = 40;
 
-var adminList = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","anisa","agus tiar","azahra",
-                 "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","ban nee","bang wawan","bonar",
-                 "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika","calvin","claudio","ceme",
-                 "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara","den arkanza","denis",
-                 "erwin","emilia","evelyn","el givano","esse","erika",
-                 "fira","fahresa","fiana","fahmi","fiona","fania",
-                 "gita","kang bona","hoky","julianti","libra","garda","gebby",
-                 "habib","hefi","hoihai","hana","hoki","hokage",
-                 "icha","iyatoto","invest","ivanna","inisial","ishaura","imam","isticharo","intan",
-                 "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer","jhone","jonh","james",
-                 "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla","komandan",
-                 "lianda","lusiana","lina","laura","lehman","leader","leon","lidya","langit","leader","loetoe",
-                 "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari","momo","mona","mas hoki","maley","mega",
-                 "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy","nurul",
-                 "oscar","ozawa","otong","ormas",
-                 "pung","puput","priyan","primus","primus","pencari","pricilia","putra","pengurus","putri","paduka",
-                 "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi","ranger","raja","rudz","riko",
-                 "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria","sellia","sintya","stevent","stephen","siti",
-                 "tink","tiktak","tiara","tatang","tania","thonex",
-                 "yanty","yoky","yohana","yii","vero","vaulian",
-                 "wulan","wok","widya"
-                 ];
+var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Admin_group_Baru.json"
 
 var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo"]
 var Backlist =["pemenang lomba","rekap","natidulu","room lomba freebet","prediksi","result","juara lomba"]
@@ -103,7 +84,59 @@ var grouptToPost = '';
 let myObserver = null;
 var forceOffRefresh = false;
 var cekTombolUrutkan = true;
+let adminList = [];
+let adminListReady = false;
+const LOCAL_KEY = "cachedAdminList";
+const VERSION_KEY = "cachedAdminVersion";
 
+function isAdmin(name) {
+    if (!adminListReady || !name) return false;
+    return adminList.some(admin => name.toLowerCase().includes(admin.toLowerCase()));
+}
+
+function loadLocalAdmin() {
+    const stored = localStorage.getItem(LOCAL_KEY);
+    if (stored) {
+        try {
+            adminList = JSON.parse(stored);
+            adminListReady = true;
+            console.log("✅ Admin list loaded from localStorage:", adminList.length, "names");
+        } catch (e) {
+            console.error("❌ Failed to parse local admin list:", e);
+        }
+    }
+}
+function fetchAdminListFromGitHub() {
+    GM_xmlhttpRequest({
+        method: "GET",
+        url: URLADMIN,
+        onload: function(response) {
+            try {
+                const data = JSON.parse(response.responseText);
+                const latestVersion = data.version;
+                const admins = data.admins;
+
+                const currentVersion = localStorage.getItem(VERSION_KEY);
+                if (currentVersion !== latestVersion) {
+                    console.log("⬆️ New admin version found:", latestVersion);
+                    localStorage.setItem(LOCAL_KEY, JSON.stringify(admins));
+                    localStorage.setItem(VERSION_KEY, latestVersion);
+                    adminList = admins;
+                    adminListReady = true;
+                } else {
+                    console.log("⏩ Admin list is up-to-date (version:", currentVersion + ")");
+                }
+            } catch (e) {
+                console.error("❌ Failed to parse remote admin list:", e);
+            }
+        },
+        onerror: function(err) {
+            console.error("❌ Failed to load admin list from GitHub:", err);
+        }
+    });
+}
+loadLocalAdmin();
+fetchAdminListFromGitHub();
 if(document.location.href.includes("group")){
     myObserver = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
@@ -111,7 +144,6 @@ if(document.location.href.includes("group")){
                 if (node.nodeType !== 1) continue; // Bukan elemen
                 const text = node.textContent || "";
                 if (text.includes("URUTKAN")) {
-                    console.log("TOMBOL URUTKAN DITEMUKAN:", node);
                     cekTombolUrutkan = true;
                 }
 
@@ -119,8 +151,6 @@ if(document.location.href.includes("group")){
                     const tombol = node.querySelectorAll("[role='button']");
                     if (tombol.length >= 2) {
                         cekTombolUrutkan = false;
-                        console.log("TOMBOL AKTIVITAS TERBARU DITEMUKAN:", node);
-
                         tombol.forEach(btn => {
                             if (btn.textContent.includes("Aktivitas terbaru")) {
                                 btn.click();
@@ -164,10 +194,6 @@ function CekBacklist(postinganBL) {
 function CekKeyword(postingan) {
     return keyword.some(DataKeyword => postingan.includes(DataKeyword.toLowerCase()));
 }
-function isAdmin(authorName) {
-    return adminList.some(admin => authorName.toLowerCase().includes(admin.toLowerCase()));
-
-}
 
 function cekArticle() {
     if(document.location.href.includes("group")){
@@ -177,7 +203,6 @@ function cekArticle() {
                     if (node.nodeType !== 1) continue; // Bukan elemen
                     const text = node.textContent || "";
                     if (node.hasAttribute && node.hasAttribute("data-tracking-duration-id")) {
-
                         // Cek Jam
                         if (/(\bBaru saja\b)/.test(text)||/(\b1 menit\b)/.test(text)||/(\b2 menit\b)/.test(text)||/(\b3 menit\b)/.test(text)||/(\b4 menit\b)/.test(text)||/(\b5 menit\b)/.test(text)) {
                             var namafb = node.getElementsByTagName("span")[0];
@@ -188,7 +213,6 @@ function cekArticle() {
                             //Comment Box
                             var commentbox = node.getElementsByClassName('native-text')
                             console.log("jam di temukan", node);
-                            console.log("Jam Ditemukan ")
                             console.log("Check Backlist ");
                             if (CekBacklist(ThePost.textContent.toLowerCase())) continue
                             console.log("Proses dilanjutkan tidak ada Backlist");
@@ -197,6 +221,7 @@ function cekArticle() {
                             // Cek Admin
                             const author = namafb.textContent.toLowerCase()
                             if (isAdmin(author)||isadminer.textContent.toLowerCase().includes("admin")||isadminer.textContent.toLowerCase().includes("moderator")){
+                                console.log("Admin Ditemukan")
                                 const tombolKirim = Array.from(node.getElementsByClassName('native-text')).find(el => {
                                     const text = el.textContent.toLowerCase();
                                     return (
@@ -211,15 +236,17 @@ function cekArticle() {
                                 if (tombolKirim) {
                                     forceOffRefresh = true;
                                     clearInterval(myrefresh)
-                                    console.log("Tombol komentar ditemukan:", tombolKirim);
+                                    console.log("TextBox komentar ditemukan:", tombolKirim);
                                     let intervalId = setInterval(() => {
                                         if (myObserver) {
                                             myObserver.disconnect();
-                                            console.log("🛑 Observer refresh dihentikan");
                                         }
-                                        observercontetn.disconnect();
+                                         if (myObserver) {
+                                             observercontetn.disconnect();
+                                         }
                                         tombolKirim.click()
                                         if (document.getElementsByClassName("multi-line-floating-textbox")[0]) {
+                                             console.log("TextBox komentar Telah DI Klik");
                                             clearInterval(intervalId);
                                         }
 
@@ -245,7 +272,7 @@ function tungguMentionsContainer() {
                 if (node.nodeType !== 1) continue; // Skip jika bukan elemen
                 const container = node.querySelector?.('.mentions-shadow-container');
                 if (container) {
-                    console.log("Mentions container ditemukan (subtree):", container);
+                    console.log("TextBox Untuk komentar Telah Muncul");
                     if (isCommenting) return;
                     console.log('Menentukan Komentar');
                     if (document.getElementsByClassName("multi-line-floating-textbox").length > 0) {
@@ -291,7 +318,6 @@ function tungguMentionsContainer() {
                     observer.disconnect();
                     return;
                 }
-
             }
         }
     });
@@ -299,13 +325,11 @@ function tungguMentionsContainer() {
         childList: true,
         subtree: true
     });
-
     console.log("Observer aktif, menunggu .mentions-shadow-container...");
 }
 tungguMentionsContainer();
 
 var myrefresh = setInterval(function(){
-    console.log("forceOffRefresh:", forceOffRefresh)
     if (forceOffRefresh == true){
         return;
     }
@@ -377,11 +401,9 @@ function scanPosts() {
             GM.setValue("group_" + grouptToPost, true);
             GM.setValue("group_"+grouptToPost+"_expire", Date.now() + EXPIRATION_MS);
             console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
-            showNotification("Komentar Berhasil Terkirim : " + commentToPost);
+            showNotification("Komentar Sudah Terkirim : " + commentToPost);
             const targetNode = document.body; // atau elemen spesifik yang ingin diawasi
-
             const configs = { childList: true, subtree: true };
-
             const callback = function(mutationsList, observer) {
                 for (let mutation of mutationsList) {
                     if (mutation.addedNodes.length) {
@@ -417,6 +439,6 @@ function autoTask() {
 
 function startAutoTask() {
     if (intervalId === null) {
-        intervalId = setInterval(autoTask, 15000); 
+        intervalId = setInterval(autoTask, 15000);
     }
 }
