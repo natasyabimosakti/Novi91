@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Tukang Lapor Group Baru
 // @namespace    http://tampermonkey.net/
-// @version      3.13
+// @version      3.14
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Tukang Lapor Group Baru.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Tukang Lapor Group Baru.js
@@ -12,60 +12,42 @@
 // @grant        GM.setValue
 // @grant        GM.getValue
 // @grant        window.close
+// @grant        GM_xmlhttpRequest
+// @connect      raw.githubusercontent.com
 // ==/UserScript==
 
 
-var refresh = 1000;
 
-var admin = ["Siâo","andre","adiat","andy","ayunda","audi","arxidi","aditia","aldi","ananda","alde","adm","ayesha","aqisya","arga","arifin","aru","agung","alenta","andi","arsyah","mrdepo","acha","annisa","amelia","anisa","anisa","agus tiar","azahra",
-             "boleng","biru","bobby","bastian","boboho","bola","bunga","bonbin","ban nee","bang wawan",
-             "cristina","camb","cassa","che","cinta","celsia","cila","calon","chika","calvin","chika","calvin","claudio","ceme",
-             "david","dewa","desi","debby","dewi","dentoto","dika","dealova","diva","damara","den arkanza","denis",
-             "erwin","emilia","evelyn","el givano","esse",
-             "fira","fahresa","fiana","fahmi","fiona","fania",
-             "gita","kang bona","hoky","julianti","libra","garda",
-             "habib","hefi","hoihai","hana","hoki","hokage",
-             "icha","iyatoto","invest","ivanna","inisial","ishaura","imam","isticharo",
-             "jordi","jaguar","jne","jovanka","jessica","je pe","jess","jenifer","jhone",
-             "keitogel","kumbara","kembar","kotna","karina","katharina","kemon","kaka","karla","komandan",
-             "lianda","lusiana","lina","laura","lehman","leader","leon","lidya","langit","leader","loetoe",
-             "mahendra","monica","mey","mersya","mad rm","multi","mariana","melati","male","megaways","manu","mamad","mas har","metha","maleeqq","mely","mayangsari","momo","mona","mas hoki","maley",
-             "nasution","nyocol","naura","neng","nino","nona","neman","novi","nella","nahdya","nur","namira","nindy","nurul",
-             "oscar","ozawa","otong","ormas",
-             "pung","puput","priyan","primus","primus","pencari","pricilia","putra","pengurus","putri",
-             "ratu","rio","ria","rikodo","rizal","roy","rendy","rana","rindi","ranger",
-             "sandiego","san","sanjaya","siska","safar","sinta","surianti","satria","sapto","salsabila","sanchez","sofia","sonia","serena","sahara","specialis","sam","sasha","sintia","sifa","satria","sellia","sintya","stevent",
-             "tink","tiktak","tiara","tatang","tania","thonex",
-             "yanty","yoky","yohana","yii","vero","vaulian",
-             "wulan","wok","widya"",
-             "raja","mega","jonh","james","stephen"];
+/*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
+
+
+
+
+var refresh = 200;
+
+var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Admin_group_Baru.json"
+
+var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo"]
+var Backlist =["pemenang lomba","rekap","natidulu","room lomba freebet","prediksi","result","juara lomba"]
+var isCommenting = false;
+var isDound = false;
+var EXPIRATION_MS = 8 * 60 * 1000; // 5 minutes
+var now = Date.now();
+// ✅ Daftar grup dan nilai default
 var Laporan = await GM.getValue(1);
-var keyword1 = "ROOM"
-var keyword2 = "𝗥𝗢𝗢𝗠"
-var keyword3 = "LOMBA"
-var keyword4 = "𝗟𝗢𝗠𝗕𝗔"
-var keyword5 = "𝐋𝐎𝐌𝐁𝐀"
-var keyword6 = "LIMBA"
-var keyword7 = "ROM"
-var keyword8 = "R00M"
-var keyword9 = "login"
-var keyword10 = "𝐑𝐎𝐎𝐌"
-var keyword11 = "HONGKONG"
-var keyword12 = "SINGAPUR"
-var keyword13 = "nemo"
-
-var Backlist1 = "pemenang lomba";
-var Backlist2 = "rekap";
-var Backlist3 = "hasil";
-var Backlist4 = "room lomba freebet";
-var Backlist5 = "prediksi";
-var Backlist6 = "result";
-var Backlist7 = "juara lomba";
+var commentToPost = '';
+var grouptToPost = '';
+let myObserver = null;
+var forceOffRefresh = false;
+var cekTombolUrutkan = true;
+let adminList = [];
+let adminListReady = false;
+const LOCAL_KEY = "cachedAdminList";
+const VERSION_KEY = "cachedAdminVersion";
 var xht = null;
 
-var game2 = gameClosure2()
-function sendMessage(text)
+function sendMessager(text)
 {
     console.log("Send Telegram")
     const url = `https://api.telegram.org/bot7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw/sendMessage?chat_id=983068551&text=${text}`;
@@ -75,134 +57,167 @@ function sendMessage(text)
     return xht.responseText;
 }
 
-var urutkan = null
-var waktupost = null
+function isAdmin(name) {
+    if (!adminListReady || !name) return false;
+    return adminList.some(admin => name.toLowerCase().includes(admin.toLowerCase()));
+}
 
-
-
-
-
-
-
-
-function gameClosure2() {
-    function game2() {
-        urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
-        waktupost = document.getElementsByClassName("native-text");
-
-        if(document.location.href.includes("group")){
-            window.scroll(0,2000)
+function loadLocalAdmin() {
+    const stored = localStorage.getItem(LOCAL_KEY);
+    if (stored) {
+        try {
+            adminList = JSON.parse(stored);
+            adminListReady = true;
+            console.log("✅ Admin list loaded from localStorage:", adminList.length, "names");
+        } catch (e) {
+            console.error("❌ Failed to parse local admin list:", e);
         }
-
-        if(document.location.href.includes("group")){
-            for (let ntv = 0; ntv < document.querySelectorAll('[data-tracking-duration-id').length; ntv++) {
-                if (document.querySelectorAll('[data-tracking-duration-id')[ntv]){
-                    // Nama FB
-                    var namafb = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByTagName("span")[0];
-                    //Jam
-                    var jamposting1 = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByTagName("span")[1].textContent;
-                    var jamposting2 = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByTagName("span")[2].textContent;
-                    //Postingan
-                    var postingan =document.querySelectorAll('[data-tracking-duration-id')[ntv]
-                    //Comment Box
-                    var commentbox = document.querySelectorAll('[data-tracking-duration-id')[ntv].getElementsByClassName('native-text')
-                    // Cek Jam
-
-                if (postingan.textContent.includes("Baru")||postingan.textContent.split(' meni')[0].slice(-2) == 1||postingan.textContent.split(' meni')[0].slice(-2) == 2||postingan.textContent.split(' meni')[0].slice(-2) == 3||postingan.textContent.split(' meni')[0].slice(-2) == 4||postingan.textContent.split(' meni')[0].slice(-2) == 5||postingan.textContent.split(' meni')[0].slice(-2) == "‎1"||postingan.textContent.split(' meni')[0].slice(-2) == "‎2"||postingan.textContent.split(' meni')[0].slice(-2) == "‎3"||postingan.textContent.split(' meni')[0].slice(-2) == "‎4"||postingan.textContent.split(' meni')[0].slice(-2) == "‎5"){
-                        console.log("Jam Ditemukan " + jamposting1)
-                        if(postingan.textContent.toLowerCase().includes(Backlist1.toLowerCase())
-                           ||postingan.textContent.toLowerCase().includes(Backlist2.toLowerCase())
-                           ||postingan.textContent.toLowerCase().includes(Backlist3.toLowerCase())
-                           ||postingan.textContent.toLowerCase().includes(Backlist4.toLowerCase())
-                           ||postingan.textContent.toLowerCase().includes(Backlist5.toLowerCase())
-                           ||postingan.textContent.toLowerCase().includes(Backlist6.toLowerCase())
-                           ||postingan.textContent.toLowerCase().includes(Backlist7.toLowerCase())){
-                            console.log("Terdaftar Backlist...!  ");
-                            continue;
-                        }
-                        console.log("Proses dilanjutkan tidak ada Backlist");
-                        if(postingan.textContent.toLowerCase().includes(keyword1.toLowerCase())
-                           ||postingan.textContent.toLowerCase().includes(keyword2.toLowerCase())
-                           ||postingan.textContent.toLowerCase().includes(keyword3.toLowerCase())
-                           ||postingan.textContent.toLowerCase().includes(keyword4.toLowerCase())
-                           ||postingan.textContent.toLowerCase().includes(keyword5.toLowerCase())
-                           ||postingan.textContent.toLowerCase().includes(keyword6.toLowerCase())
-                           ||postingan.textContent.toLowerCase().includes(keyword7.toLowerCase())
-                           ||postingan.textContent.toLowerCase().includes(keyword8.toLowerCase())
-                           ||postingan.textContent.toLowerCase().includes(keyword9.toLowerCase())
-                           ||postingan.textContent.toLowerCase().includes(keyword10.toLowerCase())
-                           ||postingan.textContent.toLowerCase().includes(keyword11.toLowerCase())
-                           ||postingan.textContent.toLowerCase().includes(keyword12.toLowerCase())
-                           ||postingan.textContent.toLowerCase().includes(keyword13.toLowerCase())){
-                            console.log("Keyword Ditemukan " + postingan.textContent);
-                        }else{
-                            continue;
-                        }
-                        // Cek Backlist
-
-                        // Cek Admin
-                        for (var adm in admin){
-
-                            if(namafb.textContent.toLowerCase().includes(admin[adm].toLowerCase())||jamposting2.toLowerCase().includes("admin")||jamposting2.toLowerCase().includes("moderator")||jamposting1.toLowerCase().includes("admin")||jamposting1.toLowerCase().includes("moderator")){
-                                // Tampilkan Siapa Yang Memposting
-                                if(jamposting2.toLowerCase().includes("admin")||jamposting2.toLowerCase().includes("moderator")){
-                                    console.log("Admin yang Memosting = Admin/Moderator");
-                                }else{
-                                    console.log("Admin yang Memosting = " + admin[adm]);
-                                }
-                                location.href = "about:blank"
-                                return;
-                            }
-                        }
-
-
-                    }
-                }
-            }
-        }
-
-
-
-        if(!document.querySelectorAll("[role='presentation']")[0]){
-            if (document.readyState === "complete") {
-                for (var cok = 0; cok < urutkan.length; cok++) {
-                    if(urutkan[cok].textContent.includes("URUTKAN")) {
-                        urutkan[cok].click()
-                    }
-                }
-            }
-        }
-        if(document.getElementsByClassName("loading-overlay").length == 0 ){
-
-            if(document.querySelectorAll("[role='presentation']")[0]){
-                if (document.readyState === "complete") {
-                    for (var coki = 0; coki < waktupost.length; coki++) {
-                        if(waktupost[coki].textContent.includes("Aktivitas")) {
-                            if(document.getElementsByClassName("prevent-scrolling")[0]){
-                                waktupost[coki].click()
-                            }
-
-                        }
-                    }
-                }
-            }
-        }
-
-
     }
-    var currentGame2;
-    return {
-        start() {
-            currentGame2 = setInterval(game2, 3000)
+}
+function fetchAdminListFromGitHub() {
+    GM_xmlhttpRequest({
+        method: "GET",
+        url: URLADMIN,
+        onload: function(response) {
+            try {
+                const data = JSON.parse(response.responseText);
+                const latestVersion = data.version;
+                const admins = data.admins;
+
+                const currentVersion = localStorage.getItem(VERSION_KEY);
+                if (currentVersion !== latestVersion) {
+                    console.log("⬆️ New admin version found:", latestVersion);
+                    localStorage.setItem(LOCAL_KEY, JSON.stringify(admins));
+                    localStorage.setItem(VERSION_KEY, latestVersion);
+                    adminList = admins;
+                    adminListReady = true;
+                } else {
+                    console.log("⏩ Admin list is up-to-date (version:", currentVersion + ")");
+                }
+            } catch (e) {
+                console.error("❌ Failed to parse remote admin list:", e);
+            }
         },
-        stop() {
-            clearInterval(currentGame2)
+        onerror: function(err) {
+            console.error("❌ Failed to load admin list from GitHub:", err);
         }
-    }
+    });
+}
+loadLocalAdmin();
+fetchAdminListFromGitHub();
+if(document.location.href.includes("group")){
+    myObserver = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            for (const node of mutation.addedNodes) {
+                if (node.nodeType !== 1) continue; // Bukan elemen
+                const text = node.textContent || "";
+                if (text.includes("URUTKAN")) {
+                    cekTombolUrutkan = true;
+                }
+
+                if (text.includes("Aktivitas terbaru")) {
+                    const tombol = node.querySelectorAll("[role='button']");
+                    if (tombol.length >= 2) {
+                        cekTombolUrutkan = false;
+                        tombol.forEach(btn => {
+                            if (btn.textContent.includes("Aktivitas terbaru")) {
+                                btn.click();
+                            }
+                        });
+                    }
+                }
+            }
+        }
+    });
+    myObserver.observe(document.body, { childList: true, subtree: true });
 }
 
 
 
+
+function CekBacklist(postinganBL) {
+    return Backlist.some(DataBacklist => postinganBL.includes(DataBacklist.toLowerCase()));
+}
+function CekKeyword(postingan) {
+    return keyword.some(DataKeyword => postingan.includes(DataKeyword.toLowerCase()));
+}
+
+function cekArticle() {
+    if(document.location.href.includes("group")){
+        const observercontetn = new MutationObserver((mutations) => {
+            for (const mutation of mutations) {
+                for (const node of mutation.addedNodes) {
+                    if (node.nodeType !== 1) continue; // Bukan elemen
+                    const text = node.textContent || "";
+                    if (node.hasAttribute && node.hasAttribute("data-tracking-duration-id")) {
+                        // Cek Jam
+                        if (/(\bBaru saja\b)/.test(text)||/(\b1 menit\b)/.test(text)||/(\b2 menit\b)/.test(text)||/(\b3 menit\b)/.test(text)||/(\b4 menit\b)/.test(text)||/(\b5 menit\b)/.test(text)) {
+                            var namafb = node.getElementsByTagName("span")[0];
+                            //Jam
+                            var isadminer = node.querySelector("[data-focusable]")
+                            //Postingan
+                            var ThePost =node
+                            //Comment Box
+                            var commentbox = node.getElementsByClassName('native-text')
+                            console.log("jam di temukan", node);
+                            console.log("Check Backlist ");
+                            if (CekBacklist(ThePost.textContent.toLowerCase())) continue
+                            console.log("Proses dilanjutkan tidak ada Backlist");
+                            if (!CekKeyword(ThePost.textContent.toLowerCase())) continue
+                            console.log("Keyword Ditemukan " + ThePost.textContent);
+                            // Cek Admin
+                            const author = namafb.textContent.toLowerCase()
+                            if (isAdmin(author)||isadminer.textContent.toLowerCase().includes("admin")||isadminer.textContent.toLowerCase().includes("moderator")){
+                                console.log("Admin Ditemukan")
+                                const tombolKirim = Array.from(node.getElementsByClassName('native-text')).find(el => {
+                                    const text = el.textContent.toLowerCase();
+                                    return (
+                                        text.includes("jawab") ||
+                                        text.includes("tulis") ||
+                                        text.includes("komentari") ||
+                                        text.includes("postingan") ||
+                                        text.includes("beri")
+                                    );
+                                });
+
+                                if (tombolKirim) {
+                                    forceOffRefresh = true;
+                                    clearInterval(myrefresh)
+                                    console.log("TextBox komentar ditemukan:", tombolKirim);
+                                    location.href = "about:blank"
+
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        observercontetn.observe(document.body, { childList: true, subtree: true });
+    }
+}
+cekArticle()
+
+
+
+var myrefresh = setInterval(function(){
+    if (forceOffRefresh == true){
+        return;
+    }
+    var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
+    var waktupost = document.getElementsByClassName("native-text");
+    if(!document.querySelectorAll("[role='presentation']")[0]){
+        if (document.readyState === "complete") {
+            for (var cok = 0; cok < urutkan.length; cok++) {
+                if(urutkan[cok].textContent.includes("URUTKAN")) {
+                    if (isDound) return;
+                    urutkan[cok].click()
+                }
+            }
+        }
+    }
+},refresh * 10)
 
 function lapor(){
     console.log("mulai lapor")
@@ -221,7 +236,7 @@ function lapor(){
 
 var kirimlaporan = setInterval(function(){
     if(document.location.href.includes("telegram")){
-        sendMessage(Laporan)
+        sendMessager(Laporan)
         console.log("Laporan Terkirim Ke Telegram" )
         GM.setValue( 1," ");
         clearInterval(kirimlaporan)
@@ -232,4 +247,5 @@ var kirimlaporan = setInterval(function(){
 }, 5000);
 
 setTimeout(function(){lapor()}, 180000);
-setTimeout(function(){ game2.start()}, 10000);
+
+
