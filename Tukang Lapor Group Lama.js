@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Tukang Lapor Group Lama
 // @namespace    http://tampermonkey.net/
-// @version      3.7
+// @version      3.8
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Tukang Lapor Group Lama.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Tukang Lapor Group Lama.js
