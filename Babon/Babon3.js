@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Babon 3
 // @namespace    http://tampermonkey.net/
-// @version      3.20
+// @version      3.21
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon3.js
@@ -47,7 +47,7 @@ var namagroup12 = 'OPUNG';
 var Comment12 = 'OPUNG4D ( MENCLOKCUK ) : 86*66*46';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=MENDUNGKUL=99*47*02';
-var namagroup14 = 'SAMSON';
+var namagroup14 = 'Samson';
 var Comment14 = '#SAMSONTOTO/MRIPATKUSIPIT/65*94';
 var namagroup15 = 'Hoho';
 var Comment15 = 'MARISUWEK : 26*54*34 #HOHOTOGEL';
