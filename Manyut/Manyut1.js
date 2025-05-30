@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT1
 // @namespace    http://tampermonkey.net/
-// @version      3.258
+// @version      3.259
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut1.js
@@ -71,7 +71,6 @@ var Comment17 = '#KIKOTOTO (HONOS112) = 57*07';
   
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Group Manyut 1';
-
 
 
 var refresh = 40;
@@ -348,6 +347,7 @@ function tungguMentionsContainer() {
                         GM.setValue("group_"+grouptToPost+"_expire", Date.now() + EXPIRATION_MS);
                         console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
                         showNotification("Komentar Sudah Terkirim : " + commentToPost);
+
                         isCommenting = true;
                         if (observercontetn) {
                             observercontetn.disconnect();
@@ -410,7 +410,18 @@ function showNotification(message) {
 
 
 function startAutoTask() {
+        let myObservere = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            for (const node of mutation.addedNodes) {
+                if (node.nodeType !== 1) continue; // Bukan elemen
+                if (node.nodeType === 1 && node.textContent.toLowerCase().includes('diposting')||node.textContent.toLowerCase().includes('berhasil')) {
+                    location.href = "about:blank";
+                }
+            }
+        }
+    });
+    myObservere.observe(document.body, { childList: true, subtree: true });
     setTimeout(() => {
         location.href = "about:blank";
-    }, 15000);
+    }, 10000);
 }
