@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Slamet 1
 // @namespace    http://tampermonkey.net/
-// @version      3.38
+// @version      3.39
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet1.js
@@ -73,13 +73,10 @@ var Comment18 = 'group Slamet 1';
 
 
 var refresh = 40;
-
 var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Admin_group_Lama.json"
-
 var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo"]
 var Backlist =["pemenang lomba","rekap","natidulu","room lomba freebet","prediksi","result","juara lomba"]
 var isCommenting = false;
-var isDound = false;
 var EXPIRATION_MS = 8 * 60 * 1000; // 5 minutes
 var now = Date.now();
 // ✅ Daftar grup dan nilai default
@@ -97,7 +94,7 @@ let adminList = [];
 let adminListReady = false;
 const LOCAL_KEY = "cachedAdminList";
 const VERSION_KEY = "cachedAdminVersion";
-
+cekArticle()
 function isAdmin(name) {
     if (!adminListReady || !name) return false;
     return adminList.some(admin => name.toLowerCase().includes(admin.toLowerCase()));
@@ -208,10 +205,6 @@ if(document.location.href.includes("group")){
             for (const node of mutation.addedNodes) {
                 if (node.nodeType !== 1) continue; // Bukan elemen
                 const text = node.textContent || "";
-                if (text.includes("URUTKAN")) {
-                    cekTombolUrutkan = true;
-                }
-
                 if (text.includes("Aktivitas terbaru")) {
                     const tombol = node.querySelectorAll("[role='button']");
                     if (tombol.length >= 2) {
@@ -256,33 +249,47 @@ function CekKeyword(postingan) {
 var observercontetn;
 
 function cekArticle() {
-    if(document.location.href.includes("group")){
-        observercontetn = new MutationObserver((mutations) => {
+    console.log('cekArticle');
+    if (document.location.href.includes("group")) {
+        const observercontetn = new MutationObserver((mutations) => {
             for (const mutation of mutations) {
                 for (const node of mutation.addedNodes) {
-                    if (node.nodeType !== 1) continue; // Bukan elemen
-                    const text = node.textContent || "";
-                    if (node.hasAttribute && node.hasAttribute("data-tracking-duration-id")) {
-                        // Cek Jam
+                    if (node.nodeType !== 1) continue;
+
+                    const artikelBaruList = [];
+
+                    // Jika node itu sendiri adalah artikel
+                    if (node.matches?.('[data-tracking-duration-id]')) {
+                        artikelBaruList.push(node);
+                    }
+
+                    // Tambahkan semua child yang merupakan artikel
+                    const descendants = node.querySelectorAll?.('[data-tracking-duration-id]');
+                    if (descendants) {
+                        artikelBaruList.push(...descendants);
+                    }
+                    // Proses semua artikel
+                    artikelBaruList.forEach((artikel) => {
+                        const text = artikel.textContent || "";
                         if (/(\bBaru saja\b)/.test(text)||/(\b1 menit\b)/.test(text)||/(\b2 menit\b)/.test(text)||/(\b3 menit\b)/.test(text)||/(\b4 menit\b)/.test(text)||/(\b5 menit\b)/.test(text)) {
-                            var namafb = node.getElementsByTagName("span")[0];
+                            var namafb = artikel.getElementsByTagName("span")[0];
                             //Jam
-                            var isadminer = node.querySelector("[data-focusable]")
+                            var isadminer = artikel.querySelector("[data-focusable]")
                             //Postingan
-                            var ThePost =node
+                            var ThePost =artikel
                             //Comment Box
-                            var commentbox = node.getElementsByClassName('native-text')
-                            console.log("jam di temukan", node);
+                            var commentbox = artikel.getElementsByClassName('native-text')
+                            console.log("jam di temukan", artikel);
                             console.log("Check Backlist ");
-                            if (CekBacklist(ThePost.textContent.toLowerCase())) continue
+                            if (CekBacklist(ThePost.textContent.toLowerCase())) return
                             console.log("Proses dilanjutkan tidak ada Backlist");
-                            if (!CekKeyword(ThePost.textContent.toLowerCase())) continue
+                            if (!CekKeyword(ThePost.textContent.toLowerCase())) return
                             console.log("Keyword Ditemukan " + ThePost.textContent);
                             // Cek Admin
                             const author = namafb.textContent.toLowerCase()
                             if (isAdmin(author)||isadminer.textContent.toLowerCase().includes("admin")||isadminer.textContent.toLowerCase().includes("moderator")){
                                 console.log("Admin Ditemukan")
-                                const tombolKirim = Array.from(node.getElementsByClassName('native-text')).find(el => {
+                                const tombolKirim = Array.from(artikel.getElementsByClassName('native-text')).find(el => {
                                     const text = el.textContent.toLowerCase();
                                     return (
                                         text.includes("jawab") ||
@@ -295,35 +302,39 @@ function cekArticle() {
 
                                 if (tombolKirim) {
                                     forceOffRefresh = true;
-                                    clearInterval(myrefresh)
                                     console.log("TextBox komentar ditemukan:", tombolKirim);
-                                    let intervalId = setInterval(() => {
-                                        if (myObserver) {
-                                            myObserver.disconnect();
+                                    function klikTextboxJikaSiap() {
+                                        tombolKirim.click();
+                                        // Tunggu textbox aktif
+                                        const textbox = document.querySelector(".multi-line-floating-textbox");
+                                        if (textbox) {
+                                            if (myObserver) {
+                                                myObserver.disconnect();
+                                            }
+                                            console.log("✅ TextBox komentar Telah DI Klik & Muncul");
+                                            return; // Stop loop
                                         }
-
-                                        tombolKirim.click()
-                                        if (document.getElementsByClassName("multi-line-floating-textbox")[0]) {
-                                            console.log("TextBox komentar Telah DI Klik");
-                                            clearInterval(intervalId);
-                                        }
-
-                                    }, 5);
-
+                                        // Ulangi frame berikutnya
+                                        requestAnimationFrame(klikTextboxJikaSiap);
+                                    }
+                                    klikTextboxJikaSiap();
                                 }
 
                             }
                         }
-                    }
+                    });
                 }
             }
         });
+
         observercontetn.observe(document.body, { childList: true, subtree: true });
     }
 }
+
 cekArticle()
 
 function tungguMentionsContainer() {
+    console.log('tungguMentionsContainer')
     const observer = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
             for (const node of mutation.addedNodes) {
@@ -332,7 +343,7 @@ function tungguMentionsContainer() {
                 if (container) {
                     console.log("TextBox Untuk komentar Telah Muncul");
                     if (isCommenting) return;
-                     console.log("Cex");
+                    console.log("Cex");
                     const textarea = document.querySelector(".multi-line-floating-textbox");
                     const sendBtn = document.querySelector(".textbox-submit-button");
                     if (textarea && sendBtn) {
@@ -355,6 +366,7 @@ function tungguMentionsContainer() {
                             observer.disconnect();
                         }
                         startAutoTask();
+                        break;
                     } else {
                         showNotification("❌ Textarea atau tombol kirim tidak ditemukan");
                         isCommenting = false;
@@ -374,16 +386,18 @@ function tungguMentionsContainer() {
 tungguMentionsContainer();
 
 var myrefresh = setInterval(function(){
-    if (forceOffRefresh == true){
-        return;
-    }
+
     var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
     var waktupost = document.getElementsByClassName("native-text");
     if(!document.querySelectorAll("[role='presentation']")[0]){
         if (document.readyState === "complete") {
             for (var cok = 0; cok < urutkan.length; cok++) {
                 if(urutkan[cok].textContent.includes("URUTKAN")) {
-                    if (isDound) return;
+                    cekTombolUrutkan = true;
+                    if (forceOffRefresh == true){
+                        clearInterval(myrefresh)
+                        return;
+                    }
                     urutkan[cok].click()
                 }
             }
@@ -409,7 +423,7 @@ function showNotification(message) {
 
 
 function startAutoTask() {
-        let myObservere = new MutationObserver((mutations) => {
+    let myObservere = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
             for (const node of mutation.addedNodes) {
                 if (node.nodeType !== 1) continue; // Bukan elemen
