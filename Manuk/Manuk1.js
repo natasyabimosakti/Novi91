@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 1
 // @namespace    http://tampermonkey.net/
-// @version      3.171
+// @version      3.172
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk1.js
@@ -350,6 +350,7 @@ function tungguMentionsContainer() {
                         GM.setValue("group_"+grouptToPost+"_expire", Date.now() + EXPIRATION_MS);
                         console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
                         showNotification("Komentar Sudah Terkirim : " + commentToPost);
+
                         isCommenting = true;
                         if (observercontetn) {
                             observercontetn.disconnect();
@@ -412,7 +413,18 @@ function showNotification(message) {
 
 
 function startAutoTask() {
+        let myObservere = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            for (const node of mutation.addedNodes) {
+                if (node.nodeType !== 1) continue; // Bukan elemen
+                if (node.nodeType === 1 && node.textContent.toLowerCase().includes('diposting')||node.textContent.toLowerCase().includes('berhasil')) {
+                    location.href = "about:blank";
+                }
+            }
+        }
+    });
+    myObservere.observe(document.body, { childList: true, subtree: true });
     setTimeout(() => {
         location.href = "about:blank";
-    }, 15000);
+    }, 10000);
 }
