@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF4
 // @namespace    http://tampermonkey.net/
-// @version      3.34
+// @version      3.35
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf4.js
@@ -72,7 +72,6 @@ var Comment17 = '#KIKOTOTO (MINARVESTO98) = 87*42';
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Zulf4';
-
 
 
 
@@ -350,6 +349,7 @@ function tungguMentionsContainer() {
                         GM.setValue("group_"+grouptToPost+"_expire", Date.now() + EXPIRATION_MS);
                         console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
                         showNotification("Komentar Sudah Terkirim : " + commentToPost);
+
                         isCommenting = true;
                         if (observercontetn) {
                             observercontetn.disconnect();
@@ -412,7 +412,18 @@ function showNotification(message) {
 
 
 function startAutoTask() {
+        let myObservere = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            for (const node of mutation.addedNodes) {
+                if (node.nodeType !== 1) continue; // Bukan elemen
+                if (node.nodeType === 1 && node.textContent.toLowerCase().includes('diposting')||node.textContent.toLowerCase().includes('berhasil')) {
+                    location.href = "about:blank";
+                }
+            }
+        }
+    });
+    myObservere.observe(document.body, { childList: true, subtree: true });
     setTimeout(() => {
         location.href = "about:blank";
-    }, 15000);
+    }, 10000);
 }
