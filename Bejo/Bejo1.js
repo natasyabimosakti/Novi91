@@ -7,7 +7,7 @@
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo1.js
 // @author       You
 // @match        http*://*/*
-// @version      3.NaN
+// @run-at       document-end
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        GM.setValue
 // @grant        GM.getValue
