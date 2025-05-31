@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.188
+// @version      3.189
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
@@ -240,15 +240,32 @@ async function manageGroups() {
         }
     }
 }
-
+let sedangKlikTextbox = false;
 manageGroups()
 function CekBacklist(postinganBL) {
-    return Backlist.some(DataBacklist => postinganBL.includes(DataBacklist.toLowerCase()));
+    for (const DataBacklist of Backlist) {
+        const kata = DataBacklist.toLowerCase();
+        if (postinganBL.toLowerCase().includes(kata)) {
+            console.log(`❌ Diblok karena mengandung: "${kata}"`);
+            return true;
+        }
+    }
+    return false;
 }
 function CekKeyword(postingan) {
-    return keyword.some(DataKeyword => postingan.includes(DataKeyword.toLowerCase()));
+    console.log("🔍 CekKeyword untuk:", postingan);
+    for (const DataKeyword of keyword) {
+        const kata = DataKeyword.toLowerCase();
+        if (postingan.toLowerCase().includes(kata)) {
+            console.log(`✅ Keyword ditemukan: "${kata}"`);
+            return true;
+        }
+    }
+    return false;
 }
 var observercontetn;
+
+let tombolSedangDiproses = false; // <== GLOBAL FLAG
 
 function cekArticle() {
     console.log('cekArticle');
@@ -258,70 +275,62 @@ function cekArticle() {
                 for (const node of mutation.addedNodes) {
                     if (node.nodeType !== 1) continue;
 
-                    const artikelBaruList = [];
+                    // Lewati jika ada role dialog
+                    if (node.closest?.('[role="dialog"]')) continue;
 
-                    // Jika node itu sendiri adalah artikel
+                    const artikelBaruSet = new Set();
+
                     if (node.matches?.('[data-tracking-duration-id]')) {
-                        artikelBaruList.push(node);
+                        artikelBaruSet.add(node);
                     }
 
-                    // Tambahkan semua child yang merupakan artikel
                     const descendants = node.querySelectorAll?.('[data-tracking-duration-id]');
                     if (descendants) {
-                        artikelBaruList.push(...descendants);
+                        descendants.forEach(el => artikelBaruSet.add(el));
                     }
-                    // Proses semua artikel
-                    artikelBaruList.forEach((artikel) => {
+
+                    artikelBaruSet.forEach((artikel) => {
+                        if (tombolSedangDiproses) return;
+
                         const text = artikel.textContent || "";
-                        if (/(\bBaru saja\b)/.test(text)||/(\b1 menit\b)/.test(text)||/(\b2 menit\b)/.test(text)||/(\b3 menit\b)/.test(text)||/(\b4 menit\b)/.test(text)||/(\b5 menit\b)/.test(text)) {
-                            var namafb = artikel.getElementsByTagName("span")[0];
-                            //Jam
-                            var isadminer = artikel.querySelector("[data-focusable]")
-                            //Postingan
-                            var ThePost =artikel
-                            //Comment Box
-                            var commentbox = artikel.getElementsByClassName('native-text')
-                            console.log("jam di temukan", artikel);
-                            console.log("Check Backlist ");
-                            if (CekBacklist(ThePost.textContent.toLowerCase())) return
-                            console.log("Proses dilanjutkan tidak ada Backlist");
-                            if (!CekKeyword(ThePost.textContent.toLowerCase())) return
-                            console.log("Keyword Ditemukan " + ThePost.textContent);
-                            // Cek Admin
-                            const author = namafb.textContent.toLowerCase()
-                            if (isAdmin(author)||isadminer.textContent.toLowerCase().includes("admin")||isadminer.textContent.toLowerCase().includes("moderator")){
-                                console.log("Admin Ditemukan")
-                                const tombolKirim = Array.from(artikel.getElementsByClassName('native-text')).find(el => {
-                                    const text = el.textContent.toLowerCase();
-                                    return (
-                                        text.includes("jawab") ||
-                                        text.includes("tulis") ||
-                                        text.includes("komentari") ||
-                                        text.includes("postingan") ||
-                                        text.includes("beri")
-                                    );
+                        if (/(\bBaru saja\b|\b[1-5] menit\b)/.test(text)) {
+                            const namafb = artikel.getElementsByTagName("span")[0];
+                            const isadminer = artikel.querySelector("[data-focusable]");
+                            const ThePost = artikel;
+                            const commentbox = artikel.getElementsByClassName('native-text');
+
+                            if (CekBacklist(ThePost.textContent.toLowerCase())) return;
+                            if (!CekKeyword(ThePost.textContent.toLowerCase())) return;
+
+                            const author = namafb?.textContent?.toLowerCase() || "";
+                            if (isAdmin(author) || isadminer?.textContent?.toLowerCase().includes("admin") || isadminer?.textContent?.toLowerCase().includes("moderator")) {
+                                const tombolKirim = Array.from(commentbox).find(el => {
+                                    const t = el.textContent.toLowerCase();
+                                    return t.includes("jawab") || t.includes("tulis") || t.includes("komentari") || t.includes("postingan") || t.includes("beri");
                                 });
 
-                                if (tombolKirim) {
-                                    forceOffRefresh = true;
+                                if (tombolKirim && !tombolSedangDiproses && !sedangKlikTextbox) {
+                                    tombolSedangDiproses = true;
                                     console.log("TextBox komentar ditemukan:", tombolKirim);
+
                                     function klikTextboxJikaSiap() {
                                         tombolKirim.click();
-                                        // Tunggu textbox aktif
                                         const textbox = document.querySelector(".multi-line-floating-textbox");
                                         if (textbox) {
-                                            if (myObserver) {
-                                                myObserver.disconnect();
-                                            }
+                                            if (myObserver) myObserver.disconnect();
+                                            if (observercontetn) observercontetn.disconnect();
+
                                             console.log("✅ TextBox komentar Telah DI Klik & Muncul");
-                                            return; // Stop loop
+                                            sedangKlikTextbox = false;
+                                            forceOffRefresh = false;
+
+                                            return;
                                         }
-                                        // Ulangi frame berikutnya
                                         requestAnimationFrame(klikTextboxJikaSiap);
                                     }
+
                                     klikTextboxJikaSiap();
                                 }
-
                             }
                         }
                     });
@@ -333,7 +342,8 @@ function cekArticle() {
     }
 }
 
-cekArticle()
+cekArticle();
+
 
 function tungguMentionsContainer() {
     console.log('tungguMentionsContainer')
@@ -361,9 +371,7 @@ function tungguMentionsContainer() {
                         showNotification("Komentar Sudah Terkirim : " + commentToPost);
 
                         isCommenting = true;
-                        if (observercontetn) {
-                            observercontetn.disconnect();
-                        }
+
                         if (observer) {
                             observer.disconnect();
                         }
@@ -386,9 +394,7 @@ function tungguMentionsContainer() {
     console.log("Observer aktif, menunggu .mentions-shadow-container...");
 }
 tungguMentionsContainer();
-
 var myrefresh = setInterval(function(){
-
     var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
     var waktupost = document.getElementsByClassName("native-text");
     if(!document.querySelectorAll("[role='presentation']")[0]){
