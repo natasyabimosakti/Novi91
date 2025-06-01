@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT1
 // @namespace    http://tampermonkey.net/
-// @version      3.187
+// @version      3.188
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut1.js
@@ -96,7 +96,6 @@ let adminList = [];
 let adminListReady = false;
 const LOCAL_KEY = "cachedAdminList";
 const VERSION_KEY = "cachedAdminVersion";
-cekArticle()
 function isAdmin(name) {
     if (!adminListReady || !name) return false;
     return adminList.some(admin => name.toLowerCase().includes(admin.toLowerCase()));
@@ -114,6 +113,10 @@ function loadLocalAdmin() {
         }
     }
 }
+var groups = groupNames.map(groupId => ({ groupId, defaultValue: false }));
+const datakomenArray = await Promise.all(
+    groupNames.map(name => GM.getValue(`group_${name}`))
+);
 function fetchAdminListFromGitHub() {
     GM_xmlhttpRequest({
         method: "GET",
@@ -181,23 +184,34 @@ function getCommentForGroup() {
     }
     return null;
 }
+let tungguGroupSudahJalan = false;
+
+let sudahDiproses = false;
+
 function tungguGroup() {
+    if (tungguGroupSudahJalan) return;
+    tungguGroupSudahJalan = true;
+
     const observer = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
             for (const node of mutation.addedNodes) {
                 if (node.nodeType !== 1) continue;
                 const container = node.querySelector?.('.fixed-container');
-                if (container) {
+                if (container && !sudahDiproses) {
+                    sudahDiproses = true;
                     const result = getCommentForGroup();
-                    if(result) {
+                    if (result) {
                         commentToPost = result.comment;
                         grouptToPost = result.groupName;
-                        console.log("✅Nama grup : " + result.groupName + " Comment : " + result.comment);
+                        console.log("✅ Nama grup : " + result.groupName + " | Comment : " + result.comment);
+                        manageGroups();
+                        observer.disconnect();
                     }
                 }
             }
         }
     });
+
     observer.observe(document.body, { childList: true, subtree: true });
 }
 tungguGroup()
@@ -224,10 +238,6 @@ if(document.location.href.includes("group")){
     myObserver.observe(document.body, { childList: true, subtree: true });
 }
 
-var groups = groupNames.map(groupId => ({ groupId, defaultValue: false }));
-const datakomenArray = await Promise.all(
-    groupNames.map(name => GM.getValue(`group_${name}`))
-);
 async function manageGroups() {
     for (const { groupId, defaultValue } of groups) {
         const key = `group_${groupId}`;
@@ -239,9 +249,21 @@ async function manageGroups() {
             await GM.setValue(expireKey, now + EXPIRATION_MS);
         }
     }
+    const groupKey = `group_${grouptToPost}`;
+    const sudahKomentar = await GM.getValue(groupKey,false);
+    if (sudahKomentar) {
+        console.log(`❌ Diblok Grup ${grouptToPost} sudah DIKOMENTARI`);
+        location.href = "about:blank";
+        return;
+
+    }else{
+        cekArticle();
+        tungguMentionsContainer();
+        mulaiRefresh()
+    }
 }
+
 let sedangKlikTextbox = false;
-manageGroups()
 function CekBacklist(postinganBL) {
     for (const DataBacklist of Backlist) {
         const kata = DataBacklist.toLowerCase();
@@ -264,15 +286,16 @@ function CekKeyword(postingan) {
     return false;
 }
 var observercontetn;
-
 let tombolSedangDiproses = false; // <== GLOBAL FLAG
-
-function cekArticle() {
+async function cekArticle() {
+    let kondisiStop =false
     console.log('cekArticle');
     if (document.location.href.includes("group")) {
         const observercontetn = new MutationObserver((mutations) => {
             for (const mutation of mutations) {
+                if (kondisiStop) return;
                 for (const node of mutation.addedNodes) {
+                    if (kondisiStop) return;
                     if (node.nodeType !== 1) continue;
 
                     // Lewati jika ada role dialog
@@ -288,8 +311,8 @@ function cekArticle() {
                     if (descendants) {
                         descendants.forEach(el => artikelBaruSet.add(el));
                     }
-
                     artikelBaruSet.forEach((artikel) => {
+                        if (kondisiStop) return;
                         if (tombolSedangDiproses) return;
 
                         const text = artikel.textContent || "";
@@ -298,7 +321,6 @@ function cekArticle() {
                             const isadminer = artikel.querySelector("[data-focusable]");
                             const ThePost = artikel;
                             const commentbox = artikel.getElementsByClassName('native-text');
-
                             if (CekBacklist(ThePost.textContent.toLowerCase())) return;
                             if (!CekKeyword(ThePost.textContent.toLowerCase())) return;
 
@@ -308,22 +330,22 @@ function cekArticle() {
                                     const t = el.textContent.toLowerCase();
                                     return t.includes("jawab") || t.includes("tulis") || t.includes("komentari") || t.includes("postingan") || t.includes("beri");
                                 });
-
                                 if (tombolKirim && !tombolSedangDiproses && !sedangKlikTextbox) {
                                     tombolSedangDiproses = true;
                                     console.log("TextBox komentar ditemukan:", tombolKirim);
 
                                     function klikTextboxJikaSiap() {
+
                                         tombolKirim.click();
                                         const textbox = document.querySelector(".multi-line-floating-textbox");
                                         if (textbox) {
-                                            if (myObserver) myObserver.disconnect();
-                                            if (observercontetn) observercontetn.disconnect();
-
+                                            stopRefresh()
+                                            myObserver.disconnect();
+                                            observercontetn.disconnect();
                                             console.log("✅ TextBox komentar Telah DI Klik & Muncul");
-                                            sedangKlikTextbox = false;
-                                            forceOffRefresh = false;
-
+                                            sedangKlikTextbox = true;
+                                            forceOffRefresh = true;
+                                            kondisiStop = true
                                             return;
                                         }
                                         requestAnimationFrame(klikTextboxJikaSiap);
@@ -342,19 +364,30 @@ function cekArticle() {
     }
 }
 
-cekArticle();
 
 
+function stopRefresh() {
+    if (myrefresh !== null) {
+        clearInterval(myrefresh);
+        myrefresh = null;
+    }
+}
 function tungguMentionsContainer() {
+    let kondisiStop =false
+
     console.log('tungguMentionsContainer')
     const observer = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
+            if (kondisiStop) return;
             for (const node of mutation.addedNodes) {
+                if (kondisiStop) return;
                 if (node.nodeType !== 1) continue; // Skip jika bukan elemen
                 const container = node.querySelector?.('.mentions-shadow-container');
                 if (container) {
                     console.log("TextBox Untuk komentar Telah Muncul");
+
                     if (isCommenting) return;
+
                     console.log("Cex");
                     const textarea = document.querySelector(".multi-line-floating-textbox");
                     const sendBtn = document.querySelector(".textbox-submit-button");
@@ -365,16 +398,15 @@ function tungguMentionsContainer() {
                         const clickEvent = document.createEvent("MouseEvents");
                         clickEvent.initEvent("mousedown", true, true);
                         sendBtn.dispatchEvent(clickEvent);
+
                         GM.setValue("group_" + grouptToPost, true);
                         GM.setValue("group_"+grouptToPost+"_expire", Date.now() + EXPIRATION_MS);
                         console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
                         showNotification("Komentar Sudah Terkirim : " + commentToPost);
-
                         isCommenting = true;
 
-                        if (observer) {
-                            observer.disconnect();
-                        }
+                        kondisiStop = true
+                        observer.disconnect();
                         startAutoTask();
                         break;
                     } else {
@@ -393,25 +425,32 @@ function tungguMentionsContainer() {
     });
     console.log("Observer aktif, menunggu .mentions-shadow-container...");
 }
-tungguMentionsContainer();
-var myrefresh = setInterval(function(){
-    var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
-    var waktupost = document.getElementsByClassName("native-text");
-    if(!document.querySelectorAll("[role='presentation']")[0]){
-        if (document.readyState === "complete") {
-            for (var cok = 0; cok < urutkan.length; cok++) {
-                if(urutkan[cok].textContent.includes("URUTKAN")) {
-                    cekTombolUrutkan = true;
-                    if (forceOffRefresh == true){
-                        clearInterval(myrefresh)
-                        return;
+
+let myrefresh = null;
+function mulaiRefresh() {
+    if (myrefresh !== null) return; // Hindari duplikat interval
+
+    myrefresh = setInterval(function () {
+        var urutkan = document.querySelectorAll("[data-mcomponent='ServerTextArea']");
+        var waktupost = document.getElementsByClassName("native-text");
+
+        if (!document.querySelectorAll("[role='presentation']")[0]) {
+            if (document.readyState === "complete") {
+                for (var cok = 0; cok < urutkan.length; cok++) {
+                    if (urutkan[cok].textContent.includes("URUTKAN")) {
+                        cekTombolUrutkan = true;
+                        if (forceOffRefresh === true) {
+                            clearInterval(myrefresh);
+                            myrefresh = null;
+                            return;
+                        }
+                        urutkan[cok].click();
                     }
-                    urutkan[cok].click()
                 }
             }
         }
-    }
-},refresh * 10)
+    }, refresh * 10);
+}
 
 function showNotification(message) {
     const notif = document.createElement("div");
