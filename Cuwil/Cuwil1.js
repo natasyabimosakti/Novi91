@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 1
 // @namespace    http://tampermonkey.net/
-// @version      3.43
+// @version      3.44
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil1.js
@@ -178,13 +178,11 @@ function getCommentForGroup() {
     }
     return null;
 }
-let tungguGroupSudahJalan = false;
 
 let sudahDiproses = false;
 
 function tungguGroup() {
-    if (tungguGroupSudahJalan) return;
-    tungguGroupSudahJalan = true;
+
 
     const observer = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
@@ -192,13 +190,16 @@ function tungguGroup() {
                 if (node.nodeType !== 1) continue;
                 const container = node.querySelector?.('.fixed-container');
                 if (container && !sudahDiproses) {
-                    sudahDiproses = true;
+
                     const result = getCommentForGroup();
                     if (result) {
                         commentToPost = result.comment;
                         grouptToPost = result.groupName;
                         console.log("✅ Nama grup : " + result.groupName + " | Comment : " + result.comment);
-                        manageGroups();
+                        if(grouptToPost.length > 2){
+                            sudahDiproses = true;
+                            manageGroups();
+                        }
                         observer.disconnect();
                     }
                 }
