@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 3
 // @namespace    http://tampermonkey.net/
-// @version      3.47
+// @version      3.48
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung3.js
@@ -171,13 +171,11 @@ function getCommentForGroup() {
     }
     return null;
 }
-let tungguGroupSudahJalan = false;
 
 let sudahDiproses = false;
 
 function tungguGroup() {
-    if (tungguGroupSudahJalan) return;
-    tungguGroupSudahJalan = true;
+
 
     const observer = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
@@ -185,13 +183,16 @@ function tungguGroup() {
                 if (node.nodeType !== 1) continue;
                 const container = node.querySelector?.('.fixed-container');
                 if (container && !sudahDiproses) {
-                    sudahDiproses = true;
+
                     const result = getCommentForGroup();
                     if (result) {
                         commentToPost = result.comment;
                         grouptToPost = result.groupName;
                         console.log("✅ Nama grup : " + result.groupName + " | Comment : " + result.comment);
-                        manageGroups();
+                        if(grouptToPost.length > 2){
+                            sudahDiproses = true;
+                            manageGroups();
+                        }
                         observer.disconnect();
                     }
                 }
