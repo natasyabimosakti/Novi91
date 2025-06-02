@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 1
 // @namespace    http://tampermonkey.net/
-// @version      3.174
+// @version      3.175
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro1.js
@@ -185,28 +185,19 @@ function getCommentForGroup() {
     return null;
 }
 
-let sudahDiproses = false;
-
 function tungguGroup() {
-
-
     const observer = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
             for (const node of mutation.addedNodes) {
                 if (node.nodeType !== 1) continue;
                 const container = node.querySelector?.('.fixed-container');
-                if (container && !sudahDiproses) {
-
+                if (container) {
                     const result = getCommentForGroup();
                     if (result) {
                         commentToPost = result.comment;
                         grouptToPost = result.groupName;
-                        console.log("✅ Nama grup : " + result.groupName + " | Comment : " + result.comment);
-                        if(grouptToPost.length > 2){
-                            sudahDiproses = true;
-                            manageGroups();
-                        }
-                        observer.disconnect();
+                        console.log("✅ Nama grup : " + grouptToPost + " | Comment : " +commentToPost );
+                        manageGroups();
                     }
                 }
             }
@@ -216,6 +207,7 @@ function tungguGroup() {
     observer.observe(document.body, { childList: true, subtree: true });
 }
 tungguGroup()
+
 if(document.location.href.includes("group")){
     myObserver = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
@@ -238,8 +230,10 @@ if(document.location.href.includes("group")){
     });
     myObserver.observe(document.body, { childList: true, subtree: true });
 }
-
+var sudahDiPanggil = false
 async function manageGroups() {
+    if(sudahDiPanggil)return;
+    sudahDiPanggil = true
     for (const { groupId, defaultValue } of groups) {
         const key = `group_${groupId}`;
         const expireKey = `${key}_expire`;
@@ -260,7 +254,9 @@ async function manageGroups() {
     }else{
         cekArticle();
         tungguMentionsContainer();
-        mulaiRefresh()
+        setTimeout(() => {
+            mulaiRefresh()
+        }, 5000);
     }
 }
 
@@ -287,35 +283,25 @@ function CekKeyword(postingan) {
     return false;
 }
 var observercontetn;
-let tombolSedangDiproses = false; // <== GLOBAL FLAG
 async function cekArticle() {
-    let kondisiStop =false
+
     console.log('cekArticle');
     if (document.location.href.includes("group")) {
         const observercontetn = new MutationObserver((mutations) => {
             for (const mutation of mutations) {
-                if (kondisiStop) return;
                 for (const node of mutation.addedNodes) {
-                    if (kondisiStop) return;
                     if (node.nodeType !== 1) continue;
-
                     // Lewati jika ada role dialog
                     if (node.closest?.('[role="dialog"]')) continue;
-
                     const artikelBaruSet = new Set();
-
                     if (node.matches?.('[data-tracking-duration-id]')) {
                         artikelBaruSet.add(node);
                     }
-
                     const descendants = node.querySelectorAll?.('[data-tracking-duration-id]');
                     if (descendants) {
                         descendants.forEach(el => artikelBaruSet.add(el));
                     }
                     artikelBaruSet.forEach((artikel) => {
-                        if (kondisiStop) return;
-                        if (tombolSedangDiproses) return;
-
                         const text = artikel.textContent || "";
                         if (/(\bBaru saja\b|\b[1-5] menit\b)/.test(text)) {
                             const namafb = artikel.getElementsByTagName("span")[0];
@@ -324,19 +310,17 @@ async function cekArticle() {
                             const commentbox = artikel.getElementsByClassName('native-text');
                             if (CekBacklist(ThePost.textContent.toLowerCase())) return;
                             if (!CekKeyword(ThePost.textContent.toLowerCase())) return;
-
                             const author = namafb?.textContent?.toLowerCase() || "";
+
                             if (isAdmin(author) || isadminer?.textContent?.toLowerCase().includes("admin") || isadminer?.textContent?.toLowerCase().includes("moderator")) {
                                 const tombolKirim = Array.from(commentbox).find(el => {
                                     const t = el.textContent.toLowerCase();
                                     return t.includes("jawab") || t.includes("tulis") || t.includes("komentari") || t.includes("postingan") || t.includes("beri");
                                 });
-                                if (tombolKirim && !tombolSedangDiproses && !sedangKlikTextbox) {
-                                    tombolSedangDiproses = true;
+                                console.log(`✅ "Admin Di Temukan`);
+                                if (tombolKirim ) {
                                     console.log("TextBox komentar ditemukan:", tombolKirim);
-
                                     function klikTextboxJikaSiap() {
-
                                         tombolKirim.click();
                                         const textbox = document.querySelector(".multi-line-floating-textbox");
                                         if (textbox) {
@@ -344,14 +328,11 @@ async function cekArticle() {
                                             myObserver.disconnect();
                                             observercontetn.disconnect();
                                             console.log("✅ TextBox komentar Telah DI Klik & Muncul");
-                                            sedangKlikTextbox = true;
                                             forceOffRefresh = true;
-                                            kondisiStop = true
                                             return;
                                         }
                                         requestAnimationFrame(klikTextboxJikaSiap);
                                     }
-
                                     klikTextboxJikaSiap();
                                 }
                             }
@@ -379,10 +360,8 @@ function tungguMentionsContainer() {
     console.log('tungguMentionsContainer')
     const observer = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
-            if (kondisiStop) return;
             for (const node of mutation.addedNodes) {
-                if (kondisiStop) return;
-                if (node.nodeType !== 1) continue; // Skip jika bukan elemen
+                if (node.nodeType !== 1&&!kondisiStop) continue; // Skip jika bukan elemen
                 const container = node.querySelector?.('.mentions-shadow-container');
                 if (container) {
                     console.log("TextBox Untuk komentar Telah Muncul");
@@ -413,6 +392,7 @@ function tungguMentionsContainer() {
                     } else {
                         showNotification("❌ Textarea atau tombol kirim tidak ditemukan");
                         isCommenting = false;
+                        kondisiStop = false
                     }
 
                     return;
