@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 1
 // @namespace    http://tampermonkey.net/
-// @version      3.54
+// @version      3.55
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo1.js
@@ -229,10 +229,15 @@ if(document.location.href.includes("group")){
     });
     myObserver.observe(document.body, { childList: true, subtree: true });
 }
+setTimeout(() => {
+    mulaiRefresh()
+}, 5000);
 var sudahDiPanggil = false
 async function manageGroups() {
-    if(sudahDiPanggil)return;
-    sudahDiPanggil = true
+    if(grouptToPost.length <= 1){
+     return;
+    }
+
     for (const { groupId, defaultValue } of groups) {
         const key = `group_${groupId}`;
         const expireKey = `${key}_expire`;
@@ -251,11 +256,10 @@ async function manageGroups() {
         return;
 
     }else{
+        if(sudahDiPanggil)return;
+        sudahDiPanggil = true
         cekArticle();
         tungguMentionsContainer();
-        setTimeout(() => {
-            mulaiRefresh()
-        }, 5000);
     }
 }
 
