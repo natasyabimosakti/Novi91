@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Babon 1
 // @namespace    http://tampermonkey.net/
-// @version      3.27
+// @version      3.28
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon1.js
@@ -21,8 +21,8 @@
 
 
 
-var namagroup1 = 'NONGKRONG';
-var Comment1 = '#AMAVI5D ( SUNTIKMATI ) : 59*95*87';
+var namagroup1 = '18NAGA';
+var Comment1 = '#18NAGA (SUNTIKMATI) : 59*95*87BET';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( SETIASAJA ) : 18*28*38';
 var namagroup3 = 'WARUNG';
@@ -33,7 +33,7 @@ var namagroup5 = 'PEDRO';
 var Comment5 = '#PEDRO4D (SASISU42*71*48*25)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (SISWARUK) = 92*84*39';
-var namagroup7 = 'KASTOTO';
+var namagroup7 = 'Moveon88';
 var Comment7 = '#KASTOTO(SEMBODOH) = 72*45*27 #AGENTOGELTERPERCAYA';
 var namagroup8 = 'TOK99';
 var Comment8 = 'Tok99Toto ( SINGKONGTHAI ) : 42*76*00';
@@ -47,8 +47,8 @@ var namagroup12 = 'OPUNG';
 var Comment12 = 'OPUNG4D ( SIANGANAJA ) : 73*04*81';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=SUMBUBULU=79*74*51';
-var namagroup14 = 'Samson';
-var Comment14 = '#SAMSONTOTO/SAMBUNGBAYAM/82*22';
+var namagroup14 = 'BLITAR';
+var Comment14 = '#BLITAR4D (SAMBUNGBAYAM) = 82*22';
 var namagroup15 = 'Hoho';
 var Comment15 = 'SUKAJANTUA : 85*08*60 #HOHOTOGEL';
 var namagroup16 = 'GTO';
