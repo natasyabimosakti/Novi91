@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 2
 // @namespace    http://tampermonkey.net/
-// @version      3.44
+// @version      3.45
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil2.js
@@ -20,8 +20,8 @@
 
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
-var namagroup1 = 'NONGKRONG';
-var Comment1 = '#AMAVI5D ( NYOLOGMOTO ) : 73*87*05';
+var namagroup1 = '18NAGA';
+var Comment1 = '#18NAGA (NYOLOGMOTO) : 73*87*05BET';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( NYOGOKSILIT ) : 50*41*60';
 var namagroup3 = 'WARUNG';
@@ -32,7 +32,7 @@ var namagroup5 = 'PEDRO';
 var Comment5 = '#PEDRO4D (NYOTEKTAIMU*02*19*68)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (NYOLONGDUET) = 78*55*07';
-var namagroup7 = 'KASTOTO';
+var namagroup7 = 'Moveon88';
 var Comment7 = '#KASTOTO(NYOSINYO898) = 58*80*28 #AGENTOGELTERPERCAYA';
 var namagroup8 = 'TOK99';
 var Comment8 = 'Tok99Toto ( NYOCOTTERUS ) : 61*97*69';
@@ -46,8 +46,8 @@ var namagroup12 = 'OPUNG';
 var Comment12 = 'OPUNG4D ( NYONYAKU69 ) : 11*95*66';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=NYOBAKTUKU55=59*47*96';
-var namagroup14 = 'Samson';
-var Comment14 = '#SAMSONTOTO/NYOBORKODOK/22*57';
+var namagroup14 = 'BLITAR';
+var Comment14 = '#BLITAR4D (NYOBORKODOK) = 22*57';
 var namagroup15 = 'Hoho';
 var Comment15 = 'NYOKONGRONDO : 81*49*72 #HOHOTOGEL';
 var namagroup16 = 'GTO';
