@@ -21,8 +21,8 @@
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 
-var namagroup1 = 'NONGKRONG';
-var Comment1 = '#AMAVI5D ( XIONGYU6 ) : 39*90*66';
+var namagroup1 = '18NAGA';
+var Comment1 = '#18NAGA (XIONGYU6) : 39*90*66BET';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( XENON88 ) : 54*74*37';
 var namagroup3 = 'WARUNG';
@@ -33,7 +33,7 @@ var namagroup5 = 'PEDRO';
 var Comment5 = '#PEDRO4D (XELOP83*80*25*72)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (XANXAN68) = 68*87*96';
-var namagroup7 = 'KASTOTO';
+var namagroup7 = 'Moveon88';
 var Comment7 = '#KASTOTO(XELOP83) = 56*81*41 #AGENTOGELTERPERCAYA';
 var namagroup8 = 'TOK99';
 var Comment8 = 'Tok99Toto ( XELINA56 ) : 32*67*73';
@@ -47,8 +47,8 @@ var namagroup12 = 'OPUNG';
 var Comment12 = 'OPUNG4D ( XIANTAR6 ) : 40*60*76';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=XIOYIB47=78*26*42';
-var namagroup14 = 'Samson';
-var Comment14 = '#SAMSONTOTO/XIAOLAN6/77*86';
+var namagroup14 = 'BLITAR';
+var Comment14 = '#BLITAR4D (XANXAN68) = 77*86';
 var namagroup15 = 'Hoho';
 var Comment15 = 'XONKING52 : 50*03*30 #HOHOTOGEL';
 var namagroup16 = 'GTO';
