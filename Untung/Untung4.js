@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 4
 // @namespace    http://tampermonkey.net/
-// @version      3.49
+// @version      3.50
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung4.js
@@ -16,8 +16,8 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'NONGKRONG';
-var Comment1 = '#AMAVI5D ( WIRANG89 ) : 85*67*18';
+var namagroup1 = '18NAGA';
+var Comment1 = '#18NAGA (WIRANG89) : 85*67*18 BETT';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( WAKUL90 ) : 47*12*94';
 var namagroup3 = 'WARUNG';
@@ -28,7 +28,7 @@ var namagroup5 = 'PEDRO';
 var Comment5 = '#PEDRO4D (WAGE93*25*03*91)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (WULING94) = 04*84*96';
-var namagroup7 = 'KASTOTO';
+var namagroup7 = 'Moveon88';
 var Comment7 = '#KASTOTO(WENANG95) = 24*79*08 #AGENTOGELTERPERCAYA';
 var namagroup8 = 'TOK99';
 var Comment8 = 'Tok99Toto ( WANGSUL96 ) : 69*41*62';
@@ -42,8 +42,8 @@ var namagroup12 = 'OPUNG';
 var Comment12 = 'OPUNG4D ( WEDANG72 ) : 72*14*35';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=WANGSIT73=52*31*50';
-var namagroup14 = 'Samson';
-var Comment14 = '#SAMSONTOTO/WALUYO74/74*15';
+var namagroup14 = 'BLITAR';
+var Comment14 = '#BLITAR4D (WALUYO74) = 74*15';
 var namagroup15 = 'Hoho';
 var Comment15 = 'WAGINEM75 : 98*27*60 #HOHOTOGEL';
 var namagroup16 = 'GTO';
