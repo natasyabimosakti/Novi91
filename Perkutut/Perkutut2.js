@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut2
 // @namespace    http://tampermonkey.net/
-// @version      3.201
+// @version      3.202
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut2.js
@@ -16,8 +16,8 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'NONGKRONG';
-var Comment1 = '#AMAVI5D ( ELANG72 ) : 95*91*52';
+var namagroup1 = '18NAGA';
+var Comment1 = '#18NAGA (ELANG72) : 95*91*52BET';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( ELANG3 ) : 68*62*77';
 var namagroup3 = 'WARUNG';
@@ -28,7 +28,7 @@ var namagroup5 = 'PEDRO';
 var Comment5 = '#PEDRO4D (ELANG089*57*10*42)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (ELANG38) = 32*79*31';
-var namagroup7 = 'KASTOTO';
+var namagroup7 = 'Moveon88';
 var Comment7 = '#KASTOTO(ELANG089) = 17*76*78 #AGENTOGELTERPERCAYA';
 var namagroup8 = 'TOK99';
 var Comment8 = 'Tok99Toto ( ELANG51 ) : 27*09*87';
@@ -42,8 +42,8 @@ var namagroup12 = 'OPUNG';
 var Comment12 = 'OPUNG4D ( ELANGX3 ) : 40*61*21';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=ELANGSH=35*59*02';
-var namagroup14 = 'Samson';
-var Comment14 = '#SAMSONTOTO/ELANG38/92*34';
+var namagroup14 = 'BLITAR';
+var Comment14 = '#BLITAR4D (ELANG38) = 92*34';
 var namagroup15 = 'Hoho';
 var Comment15 = 'ELANG94 : 67*80*74 #HOHOTOGEL';
 var namagroup16 = 'GTO';
