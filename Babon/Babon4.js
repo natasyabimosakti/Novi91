@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Babon 4
 // @namespace    http://tampermonkey.net/
-// @version      3.26
+// @version      3.27
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon4.js
@@ -23,8 +23,8 @@
 
 
 
-var namagroup1 = 'NONGKRONG';
-var Comment1 = '#AMAVI5D ( KURNIAKAN ) : 86*66*46';
+var namagroup1 = '18NAGA';
+var Comment1 = '#18NAGA (KURNIAKAN) : 86*66*46BET';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( KURIKULUM ) : 26*54*34';
 var namagroup3 = 'WARUNG';
@@ -35,7 +35,7 @@ var namagroup5 = 'PEDRO';
 var Comment5 = '#PEDRO4D (KOLANGBALING*10*63*68)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (KUNDURUNDUR3) = 49*23*93';
-var namagroup7 = 'KASTOTO';
+var namagroup7 = 'Moveon88';
 var Comment7 = '#KASTOTO(KOMOROTOM) = 99*47*02 #AGENTOGELTERPERCAYA';
 var namagroup8 = 'TOK99';
 var Comment8 = 'Tok99Toto ( KAKIKUKAKU ) : 07*44*80';
@@ -49,8 +49,8 @@ var namagroup12 = 'OPUNG';
 var Comment12 = 'OPUNG4D ( KABEDULU ) : 50*91*21';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=KEMBROT55=35*12*78';
-var namagroup14 = 'Samson';
-var Comment14 = '#SAMSONTOTO/KILATPETIR/01*53';
+var namagroup14 = 'BLITAR';
+var Comment14 = '#BLITAR4D (KILATPETIR) = 01*53';
 var namagroup15 = 'Hoho';
 var Comment15 = 'KAOSBOLONG : 06*90*83 #HOHOTOGEL';
 var namagroup16 = 'GTO';
