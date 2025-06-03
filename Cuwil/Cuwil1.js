@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 1
 // @namespace    http://tampermonkey.net/
-// @version      3.45
+// @version      3.46
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil1.js
@@ -21,8 +21,8 @@
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 
-var namagroup1 = 'NONGKRONG';
-var Comment1 = '#AMAVI5D ( OKEGAS321 ) : 59*47*96';
+var namagroup1 = '18NAGA';
+var Comment1 = '#18NAGA (OKEGAS321) : 59*47*96BET';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( OKTAGON60 ) : 39*15*71';
 var namagroup3 = 'WARUNG';
@@ -33,7 +33,7 @@ var namagroup5 = 'PEDRO';
 var Comment5 = '#PEDRO4D (OKBOSKU555*20*44*38)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (OKBRASKAYU) = 06*09*45';
-var namagroup7 = 'KASTOTO';
+var namagroup7 = 'Moveon88';
 var Comment7 = '#KASTOTO(OKBENGTANG) = 99*24*92 #AGENTOGELTERPERCAYA';
 var namagroup8 = 'TOK99';
 var Comment8 = 'Tok99Toto ( OKMBAKGEDI1 ) : 11*95*66';
@@ -47,8 +47,8 @@ var namagroup12 = 'OPUNG';
 var Comment12 = 'OPUNG4D ( OKRONGORONG ) : 61*97*69';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=OKMINIMINI=73*87*05';
-var namagroup14 = 'Samson';
-var Comment14 = '#SAMSONTOTO/OKTONGGEDI10/53*63';
+var namagroup14 = 'BLITAR';
+var Comment14 = '#BLITAR4D (OKTONGGEDI10) = 53*63';
 var namagroup15 = 'Hoho';
 var Comment15 = 'OKCECE246 : 89*90*56 #HOHOTOGEL';
 var namagroup16 = 'GTO';
