@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti4
 // @namespace    http://tampermonkey.net/
-// @version      3.55
+// @version      3.56
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti4.js
@@ -16,8 +16,8 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'NONGKRONG';
-var Comment1 = '#AMAVI5D ( DOKARLARI ) : 47*60*21';
+var namagroup1 = '18NAGA';
+var Comment1 = '#18NAGA (DOKARLARI) : 47*60*21BET';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( DOLANAN ) : 66*02*94';
 var namagroup3 = 'WARUNG';
@@ -28,7 +28,7 @@ var namagroup5 = 'PEDRO';
 var Comment5 = '#PEDRO4D (DUGALTOK*09*24*96)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (DUDADUWEL) = 23*49*20';
-var namagroup7 = 'KASTOTO';
+var namagroup7 = 'Moveon88';
 var Comment7 = '#KASTOTO(DUKUMANIS) = 86*33*22 #AGENTOGELTERPERCAYA';
 var namagroup8 = 'TOK99';
 var Comment8 = 'Tok99Toto ( DEREK25 ) : 77*85*37';
@@ -42,8 +42,8 @@ var namagroup12 = 'OPUNG';
 var Comment12 = 'OPUNG4D ( DELOKDEWE ) : 68*70*87';
 var namagroup13 = 'GOHT0G3L';
 var Comment13 = 'GOHTOGEL=DINGDONG24=80*26*51';
-var namagroup14 = 'Samson';
-var Comment14 = '#SAMSONTOTO/DUNGKEK28/90*65';
+var namagroup14 = 'BLITAR';
+var Comment14 = '#BLITAR4D (DUNGKEK28) = 90*65';
 var namagroup15 = 'Hoho';
 var Comment15 = 'DANCOAN : 58*88*29 #HOHOTOGEL';
 var namagroup16 = 'GTO';
