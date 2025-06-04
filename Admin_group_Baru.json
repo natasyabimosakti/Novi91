@@ -1,7 +1,7 @@
 {
-  "version": "1.0.9",
+  "version": "1.0.10",
   "admins": [
-    "acha", "aditia", "adiat", "admin", "adm", "agung", "alenta", "aldi", "alde", "amelia", "ananda", "andi",
+// @version      3.NaN
     "andy", "anisa", "annisa", "aqisya", "arga", "arifin", "arsyah", "aru", "arxidi", "audi", "ayesha", "ayunda",
     "azahra", "ban nee", "bang wawan", "bastian", "bella", "berry", "biru", "boboho", "bola", "boleng", "bobby",
     "bonar", "bonbin", "bunga", "calon", "calvin", "camb", "cassa", "ceme", "celsia", "che", "chika", "cila",
@@ -19,7 +19,7 @@
     "nona", "novi", "nur", "nurul", "nyocol", "ormas", "oscar", "otong", "ozawa", "paduka", "pencari",
     "pengurus", "pricilia", "primus", "priyan", "pung", "puput", "putra", "raja", "rana", "ranger", "ratsa",
     "ratu", "rendy", "ria", "rikodo", "riko", "rio", "rindi", "rizal", "roy", "rudz", "safa", "sahara",
-    "sam", "san", "sanchez", "sandiego", "sanjaya", "sapto", "sasa", "sasha", "satria", "sellia", "serena",
+    "sam", "san", "sanchez", "sandiego", "sanjaya", "sapto", "sasa", "sasha", "satria", "sellia", "serena", "sabillah",
     "sifa", "sinta", "sintia", "sintya", "siska", "siâo", "sofia", "sonia", "specialis", "stephen", "stevent",
     "surianti", "tatang", "tania", "thonex", "tiara", "tiktak", "tink", "vaulian", "vero", "widya", "wok",
     "wulan", "yanty", "yihana", "yii", "yohana", "yoky"
