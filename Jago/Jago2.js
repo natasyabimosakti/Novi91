@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JAGO 2
 // @namespace    http://tampermonkey.net/
-// @version      3.24
+// @version      3.25
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago2.js
@@ -19,56 +19,39 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*PEMPEK12*58*88'; 
-
+var Comment1 = '#shiokelinci4d*PEMPEK12*58*88';
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO PIALADIGILIR 11*20*38'; 
-
+var Comment2 = 'IYATOTO PIALADIGILIR 11*20*38';
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / PAKUAN28 / 33 , 92 , 38'; 
-
+var Comment3 = 'Tiktaktogel / PAKUAN28 / 33 , 92 , 38';
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=PIMPINAN=12*86*68'; 
-
+var Comment4 = 'GAIB4D=PIMPINAN=12*86*68';
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (PURARA23) = 71*96*75'; 
-
-var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=PAPIPU56=78*46*77'; 
-
+var Comment5 = '#keitogel = (PURARA23) = 71*96*75';
+var namagroup6 = 'lomba dan event';
+var Comment6 = '# ( PAPIPU56 ) : 78*46*77';
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL PEMBODONG 67*98*05'; 
-
+var Comment7 = 'ASEPTOGEL PEMBODONG 67*98*05';
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=PINGGULGEDE= 02*09'; 
-
+var Comment8 = '#MENARA4D=PINGGULGEDE= 02*09';
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=PUNDAKLAH=14*57*42'; 
-
+var Comment9 = 'GILA4D=PUNDAKLAH=14*57*42';
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(PRAWANKOTA)*37*15*50'; 
-
+var Comment10 = '#JNETOTO(PRAWANKOTA)*37*15*50';
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( PELANGAIR ) : 36*80*62'; 
-
+var Comment11 = '#TOYIBSLOT ( PELANGAIR ) : 36*80*62';
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY PIMAKU28 51*35*01'; 
-
+var Comment12 = 'TOGELKUY PIMAKU28 51*35*01';
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( PUBERDAYA ) 55*90'; 
-
+var Comment13 = '#KOITOTO ( PUBERDAYA ) 55*90';
 var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=PELANGI77=17*95*61'; 
-
+var Comment14 = 'ANGKER4D=PELANGI77=17*95*61';
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (PARLENTE) 47*54*49'; 
-
+var Comment15 = 'VESPATOGEL (PARLENTE) 47*54*49';
 var namagroup16 = 'Nemo';
-var Comment16 = 'NEMO4D (PAKUKUTARA) : 65*56*48'; 
-
+var Comment16 = 'NEMO4D (PAKUKUTARA) : 65*56*48';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (PAKSEKOLAH) = 48*49';
-
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Jago 2';
