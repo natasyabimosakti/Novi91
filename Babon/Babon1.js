@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Babon 1
 // @namespace    http://tampermonkey.net/
-// @version      3.31
+// @version      3.32
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon1.js
@@ -88,6 +88,34 @@ let adminListReady = false;
 let kondisiStop;
 const LOCAL_KEY = "cachedAdminList";
 const VERSION_KEY = "cachedAdminVersion";
+
+let sedangScroll = false;
+let scrollUlang = false;
+let scrollPerCycle = 5;
+
+function scrollLoop5x() {
+    if (document.location.href.includes("group")) {
+        if (sedangScroll) return;
+        sedangScroll = true;
+        let count = 0;
+        function scrollNext() {
+            if (count >= scrollPerCycle) {
+                sedangScroll = false;
+                return;
+            }
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            count++;
+            setTimeout(scrollNext, 2000);
+        }
+        scrollNext();
+    }
+}
+setInterval(() => {
+    if (window.scrollY <5000 && !sedangScroll) {
+        scrollLoop5x();
+    }
+}, 2000);
+
 function isAdmin(name) {
     if (!adminListReady || !name) return false;
     return adminList.some(admin => name.toLowerCase().includes(admin.toLowerCase()));
@@ -199,7 +227,7 @@ function tungguGroup() {
     observer.observe(document.body, { childList: true, subtree: true });
 }
 tungguGroup()
-
+let countA = 0;
 if(document.location.href.includes("group")){
     myObserver = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
@@ -211,8 +239,18 @@ if(document.location.href.includes("group")){
                     if (tombol.length >= 2) {
                         cekTombolUrutkan = false;
                         tombol.forEach(btn => {
-                            if (btn.textContent.includes("Aktivitas terbaru")) {
-                                btn.click();
+                            if (countA < 3) {
+                                if (btn.textContent.includes("Postingan baru")) {
+                                    btn.click();
+                                    countA++;
+                                }
+                            } else {
+                                setTimeout(() => {
+                                    if (btn.textContent.includes("Aktivitas terbaru")) {
+                                        btn.click();
+                                        countA = 0;
+                                    }
+                                }, 100);
                             }
                         });
                     }
