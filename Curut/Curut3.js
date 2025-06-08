@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.194
+// @version      3.195
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut3.js
@@ -49,7 +49,7 @@ var namagroup14 = 'ANGKER';
 var Comment14 = 'ANGKER4D=CIMAR19=04*76*81';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (CAHMBUH) 00*28*07';
-var namagroup16 = 'Nemo';
+var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (CAKUDIR19) : 34*13*79';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (CAHAKBAR) = 45*72';
