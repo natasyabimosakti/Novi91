@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF2
 // @namespace    http://tampermonkey.net/
-// @version      3.44
+// @version      3.45
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
@@ -48,7 +48,7 @@ var namagroup14 = 'ANGKER';
 var Comment14 = 'ANGKER4D=MERUCIK789=11*45*66';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (MERESLO72) 40*92*55';
-var namagroup16 = 'Nemo';
+var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (MERSLO72) : 94*43*12';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (MERESLO72) = 36*49';
