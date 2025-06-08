@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Penyok 1
 // @namespace    http://tampermonkey.net/
-// @version      3.45
+// @version      3.46
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok1.js
@@ -17,53 +17,37 @@
 // ==/UserScript==
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*OKEGAS321*29*74'; 
-
+var Comment1 = '#shiokelinci4d*OKEGAS321*29*74';
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO OKTAGON60 96*83*68'; 
-
+var Comment2 = 'IYATOTO OKTAGON60 96*83*68';
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / OKSIGEN100 / 19 , 59 , 03'; 
-
+var Comment3 = 'Tiktaktogel / OKSIGEN100 / 19 , 59 , 03';
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=OKTOPUS45=25*85*67'; 
-
+var Comment4 = 'GAIB4D=OKTOPUS45=25*85*67';
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (OKBOSKU555) = 01*44*31'; 
-
-var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=OKBRASKAYU=88*75*65'; 
-
+var Comment5 = '#keitogel = (OKBOSKU555) = 01*44*31';
+var namagroup6 = 'lomba dan event';
+var Comment6 = '# ( OKBRASKAYU ) : 88*75*65';
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL OKBENGTANG 17*84*50'; 
-
+var Comment7 = 'ASEPTOGEL OKBENGTANG 17*84*50';
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=OKMBAKGEDI1= 08*14'; 
-
+var Comment8 = '#MENARA4D=OKMBAKGEDI1= 08*14';
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=OKTANTING38=00*20*30'; 
-
+var Comment9 = 'GILA4D=OKTANTING38=00*20*30';
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(OKBRALBAJU)*18*52*91'; 
-
+var Comment10 = '#JNETOTO(OKBRALBAJU)*18*52*91';
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( OKRARIT369 ) : 56*58*91'; 
-
+var Comment11 = '#TOYIBSLOT ( OKRARIT369 ) : 56*58*91';
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY OKRONGORONG 70*54*57'; 
-
+var Comment12 = 'TOGELKUY OKRONGORONG 70*54*57';
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( OKMINIMINI ) 05*48'; 
-
+var Comment13 = '#KOITOTO ( OKMINIMINI ) 05*48';
 var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=OKTONGGEDI10=11*45*66'; 
-
+var Comment14 = 'ANGKER4D=OKTONGGEDI10=11*45*66';
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (OKCECE246) 40*92*55'; 
-
+var Comment15 = 'VESPATOGEL (OKCECE246) 40*92*55';
 var namagroup16 = 'Nemo';
-var Comment16 = 'NEMO4D (OKTOHASI4) : 94*43*12'; 
-
+var Comment16 = 'NEMO4D (OKTOHASI4) : 94*43*12';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (OKTOLPEK80) = 36*49';
 
