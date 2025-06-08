@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 3
 // @namespace    http://tampermonkey.net/
-// @version      3.178
+// @version      3.179
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk3.js
@@ -20,53 +20,37 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*DOROKERTO*00*28'; 
-
+var Comment1 = '#shiokelinci4d*DOROKERTO*00*28';
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO DOROMIBER 04*76*81'; 
-
+var Comment2 = 'IYATOTO DOROMIBER 04*76*81';
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / DORONYOK / 52 , 26 , 70'; 
-
+var Comment3 = 'Tiktaktogel / DORONYOK / 52 , 26 , 70';
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=DOROPOL12=73*10*45'; 
-
+var Comment4 = 'GAIB4D=DOROPOL12=73*10*45';
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (DORODOR12) = 63*30*72'; 
-
-var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=DOROWIS12=64*40*69'; 
-
+var Comment5 = '#keitogel = (DORODOR12) = 63*30*72';
+var namagroup6 = 'lomba dan event';
+var Comment6 = '# ( Doroman12 ) : 64*40*69';
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL DOROMAN12 22*24*21'; 
-
+var Comment7 = 'ASEPTOGEL DOROMAN12 22*24*21';
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=DOROKERTO3= 34*13'; 
-
+var Comment8 = '#MENARA4D=DOROKERTO3= 34*13';
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=DOROMIBER2=74*82*84'; 
-
+var Comment9 = 'GILA4D=DOROMIBER2=74*82*84';
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(DORONYOK31)*39*27*32'; 
-
+var Comment10 = '#JNETOTO(DORONYOK31)*39*27*32';
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( DOROWIS12 ) : 25*16*85'; 
-
+var Comment11 = '#TOYIBSLOT ( DOROWIS12 ) : 25*16*85';
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY DORODOR12 19*03*18'; 
-
+var Comment12 = 'TOGELKUY DORODOR12 19*03*18';
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( DOROWIS12 ) 31*44'; 
-
+var Comment13 = '#KOITOTO ( DOROWIS12 ) 31*44';
 var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=DOROKERTO3=94*89*43'; 
-
+var Comment14 = 'ANGKER4D=DOROKERTO3=94*89*43';
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (DOROKU21) 08*87*53'; 
-
+var Comment15 = 'VESPATOGEL (DOROKU21) 08*87*53';
 var namagroup16 = 'Nemo';
-var Comment16 = 'NEMO4D (DOROKERTO) : 91*93*23'; 
-
+var Comment16 = 'NEMO4D (DOROKERTO) : 91*93*23';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (DORODOR12) = 29*59';
   
