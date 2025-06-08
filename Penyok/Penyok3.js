@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Penyok 3
 // @namespace    http://tampermonkey.net/
-// @version      3.45
+// @version      3.46
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok3.js
@@ -17,53 +17,37 @@
 // ==/UserScript==
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*SUSUMUGEDI*47*23'; 
-
+var Comment1 = '#shiokelinci4d*SUSUMUGEDI*47*23';
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO SUSUKUCILIK 26*53*82'; 
-
+var Comment2 = 'IYATOTO SUSUKUCILIK 26*53*82';
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / SUKARONDO77 / 22 , 35 , 78'; 
-
+var Comment3 = 'Tiktaktogel / SUKARONDO77 / 22 , 35 , 78';
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=SUKSUKANBAE=60*32*38'; 
-
+var Comment4 = 'GAIB4D=SUKSUKANBAE=60*32*38';
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (SUWUNBOSQU) = 80*51*95'; 
-
-var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=SUGEHTERUS12=72*39*99'; 
-
+var Comment5 = '#keitogel = (SUWUNBOSQU) = 80*51*95';
+var namagroup6 = 'lomba dan event';
+var Comment6 = '# ( SUGEHTERUS12 ) : 72*39*99';
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL SUKMUMETNDES 77*46*69'; 
-
+var Comment7 = 'ASEPTOGEL SUKMUMETNDES 77*46*69';
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=SUMUKSEKALIG= 61*89'; 
-
+var Comment8 = '#MENARA4D=SUMUKSEKALIG= 61*89';
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=SUMEGEHBAE=34*76*24'; 
-
+var Comment9 = 'GILA4D=SUMEGEHBAE=34*76*24';
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(SUNDULUSU)*21*73*63'; 
-
+var Comment10 = '#JNETOTO(SUNDULUSU)*21*73*63';
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( SUWENGLAMBEMU ) : 93*62*63'; 
-
+var Comment11 = '#TOYIBSLOT ( SUWENGLAMBEMU ) : 93*62*63';
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY SUSUBERUANG 37*13*02'; 
-
+var Comment12 = 'TOGELKUY SUSUBERUANG 37*13*02';
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( SUKAMAMPIR ) 15*98'; 
-
+var Comment13 = '#KOITOTO ( SUKAMAMPIR ) 15*98';
 var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=SUNANMUHIBIN=90*79*09'; 
-
+var Comment14 = 'ANGKER4D=SUNANMUHIBIN=90*79*09';
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (SUNDULKELANG) 16*81*71'; 
-
+var Comment15 = 'VESPATOGEL (SUNDULKELANG) 16*81*71';
 var namagroup16 = 'Nemo';
-var Comment16 = 'NEMO4D (SUNDRALDUL) : 06*28*27'; 
-
+var Comment16 = 'NEMO4D (SUNDRALDUL) : 06*28*27';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (SULENGSU231) = 87*42';
 
