@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT1
 // @namespace    http://tampermonkey.net/
-// @version      3.266
+// @version      3.267
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut1.js
@@ -19,53 +19,37 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*HONO212*88*75'; 
-
+var Comment1 = '#shiokelinci4d*HONO212*88*75';
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO HONOS112 17*84*50'; 
-
+var Comment2 = 'IYATOTO HONOS112 17*84*50';
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / HORESU14 / 08 , 14 , 33'; 
-
+var Comment3 = 'Tiktaktogel / HORESU14 / 08 , 14 , 33';
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=HONDANG41=29*74*04'; 
-
+var Comment4 = 'GAIB4D=HONDANG41=29*74*04';
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (HOMOGEN12) = 96*83*68'; 
-
-var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=HOPENG99=19*59*03'; 
-
+var Comment5 = '#keitogel = (HOMOGEN12) = 96*83*68';
+var namagroup6 = 'lomba dan event';
+var Comment6 = '# ( HOCIANG12 ) : 19*59*03';
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL HORE713 25*85*67'; 
-
+var Comment7 = 'ASEPTOGEL HORE713 25*85*67';
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=HOPRET303= 01*44'; 
-
+var Comment8 = '#MENARA4D=HOPRET303= 01*44';
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=HONOS112=56*58*49'; 
-
+var Comment9 = 'GILA4D=HONOS112=56*58*49';
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(HOMOGEN12)*18*52*36'; 
-
+var Comment10 = '#JNETOTO(HOMOGEN12)*18*52*36';
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( HOJOL134 ) : 00*20*30'; 
-
+var Comment11 = '#TOYIBSLOT ( HOJOL134 ) : 00*20*30';
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY HONANI41 94*43*12'; 
-
+var Comment12 = 'TOGELKUY HONANI41 94*43*12';
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( HOJOL134 ) 40*92'; 
-
+var Comment13 = '#KOITOTO ( HOJOL134 ) 40*92';
 var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=HOPRET303=11*45*66'; 
-
+var Comment14 = 'ANGKER4D=HOPRET303=11*45*66';
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (HOKINANN) 05*48*91'; 
-
+var Comment15 = 'VESPATOGEL (HOKINANN) 05*48*91';
 var namagroup16 = 'Nemo';
-var Comment16 = 'NEMO4D (HOPRET303) : 70*54*91'; 
-
+var Comment16 = 'NEMO4D (HOPRET303) : 70*54*91';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (HONOS112) = 57*07';
   
