@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 3
 // @namespace    http://tampermonkey.net/
-// @version      3.176
+// @version      3.177
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro3.js
@@ -19,53 +19,37 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*CELENGLU*04*76'; 
-
+var Comment1 = '#shiokelinci4d*CELENGLU*04*76';
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO CECEKGUDEK 52*26*70'; 
-
+var Comment2 = 'IYATOTO CECEKGUDEK 52*26*70';
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / CECEP12 / 73 , 10 , 45'; 
-
+var Comment3 = 'Tiktaktogel / CECEP12 / 73 , 10 , 45';
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=CEMPAKMAMBU=63*30*72'; 
-
+var Comment4 = 'GAIB4D=CEMPAKMAMBU=63*30*72';
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (CANGKIR28) = 64*40*69'; 
-
-var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=CANGKUL24=22*24*21'; 
-
+var Comment5 = '#keitogel = (CANGKIR28) = 64*40*69';
+var namagroup6 = 'lomba dan event';
+var Comment6 = '# ( CEKARAT1 ) : 22*24*21';
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL CARJER34 34*13*79'; 
-
+var Comment7 = 'ASEPTOGEL CARJER34 34*13*79';
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=CANTINGAN37= 00*28'; 
-
+var Comment8 = '#MENARA4D=CANTINGAN37= 00*28';
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=CAMPRET3=91*93*23'; 
-
+var Comment9 = 'GILA4D=CAMPRET3=91*93*23';
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(CAPCAI38)*74*82*84'; 
-
+var Comment10 = '#JNETOTO(CAPCAI38)*74*82*84';
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( CEPIRIT34 ) : 39*27*32'; 
-
+var Comment11 = '#TOYIBSLOT ( CEPIRIT34 ) : 39*27*32';
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY CEBOKX2 25*16*85'; 
-
+var Comment12 = 'TOGELKUY CEBOKX2 25*16*85';
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( CEPIRIT34 ) 19*03'; 
-
+var Comment13 = '#KOITOTO ( CEPIRIT34 ) 19*03';
 var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=CANTINGAN37=31*44*59'; 
-
+var Comment14 = 'ANGKER4D=CANTINGAN37=31*44*59';
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (CEMPAKA34) 94*89*43'; 
-
+var Comment15 = 'VESPATOGEL (CEMPAKA34) 94*89*43';
 var namagroup16 = 'Nemo';
-var Comment16 = 'NEMO4D (CELENGLU) : 08*87*43'; 
-
+var Comment16 = 'NEMO4D (CELENGLU) : 08*87*43';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (CECEKGUDEK) = 53*29';
 
