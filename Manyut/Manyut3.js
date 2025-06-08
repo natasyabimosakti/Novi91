@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.266
+// @version      3.267
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut3.js
@@ -20,53 +20,37 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*EROSA23*72*39'; 
-
+var Comment1 = '#shiokelinci4d*EROSA23*72*39';
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO EROSI52 77*46*69'; 
-
+var Comment2 = 'IYATOTO EROSI52 77*46*69';
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / ERKONT01 / 61 , 89 , 97'; 
-
+var Comment3 = 'Tiktaktogel / ERKONT01 / 61 , 89 , 97';
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=ERGUNA14=47*23*10'; 
-
+var Comment4 = 'GAIB4D=ERGUNA14=47*23*10';
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (ERAKOL156) = 26*53*82'; 
-
-var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=ERJOK64=22*35*78'; 
-
+var Comment5 = '#keitogel = (ERAKOL156) = 26*53*82';
+var namagroup6 = 'lomba dan event';
+var Comment6 = '# ( ERFGUN12 ) : 22*35*78';
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL EROSI52 60*32*38'; 
-
+var Comment7 = 'ASEPTOGEL EROSI52 60*32*38';
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=ERFANGUN15= 80*51'; 
-
+var Comment8 = '#MENARA4D=ERFANGUN15= 80*51';
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=ERGUN51=93*62*42'; 
-
+var Comment9 = 'GILA4D=ERGUN51=93*62*42';
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(ERAKOL156)*21*73*87'; 
-
+var Comment10 = '#JNETOTO(ERAKOL156)*21*73*87';
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( ERFGUN35 ) : 34*76*24'; 
-
+var Comment11 = '#TOYIBSLOT ( ERFGUN35 ) : 34*76*24';
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY ERAGUN68 06*28*27'; 
-
+var Comment12 = 'TOGELKUY ERAGUN68 06*28*27';
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( ERFGUN35 ) 16*81'; 
-
+var Comment13 = '#KOITOTO ( ERFGUN35 ) 16*81';
 var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=ERFANGUN15=90*79*09'; 
-
+var Comment14 = 'ANGKER4D=ERFANGUN15=90*79*09';
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (ERKON23) 15*98*63'; 
-
+var Comment15 = 'VESPATOGEL (ERKON23) 15*98*63';
 var namagroup16 = 'Nemo';
-var Comment16 = 'NEMO4D (ERAKOL156) : 37*13*63'; 
-
+var Comment16 = 'NEMO4D (ERAKOL156) : 37*13*63';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (EROSI52) = 02*86';
 
