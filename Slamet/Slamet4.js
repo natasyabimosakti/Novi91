@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Slamet 4
 // @namespace    http://tampermonkey.net/
-// @version      3.45
+// @version      3.46
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet4.js
@@ -17,53 +17,37 @@
 // ==/UserScript==
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*DEMIAPA*37*13'; 
-
+var Comment1 = '#shiokelinci4d*DEMIAPA*37*13';
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO DOAIBU1 93*62*42'; 
-
+var Comment2 = 'IYATOTO DOAIBU1 93*62*42';
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / DURIHITAM / 21 , 73 , 87'; 
-
+var Comment3 = 'Tiktaktogel / DURIHITAM / 21 , 73 , 87';
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=DOKARBALAP=34*76*24'; 
-
+var Comment4 = 'GAIB4D=DOKARBALAP=34*76*24';
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (DUKUPUNTANG) = 06*28*27'; 
-
-var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=DESAKU22=16*81*71'; 
-
+var Comment5 = '#keitogel = (DUKUPUNTANG) = 06*28*27';
+var namagroup6 = 'lomba dan event';
+var Comment6 = '# ( DESAKU22 ) : 16*81*71';
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL DUYUNG45 90*79*09'; 
-
+var Comment7 = 'ASEPTOGEL DUYUNG45 90*79*09';
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=DINASTI88= 15*98'; 
-
+var Comment8 = '#MENARA4D=DINASTI88= 15*98';
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=DUDAMUDA=26*53*82'; 
-
+var Comment9 = 'GILA4D=DUDAMUDA=26*53*82';
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(DJANCUKMIN)*47*23*10'; 
-
+var Comment10 = '#JNETOTO(DJANCUKMIN)*47*23*10';
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( DUNIAMAYA ) : 61*89*97'; 
-
+var Comment11 = '#TOYIBSLOT ( DUNIAMAYA ) : 61*89*97';
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY DEGRADASI 77*46*69'; 
-
+var Comment12 = 'TOGELKUY DEGRADASI 77*46*69';
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( DRAWINGART ) 72*39'; 
-
+var Comment13 = '#KOITOTO ( DRAWINGART ) 72*39';
 var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=DROPOUT=22*35*64'; 
-
+var Comment14 = 'ANGKER4D=DROPOUT=22*35*64';
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (DARMONO11) 60*32*38'; 
-
+var Comment15 = 'VESPATOGEL (DARMONO11) 60*32*38';
 var namagroup16 = 'Nemo';
-var Comment16 = 'NEMO4D (DIMSUM03) : 80*51*95'; 
-
+var Comment16 = 'NEMO4D (DIMSUM03) : 80*51*95';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (DUMPLING) = 99*78';
 
