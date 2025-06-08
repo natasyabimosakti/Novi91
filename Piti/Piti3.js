@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti3
 // @namespace    http://tampermonkey.net/
-// @version      3.60
+// @version      3.61
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti3.js
@@ -233,7 +233,7 @@ if(document.location.href.includes("group")){
                     if (tombol.length >= 2) {
                         cekTombolUrutkan = false;
                         tombol.forEach(btn => {
-                            if (countA < 3) {
+                            if (countA < 5) {
                                 if (btn.textContent.includes("Postingan baru")) {
                                     btn.click();
                                     countA++;
