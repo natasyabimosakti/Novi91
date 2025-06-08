@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 2
 // @namespace    http://tampermonkey.net/
-// @version      3.60
+// @version      3.61
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo2.js
@@ -46,7 +46,7 @@ var namagroup14 = 'ANGKER';
 var Comment14 = 'ANGKER4D=KAMBING64=51*35*01';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (KEMBAR65) 55*90*06';
-var namagroup16 = 'Nemo';
+var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (KADAR66) : 17*95*61';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (KESELEK63 ) = 48*49';
