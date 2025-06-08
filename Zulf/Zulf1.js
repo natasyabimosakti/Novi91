@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF1
 // @namespace    http://tampermonkey.net/
-// @version      3.42
+// @version      3.43
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
@@ -19,53 +19,37 @@
 
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*TANASOFI*29*74'; 
-
+var Comment1 = '#shiokelinci4d*TANASOFI*29*74';
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO TANPLAK123 96*83*68'; 
-
+var Comment2 = 'IYATOTO TANPLAK123 96*83*68';
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / TANLOYO12 / 19 , 59 , 03'; 
-
+var Comment3 = 'Tiktaktogel / TANLOYO12 / 19 , 59 , 03';
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=TANKOR90=25*85*67'; 
-
+var Comment4 = 'GAIB4D=TANKOR90=25*85*67';
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (TANMO38) = 01*44*31'; 
-
-var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=TANLALI14=88*75*65'; 
-
+var Comment5 = '#keitogel = (TANMO38) = 01*44*31';
+var namagroup6 = 'lomba dan event';
+var Comment6 = '# ( TANLES78 ) : 88*75*65';
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL TANLONTO12 17*84*50'; 
-
+var Comment7 = 'ASEPTOGEL TANLONTO12 17*84*50';
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=TANDOL78= 08*14'; 
-
+var Comment8 = '#MENARA4D=TANDOL78= 08*14';
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=TANMEROT2=08*14*33'; 
-
+var Comment9 = 'GILA4D=TANMEROT2=08*14*33';
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(TANLOLO88)*17*84*41'; 
-
+var Comment10 = '#JNETOTO(TANLOLO88)*17*84*41';
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( TANLOL87 ) : 88*75*41'; 
-
+var Comment11 = '#TOYIBSLOT ( TANLOL87 ) : 88*75*41';
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY TANLANAS36 01*44*31'; 
-
+var Comment12 = 'TOGELKUY TANLANAS36 01*44*31';
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( TANLOL87 ) 25*85'; 
-
+var Comment13 = '#KOITOTO ( TANLOL87 ) 25*85';
 var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=TANDOL78=19*59*03'; 
-
+var Comment14 = 'ANGKER4D=TANDOL78=19*59*03';
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (TANLES78) 96*83*68'; 
-
+var Comment15 = 'VESPATOGEL (TANLES78) 96*83*68';
 var namagroup16 = 'Nemo';
-var Comment16 = 'NEMO4D (TANLES78) : 29*74*04'; 
-
+var Comment16 = 'NEMO4D (TANLES78) : 29*74*04';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (TANLES78) = 65*50';
 
