@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE4
 // @namespace    http://tampermonkey.net/
-// @version      3.193
+// @version      3.194
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku4.js
@@ -47,7 +47,7 @@ var namagroup14 = 'ANGKER';
 var Comment14 = 'ANGKER4D=ZONATING=64*40*69';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (ZONIAK26) 63*30*72';
-var namagroup16 = 'Nemo';
+var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (ZONIAK63) : 73*10*45';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (ZOMING82) = 07*81';
