@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Penyok 2
 // @namespace    http://tampermonkey.net/
-// @version      3.47
+// @version      3.48
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok2.js
@@ -46,7 +46,7 @@ var namagroup14 = 'ANGKER';
 var Comment14 = 'ANGKER4D=NYOBORKODOK=19*59*03';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (NYOKONGRONDO) 96*83*68';
-var namagroup16 = 'Nemo';
+var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (NYOHNYAHNYOH) : 29*74*04';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (NYOPANGBABI) = 65*50';
