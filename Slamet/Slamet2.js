@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Slamet 2
 // @namespace    http://tampermonkey.net/
-// @version      3.45
+// @version      3.46
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet2.js
@@ -17,53 +17,37 @@
 // ==/UserScript==
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*BODAS05*70*54'; 
-
+var Comment1 = '#shiokelinci4d*BODAS05*70*54';
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO BIMBANG 56*58*49'; 
-
+var Comment2 = 'IYATOTO BIMBANG 56*58*49';
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / BUNTEL / 18 , 52 , 36'; 
-
+var Comment3 = 'Tiktaktogel / BUNTEL / 18 , 52 , 36';
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=BERONDONG1=00*20*30'; 
-
+var Comment4 = 'GAIB4D=BERONDONG1=00*20*30';
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (BROWNIS) = 94*43*12'; 
-
-var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=BULEIRENG=40*92*55'; 
-
+var Comment5 = '#keitogel = (BROWNIS) = 94*43*12';
+var namagroup6 = 'lomba dan event';
+var Comment6 = '# ( BULEIRENG ) : 40*92*55';
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL BUMBUKU 11*45*66'; 
-
+var Comment7 = 'ASEPTOGEL BUMBUKU 11*45*66';
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=BORNEOCF= 05*48'; 
-
+var Comment8 = '#MENARA4D=BORNEOCF= 05*48';
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=BALABALA=96*83*68'; 
-
+var Comment9 = 'GILA4D=BALABALA=96*83*68';
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(BOKEK1)*29*74*04'; 
-
+var Comment10 = '#JNETOTO(BOKEK1)*29*74*04';
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( BOKER23 ) : 08*14*33'; 
-
+var Comment11 = '#TOYIBSLOT ( BOKER23 ) : 08*14*33';
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY BNGSAT55 17*84*50'; 
-
+var Comment12 = 'TOGELKUY BNGSAT55 17*84*50';
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( BAJINDUL2 ) 88*75'; 
-
+var Comment13 = '#KOITOTO ( BAJINDUL2 ) 88*75';
 var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=BLUR005=19*59*41'; 
-
+var Comment14 = 'ANGKER4D=BLUR005=19*59*41';
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (BUKITKEMBAR) 25*85*67'; 
-
+var Comment15 = 'VESPATOGEL (BUKITKEMBAR) 25*85*67';
 var namagroup16 = 'Nemo';
-var Comment16 = 'NEMO4D (BUSUNGLAPAR) : 01*44*31'; 
-
+var Comment16 = 'NEMO4D (BUSUNGLAPAR) : 01*44*31';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (BANGKIT51) = 03*65';
 
