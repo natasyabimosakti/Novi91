@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Slamet 3
 // @namespace    http://tampermonkey.net/
-// @version      3.47
+// @version      3.48
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet3.js
@@ -46,7 +46,7 @@ var namagroup14 = 'ANGKER';
 var Comment14 = 'ANGKER4D=COLI10X=90*79*63';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (CIREMAI45) 15*98*86';
-var namagroup16 = 'Nemo';
+var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (CAKJALU) : 37*13*02';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (CELUPAH) = 09*42';
