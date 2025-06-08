@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Penyok 4
 // @namespace    http://tampermonkey.net/
-// @version      3.44
+// @version      3.45
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok4.js
@@ -17,53 +17,37 @@
 // ==/UserScript==
 
 var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*DEVILMONSTER*06*28'; 
-
+var Comment1 = '#shiokelinci4d*DEVILMONSTER*06*28';
 var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO DELAKDELAK78 16*81*71'; 
-
+var Comment2 = 'IYATOTO DELAKDELAK78 16*81*71';
 var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / DENGKIKU246 / 90 , 79 , 09'; 
-
+var Comment3 = 'Tiktaktogel / DENGKIKU246 / 90 , 79 , 09';
 var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=DEKILLING67=15*98*86'; 
-
+var Comment4 = 'GAIB4D=DEKILLING67=15*98*86';
 var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (DENGAKSEKBOL) = 37*13*02'; 
-
-var namagroup6 = 'KIOS';
-var Comment6 = 'KIOSTOTO=DENGKULKOLOR=93*62*42'; 
-
+var Comment5 = '#keitogel = (DENGAKSEKBOL) = 37*13*02';
+var namagroup6 = 'lomba dan event';
+var Comment6 = '# ( DENGKULKOLOR ) : 93*62*42';
 var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL DEMAKDEMEK58 21*73*87'; 
-
+var Comment7 = 'ASEPTOGEL DEMAKDEMEK58 21*73*87';
 var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=DELOPONGBAE= 34*76'; 
-
+var Comment8 = '#MENARA4D=DELOPONGBAE= 34*76';
 var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=DEMITSEGORO8=61*89*97'; 
-
+var Comment9 = 'GILA4D=DEMITSEGORO8=61*89*97';
 var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(DEMIMIKAN71)*77*46*64'; 
-
+var Comment10 = '#JNETOTO(DEMIMIKAN71)*77*46*64';
 var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( DELOSORBIB ) : 72*39*64'; 
-
+var Comment11 = '#TOYIBSLOT ( DELOSORBIB ) : 72*39*64';
 var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY DEMIKIANUDAH 80*51*95'; 
-
+var Comment12 = 'TOGELKUY DEMIKIANUDAH 80*51*95';
 var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( DEDEGKATUL2 ) 60*32'; 
-
+var Comment13 = '#KOITOTO ( DEDEGKATUL2 ) 60*32';
 var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=DEPAKSILITMU=22*35*78'; 
-
+var Comment14 = 'ANGKER4D=DEPAKSILITMU=22*35*78';
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (DEKDEKKAN96) 26*53*82'; 
-
+var Comment15 = 'VESPATOGEL (DEKDEKKAN96) 26*53*82';
 var namagroup16 = 'Nemo';
-var Comment16 = 'NEMO4D (DELEKEDELE20) : 47*23*10'; 
-
+var Comment16 = 'NEMO4D (DELEKEDELE20) : 47*23*10';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (DENDENGSAPI3) = 69*99';
 
