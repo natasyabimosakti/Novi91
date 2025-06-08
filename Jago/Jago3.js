@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JAGO 3
 // @namespace    http://tampermonkey.net/
-// @version      3.26
+// @version      3.27
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago3.js
@@ -48,7 +48,7 @@ var namagroup14 = 'ANGKER';
 var Comment14 = 'ANGKER4D=MRIPATKUSIPIT=39*27*32';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (MARISUWEK) 25*16*85';
-var namagroup16 = 'Nemo';
+var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (MAMALAMA) : 19*03*18';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (MABURDUWUR) = 18*85';
