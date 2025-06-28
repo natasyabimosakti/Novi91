@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF4
 // @namespace    http://tampermonkey.net/
-// @version      3.45
+// @version      3.46
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf4.js
@@ -19,25 +19,25 @@
 
 
 
-var namagroup1 = 'SHIOKELINCI';
+var namagroup1 = 'shio';
 var Comment1 = '#shiokelinci4d*MINHARYOSU73*06*28';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO MINHAYOLO77 16*81*71';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / MINYORASU97 / 90 , 79 , 09';
-var namagroup4 = 'GAIB';
+var namagroup4 = 'G41B';
 var Comment4 = 'GAIB4D=MINHAROKOK87=15*98*86';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (MINHARMATI77) = 37*13*02';
-var namagroup6 = 'lomba dan event';
-var Comment6 = '# ( MINARVESTO98 ) : 93*62*42';
+var namagroup6 = 'Papuatoto';
+var Comment6 = '#PAPUATOTO=(MINARVESTO98)=93-62';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL MINHAROLOL77 21*73*87';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=MINHANTULO89= 34*76';
-var namagroup9 = 'GIL4';
+var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=MINHIKABOR99=34*76*24';
-var namagroup10 = 'JNE';
+var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(MINHARIASU27)*21*73*63';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( MINHARELOK88 ) : 93*62*63';
