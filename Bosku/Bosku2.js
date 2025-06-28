@@ -27,7 +27,7 @@ var Comment4 = 'GAIB4D=BOSEN68=71*96*75';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (BOSMAN67) = 78*46*38';
 var namagroup6 = 'Papuatoto';
-var Comment6 = '#PAPUATOTO=(BOSBEN64)=67-98-38';
+var Comment6 = '#PAPUATOTO=(BOSBEN64)=67-98';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL BOSNOM63 02*09*60';
 var namagroup8 = 'MENARA';
