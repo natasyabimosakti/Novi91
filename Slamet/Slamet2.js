@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Slamet 2
 // @namespace    http://tampermonkey.net/
-// @version      3.48
+// @version      3.49
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet2.js
@@ -16,25 +16,25 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'SHIOKELINCI';
+var namagroup1 = 'shio';
 var Comment1 = '#shiokelinci4d*BODAS05*70*54';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO BIMBANG 56*58*49';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / BUNTEL / 18 , 52 , 36';
-var namagroup4 = 'GAIB';
+var namagroup4 = 'G41B';
 var Comment4 = 'GAIB4D=BERONDONG1=00*20*30';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (BROWNIS) = 94*43*12';
-var namagroup6 = 'lomba dan event';
-var Comment6 = '# ( BULEIRENG ) : 40*92*55';
+var namagroup6 = 'Papuatoto';
+var Comment6 = '#PAPUATOTO=(BULEIRENG)=40-92';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL BUMBUKU 11*45*66';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=BORNEOCF= 05*48';
-var namagroup9 = 'GIL4';
+var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=BALABALA=96*83*68';
-var namagroup10 = 'JNE';
+var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(BOKEK1)*29*74*04';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( BOKER23 ) : 08*14*33';
