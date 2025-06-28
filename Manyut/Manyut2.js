@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.269
+// @version      3.270
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut2.js
@@ -18,25 +18,25 @@
 
 
 
-var namagroup1 = 'SHIOKELINCI';
+var namagroup1 = 'shio';
 var Comment1 = '#shiokelinci4d*EKODOK33*56*58';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO EKORENG51 18*52*36';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / EKOJIM46 / 00 , 20 , 30';
-var namagroup4 = 'GAIB';
+var namagroup4 = 'G41B';
 var Comment4 = 'GAIB4D=EKODAM375=94*43*12';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (EKOROK64) = 40*92*55';
-var namagroup6 = 'lomba dan event';
-var Comment6 = '# ( EKOR665 ) : 11*45*66';
+var namagroup6 = 'Papuatoto';
+var Comment6 = '#PAPUATOTO=(EKOR665)=11-45';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL EKOCOK75 05*48*07';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=EKORKU42= 70*54';
-var namagroup9 = 'GIL4';
+var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=EKORENG51=88*75*65';
-var namagroup10 = 'JNE';
+var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(EKOROK64)*17*84*50';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( EKOROP47 ) : 08*14*33';
