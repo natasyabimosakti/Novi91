@@ -27,7 +27,7 @@ var Comment4 = 'GAIB4D=SUKET50=36*80*62';
 var namagroup5 = 'KEITOGEL';	
 var Comment5 = '#keitogel = (SEMPRUL28) = 37*15*50';	
 var namagroup6 = 'Papuatoto';	
-var Comment6 = '#PAPUATOTO=(SINTING84)=14-57-42';	
+var Comment6 = '#PAPUATOTO=(SINTING84)=14-57';	
 var namagroup7 = '453P VIP';	
 var Comment7 = 'ASEPTOGEL SEMBUR68 65*56*48';	
 var namagroup8 = 'MENARA';	
