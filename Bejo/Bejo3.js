@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 3
 // @namespace    http://tampermonkey.net/
-// @version      3.61
+// @version      3.62
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo3.js
@@ -16,40 +16,40 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'SHIOKELINCI';
-var Comment1 = '#shiokelinci4d*GAGAK11*22*24';
-var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO GURUKU12 34*13*79';
-var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / GUNDUL13 / 00 , 28 , 07';
-var namagroup4 = 'GAIB';
-var Comment4 = 'GAIB4D=GARUK14=04*76*81';
-var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (GELEM15) = 52*26*70';
-var namagroup6 = 'lomba dan event';
-var Comment6 = '# ( GEMAR24 ) : 73*10*45';
-var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL GALAK17 63*30*72';
-var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=GASIK18= 64*40';
-var namagroup9 = 'GIL4';
-var Comment9 = 'GILA4D=GEMBEL19=25*16*43';
-var namagroup10 = 'JNE';
-var Comment10 = '#JNETOTO(GANGSING20)*19*03*43';
-var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( GITAR21 ) : 31*44*59';
-var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY GEDANG22 94*89*29';
-var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( GONDOL23 ) 08*87';
-var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=GEMAR24=91*93*23';
-var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (GOLOK25) 74*82*84';
-var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (GEMPA26) : 39*27*32';
-var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (GAMPANG27) = 85*18';
+var namagroup1 = 'shio';	
+var Comment1 = '#shiokelinci4d*GAGAK11*22*24';	
+var namagroup2 = 'BUKU';	
+var Comment2 = 'IYATOTO GURUKU12 34*13*79';	
+var namagroup3 = 'TIKTAK';	
+var Comment3 = 'Tiktaktogel / GUNDUL13 / 00 , 28 , 07';	
+var namagroup4 = 'G41B';	
+var Comment4 = 'GAIB4D=GARUK14=04*76*81';	
+var namagroup5 = 'KEITOGEL';	
+var Comment5 = '#keitogel = (GELEM15) = 52*26*70';	
+var namagroup6 = 'Papuatoto';	
+var Comment6 = '#PAPUATOTO=(GEMAR24)=73-10-45';	
+var namagroup7 = '453P VIP';	
+var Comment7 = 'ASEPTOGEL GALAK17 63*30*72';	
+var namagroup8 = 'MENARA';	
+var Comment8 = '#MENARA4D=GASIK18= 64*40';	
+var namagroup9 = 'G1LA';	
+var Comment9 = 'GILA4D=GEMBEL19=25*16*43';	
+var namagroup10 = 'GROUP LOMBA ANGKA';	
+var Comment10 = '#JNETOTO(GANGSING20)*19*03*43';	
+var namagroup11 = 'TOYIB';	
+var Comment11 = '#TOYIBSLOT ( GITAR21 ) : 31*44*59';	
+var namagroup12 = 'MASTER KUY';	
+var Comment12 = 'TOGELKUY GEDANG22 94*89*29';	
+var namagroup13 = 'KOI';	
+var Comment13 = '#KOITOTO ( GONDOL23 ) 08*87';	
+var namagroup14 = 'ANGKER';	
+var Comment14 = 'ANGKER4D=GEMAR24=91*93*23';	
+var namagroup15 = 'VESPA';	
+var Comment15 = 'VESPATOGEL (GOLOK25) 74*82*84';	
+var namagroup16 = 'NEMO';	
+var Comment16 = 'NEMO4D (GEMPA26) : 39*27*32';	
+var namagroup17 = 'KIKO';	
+var Comment17 = '#KIKOTOTO (GAMPANG27) = 85*18';	
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'group Bejo 3';
