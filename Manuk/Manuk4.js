@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 4
 // @namespace    http://tampermonkey.net/
-// @version      3.181
+// @version      3.182
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk4.js
@@ -18,25 +18,25 @@
 
 
 
-var namagroup1 = 'SHIOKELINCI';
+var namagroup1 = 'shio';
 var Comment1 = '#shiokelinci4d*PLECISILIT*91*93';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO PLECIKAWAT 08*87*53';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / PLECIAMBON / 94 , 89 , 29';
-var namagroup4 = 'GAIB';
+var namagroup4 = 'G41B';
 var Comment4 = 'GAIB4D=PLECICIAK=31*44*59';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (PLECIKICIK) = 19*03*18';
-var namagroup6 = 'lomba dan event';
-var Comment6 = '# ( Plecindi23 ) : 25*16*85';
+var namagroup6 = 'Papuatoto';
+var Comment6 = '#PAPUATOTO=(Plecindi23)=25-16';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL PLECICILAN 39*27*32';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=PLECIKLUK= 74*82';
-var namagroup9 = 'GIL4';
+var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=PLECUAN=34*13*79';
-var namagroup10 = 'JNE';
+var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(PLECIKAN)*22*24*21';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( PLECIKI21 ) : 64*40*69';
