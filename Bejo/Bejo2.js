@@ -27,7 +27,7 @@ var Comment4 = 'GAIB4D=KHITAN54=67*98*05';
 var namagroup5 = 'KEITOGEL';	
 var Comment5 = '#keitogel = (KANGKUNG55) = 02*09*60';	
 var namagroup6 = 'Papuatoto';	
-var Comment6 = '#PAPUATOTO=(KAMBING64)=58-88-41';	
+var Comment6 = '#PAPUATOTO=(KAMBING64)=58-88';	
 var namagroup7 = '453P VIP';	
 var Comment7 = 'ASEPTOGEL KALUNG57 11*20*83';	
 var namagroup8 = 'MENARA';	
