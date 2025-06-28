@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF3
 // @namespace    http://tampermonkey.net/
-// @version      3.45
+// @version      3.46
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf3.js
@@ -18,25 +18,25 @@
 
 
 
-var namagroup1 = 'SHIOKELINCI';
+var namagroup1 = 'shio';
 var Comment1 = '#shiokelinci4d*FEBRIANU62*47*23';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO EREIKU73 26*53*82';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / FREDINAN77 / 22 , 35 , 78';
-var namagroup4 = 'GAIB';
+var namagroup4 = 'G41B';
 var Comment4 = 'GAIB4D=FEBRI89=60*32*38';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (FERUSAK66) = 80*51*95';
-var namagroup6 = 'lomba dan event';
-var Comment6 = '# ( FERDIGOD12 ) : 72*39*99';
+var namagroup6 = 'Papuatoto';
+var Comment6 = '#PAPUATOTO=(FERDIGOD12)=72-39';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL FEROK77 77*46*69';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=FERALO78= 61*89';
-var namagroup9 = 'GIL4';
+var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=FERNANGDI2=61*89*97';
-var namagroup10 = 'JNE';
+var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(FEDERALKU67)*77*46*64';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( FERKONTIL22 ) : 72*39*64';
@@ -49,7 +49,7 @@ var Comment14 = 'ANGKER4D=FERALO78=22*35*78';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (FERDIGOD12) 26*53*82';
 var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (FERDIGOD12) : FEBRI PR';
+var Comment16 = 'NEMO4D (FERDIGOD12) : 47*23*10';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (FERDIGOD12) = 69*99';
 
