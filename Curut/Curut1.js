@@ -29,7 +29,7 @@ var Comment4 = 'GAIB4D=AMAR29=37*15*50';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (AMAR26) = 14*57*42';
 var namagroup6 = 'Papuatoto';
-var Comment6 = '#PAPUATOTO=(AOQOM52)=65-56-48';
+var Comment6 = '#PAPUATOTO=(AOQOM52)=65-56';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL AMIR23 47*54*49';
 var namagroup8 = 'MENARA';
