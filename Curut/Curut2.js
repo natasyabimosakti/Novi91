@@ -29,7 +29,7 @@ var Comment4 = 'GAIB4D=BOCHOK36=02*09*60';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (BONTIR36) = 58*88*41';
 var namagroup6 = 'Papuatoto';
-var Comment6 = '#PAPUATOTO=(BONTOK69)=11-20-83';
+var Comment6 = '#PAPUATOTO=(BONTOK69)=11-20';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL BOMER14 33*92*66';
 var namagroup8 = 'MENARA';
