@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Penyok 4
 // @namespace    http://tampermonkey.net/
-// @version      3.47
+// @version      3.48
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok4.js
@@ -16,25 +16,25 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'SHIOKELINCI';
+var namagroup1 = 'shio';
 var Comment1 = '#shiokelinci4d*DEVILMONSTER*06*28';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO DELAKDELAK78 16*81*71';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / DENGKIKU246 / 90 , 79 , 09';
-var namagroup4 = 'GAIB';
+var namagroup4 = 'G41B';
 var Comment4 = 'GAIB4D=DEKILLING67=15*98*86';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (DENGAKSEKBOL) = 37*13*02';
-var namagroup6 = 'lomba dan event';
-var Comment6 = '# ( DENGKULKOLOR ) : 93*62*42';
+var namagroup6 = 'Papuatoto';
+var Comment6 = '#PAPUATOTO=(DENGKULKOLOR)=93-62';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL DEMAKDEMEK58 21*73*87';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=DELOPONGBAE= 34*76';
-var namagroup9 = 'GIL4';
+var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=DEMITSEGORO8=61*89*97';
-var namagroup10 = 'JNE';
+var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(DEMIMIKAN71)*77*46*64';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( DELOSORBIB ) : 72*39*64';
