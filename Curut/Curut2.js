@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.195
+// @version      3.196
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
@@ -18,25 +18,25 @@
 
 
 
-var namagroup1 = 'SHIOKELINCI';
+var namagroup1 = 'shio';
 var Comment1 = '#shiokelinci4d*BOCHOK52*71*96';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO BOCHI92 78*46*77';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / BODAR17 / 67 , 98 , 05';
-var namagroup4 = 'GAIB';
+var namagroup4 = 'G41B';
 var Comment4 = 'GAIB4D=BOCHOK36=02*09*60';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (BONTIR36) = 58*88*41';
-var namagroup6 = 'lomba dan event';
-var Comment6 = '# ( BONTOK69 ) : 11*20*83';
+var namagroup6 = 'Papuatoto';
+var Comment6 = '#PAPUATOTO=(BONTOK69)=11-20-83';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL BOMER14 33*92*66';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=BOMER14= 12*86';
-var namagroup9 = 'GIL4';
+var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=BOLET25=12*86*68';
-var namagroup10 = 'JNE';
+var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(BOSIOM19)*33*92*66';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( BOKONG71 ) : 11*20*38';
