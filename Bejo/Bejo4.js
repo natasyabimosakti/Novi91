@@ -28,7 +28,7 @@ var Comment4 = 'GAIB4D=WEDI92=08*87*53';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (WAGE93) = 94*89*29';
 var namagroup6 = 'Papuatoto';
-var Comment6 = '#PAPUATOTO=(WULING94)=31-44-59';
+var Comment6 = '#PAPUATOTO=(WULING94)=31-44';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL WENANG95 19*03*18';
 var namagroup8 = 'MENARA';
