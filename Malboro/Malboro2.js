@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 2
 // @namespace    http://tampermonkey.net/
-// @version      3.179
+// @version      3.180
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
@@ -18,25 +18,25 @@
 
 
 
-var namagroup1 = 'SHIOKELINCI';
+var namagroup1 = 'shio';
 var Comment1 = '#shiokelinci4d*BOTAX35*67*98';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO BONCEL58 02*09*60';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / BIJILO458 / 58 , 88 , 41';
-var namagroup4 = 'GAIB';
+var namagroup4 = 'G41B';
 var Comment4 = 'GAIB4D=BOLANGBALING=11*20*83';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (BOTOLO3) = 33*92*66';
-var namagroup6 = 'lomba dan event';
-var Comment6 = '# ( BAKEKLO ) : 12*86*68';
+var namagroup6 = 'Papuatoto';
+var Comment6 = '#PAPUATOTO=(BAKEKLO)=12-86';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL BOGEL438 71*96*75';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=BERAK28= 78*46';
-var namagroup9 = 'GIL4';
+var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=BAJUKU34=51*35*01';
-var namagroup10 = 'JNE';
+var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(BANANA12)*55*90*06';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( BACOTX ) : 17*95*61';
