@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti2
 // @namespace    http://tampermonkey.net/
-// @version      3.64
+// @version      3.65
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti2.js
@@ -30,7 +30,7 @@ var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (BROTO15) = 69*43*93';
 var namagroup7 = 'Moveon88';
 var Comment7 = '# ( BOMER14 ) : 74*62*57';
-var namagroup8 = 'TOK99';
+var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( BOMER14 ) : 78*12*05';
 var namagroup9 = 'TAFSIR MIMPI';
 var Comment9 = 'SIJITOGEL BOLET25 06*95*79';
