@@ -27,7 +27,7 @@ var Comment4 = 'GAIB4D=GARUK14=04*76*81';
 var namagroup5 = 'KEITOGEL';	
 var Comment5 = '#keitogel = (GELEM15) = 52*26*70';	
 var namagroup6 = 'Papuatoto';	
-var Comment6 = '#PAPUATOTO=(GEMAR24)=73-10-45';	
+var Comment6 = '#PAPUATOTO=(GEMAR24)=73-10';	
 var namagroup7 = '453P VIP';	
 var Comment7 = 'ASEPTOGEL GALAK17 63*30*72';	
 var namagroup8 = 'MENARA';	
