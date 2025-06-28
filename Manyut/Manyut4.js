@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.269
+// @version      3.270
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
@@ -19,25 +19,25 @@
 
 
 
-var namagroup1 = 'SHIOKELINCI';
+var namagroup1 = 'shio';
 var Comment1 = '#shiokelinci4d*ZENDRA61*93*62';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO ZENDIL68 21*73*87';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / ZETOLAN23 / 34 , 76 , 24';
-var namagroup4 = 'GAIB';
+var namagroup4 = 'G41B';
 var Comment4 = 'GAIB4D=ZENDRIK23=06*28*27';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (ZENTOLKAWAT) = 16*81*71';
-var namagroup6 = 'lomba dan event';
-var Comment6 = '# ( ZENCAN54 ) : 90*79*09';
+var namagroup6 = 'Papuatoto';
+var Comment6 = '#PAPUATOTO=(ZENCAN54)=90-79';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL ZENDRAWIJ 15*98*86';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=ZENDUL5= 37*13';
-var namagroup9 = 'GIL4';
+var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=ZENDIL68=72*39*99';
-var namagroup10 = 'JNE';
+var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(ZENTOLKAWAT)*77*46*69';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( ZENDATAWA1 ) : 61*89*97';
