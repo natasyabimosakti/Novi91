@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JAGO 2
 // @namespace    http://tampermonkey.net/
-// @version      3.27
+// @version      3.28
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago2.js
@@ -18,25 +18,25 @@
 
 
 
-var namagroup1 = 'SHIOKELINCI';
+var namagroup1 = 'shio';
 var Comment1 = '#shiokelinci4d*PEMPEK12*58*88';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO PIALADIGILIR 11*20*38';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / PAKUAN28 / 33 , 92 , 38';
-var namagroup4 = 'GAIB';
+var namagroup4 = 'G41B';
 var Comment4 = 'GAIB4D=PIMPINAN=12*86*68';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (PURARA23) = 71*96*75';
-var namagroup6 = 'lomba dan event';
-var Comment6 = '# ( PAPIPU56 ) : 78*46*77';
+var namagroup6 = 'Papuatoto';
+var Comment6 = '#PAPUATOTO=(PAPIPU56)=78-46';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL PEMBODONG 67*98*05';
 var namagroup8 = 'MENARA';
 var Comment8 = '#MENARA4D=PINGGULGEDE= 02*09';
-var namagroup9 = 'GIL4';
+var namagroup9 = 'G1LA';
 var Comment9 = 'GILA4D=PUNDAKLAH=14*57*42';
-var namagroup10 = 'JNE';
+var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(PRAWANKOTA)*37*15*50';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( PELANGAIR ) : 36*80*62';
