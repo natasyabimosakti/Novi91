@@ -16,7 +16,7 @@
 
 
 
-var namagroup1 = 'TOYIB';
+var namagroup1 = 'GTO';
 var Comment1 = 'Semangat';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO HONOS112 17*84*50';
@@ -55,7 +55,7 @@ var namagroup18 = 'Jawatengah';
 var Comment18 = 'Group Manyut 1';
 
 
-var refresh = 40;
+var refresh = 1000;
 var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/main/Admin_group_Lama.json"
 var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo","l0mb4","lomb4","l0mba"]
 var Backlist =["pemenang lomba","rekap","natidulu","room lomba freebet","prediksi","result","juara lomba","r3k4p","r3kap","rek4p"]
@@ -84,19 +84,21 @@ let scrollUlang = false;
 let scrollPerCycle = 5;
 var berhasilKomentar = false;
 
+
+var cekAdminVersion = false
+var cekchaceload = false
+var cektunggupost = false
+var cekmanage = false
+var cekgas = false
+
 async function scrollLoop5x() {
-    let feeds;
+    var feeds;
 
     // Tunggu maksimal 3 detik hingga feed muncul
     for (let i = 0; i < 60; i++) {
         feeds = document.querySelector('[role="feed"]');
         if (feeds) break;
         await new Promise(r => setTimeout(r, 50));
-    }
-
-    if (!feeds) {
-        console.warn("❌ [role='feed'] tidak ditemukan!");
-        return;
     }
 
     // Tunggu hingga postingan di dalam feed muncul
@@ -112,13 +114,6 @@ async function scrollLoop5x() {
         if (document.location.href.includes("groups")) {
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
-        if (feeds.querySelectorAll("[aria-posinset]").length > 1) {
-            if (!berhasilKomentar) {
-                location.reload();
-            }
-
-            break;
-        }
         await new Promise(r => setTimeout(r, 50));
     }
 
@@ -130,6 +125,7 @@ var groups = groupNames.map(groupId => ({ groupId, defaultValue: false }));
 const datakomenArray = await Promise.all(
     groupNames.map(name => GM.getValue(`group_${name}`))
 );
+
 function fetchAdminListFromGitHub() {
     GM_xmlhttpRequest({
         method: "GET",
@@ -147,12 +143,12 @@ function fetchAdminListFromGitHub() {
                     localStorage.setItem(VERSION_KEY, latestVersion);
                     adminList = admins;
                     adminListReady = true;
-                    loadLocalAdmin();
-                    tungguGroupPastiCepat();
+
+                    cekAdminVersion = true
+
                 } else {
                     console.log("⏩ Admin list is up-to-date (version:", currentVersion + ")");
-                    loadLocalAdmin();
-                    tungguGroupPastiCepat();
+                    cekAdminVersion = true
                 }
             } catch (e) {
                 console.error("❌ Failed to parse remote admin list:", e);
@@ -164,10 +160,63 @@ function fetchAdminListFromGitHub() {
     });
 }
 
-fetchAdminListFromGitHub();
+async function CekSemuaReady() {
+    for (let i = 0; i < 20; i++) {
+        if (cekAdminVersion) {
+            console.log("cekAdminVersion Ada");
+            break;
+        }
+        await new Promise(r => setTimeout(r, 100));
+    }
+    loadLocalAdmin();
+    for (let i = 0; i < 20; i++) {
+        if (cekchaceload) {
+            console.log("cekchaceload Ada");
+            break;
+        }
+        await new Promise(r => setTimeout(r, 100));
 
+    }
+    tungguGroupPastiCepat();
+    for (let i = 0; i < 20; i++) {
+        if (cektunggupost) {
+            console.log("cektunggupost Ada");
+            break;
+        }
+        await new Promise(r => setTimeout(r, 100));
+
+    }
+
+    manageGroups()
+    for (let i = 0; i < 20; i++) {
+        if (cekmanage) {
+            console.log("cekmanage Ada");
+            break;
+        }
+        await new Promise(r => setTimeout(r, 100));
+    }
+    for (let i = 0; i < 20; i++) {
+        if (cekgas) {
+            console.log("cekgas Ada");
+            break;
+        }
+        await new Promise(r => setTimeout(r, 100));
+    }
+
+    if(!berhasilKomentar){
+        setTimeout(function() {
+            location.reload();
+        }, refresh);
+    }
+
+
+
+}
+
+fetchAdminListFromGitHub();
+CekSemuaReady()
 function getCommentForGroup() {
-    const ceknamagroup = document.querySelector(".html-h1")?.textContent || '';
+
     const commentMap = {
         [namagroup1]: Comment1,
         [namagroup2]: Comment2,
@@ -188,9 +237,12 @@ function getCommentForGroup() {
         [namagroup17]: Comment17,
         [namagroup18]: Comment18
     };
+    var ceknamagroup = document.querySelector(".html-h1")?.textContent || '';
+    var ceknamagroup1 = document.title.toString()
 
+    const allGroups = [ceknamagroup, ceknamagroup1];
     for (let groupName in commentMap) {
-        if (ceknamagroup.includes(groupName)) {
+        if (allGroups.some(text => text.includes(groupName))) {
             return { groupName, comment: commentMap[groupName] };
         }
     }
@@ -199,17 +251,22 @@ function getCommentForGroup() {
 
 function tungguGroupPastiCepat() {
     const interval = setInterval(() => {
-        const el = document.querySelector(".html-h1");
-        const text = el?.textContent?.trim() || '';
-
+        const mainList = document.querySelectorAll("[role='main']");
+        if (!mainList.length) return; // tidak ada elemen [role='main']
+        const mainA = mainList[0];
+        if (!mainA) return;
+        const el = mainA.querySelector("[dir='auto']");
+        if (!el) return;
+        const text = el.textContent?.trim() || '';;
         if (text.length > 3) {
             const result = getCommentForGroup();
             if (result) {
                 commentToPost = result.comment;
                 grouptToPost = result.groupName;
                 console.log("✅ Nama grup : " + grouptToPost + " | Comment : " + commentToPost);
+                cektunggupost = true
                 clearInterval(interval); // stop polling
-                manageGroups()
+
             } else {
                 console.log("⏳ Nama grup belum cocok:", text);
             }
@@ -217,14 +274,12 @@ function tungguGroupPastiCepat() {
     }, 1); // cek tiap 200ms
 }
 
-
-
-
 var sudahDiPanggil = false
 async function manageGroups() {
     if(grouptToPost.length <= 1){
         return;
     }
+    console.log("⏳manageGroups di Panggil");
 
     for (const { groupId, defaultValue } of groups) {
         const key = `group_${groupId}`;
@@ -244,6 +299,7 @@ async function manageGroups() {
         return;
 
     }else{
+        cekmanage = true
         GasKomment()
     }
 }
@@ -258,6 +314,7 @@ function loadLocalAdmin() {
             adminList = JSON.parse(stored);
             adminListReady = true;
             console.log("✅ Admin list loaded from localStorage:", adminList.length, "names");
+            cekchaceload=true
         } catch (e) {
             console.error("❌ Failed to parse local admin list:", e);
         }
@@ -318,7 +375,7 @@ function ambilLabelDariReactFiber(el) {
 }
 
 function GasKomment(){
-
+    console.log(`🔽 GasKomment DI Panggil`);
     let scrollCount = 0;
     const MAX_SCROLL = 5; // Maksimal scroll ke bawah
     var feed = document.querySelector('[role="feed"]');
@@ -362,6 +419,7 @@ function GasKomment(){
                 }
             });
         }
+        cekgas=true;
 
     }
 }
@@ -534,3 +592,4 @@ async function InsertComment(text) {
         subtree: true
     });
 }
+
