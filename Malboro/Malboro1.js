@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 1
 // @namespace    http://tampermonkey.net/
-// @version      3.181
+// @version      3.182
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro1.js
@@ -372,15 +372,24 @@ async function botKoment(mutatin) {
                     clickEvent.initEvent("mousedown", true, true);
                     sendBtn.dispatchEvent(clickEvent);
 
-                    GM.setValue("group_" + grouptToPost, true);
-                    GM.setValue("group_"+grouptToPost+"_expire", Date.now() + EXPIRATION_MS);
+
                     console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
-                    showNotification("Komentar Sudah Terkirim : " + commentToPost);
+
                     isCommenting = true;
 
                     kondisiStop = true
                     observercomment.disconnect();
+                    if(document.querySelector("[role='dialog']")){
+                        if(document.querySelector("[role='dialog']").textContent.includes("Ada Masalah")){
+                            return;
+                        }
+                    }
+
+                    GM.setValue("group_" + grouptToPost, true);
+                    GM.setValue("group_"+grouptToPost+"_expire", Date.now() + EXPIRATION_MS);
+                    showNotification("Komentar Sudah Terkirim : " + commentToPost);
                     startAutoTask();
+
                     break;
                 } else {
                     showNotification("❌ Textarea atau tombol kirim tidak ditemukan");
