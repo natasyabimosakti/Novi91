@@ -360,7 +360,6 @@ function GasKomment(){
                         pasteTextToFacebookComment(commentToPost,i-1);
                         SaveStat()
                         berhasilKomentar = true;
-
                     }
                 }
             });
@@ -476,6 +475,9 @@ async function pasteTextToFacebookComment(text,index) {
         sendBtn.click();
         console.log('Komentar terkirim!');
         showNotification("Komentar di kirim "+text)
+        setTimeout(() => {
+            location.href = "about:blank";
+        }, 8000);
         return;
     } else {
         console.log('Tombol kirim tidak ditemukan');
@@ -518,6 +520,9 @@ async function InsertComment(text) {
                             sendBtn2.click()
                             showNotification("Komentar di kirim "+text)
                             clearInterval(intervalId)
+                            setTimeout(() => {
+                                location.href = "about:blank";
+                            }, 8000);
                         }
                     }, 1);
                 }
