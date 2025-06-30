@@ -1,10 +1,8 @@
 // ==UserScript==
-// @name         NEW UJI
+// @name         Desktop
 // @namespace    http://tampermonkey.net/
-// @version      3.270
+// @version      3.0
 // @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut1.js
-// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut1.js
 // @author       You
 // @match        http*://*/*
 // @run-at       document-end
