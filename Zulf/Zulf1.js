@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF1
 // @namespace    http://tampermonkey.net/
-// @version      3.49
+// @version      3.50
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
@@ -537,27 +537,70 @@ var SCRIPT_NAME = Comment18;
 var TELEGRAM_TOKEN = '7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw'; // GANTI
 var TELEGRAM_CHAT_ID = '983068551'; // GANTI
 
+function normalizeText(text) {
+    return text
+        .trim()
+        .replace(/\s+/g, ' ') // ubah tab/newline menjadi satu spasi
+        .toLowerCase();// biar lebih toleran
+}
+
+// Fungsi menghitung jarak Levenshtein
+function levenshtein(a, b) {
+    const matrix = Array.from({ length: b.length + 1 }, (_, i) => [i]);
+    for (let j = 1; j <= a.length; j++) matrix[0][j] = j;
+
+    for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+            if (b[i - 1] === a[j - 1]) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+                matrix[i][j] = Math.min(
+                    matrix[i - 1][j - 1] + 1, // substitusi
+                    matrix[i][j - 1] + 1,// tambah
+                    matrix[i - 1][j] + 1 // hapus
+                );
+            }
+        }
+    }
+    return matrix[b.length][a.length];
+}
+
+// Kirim ke Telegram, dengan deteksi spam berbasis kemiripan
 async function sendToTelegram(message) {
     const fullMessage = `📡 [${SCRIPT_NAME}]\n${message}`;
-    const lastSent = await GM.getValue("lastTelegramMessage", "");
+    const normalizedMessage = normalizeText(fullMessage);
 
-    if (fullMessage === lastSent) {
-        console.log("🔁 Pesan sama, tidak dikirim ulang.");
+    const lastSent = await GM.getValue("lastTelegramMessage", "");
+    const normalizedLast = normalizeText(lastSent);
+
+    const lastTime = await GM.getValue("lastTelegramTime", 0);
+    const now = Date.now();
+    const COOLDOWN = 5 * 60 * 1000; // 5 menit
+
+    const distance = levenshtein(normalizedMessage, normalizedLast);
+    const similarity = 1 - distance / Math.max(normalizedMessage.length, normalizedLast.length);
+
+    const SIMILARITY_THRESHOLD = 0.95; // 95% mirip → dianggap sama
+
+    if (similarity >= SIMILARITY_THRESHOLD && (now - lastTime < COOLDOWN)) {
+        console.log("⏱️ Duplikat dicegah (mirip & <5 menit):", similarity);
         return;
     }
 
     GM_xmlhttpRequest({
         method: "GET",
         url: `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(fullMessage)}`,
-        onload: function(res) {
+        onload: function (res) {
             console.log("✅ Telegram terkirim:", res.responseText);
             GM.setValue("lastTelegramMessage", fullMessage);
+            GM.setValue("lastTelegramTime", now);
         },
-        onerror: function(err) {
+        onerror: function (err) {
             console.error("❌ Gagal kirim ke Telegram:", err);
         }
     });
 }
+
 
 async function cekMasalah() {
     try {
