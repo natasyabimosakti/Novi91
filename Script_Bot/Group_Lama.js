@@ -1,22 +1,58 @@
 var config = window.BOT_CONFIG || {};
-var namagroup1  = config.namagroup1  || ""; const Comment1  = config.Comment1  || "";
-var namagroup2  = config.namagroup2  || ""; const Comment2  = config.Comment2  || "";
-var namagroup3  = config.namagroup3  || ""; const Comment3  = config.Comment3  || "";
-var namagroup4  = config.namagroup4  || ""; const Comment4  = config.Comment4  || "";
-var namagroup5  = config.namagroup5  || ""; const Comment5  = config.Comment5  || "";
-var namagroup6  = config.namagroup6  || ""; const Comment6  = config.Comment6  || "";
-var namagroup7  = config.namagroup7  || ""; const Comment7  = config.Comment7  || "";
-var namagroup8  = config.namagroup8  || ""; const Comment8  = config.Comment8  || "";
-var namagroup9  = config.namagroup9  || ""; const Comment9  = config.Comment9  || "";
-var namagroup10 = config.namagroup10 || ""; const Comment10 = config.Comment10 || "";
-var namagroup11 = config.namagroup11 || ""; const Comment11 = config.Comment11 || "";
-var namagroup12 = config.namagroup12 || ""; const Comment12 = config.Comment12 || "";
-var namagroup13 = config.namagroup13 || ""; const Comment13 = config.Comment13 || "";
-var namagroup14 = config.namagroup14 || ""; const Comment14 = config.Comment14 || "";
-var namagroup15 = config.namagroup15 || ""; const Comment15 = config.Comment15 || "";
-var namagroup16 = config.namagroup16 || ""; const Comment16 = config.Comment16 || "";
-var namagroup17 = config.namagroup17 || ""; const Comment17 = config.Comment17 || "";
-var namagroup18 = config.namagroup18 || ""; const Comment18 = config.Comment18 || "";
+var namagroup1  = config.namagroup1  || "";
+const Comment1  = config.Comment1    || "";
+
+var namagroup2  = config.namagroup2  || "";
+const Comment2  = config.Comment2    || "";
+
+var namagroup3  = config.namagroup3  || "";
+const Comment3  = config.Comment3    || "";
+
+var namagroup4  = config.namagroup4  || "";
+const Comment4  = config.Comment4    || "";
+
+var namagroup5  = config.namagroup5  || "";
+const Comment5  = config.Comment5    || "";
+
+var namagroup6  = config.namagroup6  || "";
+const Comment6  = config.Comment6    || "";
+
+var namagroup7  = config.namagroup7  || "";
+const Comment7  = config.Comment7    || "";
+
+var namagroup8  = config.namagroup8  || "";
+const Comment8  = config.Comment8    || "";
+
+var namagroup9  = config.namagroup9  || "";
+const Comment9  = config.Comment9    || "";
+
+var namagroup10 = config.namagroup10 || "";
+const Comment10 = config.Comment10   || "";
+
+var namagroup11 = config.namagroup11 || "";
+const Comment11 = config.Comment11   || "";
+
+var namagroup12 = config.namagroup12 || "";
+const Comment12 = config.Comment12   || "";
+
+var namagroup13 = config.namagroup13 || "";
+const Comment13 = config.Comment13   || "";
+
+var namagroup14 = config.namagroup14 || "";
+const Comment14 = config.Comment14   || "";
+
+var namagroup15 = config.namagroup15 || "";
+const Comment15 = config.Comment15   || "";
+
+var namagroup16 = config.namagroup16 || "";
+const Comment16 = config.Comment16   || "";
+
+var namagroup17 = config.namagroup17 || "";
+const Comment17 = config.Comment17   || "";
+
+var namagroup18 = config.namagroup18 || "";
+const Comment18 = config.Comment18   || "";
+
 
 
 
