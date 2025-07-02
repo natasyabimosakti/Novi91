@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE2
 // @namespace    http://tampermonkey.net/
-// @version      3.195
+// @version      3.196
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @author       You
@@ -578,6 +578,7 @@ function cekLogout() {
             if (!window.__sudahKirimLogout) {
                 window.__sudahKirimLogout = true;
                 sendToTelegram("⚠️ Facebook LOGOUT.");
+                startAutoTask()
             }
         }
     } catch (e) {
