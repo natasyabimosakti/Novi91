@@ -581,7 +581,7 @@ function cekLogout() {
             if (!window.__sudahKirimLogout) {
                 window.__sudahKirimLogout = true;
                 sendToTelegram("⚠️ Facebook LOGOUT.");
-                startAutoTask()
+       
             }
         }
     } catch (e) {
