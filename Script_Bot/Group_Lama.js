@@ -1,4 +1,3 @@
-
 var config = window.BOT_CONFIG || {};
 var namagroup1  = config.namagroup1  || ""; const Comment1  = config.Comment1  || "";
 var namagroup2  = config.namagroup2  || ""; const Comment2  = config.Comment2  || "";
