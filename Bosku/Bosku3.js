@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE3
 // @namespace    http://tampermonkey.net/
-// @version      3.195
+// @version      3.196
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku3.js
@@ -581,6 +581,7 @@ function cekLogout() {
             if (!window.__sudahKirimLogout) {
                 window.__sudahKirimLogout = true;
                 sendToTelegram("⚠️ Facebook LOGOUT.");
+                startAutoTask()
             }
         }
     } catch (e) {
