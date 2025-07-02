@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MANUK 3
 // @namespace    http://tampermonkey.net/
-// @version      3.186
+// @version      3.187
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manuk/Manuk3.js
@@ -538,27 +538,27 @@ var SCRIPT_NAME = Comment18;
 var TELEGRAM_TOKEN = '7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw'; // GANTI
 var TELEGRAM_CHAT_ID = '983068551'; // GANTI
 
+let lastMessageSent = ""; // lokal per tab/browser
+
 function normalizeText(text) {
     return text
         .trim()
-        .replace(/\s+/g, ' ') // ubah tab/newline menjadi satu spasi
-        .toLowerCase();// biar lebih toleran
+        .replace(/\s+/g, ' ')
+        .toLowerCase();
 }
 
-// Fungsi menghitung jarak Levenshtein
 function levenshtein(a, b) {
     const matrix = Array.from({ length: b.length + 1 }, (_, i) => [i]);
     for (let j = 1; j <= a.length; j++) matrix[0][j] = j;
-
     for (let i = 1; i <= b.length; i++) {
         for (let j = 1; j <= a.length; j++) {
             if (b[i - 1] === a[j - 1]) {
                 matrix[i][j] = matrix[i - 1][j - 1];
             } else {
                 matrix[i][j] = Math.min(
-                    matrix[i - 1][j - 1] + 1, // substitusi
-                    matrix[i][j - 1] + 1,// tambah
-                    matrix[i - 1][j] + 1 // hapus
+                    matrix[i - 1][j - 1] + 1,
+                    matrix[i][j - 1] + 1,
+                    matrix[i - 1][j] + 1
                 );
             }
         }
@@ -566,27 +566,33 @@ function levenshtein(a, b) {
     return matrix[b.length][a.length];
 }
 
-// Kirim ke Telegram, dengan deteksi spam berbasis kemiripan
 async function sendToTelegram(message) {
     const fullMessage = `📡 [${SCRIPT_NAME}]\n${message}`;
     const normalizedMessage = normalizeText(fullMessage);
 
-    const lastSent = await GM.getValue("lastTelegramMessage", "");
-    const normalizedLast = normalizeText(lastSent);
-
-    const lastTime = await GM.getValue("lastTelegramTime", 0);
-    const now = Date.now();
-    const COOLDOWN = 5 * 60 * 1000; // 5 menit
-
-    const distance = levenshtein(normalizedMessage, normalizedLast);
-    const similarity = 1 - distance / Math.max(normalizedMessage.length, normalizedLast.length);
-
-    const SIMILARITY_THRESHOLD = 0.95; // 95% mirip → dianggap sama
-
-    if (similarity >= SIMILARITY_THRESHOLD && (now - lastTime < COOLDOWN)) {
-        console.log("⏱️ Duplikat dicegah (mirip & <5 menit):", similarity);
+    // ✅ Cek variabel lokal dulu
+    if (normalizeText(lastMessageSent) === normalizedMessage) {
+        console.log("🧠 Duplikat dicegah (lokal)");
         return;
     }
+
+    const lastSent = await GM.getValue("lastTelegramMessage", "");
+    const lastTime = await GM.getValue("lastTelegramTime", 0);
+    const now = Date.now();
+    const COOLDOWN = 5 * 60 * 1000;
+
+    const normalizedLast = normalizeText(lastSent);
+    const distance = levenshtein(normalizedMessage, normalizedLast);
+    const similarity = 1 - distance / Math.max(normalizedMessage.length, normalizedLast.length);
+    const SIMILARITY_THRESHOLD = 0.95;
+
+    if (similarity >= SIMILARITY_THRESHOLD && (now - lastTime < COOLDOWN)) {
+        console.log("⏱️ Duplikat dicegah (storage)");
+        return;
+    }
+
+    // ✅ Update lokal dulu biar aman dari spam paralel
+    lastMessageSent = fullMessage;
 
     GM_xmlhttpRequest({
         method: "GET",
@@ -601,41 +607,5 @@ async function sendToTelegram(message) {
         }
     });
 }
-
-
-async function cekMasalah() {
-    try {
-        const elem = document.querySelectorAll("[data-screen-key-action-ids]")[1];
-        if (!elem) return;
-
-        const dialog = elem.getElementsByClassName("dialog-vscroller")[0];
-        if (!dialog) return;
-
-        const isi = dialog.textContent.toLowerCase();
-        if (isi.includes("masalah")) {
-            const cleanText = dialog.textContent.trim();
-            await sendToTelegram(`🛑 Ada "masalah":\n\n${cleanText}`);
-            startAutoTask()
-        }
-    } catch (e) {
-        console.warn("❌ Error saat cek masalah:", e);
-    }
-}
-
-async function cekLogout() {
-    try {
-        const logoutScreen = document.getElementsByClassName("wbloks_1");
-        if (logoutScreen.length > 0) {
-            await sendToTelegram("⚠️ Facebook LOGOUT.");
-        }
-    } catch (e) {
-        console.warn("❌ Error saat cek logout:", e);
-    }
-}
-
-const observer = new MutationObserver(() => {
-    cekMasalah();
-    cekLogout();
-});
 
 observer.observe(document.body, { childList: true, subtree: true });
