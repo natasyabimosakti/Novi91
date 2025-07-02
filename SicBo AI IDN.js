@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Sic Bo Auto Bet AI Full (v6) - Statistik Lengkap
+// @name         Sic Bo Auto Bet AI Full (v7)
 // @namespace    http://tampermonkey.net/
-// @version      6.0
-// @description  AI auto bet Sic Bo berdasarkan 10 result terakhir + Martingale + Statistik lengkap
+// @version      7.0
+// @description  AI auto bet Sic Bo: analisa hasil sebelumnya, martingale, delay 2 detik, statistik lengkap
 // @match        *://*/*
 // @grant        none
 // ==/UserScript==
@@ -10,23 +10,23 @@
 (function () {
     'use strict';
 
+    // Variabel global
     let history = [];
     let currentBet = 1;
     let lastKey = "";
     let saldoMenang = 0;
-
-    // Statistik tambahan
     let totalMenang = 0;
     let totalKalah = 0;
     let winStreak = 0;
     let loseStreak = 0;
+    let lastBetNumber = null;
 
     // Cek apakah taruhan sedang dibuka
     function isBettingOpen() {
         return document.querySelector('.timer.bet-open') !== null;
     }
 
-    // Ambil 3 angka dari history container
+    // Ambil hasil dadu terbaru
     function getLatestDiceResult() {
         const diceContainer = document.querySelector('.history-container > div');
         if (!diceContainer) return null;
@@ -43,9 +43,9 @@
         return numbers;
     }
 
-    // AI analisis: ambil angka dengan frekuensi terbanyak
+    // Analisis AI: cari angka yang paling sering muncul dari 10 hasil terakhir
     function analyzeAndPredict() {
-        let count = Array(7).fill(0); // Index 1–6
+        let count = Array(7).fill(0); // index 1-6
 
         for (let result of history) {
             for (let n of result) {
@@ -53,19 +53,20 @@
             }
         }
 
-        const maxFreq = Math.max(...count.slice(1)); // abaikan index 0
+        const maxFreq = Math.max(...count.slice(1));
         const candidates = [];
         for (let i = 1; i <= 6; i++) {
             if (count[i] === maxFreq) candidates.push(i);
         }
 
         const chosen = candidates[Math.floor(Math.random() * candidates.length)];
-        console.log(`🤖 AI memilih: ${chosen} dari frekuensi`, count.slice(1));
+        console.log(`🤖 AI memilih angka: ${chosen} dari frekuensi`, count.slice(1));
         return chosen;
     }
 
-    // Klik angka sebanyak currentBet kali + klik tombol Submit
+    // Lakukan bet (klik tombol angka sebanyak currentBet)
     function placeBet(number) {
+        lastBetNumber = number;
         const button = document.querySelector(`.single-dice-row .sl-bet[bet="${number}"]`);
         const submit = document.querySelector('button.sl-green-sh');
 
@@ -74,16 +75,14 @@
             return false;
         }
 
-        console.log(`🎯 Melakukan bet ${currentBet}x pada angka: ${number}`);
+        console.log(`🎯 Melakukan betting ${currentBet}x pada angka ${number}`);
 
-        // Klik angka sesuai jumlah taruhan (martingale)
         for (let i = 0; i < currentBet; i++) {
             setTimeout(() => {
                 button.click();
             }, i * 200);
         }
 
-        // Klik submit setelah semua klik angka selesai
         setTimeout(() => {
             if (submit && !submit.disabled) {
                 console.log("📨 Klik tombol Submit");
@@ -96,9 +95,14 @@
         return true;
     }
 
-    // Evaluasi menang/kalah + update statistik
-    function detectWin(numbers, target) {
-        const win = numbers.includes(target);
+    // Deteksi menang/kalah dan update statistik
+    function detectWin(numbers) {
+        if (lastBetNumber === null) {
+            console.warn("⚠️ Tidak ada data bet sebelumnya");
+            return;
+        }
+
+        const win = numbers.includes(lastBetNumber);
 
         if (win) {
             console.log("✅ MENANG!");
@@ -116,51 +120,63 @@
             winStreak = 0;
         }
 
-        // Tampilkan statistik
-        console.log("🎲 Hasil Dadu:", numbers);
-        console.log(`💰 Saldo: ${saldoMenang}`);
-        console.log(`✅ Total Menang: ${totalMenang} | ❌ Total Kalah: ${totalKalah}`);
-        console.log(`🔥 Win Streak: ${winStreak} | 💀 Lose Streak: ${loseStreak}`);
-        console.log(`🧠 Bet Berikutnya: ${currentBet}`);
-        console.log("─────────────────────────────");
+        console.log(`🎯 Angka dibet: ${lastBetNumber}`);
+        console.log(`🎲 Hasil dadu: ${numbers.join(', ')}`);
+        console.log(`💰 Saldo total: ${saldoMenang}`);
+        console.log(`✅ Menang: ${totalMenang} | ❌ Kalah: ${totalKalah}`);
+        console.log(`🔥 Win streak: ${winStreak} | 💀 Lose streak: ${loseStreak}`);
+        console.log(`🔁 Bet berikutnya: ${currentBet}`);
+        console.log("────────────────────────────────────────");
     }
 
-    // Loop utama: jalankan terus setiap siklus
+    // Loop utama
     function mainLoop() {
+        console.log("🔁 Menunggu hasil baru...");
+
         const result = getLatestDiceResult();
-        if (result) {
-            const key = result.join("-");
-            if (key !== lastKey) {
-                lastKey = key;
+        if (!result) {
+            setTimeout(mainLoop, 1000);
+            return;
+        }
 
-                history.push(result);
-                if (history.length > 10) history.shift();
+        const key = result.join("-");
+        if (key !== lastKey) {
+            lastKey = key;
 
-                // Tunggu sampai waktu taruhan dibuka
-                const waitOpen = setInterval(() => {
-                    if (isBettingOpen()) {
-                        clearInterval(waitOpen);
+            history.push(result);
+            if (history.length > 10) history.shift();
 
-                        const target = analyzeAndPredict();
+            // Tunggu sampai status bet terbuka
+            const waitOpen = setInterval(() => {
+                if (isBettingOpen()) {
+                    clearInterval(waitOpen);
+                    console.log("🟢 Waktu betting terbuka... tunggu 2 detik");
+
+                    const target = analyzeAndPredict();
+
+                    // Delay 2 detik sebelum klik
+                    setTimeout(() => {
                         placeBet(target);
 
+                        // Tunggu 6 detik untuk hasil baru
                         setTimeout(() => {
                             const newResult = getLatestDiceResult();
-                            if (newResult) detectWin(newResult, target);
+                            if (newResult) detectWin(newResult);
                             setTimeout(mainLoop, 3000);
                         }, 6000);
-                    } else {
-                        console.log("⏳ Menunggu waktu betting dibuka...");
-                    }
-                }, 1000);
 
-                return;
-            }
+                    }, 2000);
+                } else {
+                    console.log("⏳ Masih menunggu betting dibuka...");
+                }
+            }, 1000);
+
+            return;
         }
 
         setTimeout(mainLoop, 1000);
     }
 
-    console.log("🚀 Sic Bo Auto Bet v6 aktif!");
+    console.log("🚀 Sic Bo Auto Bet v7 AKTIF...");
     mainLoop();
 })();
