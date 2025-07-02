@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 4
 // @namespace    http://tampermonkey.net/
-// @version      3.65
+// @version      3.66
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
@@ -580,6 +580,7 @@ function cekLogout() {
             if (!window.__sudahKirimLogout) {
                 window.__sudahKirimLogout = true;
                 sendToTelegram("⚠️ Facebook LOGOUT.");
+              startAutoTask()
             }
         }
     } catch (e) {
