@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF1
 // @namespace    http://tampermonkey.net/
-// @version      3.48
+// @version      3.49
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
@@ -533,18 +533,25 @@ function startAutoTask() {
     }, 10000);
 }
 
-var SCRIPT_NAME = Comment18
-var TELEGRAM_TOKEN = '7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw'; // Ganti!
-var TELEGRAM_CHAT_ID = '983068551'; // Ganti!
+var SCRIPT_NAME = Comment18;
+var TELEGRAM_TOKEN = '7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw'; // GANTI
+var TELEGRAM_CHAT_ID = '983068551'; // GANTI
 
-function sendToTelegram(message) {
+async function sendToTelegram(message) {
     const fullMessage = `📡 [${SCRIPT_NAME}]\n${message}`;
-    const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(fullMessage)}`;
+    const lastSent = await GM.getValue("lastTelegramMessage", "");
+
+    if (fullMessage === lastSent) {
+        console.log("🔁 Pesan sama, tidak dikirim ulang.");
+        return;
+    }
+
     GM_xmlhttpRequest({
         method: "GET",
-        url: url,
+        url: `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(fullMessage)}`,
         onload: function(res) {
             console.log("✅ Telegram terkirim:", res.responseText);
+            GM.setValue("lastTelegramMessage", fullMessage);
         },
         onerror: function(err) {
             console.error("❌ Gagal kirim ke Telegram:", err);
@@ -552,8 +559,7 @@ function sendToTelegram(message) {
     });
 }
 
-// ✅ Fungsi untuk deteksi kata "masalah"
-function cekMasalah() {
+async function cekMasalah() {
     try {
         const elem = document.querySelectorAll("[data-screen-key-action-ids]")[1];
         if (!elem) return;
@@ -563,36 +569,29 @@ function cekMasalah() {
 
         const isi = dialog.textContent.toLowerCase();
         if (isi.includes("masalah")) {
-            if (!window.__sudahKirimMasalah) {
-                window.__sudahKirimMasalah = true;
-                sendToTelegram(`🛑 Ditemukan "masalah":\n\n${dialog.textContent.trim()}`);
-            }
+            const cleanText = dialog.textContent.trim();
+            await sendToTelegram(`🛑 Ada "masalah":\n\n${cleanText}`);
+            startAutoTask()
         }
     } catch (e) {
         console.warn("❌ Error saat cek masalah:", e);
     }
 }
 
-// ✅ Fungsi untuk deteksi logout
-function cekLogout() {
+async function cekLogout() {
     try {
         const logoutScreen = document.getElementsByClassName("wbloks_1");
         if (logoutScreen.length > 0) {
-            if (!window.__sudahKirimLogout) {
-                window.__sudahKirimLogout = true;
-                sendToTelegram("⚠️ Facebook LOGOUT.");
-            }
+            await sendToTelegram("⚠️ Facebook LOGOUT.");
         }
     } catch (e) {
         console.warn("❌ Error saat cek logout:", e);
     }
 }
 
-// ✅ Observer halaman
 const observer = new MutationObserver(() => {
     cekMasalah();
     cekLogout();
 });
 
 observer.observe(document.body, { childList: true, subtree: true });
-
