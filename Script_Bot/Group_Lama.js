@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 2
 // @namespace    http://tampermonkey.net/
-// @version      3.68
+// @version      3.69
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo2.js
@@ -17,7 +17,7 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-const config = window.BOT_CONFIG || {};
+var config = window.BOT_CONFIG || {};
 var namagroup1  = config.namagroup1  || ""; const Comment1  = config.Comment1  || "";
 var namagroup2  = config.namagroup2  || ""; const Comment2  = config.Comment2  || "";
 var namagroup3  = config.namagroup3  || ""; const Comment3  = config.Comment3  || "";
