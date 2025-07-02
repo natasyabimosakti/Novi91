@@ -60,7 +60,7 @@ var Comment16 = '(GUDANGTOTO) = (OKTOHASI4) 02*19*68';
 
 
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Baru Sampo 1';
+var Comment17 = 'Cuwil 1';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
