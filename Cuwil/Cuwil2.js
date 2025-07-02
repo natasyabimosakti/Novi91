@@ -62,7 +62,7 @@ var Comment16 = '(GUDANGTOTO) = (NYOHNYAHNYOH) 20*44*38';
 
 
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Baru Sampo 1';
+var Comment17 = 'Cuwil 2';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
