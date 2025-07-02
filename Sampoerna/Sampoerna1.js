@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna1
 // @namespace    http://tampermonkey.net/
-// @version      3.204
+// @version      3.205
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna1.js
@@ -240,7 +240,7 @@ if(document.location.href.includes("group")){
                     if (tombol.length >= 2) {
                         cekTombolUrutkan = false;
                         tombol.forEach(btn => {
-                            if (countA < 5) {
+                            if (countA < 3) {
                                 if (btn.textContent.includes("Postingan baru")) {
                                     btn.click();
                                     countA++;
@@ -380,15 +380,24 @@ async function botKoment(mutatin) {
                     clickEvent.initEvent("mousedown", true, true);
                     sendBtn.dispatchEvent(clickEvent);
 
-                    GM.setValue("group_" + grouptToPost, true);
-                    GM.setValue("group_"+grouptToPost+"_expire", Date.now() + EXPIRATION_MS);
+
                     console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
-                    showNotification("Komentar Sudah Terkirim : " + commentToPost);
+
                     isCommenting = true;
 
                     kondisiStop = true
                     observercomment.disconnect();
+                    if(document.querySelector("[role='dialog']")){
+                        if(document.querySelector("[role='dialog']").textContent.includes("Ada Masalah")){
+                            return;
+                        }
+                    }
+
+                    GM.setValue("group_" + grouptToPost, true);
+                    GM.setValue("group_"+grouptToPost+"_expire", Date.now() + EXPIRATION_MS);
+                    showNotification("Komentar Sudah Terkirim : " + commentToPost);
                     startAutoTask();
+
                     break;
                 } else {
                     showNotification("❌ Textarea atau tombol kirim tidak ditemukan");
@@ -530,3 +539,68 @@ function startAutoTask() {
         location.href = "about:blank";
     }, 10000);
 }
+
+var SCRIPT_NAME = Comment17
+var TELEGRAM_TOKEN = '7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw'; // Ganti!
+var TELEGRAM_CHAT_ID = '983068551'; // Ganti!
+
+function sendToTelegram(message) {
+    const fullMessage = `📡 [${SCRIPT_NAME}]\n${message}`;
+    const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(fullMessage)}`;
+    GM_xmlhttpRequest({
+        method: "GET",
+        url: url,
+        onload: function(res) {
+            console.log("✅ Telegram terkirim:", res.responseText);
+        },
+        onerror: function(err) {
+            console.error("❌ Gagal kirim ke Telegram:", err);
+        }
+    });
+}
+
+// ✅ Fungsi untuk deteksi kata "masalah"
+function cekMasalah() {
+    try {
+        const elem = document.querySelectorAll("[data-screen-key-action-ids]")[1];
+        if (!elem) return;
+
+        const dialog = elem.getElementsByClassName("dialog-vscroller")[0];
+        if (!dialog) return;
+
+        const isi = dialog.textContent.toLowerCase();
+        if (isi.includes("masalah")) {
+            if (!window.__sudahKirimMasalah) {
+                window.__sudahKirimMasalah = true;
+                sendToTelegram(`🛑 Ditemukan "masalah":\n\n${dialog.textContent.trim()}`);
+            }
+        }
+    } catch (e) {
+        console.warn("❌ Error saat cek masalah:", e);
+    }
+}
+
+// ✅ Fungsi untuk deteksi logout
+function cekLogout() {
+    try {
+        const logoutScreen = document.getElementsByClassName("wbloks_1");
+        if (logoutScreen.length > 0) {
+            if (!window.__sudahKirimLogout) {
+                window.__sudahKirimLogout = true;
+                sendToTelegram("⚠️ Facebook LOGOUT.");
+          
+            }
+        }
+    } catch (e) {
+        console.warn("❌ Error saat cek logout:", e);
+    }
+}
+
+// ✅ Observer halaman
+const observer = new MutationObserver(() => {
+    cekMasalah();
+    cekLogout();
+});
+
+observer.observe(document.body, { childList: true, subtree: true });
+ 
