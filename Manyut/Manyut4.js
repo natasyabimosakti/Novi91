@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.277
+// @version      3.278
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
@@ -573,7 +573,7 @@ async function sendToTelegram(message) {
     if (sudahkirim) return;
     const fullMessage = `📡 [${SCRIPT_NAME}]\n${message}`;
     const normalizedMessage = normalizeText(fullMessage);
-
+    sudahkirim = true
     const lastSent = await GM.getValue("lastTelegramMessage", "");
     const normalizedLast = normalizeText(lastSent);
 
@@ -595,7 +595,7 @@ async function sendToTelegram(message) {
         method: "GET",
         url: `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(fullMessage)}`,
         onload: function (res) {
-            sudahkirim = true
+            
             console.log("✅ Telegram terkirim:", res.responseText);
             GM.setValue("lastTelegramMessage", fullMessage);
             GM.setValue("lastTelegramTime", now);
@@ -608,6 +608,7 @@ async function sendToTelegram(message) {
 }
 
 async function cekMasalah() {
+    if (sudahkirim) return;
     try {
         const now = Date.now();
         const COOLDOWNPostingan = 60 * 60 * 1000; // 5 menit
