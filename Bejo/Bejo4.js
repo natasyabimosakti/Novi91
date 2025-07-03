@@ -650,7 +650,6 @@ async function cekLogout() {
 }
 const observer = new MutationObserver(() => {
     cekMasalah();
-    cekLogout();
 });
 
 observer.observe(document.body, { childList: true, subtree: true });
