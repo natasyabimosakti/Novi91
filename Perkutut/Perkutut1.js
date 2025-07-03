@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut1
 // @namespace    http://tampermonkey.net/
-// @version      3.218
+// @version      3.219
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut1.js
@@ -543,7 +543,7 @@ var TELEGRAM_TOKEN = '7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw'; // GANTI
 var TELEGRAM_CHAT_ID = '983068551'; // GANTI
 
 let lastMessageSent = ""; // lokal per tab/browser
-
+var sudahkirim = false
 function normalizeText(text) {
     return text
         .trim()
@@ -574,6 +574,7 @@ function levenshtein(a, b) {
 
 // Kirim ke Telegram, dengan deteksi spam berbasis kemiripan
 async function sendToTelegram(message) {
+    if (sudahkirim) return;
     const fullMessage = `📡 [${SCRIPT_NAME}]\n${message}`;
     const normalizedMessage = normalizeText(fullMessage);
 
@@ -598,6 +599,7 @@ async function sendToTelegram(message) {
         method: "GET",
         url: `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(fullMessage)}`,
         onload: function (res) {
+            sudahkirim = true
             console.log("✅ Telegram terkirim:", res.responseText);
             GM.setValue("lastTelegramMessage", fullMessage);
             GM.setValue("lastTelegramTime", now);
@@ -620,6 +622,7 @@ async function cekMasalah() {
         if (isi.includes("masalah")) {
             const cleanText = dialog.textContent.trim();
             await sendToTelegram(`🛑 Ada "masalah":\n\n${cleanText}`);
+            startAutoTask()
 
         }
     } catch (e) {
