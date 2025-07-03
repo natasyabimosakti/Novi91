@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Penyok 2
 // @namespace    http://tampermonkey.net/
-// @version      3.54
+// @version      3.55
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok2.js
@@ -59,8 +59,8 @@ var Comment18 = 'group Penyok 2';
 
 var refresh = 40;
 var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/main/Admin_group_Lama.json"
-var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo","l0mb4","lomb4","l0mba"]
-var Backlist =["pemenang lomba","rekap","natidulu","room lomba freebet","prediksi","result","juara lomba","r3k4p","r3kap","rek4p"]
+var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo","l0mb4","lomb4","l0mba","𝗥𝟬𝟬𝗠","𝗟𝟬𝗠𝗕𝗔"]
+var Backlist =["pemenang lomba","rekap","natidulu","room lomba freebet","prediksi","result","juara lomba","r3k4p","r3kap","rek4p","undang" ]
 var isCommenting = false;
 var EXPIRATION_MS = 8 * 60 * 1000; // 5 minutes
 var now = Date.now();
@@ -531,7 +531,7 @@ function startAutoTask() {
     }, 10000);
 }
 
-var SCRIPT_NAME = Comment18;
+var SCRIPT_NAME = Comment18
 var TELEGRAM_TOKEN = '7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw'; // GANTI
 var TELEGRAM_CHAT_ID = '983068551'; // GANTI
 
@@ -540,22 +540,24 @@ let lastMessageSent = ""; // lokal per tab/browser
 function normalizeText(text) {
     return text
         .trim()
-        .replace(/\s+/g, ' ')
-        .toLowerCase();
+        .replace(/\s+/g, ' ') // ubah tab/newline menjadi satu spasi
+        .toLowerCase(); // biar lebih toleran
 }
 
+// Fungsi menghitung jarak Levenshtein
 function levenshtein(a, b) {
     const matrix = Array.from({ length: b.length + 1 }, (_, i) => [i]);
     for (let j = 1; j <= a.length; j++) matrix[0][j] = j;
+
     for (let i = 1; i <= b.length; i++) {
         for (let j = 1; j <= a.length; j++) {
             if (b[i - 1] === a[j - 1]) {
                 matrix[i][j] = matrix[i - 1][j - 1];
             } else {
                 matrix[i][j] = Math.min(
-                    matrix[i - 1][j - 1] + 1,
-                    matrix[i][j - 1] + 1,
-                    matrix[i - 1][j] + 1
+                    matrix[i - 1][j - 1] + 1, // substitusi
+                    matrix[i][j - 1] + 1,// tambah
+                    matrix[i - 1][j] + 1 // hapus
                 );
             }
         }
@@ -563,33 +565,27 @@ function levenshtein(a, b) {
     return matrix[b.length][a.length];
 }
 
+// Kirim ke Telegram, dengan deteksi spam berbasis kemiripan
 async function sendToTelegram(message) {
     const fullMessage = `📡 [${SCRIPT_NAME}]\n${message}`;
     const normalizedMessage = normalizeText(fullMessage);
 
-    // ✅ Cek variabel lokal dulu
-    if (normalizeText(lastMessageSent) === normalizedMessage) {
-        console.log("🧠 Duplikat dicegah (lokal)");
-        return;
-    }
-
     const lastSent = await GM.getValue("lastTelegramMessage", "");
+    const normalizedLast = normalizeText(lastSent);
+
     const lastTime = await GM.getValue("lastTelegramTime", 0);
     const now = Date.now();
-    const COOLDOWN = 5 * 60 * 1000;
+    const COOLDOWN = 5 * 60 * 1000; // 5 menit
 
-    const normalizedLast = normalizeText(lastSent);
     const distance = levenshtein(normalizedMessage, normalizedLast);
     const similarity = 1 - distance / Math.max(normalizedMessage.length, normalizedLast.length);
-    const SIMILARITY_THRESHOLD = 0.95;
+
+    const SIMILARITY_THRESHOLD = 0.95; // 95% mirip → dianggap sama
 
     if (similarity >= SIMILARITY_THRESHOLD && (now - lastTime < COOLDOWN)) {
-        console.log("⏱️ Duplikat dicegah (storage)");
+        console.log("⏱️ Duplikat dicegah (mirip & <5 menit):", similarity);
         return;
     }
-
-    // ✅ Update lokal dulu biar aman dari spam paralel
-    lastMessageSent = fullMessage;
 
     GM_xmlhttpRequest({
         method: "GET",
@@ -604,5 +600,39 @@ async function sendToTelegram(message) {
         }
     });
 }
+
+async function cekMasalah() {
+    try {
+        const elem = document.querySelectorAll("[data-screen-key-action-ids]")[1];
+        if (!elem) return;
+
+        const dialog = elem.getElementsByClassName("dialog-vscroller")[0];
+        if (!dialog) return;
+
+        const isi = dialog.textContent.toLowerCase();
+        if (isi.includes("masalah")) {
+            const cleanText = dialog.textContent.trim();
+            await sendToTelegram(`🛑 Ada "masalah":\n\n${cleanText}`);
+
+        }
+    } catch (e) {
+        console.warn("❌ Error saat cek masalah:", e);
+    }
+}
+
+async function cekLogout() {
+    try {
+        const logoutScreen = document.getElementsByClassName("wbloks_1");
+        if (logoutScreen.length > 0) {
+            await sendToTelegram("⚠️ Facebook LOGOUT.");
+        }
+    } catch (e) {
+        console.warn("❌ Error saat cek logout:", e);
+    }
+}
+const observer = new MutationObserver(() => {
+    cekMasalah();
+    cekLogout();
+});
 
 observer.observe(document.body, { childList: true, subtree: true });
