@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 3
 // @namespace    http://tampermonkey.net/
-// @version      3.66
+// @version      3.67
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung3.js
@@ -609,14 +609,14 @@ async function sendToTelegram(message) {
 async function cekMasalah() {
     try {
         const now = Date.now();
-        const COOLDOWNPostingan = 30 * 60 * 1000; // 5 menit
+        const COOLDOWNPostingan = 60 * 60 * 1000; // 5 menit
         const lastTimepost = await GM.getValue("lastTelegramSame", 0);
 
         if ((now - lastTimepost < COOLDOWNPostingan)) {
-            console.log("⏱️ sudah dikirim sebelumnya");
+             console.log("⏱️ sudah dikirim sse jam yang lalu");
             return;
         }else{
-            GM.setValue("lastTelegramSame", now);
+             GM.setValue("lastTelegramSame", 0);
         }
 
         const elem = document.querySelectorAll("[data-screen-key-action-ids]")[1];
