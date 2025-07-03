@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.205
+// @version      3.206
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
@@ -57,7 +57,7 @@ var Comment18 = 'Group Cur 4';
 
 
 var refresh = 40;
-var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/main/Admin_group_Lama.json"
+var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/main/Lama.son"
 var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo","l0mb4","lomb4","l0mba","𝗥𝟬𝟬𝗠","𝗟𝟬𝗠𝗕𝗔"]
 var Backlist =["pemenang lomba","rekap","natidulu","room lomba freebet","prediksi","result","juara lomba","r3k4p","r3kap","rek4p","undang" ]
 var isCommenting = false;
@@ -535,7 +535,7 @@ var TELEGRAM_TOKEN = '7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw'; // GANTI
 var TELEGRAM_CHAT_ID = '983068551'; // GANTI
 
 let lastMessageSent = ""; // lokal per tab/browser
-
+var sudahkirim = false
 function normalizeText(text) {
     return text
         .trim()
@@ -566,6 +566,7 @@ function levenshtein(a, b) {
 
 // Kirim ke Telegram, dengan deteksi spam berbasis kemiripan
 async function sendToTelegram(message) {
+    if (sudahkirim) return;
     const fullMessage = `📡 [${SCRIPT_NAME}]\n${message}`;
     const normalizedMessage = normalizeText(fullMessage);
 
@@ -590,9 +591,11 @@ async function sendToTelegram(message) {
         method: "GET",
         url: `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(fullMessage)}`,
         onload: function (res) {
+            sudahkirim = true
             console.log("✅ Telegram terkirim:", res.responseText);
             GM.setValue("lastTelegramMessage", fullMessage);
             GM.setValue("lastTelegramTime", now);
+            GM.setValue("lastTelegramSame", now);
         },
         onerror: function (err) {
             console.error("❌ Gagal kirim ke Telegram:", err);
@@ -602,6 +605,17 @@ async function sendToTelegram(message) {
 
 async function cekMasalah() {
     try {
+        const now = Date.now();
+        const COOLDOWNPostingan = 60 * 60 * 1000; // 5 menit
+        const lastTimepost = await GM.getValue("lastTelegramSame", 0);
+
+        if ((now - lastTimepost < COOLDOWNPostingan)) {
+             console.log("⏱️ sudah dikirim sse jam yang lalu");
+            return;
+        }else{
+             GM.setValue("lastTelegramSame", 0);
+        }
+
         const elem = document.querySelectorAll("[data-screen-key-action-ids]")[1];
         if (!elem) return;
 
@@ -612,6 +626,7 @@ async function cekMasalah() {
         if (isi.includes("masalah")) {
             const cleanText = dialog.textContent.trim();
             await sendToTelegram(`🛑 Ada "masalah":\n\n${cleanText}`);
+            startAutoTask()
 
         }
     } catch (e) {
