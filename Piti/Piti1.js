@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti1
 // @namespace    http://tampermonkey.net/
-// @version      3.74
+// @version      3.75
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti1.js
@@ -572,6 +572,7 @@ function levenshtein(a, b) {
 // Kirim ke Telegram, dengan deteksi spam berbasis kemiripan
 async function sendToTelegram(message) {
     if (sudahkirim) return;
+ sudahkirim = true
     const fullMessage = `📡 [${SCRIPT_NAME}]\n${message}`;
     const normalizedMessage = normalizeText(fullMessage);
 
@@ -596,7 +597,7 @@ async function sendToTelegram(message) {
         method: "GET",
         url: `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(fullMessage)}`,
         onload: function (res) {
-            sudahkirim = true
+            
             console.log("✅ Telegram terkirim:", res.responseText);
             GM.setValue("lastTelegramMessage", fullMessage);
             GM.setValue("lastTelegramTime", now);
@@ -610,6 +611,7 @@ async function sendToTelegram(message) {
 
 async function cekMasalah() {
     try {
+      if (sudahkirim) return;
         const now = Date.now();
         const COOLDOWNPostingan = 60 * 60 * 1000; // 5 menit
         const lastTimepost = await GM.getValue("lastTelegramSame", 0);
