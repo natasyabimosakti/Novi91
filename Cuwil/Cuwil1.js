@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 1
 // @namespace    http://tampermonkey.net/
-// @version      3.63
+// @version      3.64
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil1.js
@@ -605,6 +605,7 @@ async function sendToTelegram(message) {
             console.log("✅ Telegram terkirim:", res.responseText);
             GM.setValue("lastTelegramMessage", fullMessage);
             GM.setValue("lastTelegramTime", now);
+            GM.setValue("lastTelegramSame", now);
         },
         onerror: function (err) {
             console.error("❌ Gagal kirim ke Telegram:", err);
@@ -614,6 +615,17 @@ async function sendToTelegram(message) {
 
 async function cekMasalah() {
     try {
+        const now = Date.now();
+        const COOLDOWNPostingan = 30 * 60 * 1000; // 5 menit
+        const lastTimepost = await GM.getValue("lastTelegramSame", 0);
+
+        if ((now - lastTimepost < COOLDOWNPostingan)) {
+            console.log("⏱️ sudah dikirim sebelumnya");
+            return;
+        }else{
+            GM.setValue("lastTelegramSame", now);
+        }
+
         const elem = document.querySelectorAll("[data-screen-key-action-ids]")[1];
         if (!elem) return;
 
