@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Roulette AI Auto Bet v3.0
+// @name         Roulette AI Auto Bet v3.1 Persistent
 // @namespace    http://tampermonkey.net/
-// @version      3.0
-// @description  Auto-bet roulette 1st/2nd/3rd dengan AI + Martingale, retry, log lengkap, dan class tombol
+// @version      3.1
+// @description  Auto-bet roulette 1st/2nd/3rd dengan AI + Martingale + Penyimpanan State + Auto Reload
 // @match        https://lobbybalancing.mngtto.com/new_rl_react/*
 // @grant        none
 // @run-at       document-idle
@@ -11,6 +11,7 @@
 (function () {
   'use strict';
 
+  // =============================== STATE ===============================
   let history = [];
   let lastResult = null;
   let lastPeriode = null;
@@ -25,6 +26,42 @@
     console.log('[🎯 ROULETTE AI]', ...args);
   }
 
+  function saveBotState() {
+    const state = {
+      history,
+      lastResult,
+      lastPeriode,
+      lastBetColumn,
+      currentBet,
+      saldo,
+      totalWin,
+      totalLose
+    };
+    localStorage.setItem("roulette_bot_state", JSON.stringify(state));
+    log("💾 State disimpan ke localStorage");
+  }
+
+  function loadBotState() {
+    const saved = localStorage.getItem("roulette_bot_state");
+    if (saved) {
+      try {
+        const state = JSON.parse(saved);
+        history = state.history || [];
+        lastResult = state.lastResult || null;
+        lastPeriode = state.lastPeriode || null;
+        lastBetColumn = state.lastBetColumn || null;
+        currentBet = state.currentBet || 1;
+        saldo = state.saldo || 0;
+        totalWin = state.totalWin || 0;
+        totalLose = state.totalLose || 0;
+        log("📦 State berhasil dimuat dari localStorage");
+      } catch (e) {
+        log("⚠️ Gagal memuat state dari localStorage:", e);
+      }
+    }
+  }
+
+  // =============================== LOGIKA KOLOM ===============================
   function getColumn(n) {
     if (n >= 1 && n <= 12) return 1;
     if (n >= 13 && n <= 24) return 2;
@@ -50,6 +87,7 @@
     return candidates[Math.floor(Math.random() * candidates.length)];
   }
 
+  // =============================== BETTING ===============================
   function safePlaceBet(col, attempt = 0) {
     const classMap = {
       1: "_slot-1st12_",
@@ -101,6 +139,7 @@
     setTimeout(() => safePlaceBet(best), 1500);
   }
 
+  // =============================== CONSOLE OBSERVER ===============================
   const originalLog = console.log;
   const customLog = function (...args) {
     try {
@@ -109,10 +148,14 @@
 
         if (aStr.includes('middleware: openTime')) {
           log('🟢 Betting DIBUKA');
-          // trigger betting saat openTime, jika belum betting
           if (!betting) startNextBet();
         } else if (aStr.includes('middleware: closeTime')) {
           log('🔴 Betting DITUTUP');
+          saveBotState();
+          setTimeout(() => {
+            log("🔄 Reload halaman...");
+            location.reload();
+          }, 1500);
         }
 
         if (typeof a === 'object') {
@@ -149,5 +192,15 @@
     }
   }, 1000);
 
-  log('🤖 Roulette AutoBot AI v3.0 aktif dan auto-bet tiap ronde!');
+  // =============================== SHORTCUT RESET ===============================
+  window.addEventListener("keydown", (e) => {
+    if (e.ctrlKey && e.key === "r") {
+      localStorage.removeItem("roulette_bot_state");
+      log("🗑️ State telah direset oleh user (CTRL+R)");
+    }
+  });
+
+  // =============================== INISIALISASI ===============================
+  loadBotState();
+  log('🤖 Roulette AutoBot AI v3.1 aktif dan auto-bet tiap ronde!');
 })();
