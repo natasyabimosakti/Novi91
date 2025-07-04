@@ -642,7 +642,7 @@ async function cekLogout() {
 
         setTimeout(() => {
             if (document.getElementsByTagName("div").length < 10) {
-                sendToTelegram("⚠️ Facebook LOGOUT.");
+                sendToTelegram("⚠️ Facebook BLANK.");
             }
         }, 20000)
     } catch (e) {
