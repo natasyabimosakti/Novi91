@@ -12,7 +12,7 @@
     setTimeout(async () => {
 
         let isBetting = false;
-        const MAX_BET_AMOUNT = 32;
+        const MAX_BET_AMOUNT = 16;
 
         let state = {
             lastPeriode: null,
@@ -170,7 +170,7 @@
                     } else if (aStr.includes('middleware: closeTime')) {
                         log('🔴 Betting DITUTUP');
                         saveState();
-                        setTimeout(() => location.reload(), 1500);
+                        setTimeout(() => location.reload(), 3000);
                     } else if (typeof a === 'object') {
                         const game = a?.action?.payload?.game;
                         const type = a?.action?.type;
