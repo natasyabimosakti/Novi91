@@ -12,7 +12,7 @@
     setTimeout(async () => {
 
         let isBetting = false;
-        const MAX_BET_AMOUNT = 64;
+        const MAX_BET_AMOUNT = 32;
 
         let state = {
             lastPeriode: null,
