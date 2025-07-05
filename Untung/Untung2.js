@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 2
 // @namespace    http://tampermonkey.net/
-// @version      3.70
+// @version      3.71
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung2.js
@@ -17,8 +17,8 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = '18NAGA';
-var Comment1 = '#18NAGA (FILTER51) : 88*82*99 BETT';
+var namagroup1 = 'MONTIR';
+var Comment1 = '#MONTIRTOTO (FILTER51) = 88*82*99';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( FORMULA52 ) : 29*33*32';
 var namagroup3 = 'WARUNG';
@@ -29,8 +29,8 @@ var namagroup5 = 'PEDRO';
 var Comment5 = '#PEDRO4D (FRAMBOS56*61*30*93)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (FLAMBOYAN57) = 95*42*36';
-var namagroup7 = 'Moveon88';
-var Comment7 = '# ( FRESTEA58 ) : 06*76*46';
+var namagroup7 = 'TREX';
+var Comment7 = '#HATORIBET*FRESTEA58*06*76';
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( FERMEN59 ) : 26*56*97';
 var namagroup9 = 'TAFSIR MIMPI';
@@ -41,17 +41,14 @@ var namagroup11 = 'MAYAPADA';
 var Comment11 = 'BETT*Mayapada4D(BO)*FASIK62*10*81*34';
 var namagroup12 = 'OPUNG';
 var Comment12 = 'OPUNG4D ( FISIK63 ) : 77*80*19';
-var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=FINAL64=71*11*45';
+var namagroup13 = 'UPIN';
+var Comment13 = '#UPINSLOT ( FINAL64) 71*11*45 BETTING';
 var namagroup14 = 'BLITAR';
 var Comment14 = '#BLITAR4D (FINIS65) = 44*17';
 var namagroup15 = 'Hoho';
 var Comment15 = 'FIRAUN67 : 07*75*63 #HOHOTOGEL';
 var namagroup16 = 'GTO';
 var Comment16 = '(GUDANGTOTO) = (FIRMA68) 49*40*28';
-
-
-
 
 
 
