@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 3
 // @namespace    http://tampermonkey.net/
-// @version      3.67
+// @version      3.68
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil3.js
@@ -20,8 +20,8 @@
 
 
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
-var namagroup1 = '18NAGA';
-var Comment1 = '#18NAGA (SUSUMUGEDI) : 84*76*86 BETT';
+var namagroup1 = 'MONTIR';
+var Comment1 = '#MONTIRTOTO (SUSUMUGEDI) = 84*76*86';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( SUSUKUCILIK ) : 85*91*42';
 var namagroup3 = 'WARUNG';
@@ -32,8 +32,8 @@ var namagroup5 = 'PEDRO';
 var Comment5 = '#PEDRO4D (SUWUNBOSQU*82*25*04)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (SUGEHTERUS12) = 13*26*51';
-var namagroup7 = 'Moveon88';
-var Comment7 = '# ( SUKMUMETNDES ) : 36*17*31';
+var namagroup7 = 'TREX';
+var Comment7 = '#HATORIBET*SUKMUMETNDES*36*17';
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( SUMUKSEKALIG ) : 16*18*12';
 var namagroup9 = 'TAFSIR MIMPI';
@@ -44,8 +44,8 @@ var namagroup11 = 'MAYAPADA';
 var Comment11 = 'BETT*Mayapada4D(BO)*SUWENGLAMBE*67*40*01';
 var namagroup12 = 'OPUNG';
 var Comment12 = 'OPUNG4D ( SUSUBERUANG ) : 54*77*83';
-var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=SUKAMAMPIR=65*98*00';
+var namagroup13 = 'UPIN';
+var Comment13 = '#UPINSLOT ( SUKAMAMPIR) 65*98*00 BETTING';
 var namagroup14 = 'BLITAR';
 var Comment14 = '#BLITAR4D (SUNANMUHIBIN) = 32*37';
 var namagroup15 = 'Hoho';
