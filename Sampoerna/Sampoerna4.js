@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna4
 // @namespace    http://tampermonkey.net/
-// @version      3.216
+// @version      3.217
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna4.js
@@ -21,8 +21,8 @@
 
 
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
-var namagroup1 = '18NAGA';
-var Comment1 = '#18NAGA (ZONIAK26) : 49*12*08 BETT';
+var namagroup1 = 'MONTIR';
+var Comment1 = '#MONTIRTOTO (ZONIAK26) = 49*12*08';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( ZOROK73 ) : 53*38*79';
 var namagroup3 = 'WARUNG';
@@ -33,8 +33,8 @@ var namagroup5 = 'PEDRO';
 var Comment5 = '#PEDRO4D (ZONIAK63*69*10*89)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (ZOMING82) = 84*94*15';
-var namagroup7 = 'Moveon88';
-var Comment7 = '# ( ZONIAK63 ) : 04*11*13';
+var namagroup7 = 'TREX';
+var Comment7 = '#HATORIBET*ZONIAK63*04*11';
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( ZONATING ) : 91*85*64';
 var namagroup9 = 'TAFSIR MIMPI';
@@ -45,8 +45,8 @@ var namagroup11 = 'MAYAPADA';
 var Comment11 = 'BETT*Mayapada4D(BO)*ZOKUTU72*19*99*17';
 var namagroup12 = 'OPUNG';
 var Comment12 = 'OPUNG4D ( ZOWEKNI82 ) : 63*65*92';
-var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=ZOWINDO=05*24*48';
+var namagroup13 = 'UPIN';
+var Comment13 = '#UPINSLOT ( ZOWINDO) 05*24*48 BETTING';
 var namagroup14 = 'BLITAR';
 var Comment14 = '#BLITAR4D (ZOMING82) = 33*98';
 var namagroup15 = 'Hoho';
