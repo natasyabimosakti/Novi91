@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 2
 // @namespace    http://tampermonkey.net/
-// @version      3.67
+// @version      3.68
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil2.js
@@ -21,8 +21,8 @@
 
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
-var namagroup1 = '18NAGA';
-var Comment1 = '#18NAGA (NYOLOGMOTO) : 73*87*05 BETT';
+var namagroup1 = 'MONTIR';
+var Comment1 = '#MONTIRTOTO (NYOLOGMOTO) = 73*87*05';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( NYOGOKSILIT ) : 50*41*60';
 var namagroup3 = 'WARUNG';
@@ -33,8 +33,8 @@ var namagroup5 = 'PEDRO';
 var Comment5 = '#PEDRO4D (NYOTEKTAIMU*02*19*68)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (NYOLONGDUET) = 78*55*07';
-var namagroup7 = 'Moveon88';
-var Comment7 = '# ( NYOSINYO898 ) : 58*80*28';
+var namagroup7 = 'TREX';
+var Comment7 = '#HATORIBET*NYOSINYO898*58*80';
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( NYOCOTTERUS ) : 61*97*69';
 var namagroup9 = 'TAFSIR MIMPI';
@@ -45,8 +45,8 @@ var namagroup11 = 'MAYAPADA';
 var Comment11 = 'BETT*Mayapada4D(BO)*NYODOPANGAN9*39*15*71';
 var namagroup12 = 'OPUNG';
 var Comment12 = 'OPUNG4D ( NYONYAKU69 ) : 11*95*66';
-var namagroup13 = 'GOHT0G3L';
-var Comment13 = 'GOHTOGEL=NYOBAKTUKU55=59*47*96';
+var namagroup13 = 'UPIN';
+var Comment13 = '#UPINSLOT ( NYOBAKTUKU55) 59*47*96 BETTING';
 var namagroup14 = 'BLITAR';
 var Comment14 = '#BLITAR4D (NYOBORKODOK) = 22*57';
 var namagroup15 = 'Hoho';
