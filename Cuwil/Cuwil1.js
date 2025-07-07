@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 1
 // @namespace    http://tampermonkey.net/
-// @version      3.69
+// @version      3.70
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil1.js
@@ -22,7 +22,7 @@
 /*======================================================================Paste Script Tampermonkey di sini===============================================================*/
 
 var namagroup1 = 'MONTIR';
-var Comment1 = '#MONTIRTOTO (OKEGAS321) = 59*47*96';
+var Comment1 = '#MONTIRTOTO (OKEGAS321) = 59*47';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( OKTAGON60 ) : 39*15*71';
 var namagroup3 = 'WARUNG';
