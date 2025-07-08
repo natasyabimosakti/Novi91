@@ -17,9 +17,6 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-
-/*======================================================================Paste Script Tampermonkey di sini===============================================================*/
-
 var namagroup1 = 'MONTIR';
 var Comment1 = '#MONTIRTOTO (SUNTIKMATI) = 59*95';
 var namagroup2 = 'K86';
