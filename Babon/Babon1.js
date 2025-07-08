@@ -31,7 +31,7 @@ var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (SISWARUK) = 92*84*39';
 var namagroup7 = 'TREX';
 var Comment7 = '#HATORIBET*SEMBODOH*72*45';
-var namagroup8 = '??????';
+var namagroup8 = 'ALLPAS';
 var Comment8 = 'Tok99Toto ( SINGKONGTHAI ) : 42*76*00';
 var namagroup9 = 'TAFSIR MIMPI';
 var Comment9 = 'SIJITOGEL SUMURMATI 82*22*20';
