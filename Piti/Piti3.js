@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti3
 // @namespace    http://tampermonkey.net/
-// @version      3.78
+// @version      3.79
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti3.js
@@ -51,7 +51,7 @@ var namagroup16 = 'GTO';
 var Comment16 = '(GUDANGTOTO) = (CAKUDIR19) 27*10*53';
 
 
-
+//Batas
 var namagroup17 = 'Jawatengah';
 var Comment17 = 'Baru Piti 3';
 
