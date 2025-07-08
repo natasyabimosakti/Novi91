@@ -52,7 +52,7 @@ var namagroup15 = 'Hoho';
 var Comment15 = 'SUKAJANTUA : 85*08*60 #HOHOTOGEL';
 var namagroup16 = 'GTO';
 var Comment16 = '(GUDANGTOTO) = (SLEMPANG26) 19*17*33';
-
+//Batas
 
 var namagroup17 = 'Jawatengah';
 var Comment17 = 'Baru Babon 1';
