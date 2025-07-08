@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Babon 2
 // @namespace    http://tampermonkey.net/
-// @version      3.51
+// @version      3.52
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon2.js
@@ -55,7 +55,7 @@ var Comment15 = 'PARLENTE : 18*28*38 #HOHOTOGEL';
 var namagroup16 = 'GTO';
 var Comment16 = '(GUDANGTOTO) = (PAKUKUTARA) 13*36*58';
 
-
+//Batas
 var namagroup17 = 'Jawatengah';
 var Comment17 = 'Baru Babon 2';
 
