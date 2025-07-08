@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut3
 // @namespace    http://tampermonkey.net/
-// @version      3.226
+// @version      3.227
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut3.js
@@ -52,7 +52,7 @@ var namagroup16 = 'GTO';
 var Comment16 = '(GUDANGTOTO) = (DOROPOL12) 15*90*44';
 
 
-
+//Batas
 
 
 var namagroup17 = 'Jawatengah';
