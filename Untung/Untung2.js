@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 2
 // @namespace    http://tampermonkey.net/
-// @version      3.73
+// @version      3.74
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung2.js
@@ -31,7 +31,7 @@ var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (FLAMBOYAN57) = 95*42*36';
 var namagroup7 = 'TREX';
 var Comment7 = '#HATORIBET*FRESTEA58*06*76';
-var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
+var namagroup8 = 'ALLPAS';
 var Comment8 = 'Tok99Toto ( FERMEN59 ) : 26*56*97';
 var namagroup9 = 'TAFSIR MIMPI';
 var Comment9 = 'SIJITOGEL FERDA60 59*78*39';
@@ -61,12 +61,12 @@ var Comment18 = 'asek';
 
 var refresh = 40;
 var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/main/Admin_group_Baru.json"
-var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo","l0mb4","lomb4","l0mba","𝗥𝟬𝟬𝗠","𝗟𝟬𝗠𝗕𝗔"]
+var keyword = ["ROOM","????","LOMBA","?????","?????","LIMBA","ROM","R00M","login","????","HONGKONG","SINGAPUR","nemo","l0mb4","lomb4","l0mba","????","?????"]
 var Backlist =["pemenang lomba","rekap","natidulu","room lomba freebet","prediksi","result","juara lomba","r3k4p","r3kap","rek4p","undang" ]
 var isCommenting = false;
 var EXPIRATION_MS = 8 * 60 * 1000; // 5 minutes
 var now = Date.now();
-// ✅ Daftar grup dan nilai default
+// ? Daftar grup dan nilai default
 const groupNames = [
     namagroup1, namagroup2, namagroup3, namagroup4, namagroup5, namagroup6,
     namagroup7, namagroup8, namagroup9, namagroup10, namagroup11, namagroup12,
@@ -121,9 +121,9 @@ function loadLocalAdmin() {
         try {
             adminList = JSON.parse(stored);
             adminListReady = true;
-            console.log("✅ Admin list loaded from localStorage:", adminList.length, "names");
+            console.log("? Admin list loaded from localStorage:", adminList.length, "names");
         } catch (e) {
-            console.error("❌ Failed to parse local admin list:", e);
+            console.error("? Failed to parse local admin list:", e);
         }
     }
 }
@@ -143,20 +143,20 @@ function fetchAdminListFromGitHub() {
 
                 const currentVersion = localStorage.getItem(VERSION_KEY);
                 if (currentVersion !== latestVersion) {
-                    console.log("⬆️ New admin version found:", latestVersion);
+                    console.log("?? New admin version found:", latestVersion);
                     localStorage.setItem(LOCAL_KEY, JSON.stringify(admins));
                     localStorage.setItem(VERSION_KEY, latestVersion);
                     adminList = admins;
                     adminListReady = true;
                 } else {
-                    console.log("⏩ Admin list is up-to-date (version:", currentVersion + ")");
+                    console.log("? Admin list is up-to-date (version:", currentVersion + ")");
                 }
             } catch (e) {
-                console.error("❌ Failed to parse remote admin list:", e);
+                console.error("? Failed to parse remote admin list:", e);
             }
         },
         onerror: function(err) {
-            console.error("❌ Failed to load admin list from GitHub:", err);
+            console.error("? Failed to load admin list from GitHub:", err);
         }
     });
 }
@@ -210,7 +210,7 @@ function tungguGroup() {
                     if (result) {
                         commentToPost = result.comment;
                         grouptToPost = result.groupName;
-                        console.log("✅ Nama grup : " + grouptToPost + " | Comment : " +commentToPost );
+                        console.log("? Nama grup : " + grouptToPost + " | Comment : " +commentToPost );
                         manageGroups();
                     }
                 }
@@ -274,7 +274,7 @@ async function manageGroups() {
     const groupKey = `group_${grouptToPost}`;
     const sudahKomentar = await GM.getValue(groupKey,false);
     if (sudahKomentar) {
-        console.log(`❌ Diblok Grup ${grouptToPost} sudah DIKOMENTARI`);
+        console.log(`? Diblok Grup ${grouptToPost} sudah DIKOMENTARI`);
         kondisiStop =true;
         sudahDiPanggil = true
         location.href = "about:blank";
@@ -293,7 +293,7 @@ function CekBacklist(postinganBL) {
     for (const DataBacklist of Backlist) {
         const kata = DataBacklist.toLowerCase();
         if (postinganBL.toLowerCase().includes(kata)) {
-            console.log(`❌ Diblok karena mengandung: "${kata}"`);
+            console.log(`? Diblok karena mengandung: "${kata}"`);
             return true;
         }
     }
@@ -301,11 +301,11 @@ function CekBacklist(postinganBL) {
 }
 
 function CekKeyword(postingan) {
-    console.log("🔍 CekKeyword untuk:", postingan);
+    console.log("? CekKeyword untuk:", postingan);
     for (const DataKeyword of keyword) {
         const kata = DataKeyword.toLowerCase();
         if (postingan.toLowerCase().includes(kata)) {
-            console.log(`✅ Keyword ditemukan: "${kata}"`);
+            console.log(`? Keyword ditemukan: "${kata}"`);
             return true;
         }
     }
@@ -374,7 +374,7 @@ async function botKoment(mutatin) {
                     sendBtn.dispatchEvent(clickEvent);
 
 
-                    console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
+                    console.log("? Komentar DIKIRIM (via dispatch):", commentToPost);
 
                     isCommenting = true;
 
@@ -393,7 +393,7 @@ async function botKoment(mutatin) {
 
                     break;
                 } else {
-                    showNotification("❌ Textarea atau tombol kirim tidak ditemukan");
+                    showNotification("? Textarea atau tombol kirim tidak ditemukan");
                     isCommenting = false;
                     kondisiStop = false
                 }
@@ -436,7 +436,7 @@ async function botArticle(mutatin) {
                             const t = el.textContent.toLowerCase();
                             return t.includes("jawab") || t.includes("tulis") || t.includes("komentari") || t.includes("postingan") || t.includes("beri");
                         });
-                        console.log(`✅ "Admin Di Temukan`);
+                        console.log(`? "Admin Di Temukan`);
                         if (tombolKirim ) {
                             console.log("TextBox komentar ditemukan:", tombolKirim);
                             function klikTextboxJikaSiap() {
@@ -446,7 +446,7 @@ async function botArticle(mutatin) {
                                     stopRefresh()
                                     myObserver.disconnect();
                                     observercontetn.disconnect();
-                                    console.log("✅ TextBox komentar Telah DI Klik & Muncul");
+                                    console.log("? TextBox komentar Telah DI Klik & Muncul");
                                     forceOffRefresh = true;
                                     return;
                                 }
@@ -571,7 +571,7 @@ function levenshtein(a, b) {
 async function sendToTelegram(message) {
     if (sudahkirim) return;
     sudahkirim = true
-    const fullMessage = `📡 [${SCRIPT_NAME}]\n${message}`;
+    const fullMessage = `? [${SCRIPT_NAME}]\n${message}`;
     const normalizedMessage = normalizeText(fullMessage);
 
     const lastSent = await GM.getValue("lastTelegramMessage", "");
@@ -584,10 +584,10 @@ async function sendToTelegram(message) {
     const distance = levenshtein(normalizedMessage, normalizedLast);
     const similarity = 1 - distance / Math.max(normalizedMessage.length, normalizedLast.length);
 
-    const SIMILARITY_THRESHOLD = 0.95; // 95% mirip → dianggap sama
+    const SIMILARITY_THRESHOLD = 0.95; // 95% mirip ? dianggap sama
 
     if (similarity >= SIMILARITY_THRESHOLD && (now - lastTime < COOLDOWN)) {
-        console.log("⏱️ Duplikat dicegah (mirip & <5 menit):", similarity);
+        console.log("?? Duplikat dicegah (mirip & <5 menit):", similarity);
         return;
     }
 
@@ -596,13 +596,13 @@ async function sendToTelegram(message) {
         url: `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(fullMessage)}`,
         onload: function (res) {
 
-            console.log("✅ Telegram terkirim:", res.responseText);
+            console.log("? Telegram terkirim:", res.responseText);
             GM.setValue("lastTelegramMessage", fullMessage);
             GM.setValue("lastTelegramTime", now);
             GM.setValue("lastTelegramSame", now);
         },
         onerror: function (err) {
-            console.error("❌ Gagal kirim ke Telegram:", err);
+            console.error("? Gagal kirim ke Telegram:", err);
         }
     });
 }
@@ -615,7 +615,7 @@ async function cekMasalah() {
         const lastTimepost = await GM.getValue("lastTelegramSame", 0);
 
         if ((now - lastTimepost < COOLDOWNPostingan)) {
-            console.log("⏱️ sudah dikirim sse jam yang lalu");
+            console.log("?? sudah dikirim sse jam yang lalu");
             return;
         }else{
             GM.setValue("lastTelegramSame", 0);
@@ -630,12 +630,12 @@ async function cekMasalah() {
         const isi = dialog.textContent.toLowerCase();
         if (isi.includes("masalah")) {
             const cleanText = dialog.textContent.trim();
-            await sendToTelegram(`🛑 Ada "masalah":\n\n${cleanText}`);
+            await sendToTelegram(`? Ada "masalah":\n\n${cleanText}`);
             startAutoTask()
 
         }
     } catch (e) {
-        console.warn("❌ Error saat cek masalah:", e);
+        console.warn("? Error saat cek masalah:", e);
     }
 }
 
@@ -644,11 +644,11 @@ async function cekLogout() {
 
         setTimeout(() => {
             if (document.getElementsByTagName("div").length < 10) {
-                sendToTelegram("⚠️ Facebook BLANK.");
+                sendToTelegram("?? Facebook BLANK.");
             }
         }, 20000)
     } catch (e) {
-        console.warn("❌ Error saat cek logout:", e);
+        console.warn("? Error saat cek logout:", e);
     }
 }
 const observer = new MutationObserver(() => {
