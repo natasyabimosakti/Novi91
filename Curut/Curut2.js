@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.208
+// @version      3.209
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
@@ -53,6 +53,7 @@ var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (BOSIOM19) : 71*96*75';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (BORATU19) = 41*83';
+//Batas
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Group Cur 2';
 
