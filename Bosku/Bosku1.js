@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE1
 // @namespace    http://tampermonkey.net/
-// @version      3.205
+// @version      3.206
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku1.js
@@ -51,7 +51,7 @@ var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (XENDION) : 58*88*41';	
 var namagroup17 = 'KIKO';	
 var Comment17 = '#KIKOTOTO (XERLAK67) = 77*05';	
-
+//Batas
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'group Bos 1';
 
