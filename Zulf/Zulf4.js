@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF4
 // @namespace    http://tampermonkey.net/
-// @version      3.57
+// @version      3.58
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf4.js
@@ -54,7 +54,7 @@ var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (MINARVESTO98) : 06*28*27';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (MINARVESTO98) = 87*42';
-
+//Batas
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Zulf4';
 
