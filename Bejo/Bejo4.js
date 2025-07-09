@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 4
 // @namespace    http://tampermonkey.net/
-// @version      3.75
+// @version      3.76
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
@@ -52,7 +52,7 @@ var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (WALI76) : 22*24*21';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (WEGAH46) = 72*69';
-  
+//Batas
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'group Bejo 4 ';
 
