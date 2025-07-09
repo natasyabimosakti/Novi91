@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Slamet 4
 // @namespace    http://tampermonkey.net/
-// @version      3.60
+// @version      3.61
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet4.js
@@ -51,7 +51,7 @@ var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (DIMSUM03) : 80*51*95';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (DUMPLING) = 99*78';
-
+//Batas
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'group Slamet 4';
 
