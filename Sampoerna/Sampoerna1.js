@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna1
 // @namespace    http://tampermonkey.net/
-// @version      3.222
+// @version      3.223
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna1.js
@@ -17,7 +17,7 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'MONTIR';
+var namagroup1 = 'TEST';
 var Comment1 = '#MONTIRTOTO (XIONGYU6) = 39*90';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( XENON88 ) : 54*74*37';
