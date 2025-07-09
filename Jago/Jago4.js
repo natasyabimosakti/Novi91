@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JAGO 4
 // @namespace    http://tampermonkey.net/
-// @version      3.39
+// @version      3.40
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago4.js
@@ -54,7 +54,7 @@ var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (KURUSIN25) : 63*30*72';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (KEMBUNGANGIN) = 72*69';
-
+//Batas
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Jago 4';
 
