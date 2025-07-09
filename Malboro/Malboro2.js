@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 2
 // @namespace    http://tampermonkey.net/
-// @version      3.191
+// @version      3.192
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro2.js
@@ -53,7 +53,7 @@ var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (BOTAX35) : 36*80*99';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (BONCEL58) = 62*50';
-
+//Batas
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Group Malb 2';
 
