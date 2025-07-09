@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti2
 // @namespace    http://tampermonkey.net/
-// @version      3.81
+// @version      3.82
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti2.js
@@ -17,7 +17,7 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'MONTIR';
+var namagroup1 = 'COWEK';
 var Comment1 = '#MONTIRTOTO (BOCHOK52) = 75*50';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( BOCHI92 ) : 52*35*54';
