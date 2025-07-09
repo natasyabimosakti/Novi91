@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE2
 // @namespace    http://tampermonkey.net/
-// @version      3.205
+// @version      3.206
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @author       You
@@ -51,7 +51,7 @@ var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (BOSBIG53) : 14*57*42';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (BOSBIS48) = 01*62';
-
+//Batas
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Group Bos 2';
 
