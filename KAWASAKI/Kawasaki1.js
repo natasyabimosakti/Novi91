@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Babon 1
+// @name         Kawasaki 1
 // @namespace    http://tampermonkey.net/
-// @version      3.57
+// @version      3.58
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/KAWASAKI/Kawasaki1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/KAWASAKI/Kawasaki1.js
@@ -53,7 +53,7 @@ var Comment16 = '(GUDANGTOTO) = (SLEMPANG26) 19*17*33';
 //Batas
 
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'Baru Babon 1';
+var Comment17 = 'Kawasaki 1';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
