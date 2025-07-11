@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT1
 // @namespace    http://tampermonkey.net/
-// @version      3.211
+// @version      3.212
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut1.js
@@ -165,31 +165,37 @@ fetchAdminListFromGitHub();
 
 function getCommentForGroup() {
     let commentMap = {
-        [namagroup1]: Comment1,
-        [namagroup2]: Comment2,
-        [namagroup3]: Comment3,
-        [namagroup4]: Comment4,
-        [namagroup5]: Comment5,
-        [namagroup6]: Comment6,
-        [namagroup7]: Comment7,
-        [namagroup8]: Comment8,
-        [namagroup9]: Comment9,
-        [namagroup10]: Comment10,
-        [namagroup11]: Comment11,
-        [namagroup12]: Comment12,
-        [namagroup13]: Comment13,
-        [namagroup14]: Comment14,
-        [namagroup15]: Comment15,
-        [namagroup16]: Comment16,
-        [namagroup17]: Comment17,
-        [namagroup18]: Comment18
+        [normalizeToBasicLatin(namagroup1).toLowerCase()]: Comment1,
+        [normalizeToBasicLatin(namagroup2).toLowerCase()]: Comment2,
+        [normalizeToBasicLatin(namagroup3).toLowerCase()]: Comment3,
+        [normalizeToBasicLatin(namagroup4).toLowerCase()]: Comment4,
+        [normalizeToBasicLatin(namagroup5).toLowerCase()]: Comment5,
+        [normalizeToBasicLatin(namagroup6).toLowerCase()]: Comment6,
+        [normalizeToBasicLatin(namagroup7).toLowerCase()]: Comment7,
+        [normalizeToBasicLatin(namagroup8).toLowerCase()]: Comment8,
+        [normalizeToBasicLatin(namagroup9).toLowerCase()]: Comment9,
+        [normalizeToBasicLatin(namagroup10).toLowerCase()]: Comment10,
+        [normalizeToBasicLatin(namagroup11).toLowerCase()]: Comment11,
+        [normalizeToBasicLatin(namagroup12).toLowerCase()]: Comment12,
+        [normalizeToBasicLatin(namagroup13).toLowerCase()]: Comment13,
+        [normalizeToBasicLatin(namagroup14).toLowerCase()]: Comment14,
+        [normalizeToBasicLatin(namagroup15).toLowerCase()]: Comment15,
+        [normalizeToBasicLatin(namagroup16).toLowerCase()]: Comment16,
+        [normalizeToBasicLatin(namagroup17).toLowerCase()]: Comment17,
+        [normalizeToBasicLatin(namagroup18).toLowerCase()]: Comment18
     };
     var ceknamagroup = document.getElementsByClassName("fixed-container")[0]?.textContent || '';
     var ceknamagroup1 = document.getElementsByClassName('native-text')[5]?.textContent || '';
     var ceknamagroup2 = document.getElementsByClassName('native-text')[6]?.textContent || '';
     var ceknamagroup3 = document.getElementsByClassName('native-text')[7]?.textContent || '';
     var ceknamagroup4 = document.getElementsByClassName('native-text')[8]?.textContent || '';
-    const allGroups = [ceknamagroup, ceknamagroup1, ceknamagroup2, ceknamagroup3, ceknamagroup4];
+    const allGroups = [
+        normalizeToBasicLatin(ceknamagroup).toLowerCase(),
+        normalizeToBasicLatin(ceknamagroup1).toLowerCase(),
+        normalizeToBasicLatin(ceknamagroup2).toLowerCase(),
+        normalizeToBasicLatin(ceknamagroup3).toLowerCase(),
+        normalizeToBasicLatin(ceknamagroup4).toLowerCase()
+    ];
 
     for (let groupName in commentMap) {
         if (allGroups.some(text => text.includes(groupName))) {
@@ -208,8 +214,8 @@ function tungguGroup() {
                 if (container) {
                     const result = getCommentForGroup();
                     if (result) {
-                        commentToPost = result.comment;
-                        grouptToPost = result.groupName;
+                        commentToPost = normalizeToBasicLatin(result.comment)
+                        grouptToPost = normalizeToBasicLatin(result.groupName)
                         console.log("✅ Nama grup : " + grouptToPost + " | Comment : " +commentToPost );
                         manageGroups();
                     }
@@ -292,7 +298,7 @@ async function manageGroups() {
 let sedangKlikTextbox = false;
 function CekBacklist(postinganBL) {
     for (const DataBacklist of Backlist) {
-        const kata = DataBacklist.toLowerCase();
+        const kata = normalizeToBasicLatin(DataBacklist.toLowerCase())
         if (postinganBL.toLowerCase().includes(kata)) {
             console.log(`❌ Diblok karena mengandung: "${kata}"`);
             return true;
@@ -304,7 +310,7 @@ function CekBacklist(postinganBL) {
 function CekKeyword(postingan) {
     console.log("🔍 CekKeyword untuk:", postingan);
     for (const DataKeyword of keyword) {
-        const kata = DataKeyword.toLowerCase();
+        const kata = normalizeToBasicLatin(DataKeyword.toLowerCase())
         if (postingan.toLowerCase().includes(kata)) {
             console.log(`✅ Keyword ditemukan: "${kata}"`);
             return true;
@@ -524,7 +530,7 @@ function startAutoTask() {
     setTimeout(() => {
         if (janganclose) return;
         location.href = "about:blank";
-        
+
     }, 10000);
 }
 
@@ -667,3 +673,15 @@ const observers = new MutationObserver(() => {
 });
 
 observers.observe(document.body, { childList: true, subtree: true });
+
+function normalizeToBasicLatin(str) {
+    return str.replace(/[\u{1D400}-\u{1D7FF}]/gu, (ch) => {
+        const boldA = 0x1D400;
+        const normalA = 0x41; // ASCII A
+        let code = ch.codePointAt(0);
+        if (code >= boldA && code <= boldA + 25) {
+            return String.fromCharCode(normalA + (code - boldA));
+        }
+        return ch;
+    });
+}
