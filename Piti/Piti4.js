@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti4
 // @namespace    http://tampermonkey.net/
-// @version      3.83
+// @version      3.84
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti4.js
@@ -61,7 +61,7 @@ var Comment18 = 'asek';
 
 var refresh = 40;
 var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/main/Admin_group_Baru.json"
-var keyword = ["ROOM","????","LOMBA","?????","?????","LIMBA","ROM","R00M","login","????","HONGKONG","SINGAPUR","nemo","l0mb4","lomb4","l0mba","????","?????"]
+var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo","l0mb4","lomb4","l0mba","𝗥𝟬𝟬𝗠","𝗟𝟬𝗠𝗕𝗔","𝘙𝘖𝘖𝘔"]
 var Backlist =["pemenang lomba","rekap","natidulu","room lomba freebet","prediksi","result","juara lomba","r3k4p","r3kap","rek4p","undang" ]
 var isCommenting = false;
 var EXPIRATION_MS = 8 * 60 * 1000; // 5 minutes
@@ -82,7 +82,7 @@ let adminListReady = false;
 let kondisiStop;
 const LOCAL_KEY = "cachedAdminList";
 const VERSION_KEY = "cachedAdminVersion";
-
+var janganclose = false
 let sedangScroll = false;
 let scrollUlang = false;
 let scrollPerCycle = 5;
@@ -277,6 +277,7 @@ async function manageGroups() {
         console.log(`? Diblok Grup ${grouptToPost} sudah DIKOMENTARI`);
         kondisiStop =true;
         sudahDiPanggil = true
+        if (janganclose) return;
         location.href = "about:blank";
         return;
 
@@ -522,6 +523,7 @@ function startAutoTask() {
             for (const node of mutation.addedNodes) {
                 if (node.nodeType !== 1) continue; // Bukan elemen
                 if (node.nodeType === 1 && node.textContent.toLowerCase().includes('diposting')||node.textContent.toLowerCase().includes('berhasil')) {
+                    if (janganclose) return;
                     location.href = "about:blank";
                 }
             }
@@ -529,6 +531,7 @@ function startAutoTask() {
     });
     myObservere.observe(document.body, { childList: true, subtree: true });
     setTimeout(() => {
+        if (janganclose) return;
         location.href = "about:blank";
     }, 10000);
 }
@@ -630,8 +633,9 @@ async function cekMasalah() {
         const isi = dialog.textContent.toLowerCase();
         if (isi.includes("masalah")) {
             const cleanText = dialog.textContent.trim();
+            janganclose = true;
+            MsgError(SCRIPT_NAME)
             await sendToTelegram(`? Ada "masalah":\n\n${cleanText}`);
-            startAutoTask()
 
         }
     } catch (e) {
@@ -646,7 +650,7 @@ async function cekLogout() {
             if (document.getElementsByTagName("div").length < 10) {
                 sendToTelegram("?? Facebook BLANK.");
             }
-        }, 20000)
+        }, 2000)
     } catch (e) {
         console.warn("? Error saat cek logout:", e);
     }
@@ -657,3 +661,23 @@ const observer = new MutationObserver(() => {
 });
 
 observer.observe(document.body, { childList: true, subtree: true });
+
+
+function MsgError(message) {
+    const notif = document.createElement("div");
+    notif.textContent = message;
+    notif.style.position = "fixed";
+    notif.style.bottom = "20px";
+    notif.style.left = "20px";
+    notif.style.padding = "10px 20px";
+    notif.style.backgroundColor = "black";
+    notif.style.color = "white";
+    notif.style.borderRadius = "5px";
+    notif.style.zIndex = 9999;
+    notif.style.fontSize = "16px";
+    document.body.appendChild(notif);
+    ;
+}
+
+
+
