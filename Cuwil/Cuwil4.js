@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 4
 // @namespace    http://tampermonkey.net/
-// @version      3.76
+// @version      3.77
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil4.js
@@ -61,7 +61,7 @@ var Comment18 = 'asek';
 
 
 var refresh = 40;
-var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/main/Admin_group_Baru.json"
+var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Baru.json"
 var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo","l0mb4","lomb4","l0mba","𝗥𝟬𝟬𝗠","𝗟𝟬𝗠𝗕𝗔","𝘙𝘖𝘖𝘔"]
 var Backlist =["pemenang lomba","rekap","natidulu","room lomba freebet","prediksi","result","juara lomba","r3k4p","r3kap","rek4p","undang" ]
 var isCommenting = false;
@@ -215,7 +215,7 @@ function tungguGroup() {
                 if (container) {
                     const result = getCommentForGroup();
                     if (result) {
-                        commentToPost = normalizeToBasicLatin(result.comment)
+                        commentToPost = Random(result.comment)
                         grouptToPost = normalizeToBasicLatin(result.groupName)
                         console.log("✅ Nama grup : " + grouptToPost + " | Comment : " +commentToPost );
                         manageGroups();
@@ -439,10 +439,10 @@ async function botArticle(mutatin) {
                         if (tombolKirim ) {
                             console.log("TextBox komentar ditemukan:", tombolKirim);
                             function klikTextboxJikaSiap() {
+                                stopRefresh()
                                 tombolKirim.click();
                                 const textbox = document.querySelector(".multi-line-floating-textbox");
                                 if (textbox) {
-                                    stopRefresh()
                                     myObserver.disconnect();
                                     observercontetn.disconnect();
                                     console.log("✅ TextBox komentar Telah DI Klik & Muncul");
@@ -685,4 +685,42 @@ function normalizeToBasicLatin(str) {
         }
         return ch;
     });
+}
+
+function Random(comment) {
+    const numberRegex = /\d{2}/g;
+    const numbers = [...comment.matchAll(numberRegex)];
+    if (!numbers || numbers.length < 2) return comment;
+    const lastCount = Math.min(3, numbers.length);
+    const lastNums = numbers.slice(-lastCount);
+    const separators = [];
+    for(let i = 0; i < lastCount - 1; i++) {
+        separators.push(comment.slice(lastNums[i].index + 2, lastNums[i+1].index));
+    }
+    const angka = lastNums.map(x => x[0]);
+    function shuffleArray(arr) {
+        const copy = [...arr];
+        for (let i = copy.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [copy[i], copy[j]] = [copy[j], copy[i]];
+        }
+        return copy;
+    }
+    let rotated;
+    if (lastCount === 2) {
+        rotated = [angka[1], angka[0]];
+    } else {
+        rotated = shuffleArray(angka);
+    }
+    const start = comment.slice(0, lastNums[0].index);
+    const end = comment.slice(lastNums[lastCount - 1].index + 2);
+    let result = start;
+    for(let i = 0; i < lastCount; i++) {
+        result += rotated[i];
+        if(i < lastCount - 1) {
+            result += separators[i];
+        }
+    }
+    result += end;
+    return result;
 }
