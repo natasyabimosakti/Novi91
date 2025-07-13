@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawasaki 4
 // @namespace    http://tampermonkey.net/
-// @version      3.9
+// @version      3.10
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/KAWASAKI/Kawasaki4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/KAWASAKI/Kawasaki4.js
@@ -18,37 +18,37 @@
 // ==/UserScript==
 
 var namagroup1 = 'MONTIR';
-var Comment1 = '#MONTIRTOTO () = ';
+var Comment1 = '#MONTIRTOTO (chikiball) = 63*73';
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO (  ) : ';
+var Comment2 = 'K86TOTO ( nabati ) : 86*07*43';
 var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = () ';
+var Comment3 = '#(WARUNGTOTO) = (qtela) 90*44*55';
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO  = ';
+var Comment4 = '#RIATOTO taro = 19*00*05';
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (*)';
+var Comment5 = '#PEDRO4D (piatos*25*46*72)';
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D () = ';
+var Comment6 = '#DIVA4D (potato) = 15*51*49';
 var namagroup7 = 'TREX';
-var Comment7 = '';
+var Comment7 = '#HATORIBET*monde*93*99*54';
 var namagroup8 = 'ALLPAS';
-var Comment8 = 'Tok99Toto (  ) : ';
+var Comment8 = 'Tok99Toto ( chocopie ) : 98*64*12';
 var namagroup9 = 'TAFSIR MIMPI';
-var Comment9 = '';
+var Comment9 = 'SIJITOGEL fullo 36*28*71';
 var namagroup10 = 'KAGET';
-var Comment10 = '';
+var Comment10 = 'DAGELAN4D(twister) : 97*38*53';
 var namagroup11 = 'MAYAPADA';
-var Comment11 = '';
+var Comment11 = 'BETT*Mayapada4D(BO)*sukro*60*33*06';
 var namagroup12 = 'OPUNG';
-var Comment12 = '';
+var Comment12 = 'OPUNG4D ( eggroll ) : 82*03*70';
 var namagroup13 = 'UPIN';
-var Comment13 = '';
+var Comment13 = '#UPINSLOT ( happytos) 39*81*66 BETTING';
 var namagroup14 = 'BLITAR';
-var Comment14 = '';
+var Comment14 = '#BLITAR4D (oops) = 88*83';
 var namagroup15 = 'Hoho';
-var Comment15 = '';
+var Comment15 = 'sponge : 23*18*14 #HOHOTOGEL';
 var namagroup16 = 'GTO';
-var Comment16 = '';
+var Comment16 = '(GUDANGTOTO) = (nissin) 01*26*47';
 
 //Batas
 
@@ -61,12 +61,12 @@ var Comment18 = 'asek';
 
 var refresh = 40;
 var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Baru.json"
-var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo","l0mb4","lomb4","l0mba","𝗥𝟬𝟬𝗠","𝗟𝟬𝗠𝗕𝗔","𝘙𝘖𝘖𝘔"]
+var keyword = ["ROOM","????","LOMBA","?????","?????","LIMBA","ROM","R00M","login","????","HONGKONG","SINGAPUR","nemo","l0mb4","lomb4","l0mba","????","?????","????"]
 var Backlist =["pemenang lomba","rekap","natidulu","room lomba freebet","prediksi","result","juara lomba","r3k4p","r3kap","rek4p","undang" ]
 var isCommenting = false;
 var EXPIRATION_MS = 8 * 60 * 1000; // 5 minutes
 var now = Date.now();
-// ✅ Daftar grup dan nilai default
+// ? Daftar grup dan nilai default
 const groupNames = [
     normalizeToBasicLatin(namagroup1).toLowerCase(), normalizeToBasicLatin(namagroup2).toLowerCase(), normalizeToBasicLatin(namagroup3).toLowerCase(), normalizeToBasicLatin(namagroup4).toLowerCase(), normalizeToBasicLatin(namagroup5).toLowerCase(), normalizeToBasicLatin(namagroup6).toLowerCase(),
     normalizeToBasicLatin(namagroup7).toLowerCase(), normalizeToBasicLatin(namagroup8).toLowerCase(), normalizeToBasicLatin(namagroup9).toLowerCase(), normalizeToBasicLatin(namagroup10).toLowerCase(), normalizeToBasicLatin(namagroup11).toLowerCase(), normalizeToBasicLatin(namagroup12).toLowerCase(),
@@ -121,9 +121,9 @@ function loadLocalAdmin() {
         try {
             adminList = JSON.parse(stored);
             adminListReady = true;
-            console.log("✅ Admin list loaded from localStorage:", adminList.length, "names");
+            console.log("? Admin list loaded from localStorage:", adminList.length, "names");
         } catch (e) {
-            console.error("❌ Failed to parse local admin list:", e);
+            console.error("? Failed to parse local admin list:", e);
         }
     }
 }
@@ -143,20 +143,20 @@ function fetchAdminListFromGitHub() {
 
                 const currentVersion = localStorage.getItem(VERSION_KEY);
                 if (currentVersion !== latestVersion) {
-                    console.log("⬆️ New admin version found:", latestVersion);
+                    console.log("?? New admin version found:", latestVersion);
                     localStorage.setItem(LOCAL_KEY, JSON.stringify(admins));
                     localStorage.setItem(VERSION_KEY, latestVersion);
                     adminList = admins;
                     adminListReady = true;
                 } else {
-                    console.log("⏩ Admin list is up-to-date (version:", currentVersion + ")");
+                    console.log("? Admin list is up-to-date (version:", currentVersion + ")");
                 }
             } catch (e) {
-                console.error("❌ Failed to parse remote admin list:", e);
+                console.error("? Failed to parse remote admin list:", e);
             }
         },
         onerror: function(err) {
-            console.error("❌ Failed to load admin list from GitHub:", err);
+            console.error("? Failed to load admin list from GitHub:", err);
         }
     });
 }
@@ -216,7 +216,7 @@ function tungguGroup() {
                     if (result) {
                         commentToPost = Random(result.comment)
                         grouptToPost = normalizeToBasicLatin(result.groupName)
-                        console.log("✅ Nama grup : " + grouptToPost + " | Comment : " +commentToPost );
+                        console.log("? Nama grup : " + grouptToPost + " | Comment : " +commentToPost );
                         manageGroups();
                     }
                 }
@@ -280,7 +280,7 @@ async function manageGroups() {
     const groupKey = `group_${grouptToPost}`;
     const sudahKomentar = await GM.getValue(groupKey,false);
     if (sudahKomentar) {
-        console.log(`❌ Diblok Grup ${grouptToPost} sudah DIKOMENTARI`);
+        console.log(`? Diblok Grup ${grouptToPost} sudah DIKOMENTARI`);
         kondisiStop =true;
         sudahDiPanggil = true
         if (janganclose) return;
@@ -300,7 +300,7 @@ function CekBacklist(postinganBL) {
     for (const DataBacklist of Backlist) {
         const kata = normalizeToBasicLatin(DataBacklist.toLowerCase())
         if (postinganBL.toLowerCase().includes(kata)) {
-            console.log(`❌ Diblok karena mengandung: "${kata}"`);
+            console.log(`? Diblok karena mengandung: "${kata}"`);
             return true;
         }
     }
@@ -308,11 +308,11 @@ function CekBacklist(postinganBL) {
 }
 
 function CekKeyword(postingan) {
-    console.log("🔍 CekKeyword untuk:", postingan);
+    console.log("? CekKeyword untuk:", postingan);
     for (const DataKeyword of keyword) {
         const kata = normalizeToBasicLatin(DataKeyword.toLowerCase())
         if (postingan.toLowerCase().includes(kata)) {
-            console.log(`✅ Keyword ditemukan: "${kata}"`);
+            console.log(`? Keyword ditemukan: "${kata}"`);
             return true;
         }
     }
@@ -382,7 +382,7 @@ async function botKoment(mutatin) {
 
                     GM.setValue("group_" + grouptToPost, true);
                     GM.setValue("group_"+grouptToPost+"_expire", Date.now() + EXPIRATION_MS);
-                    console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
+                    console.log("? Komentar DIKIRIM (via dispatch):", commentToPost);
                     showNotification("Komentar Sudah Terkirim : " + commentToPost);
                     isCommenting = true;
 
@@ -391,7 +391,7 @@ async function botKoment(mutatin) {
                     startAutoTask();
                     break;
                 } else {
-                    showNotification("❌ Textarea atau tombol kirim tidak ditemukan");
+                    showNotification("? Textarea atau tombol kirim tidak ditemukan");
                     isCommenting = false;
                     kondisiStop = false
                 }
@@ -434,7 +434,7 @@ async function botArticle(mutatin) {
                             const t = el.textContent.toLowerCase();
                             return t.includes("jawab") || t.includes("tulis") || t.includes("komentari") || t.includes("postingan") || t.includes("beri");
                         });
-                        console.log(`✅ "Admin Di Temukan`);
+                        console.log(`? "Admin Di Temukan`);
                         if (tombolKirim ) {
                             console.log("TextBox komentar ditemukan:", tombolKirim);
                             function klikTextboxJikaSiap() {
@@ -444,7 +444,7 @@ async function botArticle(mutatin) {
                                 if (textbox) {
                                     myObserver.disconnect();
                                     observercontetn.disconnect();
-                                    console.log("✅ TextBox komentar Telah DI Klik & Muncul");
+                                    console.log("? TextBox komentar Telah DI Klik & Muncul");
                                     forceOffRefresh = true;
                                     return;
                                 }
