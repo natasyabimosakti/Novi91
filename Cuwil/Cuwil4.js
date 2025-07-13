@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 4
 // @namespace    http://tampermonkey.net/
-// @version      3.77
+// @version      3.78
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil4.js
@@ -688,16 +688,18 @@ function normalizeToBasicLatin(str) {
 }
 
 function Random(comment) {
-    const numberRegex = /\d{2}/g;
+    const numberRegex = /(?<=\D|^)(\d{2})(?=\D|$)/g;
     const numbers = [...comment.matchAll(numberRegex)];
     if (!numbers || numbers.length < 2) return comment;
+
     const lastCount = Math.min(3, numbers.length);
     const lastNums = numbers.slice(-lastCount);
     const separators = [];
-    for(let i = 0; i < lastCount - 1; i++) {
-        separators.push(comment.slice(lastNums[i].index + 2, lastNums[i+1].index));
+    for (let i = 0; i < lastCount - 1; i++) {
+        separators.push(comment.slice(lastNums[i].index + 2, lastNums[i + 1].index));
     }
     const angka = lastNums.map(x => x[0]);
+
     function shuffleArray(arr) {
         const copy = [...arr];
         for (let i = copy.length - 1; i > 0; i--) {
@@ -715,9 +717,9 @@ function Random(comment) {
     const start = comment.slice(0, lastNums[0].index);
     const end = comment.slice(lastNums[lastCount - 1].index + 2);
     let result = start;
-    for(let i = 0; i < lastCount; i++) {
+    for (let i = 0; i < lastCount; i++) {
         result += rotated[i];
-        if(i < lastCount - 1) {
+        if (i < lastCount - 1) {
             result += separators[i];
         }
     }
