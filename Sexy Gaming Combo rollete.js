@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Roulette Auto Bet v6.2 - FIX Dozen & Column Evaluation
+// @name         Roulette Auto Bet v6.8 - Fix Evaluasi Result dan Deteksi Countdown
 // @namespace    http://tampermonkey.net/
-// @version      6.4
-// @description  Auto-bet roulette dengan Martingale, protektor saldo, popup, dan perbaikan evaluasi dozen/column
+// @version      6.8
+// @description  Evaluasi hasil saat awal countdown (p keluar angka), bukan saat Spinning hilang. Fix result tidak muncul dan evaluasi tidak jalan.
 // @match        http*://*/*
 // @grant        none
 // @run-at       document-idle
@@ -12,17 +12,14 @@
     setTimeout(() => {
         const START_BET = 1;
         const MAX_BET = 64;
-        const SALDO_RESET = 1_000_000;
-        const SALDO_PROTEK = 1_500_000;
-
         const fib = [1, 2, 4, 8, 16, 32, 64];
         let fibIndexDozen = 0;
         let fibIndexColumn = 0;
         let lastTargetDozen = [];
         let lastTargetColumn = [];
         let isBetting = false;
-        let protektorAktif = false;
         let lastLoggedSaldo = null;
+        let lastResultText = "";
 
         const redNumbers = [1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36];
         const DOZEN_CLASS = { 1: 'dozen1st', 2: 'dozen2nd', 3: 'dozen3rd' };
@@ -30,7 +27,6 @@
 
         const state = {
             saldo: 0,
-            protektorPernahAktif: false,
             lastPeriode: null,
             bets: {
                 size: { option: null, amount: START_BET, streakLose: 0 },
@@ -50,7 +46,6 @@
         }
 
         function parseRupiah(text) {
-            if (!text) return null;
             const raw = text.replace(/[.,]/g, '').replace(/[^\d]/g, '');
             const intVal = parseInt(raw, 10);
             return isNaN(intVal) ? null : Math.floor(intVal / 100);
@@ -96,6 +91,8 @@
         function placeDozenAndColumn(history) {
             lastTargetDozen = getTwoColdest(history, "dozen");
             lastTargetColumn = getTwoColdest(history, "column");
+            log("🎯 BET Dozen:", lastTargetDozen);
+            log("🎯 BET Column:", lastTargetColumn);
 
             const amountDozen = fib[fibIndexDozen];
             const amountColumn = fib[fibIndexColumn];
@@ -111,7 +108,7 @@
                     const btn = document.getElementById("btnBetConfirm") || document.querySelector(".btnConfirm");
                     if (btn) {
                         btn.click();
-                        log("✅ Konfirmasi selesai (dozen/column)");
+                        log("✅ Konfirmasi klik selesai (Dozen + Column)");
                     }
                 }
             };
@@ -124,12 +121,11 @@
             const bet = state.bets[category];
             const optionId = idMap[category][bet.option];
             const tombol = document.getElementById(optionId);
-            if (tombol) {
-                for (let i = 0; i < bet.amount; i++) {
-                    setTimeout(() => tombol.click(), i * 30);
-                }
-                log(`🎲 ${category.toUpperCase()} => ${bet.option} x${bet.amount}`);
+            if (!optionId || !tombol) return;
+            for (let i = 0; i < bet.amount; i++) {
+                setTimeout(() => tombol.click(), i * 30);
             }
+            log(`🎲 ${category.toUpperCase()} => ${bet.option} x${bet.amount}`);
         }
 
         function analyzeNextBets() {
@@ -139,27 +135,27 @@
             state.bets.color.option = rand(['red', 'black']);
         }
 
-        function evaluateBet(category, winNum) {
-            const bet = state.bets[category];
-            let menang = false;
-            if (winNum === 0) {
-                menang = false;
-            } else if (category === 'size') {
-                menang = (bet.option === 'big' && winNum >= 19) || (bet.option === 'small' && winNum <= 18);
-            } else if (category === 'parity') {
-                menang = (bet.option === 'odd' && winNum % 2 === 1) || (bet.option === 'even' && winNum % 2 === 0);
-            } else if (category === 'color') {
-                const isRed = redNumbers.includes(winNum);
-                menang = (bet.option === 'red' && isRed) || (bet.option === 'black' && !isRed);
-            }
+        function evaluateAll(winNum) {
+            ['size', 'parity', 'color'].forEach(cat => {
+                const bet = state.bets[cat];
+                let menang = false;
+                if (cat === 'size') menang = winNum !== 0 && ((bet.option === 'big' && winNum >= 19) || (bet.option === 'small' && winNum <= 18));
+                if (cat === 'parity') menang = winNum !== 0 && ((bet.option === 'odd' && winNum % 2 === 1) || (bet.option === 'even' && winNum % 2 === 0));
+                if (cat === 'color') menang = winNum !== 0 && ((bet.option === 'red' && redNumbers.includes(winNum)) || (bet.option === 'black' && !redNumbers.includes(winNum)));
+                log(`📊 ${cat} => ${bet.option} | Hasil: ${winNum} => ${menang ? '✅' : '❌'}`);
+                if (menang) {
+                    bet.amount = START_BET;
+                    bet.streakLose = 0;
+                } else {
+                    bet.streakLose++;
+                    bet.amount = Math.min(Math.pow(2, bet.streakLose), MAX_BET);
+                }
+            });
 
-            if (menang) {
-                bet.amount = START_BET;
-                bet.streakLose = 0;
-            } else {
-                bet.streakLose++;
-                bet.amount = Math.min(Math.pow(2, bet.streakLose), MAX_BET);
-            }
+            const d = getDozen(winNum);
+            const c = getColumn(winNum);
+            if (lastTargetDozen.includes(d)) fibIndexDozen = 0; else fibIndexDozen++;
+            if (lastTargetColumn.includes(c)) fibIndexColumn = 0; else fibIndexColumn++;
         }
 
         function getHistory() {
@@ -169,7 +165,7 @@
         }
 
         function createPopup() {
-            if(!document.querySelector('[id="countdownDL"]')) return;
+             if(!document.querySelector('[id="countdownDL"]')) return;
             const box = document.createElement("div");
             box.id = "popupMonitor";
             box.style.cssText = `
@@ -185,7 +181,7 @@
                 z-index: 999999;
                 line-height: 1.4;
             `;
-            box.innerHTML = "⌛ Memuat...";
+            box.innerHTML = "⌛ Loading...";
             document.body.appendChild(box);
         }
 
@@ -193,12 +189,13 @@
             const box = document.getElementById("popupMonitor");
             if (!box) return;
             box.innerHTML = `
-💰 Saldo: ${state.saldo >= 10000 ? state.saldo.toLocaleString("id-ID", {minimumFractionDigits: 2}) : '❓ Tidak terbaca'}
-📈 Size: ${state.bets.size.streakLose}x
-📈 Parity: ${state.bets.parity.streakLose}x
-📈 Color: ${state.bets.color.streakLose}x
-🛡 Protektor: ${state.protektorPernahAktif ? (protektorAktif ? "✅ Aktif" : "🕓 Sudah") : "❌ Belum"}
-            `;
+💰 Saldo: ${state.saldo ? state.saldo.toLocaleString("id-ID") : '❓'}
+📉 Size: ${state.bets.size.streakLose}x
+📉 Parity: ${state.bets.parity.streakLose}x
+📉 Color: ${state.bets.color.streakLose}x
+🎯 Dozen: ${lastTargetDozen.join(', ')} (${fib[fibIndexDozen]})
+🎯 Column: ${lastTargetColumn.join(', ')} (${fib[fibIndexColumn]})
+`;
         }
 
         function updateSaldoRealtime() {
@@ -213,7 +210,6 @@
                                 lastLoggedSaldo = saldoBaru;
                                 state.saldo = saldoBaru;
                                 updatePopup();
-                                log("💰 Saldo:", saldoBaru);
                             }
                         }
                     }
@@ -223,54 +219,35 @@
 
         function loopMain() {
             const cd = document.getElementById("countdown");
-            const isClosed = cd && cd.textContent.includes("Spinning");
-            const result = getHistory()[0];
+            if (!cd) return setTimeout(loopMain, 1000);
+            const countdownText = cd.querySelector("p")?.textContent.trim() || "";
 
-            if (!isClosed && !isBetting) {
+            const resultNow = getHistory()[0];
+            if (resultNow !== lastResultText) {
+                lastResultText = resultNow;
+                if (resultNow && resultNow !== state.lastPeriode) {
+                    log('🎯 New Result:', resultNow);
+                    state.lastPeriode = resultNow;
+                    evaluateAll(resultNow);
+                    analyzeNextBets();
+                    updatePopup();
+                    isBetting = false;
+                }
+            }
+
+            if (!isBetting && countdownText !== 'Spinning') {
                 isBetting = true;
-                if (!state.bets.size.option) analyzeNextBets();
+                analyzeNextBets();
                 ['size', 'parity', 'color'].forEach(placeBet);
                 placeDozenAndColumn(getHistory());
+                updatePopup();
             }
 
-            if (isClosed && isBetting) {
-                setTimeout(() => {
-                    const win = result;
-                    if (win !== null && win !== state.lastPeriode) {
-                        state.lastPeriode = win;
-                        ['size', 'parity', 'color'].forEach(cat => evaluateBet(cat, win));
-
-                        // ✅ Perbaikan evaluasi dozen & column
-                        const winDozen = getDozen(win);
-                        const winColumn = getColumn(win);
-
-                        if (lastTargetDozen.includes(winDozen)) {
-                            fibIndexDozen = 0;
-                            log(`🎯 Dozen ${winDozen} MENANG`);
-                        } else {
-                            fibIndexDozen = Math.min(fibIndexDozen + 1, fib.length - 1);
-                            log(`❌ Dozen ${winDozen} KALAH - ke ${fibIndexDozen}`);
-                        }
-
-                        if (lastTargetColumn.includes(winColumn)) {
-                            fibIndexColumn = 0;
-                            log(`🎯 Column ${winColumn} MENANG`);
-                        } else {
-                            fibIndexColumn = Math.min(fibIndexColumn + 1, fib.length - 1);
-                            log(`❌ Column ${winColumn} KALAH - ke ${fibIndexColumn}`);
-                        }
-
-                        isBetting = false;
-                        updatePopup();
-                    }
-                }, 1000);
-            }
-            setTimeout(loopMain, 1000);
+            setTimeout(loopMain, 500);
         }
 
         createPopup();
         updateSaldoRealtime();
-        log("🤖 AutoBet v6.2 AKTIF dengan evaluasi dozen/column FIX");
         loopMain();
     }, 3000);
 })();
