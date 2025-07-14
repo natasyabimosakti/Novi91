@@ -200,7 +200,13 @@
                     isBetting = true;
                     if (!state.bets.size.option) analyzeNextBets();
                     for (const cat of ['size', 'parity', 'color']) placeBet(cat);
-                    setTimeout(() => konfirmasiBet(), 1000);
+                    const maxDelay = Math.max(
+                        state.bets.size.amount,
+                        state.bets.parity.amount,
+                        state.bets.color.amount
+                    ) * 30 + 50;
+
+                    setTimeout(() => konfirmasiBet(), maxDelay);
                 }
 
                 if (isBettingClosed() && isBetting) {
