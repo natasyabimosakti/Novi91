@@ -62,8 +62,11 @@
         function evaluateBet(category, winNum) {
             const bet = state.bets[category];
             let menang = false;
-            if (category === 'size') {
-                menang = (bet.option === 'big' && winNum > 18) || (bet.option === 'small' && winNum <= 18);
+
+            if (winNum === 0) {
+                menang = false;
+            } else if (category === 'size') {
+                menang = (bet.option === 'big' && winNum >= 19) || (bet.option === 'small' && winNum <= 18);
             } else if (category === 'parity') {
                 menang = (bet.option === 'odd' && winNum % 2 === 1) || (bet.option === 'even' && winNum % 2 === 0);
             } else if (category === 'color') {
@@ -74,8 +77,8 @@
             if (menang) {
                 log(`✅ ${category.toUpperCase()} MENANG`);
                 state.totalWin++;
-                bet.amount = START_BET;
                 bet.streakLose = 0;
+                bet.amount = START_BET;
             } else {
                 log(`❌ ${category.toUpperCase()} KALAH`);
                 state.totalLose++;
@@ -91,7 +94,7 @@
             const tombol = document.getElementById(optionId);
             if (tombol) {
                 for (let i = 0; i < bet.amount; i++) {
-                    setTimeout(() => tombol.click(), i * 300);
+                    setTimeout(() => tombol.click(), i * 30);
                 }
                 log(`🎲 ${category.toUpperCase()} => ${bet.option} x${bet.amount}`);
             } else {
@@ -160,24 +163,28 @@
         }
 
         function createPopup() {
-            if(!document.getElementById("countdownDL")){return;}
-            const box = document.createElement("div");
-            box.id = "popupMonitor";
-            box.style.cssText = `
-                position: fixed;
-                bottom: 10px;
-                left: 10px;
-                background: rgba(0,0,0,0.8);
-                color: #0f0;
-                font-family: monospace;
-                padding: 10px;
-                font-size: 12px;
-                border-radius: 6px;
-                z-index: 999999;
-                line-height: 1.4;
-            `;
-            box.innerHTML = "⌛ Memuat...";
-            document.body.appendChild(box);
+            const checkPopup = setInterval(() => {
+                if (document.getElementById("countdownDL") && !document.getElementById("popupMonitor")) {
+                    const box = document.createElement("div");
+                    box.id = "popupMonitor";
+                    box.style.cssText = `
+                        position: fixed;
+                        bottom: 10px;
+                        left: 10px;
+                        background: rgba(0,0,0,0.8);
+                        color: #0f0;
+                        font-family: monospace;
+                        padding: 10px;
+                        font-size: 12px;
+                        border-radius: 6px;
+                        z-index: 999999;
+                        line-height: 1.4;
+                    `;
+                    box.innerHTML = "⌛ Memuat...";
+                    document.body.appendChild(box);
+                    clearInterval(checkPopup);
+                }
+            }, 1000);
         }
 
         function updatePopup() {
@@ -204,7 +211,7 @@
                         state.bets.size.amount,
                         state.bets.parity.amount,
                         state.bets.color.amount
-                    ) * 50 + 100;
+                    ) * 30 + 100;
 
                     setTimeout(() => konfirmasiBet(), maxDelay + 2000);
                 }
