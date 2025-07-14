@@ -1,0 +1,171 @@
+// ==UserScript==
+// @name         Sexy Roulette AI v3.6 prioritas 11 system impas
+// @namespace    http://tampermonkey.net/
+// @version      3.6.1
+// @description  Auto betting with priority on dozen/column not appearing in last 11 rounds, Fibonacci-like progression, and delay-aware execution
+// @match        *://*/*
+// @grant        none
+// @run-at       document-idle
+// ==/UserScript==
+
+(function () {
+  'use strict';
+
+  let lastResult = null;
+  let totalLossDozen = 0;
+  let totalLossColumn = 0;
+  const MAX_BET = 16;
+  let lastTargetDozen = 0;
+  let lastTargetColumn = 0;
+  let bettingInProgress = false;
+
+  const DOZEN_CLASS = { 1: 'dozen1st', 2: 'dozen2nd', 3: 'dozen3rd' };
+  const COLUMN_ID = { 1: 'COLUMN1', 2: 'COLUMN2', 3: 'COLUMN3' };
+
+  const popup = document.createElement("div");
+  Object.assign(popup.style, {
+    position: "fixed",
+    bottom: "10px",
+    right: "10px",
+    background: "#111",
+    color: "#0f0",
+    padding: "10px",
+    borderRadius: "8px",
+    fontFamily: "monospace",
+    zIndex: 9999999
+  });
+  document.body.appendChild(popup);
+
+  function updatePopup(html, color = "#0f0") {
+    popup.style.color = color;
+    popup.innerHTML = html;
+  }
+
+  function getDozen(n) {
+    if (n >= 1 && n <= 12) return 1;
+    if (n >= 13 && n <= 24) return 2;
+    if (n >= 25 && n <= 36) return 3;
+    return 0;
+  }
+
+  function getColumn(n) {
+    if (n < 1 || n > 36) return 0;
+    return ((n - 1) % 3) + 1;
+  }
+
+  function getHistory() {
+    const spans = document.querySelectorAll("#resultHistory li span");
+    return [...spans].map(s => parseInt(s.textContent.trim())).filter(n => !isNaN(n));
+  }
+
+  function getTarget(history, type) {
+    if (!history || history.length < 3) return Math.floor(Math.random() * 3) + 1;
+    const mapFn = type === "dozen" ? getDozen : getColumn;
+    const counts = [0, 0, 0];
+    history.slice(0, 11).forEach(n => {
+      const v = mapFn(n);
+      if (v > 0) counts[v - 1]++;
+    });
+    const neverSeen = counts.map((v, i) => v === 0 ? i + 1 : null).filter(Boolean);
+    if (neverSeen.length > 0) return neverSeen[Math.floor(Math.random() * neverSeen.length)];
+    const minCount = Math.min(...counts);
+    return counts.findIndex(c => c === minCount) + 1;
+  }
+
+  function waitUntilCountdownReady(timeout = 10000) {
+    return new Promise(resolve => {
+      const start = Date.now();
+      (function check() {
+        const countdown = document.getElementById("countdown");
+        if (countdown && !countdown.textContent.toLowerCase().includes("spinning")) {
+          resolve(true);
+        } else if (Date.now() - start >= timeout) {
+          resolve(false);
+        } else {
+          setTimeout(check, 200);
+        }
+      })();
+    });
+  }
+
+  async function clickMultiple(btn, times) {
+    for (let i = 0; i < times; i++) {
+      btn.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      await new Promise(r => setTimeout(r, 120));
+    }
+  }
+
+  async function placeBet(result) {
+    if (bettingInProgress) return;
+    bettingInProgress = true;
+
+    const ready = await waitUntilCountdownReady();
+    if (!ready) {
+      updatePopup("⏳ Menunggu countdown selesai...", "#ff0");
+      bettingInProgress = false;
+      return;
+    }
+
+    const history = getHistory();
+    const d = getDozen(result);
+    const c = getColumn(result);
+
+    if (d === lastTargetDozen) totalLossDozen = Math.max(0, totalLossDozen - MAX_BET);
+    else totalLossDozen += Math.min(totalLossDozen || 1, MAX_BET);
+
+    if (c === lastTargetColumn) totalLossColumn = Math.max(0, totalLossColumn - MAX_BET);
+    else totalLossColumn += Math.min(totalLossColumn || 1, MAX_BET);
+
+    lastTargetDozen = getTarget(history, "dozen");
+    lastTargetColumn = getTarget(history, "column");
+
+    const amountDozen = Math.min(totalLossDozen || 1, MAX_BET);
+    const amountColumn = Math.min(totalLossColumn || 1, MAX_BET);
+
+    const dozenBtn = document.querySelector(`.${DOZEN_CLASS[lastTargetDozen]}`);
+    const columnBtn = document.querySelector(`#${COLUMN_ID[lastTargetColumn]}`);
+    const confirmBtn = document.querySelector(".btnConfirm");
+
+    if (!dozenBtn || !columnBtn || !confirmBtn) {
+      updatePopup("❌ Tombol tidak ditemukan", "#f00");
+      bettingInProgress = false;
+      return;
+    }
+
+    updatePopup(`
+      🎯 Dozen: ${lastTargetDozen} (x${amountDozen})<br>
+      🎯 Column: ${lastTargetColumn} (x${amountColumn})<br>
+      💥 Loss: ${totalLossDozen}/${totalLossColumn}<br>
+      🎲 Result: ${result}
+    `);
+
+    await clickMultiple(dozenBtn, amountDozen);
+    await clickMultiple(columnBtn, amountColumn);
+    setTimeout(() => {
+      confirmBtn.click();
+      bettingInProgress = false;
+    }, 600);
+  }
+
+  function observeResult() {
+    const target = document.querySelector("#resultHistory");
+    if (!target) return setTimeout(observeResult, 1000);
+
+    let lastTopNumber = null;
+    const observer = new MutationObserver(() => {
+      const history = getHistory();
+      const top = history[0];
+      if (top !== undefined && top !== lastTopNumber) {
+        lastTopNumber = top;
+        console.log("[✅ DETEKSI] Angka baru:", top);
+        placeBet(top);
+      }
+    });
+
+    observer.observe(target, { childList: true, subtree: true });
+    updatePopup("👁️ Menunggu angka baru...");
+    console.log("👁️ Observer aktif");
+  }
+
+  setTimeout(observeResult, 2000);
+})();
