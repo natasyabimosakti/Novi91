@@ -59,6 +59,7 @@ var namagroup18 = 'lajw';
 var Comment18 = 'asek';
 
 
+
 var SCRIPT_NAME = Comment17
 var refresh = 40;
 var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Baru.json"
