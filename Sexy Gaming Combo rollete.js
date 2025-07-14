@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Roulette Auto Bet v6.8 - Fix Evaluasi Result dan Deteksi Countdown
+// @name         Roulette Auto Bet v6.9 - Protektor + Smart Target + Confirm Fix
 // @namespace    http://tampermonkey.net/
-// @version      6.8
-// @description  Evaluasi hasil saat awal countdown (p keluar angka), bukan saat Spinning hilang. Fix result tidak muncul dan evaluasi tidak jalan.
+// @version      6.9
+// @description  Protektor aktif saat saldo ≥ 1.500.000, reset saat < 1.000.000. Betting hanya pada dozen/column yang belum muncul 7x berturut, confirm otomatis.
 // @match        http*://*/*
 // @grant        none
 // @run-at       document-idle
@@ -12,6 +12,9 @@
     setTimeout(() => {
         const START_BET = 1;
         const MAX_BET = 64;
+        const SALDO_PROTEK = 1500000;
+        const SALDO_RESET = 1000000;
+
         const fib = [1, 2, 4, 8, 16, 32, 64];
         let fibIndexDozen = 0;
         let fibIndexColumn = 0;
@@ -20,6 +23,7 @@
         let isBetting = false;
         let lastLoggedSaldo = null;
         let lastResultText = "";
+        let protektorAktif = false;
 
         const redNumbers = [1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36];
         const DOZEN_CLASS = { 1: 'dozen1st', 2: 'dozen2nd', 3: 'dozen3rd' };
@@ -47,7 +51,7 @@
 
         function parseRupiah(text) {
             const raw = text.replace(/[.,]/g, '').replace(/[^\d]/g, '');
-            const intVal = parseInt(raw, 10);
+            const intVal = parseInt(raw, 9);
             return isNaN(intVal) ? null : Math.floor(intVal / 100);
         }
 
@@ -63,69 +67,10 @@
             return ((num - 1) % 3) + 1;
         }
 
-        function getTwoColdest(history, type = "dozen") {
-            const count = [0, 0, 0];
-            const mapper = type === "dozen" ? getDozen : getColumn;
-            history.slice(0, 20).forEach(num => {
-                const val = mapper(num);
-                if (val > 0) count[val - 1]++;
-            });
-            const sorted = count.map((v, i) => ({ idx: i + 1, v })).sort((a, b) => a.v - b.v);
-            return [sorted[0].idx, sorted[1].idx];
-        }
-
-        function clickMultiple(el, times, cb) {
-            let i = 0;
-            function loop() {
-                if (i < times) {
-                    el.click();
-                    i++;
-                    setTimeout(loop, 80);
-                } else {
-                    if (cb) setTimeout(cb, 200);
-                }
-            }
-            loop();
-        }
-
-        function placeDozenAndColumn(history) {
-            lastTargetDozen = getTwoColdest(history, "dozen");
-            lastTargetColumn = getTwoColdest(history, "column");
-            log("🎯 BET Dozen:", lastTargetDozen);
-            log("🎯 BET Column:", lastTargetColumn);
-
-            const amountDozen = fib[fibIndexDozen];
-            const amountColumn = fib[fibIndexColumn];
-            const dozenBtns = lastTargetDozen.map(d => document.querySelector(`.${DOZEN_CLASS[d]}`));
-            const columnBtns = lastTargetColumn.map(c => document.querySelector(`#${COLUMN_ID[c]}`));
-
-            if (dozenBtns.includes(null) || columnBtns.includes(null)) return;
-
-            let doneCount = 0;
-            const tryConfirmIfDone = () => {
-                doneCount++;
-                if (doneCount >= 4) {
-                    const btn = document.getElementById("btnBetConfirm") || document.querySelector(".btnConfirm");
-                    if (btn) {
-                        btn.click();
-                        log("✅ Konfirmasi klik selesai (Dozen + Column)");
-                    }
-                }
-            };
-
-            dozenBtns.forEach(btn => clickMultiple(btn, amountDozen, tryConfirmIfDone));
-            columnBtns.forEach(btn => clickMultiple(btn, amountColumn, tryConfirmIfDone));
-        }
-
-        function placeBet(category) {
-            const bet = state.bets[category];
-            const optionId = idMap[category][bet.option];
-            const tombol = document.getElementById(optionId);
-            if (!optionId || !tombol) return;
-            for (let i = 0; i < bet.amount; i++) {
-                setTimeout(() => tombol.click(), i * 30);
-            }
-            log(`🎲 ${category.toUpperCase()} => ${bet.option} x${bet.amount}`);
+        function getHistory() {
+            const el = document.querySelector("#resultHistory");
+            if (!el || el.children.length === 0) return [];
+            return Array.from(el.children).map(c => parseInt(c.textContent.trim())).filter(n => !isNaN(n));
         }
 
         function analyzeNextBets() {
@@ -158,14 +103,73 @@
             if (lastTargetColumn.includes(c)) fibIndexColumn = 0; else fibIndexColumn++;
         }
 
-        function getHistory() {
-            const el = document.querySelector("#resultHistory");
-            if (!el || el.children.length === 0) return [];
-            return Array.from(el.children).map(c => parseInt(c.textContent.trim())).filter(n => !isNaN(n));
+        function clickMultiple(el, times) {
+            for (let i = 0; i < times; i++) {
+                setTimeout(() => el.click(), i * 80);
+            }
+        }
+
+        function placeDozenAndColumn() {
+            const history = getHistory().slice(0, 9); // 7 hasil terakhir
+            const appearedDozens = new Set(history.map(getDozen).filter(d => d > 0));
+            const appearedColumns = new Set(history.map(getColumn).filter(c => c > 0));
+
+            const missingDozens = [1, 2, 3].filter(d => !appearedDozens.has(d));
+            const missingColumns = [1, 2, 3].filter(c => !appearedColumns.has(c));
+
+            if (missingDozens.length === 0 && missingColumns.length === 0) {
+                log("⏸ Semua dozen dan column pernah muncul dalam 7 ronde terakhir. Skip bet.");
+                lastTargetDozen = [];
+                lastTargetColumn = [];
+                return;
+            }
+
+            // Acak salah satu target dari dozen atau column saja
+            if (missingDozens.length > 0 && (missingColumns.length === 0 || Math.random() < 0.5)) {
+                const chosen = missingDozens[Math.floor(Math.random() * missingDozens.length)];
+                lastTargetDozen = [chosen];
+                const btn = document.querySelector(`.${DOZEN_CLASS[chosen]}`);
+                if (btn) clickMultiple(btn, fib[fibIndexDozen]);
+            } else if (missingColumns.length > 0) {
+                const chosen = missingColumns[Math.floor(Math.random() * missingColumns.length)];
+                lastTargetColumn = [chosen];
+                const btn = document.querySelector(`#${COLUMN_ID[chosen]}`);
+                if (btn) clickMultiple(btn, fib[fibIndexColumn]);
+            }
+
+            setTimeout(() => {
+                const btn = document.getElementById("btnBetConfirm") || document.querySelector(".btnConfirm");
+                if (btn) {
+                    btn.click();
+                    log("✅ Konfirmasi ditekan (otomatis timeout)");
+                }
+            }, 1500);
+        }
+
+        function placeBet(category) {
+            const bet = state.bets[category];
+            const optionId = idMap[category][bet.option];
+            const tombol = document.getElementById(optionId);
+            if (tombol) {
+                for (let i = 0; i < bet.amount; i++) {
+                    setTimeout(() => tombol.click(), i * 30);
+                }
+                log(`🎲 ${category.toUpperCase()} => ${bet.option} x${bet.amount}`);
+            }
+        }
+
+        function resetMartingale() {
+            Object.values(state.bets).forEach(bet => {
+                bet.amount = START_BET;
+                bet.streakLose = 0;
+            });
+            fibIndexDozen = 0;
+            fibIndexColumn = 0;
+            log("🔁 Martingale reset!");
         }
 
         function createPopup() {
-             if(!document.querySelector('[id="countdownDL"]')) return;
+            if(!document.querySelector('[id="countdownDL"]')) return;
             const box = document.createElement("div");
             box.id = "popupMonitor";
             box.style.cssText = `
@@ -189,12 +193,13 @@
             const box = document.getElementById("popupMonitor");
             if (!box) return;
             box.innerHTML = `
-💰 Saldo: ${state.saldo ? state.saldo.toLocaleString("id-ID") : '❓'}
+💰 Saldo: ${state.saldo.toLocaleString("id-ID")}
 📉 Size: ${state.bets.size.streakLose}x
 📉 Parity: ${state.bets.parity.streakLose}x
 📉 Color: ${state.bets.color.streakLose}x
 🎯 Dozen: ${lastTargetDozen.join(', ')} (${fib[fibIndexDozen]})
 🎯 Column: ${lastTargetColumn.join(', ')} (${fib[fibIndexColumn]})
+🛡 Protektor: ${protektorAktif ? '✅ Aktif' : '❌ Mati'}
 `;
         }
 
@@ -222,6 +227,17 @@
             if (!cd) return setTimeout(loopMain, 1000);
             const countdownText = cd.querySelector("p")?.textContent.trim() || "";
 
+            if (!protektorAktif && state.saldo >= SALDO_PROTEK) {
+                protektorAktif = true;
+                log("🛡 Protektor AKTIF ‼️ Saldo mencapai:", state.saldo);
+            } else if (protektorAktif && state.saldo < SALDO_RESET) {
+                protektorAktif = false;
+                resetMartingale();
+                log("🛡 Protektor NON-AKTIF ‼️ Saldo turun di bawah:", state.saldo);
+            }
+
+            if (protektorAktif) return setTimeout(loopMain, 1000);
+
             const resultNow = getHistory()[0];
             if (resultNow !== lastResultText) {
                 lastResultText = resultNow;
@@ -239,7 +255,7 @@
                 isBetting = true;
                 analyzeNextBets();
                 ['size', 'parity', 'color'].forEach(placeBet);
-                placeDozenAndColumn(getHistory());
+                placeDozenAndColumn();
                 updatePopup();
             }
 
