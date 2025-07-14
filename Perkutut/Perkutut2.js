@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Perkutut2
 // @namespace    http://tampermonkey.net/
-// @version      3.231
+// @version      3.232
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Perkutut/Perkutut2.js
@@ -59,6 +59,8 @@ var namagroup18 = 'lajw';
 var Comment18 = 'asek';
 
 
+
+var SCRIPT_NAME = Comment17
 var refresh = 40;
 var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Baru.json"
 var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo","l0mb4","lomb4","l0mba","𝗥𝟬𝟬𝗠","𝗟𝟬𝗠𝗕𝗔","𝘙𝘖𝘖𝘔"]
@@ -534,7 +536,7 @@ function startAutoTask() {
     }, 10000);
 }
 
-var SCRIPT_NAME = Comment17
+
 var TELEGRAM_TOKEN = '7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw'; // GANTI
 var TELEGRAM_CHAT_ID = '-1002717306025'; // GANTI
 
@@ -687,17 +689,18 @@ function normalizeToBasicLatin(str) {
 }
 
 function Random(comment) {
-    const numberRegex = /(?<=\D|^)(\d{2})(?=\D|$)/g;
-    const numbers = [...comment.matchAll(numberRegex)];
-    if (!numbers || numbers.length < 2) return comment;
+    // Tangkap semua angka 2 digit yang dipisahkan oleh *
+    const match = [...comment.matchAll(/\*(\d{2})(?=\*|$)/g)];
+    if (!match || match.length < 2) return comment;
 
-    const lastCount = Math.min(3, numbers.length);
-    const lastNums = numbers.slice(-lastCount);
+    const lastCount = Math.min(3, match.length);
+    const lastMatches = match.slice(-lastCount); // Ambil 2–3 angka terakhir
+
+    const angka = lastMatches.map(m => m[1]);
     const separators = [];
     for (let i = 0; i < lastCount - 1; i++) {
-        separators.push(comment.slice(lastNums[i].index + 2, lastNums[i + 1].index));
+        separators.push(comment.slice(lastMatches[i].index + 3, lastMatches[i + 1].index));
     }
-    const angka = lastNums.map(x => x[0]);
 
     function shuffleArray(arr) {
         const copy = [...arr];
@@ -707,21 +710,28 @@ function Random(comment) {
         }
         return copy;
     }
+
     let rotated;
     if (lastCount === 2) {
         rotated = [angka[1], angka[0]];
     } else {
         rotated = shuffleArray(angka);
     }
-    const start = comment.slice(0, lastNums[0].index);
-    const end = comment.slice(lastNums[lastCount - 1].index + 2);
+
+    // Bangun ulang comment
+    const start = comment.slice(0, lastMatches[0].index + 1);
+    const end = comment.slice(lastMatches[lastCount - 1].index + 3);
     let result = start;
     for (let i = 0; i < lastCount; i++) {
         result += rotated[i];
         if (i < lastCount - 1) {
             result += separators[i];
         }
+        if (i < lastCount - 1 || end.startsWith('*')) {
+            result += '*';
+        }
     }
     result += end;
     return result;
 }
+
