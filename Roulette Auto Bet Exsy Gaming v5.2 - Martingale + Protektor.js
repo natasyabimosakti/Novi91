@@ -204,9 +204,9 @@
                         state.bets.size.amount,
                         state.bets.parity.amount,
                         state.bets.color.amount
-                    ) * 30 + 50;
+                    ) * 50 + 100;
 
-                    setTimeout(() => konfirmasiBet(), maxDelay);
+                    setTimeout(() => konfirmasiBet(), maxDelay + 2000);
                 }
 
                 if (isBettingClosed() && isBetting) {
