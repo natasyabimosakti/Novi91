@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Roulette Auto Bet Exsy Gaming v5.2 - Martingale + Protektor
 // @namespace    http://tampermonkey.net/
-// @version      5.2
+// @version      5.3
 // @description  Auto-bet roulette dengan sistem Martingale, protektor saldo, dan popup monitor real-time
 // @match        http*://*/*
 // @grant        none
