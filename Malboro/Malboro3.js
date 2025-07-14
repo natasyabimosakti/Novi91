@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 3
 // @namespace    http://tampermonkey.net/
-// @version      3.198
+// @version      3.199
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro3.js
@@ -56,7 +56,6 @@ var Comment17 = '#KIKOTOTO (CECEKGUDEK) = 53*29';
 //Batas
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Group Malb 3';
-
 
 
 var refresh = 40;
@@ -687,17 +686,18 @@ function normalizeToBasicLatin(str) {
 }
 
 function Random(comment) {
-    const numberRegex = /(?<=\D|^)(\d{2})(?=\D|$)/g;
-    const numbers = [...comment.matchAll(numberRegex)];
-    if (!numbers || numbers.length < 2) return comment;
+    // Tangkap semua angka 2 digit yang dipisahkan oleh *
+    const match = [...comment.matchAll(/\*(\d{2})(?=\*|$)/g)];
+    if (!match || match.length < 2) return comment;
 
-    const lastCount = Math.min(3, numbers.length);
-    const lastNums = numbers.slice(-lastCount);
+    const lastCount = Math.min(3, match.length);
+    const lastMatches = match.slice(-lastCount); // Ambil 2–3 angka terakhir
+
+    const angka = lastMatches.map(m => m[1]);
     const separators = [];
     for (let i = 0; i < lastCount - 1; i++) {
-        separators.push(comment.slice(lastNums[i].index + 2, lastNums[i + 1].index));
+        separators.push(comment.slice(lastMatches[i].index + 3, lastMatches[i + 1].index));
     }
-    const angka = lastNums.map(x => x[0]);
 
     function shuffleArray(arr) {
         const copy = [...arr];
@@ -707,19 +707,25 @@ function Random(comment) {
         }
         return copy;
     }
+
     let rotated;
     if (lastCount === 2) {
         rotated = [angka[1], angka[0]];
     } else {
         rotated = shuffleArray(angka);
     }
-    const start = comment.slice(0, lastNums[0].index);
-    const end = comment.slice(lastNums[lastCount - 1].index + 2);
+
+    // Bangun ulang comment
+    const start = comment.slice(0, lastMatches[0].index + 1);
+    const end = comment.slice(lastMatches[lastCount - 1].index + 3);
     let result = start;
     for (let i = 0; i < lastCount; i++) {
         result += rotated[i];
         if (i < lastCount - 1) {
             result += separators[i];
+        }
+        if (i < lastCount - 1 || end.startsWith('*')) {
+            result += '*';
         }
     }
     result += end;
