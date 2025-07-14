@@ -6,12 +6,32 @@
 // @match        *://*/*
 // @grant        none
 // @run-at       document-idle
+// @grant        GM_xmlhttpRequest
+// @connect      api.telegram.org
 // ==/UserScript==
 
 (function () {
+    var ANTISPAMTOKEN = '7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw';
+    var ANTISPAMTOKENID = '983068551'
+
+    async function AntiSpam(message) {
+        const url = `https://api.telegram.org/bot${ANTISPAMTOKEN}/sendMessage` +
+              `?chat_id=${ANTISPAMTOKENID}&text=${encodeURIComponent(message)}`;
+
+        GM_xmlhttpRequest({
+            method: "GET",
+            url: url,
+            onload: function (res) {
+            },
+            onerror: function (err) {
+                console.error("❌ Gagal kirim ke Telegram:", err);
+            }
+        });
+    }
+
     'use strict';
 
-    const REFRESH_INTERVAL = 5 * 60 * 1000; // 5 menit
+    const REFRESH_INTERVAL = 1 * 60 * 1000; // 5 menit
     const CHECK_INTERVAL = 10 * 1000; // 10 detik
     const SALDO_TARGET = 2500000;
     const JUMLAH_WITHDRAW = 1000000;
@@ -36,6 +56,7 @@
                     jumlahInput.value = JUMLAH_WITHDRAW;
                     console.log("✅ Mengisi jumlah withdraw:", JUMLAH_WITHDRAW);
                     konfirmasiBtn.click();
+                    AntiSpam("WD 1000")
                     console.log("🚀 Klik tombol konfirmasi withdraw");
                 }
             }
@@ -47,10 +68,13 @@
     // Jalankan hanya jika URL mengandung 'pedro'
     if (window.location.href.toLowerCase().includes("pedro")) {
         console.log("🔁 Halaman cocok: 'pedro' ditemukan di URL");
-
+        setTimeout(() => {
+            console.log("🔄 Melakukan reload otomatis setelah 5 menit");
+            checkAndWithdraw
+        }, 2000);
         // Cek saldo setiap 10 detik
-        setInterval(checkAndWithdraw, CHECK_INTERVAL);
 
+        checkAndWithdraw
         // Auto-refresh setiap 5 menit
         setTimeout(() => {
             console.log("🔄 Melakukan reload otomatis setelah 5 menit");
