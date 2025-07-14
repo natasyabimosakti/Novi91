@@ -17,7 +17,7 @@
   const MAX_BET = 16;
   let lastTargetDozen = 0;
   let lastTargetColumn = 0;
-  let bettingInProgress = false;
+  let isWaiting = false;
 
   const DOZEN_CLASS = { 1: 'dozen1st', 2: 'dozen2nd', 3: 'dozen3rd' };
   const COLUMN_ID = { 1: 'COLUMN1', 2: 'COLUMN2', 3: 'COLUMN3' };
@@ -72,19 +72,19 @@
     return counts.findIndex(c => c === minCount) + 1;
   }
 
-  function waitUntilCountdownReady(timeout = 10000) {
+  async function waitUntilCountdownReady(maxWait = 12000) {
+    const start = Date.now();
     return new Promise(resolve => {
-      const start = Date.now();
-      (function check() {
+      const interval = setInterval(() => {
         const countdown = document.getElementById("countdown");
         if (countdown && !countdown.textContent.toLowerCase().includes("spinning")) {
+          clearInterval(interval);
           resolve(true);
-        } else if (Date.now() - start >= timeout) {
+        } else if (Date.now() - start >= maxWait) {
+          clearInterval(interval);
           resolve(false);
-        } else {
-          setTimeout(check, 200);
         }
-      })();
+      }, 200);
     });
   }
 
@@ -96,13 +96,13 @@
   }
 
   async function placeBet(result) {
-    if (bettingInProgress) return;
-    bettingInProgress = true;
+    if (isWaiting) return;
+    isWaiting = true;
 
     const ready = await waitUntilCountdownReady();
     if (!ready) {
-      updatePopup("⏳ Menunggu countdown selesai...", "#ff0");
-      bettingInProgress = false;
+      updatePopup("⏳ Countdown masih spinning...", "#ff0");
+      isWaiting = false;
       return;
     }
 
@@ -128,7 +128,7 @@
 
     if (!dozenBtn || !columnBtn || !confirmBtn) {
       updatePopup("❌ Tombol tidak ditemukan", "#f00");
-      bettingInProgress = false;
+      isWaiting = false;
       return;
     }
 
@@ -143,7 +143,7 @@
     await clickMultiple(columnBtn, amountColumn);
     setTimeout(() => {
       confirmBtn.click();
-      bettingInProgress = false;
+      isWaiting = false;
     }, 600);
   }
 
