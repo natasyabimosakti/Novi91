@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Roulette Auto Bet v7 Final
+// @name         Roulette Auto Bet v7.4 - Protektor, Confirm, Monitor
 // @namespace    http://tampermonkey.net/
-// @version      7.0
-// @description  Auto bet roulette lengkap + protektor + konfirmasi + logika dozen/column
+// @version      7.4
+// @description  Auto-bet roulette lengkap dengan protektor, martingale, confirm klik, dan popup saldo
 // @match        http*://*/*
 // @grant        none
 // @run-at       document-idle
@@ -14,17 +14,19 @@
         const MAX_BET = 64;
         const SALDO_PROTEK = 1500000;
         const SALDO_RESET = 1000000;
-        const NON_MUNCUL_LIMIT = 8;
+        const redNumbers = [1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36];
 
         const fib = [1, 2, 4, 8, 16, 32, 64];
         let fibIndexDozen = 0;
         let fibIndexColumn = 0;
-        let lastLoggedSaldo = null;
-        let isBetting = false;
         let lastResult = null;
+        let lastLoggedSaldo = null;
         let protektorAktif = false;
+        let isBetting = false;
+        let historyStack = [];
+        let lastTargetDozen = [];
+        let lastTargetColumn = [];
 
-        const redNumbers = [1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36];
         const DOZEN_CLASS = { 1: 'dozen1st', 2: 'dozen2nd', 3: 'dozen3rd' };
         const COLUMN_ID = { 1: 'COLUMN1', 2: 'COLUMN2', 3: 'COLUMN3' };
 
@@ -50,8 +52,7 @@
 
         function parseRupiah(text) {
             const raw = text.replace(/[.,]/g, '').replace(/[^\d]/g, '');
-            const intVal = parseInt(raw, 10);
-            return isNaN(intVal) ? null : Math.floor(intVal / 100);
+            return Math.floor(parseInt(raw || '0') / 100);
         }
 
         function getDozen(num) {
@@ -86,6 +87,7 @@
                 if (cat === 'size') menang = winNum !== 0 && ((bet.option === 'big' && winNum >= 19) || (bet.option === 'small' && winNum <= 18));
                 if (cat === 'parity') menang = winNum !== 0 && ((bet.option === 'odd' && winNum % 2 === 1) || (bet.option === 'even' && winNum % 2 === 0));
                 if (cat === 'color') menang = winNum !== 0 && ((bet.option === 'red' && redNumbers.includes(winNum)) || (bet.option === 'black' && !redNumbers.includes(winNum)));
+                log(`📊 ${cat} => ${bet.option} | Hasil: ${winNum} => ${menang ? '✅' : '❌'}`);
                 if (menang) {
                     bet.amount = START_BET;
                     bet.streakLose = 0;
@@ -93,70 +95,71 @@
                     bet.streakLose++;
                     bet.amount = Math.min(Math.pow(2, bet.streakLose), MAX_BET);
                 }
-                log(`📊 ${cat} => ${bet.option} | Hasil: ${winNum} => ${menang ? '✅' : '❌'}`);
             });
 
             const d = getDozen(winNum);
             const c = getColumn(winNum);
-            if ([1,2,3].includes(d)) fibIndexDozen = 0; else fibIndexDozen++;
-            if ([1,2,3].includes(c)) fibIndexColumn = 0; else fibIndexColumn++;
-        }
-
-        function clickMultiple(el, times) {
-            for (let i = 0; i < times; i++) {
-                setTimeout(() => el.click(), i * 80);
-            }
-        }
-
-        function placeDozenAndColumnIfNeeded() {
-            const history = getHistory().slice(0, NON_MUNCUL_LIMIT + 5);
-            const dozenCount = [0, 0, 0];
-            const columnCount = [0, 0, 0];
-
-            history.forEach(n => {
-                const d = getDozen(n);
-                const c = getColumn(n);
-                if (d) dozenCount[d - 1]++;
-                if (c) columnCount[c - 1]++;
-            });
-
-            const targetDozen = dozenCount.findIndex(v => v === 0);
-            const targetColumn = columnCount.findIndex(v => v === 0);
-
-            if (targetDozen === -1 && targetColumn === -1) return;
-
-            if (targetDozen !== -1) {
-                const btn = document.querySelector(`.${DOZEN_CLASS[targetDozen + 1]}`);
-                if (btn) clickMultiple(btn, fib[fibIndexDozen]);
-            }
-
-            if (targetColumn !== -1) {
-                const btn = document.querySelector(`#${COLUMN_ID[targetColumn + 1]}`);
-                if (btn) clickMultiple(btn, fib[fibIndexColumn]);
-            }
+            if (lastTargetDozen.includes(d)) fibIndexDozen = 0; else fibIndexDozen++;
+            if (lastTargetColumn.includes(c)) fibIndexColumn = 0; else fibIndexColumn++;
         }
 
         function placeBet(category) {
             const bet = state.bets[category];
-            const id = idMap[category][bet.option];
-            const el = document.getElementById(id);
-            if (el) {
+            const optionId = idMap[category][bet.option];
+            const tombol = document.getElementById(optionId);
+            if (tombol) {
                 for (let i = 0; i < bet.amount; i++) {
-                    setTimeout(() => el.click(), i * 50);
+                    setTimeout(() => tombol.click(), i * 30);
                 }
+                log(`🎲 ${category.toUpperCase()} => ${bet.option} x${bet.amount}`);
             }
         }
 
-        function klikConfirm() {
+        function placeDozenAndColumnIfNeeded(cb) {
+            const hist = getHistory();
+            if (hist.length < 10) return cb && cb();
+
+            const last10 = hist.slice(0, 10);
+            const countDozen = [0, 0, 0];
+            const countColumn = [0, 0, 0];
+            last10.forEach(num => {
+                const d = getDozen(num);
+                const c = getColumn(num);
+                if (d) countDozen[d - 1]++;
+                if (c) countColumn[c - 1]++;
+            });
+
+            const targetDozen = countDozen.findIndex(c => c === 0) + 1;
+            const targetColumn = countColumn.findIndex(c => c === 0) + 1;
+
+            const btnDozen = document.querySelector(`.${DOZEN_CLASS[targetDozen]}`);
+            const btnColumn = document.querySelector(`#${COLUMN_ID[targetColumn]}`);
+            let clickCount = 0;
+
+            if (targetDozen && btnDozen) {
+                lastTargetDozen = [targetDozen];
+                for (let i = 0; i < fib[fibIndexDozen]; i++) {
+                    setTimeout(() => btnDozen.click(), i * 60);
+                }
+                clickCount++;
+            }
+
+            if (targetColumn && btnColumn) {
+                lastTargetColumn = [targetColumn];
+                for (let i = 0; i < fib[fibIndexColumn]; i++) {
+                    setTimeout(() => btnColumn.click(), i * 60);
+                }
+                clickCount++;
+            }
+
             setTimeout(() => {
-                const btn = document.getElementById("btnBetConfirm") || document.querySelector(".btnConfirm, .bet-confirm-btn");
+                const btn = document.getElementById("btnBetConfirm") || document.querySelector(".btnConfirm");
                 if (btn) {
                     btn.click();
-                    log("✅ Tombol Confirm diklik");
-                } else {
-                    log("❌ Tombol Confirm tidak ditemukan");
+                    log("✅ Konfirmasi diklik");
                 }
-            }, 1000);
+                cb && cb();
+            }, 1000 + clickCount * 80);
         }
 
         function resetMartingale() {
@@ -166,27 +169,34 @@
             });
             fibIndexDozen = 0;
             fibIndexColumn = 0;
-            log("🔄 Reset Martingale");
+            log("🔁 Martingale Reset");
         }
 
         function createPopup() {
-            if (!document.getElementById("countdownDL"))return;
+             if (!document.getElementById("countdownDL"))return;
             const box = document.createElement("div");
             box.id = "popupMonitor";
             box.style.cssText = `
-                position: fixed; bottom: 10px; left: 10px;
-                background: rgba(0,0,0,0.8); color: #0f0;
-                padding: 10px; font-size: 12px; font-family: monospace;
-                border-radius: 6px; z-index: 9999; line-height: 1.4;
+                position: fixed;
+                bottom: 10px;
+                left: 10px;
+                background: rgba(0,0,0,0.8);
+                color: #0f0;
+                font-family: monospace;
+                padding: 10px;
+                font-size: 12px;
+                border-radius: 6px;
+                z-index: 999999;
+                line-height: 1.4;
             `;
             box.innerHTML = "⌛ Loading...";
             document.body.appendChild(box);
         }
 
         function updatePopup() {
-            const el = document.getElementById("popupMonitor");
-            if (!el) return;
-            el.innerHTML = `
+            const box = document.getElementById("popupMonitor");
+            if (!box) return;
+            box.innerHTML = `
 💰 Saldo: ${state.saldo.toLocaleString("id-ID")}
 📉 Size: ${state.bets.size.streakLose}x
 📉 Parity: ${state.bets.parity.streakLose}x
@@ -207,7 +217,7 @@
                                 lastLoggedSaldo = saldoBaru;
                                 state.saldo = saldoBaru;
                                 updatePopup();
-                                log("💰 Saldo:", saldoBaru);
+                                log("💰 Saldo:", saldoBaru.toLocaleString("id-ID", { minimumFractionDigits: 2 }));
                             }
                         }
                     }
@@ -217,36 +227,38 @@
 
         function loopMain() {
             const cd = document.getElementById("countdown");
-            const time = cd?.querySelector("p")?.textContent.trim();
-            const spinning = time === "Spinning";
+            if (!cd) return setTimeout(loopMain, 1000);
+            const countdownText = cd.querySelector("p")?.textContent.trim() || "";
 
-            if (protektorAktif && state.saldo < SALDO_RESET) {
+            if (!protektorAktif && state.saldo >= SALDO_PROTEK) {
+                protektorAktif = true;
+                log("🛡 Protektor AKTIF");
+            } else if (protektorAktif && state.saldo < SALDO_RESET) {
                 protektorAktif = false;
                 resetMartingale();
-                log("🛡 Protektor DINONAKTIFKAN");
-            } else if (!protektorAktif && state.saldo >= SALDO_PROTEK) {
-                protektorAktif = true;
-                log("🛡 Protektor DIAKTIFKAN");
+                log("🛡 Protektor NON-AKTIF & Reset Martingale");
             }
 
-            if (protektorAktif) return setTimeout(loopMain, 1000);
-
             const resultNow = getHistory()[0];
-            if (resultNow && resultNow !== state.lastPeriode) {
-                state.lastPeriode = resultNow;
+            if (resultNow && resultNow !== lastResult) {
+                lastResult = resultNow;
                 evaluateAll(resultNow);
                 analyzeNextBets();
                 updatePopup();
                 isBetting = false;
             }
 
-            if (!spinning && !isBetting) {
+            if (!isBetting && countdownText !== 'Spinning') {
                 isBetting = true;
                 analyzeNextBets();
                 ['size', 'parity', 'color'].forEach(placeBet);
-                placeDozenAndColumnIfNeeded();
-                klikConfirm();
-                updatePopup();
+                placeDozenAndColumnIfNeeded(() => {
+                    // Fallback confirm jika tidak ada dozen/column
+                    setTimeout(() => {
+                        const btn = document.getElementById("btnBetConfirm") || document.querySelector(".btnConfirm");
+                        if (btn) btn.click();
+                    }, 500);
+                });
             }
 
             setTimeout(loopMain, 1000);
