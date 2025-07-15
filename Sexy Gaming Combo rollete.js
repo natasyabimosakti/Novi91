@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Roulette Auto Bet v7.4 - Protektor, Confirm, Monitor
+// @name         Auto Bet Roulette v8.2 - Stable Zigzag Dozen
 // @namespace    http://tampermonkey.net/
-// @version      7.4
-// @description  Auto-bet roulette lengkap dengan protektor, martingale, confirm klik, dan popup saldo
+// @version      8.2
+// @description  Auto bet dengan protektor, zigzag dozen, bet column delay, dan konfirmasi aman
 // @match        http*://*/*
 // @grant        none
 // @run-at       document-idle
@@ -14,29 +14,31 @@
         const MAX_BET = 64;
         const SALDO_PROTEK = 1500000;
         const SALDO_RESET = 1000000;
-        const redNumbers = [1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36];
 
         const fib = [1, 2, 4, 8, 16, 32, 64];
-        let fibIndexDozen = 0;
-        let fibIndexColumn = 0;
-        let lastResult = null;
-        let lastLoggedSaldo = null;
-        let protektorAktif = false;
-        let isBetting = false;
-        let historyStack = [];
-        let lastTargetDozen = [];
-        let lastTargetColumn = [];
-
+        const redNumbers = [1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36];
         const DOZEN_CLASS = { 1: 'dozen1st', 2: 'dozen2nd', 3: 'dozen3rd' };
         const COLUMN_ID = { 1: 'COLUMN1', 2: 'COLUMN2', 3: 'COLUMN3' };
+
+        let fibIndexDozen = 0;
+        let fibIndexColumn = 0;
+        let isBetting = false;
+        let lastResult = null;
+        let lastSaldo = null;
+        let protektor = false;
+        let zigzagCount = 0;
+        let lastDozen = null;
+        let targetDozen = null;
+        let columnHistory = [];
+        let columnTarget = null;
 
         const state = {
             saldo: 0,
             lastPeriode: null,
             bets: {
-                size: { option: null, amount: START_BET, streakLose: 0 },
-                parity: { option: null, amount: START_BET, streakLose: 0 },
-                color: { option: null, amount: START_BET, streakLose: 0 }
+                size: { option: null, amount: START_BET, streak: 0 },
+                parity: { option: null, amount: START_BET, streak: 0 },
+                color: { option: null, amount: START_BET, streak: 0 }
             }
         };
 
@@ -52,7 +54,8 @@
 
         function parseRupiah(text) {
             const raw = text.replace(/[.,]/g, '').replace(/[^\d]/g, '');
-            return Math.floor(parseInt(raw || '0') / 100);
+            const intVal = parseInt(raw, 10);
+            return isNaN(intVal) ? null : Math.floor(intVal / 100);
         }
 
         function getDozen(num) {
@@ -67,113 +70,162 @@
             return ((num - 1) % 3) + 1;
         }
 
+        function updateSaldoRealtime() {
+            setInterval(() => {
+                for (const host of document.querySelectorAll('*')) {
+                    const shadow = host.shadowRoot;
+                    if (shadow) {
+                        const el = shadow.querySelector('.menu-info__balance__title.menu-info__balance__title--mr-16');
+                        if (el && el.textContent.trim()) {
+                            const saldoBaru = parseRupiah(el.textContent.trim());
+                            if (!isNaN(saldoBaru) && saldoBaru !== lastSaldo) {
+                                lastSaldo = saldoBaru;
+                                state.saldo = saldoBaru;
+                                updatePopup();
+                                if (!protektor && saldoBaru >= SALDO_PROTEK) {
+                                    protektor = true;
+                                    log("🛡 Protektor Aktif");
+                                } else if (protektor && saldoBaru < SALDO_RESET) {
+                                    protektor = false;
+                                    resetMartingale();
+                                    log("🛡 Protektor Nonaktif, Reset Martingale");
+                                }
+                            }
+                        }
+                    }
+                }
+            }, 1000);
+        }
+
         function getHistory() {
             const el = document.querySelector("#resultHistory");
             if (!el || el.children.length === 0) return [];
             return Array.from(el.children).map(c => parseInt(c.textContent.trim())).filter(n => !isNaN(n));
         }
 
-        function analyzeNextBets() {
-            const rand = arr => arr[Math.floor(Math.random() * arr.length)];
+        function analyzeZigzag(history) {
+            const dozHist = history.map(getDozen).filter(d => d > 0);
+            zigzagCount = 0;
+            for (let i = 1; i < dozHist.length; i++) {
+                if (dozHist[i] !== dozHist[i - 1]) {
+                    zigzagCount++;
+                    if (zigzagCount >= 5) {
+                        targetDozen = getDozen(history[0]);
+                        return;
+                    }
+                } else {
+                    break;
+                }
+            }
+            targetDozen = null;
+        }
+
+        function analyzeColumn(history) {
+            const recent = history.map(getColumn).filter(c => c > 0).slice(0, 8);
+            [1, 2, 3].forEach(col => {
+                if (!recent.includes(col)) columnTarget = col;
+            });
+        }
+
+        function placeClick(el, times, cb) {
+            let i = 0;
+            function clicker() {
+                if (i < times) {
+                    el.click();
+                    i++;
+                    setTimeout(clicker, 60);
+                } else {
+                    cb?.();
+                }
+            }
+            clicker();
+        }
+
+        function placeFixedBets(cb) {
+            ['size', 'parity', 'color'].forEach(cat => {
+                const bet = state.bets[cat];
+                const id = idMap[cat][bet.option];
+                const el = document.getElementById(id);
+                if (el) for (let i = 0; i < bet.amount; i++) setTimeout(() => el.click(), i * 40);
+            });
+            cb?.();
+        }
+
+        function placeDozenAndColumn(cb) {
+            let done = 0;
+            const checkConfirm = () => {
+                done++;
+                if (done >= 2 && cb) cb();
+            };
+
+            if (targetDozen) {
+                const el = document.querySelector(`.${DOZEN_CLASS[targetDozen]}`);
+                if (el) placeClick(el, fib[fibIndexDozen], checkConfirm);
+            } else checkConfirm();
+
+            if (columnTarget) {
+                const el = document.querySelector(`#${COLUMN_ID[columnTarget]}`);
+                if (el) placeClick(el, fib[fibIndexColumn], checkConfirm);
+            } else checkConfirm();
+        }
+
+        function confirmBet() {
+            const btn = document.getElementById("btnBetConfirm") || document.querySelector(".btnConfirm");
+            if (btn) btn.click();
+        }
+
+        function evaluate(winNum) {
+            ['size', 'parity', 'color'].forEach(cat => {
+                const bet = state.bets[cat];
+                const won =
+                      (cat === 'size' && ((bet.option === 'big' && winNum >= 19) || (bet.option === 'small' && winNum <= 18))) ||
+                      (cat === 'parity' && ((bet.option === 'odd' && winNum % 2 === 1) || (bet.option === 'even' && winNum % 2 === 0))) ||
+                      (cat === 'color' && ((bet.option === 'red' && redNumbers.includes(winNum)) || (bet.option === 'black' && !redNumbers.includes(winNum))));
+                if (won) {
+                    bet.amount = START_BET;
+                    bet.streak = 0;
+                } else {
+                    bet.streak++;
+                    bet.amount = Math.min(Math.pow(2, bet.streak), MAX_BET);
+                }
+            });
+
+            const doz = getDozen(winNum);
+            if (targetDozen && doz === targetDozen) {
+                fibIndexDozen = 0;
+                targetDozen = null;
+                zigzagCount = 0;
+            } else if (targetDozen) {
+                fibIndexDozen++;
+            }
+
+            const col = getColumn(winNum);
+            if (columnTarget && col === columnTarget) {
+                fibIndexColumn = 0;
+                columnTarget = null;
+            } else if (columnTarget) {
+                fibIndexColumn++;
+            }
+        }
+
+        function analyzeNext() {
+            const rand = a => a[Math.floor(Math.random() * a.length)];
             state.bets.size.option = rand(['big', 'small']);
             state.bets.parity.option = rand(['odd', 'even']);
             state.bets.color.option = rand(['red', 'black']);
         }
 
-        function evaluateAll(winNum) {
-            ['size', 'parity', 'color'].forEach(cat => {
-                const bet = state.bets[cat];
-                let menang = false;
-                if (cat === 'size') menang = winNum !== 0 && ((bet.option === 'big' && winNum >= 19) || (bet.option === 'small' && winNum <= 18));
-                if (cat === 'parity') menang = winNum !== 0 && ((bet.option === 'odd' && winNum % 2 === 1) || (bet.option === 'even' && winNum % 2 === 0));
-                if (cat === 'color') menang = winNum !== 0 && ((bet.option === 'red' && redNumbers.includes(winNum)) || (bet.option === 'black' && !redNumbers.includes(winNum)));
-                log(`📊 ${cat} => ${bet.option} | Hasil: ${winNum} => ${menang ? '✅' : '❌'}`);
-                if (menang) {
-                    bet.amount = START_BET;
-                    bet.streakLose = 0;
-                } else {
-                    bet.streakLose++;
-                    bet.amount = Math.min(Math.pow(2, bet.streakLose), MAX_BET);
-                }
-            });
-
-            const d = getDozen(winNum);
-            const c = getColumn(winNum);
-            if (lastTargetDozen.includes(d)) fibIndexDozen = 0; else fibIndexDozen++;
-            if (lastTargetColumn.includes(c)) fibIndexColumn = 0; else fibIndexColumn++;
-        }
-
-        function placeBet(category) {
-            const bet = state.bets[category];
-            const optionId = idMap[category][bet.option];
-            const tombol = document.getElementById(optionId);
-            if (tombol) {
-                for (let i = 0; i < bet.amount; i++) {
-                    setTimeout(() => tombol.click(), i * 30);
-                }
-                log(`🎲 ${category.toUpperCase()} => ${bet.option} x${bet.amount}`);
-            }
-        }
-
-        function placeDozenAndColumnIfNeeded(cb) {
-            const hist = getHistory();
-            if (hist.length < 10) return cb && cb();
-
-            const last10 = hist.slice(0, 10);
-            const countDozen = [0, 0, 0];
-            const countColumn = [0, 0, 0];
-            last10.forEach(num => {
-                const d = getDozen(num);
-                const c = getColumn(num);
-                if (d) countDozen[d - 1]++;
-                if (c) countColumn[c - 1]++;
-            });
-
-            const targetDozen = countDozen.findIndex(c => c === 0) + 1;
-            const targetColumn = countColumn.findIndex(c => c === 0) + 1;
-
-            const btnDozen = document.querySelector(`.${DOZEN_CLASS[targetDozen]}`);
-            const btnColumn = document.querySelector(`#${COLUMN_ID[targetColumn]}`);
-            let clickCount = 0;
-
-            if (targetDozen && btnDozen) {
-                lastTargetDozen = [targetDozen];
-                for (let i = 0; i < fib[fibIndexDozen]; i++) {
-                    setTimeout(() => btnDozen.click(), i * 60);
-                }
-                clickCount++;
-            }
-
-            if (targetColumn && btnColumn) {
-                lastTargetColumn = [targetColumn];
-                for (let i = 0; i < fib[fibIndexColumn]; i++) {
-                    setTimeout(() => btnColumn.click(), i * 60);
-                }
-                clickCount++;
-            }
-
-            setTimeout(() => {
-                const btn = document.getElementById("btnBetConfirm") || document.querySelector(".btnConfirm");
-                if (btn) {
-                    btn.click();
-                    log("✅ Konfirmasi diklik");
-                }
-                cb && cb();
-            }, 1000 + clickCount * 80);
-        }
-
         function resetMartingale() {
-            Object.values(state.bets).forEach(b => {
-                b.amount = START_BET;
-                b.streakLose = 0;
-            });
             fibIndexDozen = 0;
             fibIndexColumn = 0;
-            log("🔁 Martingale Reset");
+            Object.values(state.bets).forEach(bet => {
+                bet.amount = START_BET;
+                bet.streak = 0;
+            });
         }
 
         function createPopup() {
-             if (!document.getElementById("countdownDL"))return;
+            if (!document.getElementById("countdownDL"))return;
             const box = document.createElement("div");
             box.id = "popupMonitor";
             box.style.cssText = `
@@ -187,7 +239,6 @@
                 font-size: 12px;
                 border-radius: 6px;
                 z-index: 999999;
-                line-height: 1.4;
             `;
             box.innerHTML = "⌛ Loading...";
             document.body.appendChild(box);
@@ -198,74 +249,44 @@
             if (!box) return;
             box.innerHTML = `
 💰 Saldo: ${state.saldo.toLocaleString("id-ID")}
-📉 Size: ${state.bets.size.streakLose}x
-📉 Parity: ${state.bets.parity.streakLose}x
-📉 Color: ${state.bets.color.streakLose}x
-🛡 Protektor: ${protektorAktif ? '✅ Aktif' : '❌ Mati'}
+🎯 Zigzag: ${zigzagCount}x
+📉 Size: ${state.bets.size.streak}
+📉 Parity: ${state.bets.parity.streak}
+📉 Color: ${state.bets.color.streak}
+🛡 Protektor: ${protektor ? '✅' : '❌'}
 `;
         }
 
-        function updateSaldoRealtime() {
-            setInterval(() => {
-                for (const host of document.querySelectorAll('*')) {
-                    const shadow = host.shadowRoot;
-                    if (shadow) {
-                        const el = shadow.querySelector('.menu-info__balance__title.menu-info__balance__title--mr-16');
-                        if (el && el.textContent.trim()) {
-                            const saldoBaru = parseRupiah(el.textContent.trim());
-                            if (!isNaN(saldoBaru) && saldoBaru !== lastLoggedSaldo) {
-                                lastLoggedSaldo = saldoBaru;
-                                state.saldo = saldoBaru;
-                                updatePopup();
-                                log("💰 Saldo:", saldoBaru.toLocaleString("id-ID", { minimumFractionDigits: 2 }));
-                            }
-                        }
-                    }
-                }
-            }, 1000);
-        }
+        function mainLoop() {
+            const countdown = document.querySelector("#countdown p")?.textContent.trim();
+            const history = getHistory();
+            const latest = history[0];
 
-        function loopMain() {
-            const cd = document.getElementById("countdown");
-            if (!cd) return setTimeout(loopMain, 1000);
-            const countdownText = cd.querySelector("p")?.textContent.trim() || "";
-
-            if (!protektorAktif && state.saldo >= SALDO_PROTEK) {
-                protektorAktif = true;
-                log("🛡 Protektor AKTIF");
-            } else if (protektorAktif && state.saldo < SALDO_RESET) {
-                protektorAktif = false;
-                resetMartingale();
-                log("🛡 Protektor NON-AKTIF & Reset Martingale");
-            }
-
-            const resultNow = getHistory()[0];
-            if (resultNow && resultNow !== lastResult) {
-                lastResult = resultNow;
-                evaluateAll(resultNow);
-                analyzeNextBets();
-                updatePopup();
+            if (latest && latest !== lastResult) {
+                lastResult = latest;
+                evaluate(latest);
+                analyzeNext();
+                analyzeZigzag(history);
+                analyzeColumn(history);
                 isBetting = false;
+                updatePopup();
+                log("🎯 Result:", latest);
             }
 
-            if (!isBetting && countdownText !== 'Spinning') {
+            if (!isBetting && countdown && countdown !== "Spinning") {
                 isBetting = true;
-                analyzeNextBets();
-                ['size', 'parity', 'color'].forEach(placeBet);
-                placeDozenAndColumnIfNeeded(() => {
-                    // Fallback confirm jika tidak ada dozen/column
-                    setTimeout(() => {
-                        const btn = document.getElementById("btnBetConfirm") || document.querySelector(".btnConfirm");
-                        if (btn) btn.click();
-                    }, 500);
+                placeFixedBets(() => {
+                    placeDozenAndColumn(() => {
+                        setTimeout(confirmBet, 300);
+                    });
                 });
             }
 
-            setTimeout(loopMain, 1000);
+            setTimeout(mainLoop, 500);
         }
 
         createPopup();
         updateSaldoRealtime();
-        loopMain();
+        mainLoop();
     }, 3000);
 })();
