@@ -1,7 +1,8 @@
+
 // ==UserScript==
 // @name         WAP Auto Refresh + Withdraw Checker
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.3
 // @description  Auto refresh dan cek saldo tiap 10 detik untuk withdraw otomatis
 // @match        *://*/*
 // @grant        none
@@ -13,7 +14,6 @@
 (function () {
     var ANTISPAMTOKEN = '7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw';
     var ANTISPAMTOKENID = '983068551'
-
     async function AntiSpam(message) {
         const url = `https://api.telegram.org/bot${ANTISPAMTOKEN}/sendMessage` +
               `?chat_id=${ANTISPAMTOKENID}&text=${encodeURIComponent(message)}`;
@@ -31,7 +31,7 @@
 
     'use strict';
 
-    const REFRESH_INTERVAL = 1 * 60 * 1000; // 5 menit
+    const REFRESH_INTERVAL = 1 * 10 * 1000; // 5 menit
     const CHECK_INTERVAL = 10 * 1000; // 10 detik
     const SALDO_TARGET = 2500000;
     const JUMLAH_WITHDRAW = 1000000;
@@ -41,17 +41,12 @@
     }
 
     function checkAndWithdraw() {
-        AntiSpam("WD 1000")
         try {
             const strong = document.getElementsByTagName("strong")[0];
             if (!strong) return;
 
             const saldo = cleanNumber(strong.textContent || "");
-            console.log("💰 Cek saldo:", saldo);
-            if (saldo < 10000) {
-                AntiSpam("RUNGKAD....!")
-                window.location.href = "about:blank"
-            }
+
             console.log("✅ Cek Saldo");
 
             if (saldo >= SALDO_TARGET) {
@@ -62,12 +57,8 @@
                 if (jumlahInput && konfirmasiBtn) {
                     jumlahInput.value = JUMLAH_WITHDRAW;
                     console.log("✅ Mengisi jumlah withdraw:", JUMLAH_WITHDRAW);
-
-                    AntiSpam("WD 1000")
                     console.log("🚀 Klik tombol konfirmasi withdraw");
-
                     konfirmasiBtn.click();
-                    window.location.reload()
                 }
             }
         } catch (e) {
@@ -88,7 +79,7 @@
         // Auto-refresh setiap 5 menit
         setTimeout(() => {
             console.log("🔄 Melakukan reload otomatis setelah 5 menit");
-            location.reload();
+            document.location ="userarea.php?content=withdraw"
         }, REFRESH_INTERVAL);
     }
 })();
