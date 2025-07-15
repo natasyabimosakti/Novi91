@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti1
 // @namespace    http://tampermonkey.net/
-// @version      3.93
+// @version      3.94
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti1.js
@@ -17,8 +17,8 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'MONTIR';
-var Comment1 = '#MONTIRTOTO (AMAR25) = 56*38';
+var namagroup1 = 'MELATI';
+var Comment1 = '*MELATI188 (AMAR25) : 56*38 *BETTING';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( AMAR27 ) : 59*01*11';
 var namagroup3 = 'WARUNG';
@@ -35,8 +35,8 @@ var namagroup8 = 'ALLPAS';
 var Comment8 = 'Tok99Toto ( AMIR22 ) : 48*18*72';
 var namagroup9 = 'TAFSIR MIMPI';
 var Comment9 = 'SIJITOGEL AOMA123 46*91*61';
-var namagroup10 = 'KAGET';
-var Comment10 = 'DAGELAN4D(AMARUT14) : 69*43*93';
+var namagroup10 = 'UDANG';
+var Comment10 = 'UDANGBET ( AMARUT14 ) = 69*43*93';
 var namagroup11 = 'MAYAPADA';
 var Comment11 = 'BETT*Mayapada4D(BO)*AOECK62*74*62*57';
 var namagroup12 = 'OPUNG';
@@ -64,7 +64,7 @@ var Comment18 = 'asek';
 var SCRIPT_NAME = Comment17
 var refresh = 40;
 var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Baru.json"
-var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo","l0mb4","lomb4","l0mba","𝗥𝟬𝟬𝗠","𝗟𝟬𝗠𝗕𝗔","𝘙𝘖𝘖𝘔","hatori"]
+var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo","l0mb4","lomb4","l0mba","𝗥𝟬𝟬𝗠","𝗟𝟬𝗠𝗕𝗔","𝘙𝘖𝘖𝘔","hatori","klikh4tori001"]
 var Backlist =["pemenang lomba","rekap","natidulu","room lomba freebet","prediksi","result","juara lomba","r3k4p","r3kap","rek4p","undang" ]
 var isCommenting = false;
 var EXPIRATION_MS = 8 * 60 * 1000; // 5 minutes
