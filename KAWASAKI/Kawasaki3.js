@@ -17,38 +17,38 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'MONTIR';
-var Comment1 = '#MONTIRTOTO (aster22) = 39*81';
+var namagroup1 = 'MELATI';
+var Comment1 = '*MELATI188 (ASTER22) : 39*81 *BETTING';
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( bugenvil ) : 88*83*24';
+var Comment2 = 'K86TOTO ( BUGENVIL ) : 88*83*24';
 var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = (melati67) 26*47*56';
+var Comment3 = '#(WARUNGTOTO) = (MELATI67) 26*47*56';
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO kenanga = 36*28*71';
+var Comment4 = '#RIATOTO KENANGA = 36*28*71';
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (kantil*97*38*53)';
+var Comment5 = '#PEDRO4D (KANTIL*97*38*53)';
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (anyelir55) = 01*60*33';
+var Comment6 = '#DIVA4D (ANYELIR55) = 01*60*33';
 var namagroup7 = 'TREX';
-var Comment7 = '#HATORIBET*cocorbebek*82*03*70';
+var Comment7 = '#HATORIBET*COCORBEBEK*82*03*70';
 var namagroup8 = 'ALLPAS';
-var Comment8 = 'Tok99Toto ( lily64 ) : 23*18*14';
+var Comment8 = 'Tok99Toto ( LILY64 ) : 23*18*14';
 var namagroup9 = 'TAFSIR MIMPI';
-var Comment9 = 'SIJITOGEL mawarhitam 19*00*05';
-var namagroup10 = 'KAGET';
-var Comment10 = 'DAGELAN4D(kamboja81) : 25*46*72';
+var Comment9 = 'SIJITOGEL MAWARHITAM 19*00*05';
+var namagroup10 = 'UDANG';
+var Comment10 = 'UDANGBET ( KAMBOJA81 ) = 25*46*72';
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*tulip*51*49*13';
+var Comment11 = 'BETT*Mayapada4D(BO)*TULIP*51*49*13';
 var namagroup12 = 'OPUNG';
-var Comment12 = 'OPUNG4D ( sakura ) : 93*99*54';
+var Comment12 = 'OPUNG4D ( SAKURA ) : 93*99*54';
 var namagroup13 = 'UPIN';
-var Comment13 = '#UPINSLOT ( kaktus) 63*73*41 BETTING';
+var Comment13 = '#UPINSLOT ( KAKTUS) 63*73*41 BETTING';
 var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D (eforbia) = 86*07';
+var Comment14 = '#BLITAR4D (EFORBIA) = 86*07';
 var namagroup15 = 'Hoho';
-var Comment15 = 'teratai : 98*64*12 #HOHOTOGEL';
+var Comment15 = 'TERATAI : 98*64*12 #HOHOTOGEL';
 var namagroup16 = 'GTO';
-var Comment16 = '(GUDANGTOTO) = (rosela) 15*90*44';
+var Comment16 = '(GUDANGTOTO) = (ROSELA) 15*90*44';
 
 //Batas
 
