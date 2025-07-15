@@ -17,38 +17,38 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'MONTIR';
-var Comment1 = '#MONTIRTOTO () = 91*95';
+var namagroup1 = 'MELATI';
+var Comment1 = '*MELATI188 (CENGCENG) : 91*95 *BETTING';
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( ciwis ) : 68*62*77';
+var Comment2 = 'K86TOTO ( CIWIS ) : 68*62*77';
 var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = (cangcut) 58*69*84';
+var Comment3 = '#(WARUNGTOTO) = (CANGCUT) 58*69*84';
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO cucok = 20*48*22';
+var Comment4 = '#RIATOTO CUCOK = 20*48*22';
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (cekcok*57*10*42)';
+var Comment5 = '#PEDRO4D (CEKCOK*57*10*42)';
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (congek) = 32*79*31';
+var Comment6 = '#DIVA4D (CONGEK) = 32*79*31';
 var namagroup7 = 'TREX';
-var Comment7 = '#HATORIBET**17*76*78';
+var Comment7 = '#HATORIBET*COMBROT*17*76*78';
 var namagroup8 = 'ALLPAS';
-var Comment8 = 'Tok99Toto ( cucok ) : 27*09*87';
+var Comment8 = 'Tok99Toto ( CUCOK ) : 27*09*87';
 var namagroup9 = 'TAFSIR MIMPI';
-var Comment9 = 'SIJITOGEL cebokin 75*65*30';
-var namagroup10 = 'KAGET';
-var Comment10 = 'DAGELAN4D(cozy15) : 50*89*04';
+var Comment9 = 'SIJITOGEL CEBOKIN 75*65*30';
+var namagroup10 = 'UDANG';
+var Comment10 = 'UDANGBET ( COZY15 ) = 50*89*04';
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*combro*45*29*94';
+var Comment11 = 'BETT*Mayapada4D(BO)*COMBRO*45*29*94';
 var namagroup12 = 'OPUNG';
-var Comment12 = 'OPUNG4D ( curcuma ) : 40*61*21';
+var Comment12 = 'OPUNG4D ( CURCUMA ) : 40*61*21';
 var namagroup13 = 'UPIN';
-var Comment13 = '#UPINSLOT ( ) 35*59*02 BETTING';
+var Comment13 = '#UPINSLOT ( CIPOKDULU) 35*59*02 BETTING';
 var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D (cuek44) = 92*34';
+var Comment14 = '#BLITAR4D (CUEK44) = 92*34';
 var namagroup15 = 'Hoho';
-var Comment15 = 'ceko : 67*80*74 #HOHOTOGEL';
+var Comment15 = 'CEKO11 : 67*80*74 #HOHOTOGEL';
 var namagroup16 = 'GTO';
-var Comment16 = '(GUDANGTOTO) = (cuka) 37*96*08';
+var Comment16 = '(GUDANGTOTO) = (CUKA) 37*96*08';
 
 //Batas
 
