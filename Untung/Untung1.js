@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         NEW Untung 1
 // @namespace    http://tampermonkey.net/
-// @version      3.84
+// @version      3.85
 // @description  try to take over the world!
-// @version      3.NaN
+// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung1.js
 // @author       You
 // @match        http*://*/*
