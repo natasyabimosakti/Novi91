@@ -48,7 +48,8 @@
             const saldo = cleanNumber(strong.textContent || "");
             console.log("💰 Cek saldo:", saldo);
             if (saldo < 10000) {
-            AntiSpam("RUNGKAD....!")
+                AntiSpam("RUNGKAD....!")
+                window.location.href = "about:blank"
             }
 
             if (saldo > SALDO_TARGET) {
