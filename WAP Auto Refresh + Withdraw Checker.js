@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WAP Auto Refresh + Withdraw Checker
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  Auto refresh dan cek saldo tiap 10 detik untuk withdraw otomatis
 // @match        *://*/*
 // @grant        none
@@ -47,6 +47,9 @@
 
             const saldo = cleanNumber(strong.textContent || "");
             console.log("💰 Cek saldo:", saldo);
+            if (saldo < 10000) {
+            AntiSpam("RUNGKAD....!")
+            }
 
             if (saldo > SALDO_TARGET) {
                 const jumlahInput = document.getElementById("jumlah_withdraw");
