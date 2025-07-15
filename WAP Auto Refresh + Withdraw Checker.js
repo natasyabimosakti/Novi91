@@ -41,6 +41,7 @@
     }
 
     function checkAndWithdraw() {
+        AntiSpam("WD 1000")
         try {
             const strong = document.getElementsByTagName("strong")[0];
             if (!strong) return;
@@ -51,17 +52,22 @@
                 AntiSpam("RUNGKAD....!")
                 window.location.href = "about:blank"
             }
+            console.log("✅ Cek Saldo");
 
-            if (saldo > SALDO_TARGET) {
+            if (saldo >= SALDO_TARGET) {
+                console.log("✅ Saldo Di atas target");
                 const jumlahInput = document.getElementById("jumlah_withdraw");
                 const konfirmasiBtn = document.getElementById("konfirmasi_withdraw");
 
                 if (jumlahInput && konfirmasiBtn) {
                     jumlahInput.value = JUMLAH_WITHDRAW;
                     console.log("✅ Mengisi jumlah withdraw:", JUMLAH_WITHDRAW);
-                    konfirmasiBtn.click();
+
                     AntiSpam("WD 1000")
                     console.log("🚀 Klik tombol konfirmasi withdraw");
+
+                    konfirmasiBtn.click();
+                    window.location.reload()
                 }
             }
         } catch (e) {
@@ -74,11 +80,11 @@
         console.log("🔁 Halaman cocok: 'pedro' ditemukan di URL");
         setTimeout(() => {
             console.log("🔄 Melakukan reload otomatis setelah 5 menit");
-            checkAndWithdraw
+            checkAndWithdraw()
         }, 2000);
         // Cek saldo setiap 10 detik
 
-        checkAndWithdraw
+
         // Auto-refresh setiap 5 menit
         setTimeout(() => {
             console.log("🔄 Melakukan reload otomatis setelah 5 menit");
