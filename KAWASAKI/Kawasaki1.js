@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawasaki 1
 // @namespace    http://tampermonkey.net/
-// @version      3.13
+// @version      3.14
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/KAWASAKI/Kawasaki1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/KAWASAKI/Kawasaki1.js
@@ -17,38 +17,38 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'MONTIR';
-var Comment1 = '#MONTIRTOTO (dadar13) = 35*59';
+var namagroup1 = 'MELATI';
+var Comment1 = '*MELATI188 (DADAR13) : 35*59 *BETTING';
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( dugemxx ) : 92*34*16';
+var Comment2 = 'K86TOTO ( DUGEMXX ) : 92*34*16';
 var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = (domba) 96*08*85';
+var Comment3 = '#(WARUNGTOTO) = (DOMBA) 96*08*85';
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO dragonball = 75*65*30';
+var Comment4 = '#RIATOTO DRAGONBALL = 75*65*30';
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (drumband*50*89*04)';
+var Comment5 = '#PEDRO4D (DRUMBAND*50*89*04)';
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (dumdumdum) = 37*45*29';
+var Comment6 = '#DIVA4D (DUMDUMDUM) = 37*45*29';
 var namagroup7 = 'TREX';
-var Comment7 = '#HATORIBET*depodulu*40*61*21';
+var Comment7 = '#HATORIBET*DEPODULU*40*61*21';
 var namagroup8 = 'ALLPAS';
-var Comment8 = 'Tok99Toto ( dinarcandy ) : 67*80*74';
+var Comment8 = 'Tok99Toto ( DINARCANDY ) : 67*80*74';
 var namagroup9 = 'TAFSIR MIMPI';
-var Comment9 = 'SIJITOGEL delay 20*48*22';
-var namagroup10 = 'KAGET';
-var Comment10 = 'DAGELAN4D(detol66) : 57*10*42';
+var Comment9 = 'SIJITOGEL DELAY 20*48*22';
+var namagroup10 = 'UDANG';
+var Comment10 = 'UDANGBET ( DETOL66 ) = 57*10*42';
 var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*dewadewi*79*31*11';
+var Comment11 = 'BETT*Mayapada4D(BO)*DEWADEWI*79*31*11';
 var namagroup12 = 'OPUNG';
-var Comment12 = 'OPUNG4D ( doremi ) : 17*76*78';
+var Comment12 = 'OPUNG4D ( DOREMI ) : 17*76*78';
 var namagroup13 = 'UPIN';
-var Comment13 = '#UPINSLOT ( doggydog) 95*91*52 BETTING';
+var Comment13 = '#UPINSLOT ( DOGGYDOG) 95*91*52 BETTING';
 var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D (draco) = 68*62';
+var Comment14 = '#BLITAR4D (DRACO) = 68*62';
 var namagroup15 = 'Hoho';
-var Comment15 = ' : 27*09*87 #HOHOTOGEL';
+var Comment15 = 'DOMINO : 27*09*87 #HOHOTOGEL';
 var namagroup16 = 'GTO';
-var Comment16 = '(GUDANGTOTO) = (dewadewi) 32*58*69';
+var Comment16 = '(GUDANGTOTO) = (DEWADEWI) 32*58*69';
 
 //Batas
 
@@ -62,7 +62,7 @@ var Comment18 = 'asek';
 var SCRIPT_NAME = Comment17
 var refresh = 40;
 var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Baru.json"
-var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo","l0mb4","lomb4","l0mba","𝗥𝟬𝟬𝗠","𝗟𝟬𝗠𝗕𝗔","𝘙𝘖𝘖𝘔","hatori"]
+var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo","l0mb4","lomb4","l0mba","𝗥𝟬𝟬𝗠","𝗟𝟬𝗠𝗕𝗔","𝘙𝘖𝘖𝘔","hatori","klikh4tori001"]
 var Backlist =["pemenang lomba","rekap","natidulu","room lomba freebet","prediksi","result","juara lomba","r3k4p","r3kap","rek4p","undang" ]
 var isCommenting = false;
 var EXPIRATION_MS = 8 * 60 * 1000; // 5 minutes
