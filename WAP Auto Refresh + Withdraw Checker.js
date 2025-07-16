@@ -13,21 +13,30 @@
 
 (function () {
     var ANTISPAMTOKEN = '7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw';
-    var ANTISPAMTOKENID = '983068551'
-    async function AntiSpam(message) {
-        const url = `https://api.telegram.org/bot${ANTISPAMTOKEN}/sendMessage` +
-              `?chat_id=${ANTISPAMTOKENID}&text=${encodeURIComponent(message)}`;
+var ANTISPAMTOKENID = '983068551';
 
-        GM_xmlhttpRequest({
-            method: "GET",
-            url: url,
-            onload: function (res) {
-            },
-            onerror: function (err) {
-                console.error("❌ Gagal kirim ke Telegram:", err);
-            }
-        });
-    }
+function AntiSpam(message) {
+    const url = `https://api.telegram.org/bot7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw/sendMessage`;
+
+    GM_xmlhttpRequest({
+        method: "POST",
+        url: url,
+        headers: {
+            "Content-Type": "application/json"
+        },
+        data: JSON.stringify({
+            chat_id: 983068551,
+            text: message
+        }),
+        onload: function (res) {
+            console.log("✅ Telegram response:", res.responseText);
+        },
+        onerror: function (err) {
+            console.error("❌ Error kirim ke Telegram:", err);
+        }
+    });
+}
+
 
     'use strict';
 
@@ -59,6 +68,7 @@
                     console.log("✅ Mengisi jumlah withdraw:", JUMLAH_WITHDRAW);
                     console.log("🚀 Klik tombol konfirmasi withdraw");
                     konfirmasiBtn.click();
+                    AntiSpam("WD")
                 }
             }
         } catch (e) {
