@@ -9,7 +9,9 @@
 // ==/UserScript==
 
 (function () {
+    var saldo_tertinggi = 0
     setTimeout(() => {
+
         const START_BET = 1;
         const MAX_BET = 64;
         const SALDO_PROTEK = 1500000;
@@ -181,6 +183,7 @@
             state.bets.color.option = redNumbers.includes(last) ? 'red' : 'black';
         }
 
+
         async function loopMain() {
             const el = document.querySelector("#countdown p");
             if (!el) return setTimeout(loopMain, 1000);
@@ -206,7 +209,17 @@
                 updatePopup();
                 isEvaluated = true;
             }
-
+            if(saldo_tertinggi > state.saldo) {
+                Object.values(state.bets).forEach(bet => {
+                    bet.amount = START_BET;
+                    bet.streakLose = 0;
+                });
+                fibIndexDozen = 0;
+                fibIndexColumn = 0;
+                targetDozen = null;
+                console.log("🛡 Protektor RESET semua taruhan.");
+                saldo_tertinggi = state.saldo
+            }
             if (!protektorAktif && state.saldo >= SALDO_PROTEK) protektorAktif = true;
             if (protektorAktif && state.saldo < SALDO_RESET) {
                 protektorAktif = false;
