@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Auto Bet Roulette v8.2 - Stable Zigzag Dozen
+// @name         Auto Bet Roulette v8.2.3 - Stable Zigzag + Column + Protektor Martingale
 // @namespace    http://tampermonkey.net/
-// @version      8.2
-// @description  Auto bet dengan protektor, zigzag dozen, bet column delay, dan konfirmasi aman
+// @version      8.2.3
+// @description  ✅ Martingale semua kategori (size, parity, color, dozen, column) ✅ Reset jika menang ✅ Dozen mengikuti result terbaru saat zigzag ≥ 5 ✅ Column hanya bet jika tidak muncul 8x terakhir ✅ Protektor aktif jika saldo ≥ 1.5jt dan reset jika turun < 1jt ✅ Tetap bet jika result sama atau 0 ✅ Cegah klik berulang/error + confirm bet setelah semua selesai
 // @match        http*://*/*
 // @grant        none
 // @run-at       document-idle
@@ -23,18 +23,16 @@
         let fibIndexDozen = 0;
         let fibIndexColumn = 0;
         let isBetting = false;
+        let isPlacing = false;
         let lastResult = null;
         let lastSaldo = null;
         let protektor = false;
         let zigzagCount = 0;
-        let lastDozen = null;
         let targetDozen = null;
-        let columnHistory = [];
         let columnTarget = null;
 
         const state = {
             saldo: 0,
-            lastPeriode: null,
             bets: {
                 size: { option: null, amount: START_BET, streak: 0 },
                 parity: { option: null, amount: START_BET, streak: 0 },
@@ -122,12 +120,19 @@
 
         function analyzeColumn(history) {
             const recent = history.map(getColumn).filter(c => c > 0).slice(0, 8);
+            columnTarget = null;
             [1, 2, 3].forEach(col => {
-                if (!recent.includes(col)) columnTarget = col;
+                const count = recent.filter(c => c === col).length;
+                if (count === 0) columnTarget = col;
             });
         }
 
         function placeClick(el, times, cb) {
+            if (!el || el.disabled) {
+                log("⚠️ Element tidak ditemukan atau nonaktif");
+                cb?.();
+                return;
+            }
             let i = 0;
             function clicker() {
                 if (i < times) {
@@ -142,36 +147,49 @@
         }
 
         function placeFixedBets(cb) {
+            let done = 0;
+            const next = () => { done++; if (done === 3) cb?.(); };
             ['size', 'parity', 'color'].forEach(cat => {
                 const bet = state.bets[cat];
                 const id = idMap[cat][bet.option];
                 const el = document.getElementById(id);
-                if (el) for (let i = 0; i < bet.amount; i++) setTimeout(() => el.click(), i * 40);
+                if (el && !el.disabled) {
+                    for (let i = 0; i < bet.amount; i++) {
+                        setTimeout(() => {
+                            if (el && !el.disabled) el.click();
+                            if (i === bet.amount - 1) next();
+                        }, i * 40);
+                    }
+                } else {
+                    log(`⚠️ ${id} tidak ditemukan atau nonaktif`);
+                    next();
+                }
             });
-            cb?.();
         }
 
         function placeDozenAndColumn(cb) {
             let done = 0;
-            const checkConfirm = () => {
-                done++;
-                if (done >= 2 && cb) cb();
-            };
+            const checkConfirm = () => { done++; if (done >= 2) cb?.(); };
 
             if (targetDozen) {
                 const el = document.querySelector(`.${DOZEN_CLASS[targetDozen]}`);
-                if (el) placeClick(el, fib[fibIndexDozen], checkConfirm);
+                placeClick(el, fib[fibIndexDozen], checkConfirm);
             } else checkConfirm();
 
             if (columnTarget) {
                 const el = document.querySelector(`#${COLUMN_ID[columnTarget]}`);
-                if (el) placeClick(el, fib[fibIndexColumn], checkConfirm);
+                placeClick(el, fib[fibIndexColumn], checkConfirm);
             } else checkConfirm();
         }
 
         function confirmBet() {
             const btn = document.getElementById("btnBetConfirm") || document.querySelector(".btnConfirm");
-            if (btn) btn.click();
+            if (btn && !btn.disabled) {
+                btn.click();
+                log("✅ Konfirmasi diklik");
+            } else {
+                log("⚠️ Tombol konfirmasi tidak ditemukan / nonaktif");
+            }
         }
 
         function evaluate(winNum) {
@@ -191,12 +209,15 @@
             });
 
             const doz = getDozen(winNum);
-            if (targetDozen && doz === targetDozen) {
-                fibIndexDozen = 0;
-                targetDozen = null;
-                zigzagCount = 0;
-            } else if (targetDozen) {
-                fibIndexDozen++;
+            if (targetDozen) {
+                if (doz === targetDozen) {
+                    fibIndexDozen = 0;
+                    targetDozen = null;
+                    zigzagCount = 0;
+                } else {
+                    fibIndexDozen++;
+                    if (zigzagCount >= 5) targetDozen = doz;
+                }
             }
 
             const col = getColumn(winNum);
@@ -225,7 +246,7 @@
         }
 
         function createPopup() {
-            if (!document.getElementById("countdownDL"))return;
+            if (!document.getElementById("countdownDL")) return;
             const box = document.createElement("div");
             box.id = "popupMonitor";
             box.style.cssText = `
@@ -262,22 +283,29 @@
             const history = getHistory();
             const latest = history[0];
 
-            if (latest && latest !== lastResult) {
-                lastResult = latest;
-                evaluate(latest);
-                analyzeNext();
-                analyzeZigzag(history);
-                analyzeColumn(history);
-                isBetting = false;
-                updatePopup();
-                log("🎯 Result:", latest);
+            if (typeof latest === 'number') {
+                if (latest !== lastResult || latest === 0) {
+                    lastResult = latest;
+                    evaluate(latest);
+                    analyzeNext();
+                    analyzeZigzag(history);
+                    analyzeColumn(history);
+                    isBetting = false;
+                    isPlacing = false;
+                    updatePopup();
+                    log("🎯 Result:", latest);
+                }
             }
 
-            if (!isBetting && countdown && countdown !== "Spinning") {
+            if (!isBetting && !isPlacing && countdown && countdown !== "Spinning") {
                 isBetting = true;
+                isPlacing = true;
                 placeFixedBets(() => {
                     placeDozenAndColumn(() => {
-                        setTimeout(confirmBet, 300);
+                        setTimeout(() => {
+                            confirmBet();
+                            isPlacing = false;
+                        }, 300);
                     });
                 });
             }
