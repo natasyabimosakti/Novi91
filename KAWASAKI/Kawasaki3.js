@@ -46,7 +46,7 @@ var Comment13 = '#UPINSLOT ( KAKTUS) 63*73*41 BETTING';
 var namagroup14 = 'BLITAR';
 var Comment14 = '#BLITAR4D (EFORBIA) = 86*07';
 var namagroup15 = 'Hoho';
-var Comment15 = 'TERATAI : 98*64*12 #HOHOTOGEL';
+var Comment15 = 'TETATAI : 98*64*12 #HOHOTOGEL';
 var namagroup16 = 'GTO';
 var Comment16 = '(GUDANGTOTO) = (ROSELA) 15*90*44';
 
