@@ -30,7 +30,7 @@ var Comment5 = '#PEDRO4D (PIATOS*25*46*72)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (POTATO) = 15*51*49';
 var namagroup7 = 'TREX';
-var Comment7 = '#HATORIBET*MONDE*93*99*54';
+var Comment7 = '#HATORIBET*MONDE10*93*99*54';
 var namagroup8 = 'ALLPAS';
 var Comment8 = 'Tok99Toto ( CHOCOPIE ) : 98*64*12';
 var namagroup9 = 'TAFSIR MIMPI';
