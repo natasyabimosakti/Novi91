@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti2
 // @namespace    http://tampermonkey.net/
-// @version      3.95
+// @version      3.96
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti2.js
@@ -56,6 +56,7 @@ var Comment17 = 'Baru Piti 2';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
+
 
 
 
@@ -299,7 +300,7 @@ async function manageGroups() {
 let sedangKlikTextbox = false;
 function CekBacklist(postinganBL) {
     for (const DataBacklist of Backlist) {
-        const kata = normalizeToBasicLatin(DataBacklist.toLowerCase())
+        const kata = DataBacklist.toLowerCase()
         if (postinganBL.toLowerCase().includes(kata)) {
             console.log(`❌ Diblok karena mengandung: "${kata}"`);
             return true;
@@ -311,7 +312,7 @@ function CekBacklist(postinganBL) {
 function CekKeyword(postingan) {
     console.log("🔍 CekKeyword untuk:", postingan);
     for (const DataKeyword of keyword) {
-        const kata = normalizeToBasicLatin(DataKeyword.toLowerCase())
+        const kata = DataKeyword.toLowerCase()
         if (postingan.toLowerCase().includes(kata)) {
             console.log(`✅ Keyword ditemukan: "${kata}"`);
             return true;
@@ -735,5 +736,3 @@ function Random(comment) {
 
     return result;
 }
-
-
