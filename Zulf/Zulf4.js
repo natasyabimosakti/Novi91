@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF4
 // @namespace    http://tampermonkey.net/
-// @version      3.66
+// @version      3.67
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf4.js
@@ -58,9 +58,12 @@ var Comment17 = '#KIKOTOTO (MINARVESTO98) = 87*42';
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'Zulf4';
 
+
+
+var SCRIPT_NAME = Comment18
 var refresh = 40;
 var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Lama.json"
-var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo","l0mb4","lomb4","l0mba","𝗥𝟬𝟬𝗠","𝗟𝟬𝗠𝗕𝗔","𝘙𝘖𝘖𝘔"]
+var keyword = ["ROOM","𝗥𝗢𝗢𝗠","LOMBA","𝗟𝗢𝗠𝗕𝗔","𝐋𝐎𝐌𝐁𝐀","LIMBA","ROM","R00M","login","𝐑𝐎𝐎𝐌","HONGKONG","SINGAPUR","nemo","l0mb4","lomb4","l0mba","𝗥𝟬𝟬𝗠","𝗟𝟬𝗠𝗕𝗔","𝘙𝘖𝘖𝘔","hatori","klikh4tori001"]
 var Backlist =["pemenang lomba","rekap","natidulu","room lomba freebet","prediksi","result","juara lomba","r3k4p","r3kap","rek4p","undang" ]
 var isCommenting = false;
 var EXPIRATION_MS = 8 * 60 * 1000; // 5 minutes
@@ -297,7 +300,7 @@ async function manageGroups() {
 let sedangKlikTextbox = false;
 function CekBacklist(postinganBL) {
     for (const DataBacklist of Backlist) {
-        const kata = normalizeToBasicLatin(DataBacklist.toLowerCase())
+        const kata = DataBacklist.toLowerCase()
         if (postinganBL.toLowerCase().includes(kata)) {
             console.log(`❌ Diblok karena mengandung: "${kata}"`);
             return true;
@@ -309,7 +312,7 @@ function CekBacklist(postinganBL) {
 function CekKeyword(postingan) {
     console.log("🔍 CekKeyword untuk:", postingan);
     for (const DataKeyword of keyword) {
-        const kata = normalizeToBasicLatin(DataKeyword.toLowerCase())
+        const kata = DataKeyword.toLowerCase()
         if (postingan.toLowerCase().includes(kata)) {
             console.log(`✅ Keyword ditemukan: "${kata}"`);
             return true;
@@ -533,7 +536,7 @@ function startAutoTask() {
     }, 10000);
 }
 
-var SCRIPT_NAME = Comment18
+
 var TELEGRAM_TOKEN = '7479985104:AAF-ISIxbf18g_mOasLoubBwBKgkfSFzzAw'; // GANTI
 var TELEGRAM_CHAT_ID = '-1002717306025'; // GANTI
 
@@ -686,18 +689,27 @@ function normalizeToBasicLatin(str) {
 }
 
 function Random(comment) {
-    // Tangkap semua angka 2 digit yang dipisahkan oleh *
-    const match = [...comment.matchAll(/\*(\d{2})(?=\*|$)/g)];
-    if (!match || match.length < 2) return comment;
+    const numberRegex = /\d{2}/g;
+    const rawNumbers = [...comment.matchAll(numberRegex)];
 
-    const lastCount = Math.min(3, match.length);
-    const lastMatches = match.slice(-lastCount); // Ambil 2–3 angka terakhir
+    // Saring hanya angka yang tidak melekat dengan huruf di kiri atau kanan
+    const validNumbers = rawNumbers.filter(match => {
+        const i = match.index;
+        const before = comment[i - 1] || '';
+        const after = comment[i + 2] || '';
+        return !(/[a-z0-9]/i.test(before)) && !(/[a-z]/i.test(after));
+    });
 
-    const angka = lastMatches.map(m => m[1]);
+    if (validNumbers.length < 2) return comment;
+
+    const lastCount = Math.min(3, validNumbers.length);
+    const lastNums = validNumbers.slice(-lastCount);
     const separators = [];
     for (let i = 0; i < lastCount - 1; i++) {
-        separators.push(comment.slice(lastMatches[i].index + 3, lastMatches[i + 1].index));
+        separators.push(comment.slice(lastNums[i].index + 2, lastNums[i + 1].index));
     }
+
+    const angka = lastNums.map(x => x[0]);
 
     function shuffleArray(arr) {
         const copy = [...arr];
@@ -708,26 +720,19 @@ function Random(comment) {
         return copy;
     }
 
-    let rotated;
-    if (lastCount === 2) {
-        rotated = [angka[1], angka[0]];
-    } else {
-        rotated = shuffleArray(angka);
-    }
+    const rotated = lastCount === 2
+        ? [angka[1], angka[0]]
+        : shuffleArray(angka);
 
-    // Bangun ulang comment
-    const start = comment.slice(0, lastMatches[0].index + 1);
-    const end = comment.slice(lastMatches[lastCount - 1].index + 3);
+    const start = comment.slice(0, lastNums[0].index);
+    const end = comment.slice(lastNums[lastCount - 1].index + 2);
+
     let result = start;
     for (let i = 0; i < lastCount; i++) {
         result += rotated[i];
-        if (i < lastCount - 1) {
-            result += separators[i];
-        }
-        if (i < lastCount - 1 || end.startsWith('*')) {
-            result += '*';
-        }
+        if (i < lastCount - 1) result += separators[i];
     }
     result += end;
+
     return result;
 }
