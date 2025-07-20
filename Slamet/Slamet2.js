@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Slamet 2
 // @namespace    http://tampermonkey.net/
-// @version      3.69
+// @version      3.70
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet2.js
@@ -17,24 +17,24 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'shio';
-var Comment1 = '#shiokelinci4d*BODAS05*70*54';
+var namagroup1 = 'ALLPAS';
+var Comment1 = 'Tok99Toto ( BODAS05 ) : 70*54';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO BIMBANG 56*58*49';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / BUNTEL / 18 , 52 , 36';
-var namagroup4 = 'G41B';
-var Comment4 = 'GAIB4D=BERONDONG1=00*20*30';
+var namagroup4 = 'TAFSIR MIMPI';
+var Comment4 = 'SIJITOGEL BERONDONG1 00*20*30';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (BROWNIS) = 94*43*12';
 var namagroup6 = 'PAPUAT0T0';
 var Comment6 = '#PAPUATOTO=(BULEIRENG)=40-92';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL BUMBUKU 11*45*66';
-var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=BORNEOCF= 05*48';
-var namagroup9 = 'G1LA';
-var Comment9 = 'GILA4D=BALABALA=96*83*68';
+var namagroup8 = 'OPUNG';
+var Comment8 = 'OPUNG4D ( BORNEOCF ) : 05*48';
+var namagroup9 = 'MAYAPADA';
+var Comment9 = 'BETT*Mayapada4D(BO)*BALABALA*96*83*68';
 var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(BOKEK1)*29*74*04';
 var namagroup11 = 'TOYIB';
@@ -43,8 +43,8 @@ var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY BNGSAT55 17*84*50';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( BAJINDUL2 ) 88*75';
-var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=BLUR005=19*59*41';
+var namagroup14 = 'Hoho';
+var Comment14 = 'BLUR005 : 19*59*41 #HOHOTOGEL';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (BUKITKEMBAR) 25*85*67';
 var namagroup16 = 'NEMO';
