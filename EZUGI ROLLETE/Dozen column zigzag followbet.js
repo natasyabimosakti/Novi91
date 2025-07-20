@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Auto Bet Final v9.2.1 (Zigzag Multi-Koin FIXED)
+// @name         Auto Bet Final v9.2.5 (Result 0 Follow Fix)
 // @namespace    http://tampermonkey.net/
-// @version      3.21
-// @description  Bet Zigzag Dozen & Column pakai komposisi koin otomatis. Martingale Fibonacci. Popup & auto klik cepat.
+// @version      3.25
+// @description  Zigzag Dozen/Column + Martingale Fibonacci + Koin Otomatis + Lanjut saat result 0.
 // @match        http*://*/*
 // @grant        none
 // @run-at       document-idle
@@ -70,20 +70,18 @@
         }
 
         async function pilihKoinPecahan(chipCount, targetButton) {
+            if (!targetButton || chipCount <= 0) return;
             const totalRupiah = chipCount * 1000;
-
             let sisa = totalRupiah;
             for (let nominal of DENOMINASI) {
-                let count = Math.floor(sisa / nominal);
-                if (count > 0) {
+                const jumlah = Math.floor(sisa / nominal);
+                if (jumlah > 0) {
                     const chipBtn = document.querySelector(`[data-e2e="chip-${nominal}"]`);
-                    if (!chipBtn || !targetButton) continue;
-
+                    if (!chipBtn) continue;
                     chipBtn.dispatchEvent(new Event('click', { bubbles: true }));
-                    console.log(`🔹 Pilih koin Rp${nominal.toLocaleString()} × ${count}x`);
-
-                    await clickMultiple(targetButton, count);
-                    sisa -= count * nominal;
+                    await clickMultiple(targetButton, jumlah);
+                    sisa -= jumlah * nominal;
+                    await new Promise(r => setTimeout(r, 20));
                 }
             }
         }
@@ -101,12 +99,18 @@
         }
 
         function evaluateZigzag(winNum) {
+            if (winNum === 0) {
+                if (targetDozen !== null) fibIndexDozen = Math.min(fibIndexDozen + 1, fib.length - 1);
+                if (targetColumn !== null) fibIndexColumn = Math.min(fibIndexColumn + 1, fib.length - 1);
+                return;
+            }
+
             const d = getDozen(winNum);
             const c = getColumn(winNum);
 
             // DOZEN
             if (targetDozen !== null) {
-                if (d === targetDozen) {
+                if (d === targetDozen && d > 0) {
                     targetDozen = null;
                     fibIndexDozen = 0;
                     zigzagDozenCount = 0;
@@ -126,7 +130,7 @@
 
             // COLUMN
             if (targetColumn !== null) {
-                if (c === targetColumn) {
+                if (c === targetColumn && c > 0) {
                     targetColumn = null;
                     fibIndexColumn = 0;
                     zigzagColumnCount = 0;
@@ -149,14 +153,13 @@
             autoClosePopup();
             const el = document.getElementsByClassName("seconds")[0];
             const open = !!el;
-
             const history = document.getElementsByClassName("ervzci33")[0]?.children;
             if (!history?.length) return setTimeout(loopMain, 1000);
 
             if (open) {
                 const resultSpan = history[0];
                 const result = parseInt(resultSpan.textContent.trim());
-                const isNewResult = result !== lastResult && !isNaN(result);
+// @version      3.NaN
 
                 if (isNewResult) {
                     lastResult = result;
@@ -201,11 +204,7 @@
                     if (!isNaN(saldoBaru) && saldoBaru !== lastLoggedSaldo) {
                         lastLoggedSaldo = saldoBaru;
                         state.saldo = saldoBaru;
-
-                        if (saldoBaru > highestSaldo) {
-                            highestSaldo = saldoBaru;
-                        }
-
+                        if (saldoBaru > highestSaldo) highestSaldo = saldoBaru;
                         updatePopup(lastResult ?? "-");
                     }
                 }
