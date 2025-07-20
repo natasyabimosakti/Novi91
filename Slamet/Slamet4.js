@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Slamet 4
 // @namespace    http://tampermonkey.net/
-// @version      3.69
+// @version      3.70
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet4.js
@@ -17,24 +17,24 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'shio';
-var Comment1 = '#shiokelinci4d*DEMIAPA*37*13';
+var namagroup1 = 'ALLPAS';
+var Comment1 = 'Tok99Toto ( DEMIAPA ) : 37*13';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO DOAIBU1 93*62*42';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / DURIHITAM / 21 , 73 , 87';
-var namagroup4 = 'G41B';
-var Comment4 = 'GAIB4D=DOKARBALAP=34*76*24';
+var namagroup4 = 'TAFSIR MIMPI';
+var Comment4 = 'SIJITOGEL DOKARBALAP 34*76*24';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (DUKUPUNTANG) = 06*28*27';
 var namagroup6 = 'PAPUAT0T0';
 var Comment6 = '#PAPUATOTO=(DESAKU22)=16-81';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL DUYUNG45 90*79*09';
-var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=DINASTI88= 15*98';
-var namagroup9 = 'G1LA';
-var Comment9 = 'GILA4D=DUDAMUDA=26*53*82';
+var namagroup8 = 'OPUNG';
+var Comment8 = 'OPUNG4D ( DINASTI888 ) : 15*98';
+var namagroup9 = 'MAYAPADA';
+var Comment9 = 'BETT*Mayapada4D(BO)*DUDAMUDA*26*53*82';
 var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(DJANCUKMIN)*47*23*10';
 var namagroup11 = 'TOYIB';
@@ -43,8 +43,8 @@ var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY DEGRADASI 77*46*69';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( DRAWINGART ) 72*39';
-var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=DROPOUT=22*35*64';
+var namagroup14 = 'Hoho';
+var Comment14 = 'DROPOUT : 22*35*64 #HOHOTOGEL';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (DARMONO11) 60*32*38';
 var namagroup16 = 'NEMO';
