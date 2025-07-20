@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Babon 3
 // @namespace    http://tampermonkey.net/
-// @version      3.72
+// @version      3.73
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon3.js
@@ -18,37 +18,37 @@
 // ==/UserScript==
 
 var namagroup1 = 'MELATI';
-var Comment1 = '*MELATI188 (MASIHMARIS) : 50*91 *BETTING';
+var Comment1 = '*MELATI188 (MASIHMARIS) : 44*99 *BETTING';
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( MANDINI28 ) : 06*90*83';
+var Comment2 = 'K86TOTO ( MANDINI28 ) : 34*41*09';
 var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = (MASKURAWAN) 05*98*11';
+var Comment3 = '#(WARUNGTOTO) = (MASKURAWAN) 24*62*18';
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO MUMUBELONG = 75*77*96';
+var Comment4 = '#RIATOTO MUMUBELONG = 28*69*85';
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (MUBENGAN52*56*43*31)';
+var Comment5 = '#PEDRO4D (MUBENGAN52*15*50*68)';
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (MANCURMUJUR) = 15*69*30';
+var Comment6 = '#DIVA4D (MANCURMUJUR) = 66*04*42';
 var namagroup7 = 'TREX';
-var Comment7 = '#HATORIBET*MULETENAK*35*12*78';
-var namagroup8 = 'ALLPAS';
-var Comment8 = 'Tok99Toto ( MELONGOBEGOK ) : 75*77*41';
-var namagroup9 = 'TAFSIR MIMPI';
-var Comment9 = 'SIJITOGEL MANAHIWAK 65*94*62';
-var namagroup10 = 'UDANG';
-var Comment10 = 'UDANGBET ( MANOKNURI ) = 10*63*68';
-var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*MEKASIH92*23*49*93';
-var namagroup12 = 'OPUNG';
-var Comment12 = 'OPUNG4D ( MENCLOKCUK ) : 86*66*46';
-var namagroup13 = 'UPIN';
-var Comment13 = '#UPINSLOT ( MENDUNGKUL) 99*47*02 BETTING';
-var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D (MRIPATKUSIPI) = 65*94';
-var namagroup15 = 'Hoho';
-var Comment15 = 'MARISUWEK : 26*54*34 #HOHOTOGEL';
-var namagroup16 = 'GTO';
-var Comment16 = '(GUDANGTOTO) = (MAMALAMA) 09*97*29';
+var Comment7 = '#HATORIBET*MULETENAK*30*47*88';
+var namagroup8 = 'BLITAR';
+var Comment8 = '#BLITAR4D (MRIPATKUSIPI) = 57*06';
+var namagroup9 = 'TESTER';
+var Comment9 = '#ASIATOTO = {SAKUKUTARA} = 89*79';
+var namagroup10 = 'TESTER';
+var Comment10 = '';
+var namagroup11 = 'TESTER';
+var Comment11 = '';
+var namagroup12 = 'TESTER';
+var Comment12 = '';
+var namagroup13 = 'TESTER';
+var Comment13 = '';
+var namagroup14 = 'TESTER';
+var Comment14 = '';
+var namagroup15 = 'TESTER';
+var Comment15 = '';
+var namagroup16 = 'TESTER';
+var Comment16 = '';
 
 //Batas
 
