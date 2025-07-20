@@ -12,7 +12,7 @@
     setTimeout(() => {
         let highestSaldo = 0;
         const START_BET = 1;
-        const MAX_BET = 1024;
+        const MAX_BET = 2048;
         const fib = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048];
 
         const DOZEN_ID = { 1: 'index-800', 2: 'index-801', 3: 'index-802' };
