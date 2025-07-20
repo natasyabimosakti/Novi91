@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.290
+// @version      3.291
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut3.js
@@ -19,25 +19,24 @@
 
 
 
-
-var namagroup1 = 'shio';
-var Comment1 = '#shiokelinci4d*EROSA23*72*39';
+var namagroup1 = 'ALLPAS';
+var Comment1 = 'Tok99Toto ( EROSA23 ) : 72*39*99';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO EROSI52 77*46*69';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / ERKONT01 / 61 , 89 , 97';
-var namagroup4 = 'G41B';
-var Comment4 = 'GAIB4D=ERGUNA14=47*23*10';
+var namagroup4 = 'TAFSIR MIMPI';
+var Comment4 = 'SIJITOGEL ERGUNA14 47*23*10';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (ERAKOL156) = 26*53*82';
 var namagroup6 = 'PAPUAT0T0';
 var Comment6 = '#PAPUATOTO=(ERFGUN12)=22-35';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL EROSI52 60*32*38';
-var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=ERFANGUN15= 80*51';
-var namagroup9 = 'G1LA';
-var Comment9 = 'GILA4D=ERGUN51=93*62*42';
+var namagroup8 = 'OPUNG';
+var Comment8 = 'OPUNG4D ( ERFANGUN15 ) : 80*51*95';
+var namagroup9 = 'MAYAPADA';
+var Comment9 = 'BETT*Mayapada4D(BO)*ERGUN51*93*62*42';
 var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(ERAKOL156)*21*73*87';
 var namagroup11 = 'TOYIB';
@@ -46,8 +45,8 @@ var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY ERAGUN68 06*28*27';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( ERFGUN35 ) 16*81';
-var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=ERFANGUN15=90*79*09';
+var namagroup14 = 'Hoho';
+var Comment14 = 'ERFANGUN15 : 90*79*09 #HOHOTOGEL';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (ERKON23) 15*98*63';
 var namagroup16 = 'NEMO';
