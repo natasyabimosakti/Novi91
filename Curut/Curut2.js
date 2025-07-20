@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.217
+// @version      3.218
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut2.js
@@ -19,24 +19,24 @@
 
 
 
-var namagroup1 = 'shio';
-var Comment1 = '#shiokelinci4d*BOCHOK52*71*96';
+var namagroup1 = 'ALLPAS';
+var Comment1 = 'Tok99Toto ( BOMER14 ) : 71*96*75';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO BOCHI92 78*46*77';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / BODAR17 / 67 , 98 , 05';
-var namagroup4 = 'G41B';
-var Comment4 = 'GAIB4D=BOCHOK36=02*09*60';
+var namagroup4 = 'TAFSIR MIMPI';
+var Comment4 = 'SIJITOGEL BOLET25 02*09*60';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (BONTIR36) = 58*88*41';
 var namagroup6 = 'PAPUAT0T0';
 var Comment6 = '#PAPUATOTO=(BONTOK69)=11-20';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL BOMER14 33*92*66';
-var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=BOMER14= 12*86';
-var namagroup9 = 'G1LA';
-var Comment9 = 'GILA4D=BOLET25=12*86*68';
+var namagroup8 = 'OPUNG';
+var Comment8 = 'OPUNG4D ( BORAK16 ) : 12*86*68';
+var namagroup9 = 'MAYAPADA';
+var Comment9 = 'BETT*Mayapada4D(BO)*BOKONG71*12*86*68';
 var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(BOSIOM19)*33*92*66';
 var namagroup11 = 'TOYIB';
@@ -45,8 +45,8 @@ var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY BORAK16 58*88*38';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( BOKONG71 ) 02*09';
-var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=BONTOK69=67*98*05';
+var namagroup14 = 'Hoho';
+var Comment14 = 'BOCHO19 : 67*98*05 #HOHOTOGEL';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (BOCHO19) 78*46*77';
 var namagroup16 = 'NEMO';
