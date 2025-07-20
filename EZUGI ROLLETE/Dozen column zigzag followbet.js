@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Auto Bet Final v9.0 (Dozen & Column Zigzag Only)
+// @name         Auto Bet Final v9.2.1 (Zigzag Multi-Koin FIXED)
 // @namespace    http://tampermonkey.net/
-// @version      9.0
-// @description  Bet Dozen & Column Zigzag 3x dengan Martingale. Tetap betting meski result 0 atau sama. Popup monitor saldo & status. Klik cepat, DOM index-ID.
+// @version      3.21
+// @description  Bet Zigzag Dozen & Column pakai komposisi koin otomatis. Martingale Fibonacci. Popup & auto klik cepat.
 // @match        http*://*/*
 // @grant        none
 // @run-at       document-idle
@@ -11,9 +11,8 @@
 (function () {
     setTimeout(() => {
         let highestSaldo = 0;
-        const START_BET = 1;
-        const MAX_BET = 2048;
         const fib = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048];
+        const DENOMINASI = [250000, 50000, 10000, 5000, 1000];
 
         const DOZEN_ID = { 1: 'index-800', 2: 'index-801', 3: 'index-802' };
         const COLUMN_ID = { 1: 'index-702', 2: 'index-701', 3: 'index-700' };
@@ -57,27 +56,48 @@
                 let i = 0;
                 function loop() {
                     if (i < times) {
-                        el.dispatchEvent(new Event('click', { bubbles: true }));
-                        i++;
-                        requestAnimationFrame(loop);
+                        requestAnimationFrame(() => {
+                            el.dispatchEvent(new Event('click', { bubbles: true }));
+                            i++;
+                            loop();
+                        });
                     } else {
-                        setTimeout(resolve, 3);
+                        resolve();
                     }
                 }
                 loop();
             });
         }
 
+        async function pilihKoinPecahan(chipCount, targetButton) {
+            const totalRupiah = chipCount * 1000;
+
+            let sisa = totalRupiah;
+            for (let nominal of DENOMINASI) {
+                let count = Math.floor(sisa / nominal);
+                if (count > 0) {
+                    const chipBtn = document.querySelector(`[data-e2e="chip-${nominal}"]`);
+                    if (!chipBtn || !targetButton) continue;
+
+                    chipBtn.dispatchEvent(new Event('click', { bubbles: true }));
+                    console.log(`🔹 Pilih koin Rp${nominal.toLocaleString()} × ${count}x`);
+
+                    await clickMultiple(targetButton, count);
+                    sisa -= count * nominal;
+                }
+            }
+        }
+
         async function placeDozen() {
             if (!targetDozen) return;
             const btn = document.querySelector(`[id="${DOZEN_ID[targetDozen]}"]`);
-            if (btn) await clickMultiple(btn, fib[fibIndexDozen]);
+            if (btn) await pilihKoinPecahan(fib[fibIndexDozen], btn);
         }
 
         async function placeColumn() {
             if (!targetColumn) return;
             const btn = document.querySelector(`[id="${COLUMN_ID[targetColumn]}"]`);
-            if (btn) await clickMultiple(btn, fib[fibIndexColumn]);
+            if (btn) await pilihKoinPecahan(fib[fibIndexColumn], btn);
         }
 
         function evaluateZigzag(winNum) {
@@ -98,11 +118,7 @@
 
             lastDozens.unshift(d);
             if (lastDozens.length > 6) lastDozens.pop();
-            if (lastDozens.length >= 2 && lastDozens[0] !== lastDozens[1]) {
-                zigzagDozenCount++;
-            } else {
-                zigzagDozenCount = 0;
-            }
+            zigzagDozenCount = (lastDozens.length >= 2 && lastDozens[0] !== lastDozens[1]) ? zigzagDozenCount + 1 : 0;
 
             if (zigzagDozenCount >= 3 && !targetDozen && d > 0) {
                 targetDozen = d;
@@ -122,11 +138,7 @@
 
             lastColumns.unshift(c);
             if (lastColumns.length > 6) lastColumns.pop();
-            if (lastColumns.length >= 2 && lastColumns[0] !== lastColumns[1]) {
-                zigzagColumnCount++;
-            } else {
-                zigzagColumnCount = 0;
-            }
+            zigzagColumnCount = (lastColumns.length >= 2 && lastColumns[0] !== lastColumns[1]) ? zigzagColumnCount + 1 : 0;
 
             if (zigzagColumnCount >= 3 && !targetColumn && c > 0) {
                 targetColumn = c;
@@ -134,7 +146,7 @@
         }
 
         async function loopMain() {
-            autoClosePopup()
+            autoClosePopup();
             const el = document.getElementsByClassName("seconds")[0];
             const open = !!el;
 
@@ -171,17 +183,14 @@
 
             setTimeout(loopMain, 1000);
         }
+
         function autoClosePopup() {
             setInterval(() => {
                 const closeBtn = document.querySelector('[data-e2e="btn-label-Close"]');
                 const btnrecon = document.querySelector('[data-e2e="btn-label-Reconnect"]');
-                if (closeBtn) {
-                    closeBtn.dispatchEvent(new Event('click', { bubbles: true }));
-                }
-                if (btnrecon) {
-                    btnrecon.dispatchEvent(new Event('click', { bubbles: true }));
-                }
-            }, 1000); // Cek tiap 1 detik
+                if (closeBtn) closeBtn.dispatchEvent(new Event('click', { bubbles: true }));
+                if (btnrecon) btnrecon.dispatchEvent(new Event('click', { bubbles: true }));
+            }, 1000);
         }
 
         function updateSaldoRealtime() {
