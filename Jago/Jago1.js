@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JAGO 1
 // @namespace    http://tampermonkey.net/
-// @version      3.50
+// @version      3.51
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago1.js
@@ -19,24 +19,24 @@
 
 
 
-var namagroup1 = 'shio';
-var Comment1 = '#shiokelinci4d*SUNTIKMATI*14*57';
+var namagroup1 = 'ALLPAS';
+var Comment1 = 'Tok99Toto ( SINGKONGTHAI ) : 14*57*42';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO SETIASAJA 65*56*99';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / SUKUMLAKU / 47 , 54 , 99';
-var namagroup4 = 'G41B';
-var Comment4 = 'GAIB4D=SAMBUTAN20=17*95*61';
+var namagroup4 = 'TAFSIR MIMPI';
+var Comment4 = 'SIJITOGEL SUMURMATI 17*95*61';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (SASISU42) = 55*90*06';
 var namagroup6 = 'PAPUAT0T0';
 var Comment6 = '#PAPUATOTO=(SISWARUK)=51-35';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL SEMBODOH 36*80*62';
-var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=SINGKONGTHAI= 37*15';
-var namagroup9 = 'G1LA';
-var Comment9 = 'GILA4D=SUMURMATI=58*88*41';
+var namagroup8 = 'OPUNG';
+var Comment8 = 'OPUNG4D ( SIANGANAJA ) : 37*15*50';
+var namagroup9 = 'MAYAPADA';
+var Comment9 = 'BETT*Mayapada4D(BO)*SAKUKUTARA*58*88*41';
 var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(SUNDALA23)*02*09*60';
 var namagroup11 = 'TOYIB';
@@ -45,8 +45,8 @@ var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY SIANGANAJA 78*46*77';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( SUMBUBULU ) 71*96';
-var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=SAMBUNGBAYAM=12*86*68';
+var namagroup14 = 'Hoho';
+var Comment14 = 'SAMBUNGBAYAM : 12*86*68 #HOHOTOGEL';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (SUKAJANTUA) 33*92*66';
 var namagroup16 = 'NEMO';
