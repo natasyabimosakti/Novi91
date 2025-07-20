@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawasaki 1
 // @namespace    http://tampermonkey.net/
-// @version      3.16
+// @version      3.17
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/KAWASAKI/Kawasaki1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/KAWASAKI/Kawasaki1.js
@@ -18,37 +18,37 @@
 // ==/UserScript==
 
 var namagroup1 = 'MELATI';
-var Comment1 = '*MELATI188 (DADAR13) : 35*59 *BETTING';
+var Comment1 = '*MELATI188 (DADAR13) : 74*65 *BETTING';
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( DUGEMXX ) : 92*34*16';
+var Comment2 = 'K86TOTO ( DUGEMXX ) : 88*43*21';
 var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = (DOMBA) 96*08*85';
+var Comment3 = '#(WARUNGTOTO) = (DOMBA) 85*07*46';
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO DRAGONBALL = 75*65*30';
+var Comment4 = '#RIATOTO DRAGONBALL = 06*39*64';
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (DRUMBAND*50*89*04)';
+var Comment5 = '#PEDRO4D (DRUMBAND*51*08*76)';
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (DUMDUMDUM) = 37*45*29';
+var Comment6 = '#DIVA4D (DUMDUMDUM) = 26*93*78';
 var namagroup7 = 'TREX';
-var Comment7 = '#HATORIBET*DEPODULU*40*61*21';
-var namagroup8 = 'ALLPAS';
-var Comment8 = 'Tok99Toto ( DINARCANDY ) : 67*80*74';
-var namagroup9 = 'TAFSIR MIMPI';
-var Comment9 = 'SIJITOGEL DELAY 20*48*22';
-var namagroup10 = 'UDANG';
-var Comment10 = 'UDANGBET ( DETOL66 ) = 57*10*42';
-var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*DEWADEWI*79*31*11';
-var namagroup12 = 'OPUNG';
-var Comment12 = 'OPUNG4D ( DOREMI ) : 17*76*78';
-var namagroup13 = 'UPIN';
-var Comment13 = '#UPINSLOT ( DOGGYDOG) 95*91*52 BETTING';
-var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D (DRACO) = 68*62';
-var namagroup15 = 'Hoho';
-var Comment15 = 'DOMINO : 27*09*87 #HOHOTOGEL';
-var namagroup16 = 'GTO';
-var Comment16 = '(GUDANGTOTO) = (DEWADEWI) 32*58*69';
+var Comment7 = '#HATORIBET*DEPODULU*86*90*84';
+var namagroup8 = 'BLITAR';
+var Comment8 = '#BLITAR4D (DRACO) = 37*68';
+var namagroup9 = 'TESTER';
+var Comment9 = '#ASIATOTO = {DEWADEWI} = 80*54';
+var namagroup10 = 'TESTER';
+var Comment10 = '';
+var namagroup11 = 'TESTER';
+var Comment11 = '';
+var namagroup12 = 'TESTER';
+var Comment12 = '';
+var namagroup13 = 'TESTER';
+var Comment13 = '';
+var namagroup14 = 'TESTER';
+var Comment14 = '';
+var namagroup15 = 'TESTER';
+var Comment15 = '';
+var namagroup16 = 'TESTER';
+var Comment16 = '';
 
 //Batas
 
