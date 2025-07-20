@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Penyok 4
 // @namespace    http://tampermonkey.net/
-// @version      3.68
+// @version      3.69
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok4.js
@@ -17,24 +17,24 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'shio';
-var Comment1 = '#shiokelinci4d*DEVILMONSTER*06*28';
+var namagroup1 = 'ALLPAS';
+var Comment1 = 'Tok99Toto ( DELOPONGBAE ) : 06*28*27';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO DELAKDELAK78 16*81*71';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / DENGKIKU246 / 90 , 79 , 09';
-var namagroup4 = 'G41B';
-var Comment4 = 'GAIB4D=DEKILLING67=15*98*86';
+var namagroup4 = 'TAFSIR MIMPI';
+var Comment4 = 'SIJITOGEL DEMITSEGORO8 15*98*86';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (DENGAKSEKBOL) = 37*13*02';
 var namagroup6 = 'PAPUAT0T0';
 var Comment6 = '#PAPUATOTO=(DENGKULKOLOR)=93-62';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL DEMAKDEMEK58 21*73*87';
-var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=DELOPONGBAE= 34*76';
-var namagroup9 = 'G1LA';
-var Comment9 = 'GILA4D=DEMITSEGORO8=61*89*97';
+var namagroup8 = 'OPUNG';
+var Comment8 = 'OPUNG4D ( DEMIKIANUDAH ) : 34*76*24';
+var namagroup9 = 'MAYAPADA';
+var Comment9 = 'BETT*Mayapada4D(BO)*DELOSORBIB*61*89*97';
 var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(DEMIMIKAN71)*77*46*64';
 var namagroup11 = 'TOYIB';
@@ -43,8 +43,8 @@ var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY DEMIKIANUDAH 80*51*95';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( DEDEGKATUL2 ) 60*32';
-var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=DEPAKSILITMU=22*35*78';
+var namagroup14 = 'Hoho';
+var Comment14 = 'DEKDEKKAN96 : 22*35*78 #HOHOTOGEL';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (DEKDEKKAN96) 26*53*82';
 var namagroup16 = 'NEMO';
