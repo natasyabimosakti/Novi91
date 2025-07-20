@@ -109,7 +109,18 @@
             const btn = document.querySelector(`[id="${DOZEN_ID[targetDozen]}"]`);
             if (btn) await clickMultiple(btn, fib[fibIndexDozen]);
         }
-
+        function autoClosePopup() {
+            setInterval(() => {
+                const closeBtn = document.querySelector('[data-e2e="btn-label-Close"]');
+                const btnrecon = document.querySelector('[data-e2e="btn-label-Reconnect"]');
+                if (closeBtn) {
+                    closeBtn.dispatchEvent(new Event('click', { bubbles: true }));
+                }
+                if (btnrecon) {
+                    btnrecon.dispatchEvent(new Event('click', { bubbles: true }));
+                }
+            }, 1000); // Cek tiap 1 detik
+        }
         async function placeColumnZigzag() {
             if (!targetColumn) return;
             const btn = document.querySelector(`[id="${COLUMN_ID[targetColumn]}"]`);
@@ -187,6 +198,7 @@
         }
 
         async function loopMain() {
+            autoClosePopup()
             const el = document.getElementsByClassName("seconds")[0];
             const open = !!el;
 
