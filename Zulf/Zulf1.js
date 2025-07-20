@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF1
 // @namespace    http://tampermonkey.net/
-// @version      3.67
+// @version      3.68
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
@@ -18,24 +18,24 @@
 // ==/UserScript==
 
 
-var namagroup1 = 'shio';
-var Comment1 = '#shiokelinci4d*TANASOFI*29*74';
+var namagroup1 = 'ALLPAS';
+var Comment1 = 'Tok99Toto ( TANASOFI ) : 29*74*04';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO TANPLAK123 96*83*68';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / TANLOYO12 / 19 , 59 , 03';
-var namagroup4 = 'G41B';
-var Comment4 = 'GAIB4D=TANKOR90=25*85*67';
+var namagroup4 = 'TAFSIR MIMPI';
+var Comment4 = 'SIJITOGEL TANLES78 25*85*67';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (TANMO38) = 01*44*31';
 var namagroup6 = 'PAPUAT0T0';
 var Comment6 = '#PAPUATOTO=(TANLES78)=88-75';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL TANLONTO12 17*84*50';
-var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=TANDOL78= 08*14';
-var namagroup9 = 'G1LA';
-var Comment9 = 'GILA4D=TANMEROT2=08*14*33';
+var namagroup8 = 'OPUNG';
+var Comment8 = 'OPUNG4D ( TANDOL78 ) : 08*14*33';
+var namagroup9 = 'MAYAPADA';
+var Comment9 = 'BETT*Mayapada4D(BO)*TANMEROT2*08*14*33';
 var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(TANLOLO88)*17*84*41';
 var namagroup11 = 'TOYIB';
@@ -44,8 +44,8 @@ var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY TANLANAS36 01*44*31';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( TANLOL87 ) 25*85';
-var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=TANDOL78=19*59*03';
+var namagroup14 = 'Hoho';
+var Comment14 = 'TANDOL78 : 19*59*03 #HOHOTOGEL';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (TANLES78) 96*83*68';
 var namagroup16 = 'NEMO';
