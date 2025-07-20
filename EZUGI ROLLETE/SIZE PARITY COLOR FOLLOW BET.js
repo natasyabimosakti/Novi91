@@ -88,7 +88,7 @@
                         i++;
                         requestAnimationFrame(loop);
                     } else {
-                        setTimeout(resolve, 30);
+                        setTimeout(resolve, 3);
                     }
                 }
                 loop();
@@ -248,7 +248,6 @@
                         state.saldo = saldoBaru;
                         if (saldoBaru > highestSaldo) {
                             highestSaldo = saldoBaru;
-                            resetAllMartingale()
                         }
                         updatePopup(lastResult ?? "-");
                     }
