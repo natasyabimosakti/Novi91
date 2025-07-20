@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF4
 // @namespace    http://tampermonkey.net/
-// @version      3.67
+// @version      3.68
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf4.js
@@ -19,25 +19,24 @@
 
 
 
-
-var namagroup1 = 'shio';
-var Comment1 = '#shiokelinci4d*MINHARYOSU73*06*28';
+var namagroup1 = 'ALLPAS';
+var Comment1 = 'Tok99Toto ( MINHARYOSU73 ) : 06*28*27';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO MINHAYOLO77 16*81*71';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / MINYORASU97 / 90 , 79 , 09';
-var namagroup4 = 'G41B';
-var Comment4 = 'GAIB4D=MINHAROKOK87=15*98*86';
+var namagroup4 = 'TAFSIR MIMPI';
+var Comment4 = 'SIJITOGEL MINARVESTO98 15*98*86';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (MINHARMATI77) = 37*13*02';
 var namagroup6 = 'PAPUAT0T0';
 var Comment6 = '#PAPUATOTO=(MINARVESTO98)=93-62';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL MINHAROLOL77 21*73*87';
-var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=MINHANTULO89= 34*76';
-var namagroup9 = 'G1LA';
-var Comment9 = 'GILA4D=MINHIKABOR99=34*76*24';
+var namagroup8 = 'OPUNG';
+var Comment8 = 'OPUNG4D ( MINHANTULO89 ) : 34*76*24';
+var namagroup9 = 'MAYAPADA';
+var Comment9 = 'BETT*Mayapada4D(BO)*MINHIKABOR99*34*76*24';
 var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(MINHARIASU27)*21*73*63';
 var namagroup11 = 'TOYIB';
@@ -46,8 +45,8 @@ var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY MINARMANUK77 37*13*02';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( MINHARELOK88 ) 15*98';
-var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=MINHANTULO89=90*79*09';
+var namagroup14 = 'Hoho';
+var Comment14 = 'MINHANTULO89 : 90*79*09 #HOHOTOGEL';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (MINARVESTO98) 16*81*71';
 var namagroup16 = 'NEMO';
