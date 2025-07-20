@@ -61,7 +61,7 @@
                         i++;
                         requestAnimationFrame(loop);
                     } else {
-                        setTimeout(resolve, 30);
+                        setTimeout(resolve, 3);
                     }
                 }
                 loop();
@@ -195,12 +195,6 @@
 
                         if (saldoBaru > highestSaldo) {
                             highestSaldo = saldoBaru;
-                            targetDozen = null;
-                            targetColumn = null;
-                            fibIndexDozen = 0;
-                            fibIndexColumn = 0;
-                            zigzagDozenCount = 0;
-                            zigzagColumnCount = 0;
                         }
 
                         updatePopup(lastResult ?? "-");
