@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 4
 // @namespace    http://tampermonkey.net/
-// @version      3.85
+// @version      3.86
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil4.js
@@ -18,37 +18,37 @@
 // ==/UserScript==
 
 var namagroup1 = 'MELATI';
-var Comment1 = '*MELATI188 (DEVILMONSTER) : 65*98 *BETTING';
+var Comment1 = '*MELATI188 (DEVILMONSTER) : 09*94 *BETTING';
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( DELAKDELAK78 ) : 67*40*01';
+var Comment2 = 'K86TOTO ( DELAKDELAK78 ) : 59*26*83';
 var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = (DENGKIKU246) 32*37*23';
+var Comment3 = '#(WARUNGTOTO) = (DENGKIKU246) 06*28*16';
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO DEKILLING67 = 79*21*03';
+var Comment4 = '#RIATOTO DEKILLING67 = 80*13*70';
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (DENGAKSEKBOL*52*93*35)';
+var Comment5 = '#PEDRO4D (DENGAKSEKBOL*75*08*00)';
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (DENGKULLORO) = 14*70*29';
+var Comment6 = '#DIVA4D (DENGKULLORO) = 47*40*25';
 var namagroup7 = 'TREX';
-var Comment7 = '#HATORIBET*DEMAKDEMEK58*48*33*34';
-var namagroup8 = 'ALLPAS';
-var Comment8 = 'Tok99Toto ( DELOPONGBAE ) : 54*10*83';
-var namagroup9 = 'TAFSIR MIMPI';
-var Comment9 = 'SIJITOGEL DEMITSEGORO8 13*26*51';
-var namagroup10 = 'UDANG';
-var Comment10 = 'UDANGBET ( DEMIMIKAN71 ) = 36*17*31';
-var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*DELOSORBIB*85*91*42';
-var namagroup12 = 'OPUNG';
-var Comment12 = 'OPUNG4D ( DEMIKIANUDAH ) : 16*18*62';
-var namagroup13 = 'UPIN';
-var Comment13 = '#UPINSLOT ( DEDEGKATUL2) 84*76*86 BETTING';
-var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D (DEPAKSILITMU) = 64*43';
-var namagroup15 = 'Hoho';
-var Comment15 = 'DEKDEKKAN96 : 27*74*46 #HOHOTOGEL';
-var namagroup16 = 'GTO';
-var Comment16 = '(GUDANGTOTO) = (DELEKEDELE20) 82*25*04';
+var Comment7 = '#HATORIBET*DEMAKDEMEK58*74*10*58';
+var namagroup8 = 'BLITAR';
+var Comment8 = '#BLITAR4D (DEPAKSILITMU) = 49*81';
+var namagroup9 = 'TESTER';
+var Comment9 = '#ASIATOTO = {OKRARIT369} = 65*89';
+var namagroup10 = 'TESTER';
+var Comment10 = '';
+var namagroup11 = 'TESTER';
+var Comment11 = '';
+var namagroup12 = 'TESTER';
+var Comment12 = '';
+var namagroup13 = 'TESTER';
+var Comment13 = '';
+var namagroup14 = 'TESTER';
+var Comment14 = '';
+var namagroup15 = 'TESTER';
+var Comment15 = '';
+var namagroup16 = 'TESTER';
+var Comment16 = '';
 
 //Batas
 
