@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 4
 // @namespace    http://tampermonkey.net/
-// @version      3.87
+// @version      3.88
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung4.js
@@ -18,37 +18,37 @@
 // ==/UserScript==
 
 var namagroup1 = 'MELATI';
-var Comment1 = '*MELATI188 (WIRANG89) : 85*67 *BETTING';
+var Comment1 = '*MELATI188 (WIRANG89) : 67*91 *BETTING';
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( WAKUL90 ) : 47*12*94';
+var Comment2 = 'K86TOTO ( WAKUL90 ) : 40*50*74';
 var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = (WATAK91) 37*00*70';
+var Comment3 = '#(WARUNGTOTO) = (WATAK91) 18*56*92';
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO WEDI92 = 73*54*51';
+var Comment4 = '#RIATOTO WEDI92 = 26*81*38';
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (WAGE93*25*03*91)';
+var Comment5 = '#PEDRO4D (WAGE93*33*30*62)';
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (WULING94) = 04*84*96';
+var Comment6 = '#DIVA4D (WULING94) = 25*85*80';
 var namagroup7 = 'TREX';
-var Comment7 = '#HATORIBET*WENANG95*24*79*08';
-var namagroup8 = 'ALLPAS';
-var Comment8 = 'Tok99Toto ( WANGSUL96 ) : 69*41*62';
-var namagroup9 = 'TAFSIR MIMPI';
-var Comment9 = 'SIJITOGEL WANI97 64*48*86';
-var namagroup10 = 'UDANG';
-var Comment10 = 'UDANGBET ( WEROH98 ) = 43*53*16';
-var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*WADAH71*87*22*02';
-var namagroup12 = 'OPUNG';
-var Comment12 = 'OPUNG4D ( WEDANG72 ) : 72*14*35';
-var namagroup13 = 'UPIN';
-var Comment13 = '#UPINSLOT ( WANGSIT73) 52*31*50 BETTING';
-var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D (WALUYO74) = 74*15';
-var namagroup15 = 'Hoho';
-var Comment15 = 'WAGINEM75 : 98*27*60 #HOHOTOGEL';
-var namagroup16 = 'GTO';
-var Comment16 = '(GUDANGTOTO) = (WALI76) 90*23*65';
+var Comment7 = '#HATORIBET*WENANG95*05*48*88';
+var namagroup8 = 'BLITAR';
+var Comment8 = '#BLITAR4D (WALUYO74) = 65*77';
+var namagroup9 = 'TESTER';
+var Comment9 = '#ASIATOTO = {ENGGAN18} = 79*98';
+var namagroup10 = 'TESTER';
+var Comment10 = '';
+var namagroup11 = 'TESTER';
+var Comment11 = '';
+var namagroup12 = 'TESTER';
+var Comment12 = '';
+var namagroup13 = 'TESTER';
+var Comment13 = '';
+var namagroup14 = 'TESTER';
+var Comment14 = '';
+var namagroup15 = 'TESTER';
+var Comment15 = '';
+var namagroup16 = 'TESTER';
+var Comment16 = '';
 
 //Batas
 
