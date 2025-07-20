@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE2
 // @namespace    http://tampermonkey.net/
-// @version      3.214
+// @version      3.215
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @author       You
@@ -17,24 +17,24 @@
 // ==/UserScript==
 
 
-var namagroup1 = 'shio';
-var Comment1 = '#shiokelinci4d*BOSEY73*11*20';
+var namagroup1 = 'ALLPAS';
+var Comment1 = 'Tok99Toto ( BOSEY73 ) : 11*20*83';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO BOSEK64 33*92*66';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / BOHOSEY3 / 12 , 86 , 68';
-var namagroup4 = 'G41B';
-var Comment4 = 'GAIB4D=BOSEN68=71*96*75';
+var namagroup4 = 'TAFSIR MIMPI';
+var Comment4 = 'SIJITOGEL BOSBOS64 71*96*75';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (BOSMAN67) = 78*46*38';
 var namagroup6 = 'PAPUAT0T0';
 var Comment6 = '#PAPUATOTO=(BOSBEN64)=67-98';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL BOSNOM63 02*09*60';
-var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=BOSTER73= 58*88';
-var namagroup9 = 'G1LA';
-var Comment9 = 'GILA4D=BOSREN64=37*15*50';
+var namagroup8 = 'OPUNG';
+var Comment8 = 'OPUNG4D ( BOSTER73 ) : 58*88*41';
+var namagroup9 = 'MAYAPADA';
+var Comment9 = 'BETT*Mayapada4D(BO)*BOSREN64*37*15*50';
 var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(BOSLON89)*36*80*62';
 var namagroup11 = 'TOYIB';
@@ -43,8 +43,8 @@ var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY BOSBIS48 55*90*06';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( BOSLEM64 ) 17*95';
-var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=BOSTER73=47*54*49';
+var namagroup14 = 'Hoho';
+var Comment14 = 'BOSTER73 : 47*54*49 #HOHOTOGEL';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (BOSBOS64) 65*56*48';
 var namagroup16 = 'NEMO';
