@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MALBORO 3
 // @namespace    http://tampermonkey.net/
-// @version      3.200
+// @version      3.201
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Malboro/Malboro3.js
@@ -19,24 +19,24 @@
 
 
 
-var namagroup1 = 'shio';
-var Comment1 = '#shiokelinci4d*CELENGLU*04*76';
+var namagroup1 = 'ALLPAS';
+var Comment1 = 'Tok99Toto ( YOBENWES3 ) : 04*76*81';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO CECEKGUDEK 52*26*70';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / CECEP12 / 73 , 10 , 45';
-var namagroup4 = 'G41B';
-var Comment4 = 'GAIB4D=CEMPAKMAMBU=63*30*72';
+var namagroup4 = 'TAFSIR MIMPI';
+var Comment4 = 'SIJITOGEL YONOBO74 63*30*72';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (CANGKIR28) = 64*40*69';
 var namagroup6 = 'PAPUAT0T0';
 var Comment6 = '#PAPUATOTO=(CEKARAT1)=22-24';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL CARJER34 34*13*79';
-var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=CANTINGAN37= 00*28';
-var namagroup9 = 'G1LA';
-var Comment9 = 'GILA4D=CAMPRET3=91*93*23';
+var namagroup8 = 'OPUNG';
+var Comment8 = 'OPUNG4D ( YOKOJO3 ) : 00*28*07';
+var namagroup9 = 'MAYAPADA';
+var Comment9 = 'BETT*Mayapada4D(BO)*CRTI249*91*93*23';
 var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(CAPCAI38)*74*82*84';
 var namagroup11 = 'TOYIB';
@@ -45,8 +45,8 @@ var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY CEBOKX2 25*16*85';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( CEPIRIT34 ) 19*03';
-var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=CANTINGAN37=31*44*59';
+var namagroup14 = 'Hoho';
+var Comment14 = 'YONOBO74 : 31*44*59 #HOHOTOGEL';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (CEMPAKA34) 94*89*43';
 var namagroup16 = 'NEMO';
