@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawasaki 4
 // @namespace    http://tampermonkey.net/
-// @version      3.16
+// @version      3.17
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/KAWASAKI/Kawasaki4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/KAWASAKI/Kawasaki4.js
@@ -18,37 +18,37 @@
 // ==/UserScript==
 
 var namagroup1 = 'MELATI';
-var Comment1 = '*MELATI188 (CHIKIBALL) : 63*73 *BETTING';
+var Comment1 = '*MELATI188 (CHIKIBALL) : 57*33 *BETTING';
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( NABATI ) : 86*07*43';
+var Comment2 = 'K86TOTO ( NABATI ) : 58*96*72';
 var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = (QTELA) 90*44*55';
+var Comment3 = '#(WARUNGTOTO) = (QTELA) 15*83*27';
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO TARO = 19*00*05';
+var Comment4 = '#RIATOTO TARO = 14*12*95';
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (PIATOS*25*46*72)';
+var Comment5 = '#PEDRO4D (PIATOS*11*41*45)';
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (POTATO) = 15*51*49';
+var Comment6 = '#DIVA4D (POTATO) = 62*99*40';
 var namagroup7 = 'TREX';
-var Comment7 = '#HATORIBET*MONDE10*93*99*54';
-var namagroup8 = 'ALLPAS';
-var Comment8 = 'Tok99Toto ( CHOCOPIE ) : 98*64*12';
-var namagroup9 = 'TAFSIR MIMPI';
-var Comment9 = 'SIJITOGEL FULLO 36*28*71';
-var namagroup10 = 'UDANG';
-var Comment10 = 'UDANGBET ( TWISTER ) = 97*38*53';
-var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*SUKRO*60*33*06';
-var namagroup12 = 'OPUNG';
-var Comment12 = 'OPUNG4D ( EGGROLL ) : 82*03*70';
-var namagroup13 = 'UPIN';
-var Comment13 = '#UPINSLOT ( HAPPYTOS) 39*81*66 BETTING';
-var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D (OOPS) = 88*83';
-var namagroup15 = 'Hoho';
-var Comment15 = 'SPONGE : 23*18*14 #HOHOTOGEL';
-var namagroup16 = 'GTO';
-var Comment16 = '(GUDANGTOTO) = (NISSIN) 01*26*47';
+var Comment7 = '#HATORIBET*MONDE10*44*34*49';
+var namagroup8 = 'BLITAR';
+var Comment8 = '#BLITAR4D (OOPS) = 98*66';
+var namagroup9 = 'TESTER';
+var Comment9 = '#ASIATOTO = {DEWADEWI} = 80*54';
+var namagroup10 = 'TESTER';
+var Comment10 = '';
+var namagroup11 = 'TESTER';
+var Comment11 = '';
+var namagroup12 = 'TESTER';
+var Comment12 = '';
+var namagroup13 = 'TESTER';
+var Comment13 = '';
+var namagroup14 = 'TESTER';
+var Comment14 = '';
+var namagroup15 = 'TESTER';
+var Comment15 = '';
+var namagroup16 = 'TESTER';
+var Comment16 = '';
 
 //Batas
 
