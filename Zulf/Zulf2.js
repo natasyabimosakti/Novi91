@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF2
 // @namespace    http://tampermonkey.net/
-// @version      3.67
+// @version      3.68
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
@@ -19,24 +19,24 @@
 
 
 
-var namagroup1 = 'shio';
-var Comment1 = '#shiokelinci4d*MERIDOL36*94*43';
+var namagroup1 = 'ALLPAS';
+var Comment1 = 'Tok99Toto ( MERIDOL36 ) : 94*43*12';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO MERALMU66 40*92*55';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / MERSUHKE76 / 11 , 45 , 66';
-var namagroup4 = 'G41B';
-var Comment4 = 'GAIB4D=MERUITOK3=05*48*07';
+var namagroup4 = 'TAFSIR MIMPI';
+var Comment4 = 'SIJITOGEL MERESLO72 05*48*07';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (MERDUS89) = 70*54*57';
 var namagroup6 = 'PAPUAT0T0';
 var Comment6 = '#PAPUATOTO=(MERESLO72)=56-58';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL MERCIKA66 18*52*36';
-var namagroup8 = 'MENARA';
-var Comment8 = '#MENARA4D=MERUCIK789= 00*20';
-var namagroup9 = 'G1LA';
-var Comment9 = 'GILA4D=MERANIO98=00*20*30';
+var namagroup8 = 'OPUNG';
+var Comment8 = 'OPUNG4D ( MERUCIK789 ) : 00*20*30';
+var namagroup9 = 'MAYAPADA';
+var Comment9 = 'BETT*Mayapada4D(BO)*MERANIO98*00*20*30';
 var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(MERANTU672)*18*52*91';
 var namagroup11 = 'TOYIB';
@@ -45,8 +45,8 @@ var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY MERGKAT26 70*54*57';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( MERYAK18 ) 05*48';
-var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=MERUCIK789=11*45*66';
+var namagroup14 = 'Hoho';
+var Comment14 = 'MERUCIK789 : 11*45*66 #HOHOTOGEL';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (MERESLO72) 40*92*55';
 var namagroup16 = 'NEMO';
