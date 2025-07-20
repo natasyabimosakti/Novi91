@@ -12,11 +12,11 @@
     setTimeout(() => {
         let highestSaldo = 0;
         const START_BET = 1;
-        const MAX_BET = 1024;
         const redNumbers = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
         const DOZEN_ID = { 1: 'index-800', 2: 'index-801', 3: 'index-802' };
         const COLUMN_ID = { 1: 'index-702', 2: 'index-701', 3: 'index-700' };
-        const fib = [1, 2, 4, 8, 16, 32, 64];
+        const MAX_BET = 2048;
+        const fib = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048];
 
         let zigzagCount = 0;
         let zigzagColumnCount = 0;
