@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawasaki 3
 // @namespace    http://tampermonkey.net/
-// @version      3.16
+// @version      3.17
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/KAWASAKI/Kawasaki3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/KAWASAKI/Kawasaki3.js
@@ -18,37 +18,37 @@
 // ==/UserScript==
 
 var namagroup1 = 'MELATI';
-var Comment1 = '*MELATI188 (ASTER22) : 39*81 *BETTING';
+var Comment1 = '*MELATI188 (ASTER22) : 30*13 *BETTING';
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( BUGENVIL ) : 88*83*24';
+var Comment2 = 'K86TOTO ( BUGENVIL ) : 16*79*00';
 var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = (MELATI67) 26*47*56';
+var Comment3 = '#(WARUNGTOTO) = (MELATI67) 38*02*29';
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO KENANGA = 36*28*71';
+var Comment4 = '#RIATOTO KENANGA = 03*55*31';
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (KANTIL*97*38*53)';
+var Comment5 = '#PEDRO4D (KANTIL*70*23*56)';
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (ANYELIR55) = 01*60*33';
+var Comment6 = '#DIVA4D (ANYELIR55) = 32*42*24';
 var namagroup7 = 'TREX';
-var Comment7 = '#HATORIBET*COCORBEBEK*82*03*70';
-var namagroup8 = 'ALLPAS';
-var Comment8 = 'Tok99Toto ( LILY64 ) : 23*18*14';
-var namagroup9 = 'TAFSIR MIMPI';
-var Comment9 = 'SIJITOGEL MAWARHITAM 19*00*05';
-var namagroup10 = 'UDANG';
-var Comment10 = 'UDANGBET ( KAMBOJA81 ) = 25*46*72';
-var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*TULIP*51*49*13';
-var namagroup12 = 'OPUNG';
-var Comment12 = 'OPUNG4D ( SAKURA ) : 93*99*54';
-var namagroup13 = 'UPIN';
-var Comment13 = '#UPINSLOT ( KAKTUS) 63*73*41 BETTING';
-var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D (EFORBIA) = 86*07';
-var namagroup15 = 'Hoho';
-var Comment15 = 'TETATAI : 98*64*12 #HOHOTOGEL';
-var namagroup16 = 'GTO';
-var Comment16 = '(GUDANGTOTO) = (ROSELA) 15*90*44';
+var Comment7 = '#HATORIBET*COCORBEBEK*61*05*52';
+var namagroup8 = 'BLITAR';
+var Comment8 = '#BLITAR4D (EFORBIA) = 63*60';
+var namagroup9 = 'TESTER';
+var Comment9 = '#ASIATOTO = {DEWADEWI} = 80*54';
+var namagroup10 = 'TESTER';
+var Comment10 = '';
+var namagroup11 = 'TESTER';
+var Comment11 = '';
+var namagroup12 = 'TESTER';
+var Comment12 = '';
+var namagroup13 = 'TESTER';
+var Comment13 = '';
+var namagroup14 = 'TESTER';
+var Comment14 = '';
+var namagroup15 = 'TESTER';
+var Comment15 = '';
+var namagroup16 = 'TESTER';
+var Comment16 = '';
 
 //Batas
 
