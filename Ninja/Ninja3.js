@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ninja 3
 // @namespace    http://tampermonkey.net/
-// @version      3.7
+// @version      3.8
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja3.js
@@ -17,24 +17,24 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'shio';
-var Comment1 = '#shiokelinci4d*NYAMUK*00*28';
+var namagroup1 = 'ALLPAS';
+var Comment1 = 'Tok99Toto ( LILY64 ) : 00*28*07';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO LARON 04*76*81';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / YUYUKANGKANG / 52 , 26 , 70';
-var namagroup4 = 'G41B';
-var Comment4 = 'GAIB4D=TAWONNDAS=73*10*45';
+var namagroup4 = 'TAFSIR MIMPI';
+var Comment4 = 'SIJITOGEL MAWARHITAM 73*10*45';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (Babihutan) = 63*30*72';
 var namagroup6 = 'PAPUAT0T0';
 var Comment6 = '#PAPUATOTO=(MAUNG)=64-40';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL CACINGALASKA 22*24*21';
-var namagroup8 = 'POLATRIK';
-var Comment8 = '( POLATRIK  : 34*13 )';
-var namagroup9 = 'G1LA';
-var Comment9 = 'GILA4D=BADAK=74*82*84';
+var namagroup8 = 'OPUNG';
+var Comment8 = 'OPUNG4D ( SAKURA ) : 34*13*79';
+var namagroup9 = 'MAYAPADA';
+var Comment9 = 'BETT*Mayapada4D(BO)*TULIP*74*82*84';
 var namagroup10 = 'GROUP LOMBA ANGKA';
 var Comment10 = '#JNETOTO(PITBULL)*39*27*32';
 var namagroup11 = 'TOYIB';
@@ -43,14 +43,14 @@ var namagroup12 = 'MASTER KUY';
 var Comment12 = 'TOGELKUY SERIGALA 19*03*18';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( SERIGALAGALA ) 31*44';
-var namagroup14 = 'ANGKER';
-var Comment14 = 'ANGKER4D=LULENG=94*89*43';
+var namagroup14 = 'Hoho';
+var Comment14 = 'TETATAI : 94*89*43 #HOHOTOGEL';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (BELANAK) 08*87*53';
 var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (TREX) : 91*93*23';
 var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (PIRANHA) = 29*59';
+var Comment17 = '#KIKOTOTO (PIRANHAHAHA) = 29*59';
 //Batas
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'group Ninja 3';
