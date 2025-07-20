@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Babon 1
 // @namespace    http://tampermonkey.net/
-// @version      3.74
+// @version      3.75
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon1.js
@@ -18,37 +18,37 @@
 // ==/UserScript==
 
 var namagroup1 = 'MELATI';
-var Comment1 = '*MELATI188 (SUNTIKMATI) : 59*95 *BETTING';
+var Comment1 = '*MELATI188 (SUNTIKMATI) : 23*46 *BETTING';
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( SETIASAJA ) : 18*28*38';
+var Comment2 = 'K86TOTO ( SETIASAJA ) : 12*97*55';
 var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = (SUKUMLAKU) 13*36*58';
+var Comment3 = '#(WARUNGTOTO) = (SUKUMLAKU) 56*14*40';
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO SAMBUTAN20 = 42*76*16';
+var Comment4 = '#RIATOTO SAMBUTAN20 = 98*10*52';
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (SASISU42*71*48*25)';
+var Comment5 = '#PEDRO4D (SASISU42*11*36*26)';
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (SISWARUK) = 92*84*39';
+var Comment6 = '#DIVA4D (SISWARUK) = 20*59*58';
 var namagroup7 = 'TREX';
-var Comment7 = '#HATORIBET*SEMBODOH*72*45*27';
-var namagroup8 = 'ALLPAS';
-var Comment8 = 'Tok99Toto ( SINGKONGTHAI ) : 42*76*00';
-var namagroup9 = 'TAFSIR MIMPI';
-var Comment9 = 'SIJITOGEL SUMURMATI 82*22*20';
-var namagroup10 = 'UDANG';
-var Comment10 = 'UDANGBET ( SUNDALA23 ) = 70*14*67';
-var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*SAKUKUTARA*32*57*88';
-var namagroup12 = 'OPUNG';
-var Comment12 = 'OPUNG4D ( SIANGANAJA ) : 73*04*81';
-var namagroup13 = 'UPIN';
-var Comment13 = '#UPINSLOT ( SUMBUBULU) 79*74*51 BETTING';
-var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D (SAMBUNGBAYAM) = 82*22';
-var namagroup15 = 'Hoho';
-var Comment15 = 'SUKAJANTUA : 85*08*60 #HOHOTOGEL';
-var namagroup16 = 'GTO';
-var Comment16 = '(GUDANGTOTO) = (SLEMPANG26) 19*17*33';
+var Comment7 = '#HATORIBET*SEMBODOH*74*05*32';
+var namagroup8 = 'BLITAR';
+var Comment8 = '#BLITAR4D (SAMBUNGBAYAM) = 61*63';
+var namagroup9 = 'TESTER';
+var Comment9 = '#ASIATOTO = {SAKUKUTARA} = 89*79';
+var namagroup10 = 'TESTER';
+var Comment10 = '';
+var namagroup11 = 'TESTER';
+var Comment11 = '';
+var namagroup12 = 'TESTER';
+var Comment12 = '';
+var namagroup13 = 'TESTER';
+var Comment13 = '';
+var namagroup14 = 'TESTER';
+var Comment14 = '';
+var namagroup15 = 'TESTER';
+var Comment15 = '';
+var namagroup16 = 'TESTER';
+var Comment16 = '';
 //Batas
 
 var namagroup17 = 'Jawatengah';
