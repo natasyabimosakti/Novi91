@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna3
 // @namespace    http://tampermonkey.net/
-// @version      3.252
+// @version      3.253
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna3.js
@@ -18,37 +18,37 @@
 // ==/UserScript==
 
 var namagroup1 = 'MELATI';
-var Comment1 = '*MELATI188 (YOREAN63) : 05*24 *BETTING';
+var Comment1 = '*MELATI188 (YOREAN63) : 07*24 *BETTING';
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( YONOBO74 ) : 36*59*02';
+var Comment2 = 'K86TOTO ( YONOBO74 ) : 46*29*37';
 var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = (YOWESBEN6) 63*92*65';
+var Comment3 = '#(WARUNGTOTO) = (YOWESBEN6) 88*03*59';
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO YONOBO74 = 19*99*17';
+var Comment4 = '#RIATOTO YONOBO74 = 93*13*34';
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (YONOBO74*33*98*16)';
+var Comment5 = '#PEDRO4D (YONOBO74*44*83*67)';
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (YONOBO74) = 27*01*82';
+var Comment6 = '#DIVA4D (YONOBO74) = 73*76*49';
 var namagroup7 = 'TREX';
-var Comment7 = '#HATORIBET*YONOBO74*06*18*75';
-var namagroup8 = 'ALLPAS';
-var Comment8 = 'Tok99Toto ( YOBENWES3 ) : 52*46*47';
-var namagroup9 = 'TAFSIR MIMPI';
-var Comment9 = 'SIJITOGEL YONOBO74 91*85*64';
-var namagroup10 = 'UDANG';
-var Comment10 = 'UDANGBET ( YONEKWIK37 ) = 53*44*79';
-var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*CRTI249*51*09*20';
-var namagroup12 = 'OPUNG';
-var Comment12 = 'OPUNG4D ( YOKOJO3 ) : 07*57*97';
-var namagroup13 = 'UPIN';
-var Comment13 = '#UPINSLOT ( YOKWIK47) 49*12*08 BETTING';
-var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D (YONOBO74) = 69*10';
-var namagroup15 = 'Hoho';
-var Comment15 = 'YONOBO74 : 84*94*15 #HOHOTOGEL';
-var namagroup16 = 'GTO';
-var Comment16 = '(GUDANGTOTO) = (YOKWIK47) 04*11*13';
+var Comment7 = '#HATORIBET*YONOBO74*79*27*75';
+var namagroup8 = 'BLITAR';
+var Comment8 = '#BLITAR4D (YONOBO74) = 53*68';
+var namagroup9 = 'TESTER';
+var Comment9 = '#ASIATOTO = {AMPEK43} = 96*97';
+var namagroup10 = 'TESTER';
+var Comment10 = '';
+var namagroup11 = 'TESTER';
+var Comment11 = '';
+var namagroup12 = 'TESTER';
+var Comment12 = '';
+var namagroup13 = 'TESTER';
+var Comment13 = '';
+var namagroup14 = 'TESTER';
+var Comment14 = '';
+var namagroup15 = 'TESTER';
+var Comment15 = '';
+var namagroup16 = 'TESTER';
+var Comment16 = '';
 
 //Batas
 
