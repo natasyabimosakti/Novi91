@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna4
 // @namespace    http://tampermonkey.net/
-// @version      3.253
+// @version      3.254
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna4.js
@@ -18,37 +18,37 @@
 // ==/UserScript==
 
 var namagroup1 = 'MELATI';
-var Comment1 = '*MELATI188 (ZONIAK26) : 49*12 *BETTING';
+var Comment1 = '*MELATI188 (ZONIAK26) : 39*86 *BETTING';
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( ZOROK73 ) : 53*38*79';
+var Comment2 = 'K86TOTO ( ZOROK73 ) : 85*40*60';
 var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = (ZOWOK26) 07*97*57';
+var Comment3 = '#(WARUNGTOTO) = (ZOWOK26) 26*70*00';
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO ZORAN36 = 51*09*20';
+var Comment4 = '#RIATOTO ZORAN36 = 05*35*63';
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (ZONIAK63*69*10*89)';
+var Comment5 = '#PEDRO4D (ZONIAK63*06*28*02)';
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (ZOMING82) = 84*94*15';
+var Comment6 = '#DIVA4D (ZOMING82) = 80*19*18';
 var namagroup7 = 'TREX';
-var Comment7 = '#HATORIBET*ZONIAK63*04*11*13';
-var namagroup8 = 'ALLPAS';
-var Comment8 = 'Tok99Toto ( ZONATING ) : 91*85*64';
-var namagroup9 = 'TAFSIR MIMPI';
-var Comment9 = 'SIJITOGEL ZONIAK63 52*46*47';
-var namagroup10 = 'UDANG';
-var Comment10 = 'UDANGBET ( ZOKET72 ) = 36*59*00';
-var namagroup11 = 'MAYAPADA';
-var Comment11 = 'BETT*Mayapada4D(BO)*ZOKUTU72*19*99*17';
-var namagroup12 = 'OPUNG';
-var Comment12 = 'OPUNG4D ( ZOWEKNI82 ) : 63*65*92';
-var namagroup13 = 'UPIN';
-var Comment13 = '#UPINSLOT ( ZOWINDO) 05*24*48 BETTING';
-var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D (ZOMING82) = 33*98';
-var namagroup15 = 'Hoho';
-var Comment15 = 'ZONATIK73 : 27*01*82 #HOHOTOGEL';
-var namagroup16 = 'GTO';
-var Comment16 = '(GUDANGTOTO) = (ZOWINDO) 06*18*75';
+var Comment7 = '#HATORIBET*ZONIAK63*69*51*71';
+var namagroup8 = 'BLITAR';
+var Comment8 = '#BLITAR4D (ZOMING82) = 06*82';
+var namagroup9 = 'TESTER';
+var Comment9 = '#ASIATOTO = {AMPEK43} = 96*97';
+var namagroup10 = 'TESTER';
+var Comment10 = '';
+var namagroup11 = 'TESTER';
+var Comment11 = '';
+var namagroup12 = 'TESTER';
+var Comment12 = '';
+var namagroup13 = 'TESTER';
+var Comment13 = '';
+var namagroup14 = 'TESTER';
+var Comment14 = '';
+var namagroup15 = 'TESTER';
+var Comment15 = '';
+var namagroup16 = 'TESTER';
+var Comment16 = '';
 
 //Batas
 var namagroup17 = 'Jawatengah';
