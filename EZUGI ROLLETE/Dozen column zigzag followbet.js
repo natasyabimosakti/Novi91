@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Auto Bet Final v9.2.5 (Result 0 Follow Fix)
+// @name         Auto Bet Final v9.2.7 (Zigzag + Klik Presisi)
 // @namespace    http://tampermonkey.net/
-// @version      3.25
-// @description  Zigzag Dozen/Column + Martingale Fibonacci + Koin Otomatis + Lanjut saat result 0.
+// @version      3.27
+// @description  Zigzag Lebih Akurat + Klik Koin Presisi Tanpa Delay Gagal
 // @match        http*://*/*
 // @grant        none
 // @run-at       document-idle
@@ -52,26 +52,40 @@
         }
 
         function clickMultiple(el, times) {
-            for (let i = 0; i < times; i++) {
-                el.dispatchEvent(new Event('click', { bubbles: true }));
-            }
-            return Promise.resolve();
+            return new Promise(resolve => {
+                let count = 0;
+                function doClick() {
+                    el.dispatchEvent(new Event('click', { bubbles: true }));
+                    count++;
+                    if (count < times) {
+                        setTimeout(doClick, 1); // delay mikro agar stabil
+                    } else {
+                        resolve();
+                    }
+                }
+                doClick();
+            });
         }
 
         async function pilihKoinPecahan(chipCount, targetButton) {
             if (!targetButton || chipCount <= 0) return;
             const totalRupiah = chipCount * 1000;
             let sisa = totalRupiah;
+
             for (let nominal of DENOMINASI) {
                 const jumlah = Math.floor(sisa / nominal);
                 if (jumlah > 0) {
                     const chipBtn = document.querySelector(`[data-e2e="chip-${nominal}"]`);
                     if (!chipBtn) continue;
+
                     chipBtn.dispatchEvent(new Event('click', { bubbles: true }));
+                    await new Promise(r => setTimeout(r, 10));
                     await clickMultiple(targetButton, jumlah);
                     sisa -= jumlah * nominal;
                 }
             }
+
+            console.log(`[BET] Target: ${targetButton?.id}, Total: ${totalRupiah.toLocaleString("id-ID")}`);
         }
 
         async function placeDozen() {
@@ -96,7 +110,6 @@
             const d = getDozen(winNum);
             const c = getColumn(winNum);
 
-            // DOZEN
             if (targetDozen !== null) {
                 if (d === targetDozen && d > 0) {
                     targetDozen = null;
@@ -109,14 +122,20 @@
             }
 
             lastDozens.unshift(d);
-            if (lastDozens.length > 6) lastDozens.pop();
-            zigzagDozenCount = (lastDozens.length >= 2 && lastDozens[0] !== lastDozens[1]) ? zigzagDozenCount + 1 : 0;
+            if (lastDozens.length > 10) lastDozens.pop();
+            if (lastDozens.length >= 3) {
+                let zigzag = 1;
+                for (let i = 1; i < lastDozens.length; i++) {
+                    if (lastDozens[i] !== lastDozens[i - 1]) zigzag++;
+                    else break;
+                }
+                zigzagDozenCount = zigzag - 1;
+            }
 
             if (zigzagDozenCount >= 3 && !targetDozen && d > 0) {
                 targetDozen = d;
             }
 
-            // COLUMN
             if (targetColumn !== null) {
                 if (c === targetColumn && c > 0) {
                     targetColumn = null;
@@ -129,8 +148,15 @@
             }
 
             lastColumns.unshift(c);
-            if (lastColumns.length > 6) lastColumns.pop();
-            zigzagColumnCount = (lastColumns.length >= 2 && lastColumns[0] !== lastColumns[1]) ? zigzagColumnCount + 1 : 0;
+            if (lastColumns.length > 10) lastColumns.pop();
+            if (lastColumns.length >= 3) {
+                let zigzag = 1;
+                for (let i = 1; i < lastColumns.length; i++) {
+                    if (lastColumns[i] !== lastColumns[i - 1]) zigzag++;
+                    else break;
+                }
+                zigzagColumnCount = zigzag - 1;
+            }
 
             if (zigzagColumnCount >= 3 && !targetColumn && c > 0) {
                 targetColumn = c;
