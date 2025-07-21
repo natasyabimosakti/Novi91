@@ -52,21 +52,10 @@
         }
 
         function clickMultiple(el, times) {
-            return new Promise(resolve => {
-                let i = 0;
-                function loop() {
-                    if (i < times) {
-                        requestAnimationFrame(() => {
-                            el.dispatchEvent(new Event('click', { bubbles: true }));
-                            i++;
-                            loop();
-                        });
-                    } else {
-                        resolve();
-                    }
-                }
-                loop();
-            });
+            for (let i = 0; i < times; i++) {
+                el.dispatchEvent(new Event('click', { bubbles: true }));
+            }
+            return Promise.resolve();
         }
 
         async function pilihKoinPecahan(chipCount, targetButton) {
@@ -81,7 +70,6 @@
                     chipBtn.dispatchEvent(new Event('click', { bubbles: true }));
                     await clickMultiple(targetButton, jumlah);
                     sisa -= jumlah * nominal;
-                    await new Promise(r => setTimeout(r, 20));
                 }
             }
         }
