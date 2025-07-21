@@ -159,7 +159,7 @@
             if (open) {
                 const resultSpan = history[0];
                 const result = parseInt(resultSpan.textContent.trim());
-// @version      3.NaN
+                const isNewResult = result !== lastResult && !isNaN(result);
 
                 if (isNewResult) {
                     lastResult = result;
