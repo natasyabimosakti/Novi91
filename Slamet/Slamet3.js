@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Slamet 3
 // @namespace    http://tampermonkey.net/
-// @version      3.70
+// @version      3.71
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet3.js
@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 var namagroup1 = 'ALLPAS';
-var Comment1 = 'Tok99Toto ( CUMAKAMU ) : 80*51';
+var Comment1 = 'Tok99Toto ( CUMAKAMU ) : 80*51*95';
 var namagroup2 = 'BUKU';
 var Comment2 = 'IYATOTO CUCIMATA 72*39*99';
 var namagroup3 = 'TIKTAK';
@@ -32,7 +32,7 @@ var Comment6 = '#PAPUATOTO=(COROLANGU)=26-53';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL CENATCENUT 22*35*78';
 var namagroup8 = 'OPUNG';
-var Comment8 = 'OPUNG4D ( COLAKCOLEK ) : 60*32';
+var Comment8 = 'OPUNG4D ( COLAKCOLEK ) : 60*32*38';
 var namagroup9 = 'MAYAPADA';
 var Comment9 = 'BETT*Mayapada4D(BO)*CURUKSEWU*16*81*71';
 var namagroup10 = 'GROUP LOMBA ANGKA';
