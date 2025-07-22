@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawasaki 1
 // @namespace    http://tampermonkey.net/
-// @version      3.18
+// @version      3.19
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/KAWASAKI/Kawasaki1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/KAWASAKI/Kawasaki1.js
@@ -17,8 +17,8 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'MELATI';
-var Comment1 = '*MELATI188 (DADAR13) : 74*65 *BETTING';
+var namagroup1 = 'GTO';
+var Comment1 = '(GUDANGTOTO) = (DEWADEWI) 74*65';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( DUGEMXX ) : 88*43*21';
 var namagroup3 = 'WARUNG';
@@ -33,7 +33,7 @@ var namagroup7 = 'TREX';
 var Comment7 = '#HATORIBET*DEPODULU*86*90*84';
 var namagroup8 = 'BLITAR';
 var Comment8 = '#BLITAR4D (DRACO) = 37*68';
-var namagroup9 = 'TESTER';
+var namagroup9 = 'ASIA';
 var Comment9 = '#ASIATOTO = {DEWADEWI2} = 80*54';
 var namagroup10 = 'TESTER';
 var Comment10 = '';
@@ -49,7 +49,6 @@ var namagroup15 = 'TESTER';
 var Comment15 = '';
 var namagroup16 = 'TESTER';
 var Comment16 = '';
-
 //Batas
 
 var namagroup17 = 'Jawatengah';
