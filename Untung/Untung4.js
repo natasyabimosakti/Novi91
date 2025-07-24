@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 4
 // @namespace    http://tampermonkey.net/
-// @version      3.89
+// @version      3.90
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung4.js
@@ -34,7 +34,7 @@ var Comment7 = '#HATORIBET*WENANG95*05*48*88';
 var namagroup8 = 'BLITAR';
 var Comment8 = '#BLITAR4D (WALUYO74) = 65*77';
 var namagroup9 = 'ASIA';
-var Comment9 = '#ASIATOTO = {ENGGAN18} = 79*98';
+var Comment9 = '#ASIATOTO = {WADAH71} = 99*51';
 var namagroup10 = 'TESTER';
 var Comment10 = '';
 var namagroup11 = 'TESTER';
