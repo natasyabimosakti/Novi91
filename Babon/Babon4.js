@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Babon 4
 // @namespace    http://tampermonkey.net/
-// @version      3.73
+// @version      3.77
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon4.js
@@ -34,7 +34,7 @@ var Comment7 = '#HATORIBET*KOMOROTOM*49*53*71';
 var namagroup8 = 'BLITAR';
 var Comment8 = '#BLITAR4D (KILATPETIR) = 00*93';
 var namagroup9 = 'ASIA';
-var Comment9 = '#ASIATOTO = {SAKUKUTARA} = 89*79';
+var Comment9 = '#ASIATOTO = {KIRIKKRIK21} = 78*91';
 var namagroup10 = 'TESTER';
 var Comment10 = '';
 var namagroup11 = 'TESTER';
