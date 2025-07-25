@@ -1,298 +1,185 @@
 // ==UserScript==
-// @name         Auto Bet Final v8.91.12 (Parity,SIze,Color Speed)
+// @name         Auto Bet Roulette Advanced Full Bot
 // @namespace    http://tampermonkey.net/
-// @version      3.5
-// @description  Auto Bet dengan martingale per kategori, zigzag dozen & column, saldo akurat, follow result. Tidak pakai confirm tombol. DOM pakai index-id. Result sama & 0 tetap betting.
-// @match        http*://*/*
+// @version      9.9.49
+// @description  Full Bot Roulette: Dozen/Column Zigzag & Cold, Martingale, Anti Double Bet, Coin Auto, Popup & Log + Follow Parity, Color, Size + Popup with Max Balance
+// @author       You
+// @match        *://*/*
 // @grant        none
-// @run-at       document-idle
 // ==/UserScript==
 
 (function () {
-    setTimeout(() => {
-        let highestSaldo = 0;
-        const START_BET = 1;
-        const redNumbers = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
-        const DOZEN_ID = { 1: 'index-800', 2: 'index-801', 3: 'index-802' };
-        const COLUMN_ID = { 1: 'index-702', 2: 'index-701', 3: 'index-700' };
-        const MAX_BET = 2048;
-        const fib = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048];
+    'use strict';
 
-        let zigzagCount = 0;
-        let zigzagColumnCount = 0;
-        let lastDozens = [];
-        let lastColumns = [];
-        let lastResult = null;
-        let targetDozen = null;
-        let targetColumn = null;
-        let lastTargetColumn = [];
-        let fibIndexDozen = 0;
-        let fibIndexColumn = 0;
-        let isBetting = false;
-        let isEvaluated = false;
-        let lastLoggedSaldo = null;
+    const config = {
+        baseBet: 1000,
+        coinMap: {
+            200000: 'chip-20',
+            50000: 'chip-5',
+            10000: 'chip-1',
+            1000: 'chip-0.1',
+        },
+        coinValues: [200000, 50000, 10000, 1000],
+        dozen: ['index-800', 'index-801', 'index-802'],
+        column: ['index-700', 'index-701', 'index-702'],
+        red: 'index-903', black: 'index-902',
+        odd: 'index-904', even: 'index-901',
+        small: 'index-900', big: 'index-905'
+    };
 
-        const state = {
-            saldo: 0,
-            bets: {
-                size: { option: null, amount: START_BET, streakLose: 0 },
-                parity: { option: null, amount: START_BET, streakLose: 0 },
-                color: { option: null, amount: START_BET, streakLose: 0 }
+    const state = {
+        lastPeriode: '',
+        history: [],
+        betStatus: {},
+        placedBets: new Set(),
+        zigzagD: 0,
+        zigzagC: 0,
+        coldD: [0, 0, 0],
+        coldC: [0, 0, 0],
+        martingale: {
+            dz: [config.baseBet, config.baseBet, config.baseBet],
+            cl: [config.baseBet, config.baseBet, config.baseBet],
+            red: config.baseBet,
+            black: config.baseBet,
+            odd: config.baseBet,
+            even: config.baseBet,
+            small: config.baseBet,
+            big: config.baseBet
+        },
+        lastResult: null,
+        lastValidResult: null,
+        lastBetTarget: {},
+        lastBetResult: {},
+        maxBalance: 0
+    };
+
+    const popup = document.createElement("div");
+    popup.style.cssText = "position:fixed;top:10px;right:10px;background:#222;color:#0f0;padding:10px;font-size:14px;z-index:9999;border:2px solid #0f0;border-radius:8px;white-space:pre-line";
+    document.body.appendChild(popup);
+
+    function updatePopup(balance, periode, result) {
+        if (balance > state.maxBalance) state.maxBalance = balance;
+        popup.innerText = `🎯 Periode: ${periode}\n🎯 Result: ${result}\n💰 Saldo: €${balance.toFixed(2)}\n💰 Saldo Tertinggi: €${state.maxBalance.toFixed(2)}`;
+    }
+
+    function getPeriode() {
+        return document.querySelector('[data-e2e="round-info-value"]')?.textContent.trim() || '';
+    }
+
+    function getLastResult() {
+        return document.getElementsByClassName("ervzci33")[0]?.children?.[0]?.textContent.trim() || '';
+    }
+
+    function isBettingOpen() {
+        return document.querySelector('[data-e2e="betting-timer"]') !== null;
+    }
+
+    function getBalance() {
+        let txt = document.querySelector('[data-e2e="balance-value"]')?.textContent || '';
+        return parseFloat(txt.replace(/[^0-9.]/g, '')) || 0;
+    }
+
+    function dispatchClick(el) {
+        if (el) el.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    }
+
+    async function pickCoinsAndClick(id, amount) {
+        let remaining = amount;
+        for (const val of config.coinValues) {
+            const qty = Math.floor(remaining / val);
+            const chipBtn = document.querySelector(`[data-e2e="${config.coinMap[val]}"]`);
+            for (let i = 0; i < qty; i++) {
+                if (chipBtn) dispatchClick(chipBtn);
+                await new Promise(r => setTimeout(r, 10));
+                const el = document.getElementById(id);
+                if (el) dispatchClick(el);
             }
-        };
-
-        const idMap = {
-            size: { small: 'index-900', big: 'index-905' },
-            parity: { odd: 'index-904', even: 'index-901' },
-            color: { red: 'index-903', black: 'index-902' }
-        };
-
-        function parseRupiah(text) {
-            let cleaned = text.replace(/Rp|\s/g, '').replace(/\.\d+$/, '').replace(/,/g, '');
-            return parseInt(cleaned, 10) || 0;
+            remaining %= val;
         }
+    }
 
-        function getDozen(num) {
-            if (num >= 1 && num <= 12) return 1;
-            if (num >= 13 && num <= 24) return 2;
-            if (num >= 25 && num <= 36) return 3;
-            return 0;
-        }
-        function resetAllMartingale() {
-            // Reset Size, Parity, and Color
-            ['size', 'parity', 'color'].forEach(cat => {
-                state.bets[cat].amount = START_BET;
-                state.bets[cat].streakLose = 0;
-            });
+    async function placeBet(id, amount) {
+        if (state.placedBets.has(id)) return;
+        state.placedBets.add(id);
+        await pickCoinsAndClick(id, amount);
+    }
 
-            // Reset Dozen
-            targetDozen = null;
-            fibIndexDozen = 0;
-            zigzagCount = 0;
+    function updateMartingale(currentNum) {
+        if (state.lastBetResult && typeof currentNum === 'number') {
+            const isEven = currentNum % 2 === 0;
+            const isSmall = currentNum >= 1 && currentNum <= 18;
+            const isRed = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36].includes(currentNum);
+            const isBlack = !isRed;
 
-            // Jika masih pakai Column
-            fibIndexColumn = 0;
-            lastTargetColumn = [];
-        }
+            for (const key in state.lastBetResult) {
+                let win = false;
+                if (key === 'red') win = isRed;
+                else if (key === 'black') win = isBlack;
+                else if (key === 'even') win = isEven;
+                else if (key === 'odd') win = !isEven;
+                else if (key === 'small') win = isSmall;
+                else if (key === 'big') win = !isSmall;
 
-        function getColumn(num) {
-            if (num < 1 || num > 36) return 0;
-            return ((num - 1) % 3) + 1;
-        }
-        function clickMultiple(el, times) {
-            return new Promise(resolve => {
-                let i = 0;
-                function loop() {
-                    if (i < times) {
-                        el.dispatchEvent(new Event('click', { bubbles: true }));
-                        i++;
-                        requestAnimationFrame(loop);
-                    } else {
-                        setTimeout(resolve, 3);
-                    }
-                }
-                loop();
-            });
-        }
-
-        async function placeBet(category) {
-            const bet = state.bets[category];
-            const optionId = idMap[category][bet.option];
-            const tombol = document.querySelector(`[id="${optionId}"]`);
-            if (tombol && bet.amount > 0) {
-                await clickMultiple(tombol, bet.amount);
-            }
-        }
-
-        async function placeDozen() {
-            if (!targetDozen) return;
-            const btn = document.querySelector(`[id="${DOZEN_ID[targetDozen]}"]`);
-            if (btn) await clickMultiple(btn, fib[fibIndexDozen]);
-        }
-        function autoClosePopup() {
-            setInterval(() => {
-                const closeBtn = document.querySelector('[data-e2e="btn-label-Close"]');
-                const btnrecon = document.querySelector('[data-e2e="btn-label-Reconnect"]');
-                if (closeBtn) {
-                    closeBtn.dispatchEvent(new Event('click', { bubbles: true }));
-                }
-                if (btnrecon) {
-                    btnrecon.dispatchEvent(new Event('click', { bubbles: true }));
-                }
-            }, 1000); // Cek tiap 1 detik
-        }
-        async function placeColumnZigzag() {
-            if (!targetColumn) return;
-            const btn = document.querySelector(`[id="${COLUMN_ID[targetColumn]}"]`);
-            if (btn) await clickMultiple(btn, fib[fibIndexColumn]);
-        }
-
-        function analyzeFollowResult(result) {
-            state.bets.size.option = result >= 19 ? 'big' : 'small';
-            state.bets.parity.option = result % 2 === 0 ? 'even' : 'odd';
-            state.bets.color.option = redNumbers.includes(result) ? 'red' : 'black';
-        }
-
-        function evaluateBets(winNum) {
-            ['size', 'parity', 'color'].forEach(cat => {
-                const bet = state.bets[cat];
-                let menang = false;
-                if (cat === 'size') menang = winNum !== 0 && ((bet.option === 'big' && winNum >= 19) || (bet.option === 'small' && winNum <= 18));
-                if (cat === 'parity') menang = winNum !== 0 && ((bet.option === 'odd' && winNum % 2 === 1) || (bet.option === 'even' && winNum % 2 === 0));
-                if (cat === 'color') menang = winNum !== 0 && ((bet.option === 'red' && redNumbers.includes(winNum)) || (bet.option === 'black' && !redNumbers.includes(winNum)));
-
-                if (menang) {
-                    bet.amount = START_BET;
-                    bet.streakLose = 0;
+                if (win) {
+                    state.martingale[key] = config.baseBet;
                 } else {
-                    bet.streakLose++;
-                    bet.amount = Math.min(Math.pow(2, bet.streakLose), MAX_BET);
+                    state.martingale[key] *= 2;
                 }
-            });
-
-            const d = getDozen(winNum);
-            if (targetDozen !== null) {
-                if (d === targetDozen) {
-                    targetDozen = null;
-                    fibIndexDozen = 0;
-                    zigzagCount = 0;
-                } else if (d > 0) {
-                    fibIndexDozen = Math.min(fibIndexDozen + 1, fib.length - 1);
-                    targetDozen = d;
-                }
-            }
-
-            lastDozens.unshift(d);
-            if (lastDozens.length > 6) lastDozens.pop();
-            if (lastDozens.length >= 2 && lastDozens[0] !== lastDozens[1]) {
-                zigzagCount++;
-            } else {
-                zigzagCount = 0;
-            }
-            if (zigzagCount >= 20 && !targetDozen && d > 0) {
-                targetDozen = d;
-            }
-
-            const c = getColumn(winNum);
-            if (targetColumn !== null) {
-                if (c === targetColumn) {
-                    targetColumn = null;
-                    fibIndexColumn = 0;
-                    zigzagColumnCount = 0;
-                } else if (c > 0) {
-                    fibIndexColumn = Math.min(fibIndexColumn + 1, fib.length - 1);
-                    targetColumn = c;
-                }
-            }
-
-            lastColumns.unshift(c);
-            if (lastColumns.length > 10) lastColumns.pop();
-            if (lastColumns.length >= 2 && lastColumns[0] !== lastColumns[1]) {
-                zigzagColumnCount++;
-            } else {
-                zigzagColumnCount = 0;
-            }
-            if (zigzagColumnCount >= 3 && !targetColumn && c > 0) {
-                targetColumn = c;
             }
         }
+        state.lastResult = currentNum;
+    }
 
-        async function loopMain() {
-            autoClosePopup()
-            const el = document.getElementsByClassName("seconds")[0];
-            const open = !!el;
+    async function loop() {
+        if (!isBettingOpen()) return;
 
-            const history = document.getElementsByClassName("ervzci33")[0]?.children;
-            if (!history?.length) return setTimeout(loopMain, 1000);
+        const periode = getPeriode();
+        if (periode === state.lastPeriode) return;
+        state.lastPeriode = periode;
+        state.placedBets.clear();
 
-            if (open) {
-                const resultSpan = history[0];
-                const result = parseInt(resultSpan.textContent.trim());
+        const num = parseInt(getLastResult());
+        if (isNaN(num)) return;
 
-                if (!isNaN(result) && result !== lastResult) {
-                    lastResult = result;
-                    isEvaluated = false;
-                    isBetting = false;
-                }
+        const refNum = num === 0 ? state.lastValidResult : num;
 
-                if (!isEvaluated && !isNaN(result)) {
-                    evaluateBets(result);
-                    analyzeFollowResult(result);
-                    isEvaluated = true;
-                    updatePopup(result);
-                }
+        updateMartingale(num);
 
-                if (!isBetting && !isNaN(result)) {
-                    isBetting = true;
-                    for (const cat of ['size', 'parity', 'color']) {
-                        await placeBet(cat);
-                    }
-                    await placeDozen();
-                    await placeColumnZigzag();
-                    updatePopup(result);
-                }
-            } else {
-                isBetting = false;
-                isEvaluated = false;
-            }
-            setTimeout(loopMain, 1000);
+        const isEven = refNum % 2 === 0;
+        const isSmall = refNum >= 1 && refNum <= 18;
+        const isRed = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36].includes(refNum);
+        const isBlack = !isRed;
+
+        const targets = {};
+
+        const bets = [];
+        if (isRed) bets.push(['red', config.red]);
+        else bets.push(['black', config.black]);
+
+        if (isEven) bets.push(['even', config.even]);
+        else bets.push(['odd', config.odd]);
+
+        if (isSmall) bets.push(['small', config.small]);
+        else bets.push(['big', config.big]);
+
+        for (const [key, id] of bets) {
+            const amt = state.martingale[key];
+            await placeBet(id, amt);
+            console.log(`📌 Follow ${key.charAt(0).toUpperCase() + key.slice(1)} → ${amt}`);
+            targets[key] = true;
         }
 
-        function updateSaldoRealtime() {
-            setInterval(() => {
-                const el = document.querySelector("[data-e2e='balance-value']");
-                if (el && el.textContent.trim()) {
-                    const saldoBaru = parseRupiah(el.textContent.trim());
-                    if (!isNaN(saldoBaru) && saldoBaru !== lastLoggedSaldo) {
-                        lastLoggedSaldo = saldoBaru;
-                        state.saldo = saldoBaru;
-                        if (saldoBaru > highestSaldo) {
-                            highestSaldo = saldoBaru;
-                        }
-                        updatePopup(lastResult ?? "-");
-                    }
-                }
-            }, 1000);
-        }
+        state.lastBetTarget = targets;
+        state.lastBetResult = targets;
+        if (num !== 0) state.lastValidResult = num;
 
-        function createPopup() {
-            const box = document.createElement("div");
-            box.id = "popupMonitor";
-            box.style.cssText = `
-                position: fixed;
-                bottom: 10px;
-                left: 10px;
-                background: rgba(0,0,0,0.8);
-                color: #0f0;
-                font-family: monospace;
-                padding: 10px;
-                font-size: 12px;
-                border-radius: 6px;
-                z-index: 999999;
-                line-height: 1.4;
-            `;
-            box.innerHTML = "⌛ Loading...";
-            document.body.appendChild(box);
-        }
+        const saldo = getBalance();
+        updatePopup(saldo, periode, num);
 
-        function updatePopup(result = "-") {
-            const box = document.getElementById("popupMonitor");
-            if (!box) return;
-            box.innerHTML = `
-💰 Saldo: ${state.saldo.toLocaleString("id-ID")}
-🧱 Saldo Tertinggi: ${highestSaldo.toLocaleString("id-ID")}
-🎲 Result: ${result ?? "-"}
-📉 Size: ${state.bets.size.streakLose}x
-📉 Parity: ${state.bets.parity.streakLose}x
-📉 Color: ${state.bets.color.streakLose}x
-🎯 Zigzag: ${zigzagCount}x
-🎯 Dozen: ${targetDozen ?? '-'} (${fib[fibIndexDozen] ?? '-'})
-🎯 Column: ${lastTargetColumn.join(',') || '-'} (${fib[fibIndexColumn] ?? '-'})
-`;
-        }
+        console.log(`🎯 Periode: ${periode}`);
+        console.log(`🎯 Result: ${num}`);
+        console.log(`💰 Saldo: €${saldo}`);
+    }
 
-        createPopup();
-        updateSaldoRealtime();
-        loopMain();
-    }, 3000);
+    setInterval(loop, 1000);
 })();
