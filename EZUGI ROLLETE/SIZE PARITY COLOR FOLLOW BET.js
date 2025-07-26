@@ -1,9 +1,8 @@
 // ==UserScript==
-// @name         Auto Bet Roulette Advanced Full Bot
+// @name         Auto Bet Roulette Martingale v1.1.4
 // @namespace    http://tampermonkey.net/
-// @version      9.9.49
-// @description  Full Bot Roulette: Dozen/Column Zigzag & Cold, Martingale, Anti Double Bet, Coin Auto, Popup & Log + Follow Parity, Color, Size + Popup with Max Balance
-// @author       You
+// @version      1.1.4
+// @description  Auto bet roulette dengan martingale, saldo real-time, dan reset manual
 // @match        *://*/*
 // @grant        none
 // ==/UserScript==
@@ -11,175 +10,172 @@
 (function () {
     'use strict';
 
-    const config = {
-        baseBet: 1000,
-        coinMap: {
-            200000: 'chip-20',
-            50000: 'chip-5',
-            10000: 'chip-1',
-            1000: 'chip-0.1',
-        },
-        coinValues: [200000, 50000, 10000, 1000],
-        dozen: ['index-800', 'index-801', 'index-802'],
-        column: ['index-700', 'index-701', 'index-702'],
-        red: 'index-903', black: 'index-902',
-        odd: 'index-904', even: 'index-901',
-        small: 'index-900', big: 'index-905'
+    const DOM = {
+        red: 'index-903',
+        black: 'index-902',
+        odd: 'index-904',
+        even: 'index-901',
+        small: 'index-900',
+        big: 'index-905',
     };
 
-    const state = {
-        lastPeriode: '',
-        history: [],
-        betStatus: {},
-        placedBets: new Set(),
-        zigzagD: 0,
-        zigzagC: 0,
-        coldD: [0, 0, 0],
-        coldC: [0, 0, 0],
-        martingale: {
-            dz: [config.baseBet, config.baseBet, config.baseBet],
-            cl: [config.baseBet, config.baseBet, config.baseBet],
-            red: config.baseBet,
-            black: config.baseBet,
-            odd: config.baseBet,
-            even: config.baseBet,
-            small: config.baseBet,
-            big: config.baseBet
-        },
-        lastResult: null,
-        lastValidResult: null,
-        lastBetTarget: {},
-        lastBetResult: {},
-        maxBalance: 0
-    };
+    let roundNumber = 0;
+    let lastResult = null;
+    let previousBet = { color: 'red', parity: 'odd', size: 'small' };
+    let marti = { color: 1, parity: 1, size: 1 };
+    let highestBalance = 0;
+    let lastKnownResultText = "";
+    let popupText;
 
-    const popup = document.createElement("div");
-    popup.style.cssText = "position:fixed;top:10px;right:10px;background:#222;color:#0f0;padding:10px;font-size:14px;z-index:9999;border:2px solid #0f0;border-radius:8px;white-space:pre-line";
-    document.body.appendChild(popup);
-
-    function updatePopup(balance, periode, result) {
-        if (balance > state.maxBalance) state.maxBalance = balance;
-        popup.innerText = `🎯 Periode: ${periode}\n🎯 Result: ${result}\n💰 Saldo: €${balance.toFixed(2)}\n💰 Saldo Tertinggi: €${state.maxBalance.toFixed(2)}`;
+    function resetMartingale() {
+        marti = { color: 1, parity: 1, size: 1 };
+        updatePopup(`✅ Semua Martingale direset!\n${lastKnownResultText}`);
+        console.log("✅ Martingale reset manual.");
     }
 
-    function getPeriode() {
-        return document.querySelector('[data-e2e="round-info-value"]')?.textContent.trim() || '';
+    function createPopup() {
+        const container = document.createElement("div");
+        container.style = `
+            position:fixed;
+            bottom:10px;
+            right:10px;
+            z-index:9999;
+            background:rgba(0,0,0,0.85);
+            color:lime;
+            padding:10px;
+            border-radius:10px;
+            font-family:monospace;
+            max-width: 250px;
+            font-size: 13px;
+        `;
+
+        const textDiv = document.createElement("div");
+        textDiv.innerText = "🔄 Init...";
+        container.appendChild(textDiv);
+        popupText = textDiv;
+
+        const btn = document.createElement("button");
+        btn.innerText = "🔄 Reset Marti";
+        btn.style = `
+            margin-top:8px;
+            padding:4px 8px;
+            background:#222;
+            color:lime;
+            border:1px solid lime;
+            border-radius:4px;
+            cursor:pointer;
+        `;
+        btn.onclick = resetMartingale;
+        container.appendChild(btn);
+
+        document.body.appendChild(container);
+        return container;
     }
 
-    function getLastResult() {
-        return document.getElementsByClassName("ervzci33")[0]?.children?.[0]?.textContent.trim() || '';
+    function updatePopup(text) {
+        if (popupText) popupText.innerText = text;
     }
 
-    function isBettingOpen() {
-        return document.querySelector('[data-e2e="betting-timer"]') !== null;
+    function simulateClick(selector, times) {
+        const elem = document.querySelector(`[id="${selector}"]`);
+        if (!elem || window.getComputedStyle(elem).pointerEvents === "none") return false;
+        for (let i = 0; i < times; i++) {
+            elem.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+        }
+        return true;
     }
 
-    function getBalance() {
-        let txt = document.querySelector('[data-e2e="balance-value"]')?.textContent || '';
-        return parseFloat(txt.replace(/[^0-9.]/g, '')) || 0;
+    function getResult() {
+        return document.getElementsByClassName("ervzci33")[0]?.children?.[0]?.textContent.trim();
     }
 
-    function dispatchClick(el) {
-        if (el) el.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    function getCurrentBalance() {
+        const raw = document.querySelector('[data-e2e="balance-value"]')?.textContent || '';
+        const clean = parseFloat(raw.replace(/[^\d.-]/g, ''));
+        return isNaN(clean) ? 0 : clean;
     }
 
-    async function pickCoinsAndClick(id, amount) {
-        let remaining = amount;
-        for (const val of config.coinValues) {
-            const qty = Math.floor(remaining / val);
-            const chipBtn = document.querySelector(`[data-e2e="${config.coinMap[val]}"]`);
-            for (let i = 0; i < qty; i++) {
-                if (chipBtn) dispatchClick(chipBtn);
-                await new Promise(r => setTimeout(r, 10));
-                const el = document.getElementById(id);
-                if (el) dispatchClick(el);
+    function mapResultToPosition(result) {
+        const num = parseInt(result);
+        if (isNaN(num)) return previousBet;
+        const isEven = num % 2 === 0;
+        const isSmall = num >= 1 && num <= 18;
+        const isRed = [1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36].includes(num);
+        return {
+            color: isRed ? 'red' : 'black',
+            parity: isEven ? 'even' : 'odd',
+            size: isSmall ? 'small' : 'big',
+        };
+    }
+
+    function placeBets(pos) {
+        simulateClick(DOM[pos.color], marti.color);
+        simulateClick(DOM[pos.parity], marti.parity);
+        simulateClick(DOM[pos.size], marti.size);
+        console.log(`✅ BET: ${pos.color} x${marti.color}, ${pos.parity} x${marti.parity}, ${pos.size} x${marti.size}`);
+    }
+
+    function evaluateMarti(resultPos, prevPos) {
+        marti.color = resultPos.color === prevPos.color ? 1 : marti.color * 2;
+        marti.parity = resultPos.parity === prevPos.parity ? 1 : marti.parity * 2;
+        marti.size = resultPos.size === prevPos.size ? 1 : marti.size * 2;
+    }
+
+    function updateBalanceRealtime() {
+        setInterval(() => {
+            const balance = getCurrentBalance();
+            if (balance > highestBalance) {
+                highestBalance = balance;
+                resetMartingale()
             }
-            remaining %= val;
+            const balanceText = `💰 Saldo Saat Ini: € ${balance.toFixed(2)}\n🔝 Saldo Tertinggi: € ${highestBalance.toFixed(2)}`;
+            updatePopup(`${lastKnownResultText}\n${balanceText}`);
+        }, 1000);
+    }
+
+    function loop() {
+        const bettingTimer = document.querySelector('[data-e2e="betting-timer"]');
+        if (!bettingTimer) {
+            setTimeout(loop, 200);
+            return;
         }
-    }
 
-    async function placeBet(id, amount) {
-        if (state.placedBets.has(id)) return;
-        state.placedBets.add(id);
-        await pickCoinsAndClick(id, amount);
-    }
+        roundNumber++;
+        const result = getResult();
 
-    function updateMartingale(currentNum) {
-        if (state.lastBetResult && typeof currentNum === 'number') {
-            const isEven = currentNum % 2 === 0;
-            const isSmall = currentNum >= 1 && currentNum <= 18;
-            const isRed = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36].includes(currentNum);
-            const isBlack = !isRed;
+        // Proses evaluasi hasil
+        let resultPos;
 
-            for (const key in state.lastBetResult) {
-                let win = false;
-                if (key === 'red') win = isRed;
-                else if (key === 'black') win = isBlack;
-                else if (key === 'even') win = isEven;
-                else if (key === 'odd') win = !isEven;
-                else if (key === 'small') win = isSmall;
-                else if (key === 'big') win = !isSmall;
+        if (parseInt(result) === 0) {
+            marti.color *= 2;
+            marti.parity *= 2;
+            marti.size *= 2;
+            resultPos = previousBet;
+            console.log("⚠️ Result 0: Gandakan semua dan gunakan posisi sebelumnya.");
+        } else if (result === lastResult) {
+            marti = { color: 1, parity: 1, size: 1 };
+            resultPos = mapResultToPosition(result);
+            previousBet = resultPos;
+            console.log("🔁 Result sama: reset marti.");
+        } else {
+            resultPos = mapResultToPosition(result);
+            evaluateMarti(resultPos, previousBet);
+            previousBet = resultPos;
+        }
 
-                if (win) {
-                    state.martingale[key] = config.baseBet;
-                } else {
-                    state.martingale[key] *= 2;
-                }
+        lastKnownResultText = `🎯 Ronde: ${roundNumber}\n🎲 Result: ${result}`;
+        placeBets(resultPos);
+        lastResult = result;
+
+        const waitNext = setInterval(() => {
+            if (!document.querySelector('[data-e2e="betting-timer"]')) {
+                clearInterval(waitNext);
+                setTimeout(loop, 200);
             }
-        }
-        state.lastResult = currentNum;
+        }, 200);
     }
 
-    async function loop() {
-        if (!isBettingOpen()) return;
-
-        const periode = getPeriode();
-        if (periode === state.lastPeriode) return;
-        state.lastPeriode = periode;
-        state.placedBets.clear();
-
-        const num = parseInt(getLastResult());
-        if (isNaN(num)) return;
-
-        const refNum = num === 0 ? state.lastValidResult : num;
-
-        updateMartingale(num);
-
-        const isEven = refNum % 2 === 0;
-        const isSmall = refNum >= 1 && refNum <= 18;
-        const isRed = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36].includes(refNum);
-        const isBlack = !isRed;
-
-        const targets = {};
-
-        const bets = [];
-        if (isRed) bets.push(['red', config.red]);
-        else bets.push(['black', config.black]);
-
-        if (isEven) bets.push(['even', config.even]);
-        else bets.push(['odd', config.odd]);
-
-        if (isSmall) bets.push(['small', config.small]);
-        else bets.push(['big', config.big]);
-
-        for (const [key, id] of bets) {
-            const amt = state.martingale[key];
-            await placeBet(id, amt);
-            console.log(`📌 Follow ${key.charAt(0).toUpperCase() + key.slice(1)} → ${amt}`);
-            targets[key] = true;
-        }
-
-        state.lastBetTarget = targets;
-        state.lastBetResult = targets;
-        if (num !== 0) state.lastValidResult = num;
-
-        const saldo = getBalance();
-        updatePopup(saldo, periode, num);
-
-        console.log(`🎯 Periode: ${periode}`);
-        console.log(`🎯 Result: ${num}`);
-        console.log(`💰 Saldo: €${saldo}`);
-    }
-
-    setInterval(loop, 1000);
+    createPopup();
+    updateBalanceRealtime();
+    setTimeout(loop, 1000);
 })();
