@@ -1,0 +1,1 @@
+https://play.livetables.io/roulette/?table_id=221004&game_id=7&identifier=102871007E97426F8B9E6853C3F21FCDA5D2C88844CC68DD&token=7E97426F8B9E6853C3F21FCDA5D2C88844CC68DD&limit_id=&operatorId=10287100
