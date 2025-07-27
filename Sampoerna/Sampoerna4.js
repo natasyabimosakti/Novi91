@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sampoerna4
 // @namespace    http://tampermonkey.net/
-// @version      3.257
+// @version      3.258
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sampoerna/Sampoerna4.js
@@ -18,23 +18,23 @@
 // ==/UserScript==
 
 var namagroup1 = 'GTO';
-var Comment1 = '(GUDANGTOTO) = (NISSIN) 57*33';
+var Comment1 = '(GUDANGTOTO) = (ZOWINDO) 39*86';
 var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( NABATI ) : 58*96*72';
+var Comment2 = 'K86TOTO ( ZOROK73 ) : 85*40*60';
 var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = (QTELA) 15*83*27';
+var Comment3 = '#(WARUNGTOTO) = (ZOWOK26) 26*70*00';
 var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO TARO = 14*12*95';
+var Comment4 = '#RIATOTO ZORAN36 = 05*35*63';
 var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (PIATOS*11*41*45)';
+var Comment5 = '#PEDRO4D (ZONIAK63*89*28*02)';
 var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (POTATO) = 62*99*40';
+var Comment6 = '#DIVA4D (ZOMING82) = 80*19*18';
 var namagroup7 = 'TREX';
-var Comment7 = '#HATORIBET*MONDE10*44*34*49';
+var Comment7 = '#HATORIBET*ZONIAK63*69*51*71';
 var namagroup8 = 'BLITAR';
-var Comment8 = '#BLITAR4D (OOPS) = 98*66';
+var Comment8 = '#BLITAR4D (ZOMING82) = 06*82';
 var namagroup9 = 'ASIA';
-var Comment9 = '#ASIATOTO = {SUKRO18} = 81*77';
+var Comment9 = '#ASIATOTO = {ZOKUTU72} = 54*78';
 var namagroup10 = 'TESTER';
 var Comment10 = '';
 var namagroup11 = 'TESTER';
