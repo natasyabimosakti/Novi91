@@ -17,7 +17,7 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-"var namagroup1 = 'GTO';
+var namagroup1 = 'GTO';
 var Comment1 = '(GUDANGTOTO) = (XIAOLAN6) 12*43';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( XENON88 ) : 95*50*17';
@@ -48,7 +48,7 @@ var Comment14 = '';
 var namagroup15 = 'TESTER';
 var Comment15 = '';
 var namagroup16 = 'TESTER';
-var Comment16 = '';"	
+var Comment16 = '';
 
 //Batas
 var namagroup17 = 'Jawatengah';
