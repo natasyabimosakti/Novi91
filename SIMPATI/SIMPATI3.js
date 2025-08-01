@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SIMPATI 3
 // @namespace    http://tampermonkey.net/
-// @version      3.0
+// @version      3.1
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/refs/heads/main/SIMPATI/SIMPATI3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/refs/heads/main/SIMPATI/SIMPATI3.js
@@ -17,7 +17,38 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-  
+var namagroup1 = 'GTO';
+var Comment1 = '(GUDANGTOTO) = (PANGGANG) 81*24*33';
+var namagroup2 = 'K86';
+var Comment2 = 'K86TOTO ( PENJAHAT ) : 46*29*37';
+var namagroup3 = 'WARUNG';
+var Comment3 = '#(WARUNGTOTO) = (PENGGARIS) 88*03*59';
+var namagroup4 = 'RIATOTO';
+var Comment4 = '#RIATOTO PAYUNG3 = 93*13*34';
+var namagroup5 = 'PEDRO';
+var Comment5 = '#PEDRO4D (PIRING2*44*83*67)';
+var namagroup6 = 'DIVA4D';
+var Comment6 = '#DIVA4D (PINANG) = 73*76*49';
+var namagroup7 = 'TREX';
+var Comment7 = '#HATORIBET*PISANG1*79*27*75';
+var namagroup8 = 'BLITAR';
+var Comment8 = '#BLITAR4D (PANDANG) = 53*68';
+var namagroup9 = 'ASIA';
+var Comment9 = '#ASIATOTO = {PETANI} = 56*72';
+var namagroup10 = 'TESTER';
+var Comment10 = '';
+var namagroup11 = 'TESTER';
+var Comment11 = '';
+var namagroup12 = 'TESTER';
+var Comment12 = '';
+var namagroup13 = 'TESTER';
+var Comment13 = '';
+var namagroup14 = 'TESTER';
+var Comment14 = '';
+var namagroup15 = 'TESTER';
+var Comment15 = '';
+var namagroup16 = 'TESTER';
+var Comment16 = '';
 //Batas
 
 
