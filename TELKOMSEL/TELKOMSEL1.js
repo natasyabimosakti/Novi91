@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TELKOMSEL 1
 // @namespace    http://tampermonkey.net/
-// @version      3.0
+// @version      3.1
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL1.js
@@ -18,7 +18,40 @@
 // ==/UserScript==
 
 
-
+var namagroup1 = 'ALLPAS';
+var Comment1 = 'Tok99Toto ( IKUT44 ) : 36*80*62';
+var namagroup2 = 'BUKU';
+var Comment2 = 'IYATOTO IGUANA 37*15*50';
+var namagroup3 = 'TIKTAK';
+var Comment3 = 'Tiktaktogel / IMINGIMING / 14 , 57 , 42';
+var namagroup4 = 'TAFSIR MIMPI';
+var Comment4 = 'SIJITOGEL ILMUWAN 65*56*48';
+var namagroup5 = 'KEITOGEL';
+var Comment5 = '#keitogel = (IKAT22) = 47*54*49';
+var namagroup6 = 'PAPUAT0T0';
+var Comment6 = '#PAPUATOTO=(INSPIRASI)=17-95';
+var namagroup7 = '453P VIP';
+var Comment7 = 'ASEPTOGEL INDUK33 55*90*06';
+var namagroup8 = 'OPUNG';
+var Comment8 = 'OPUNG4D ( IKAN55 ) : 51*35*01';
+var namagroup9 = 'MAYAPADA';
+var Comment9 = 'BETT*Mayapada4D(BO)*INKUBATOR*78*46*77';
+var namagroup10 = 'GROUP LOMBA';
+var Comment10 = '#JNETOTO(INDONESIA77)*71*96*75';
+var namagroup11 = 'TOYIB';
+var Comment11 = '#TOYIBSLOT ( INKUBATOR ) : 12*86*68';
+var namagroup12 = 'MASTER KUY';
+var Comment12 = 'TOGELKUY IKAN55 33*92*66';
+var namagroup13 = 'KOI';
+var Comment13 = '#KOITOTO ( ISTIMEWA99 ) 11*20';
+var namagroup14 = 'Hoho';
+var Comment14 = 'INTERAKSI : 58*88*41 #HOHOTOGEL';
+var namagroup15 = 'VESPA';
+var Comment15 = 'VESPATOGEL (INTERAKSI) 02*09*38';
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (INFORMASI) : 67*98*38';
+var namagroup17 = 'KIKO';
+var Comment17 = '#KIKOTOTO (IBUKOTA) = 05*60';
 
 //Batas
 var namagroup18 = 'Jawatengah';
