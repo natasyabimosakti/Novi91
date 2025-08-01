@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawasaki 3
 // @namespace    http://tampermonkey.net/
-// @version      3.19
+// @version      3.20
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/KAWASAKI/Kawasaki3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/KAWASAKI/Kawasaki3.js
@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 var namagroup1 = 'GTO';
-var Comment1 = '(GUDANGTOTO) = (ROSELA) 30*13';
+var Comment1 = '(GUDANGTOTO) = (ROSELA) 30*13*01';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( BUGENVIL ) : 16*79*00';
 var namagroup3 = 'WARUNG';
