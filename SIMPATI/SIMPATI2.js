@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         SIMPATI 2
 // @namespace    http://tampermonkey.net/
-// @version      3.1
+// @version      3.2
 // @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/refs/heads/main/SIMPATI/SIMPATI2.js
-// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/refs/heads/main/SIMPATI/SIMPATI2.js
+// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI2.js
+// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI2.js
 // @author       You
 // @match        http*://*/*
 // @run-at       document-end
@@ -51,15 +51,11 @@ var namagroup16 = 'TESTER';
 var Comment16 = '';
 //Batas
 
-
-
-
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'SIMPATI2';
+var Comment17 = 'Baru SIMPATI 2';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
-
 
 
 
@@ -516,7 +512,7 @@ function showNotification(message) {
     setTimeout(() => notif.remove(), 15000);
 }
 
-// @version      3.NaN
+setTimeout(() => {
     mulaiRefresh()
 }, 5000);
 
@@ -560,7 +556,7 @@ function levenshtein(a, b) {
     for (let i = 1; i <= b.length; i++) {
         for (let j = 1; j <= a.length; j++) {
             if (b[i - 1] === a[j - 1]) {
-// @version      3.NaN
+                matrix[i][j] = matrix[i - 1][j - 1];
             } else {
                 matrix[i][j] = Math.min(
                     matrix[i - 1][j - 1] + 1, // substitusi
