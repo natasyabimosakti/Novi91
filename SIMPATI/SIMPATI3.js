@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         SIMPATI 3
 // @namespace    http://tampermonkey.net/
-// @version      3.1
+// @version      3.2
 // @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/refs/heads/main/SIMPATI/SIMPATI3.js
-// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/refs/heads/main/SIMPATI/SIMPATI3.js
+// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI3.js
+// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI3.js
 // @author       You
 // @match        http*://*/*
 // @run-at       document-end
@@ -51,15 +51,11 @@ var namagroup16 = 'TESTER';
 var Comment16 = '';
 //Batas
 
-
-
-
 var namagroup17 = 'Jawatengah';
-var Comment17 = 'SIMPATI3';
+var Comment17 = 'Baru SIMPATI 3';
 
 var namagroup18 = 'lajw';
 var Comment18 = 'asek';
-
 
 
 
@@ -516,7 +512,7 @@ function showNotification(message) {
     setTimeout(() => notif.remove(), 15000);
 }
 
-// @version      3.NaN
+setTimeout(() => {
     mulaiRefresh()
 }, 5000);
 
@@ -651,7 +647,7 @@ async function cekMasalah() {
             janganclose = true;
             MsgError(SCRIPT_NAME)
             await sendToTelegram(`? Ada "masalah":\n\n${cleanText}`);
-// @version      3.NaN
+
         }
     } catch (e) {
         console.warn("? Error saat cek masalah:", e);
