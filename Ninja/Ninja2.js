@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ninja 2
 // @namespace    http://tampermonkey.net/
-// @version      3.8
+// @version      3.9
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja2.js
@@ -28,7 +28,7 @@ var Comment4 = 'SIJITOGEL CEBOKIN 58*88*41';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (FANDOM) = 11*20*83';
 var namagroup6 = 'PAPUAT0T0';
-var Comment6 = '#PAPUATOTO=(FAKE)=33-92';
+var Comment6 = '#PAPUATOTO (FAKE)=33-92';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL FOCUS 12*86*68';
 var namagroup8 = 'OPUNG';
