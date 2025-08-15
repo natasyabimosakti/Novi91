@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TELKOMSEL 3
 // @namespace    http://tampermonkey.net/
-// @version      3.1
+// @version      3.2
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL3.js
@@ -29,7 +29,7 @@ var Comment4 = 'SIJITOGEL PEJALAN 63*30*72';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (PETANI) = 64*40*69';
 var namagroup6 = 'PAPUAT0T0';
-var Comment6 = '#PAPUATOTO=(PANDANG1)=22-24';
+var Comment6 = '#PAPUATOTO (PANDANG1)=22-24';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL PIRANHA 34*13*79';
 var namagroup8 = 'OPUNG';
