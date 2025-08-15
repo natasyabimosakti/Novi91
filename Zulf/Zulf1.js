@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF1
 // @namespace    http://tampermonkey.net/
-// @version      3.68
+// @version      3.69
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
@@ -29,7 +29,7 @@ var Comment4 = 'SIJITOGEL TANLES78 25*85*67';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (TANMO38) = 01*44*31';
 var namagroup6 = 'PAPUAT0T0';
-var Comment6 = '#PAPUATOTO=(TANLES78)=88-75';
+var Comment6 = '#PAPUATOTO (TANLES78)=88-75';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL TANLONTO12 17*84*50';
 var namagroup8 = 'OPUNG';
