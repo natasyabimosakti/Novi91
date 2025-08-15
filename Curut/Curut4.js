@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.220
+// @version      3.221
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
@@ -28,7 +28,7 @@ var Comment4 = 'SIJITOGEL DIYENG23 94*89*29';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (DUGALTOK) = 31*44*59';
 var namagroup6 = 'PAPUAT0T0';
-var Comment6 = '#PAPUATOTO=(DENGKULMU)=19-03';
+var Comment6 = '#PAPUATOTO (DENGKULMU)=19-03';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL DUDADUWEL 25*16*85';
 var namagroup8 = 'OPUNG';
