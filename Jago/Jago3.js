@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JAGO 3
 // @namespace    http://tampermonkey.net/
-// @version      3.51
+// @version      3.52
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago3.js
@@ -30,7 +30,7 @@ var Comment4 = 'SIJITOGEL MANAHIWAK 22*24*21';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (MUBENGAN52) = 34*13*79';
 var namagroup6 = 'PAPUAT0T0';
-var Comment6 = '#PAPUATOTO=(MANCURMUJUR)=00-28';
+var Comment6 = '#PAPUATOTO (MANCURMUJUR)=00-28';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL MULETENAK 04*76*81';
 var namagroup8 = 'OPUNG';
