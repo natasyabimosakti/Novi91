@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ninja 1
 // @namespace    http://tampermonkey.net/
-// @version      3.8
+// @version      3.9
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja1.js
@@ -28,7 +28,7 @@ var Comment4 = 'SIJITOGEL DELAY 14*57*42';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (ASIH123) = 65*56*48';
 var namagroup6 = 'PAPUAT0T0';
-var Comment6 = '#PAPUATOTO=(ANEH454)=47-54';
+var Comment6 = '#PAPUATOTO (ANEH454)=47-54';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL ANJIRRR 17*95*61';
 var namagroup8 = 'OPUNG';
