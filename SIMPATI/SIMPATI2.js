@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SIMPATI 2
 // @namespace    http://tampermonkey.net/
-// @version      3.2
+// @version      3.3
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI2.js
@@ -22,7 +22,7 @@ var Comment1 = '(GUDANGTOTO) = (OLAHAN) 25*91*62';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( ONGGRONGAN ) : 01*64*42';
 var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = (OLAHRAGA) 15*04*77';
+var Comment3 = '#(WARUNGTOTO) = (OLAHRAGA) 15*04';
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO OBESITAS = 21*92*16';
 var namagroup5 = 'PEDRO';
