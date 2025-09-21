@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti4
 // @namespace    http://tampermonkey.net/
-// @version      3.100
+// @version      3.101
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti4.js
@@ -22,7 +22,7 @@ var Comment1 = '(GUDANGTOTO) = (DIANUKAE) 11*83*57';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( DOLANAN ) : 52*61*32';
 var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = (DONDONG22) 33*30*53';
+var Comment3 = '#(WARUNGTOTO) = (DONDONG22) 33*30';
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO DONGSEL = 77*43*69';
 var namagroup5 = 'PEDRO';
