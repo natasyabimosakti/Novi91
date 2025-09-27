@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE2
 // @namespace    http://tampermonkey.net/
-// @version      3.218
+// @version      3.219
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @author       You
@@ -27,8 +27,8 @@ var namagroup4 = 'TAFSIR MIMPI';
 var Comment4 = 'SIJITOGEL ARLINA36 71*96*75';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (ARMAN67) = 78*46*38';
-var namagroup6 = 'PAPUAT0T0';
-var Comment6 = '#PAPUATOTO (ARBEN64)=67-98';
+var namagroup6 = 'LIVI';
+var Comment6 = 'ARBEN64 = 67*98 #LIVITOTO';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL ARNOM63 02*09*60';
 var namagroup8 = 'OPUNG';
