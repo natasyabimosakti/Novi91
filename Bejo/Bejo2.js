@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 2
 // @namespace    http://tampermonkey.net/
-// @version      3.86
+// @version      3.87
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo2.js
@@ -27,15 +27,15 @@ var namagroup4 = 'TAFSIR MIMPI';
 var Comment4 = 'SIJITOGEL FERDA60 67*98*05';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (KANGKUNG55) = 02*09*60';
-var namagroup6 = 'PAPUAT0T0';
-var Comment6 = '#PAPUATOTO (KAMBING64)=58-88';
+var namagroup6 = 'LIVI';
+var Comment6 = 'KAMBING64 = 58*88 #LIVITOTO';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL KALUNG57 11*20*83';
 var namagroup8 = 'OPUNG';
 var Comment8 = 'OPUNG4D ( FISIK63 ) : 33*92*66';
 var namagroup9 = 'MAYAPADA';
 var Comment9 = 'BETT*Mayapada4D(BO)*FASIK62*47*54*99';
-var namagroup10 = 'GROUP LOMBA ANGKA';
+var namagroup10 = 'GROUP LOMBA';
 var Comment10 = '#JNETOTO(KUMBANG60)*65*56*99';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( KOLONG61 ) : 14*57*42';
