@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TELKOMSEL 1
 // @namespace    http://tampermonkey.net/
-// @version      3.3
+// @version      3.4
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL1.js
@@ -28,15 +28,15 @@ var namagroup4 = 'TAFSIR MIMPI';
 var Comment4 = 'SIJITOGEL ILMUWAN 65*56*48';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (IKAT22) = 47*54*49';
-var namagroup6 = 'PAPUAT0T0';
-var Comment6 = '#PAPUATOTO (INSPIRASI)=17-95';
+var namagroup6 = 'LIVI';
+var Comment6 = 'INDIKASI = 17*95 #LIVITOTO';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL INDUK33 55*90*06';
 var namagroup8 = 'OPUNG';
 var Comment8 = 'OPUNG4D ( IKAN55 ) : 51*35*01';
 var namagroup9 = 'MAYAPADA';
 var Comment9 = 'BETT*Mayapada4D(BO)*INKUBATOR*78*46*77';
-var namagroup10 = 'GROUP LOMBA';
+var namagroup10 = 'KOMUNITAS LOMBA';
 var Comment10 = '#JNETOTO(INDONESIA77)*71*96*75';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( INKUBATOR ) : 12*86*68';
