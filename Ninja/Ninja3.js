@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ninja 3
 // @namespace    http://tampermonkey.net/
-// @version      3.10
+// @version      3.11
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja3.js
@@ -24,18 +24,18 @@ var Comment2 = 'IYATOTO LARON 04*76*81';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / YUYUKANGKANG / 52 , 26 , 70';
 var namagroup4 = 'TAFSIR MIMPI';
-var Comment4 = 'SIJITOGEL MAWARHITAM 73*10*45';
+var Comment4 = 'SIJITOGEL MAWARHITAM *10*45#1';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (Babihutan) = 63*30*72';
-var namagroup6 = 'PAPUAT0T0';
-var Comment6 = '#PAPUATOTO (MAUNG)=64-40';
+var namagroup6 = 'LIVI';
+var Comment6 = 'MAUNG454 = 64*40 #LIVITOTO';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL CACINGALASKA 22*24*21';
 var namagroup8 = 'OPUNG';
 var Comment8 = 'OPUNG4D ( SAKURA ) : 34*13*79';
 var namagroup9 = 'MAYAPADA';
 var Comment9 = 'BETT*Mayapada4D(BO)*TULIP*74*82*84';
-var namagroup10 = 'GROUP LOMBA ANGKA';
+var namagroup10 = 'KOMUNITAS LOMBA';
 var Comment10 = '#JNETOTO(PITBULL)*39*27*32';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( UBURUBUR2X ) : 25*16*85';
