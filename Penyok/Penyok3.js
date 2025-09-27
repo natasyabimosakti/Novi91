@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Penyok 3
 // @namespace    http://tampermonkey.net/
-// @version      3.72
+// @version      3.73
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok3.js
@@ -27,15 +27,15 @@ var namagroup4 = 'TAFSIR MIMPI';
 var Comment4 = 'SIJITOGEL SUMEGEHBAE 60*32*38';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (SUWUNBOSQU) = 80*51*95';
-var namagroup6 = 'PAPUAT0T0';
-var Comment6 = '#PAPUATOTO (SUGEHTERUS12)=72-39';
+var namagroup6 = 'LIVI';
+var Comment6 = 'SUGEHTERUS12 = 72*39 #LIVITOTO';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL SUKMUMETNDES 77*46*69';
 var namagroup8 = 'OPUNG';
 var Comment8 = 'OPUNG4D ( SUSUBERUANG ) : 61*89*97';
 var namagroup9 = 'MAYAPADA';
 var Comment9 = 'BETT*Mayapada4D(BO)*SUWENGLAMBE*34*76*24';
-var namagroup10 = 'GROUP LOMBA ANGKA';
+var namagroup10 = 'KOMUNITAS LOMBA';
 var Comment10 = '#JNETOTO(SUNDULUSU)*21*73*63';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( SUWENGLAMBEMU ) : 93*62*63';
