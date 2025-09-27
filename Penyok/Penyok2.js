@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Penyok 2
 // @namespace    http://tampermonkey.net/
-// @version      3.72
+// @version      3.73
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok2.js
@@ -27,15 +27,15 @@ var namagroup4 = 'TAFSIR MIMPI';
 var Comment4 = 'SIJITOGEL NYOMANGEDE1 05*48*07';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (NYOTEKTAIMU) = 70*54*57';
-var namagroup6 = 'PAPUAT0T0';
-var Comment6 = '#PAPUATOTO (NYOLONGDUET)=56-58';
+var namagroup6 = 'LIVI';
+var Comment6 = 'NYOLONGDUET = 56*58 #LIVITOTO';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL NYOSINYO898 18*52*36';
 var namagroup8 = 'OPUNG';
 var Comment8 = 'OPUNG4D ( NYONYAKU69 ) : 00*20*30';
 var namagroup9 = 'MAYAPADA';
 var Comment9 = 'BETT*Mayapada4D(BO)*NYODOPANGAN9*08*14*33';
-var namagroup10 = 'GROUP LOMBA ANGKA';
+var namagroup10 = 'KOMUNITAS LOMBA';
 var Comment10 = '#JNETOTO(NYODOKBRINJI)*17*84*41';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( NYODOPANGAN99 ) : 88*75*41';
@@ -44,7 +44,7 @@ var Comment12 = 'TOGELKUY NYONYAKU69 01*44*31';
 var namagroup13 = 'KOI';
 var Comment13 = '#KOITOTO ( NYOBAKTUKU55 ) 25*85';
 var namagroup14 = 'Hoho';
-var Comment14 = 'NYOKONGRONDO : 19*59*03 #HOHOTOGEL';
+var Comment14 = 'NYOKONGRONDO : 19**03#1 #HOHOTOGEL';
 var namagroup15 = 'VESPA';
 var Comment15 = 'VESPATOGEL (NYOKONGRONDO) 96*83*68';
 var namagroup16 = 'NEMO';
