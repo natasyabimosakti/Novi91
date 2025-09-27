@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW BOSQUE2
 // @namespace    http://tampermonkey.net/
-// @version      3.219
+// @version      3.220
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @author       You
@@ -35,7 +35,7 @@ var namagroup8 = 'OPUNG';
 var Comment8 = 'OPUNG4D ( ARSTER73 ) : 58*88*41';
 var namagroup9 = 'MAYAPADA';
 var Comment9 = 'BETT*Mayapada4D(BO)*AREN64*37*15*50';
-var namagroup10 = 'GROUP LOMBA';
+var namagroup10 = 'KOMUNITAS LOMBA';
 var Comment10 = '#JNETOTO(ARLON89)*36*80*62';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( ARLEM64 ) : 51*35*01';
