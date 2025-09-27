@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.220
+// @version      3.221
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut3.js
@@ -30,15 +30,15 @@ var namagroup4 = 'TAFSIR MIMPI';
 var Comment4 = 'SIJITOGEL CALKON26 52*26*70';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (CIMN26) = 73*10*45';
-var namagroup6 = 'PAPUAT0T0';
-var Comment6 = '#PAPUATOTO (CIMAR19)=63-30';
+var namagroup6 = 'LIVI';
+var Comment6 = 'CIMAR19 = 63*30 #LIVITOTO';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL CAKADUR14 64*40*69';
 var namagroup8 = 'OPUNG';
 var Comment8 = 'OPUNG4D ( CIRUN19 ) : 22*24*21';
 var namagroup9 = 'MAYAPADA';
 var Comment9 = 'BETT*Mayapada4D(BO)*CUMNI212*22*24*21';
-var namagroup10 = 'GROUP LOMBA ANGKA';
+var namagroup10 = 'KOMUNITAS LOMBA';
 var Comment10 = '#JNETOTO(CAKUDIR19)*64*40*69';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( CUMNI212 ) : 63*30*97';
