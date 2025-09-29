@@ -32,7 +32,7 @@ var Comment6 = 'DESAKU22 = 16*81 #LIVITOTO';
 var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL DUYUNG45 90*79*09';
 var namagroup8 = 'OPUNG';
-var Comment8 = 'OPUNG4D ( DINASTI888 ) : 15*98*86';
+var Comment8 = 'OPUNG4D ( DINASTI88 ) : 15*98*86';
 var namagroup9 = 'MAYAPADA';
 var Comment9 = 'BETT*Mayapada4D(BO)*DUDAMUDA*26*53*82';
 var namagroup10 = 'KOMUNITAS LOMBA';
