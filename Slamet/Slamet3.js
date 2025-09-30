@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Slamet 3
 // @namespace    http://tampermonkey.net/
-// @version      3.74
+// @version      3.75
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet3.js
@@ -35,7 +35,7 @@ var namagroup8 = 'OPUNG';
 var Comment8 = 'OPUNG4D ( COLAKCOLEK ) : 60*32*38';
 var namagroup9 = 'MAYAPADA';
 var Comment9 = 'BETT*Mayapada4D(BO)*CURUKSEWU*16*81*71';
-var namagroup10 = 'KOMUNITAS LOMBA';
+var namagroup10 = 'JNETOTO';
 var Comment10 = '#JNETOTO(CANDA10)*06*28*27';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( CAIR700 ) : 34*76*24';
