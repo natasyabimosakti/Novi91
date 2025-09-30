@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ninja 3
 // @namespace    http://tampermonkey.net/
-// @version      3.11
+// @version      3.12
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja3.js
@@ -35,7 +35,7 @@ var namagroup8 = 'OPUNG';
 var Comment8 = 'OPUNG4D ( SAKURA ) : 34*13*79';
 var namagroup9 = 'MAYAPADA';
 var Comment9 = 'BETT*Mayapada4D(BO)*TULIP*74*82*84';
-var namagroup10 = 'KOMUNITAS LOMBA';
+var namagroup10 = 'JNETOTO';
 var Comment10 = '#JNETOTO(PITBULL)*39*27*32';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( UBURUBUR2X ) : 25*16*85';
