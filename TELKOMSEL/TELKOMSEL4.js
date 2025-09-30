@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TELKOMSEL 4
 // @namespace    http://tampermonkey.net/
-// @version      3.4
+// @version      3.5
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL4.js
@@ -36,7 +36,7 @@ var namagroup8 = 'OPUNG';
 var Comment8 = 'OPUNG4D ( TEREKAM ) : 91*93*23';
 var namagroup9 = 'MAYAPADA';
 var Comment9 = 'BETT*Mayapada4D(BO)*TERTATIH*00*28*07';
-var namagroup10 = 'KOMUNITAS LOMBA';
+var namagroup10 = 'JNETOTO';
 var Comment10 = '#JNETOTO(TERJUNGKIR)*34*13*79';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( TANTRUM ) : 22*24*21';
