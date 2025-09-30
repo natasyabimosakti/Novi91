@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF3
 // @namespace    http://tampermonkey.net/
-// @version      3.71
+// @version      3.72
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf3.js
@@ -37,7 +37,7 @@ var namagroup8 = 'OPUNG';
 var Comment8 = 'OPUNG4D ( FERALO78 ) : 61*89*97';
 var namagroup9 = 'MAYAPADA';
 var Comment9 = 'BETT*Mayapada4D(BO)*FERNANGDI2*61*89*97';
-var namagroup10 = 'KOMUNITAS LOMBA';
+var namagroup10 = 'JNETOTO';
 var Comment10 = '#JNETOTO(FEDERALKU67)*77*46*64';
 var namagroup11 = 'TOYIB';
 var Comment11 = '#TOYIBSLOT ( FERKONTIL22 ) : 72*39*64';
