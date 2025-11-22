@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti1
 // @namespace    http://tampermonkey.net/
-// @version      3.101
+// @version      3.102
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti1.js
@@ -29,7 +29,7 @@ var namagroup5 = 'PEDRO';
 var Comment5 = '#PEDRO4D (AMAR26*91*87*44)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (KUMU17) = 28*84*20';
-var namagroup7 = 'TREX';
+var namagroup7 = 'HAT0R1';
 var Comment7 = '#HATORIBET*AMIR25*60*18*03';
 var namagroup8 = 'BLITAR';
 var Comment8 = '#BLITAR4D (AOQOM52) = 19*65';
