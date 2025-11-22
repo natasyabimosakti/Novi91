@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kawasaki 1
 // @namespace    http://tampermonkey.net/
-// @version      3.21
+// @version      3.22
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/KAWASAKI/Kawasaki1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/KAWASAKI/Kawasaki1.js
@@ -29,7 +29,7 @@ var namagroup5 = 'PEDRO';
 var Comment5 = '#PEDRO4D (DRUMBAND*51*08*76)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (DUMDUMDUM) = 26*93*78';
-var namagroup7 = 'TREX';
+var namagroup7 = 'HAT0R1';
 var Comment7 = '#HATORIBET*DEPODULU*86*90*84';
 var namagroup8 = 'BLITAR';
 var Comment8 = '#BLITAR4D (DRACO) = 37*68';
