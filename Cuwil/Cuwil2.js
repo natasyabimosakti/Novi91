@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 2
 // @namespace    http://tampermonkey.net/
-// @version      3.90
+// @version      3.91
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil2.js
@@ -29,7 +29,7 @@ var namagroup5 = 'PEDRO';
 var Comment5 = '#PEDRO4D (NYOTEKTAIMU*98*23*62)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (NYOLONGDUET) = 86*33*95';
-var namagroup7 = 'TREX';
+var namagroup7 = 'HAT0R1';
 var Comment7 = '#HATORIBET*NYOSINYO898*87*66*60';
 var namagroup8 = 'BLITAR';
 var Comment8 = '#BLITAR4D (NYOBORKODOK) = 99*71';
