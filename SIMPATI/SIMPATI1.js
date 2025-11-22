@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SIMPATI 1
 // @namespace    http://tampermonkey.net/
-// @version      3.3
+// @version      3.4
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI1.js
@@ -29,7 +29,7 @@ var namagroup5 = 'PEDRO';
 var Comment5 = '#PEDRO4D (IKAT22*48*84*38)';
 var namagroup6 = 'DIVA4D';
 var Comment6 = '#DIVA4D (INSPIRASI) = 90*45*61';
-var namagroup7 = 'TREX';
+var namagroup7 = 'HAT0R1';
 var Comment7 = '#HATORIBET*INDUK33*98*09*58';
 var namagroup8 = 'BLITAR';
 var Comment8 = '#BLITAR4D (IDEAL66) = 14*74';
