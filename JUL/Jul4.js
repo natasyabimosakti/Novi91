@@ -17,7 +17,40 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-
+var namagroup1 = 'Hoho';
+var Comment1 = 'GUNRIS88 : 90*14*53 #HOHOTOGEL';
+var namagroup2 = 'K86';
+var Comment2 = 'K86TOTO ( GUNDUL22 ) : 77*12*44';
+var namagroup3 = '453P VIP';
+var Comment3 = 'ASEPTOGEL GUNGED24 20*67*05';
+var namagroup4 = 'HAT0R1';
+var Comment4 = '#HATORIBET*GUNPACUL72*70*13*61';
+var namagroup5 = 'DAGELAN';
+var Comment5 = 'DAGELAN4D(GUNDALA92) : 85*24*41';
+var namagroup6 = 'DIVA4D';
+var Comment6 = '#DIVA4D (GUNTREM66) = 56*27*79';
+var namagroup7 = 'MASTER KUY';
+var Comment7 = 'TOGELKUY GUNPRET68 97*38*16';
+var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
+var Comment8 = 'Tok99Toto ( GUNROSE96 ) : 54*36*99';
+var namagroup9 = 'TOYIB';
+var Comment9 = '#TOYIBSLOT ( GUNDOL92 ) : 90*14*53';
+var namagroup10 = 'UPIN';
+var Comment10 = '#UPINSLOT ( GUNPRESS46 ) 77*12*44 BETTING';
+var namagroup11 = 'VESPA';
+var Comment11 = 'VESPATOGEL (GUNPOLL92) 20*67*05';
+var namagroup12 = 'OPUNG';
+var Comment12 = 'OPUNG4D ( GUNDEL28 ) : 70*13*61';
+var namagroup13 = 'TAFSIR';
+var Comment13 = 'SIJITOGEL GUNNIL48 85*24*41';
+var namagroup14 = 'BLITAR';
+var Comment14 = '#BLITAR4D (GUNPIN28) = 34*71*79';
+var namagroup15 = 'PEDRO';
+var Comment15 = '#PEDRO4D (GUNDONO68*97*38*16)';
+var namagroup16 = 'BUKU MIMPI';
+var Comment16 = 'IYATOTO GUNWATI26 54*36*99';
+var namagroup17 = 'KOI';
+var Comment17 = '#KOITOTO ( GUNATOSS88 ) 56*27';
 //Batas
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'group Jul 4';
