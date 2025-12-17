@@ -46,7 +46,7 @@ var code_b ='';
 var code_c ='';
 var code_d ='';
 var code_uniq ='';
-var host_url = "http://localhost/api"
+var host_url = "http://103.193.178.92/api"
 
 function generateRandomCode(length = 8) {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
