@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JUL 1
 // @namespace    http://tampermonkey.net/
-// @version      3.90
+// @version      3.91
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/JUL/Jul1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/JUL/Jul1.js
@@ -34,9 +34,10 @@ var Comment7 = 'TOGELKUY AGFUD39 33*72*98';
 var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
 var Comment8 = 'Tok99Toto ( AGDIK51 ) : 42*91*68';
 var namagroup9 = 'TOYIB';
-var Comment9 = '#TOYIBSLOT ( AGHIA53 ) : 01*03*88';
+var Comment9 = '#TOYIBSLOT ( AGHIA53 ) : 00*03*88';
 var namagroup10 = 'UPIN';
-var Comment10 = '#UPINSLOT ( AGDA55 ) 28*01*65 BETTING';
+var Comment10 = '#UPINSLOT ( AGDA55 ) 28*01*65 BETTING
+';
 var namagroup11 = 'VESPA';
 var Comment11 = 'VESPATOGEL (AGNIR57) 35*29*50';
 var namagroup12 = 'OPUNG';
