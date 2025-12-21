@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Babon 1
 // @namespace    http://tampermonkey.net/
-// @version      3.80
+// @version      3.81
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon1.js
@@ -538,7 +538,7 @@ function startAutoTask() {
 
 
 var TELEGRAM_TOKEN = '8396728370:AAHblTLr220NEd9PwS7BzzS5VWGcxix9RK8'; // GANTI
-var TELEGRAM_CHAT_ID = '8396728370'; // GANTI
+var TELEGRAM_CHAT_ID = '-1002717306025'; // GANTI
 
 let lastMessageSent = ""; // lokal per tab/browser
 var sudahkirim = false
