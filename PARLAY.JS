@@ -13,7 +13,7 @@
 // @grant        GM_xmlhttpRequest
 // @grant        GM_setValue
 // @grant        GM_getValue
-
+// @connect      raw.githubusercontent.com
 // ==/UserScript==
 var USERNAME_CMD = await GM.getValue("userInfo");
 var USERNAME_CMD_DB = '';
