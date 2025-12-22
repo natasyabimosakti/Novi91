@@ -4,6 +4,8 @@
 // @version      2024-08-12
 // @description  try to take over the world!
 // @author       You
+// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/PARLAY.js
+// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/PARLAY.JS
 // @match        http*://*/Member*
 // @match        http*://*/Main*
 // @match        http*://*/*/home.aspx*
