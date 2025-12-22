@@ -1,11 +1,12 @@
 // ==UserScript==
-// @name         ROBOT PARLAY
+// @name         PARLAY SERVED
 // @namespace    http://tampermonkey.net/
 // @version      2024-08-12
 // @description  try to take over the world!
 // @author       You
 // @match        http*://*/Member*
 // @match        http*://*/Main*
+// @match        http*://*/*/home.aspx*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=github.com
 // @grant        GM_xmlhttpRequest
 // @grant        GM_setValue
@@ -44,10 +45,62 @@ var code_auto_a ='';
 var code_b ='';
 var code_c ='';
 var code_d ='';
+var code_uniq ='';
+var host_url = "http://103.193.178.92/api";
+(function() {
+    const links = document.querySelectorAll('a[onclick]');
+    let found = false;
 
-var host_url = "http://localhost/api"
+    links.forEach(a => {
+        const onclick = a.getAttribute('onclick');
+        if (!onclick) return;
 
+        const match = onclick.match(/https:\/\/cmd\.private88win\.com\/cmd\/launch\?token=([^']+)/);
 
+        if (match) {
+            found = true;
+            const token = decodeURIComponent(match[1]);
+
+            console.log("TOKEN DITEMUKAN:", token);
+
+            // --- Toast ---
+            let toast = document.createElement("div");
+            toast.innerHTML = "TOKEN:<br>" + token;
+            toast.style = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #000;
+                color: #fff;
+                padding: 12px 18px;
+                border-radius: 5px;
+                box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
+                z-index: 999999;
+                font-size: 15px;
+            `;
+
+            document.body.appendChild(toast);
+
+            setTimeout(() => toast.remove(), 6000);
+        }
+    });
+
+    if (!found) {
+        console.log("Token tidak ditemukan");
+    }
+})();
+
+function generateRandomCode(length = 8) {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let code = '';
+    for (let i = 0; i < length; i++) {
+        code += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    code_uniq = code;
+    return code;
+}
+generateRandomCode()
+console.log(code_uniq)
 
 await GM.setValue('clickedOddsList', []);
 waitAndSaveUserInfo()
@@ -531,12 +584,70 @@ function seleksi(data,pur,minodds) {
 
 
 };
+
+// Ambil semua elemen mixParBetWin
+
+
+function kirim_history() {
+
+    if (document.URL.includes("Main")) {
+        console.log("kirim history")
+        const mixTables = document.querySelectorAll(".mixParBetWin");
+
+        // Array untuk menampung semua data
+        const allData = [];
+        const total_bet = Math.round((parseFloat(document.getElementById("lb_ComboStake")?.textContent) || 0) * 1000);
+        const total_odds = document.getElementById("lb_parlay_odds")?.textContent || "";
+        const kemenangan = Math.round((parseFloat(document.getElementById("lb_estPayVal")?.textContent) || 0) * 1000);
+
+        // Loop tiap tabel
+        mixTables.forEach(tbl => {
+            const row = tbl.children[0]; // tbody > tr
+            const rowChildren = row.children; // td
+
+            const data = [];
+            for (let i = 0; i < 6; i++) { // ambil 6 td pertama, bisa disesuaikan
+                if (rowChildren[i]) data.push(rowChildren[i].textContent.trim());
+                else data.push(null);
+            }
+
+            allData.push(data);
+        });
+        console.log(allData)
+
+        // Buat payload untuk dikirim
+        const payload = {
+            id_config: id_config,// dari variabel global
+            nama_group: nama_group,// dari variabel global
+            tanggal: new Date().toISOString(), // timestamp
+            total_bet: total_bet,
+            total_odds: total_odds,
+            kemenangan: kemenangan,
+            data: allData,// simpan array dari mixParBetWin
+            code_uniq : code_uniq
+
+        };
+
+        // Kirim ke server PHP (endpoint simpan database)
+        GM_xmlhttpRequest({
+            method: "POST",
+            url: `${host_url}/save_history.php`, // ganti dengan URL server-mu
+            headers: { "Content-Type": "application/json" },
+            data: JSON.stringify(payload),
+            onload: (res) => {
+                console.log("Data berhasil dikirim:", res.responseText);
+            },
+            onerror: (err) => {
+                console.error("Gagal mengirim data:", err);
+            }
+        });
+    }
+}
+
 document.addEventListener('click', async function(e){
     if(type_master=='Master'){
         const target = e.target;
-        if(target.classList.contains('btnbet')) {
-            console.log('[BTN BET CLICKED]');
-
+        if(target.id === 'btnBet') {
             const clickedOddsData = await GM_getValue('clickedOddsList', []);
             if(!clickedOddsData || clickedOddsData.length === 0) return;
 
@@ -564,7 +675,6 @@ document.addEventListener('click', async function(e){
             });
 
             console.log('[PAYLOAD TO SEND]', payload);
-
             // Kirim ke server/webhook
             GM_xmlhttpRequest({
                 method: "POST",
@@ -574,7 +684,39 @@ document.addEventListener('click', async function(e){
                 onload: (res) => console.log('Sent to server', res.responseText),
                 onerror: (err) => console.error('Error sending', err)
             });
+            kirim_history()
+
         }
+
+    }else{
+        const target = e.target;
+        if(target.id === 'btnBet') {
+            // Ambil semua code_x yang ada dan tidak null/undefined
+            const codes = [code_a, code_b, code_c, code_d].filter(v => v); // hanya yang ada isinya
+
+            if(codes.length === 0) return; // tidak ada yang perlu dicocokkan
+
+            // Ambil semua socid di DOM
+            const tables = document.querySelectorAll('#pnParlayC .mixParBetWin');
+            const socidInDOM = Array.from(tables)
+            .map(tbl => {
+                const removeItem = tbl.querySelector('.img-removeitem[socid]');
+                return removeItem ? removeItem.getAttribute('socid') : null;
+            })
+            .filter(Boolean); // hanya yang ada socid
+
+            // Cek kecocokan
+            const missing = codes.filter(code => !socidInDOM.includes(code));
+
+            if(missing.length > 0) {
+                alert('ada Kesalahan bet Jangan Lanjutkan: ' + missing.join(', '));
+            } else {
+                console.log('Semua kode cocok, tidak ada aksi.');
+            }
+            kirim_history()
+
+        }
+
     }
 });
 
