@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         PARLAY SERVED
 // @namespace    http://tampermonkey.net/
-// @version      2024-08-12
+// @version      3.0
 // @description  try to take over the world!
 // @author       You
-// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/PARLAY.js
+// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/PARLAY.JS
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/PARLAY.JS
 // @match        http*://*/Member*
 // @match        http*://*/Main*
