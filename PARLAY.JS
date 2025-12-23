@@ -14,6 +14,7 @@
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @connect      raw.githubusercontent.com
+// @connect      103.193.178.92
 // ==/UserScript==
 var USERNAME_CMD = await GM.getValue("userInfo");
 var USERNAME_CMD_DB = '';
