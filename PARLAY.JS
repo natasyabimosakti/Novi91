@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PARLAY SERVED
 // @namespace    http://tampermonkey.net/
-// @version      3.3
+// @version      3.6
 // @description  try to take over the world!
 // @author       You
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/PARLAY.JS
@@ -597,7 +597,7 @@ function kirim_history() {
         console.log("kirim history")
         const mixTables = document.querySelectorAll(".mixParBetWin");
         const Placebet = document.querySelectorAll("PlaceBetLeft");
-        if(mixTables){
+        if(mixTables[0]){
             // Array untuk menampung semua data
             const allData = [];
             const total_bet = Math.round((parseFloat(document.getElementById("lb_ComboStake")?.textContent) || 0) * 1000);
@@ -645,7 +645,9 @@ function kirim_history() {
                     console.error("Gagal mengirim data:", err);
                 }
             });
+
         } else {
+            console.log("kirim history Non Parlay")
             const allData = [];
             const total_bet = Math.round((parseFloat(document.getElementById("tx_stake")?.value) || 0) * 1000);
             const kemenangan = Math.round((parseFloat(document.getElementById("lb_estPayVal")?.textContent) || 0) * 1000);
@@ -666,6 +668,7 @@ function kirim_history() {
             const data = [];
             data.push(Typebet)
             data.push(bet)
+            data.push("Tidak termasuk:")
             data.push(odds)
             data.push(teammatch)
             allData.push(data);
@@ -700,118 +703,123 @@ function kirim_history() {
 
         }
     }
-
-    document.addEventListener('click', async function(e){
-        if(type_master=='Master'){
-            const target = e.target;
-            if(target.id === 'btnBet') {
-                const clickedOddsData = await GM_getValue('clickedOddsList', []);
-                if(!clickedOddsData || clickedOddsData.length === 0) return;
-
-                const tables = document.querySelectorAll('#pnParlayC .mixParBetWin');
-                if(!tables || tables.length === 0) return;
-
-                // Variabel id_config
-                let payload = { id_config ,no_bo: 1, nama_group :nama_group };
-
-                tables.forEach((tbl, index) => {
-                    const removeItem = tbl.querySelector('.img-removeitem[socid]');
-                    if(!removeItem) return;
-                    const socid = removeItem.getAttribute('socid');
-
-                    // cari di storage
-                    const matchData = clickedOddsData.find(o => o.socid === socid);
-                    if(!matchData) return;
-
-                    // Tentukan suffix: tima, timb, timc, timd
-                    const suffix = ['tima','timb','timc','timd'][index] || `tim${index+1}`;
-
-                    payload[`code_${suffix}`] = matchData.socid;
-                    payload[`jam_${suffix}`] = matchData.jam;
-                    payload[`nama_${suffix}`] = matchData.team;
-                });
-
-                console.log('[PAYLOAD TO SEND]', payload);
-                // Kirim ke server/webhook
-                GM_xmlhttpRequest({
-                    method: "POST",
-                    url: `${host_url}/save_auto_buy.php`,
-                    headers: { "Content-Type": "application/json" },
-                    data: JSON.stringify(payload),
-                    onload: (res) => console.log('Sent to server', res.responseText),
-                    onerror: (err) => console.error('Error sending', err)
-                });
-                kirim_history()
-
-            }
-
-        }else{
-            const target = e.target;
-            if(target.id === 'btnBet') {
-                // Ambil semua code_x yang ada dan tidak null/undefined
-                const codes = [code_a, code_b, code_c, code_d].filter(v => v); // hanya yang ada isinya
-
-                if(codes.length === 0) return; // tidak ada yang perlu dicocokkan
-
-                // Ambil semua socid di DOM
-                const tables = document.querySelectorAll('#pnParlayC .mixParBetWin');
-                const socidInDOM = Array.from(tables)
-                .map(tbl => {
-                    const removeItem = tbl.querySelector('.img-removeitem[socid]');
-                    return removeItem ? removeItem.getAttribute('socid') : null;
-                })
-                .filter(Boolean); // hanya yang ada socid
-
-                // Cek kecocokan
-                const missing = codes.filter(code => !socidInDOM.includes(code));
-
-                if(missing.length > 0) {
-                    alert('ada Kesalahan bet Jangan Lanjutkan: ' + missing.join(', '));
-                } else {
-                    console.log('Semua kode cocok, tidak ada aksi.');
-                }
-                kirim_history()
-
-            }
-
-        }
-    });
-
-    // Target yang dipantau
-    const sportMenu = document.querySelector('.SportMenu');
-
-    if (!sportMenu) {
-        console.error('SportMenu tidak ditemukan');
-        return;
-    }
-    // Mutation Observer
-    const observer = new MutationObserver(() => {
-        const items = document.querySelectorAll('.mixParBetWin');
-
-        // kalau lebih dari 1 → hapus yang lama
-        if (items.length > 1) {
-            console.log('Jumlah item:', items.length);
-
-            // hapus semua kecuali yang terakhir
-            for (let i = 0; i < items.length - 1; i++) {
-                const removeBtn = items[i].querySelector('.img-removeitem');
-                if (removeBtn) {
-                    console.log('Menghapus item ke-', i);
-                    removeBtn.click();
-                    observer.disconnect();
-
-                }
-            }
-        }else{
-            observer.disconnect();
-        }
-    });
-
-    // Mulai observasi
-    observer.observe(sportMenu, {
-        childList: true,
-        subtree: true
-    });
-
-
 }
+
+
+document.addEventListener('click', async function(e){
+    if(type_master=='Master'){
+        const target = e.target;
+        if(target.id === 'btnBet') {
+            kirim_history()
+            console.log('btnBet Click')
+            const clickedOddsData = await GM_getValue('clickedOddsList', []);
+            if(!clickedOddsData || clickedOddsData.length === 0) return;
+
+            const tables = document.querySelectorAll('#pnParlayC .mixParBetWin');
+            if(!tables || tables.length === 0) return;
+
+            // Variabel id_config
+            let payload = { id_config ,no_bo: 1, nama_group :nama_group };
+
+            tables.forEach((tbl, index) => {
+                const removeItem = tbl.querySelector('.img-removeitem[socid]');
+                if(!removeItem) return;
+                const socid = removeItem.getAttribute('socid');
+
+                // cari di storage
+                const matchData = clickedOddsData.find(o => o.socid === socid);
+                if(!matchData) return;
+
+                // Tentukan suffix: tima, timb, timc, timd
+                const suffix = ['tima','timb','timc','timd'][index] || `tim${index+1}`;
+
+                payload[`code_${suffix}`] = matchData.socid;
+                payload[`jam_${suffix}`] = matchData.jam;
+                payload[`nama_${suffix}`] = matchData.team;
+            });
+
+            console.log('[PAYLOAD TO SEND]', payload);
+            // Kirim ke server/webhook
+            GM_xmlhttpRequest({
+                method: "POST",
+                url: `${host_url}/save_auto_buy.php`,
+                headers: { "Content-Type": "application/json" },
+                data: JSON.stringify(payload),
+                onload: (res) => console.log('Sent to server', res.responseText),
+                onerror: (err) => console.error('Error sending', err)
+            });
+
+        }
+
+    }else{
+        const target = e.target;
+        if(target.id === 'btnBet') {
+            kirim_history()
+
+            // Ambil semua code_x yang ada dan tidak null/undefined
+            const codes = [code_a, code_b, code_c, code_d].filter(v => v); // hanya yang ada isinya
+
+            if(codes.length === 0) return; // tidak ada yang perlu dicocokkan
+
+            // Ambil semua socid di DOM
+            const tables = document.querySelectorAll('#pnParlayC .mixParBetWin');
+            const socidInDOM = Array.from(tables)
+            .map(tbl => {
+                const removeItem = tbl.querySelector('.img-removeitem[socid]');
+                return removeItem ? removeItem.getAttribute('socid') : null;
+            })
+            .filter(Boolean); // hanya yang ada socid
+
+            // Cek kecocokan
+            const missing = codes.filter(code => !socidInDOM.includes(code));
+
+            if(missing.length > 0) {
+                alert('ada Kesalahan bet Jangan Lanjutkan: ' + missing.join(', '));
+            } else {
+                console.log('Semua kode cocok, tidak ada aksi.');
+            }
+
+
+        }
+
+    }
+});
+
+// Target yang dipantau
+const sportMenu = document.querySelector('.SportMenu');
+
+if (!sportMenu) {
+    console.error('SportMenu tidak ditemukan');
+    return;
+}
+// Mutation Observer
+const observer = new MutationObserver(() => {
+    const items = document.querySelectorAll('.mixParBetWin');
+
+    // kalau lebih dari 1 → hapus yang lama
+    if (items.length > 1) {
+        console.log('Jumlah item:', items.length);
+
+        // hapus semua kecuali yang terakhir
+        for (let i = 0; i < items.length - 1; i++) {
+            const removeBtn = items[i].querySelector('.img-removeitem');
+            if (removeBtn) {
+                console.log('Menghapus item ke-', i);
+                removeBtn.click();
+                observer.disconnect();
+
+            }
+        }
+    }else{
+        observer.disconnect();
+    }
+});
+
+// Mulai observasi
+observer.observe(sportMenu, {
+    childList: true,
+    subtree: true
+});
+
+
+
