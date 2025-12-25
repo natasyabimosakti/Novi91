@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PARLAY SERVED
 // @namespace    http://tampermonkey.net/
-// @version      3.6
+// @version      3.9
 // @description  try to take over the world!
 // @author       You
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/PARLAY.JS
@@ -15,6 +15,8 @@
 // @grant        GM_getValue
 // @connect      raw.githubusercontent.com
 // @connect      103.193.178.92
+// @connect      *
+
 // ==/UserScript==
 var USERNAME_CMD = await GM.getValue("userInfo");
 var USERNAME_CMD_DB = '';
@@ -479,6 +481,7 @@ function seleksi(data,pur,minodds) {
                 let hd = el.querySelector('.w-hdp b');
                 if (!hd) return;
                 let oddsDetail = el.querySelectorAll('.tableDiv-match-odds__detail');
+                let oddsDetail2 = el.querySelectorAll('.col.w-ou .tableDiv-match-odds__detail a');
 
 
                 let handicap = hd.textContent.trim();
@@ -502,8 +505,12 @@ function seleksi(data,pur,minodds) {
                 let awayOdds = parseFloat(oddsLinks[1].textContent.trim());
                 if(type == 'H' ||type == 'A' ){
                     // cek apakah kedua odds > 1.90
-                    if (homeOdds > global_odds && awayOdds >global_odds && isLive) {
+                    const homeValid = homeOdds > global_odds && isLive;
+                    const awayValid = awayOdds > global_odds && isLive;
+                    if (homeValid || awayValid) {
                         el.style.display = ''; // tampilkan match
+                        oddsDetail[0].style.color = ""; // overOdd
+                        oddsDetail[1].style.color = ""; // underOdd
                         oddsLinks[0].style.color = "#ff672b"; // overOdd
                         oddsLinks[1].style.color = "#ff672b"; // underOdd
                     } else {
@@ -513,6 +520,8 @@ function seleksi(data,pur,minodds) {
                 }else if(type == 'HA' ||type == 'AA' ){
                     if (homeOdds > global_odds && awayOdds > 1.70 && isLive) {
                         el.style.display = ''; // tampilkan match
+                        oddsDetail[0].style.color = ""; // overOdd
+                        oddsDetail[1].style.color = ""; // underOdd
                         oddsLinks[0].style.color = "#ff672b"; // overOdd
                         oddsLinks[1].style.color = ""; // underOdd
                     } else {
@@ -521,6 +530,8 @@ function seleksi(data,pur,minodds) {
                 }else if(type == 'HB'||type == 'AB'){
                     if (homeOdds > 1.70 && awayOdds > global_odds && isLive) {
                         el.style.display = ''; // tampilkan match
+                        oddsDetail[0].style.color = ""; // overOdd
+                        oddsDetail[1].style.color = ""; // underOdd
                         oddsLinks[0].style.color = ""; // overOdd
                         oddsLinks[1].style.color = "#ff672b"; // underOdd
                     } else {
@@ -546,14 +557,24 @@ function seleksi(data,pur,minodds) {
                 // ===== Filter Tim B =====
                 let ouDiv = el.querySelector('.w-ou .tableDiv-match-odds');
                 let showB = false;
-
+                let oddsLinks = el.querySelectorAll('.w-hdp .tableDiv-match-odds__detail a');
+                if (oddsLinks.length < 2) {
+                    el.style.display = 'none';
+                    return;
+                }
                 if (ouDiv) {
                     let ouText = ouDiv.querySelector('.tableDiv-match-odds b')?.textContent.trim(); // misal "2.5/3"
                     let underAway = parseFloat(ouDiv.querySelector('.tableDiv-match-odds__detail a:nth-child(2)')?.textContent.trim() || 0);
                     let overAway = parseFloat(ouDiv.querySelector('.tableDiv-match-odds__detail a:nth-child(1)')?.textContent.trim() || 0);
+
+                    const glob1 = ouText == global_pur && isLive;
+                    const glob2 = glob1 && underAway >= global_odds;
+                    const glob3 = glob1 && overAway >= global_odds;
                     if(type == 'O' || type == 'U'){
-                        if (ouText == global_pur && underAway >= global_odds && overAway >= global_odds && isLive) {
+                        if ( glob2 || glob3) {
                             el.style.display = ""; // sembunyikan
+                            oddsLinks[0].style.color = ""; // overOdd
+                            oddsLinks[1].style.color = ""; // overOdd
                             oddsDetail[0].style.color = "#ff672b"; // overOdd
                             oddsDetail[1].style.color = "#ff672b"; // underOdd
                         } else {
@@ -562,6 +583,8 @@ function seleksi(data,pur,minodds) {
                     } else if(type == 'OA' || type == 'UA') {
                         if (ouText == global_pur && underAway >= 1.70 && overAway >= global_odds && isLive) {
                             el.style.display = "";
+                            oddsLinks[0].style.color = ""; // overOdd
+                            oddsLinks[1].style.color = ""; // overOdd
                             oddsDetail[0].style.color = "#ff672b"; // overOdd
                             oddsDetail[1].style.color = ""; // underOdd
                         } else {
@@ -570,6 +593,8 @@ function seleksi(data,pur,minodds) {
                     } else if(type == 'OB' || type == 'UB') {
                         if (ouText == global_pur && underAway >= global_odds && overAway >= 1.70 && isLive) {
                             el.style.display = "";
+                            oddsLinks[0].style.color = ""; // overOdd
+                            oddsLinks[1].style.color = ""; // overOdd
                             oddsDetail[0].style.color = ""; // overOdd
                             oddsDetail[1].style.color = "#ff672b"; // underOdd
                         } else {
@@ -736,6 +761,7 @@ document.addEventListener('click', async function(e){
                 payload[`code_${suffix}`] = matchData.socid;
                 payload[`jam_${suffix}`] = matchData.jam;
                 payload[`nama_${suffix}`] = matchData.team;
+                payload[`type_${suffix}`] = matchData.type;
             });
 
             console.log('[PAYLOAD TO SEND]', payload);
