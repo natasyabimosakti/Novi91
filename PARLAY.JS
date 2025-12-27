@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PARLAY SERVED
 // @namespace    http://tampermonkey.net/
-// @version      3.9
+// @version      3.10
 // @description  try to take over the world!
 // @author       You
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/PARLAY.JS
@@ -463,6 +463,8 @@ function seleksi(data,pur,minodds) {
     const type= data;
     const global_pur = pur;
     const global_odds= minodds;
+    let validValues = global_pur.split(",");
+
     console.log(type, global_pur , global_odds)
 
     if(type == 'H' || type == 'A' || type == 'HA' || type == 'AB' || type == 'HB' || type == 'AA'){
@@ -488,7 +490,7 @@ function seleksi(data,pur,minodds) {
                 // hapus karakter yang tidak perlu
                 handicap = handicap.replace(/\s+/g, '');
 
-                if (handicap !== global_pur) {
+                if (!validValues.includes(handicap)) {
                     // sembunyikan jika bukan 0.5
                     el.style.display = 'none';
                     return;
@@ -567,7 +569,7 @@ function seleksi(data,pur,minodds) {
                     let underAway = parseFloat(ouDiv.querySelector('.tableDiv-match-odds__detail a:nth-child(2)')?.textContent.trim() || 0);
                     let overAway = parseFloat(ouDiv.querySelector('.tableDiv-match-odds__detail a:nth-child(1)')?.textContent.trim() || 0);
 
-                    const glob1 = ouText == global_pur && isLive;
+                    const glob1 = validValues.includes(ouText) && isLive;
                     const glob2 = glob1 && underAway >= global_odds;
                     const glob3 = glob1 && overAway >= global_odds;
                     if(type == 'O' || type == 'U'){
