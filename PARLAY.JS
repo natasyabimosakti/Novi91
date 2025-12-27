@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PARLAY SERVED
 // @namespace    http://tampermonkey.net/
-// @version      3.10
+// @version      3.11
 // @description  try to take over the world!
 // @author       You
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/PARLAY.JS
@@ -760,7 +760,7 @@ document.addEventListener('click', async function(e){
                 // Tentukan suffix: tima, timb, timc, timd
                 const suffix = ['tima','timb','timc','timd'][index] || `tim${index+1}`;
 
-                payload[`code_${suffix}`] = matchData.socid;
+                payload[`code_${suffix}`] = socid;
                 payload[`jam_${suffix}`] = matchData.jam;
                 payload[`nama_${suffix}`] = matchData.team;
                 payload[`type_${suffix}`] = matchData.type;
