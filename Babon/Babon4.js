@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Babon 4
 // @namespace    http://tampermonkey.net/
-// @version      3.81
+// @version      3.82
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon4.js
@@ -21,8 +21,8 @@ var namagroup1 = 'GTO';
 var Comment1 = '(GUDANGTOTO) = (KURUSIN25) 02*90*67';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( KURIKULUM ) : 39*22*17';
-var namagroup3 = 'WARUNG';
-var Comment3 = '#(WARUNGTOTO) = (KERUMUNAN) 83*16';
+var namagroup3 = 'KANGMIMPI';
+var Comment3 = '#KANGMIMPI (DENGKIKU246) : *83*16*33';
 var namagroup4 = 'RIATOTO';
 var Comment4 = '#RIATOTO KOLOMBOLONG = 96*84*45';
 var namagroup5 = 'PEDRO';
