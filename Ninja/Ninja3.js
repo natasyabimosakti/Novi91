@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ninja 3
 // @namespace    http://tampermonkey.net/
-// @version      3.16
+// @version      3.17
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja3.js
@@ -24,7 +24,7 @@ var Comment2 = 'IYATOTO LARON 04*76*81';
 var namagroup3 = 'TIKTAK';
 var Comment3 = 'Tiktaktogel / YUYUKANGKANG / 52 , 26 , 70';
 var namagroup4 = 'TAFSIR MIMPI';
-var Comment4 = 'SIJITOGEL MAWARHITAM *10*45*73';
+var Comment4 = 'SIJITOGEL MAWARHITAM 73*10*45';
 var namagroup5 = 'KEITOGEL';
 var Comment5 = '#keitogel = (Babihutan) = 63*30*72';
 var namagroup6 = 'LIVI';
@@ -33,8 +33,8 @@ var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL CACINGALASKA 22*24*21';
 var namagroup8 = 'OPUNG';
 var Comment8 = 'OPUNG4D ( SAKURA ) : 34*13*79';
-var namagroup9 = 'MAYAPADA';
-var Comment9 = 'BETT*Mayapada4D(BO)*TULIP*74*82*84';
+var namagroup9 = 'WDYUK';
+var Comment9 = '#WDYUK (TULIP03) : 74*82*84';
 var namagroup10 = 'JNETOTO';
 var Comment10 = '#JNETOTO(PITBULL)*39*27*32';
 var namagroup11 = 'TOYIB';
@@ -46,7 +46,7 @@ var Comment13 = '#KOITOTO ( SERIGALAGALA ) 31*44';
 var namagroup14 = 'Hoho';
 var Comment14 = 'TETATAI : 94*89*43 #HOHOTOGEL';
 var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (BELANAK) 08*87*53';
+var Comment15 = 'VESPATOGEL (BELANAK2) 08*87*53';
 var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (TREX) : 91*93*23';
 var namagroup17 = 'KIKO';
