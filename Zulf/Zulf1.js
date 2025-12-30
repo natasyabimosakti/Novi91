@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF1
 // @namespace    http://tampermonkey.net/
-// @version      3.73
+// @version      3.74
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
@@ -34,8 +34,8 @@ var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL TANLONTO12 17*84*50';
 var namagroup8 = 'OPUNG';
 var Comment8 = 'OPUNG4D ( TANDOL78 ) : 08*14*33';
-var namagroup9 = 'MAYAPADA';
-var Comment9 = 'BETT*Mayapada4D(BO)*TANMEROT2*08*14*33';
+var namagroup9 = 'WDYUK';
+var Comment9 = '#WDYUK (TANMEROT2) : 08*14*33';
 var namagroup10 = 'JNETOTO';
 var Comment10 = '#JNETOTO(TANLOLO88)*17*84*41';
 var namagroup11 = 'TOYIB';
