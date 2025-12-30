@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 4
 // @namespace    http://tampermonkey.net/
-// @version      3.91
+// @version      3.92
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
@@ -34,8 +34,8 @@ var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL WENANG95 19*03*18';
 var namagroup8 = 'OPUNG';
 var Comment8 = 'OPUNG4D ( WEDANG72 ) : 25*16*85';
-var namagroup9 = 'MAYAPADA';
-var Comment9 = 'BETT*Mayapada4D(BO)*WADAH71*64*40*97';
+var namagroup9 = 'WDYUK';
+var Comment9 = '#WDYUK (WADAH71) : 64*40*97';
 var namagroup10 = 'JNETOTO';
 var Comment10 = '#JNETOTO(WEROH98)*63*30*97';
 var namagroup11 = 'TOYIB';
