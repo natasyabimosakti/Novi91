@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ninja 4
 // @namespace    http://tampermonkey.net/
-// @version      3.13
+// @version      3.14
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja4.js
@@ -33,8 +33,8 @@ var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL DREAMCATCHER 39*27*32';
 var namagroup8 = 'OPUNG';
 var Comment8 = 'OPUNG4D ( EGGROLL ) : 74*82*84';
-var namagroup9 = 'MAYAPADA';
-var Comment9 = 'BETT*Mayapada4D(BO)*SUKRO*34*13*79';
+var namagroup9 = 'WDYUK';
+var Comment9 = '#WDYUK (SUKRO4) : 34*13*79';
 var namagroup10 = 'JNETOTO';
 var Comment10 = '#JNETOTO(SNSD01)*22*24*21';
 var namagroup11 = 'TOYIB';
