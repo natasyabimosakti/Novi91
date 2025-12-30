@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JAGO 4
 // @namespace    http://tampermonkey.net/
-// @version      3.55
+// @version      3.56
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago4.js
@@ -36,8 +36,8 @@ var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL KOMOROTOM 08*87*53';
 var namagroup8 = 'OPUNG';
 var Comment8 = 'OPUNG4D ( KABEDULU ) : 94*89*29';
-var namagroup9 = 'MAYAPADA';
-var Comment9 = 'BETT*Mayapada4D(BO)*KIRIKKRIK21*73*10*45';
+var namagroup9 = 'WDYUK';
+var Comment9 = '#WDYUK (KIRIKKRIK21) : 73*10*45';
 var namagroup10 = 'JNETOTO';
 var Comment10 = '#JNETOTO(KEMBULKEBO)*52*26*70';
 var namagroup11 = 'TOYIB';
