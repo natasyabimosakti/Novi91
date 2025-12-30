@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TELKOMSEL 3
 // @namespace    http://tampermonkey.net/
-// @version      3.6
+// @version      3.7
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL3.js
@@ -34,8 +34,8 @@ var namagroup7 = '453P VIP';
 var Comment7 = 'ASEPTOGEL PIRANHA 34*13*79';
 var namagroup8 = 'OPUNG';
 var Comment8 = 'OPUNG4D ( PENGUIN ) : 00*28*07';
-var namagroup9 = 'MAYAPADA';
-var Comment9 = 'BETT*Mayapada4D(BO)*PEPAYA4*91*93*23';
+var namagroup9 = 'WDYUK';
+var Comment9 = '#WDYUK (PEPAYA4) : 91*93*23';
 var namagroup10 = 'JNETOTO';
 var Comment10 = '#JNETOTO(PISANG1)*74*82*84';
 var namagroup11 = 'TOYIB';
@@ -52,7 +52,6 @@ var namagroup16 = 'NEMO';
 var Comment16 = 'NEMO4D (PENJAHAT) : 08*87*43';
 var namagroup17 = 'KIKO';
 var Comment17 = '#KIKOTOTO (PANGGANG) = 53*29';
-
 //Batas
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'TELKOMSEL 3';
