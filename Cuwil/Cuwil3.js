@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 3
 // @namespace    http://tampermonkey.net/
-// @version      3.93
+// @version      3.94
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil3.js
@@ -17,8 +17,8 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'GTO';
-var Comment1 = '(GUDANGTOTO) = (SUNDRALDUL) 48*22*07';
+var namagroup1 = 'PRIA4D';
+var Comment1 = '#PRIA4D ( SUNDRALDUL ) : 48*22*07';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( SUSUKUCILIK ) : 97*64*12';
 var namagroup3 = 'KANGMIMPI';
