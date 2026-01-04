@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SIMPATI 1
 // @namespace    http://tampermonkey.net/
-// @version      3.7
+// @version      3.8
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI1.js
@@ -17,8 +17,8 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'GTO';
-var Comment1 = '(GUDANGTOTO) = (INFORMASI) 12*43*08';
+var namagroup1 = 'PRIA4D';
+var Comment1 = '#PRIA4D ( INFORMASI ) : 12*43*08';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( IGUANA ) : 95*50*17';
 var namagroup3 = 'KANGMIMPI';
