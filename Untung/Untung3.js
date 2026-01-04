@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 3
 // @namespace    http://tampermonkey.net/
-// @version      3.95
+// @version      3.96
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung3.js
@@ -17,8 +17,8 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'GTO';
-var Comment1 = '(GUDANGTOTO) = (HISAP87) 10*39*89';
+var namagroup1 = 'PRIA4D';
+var Comment1 = '#PRIA4D ( HISAP87 ) : 10*39*89';
 var namagroup2 = 'K86';
 var Comment2 = 'K86TOTO ( HALAL42 ) : 45*86*31';
 var namagroup3 = 'KANGMIMPI';
