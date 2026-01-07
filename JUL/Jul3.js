@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JUL 3
 // @namespace    http://tampermonkey.net/
-// @version      3.93
+// @version      3.0
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/JUL/Jul3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/JUL/Jul3.js
@@ -17,40 +17,40 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-var namagroup1 = 'Hoho';
-var Comment1 = 'FIRZAN11 : 08*62*37 #HOHOTOGEL';
-var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( FIRKON15 ) : 06*58*92';
-var namagroup3 = '453P VIP';
-var Comment3 = 'ASEPTOGEL FIRPOOL17 96*40*73';
-var namagroup4 = 'HAT0R1';
-var Comment4 = '#HATORIBET*FIRYESS19*43*86*25';
-var namagroup5 = 'DAGELAN';
-var Comment5 = 'DAGELAN4D(FIRZIN35) : 51*60*18';
-var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (FIRST57) = 63*52*10';
-var namagroup7 = 'MASTER KUY';
-var Comment7 = 'TOGELKUY FIRCUAN59 76*23*55';
-var namagroup8 = '𝐀𝐋𝐋𝐏𝐀𝐒';
-var Comment8 = 'Tok99Toto ( FIRDUKE35 ) : 66*89*45';
-var namagroup9 = 'TOYIB';
-var Comment9 = '#TOYIBSLOT ( FIRMONK59 ) : 08*62*37';
-var namagroup10 = 'UPIN';
-var Comment10 = '#UPINSLOT ( FIRPAL59 ) 06*58*92 BETTING';
-var namagroup11 = 'VESPA';
-var Comment11 = 'VESPATOGEL (FIRDAUS99) 96*40*73';
-var namagroup12 = 'OPUNG';
-var Comment12 = 'OPUNG4D ( FIRNIR39 ) : 43*86*25';
-var namagroup13 = 'TAFSIR';
-var Comment13 = 'SIJITOGEL FIRSILL19 51*60*18';
-var namagroup14 = 'BLITAR';
-var Comment14 = '#BLITAR4D (FIRSED59) = 78*64*10';
-var namagroup15 = 'PEDRO';
-var Comment15 = '#PEDRO4D (FIRLEN19*76*23*55)';
-var namagroup16 = 'BUKU MIMPI';
-var Comment16 = 'IYATOTO FIRST89 66*89*45';
-var namagroup17 = 'KOI';
-var Comment17 = '#KOITOTO ( FIRNONG99 ) 63*52';
+var namagroup1 = 'ALLPAS';
+var Comment1 = 'Tok99Toto ( FIRDUKE35 ) : 08*62*37';
+var namagroup2 = 'BUKU';
+var Comment2 = 'IYATOTO FIRST89 06*58*92';
+var namagroup3 = 'TIKTAK';
+var Comment3 = 'Tiktaktogel / FERARI88 / 96 , 40 , 73';
+var namagroup4 = 'TAFSIR MIMPI';
+var Comment4 = 'SIJITOGEL FIRSILL19 43*86*25';
+var namagroup5 = 'KEITOGEL';
+var Comment5 = '#keitogel = (FIONIS67) = 51*60*18';
+var namagroup6 = 'LIVI';
+var Comment6 = 'FATAMORGANA89 = 63*52 #LIVITOTO';
+var namagroup7 = '453P VIP';
+var Comment7 = 'ASEPTOGEL FIRPOOL17 76*23*55';
+var namagroup8 = 'OPUNG';
+var Comment8 = 'OPUNG4D ( FIRNIR39 ) : 66*89*45';
+var namagroup9 = 'WDYUK';
+var Comment9 = '#WDYUK (FANA88) : 08*62*37';
+var namagroup10 = 'JNETOTO';
+var Comment10 = '#JNETOTO(FIKTIF55)*06*58*92';
+var namagroup11 = 'TOYIB';
+var Comment11 = '#TOYIBSLOT ( FIRMONK59 ) : 96*40*73';
+var namagroup12 = 'MASTER KUY';
+var Comment12 = 'TOGELKUY FIRCUAN59 43*86*25';
+var namagroup13 = 'KOI';
+var Comment13 = '#KOITOTO ( FIRNONG99 ) 51*60';
+var namagroup14 = 'Hoho';
+var Comment14 = 'FIRZAN11 : 08*62*37 #HOHOTOGEL';
+var namagroup15 = 'VESPA';
+var Comment15 = 'VESPATOGEL (FIRDAUS99) 76*23*55';
+var namagroup16 = 'NEMO';
+var Comment16 = 'NEMO4D (FUJIAN56) : 66*89*45';
+var namagroup17 = 'KIKO';
+var Comment17 = '#KIKOTOTO (FAFAFUFU66) = 63*52';
 //Batas
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'group Jul 3';
