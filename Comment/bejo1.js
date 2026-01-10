@@ -1,34 +1,19 @@
-var namagroup1 = 'ALLPAS';
-var Comment1 = 'Tok99Toto ( EJIAN77 ) : 17*95*61';
-var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO SELOKAN48 55*90*06';
-var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / SENDANG49 / 51 , 35 , 01';
-var namagroup4 = 'TAFSIR MIMPI';
-var Comment4 = 'SIJITOGEL ERAT88 36*80*62';
-var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (SEMPRUL28) = 37*15*50';
-var namagroup6 = 'LIVI';
-var Comment6 = 'SINTING84 = 14*57 #LIVITOTO';
-var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL SEMBUR68 65*56*48';
-var namagroup8 = 'OPUNG';
-var Comment8 = 'OPUNG4D ( EGOIS19 ) : 47*54*49';
-var namagroup9 = 'WDYUK';
-var Comment9 = '#WDYUK (ENGGAN18) : 33*92*38';
-var namagroup10 = 'JNETOTO';
-var Comment10 = '#JNETOTO(SENENG80)*11*20*38';
-var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( SANGGAR81 ) : 58*88*41';
-var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY SARUNG82 02*09*60';
-var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( SEMPAKK83 ) 67*98';
-var namagroup14 = 'Hoho';
-var Comment14 = 'EMBER23 : 78*46*77 #HOHOTOGEL';
-var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (SEMBILU85) 71*96*75';
-var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (SEKIAN86) : 12*86*68';
-var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (SERDADU87) = 66*83';
+[
+{"group":"ALLPAS","comment":"Tok99Toto ( EJIAN77 ) : 17*95*61"},
+{"group":"BUKU","comment":"IYATOTO SELOKAN48 55*90*06"},
+{"group":"TIKTAK","comment":"Tiktaktogel / SENDANG49 / 51 , 35 , 01"},
+{"group":"TAFSIR MIMPI","comment":"SIJITOGEL ERAT88 36*80*62"},
+{"group":"KEITOGEL","comment":"#keitogel = (SEMPRUL28) = 37*15*50"},
+{"group":"LIVI","comment":"SINTING84 = 14*57 #LIVITOTO"},
+{"group":"453P VIP","comment":"ASEPTOGEL SEMBUR68 65*56*48"},
+{"group":"OPUNG","comment":"OPUNG4D ( EGOIS19 ) : 47*54*49"},
+{"group":"WDYUK","comment":"#WDYUK (ENGGAN18) : 33*92*38"},
+{"group":"JNETOTO","comment":"#JNETOTO(SENENG80)*11*20*38"},
+{"group":"TOYIB","comment":"#TOYIBSLOT ( SANGGAR81 ) : 58*88*41"},
+{"group":"MASTER KUY","comment":"TOGELKUY SARUNG82 02*09*60"},
+{"group":"KOI","comment":"#KOITOTO ( SEMPAKK83 ) 67*98"},
+{"group":"Hoho","comment":"EMBER23 : 78*46*77 #HOHOTOGEL"},
+{"group":"VESPA","comment":"VESPATOGEL (SEMBILU85) 71*96*75"},
+{"group":"NEMO","comment":"NEMO4D (SEKIAN86) : 12*86*68"},
+{"group":"KIKO","comment":"#KIKOTOTO (SERDADU87) = 66*83"}
+]
