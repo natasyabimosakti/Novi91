@@ -1,34 +1,19 @@
-var namagroup1 = 'ALLPAS';
-var Comment1 = 'Tok99Toto ( HEDON49 ) : 22*24*21';
-var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO GURUKU12 34*13*79';
-var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / GUNDUL13 / 00 , 28 , 07';
-var namagroup4 = 'TAFSIR MIMPI';
-var Comment4 = 'SIJITOGEL HOTEL50 04*76*81';
-var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (GELEM15) = 52*26*70';
-var namagroup6 = 'LIVI';
-var Comment6 = 'GEMAR24 = 73*10 #LIVITOTO';
-var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL GALAK17 63*30*72';
-var namagroup8 = 'OPUNG';
-var Comment8 = 'OPUNG4D ( HEWAN83 ) : 64*40*69';
-var namagroup9 = 'WDYUK';
-var Comment9 = '#WDYUK (HUJAN82) : 25*16*43';
-var namagroup10 = 'JNETOTO';
-var Comment10 = '#JNETOTO(GANGSING20)*19*03*43';
-var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( GITAR21 ) : 31*44*59';
-var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY GEDANG22 94*89*29';
-var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( GONDOL23 ) 08*87';
-var namagroup14 = 'Hoho';
-var Comment14 = 'HEMBUS86 : 91*93*23 #HOHOTOGEL';
-var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (GOLOK25) 74*82*84';
-var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (GEMPA26) : 39*27*32';
-var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (GAMPANG27) = 85*18';
+[
+{"group":"ALLPAS","comment":"Tok99Toto ( HEDON49 ) : 22*24*21"},
+{"group":"BUKU","comment":"IYATOTO GURUKU12 34*13*79"},
+{"group":"TIKTAK","comment":"Tiktaktogel / GUNDUL13 / 00 , 28 , 07"},
+{"group":"TAFSIR MIMPI","comment":"SIJITOGEL HOTEL50 04*76*81"},
+{"group":"KEITOGEL","comment":"#keitogel = (GELEM15) = 52*26*70"},
+{"group":"LIVI","comment":"GEMAR24 = 73*10 #LIVITOTO"},
+{"group":"453P VIP","comment":"ASEPTOGEL GALAK17 63*30*72"},
+{"group":"OPUNG","comment":"OPUNG4D ( HEWAN83 ) : 64*40*69"},
+{"group":"WDYUK","comment":"#WDYUK (HUJAN82) : 25*16*43"},
+{"group":"JNETOTO","comment":"#JNETOTO(GANGSING20)*19*03*43"},
+{"group":"TOYIB","comment":"#TOYIBSLOT ( GITAR21 ) : 31*44*59"},
+{"group":"MASTER KUY","comment":"TOGELKUY GEDANG22 94*89*29"},
+{"group":"KOI","comment":"#KOITOTO ( GONDOL23 ) 08*87"},
+{"group":"Hoho","comment":"HEMBUS86 : 91*93*23 #HOHOTOGEL"},
+{"group":"VESPA","comment":"VESPATOGEL (GOLOK25) 74*82*84"},
+{"group":"NEMO","comment":"NEMO4D (GEMPA26) : 39*27*32"},
+{"group":"KIKO","comment":"#KIKOTOTO (GAMPANG27) = 85*18"}
+]
