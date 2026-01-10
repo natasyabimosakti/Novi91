@@ -1,34 +1,19 @@
-var namagroup1 = 'ALLPAS';
-var Comment1 = 'Tok99Toto ( WANGSUL96 ) : 39*27*32';
-var namagroup2 = 'BUKU';
-var Comment2 = 'IYATOTO WAKUL90 74*82*84';
-var namagroup3 = 'TIKTAK';
-var Comment3 = 'Tiktaktogel / WATAK91 / 91 , 93 , 23';
-var namagroup4 = 'TAFSIR MIMPI';
-var Comment4 = 'SIJITOGEL WANI97 08*87*53';
-var namagroup5 = 'KEITOGEL';
-var Comment5 = '#keitogel = (WAGE93) = 94*89*29';
-var namagroup6 = 'LIVI';
-var Comment6 = 'WULING94 = 31*44 #LIVITOTO';
-var namagroup7 = '453P VIP';
-var Comment7 = 'ASEPTOGEL WENANG95 19*03*18';
-var namagroup8 = 'OPUNG';
-var Comment8 = 'OPUNG4D ( WEDANG72 ) : 25*16*85';
-var namagroup9 = 'WDYUK';
-var Comment9 = '#WDYUK (WADAH71) : 64*40*97';
-var namagroup10 = 'JNETOTO';
-var Comment10 = '#JNETOTO(WEROH98)*63*30*97';
-var namagroup11 = 'TOYIB';
-var Comment11 = '#TOYIBSLOT ( WADAH71 ) : 73*10*45';
-var namagroup12 = 'MASTER KUY';
-var Comment12 = 'TOGELKUY WEDANG72 52*26*70';
-var namagroup13 = 'KOI';
-var Comment13 = '#KOITOTO ( WANGSIT73 ) 04*76';
-var namagroup14 = 'Hoho';
-var Comment14 = 'WAGINEM75 : 00*28*07 #HOHOTOGEL';
-var namagroup15 = 'VESPA';
-var Comment15 = 'VESPATOGEL (WAGINEM75) 34*13*79';
-var namagroup16 = 'NEMO';
-var Comment16 = 'NEMO4D (WALI76) : 22*24*21';
-var namagroup17 = 'KIKO';
-var Comment17 = '#KIKOTOTO (WEGAH46) = 72*69';
+[
+{"group":"ALLPAS","comment":"Tok99Toto ( WANGSUL96 ) : 39*27*32"},
+{"group":"BUKU","comment":"IYATOTO WAKUL90 74*82*84"},
+{"group":"TIKTAK","comment":"Tiktaktogel / WATAK91 / 91 , 93 , 23"},
+{"group":"TAFSIR MIMPI","comment":"SIJITOGEL WANI97 08*87*53"},
+{"group":"KEITOGEL","comment":"#keitogel = (WAGE93) = 94*89*29"},
+{"group":"LIVI","comment":"WULING94 = 31*44 #LIVITOTO"},
+{"group":"453P VIP","comment":"ASEPTOGEL WENANG95 19*03*18"},
+{"group":"OPUNG","comment":"OPUNG4D ( WEDANG72 ) : 25*16*85"},
+{"group":"WDYUK","comment":"#WDYUK (WADAH71) : 64*40*97"},
+{"group":"JNETOTO","comment":"#JNETOTO(WEROH98)*63*30*97"},
+{"group":"TOYIB","comment":"#TOYIBSLOT ( WADAH71 ) : 73*10*45"},
+{"group":"MASTER KUY","comment":"TOGELKUY WEDANG72 52*26*70"},
+{"group":"KOI","comment":"#KOITOTO ( WANGSIT73 ) 04*76"},
+{"group":"Hoho","comment":"WAGINEM75 : 00*28*07 #HOHOTOGEL"},
+{"group":"VESPA","comment":"VESPATOGEL (WAGINEM75) 34*13*79"},
+{"group":"NEMO","comment":"NEMO4D (WALI76) : 22*24*21"},
+{"group":"KIKO","comment":"#KIKOTOTO (WEGAH46) = 72*69"}
+]
