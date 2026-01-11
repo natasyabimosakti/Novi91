@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF1
 // @namespace    http://tampermonkey.net/
-// @version      3.76
+// @version      3.77
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
@@ -53,6 +53,8 @@ var groups = [];
 let aktivitasObserver = null;
 let dialogObserver = null;
 // Fungsi ambil data grup
+let retry = 0;
+const MAX_RETRY = 10;
 async function fetchGroupsFromGitHub() {
     return new Promise((resolve, reject) => {
         GM_xmlhttpRequest({
@@ -61,7 +63,20 @@ async function fetchGroupsFromGitHub() {
             onload: function (response) {
                 try {
                     const data = JSON.parse(response.responseText);
+                    if (!data || data.length === 0) {
+                        retry++;
+                        console.warn(`Data kosong, retry ke-${retry}`);
 
+                        if (retry >= MAX_RETRY) {
+                            console.error("Stop retry, data tetap kosong.");
+                            return reject("Data kosong, Max retry");
+                        }
+
+                        setTimeout(() => fetchGroupsFromGitHub().then(resolve).catch(reject), 2000);
+                        return;
+                    }
+
+                    retry = 0; // reset retry kalau berhasil
                     // --- Ambil data dari GitHub ---
                     data.forEach((item, index) => {
                         const groupVarName = `namagroup${index + 1}`;
@@ -500,6 +515,7 @@ function parsePost(artikels) {
     if (!CekKeyword(postingan.toLowerCase())) return false;
     return true;
 }
+
 async function tungguGroupAsync() {
     const start = Date.now();
     while (Date.now() - start < 150000) { // 15 detik timeout
@@ -720,6 +736,31 @@ function showNotification(message) {
     document.body.appendChild(notif);
     setTimeout(() => notif.remove(), 15000);
 }
+
+function waitForElement(selector, timeout = 15000) {
+    return new Promise((resolve, reject) => {
+
+    });
+}
+function waitOverlayOrFail(timeout = 8000) {
+    return new Promise((resolve, reject) => {
+        const start = Date.now();
+
+        const timer = setInterval(() => {
+            const overlay = document.querySelector(".loading-overlay");
+
+            if (overlay) {
+                clearInterval(timer);
+                resolve("overlay muncul");
+            } else if (Date.now() - start > timeout) {
+                clearInterval(timer);
+                reject("overlay tidak muncul dalam batas waktu");
+            }
+
+        }, 200);
+    });
+}
+
 let myObservere = null
 async function komentari() {
     if (commentDone) return;
@@ -742,26 +783,41 @@ async function komentari() {
             textarea.focus();
             textarea.value = commentToPost;
             sendBtn.disabled = false;
-
+            if (commentDone) {
+                clearInterval(int);
+                return;
+            }
             const clickEvent = document.createEvent("MouseEvents");
             clickEvent.initEvent("mousedown", true, true);
             sendBtn.dispatchEvent(clickEvent);
-
-            showNotification("Komentar Sudah Terkirim : " + commentToPost);
             commentDone = true;
+            waitOverlayOrFail(8000)
+                .then(msg => {
+                    clearInterval(int)
+                    console.log("💚 Loading detected:", msg);
+                    showNotification("Komentar Sudah Terkirim : " + commentToPost);
 
-            clearInterval(int);
-            if (observercontetn) observercontetn.disconnect();
 
-            GM.setValue("group_" + grouptToPost, true);
-            GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS);
-            console.log("✅ Komentar DIKIRIM:", commentToPost);
 
-            clearInterval(intervalURUTKAN);
-            waitNoDialog();
-            setTimeout(() => {
-                location.href = "about:blank";
-            }, 10000);
+                    if (observercontetn) observercontetn.disconnect();
+
+                    GM.setValue("group_" + grouptToPost, true);
+                    GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS);
+                    console.log("✅ Komentar DIKIRIM:", commentToPost);
+
+                    clearInterval(intervalURUTKAN);
+                    waitNoDialog();
+                    setTimeout(() => {
+                        location.href = "about:blank";
+                    }, 10000);
+                })
+                .catch(err => {
+                    console.warn("💥 Loading gagal:", err);
+                    document.location.reload();
+                });
+
+
+
         });
 
     }, 1);
