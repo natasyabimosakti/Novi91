@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TELKOMSEL 2
 // @namespace    http://tampermonkey.net/
-// @version      3.10
+// @version      3.11
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL2.js
@@ -676,6 +676,7 @@ function waitNoDialog() {
 async function cek_artikel(setArtikel) {
     if (commentDone) return;
 
+    manageGroups()
 
     var found_artikle = false
     for (const artikel of setArtikel) {
@@ -748,8 +749,8 @@ function waitOverlayOrFail(timeout = 8000) {
 
         const timer = setInterval(() => {
             const overlay = document.querySelector(".loading-overlay");
-
-            if (overlay) {
+            const notif = document.querySelector(".snackbar-container");
+            if (overlay || notif) {
                 clearInterval(timer);
                 resolve("overlay muncul");
             } else if (Date.now() - start > timeout) {
