@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.230
+// @version      3.231
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
@@ -29,7 +29,7 @@ var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/he
 var keyword = ["ROOM", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001"]
 var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
 let adminPrefixSet = null;
-
+var obsermasalah = null;
 let countA = 0;
 let sedangProsesAktivitas = false;
 let ObserverKlikAktitas = null;
@@ -51,6 +51,7 @@ var commentDone = false;
 var groups = [];
 let aktivitasObserver = null;
 let dialogObserver = null;
+var komentdone = false;
 // Fungsi ambil data grup
 let retry = 0;
 const MAX_RETRY = 10;
@@ -760,7 +761,6 @@ function waitOverlayOrFail(timeout = 8000) {
         }, 200);
     });
 }
-
 let myObservere = null
 async function komentari() {
     if (commentDone) return;
@@ -790,6 +790,8 @@ async function komentari() {
             const clickEvent = document.createEvent("MouseEvents");
             clickEvent.initEvent("mousedown", true, true);
             sendBtn.dispatchEvent(clickEvent);
+            komentdone = true;
+            ceker()
             commentDone = true;
             waitOverlayOrFail(8000)
                 .then(msg => {
@@ -804,7 +806,7 @@ async function komentari() {
                     GM.setValue("group_" + grouptToPost, true);
                     GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS);
                     console.log("✅ Komentar DIKIRIM:", commentToPost);
-
+                    komentdone = true;
                     clearInterval(intervalURUTKAN);
                     waitNoDialog();
                     setTimeout(() => {
@@ -910,6 +912,8 @@ async function cekLogout() {
     }
 }
 async function cekMasalah() {
+    if (!komentdone) return;
+
     try {
         if (sudahkirim) return;
         const now = Date.now();
@@ -939,6 +943,55 @@ async function cekMasalah() {
         console.warn("? Error saat cek masalah:", e);
     }
 }
+
+async function cekMasalah2() {
+    try {
+        if (!komentdone) return;
+        if (sudahkirim) return;
+        const now = Date.now();
+        const COOLDOWNPostingan = 60 * 60 * 1000; // 5 menit
+        const lastTimepost = await GM.getValue("lastTelegramSame", 0);
+
+        if ((now - lastTimepost < COOLDOWNPostingan)) {
+            return;
+        } else {
+            GM.setValue("lastTelegramSame", 0);
+        }
+
+        const elem = document.querySelectorAll("[data-long-click-action-id]")
+        if (!elem) return;
+
+        const adaMenunggu = Array.from(elem).some(el => el.textContent.includes("Menunggu"));
+
+        Array.from(elem).forEach(el => {
+            const text = el.textContent;
+            if (text.includes("Menunggu")) {
+                const before = text.split("Menunggu")[0].trim();
+                console.log(before); // akan tampil: "Lindaa Devianimantap"
+            }
+        });
+
+
+        console.log(adaMenunggu);
+
+        if (adaMenunggu) {
+            var before
+            Array.from(elem).forEach(el => {
+                const text = el.textContent;
+                if (text.includes("Menunggu")) {
+                    before = text.split("Menunggu")[0].trim();
+                    console.log(before); // akan tampil: "Lindaa Devianimantap"
+                }
+            });
+            MsgError(SCRIPT_NAME)
+            await sendToTelegram(`Menunggu Persetujuan ${before}`);
+
+        }
+
+    } catch (e) {
+        console.warn("? Error saat cek masalah:", e);
+    }
+}
 function MsgError(message) {
     const notif = document.createElement("div");
     notif.textContent = message;
@@ -954,13 +1007,17 @@ function MsgError(message) {
     document.body.appendChild(notif);
     ;
 }
+function ceker() {
+    if (obsermasalah) return;
+    obsermasalah = new MutationObserver(() => {
+        cekMasalah();
+        cekMasalah2()
+        cekLogout()
+    });
+    obsermasalah.observe(document.body, { childList: true, subtree: true });
 
-const observers = new MutationObserver(() => {
-    cekMasalah();
-    cekLogout()
-});
+}
 
-observers.observe(document.body, { childList: true, subtree: true });
 
 // ===== MAIN FLOW =====
 (async () => {
