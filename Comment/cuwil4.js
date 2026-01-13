@@ -1,32 +1,19 @@
-var namagroup1 = 'PRIA4D';
-var Comment1 = '#PRIA4D ( DELEKEDELE20 ) : 09*94*73';
-var namagroup2 = 'K86';
-var Comment2 = 'K86TOTO ( DELAKDELAK78 ) : 59*26*83';
-var namagroup3 = 'KANGMIMPI';
-var Comment3 = '#KANGMIMPI (DENGKIKU246) : *72*28*16';
-var namagroup4 = 'RIATOTO';
-var Comment4 = '#RIATOTO DEKILLING67 = 80*13*70';
-var namagroup5 = 'PEDRO';
-var Comment5 = '#PEDRO4D (DENGAKSEKBOL*75*08*00)';
-var namagroup6 = 'DIVA4D';
-var Comment6 = '#DIVA4D (DENGKULLORO) = 47*40*25';
-var namagroup7 = 'HAT0R1';
-var Comment7 = '#HATORIBET*DEMAKDEMEK58*74*10*58';
-var namagroup8 = 'BLITAR';
-var Comment8 = '#BLITAR4D (DEPAKSILITMU) = 49*81';
-var namagroup9 = 'ASIA';
-var Comment9 = '#ASIATOTO = {DELOSORBIB} = 06*53';
-var namagroup10 = 'TESTER';
-var Comment10 = '';
-var namagroup11 = 'TESTER';
-var Comment11 = '';
-var namagroup12 = 'TESTER';
-var Comment12 = '';
-var namagroup13 = 'TESTER';
-var Comment13 = '';
-var namagroup14 = 'TESTER';
-var Comment14 = '';
-var namagroup15 = 'TESTER';
-var Comment15 = '';
-var namagroup16 = 'TESTER';
-var Comment16 = '';
+[
+{"group":"PRIA4D","comment":"#PRIA4D ( DELEKEDELE20 ) : 09*94*73"},
+{"group":"K86","comment":"K86TOTO ( DELAKDELAK78 ) : 59*26*83"},
+{"group":"KANGMIMPI","comment":"#KANGMIMPI (DENGKIKU246) : *72*28*16"},
+{"group":"RIATOTO","comment":"#RIATOTO DEKILLING67 = 80*13*70"},
+{"group":"PEDRO","comment":"#PEDRO4D (DENGAKSEKBOL*75*08*00)"},
+{"group":"DIVA4D","comment":"#DIVA4D (DENGKULLORO) = 47*40*25"},
+{"group":"HAT0R1","comment":"#HATORIBET*DEMAKDEMEK58*74*10*58"},
+{"group":"BLITAR","comment":"#BLITAR4D (DEPAKSILITMU) = 49*81"},
+{"group":"ASIA","comment":"#ASIATOTO = {DELOSORBIB} = 06*53"},
+{"group":"TEST","comment":""},
+{"group":"TEST","comment":""},
+{"group":"TEST","comment":""},
+{"group":"TEST","comment":""},
+{"group":"TEST","comment":""},
+{"group":"TEST","comment":""},
+{"group":"TEST","comment":""},
+{"group":"TEST","comment":""}
+]
