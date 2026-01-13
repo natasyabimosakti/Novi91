@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.303
+// @version      3.304
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut3.js
@@ -279,25 +279,6 @@ const admins = await getAdminsUntilSuccess();
 
 
 
-function klikTombolByText(teks) {
-    if (commentDone) return;
-
-    if (sedangProses) return false; // jangan klik kalau dialog muncul
-    if (sedangKlikUrutkan) return false;
-    const tombol = Array.from(document.querySelectorAll('[role="button"], [tabindex="0"]'))
-        .find(el => el.textContent.trim() === teks);
-    if (tombol) {
-        tombol.click();
-        console.log(`✅ Klik tombol "${teks}"`);
-        Mutation_cekArticle()
-
-        return true;
-    }
-    return false;
-}
-
-// ===== Tunggu tombol URUTKAN muncul =====
-
 
 
 // ===== Observasi tombol Aktivitas terbaru / Postingan baru =====
@@ -339,45 +320,6 @@ function handleAktivitasNode(node) {
 }
 
 // ===== Observasi Aktivitas terbaru =====
-function observeAktivitas() {
-    if (aktivitasObserver) return; // sudah ada
-
-
-    aktivitasObserver = new MutationObserver((mutations) => {
-        if (commentDone) return;
-
-        if (document.location.href.includes("group")) {
-            for (const mutation of mutations) {
-                for (const node of mutation.addedNodes) {
-                    if (node.nodeType !== 1) continue; // Bukan elemen
-                    const text = node.textContent || "";
-                    if (text.includes("Aktivitas terbaru")) {
-                        const tombol = node.querySelectorAll("[role='button']");
-                        if (tombol.length >= 2) {
-                            tombol.forEach(btn => {
-                                if (countA < 3) {
-                                    if (btn.textContent.includes("Postingan baru")) {
-                                        btn.click();
-                                        countA++;
-                                    }
-                                } else {
-                                    setTimeout(() => {
-                                        if (btn.textContent.includes("Aktivitas terbaru")) {
-                                            btn.click();
-                                            countA = 0;
-                                        }
-                                    }, 100);
-                                }
-                            });
-                        }
-                    }
-                }
-            }
-        }
-    });
-    aktivitasObserver.observe(document.body, { childList: true, subtree: true });
-
-}
 
 
 
@@ -544,9 +486,6 @@ async function manageGroups() {
         const key = `group_${groupId}`;
         const expireKey = `${key}_expire`;
         const expireAt = await GM.getValue(expireKey, 0);
-
-        console.log(`🔹 Grup: ${groupId} | now: ${now} | expireAt: ${expireAt}`);
-
         if (now > expireAt) {
             await GM.setValue(key, defaultValue);
             await GM.setValue(expireKey, now + EXPIRATION_MS);
@@ -664,7 +603,7 @@ async function Mutation_cekArticle() {
     console.log("🟢 Mutation_cekArticle aktif");
 }
 
-function waitNoDialog() {
+async function waitNoDialog() {
     return new Promise(resolve => {
         function cek() {
             const dialog = document.querySelector('[role="dialog"], .loading-overlay');
@@ -705,9 +644,13 @@ async function cek_artikel(setArtikel) {
 
 
     if (!found_artikle) {
-        console.log("Tidak ada artikel valid, tunggu dialog hilang lalu klik URUTKAN...");
         await waitNoDialog();
-        klikTombolByText("URUTKAN");
+        // Menunggu output TRUE dari refresh sebelum melanjutkan
+        const refreshSuccess = await forceRefreshWithRetry();
+        if (refreshSuccess) {
+            console.log("♻️ Feed baru siap discan ulang.");
+            // Optional: Panggil kembali Mutation_cekArticle() jika diperlukan
+        }
     }
 }
 
@@ -762,6 +705,80 @@ function waitOverlayOrFail(timeout = 8000) {
         }, 200);
     });
 }
+
+async function forceRefreshWithRetry(maxRetries = 5) {
+    // 1. Selector lebih agresif mencakup semua kemungkinan loading FB Lite
+    const getLoading = () => document.querySelector(".loading-overlay, [data-mcomponent='MSpinner'], ._55xd, .snackbar-container");
+
+    const dispatchTouch = (target, type, y) => {
+        const touch = new Touch({
+            identifier: Date.now(),
+            target: target,
+            clientY: y, pageY: y, screenY: y,
+            radiusX: 10, radiusY: 10, force: 1
+        });
+        target.dispatchEvent(new TouchEvent(type, {
+            bubbles: true, cancelable: true,
+            touches: [touch], targetTouches: [touch], changedTouches: [touch]
+        }));
+    };
+
+    const performPull = async (scroller) => {
+        window.scrollTo(0, 0);
+        if (scroller) scroller.scrollTop = 0;
+        await new Promise(r => setTimeout(r, 200)); // Beri waktu DOM untuk stabil di posisi 0
+
+        const target = scroller || document.body;
+        dispatchTouch(target, 'touchstart', 100);
+        for (let i = 100; i <= 700; i += 100) { // Tarikan lebih dalam (700px)
+            await new Promise(r => setTimeout(r, 15));
+            dispatchTouch(target, 'touchmove', i);
+        }
+        dispatchTouch(target, 'touchend', 700);
+    };
+
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+        const scroller = document.querySelector('[data-type="vscroller"]');
+        await performPull(scroller);
+
+        // 2. Deteksi Loading Muncul (Polling lebih cepat: 50ms)
+        let startTime = Date.now();
+        let loadingDetected = false;
+        while (Date.now() - startTime < 4000) { // Tunggu muncul max 4 detik
+            if (getLoading()) {
+                loadingDetected = true;
+                break;
+            }
+            await new Promise(r => setTimeout(r, 50));
+        }
+
+        if (loadingDetected) {
+            console.log("⏳ Loading muncul, menunggu feed diperbarui...");
+
+            // 3. Deteksi Loading Hilang (Safety Timeout 12 detik)
+            startTime = Date.now();
+            while (Date.now() - startTime < 12000) {
+                if (!getLoading()) {
+                    console.log("✅ Update Selesai!");
+                    Mutation_cekArticle()
+
+                    return true; // KELUAR DENGAN TRUE
+                }
+                await new Promise(r => setTimeout(r, 2));
+            }
+            console.warn("⚠️ Loading macet (Stuck), mencoba ulang...");
+        } else {
+            console.warn("❌ Sinyal pull gagal diterima sistem FB, mencoba ulang...");
+        }
+
+        // Jeda sebelum retry agar tidak dianggap bot spamming
+        await new Promise(r => setTimeout(r, 1000));
+    }
+
+    console.error("🚫 Gagal menyegarkan feed setelah beberapa percobaan.");
+    return false;
+}
+
 let myObservere = null
 async function komentari() {
     if (commentDone) return;
@@ -791,7 +808,6 @@ async function komentari() {
             const clickEvent = document.createEvent("MouseEvents");
             clickEvent.initEvent("mousedown", true, true);
             sendBtn.dispatchEvent(clickEvent);
-            komentdone = true;
             ceker()
             commentDone = true;
             waitOverlayOrFail(8000)
@@ -913,7 +929,6 @@ async function cekLogout() {
     }
 }
 async function cekMasalah() {
-    if (!komentdone) return;
 
     try {
         if (sudahkirim) return;
@@ -947,7 +962,6 @@ async function cekMasalah() {
 
 async function cekMasalah2() {
     try {
-        if (!komentdone) return;
         if (sudahkirim) return;
         const now = Date.now();
         const COOLDOWNPostingan = 60 * 60 * 1000; // 5 menit
@@ -1032,13 +1046,12 @@ function ceker() {
         closeDialogFast()
         Mutation_cekArticle()
         observeDialog();
-        observeAktivitas();
-        klikTombolByText("URUTKAN");
-        intervalURUTKAN = setInterval(() => {
+        await forceRefreshWithRetry()
+        intervalURUTKAN = setInterval(async () => {
             const nowurl = location.href;
             if (nowurl !== URLINI) {
                 URLINI = nowurl;
-                klikTombolByText("URUTKAN");
+                await forceRefreshWithRetry()
             }
         }, 1000);
 
