@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JAGO 4
 // @namespace    http://tampermonkey.net/
-// @version      3.64
+// @version      3.65
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago4.js
@@ -36,7 +36,6 @@ var obsermasalah = null;
 let countA = 0;
 let sedangProsesAktivitas = false;
 let ObserverKlikAktitas = null;
-let sedangProses = false;
 let sedangKlikUrutkan = false;
 let adminList = [];
 const LOCAL_KEY = "cachedAdminList";
@@ -56,7 +55,7 @@ let aktivitasObserver = null;
 let dialogObserver = null;
 var komentdone = false;
 var found_artikle = false
-
+let isChecking = false;
 // Fungsi ambil data grup
 let retry = 0;
 const MAX_RETRY = 10;
@@ -553,56 +552,38 @@ let timeoutCollect = null;
 let processedIds = new Set(); // Tambahkan ini agar tidak duplikasi ID yang sama
 
 async function Mutation_cekArticle() {
-    if (!document.location.href.includes("group")) return;
-    artikelBaruSet.clear();
-
-    // FUNGSI VALIDASI TERPISAH
-    const isValid = (el) => {
-        const hasText = el.textContent.trim().length > 10;
-        const hasBtn = el.querySelector('.native-text, [role="button"]');
-        return hasText && hasBtn;
-    };
-
-    // 1. SCAN AWAL (Cek artikel yang sudah ada di layar sebelum observer)
-    document.querySelectorAll('[data-tracking-duration-id]').forEach(el => {
-        const id = el.getAttribute('data-tracking-duration-id');
-        if (isValid(el) && !processedIds.has(id)) {
-            artikelBaruSet.add(el);
-            // Jangan add ke processedIds dulu di sini jika ingin super aman,
-            // atau add jika sudah yakin valid.
-        }
-    });
-
-    // 2. OBSERVER UNTUK ARTIKEL BARU
-    observercontetn = new MutationObserver((mutationsList) => {
-        if (commentDone) return;
-
-        for (const mutation of mutationsList) {
-            for (const node of mutation.addedNodes) {
-                if (node.nodeType !== 1) continue;
-
-                const elements = node.matches?.('[data-tracking-duration-id]') ?
-                    [node] : node.querySelectorAll?.('[data-tracking-duration-id]');
-
-                elements?.forEach(el => {
-                    const trackingId = el.getAttribute('data-tracking-duration-id');
-
-                    // CEK VALIDASI: Hanya masukkan jika BENAR-BENAR lengkap
-                    if (!processedIds.has(trackingId) && isValid(el)) {
-                        artikelBaruSet.add(el);
-                        processedIds.add(trackingId);
-                    }
+    let sedangScan = false;
+    if (!document.location.href.includes("group") || commentDone) return;
+    observercontetn = new MutationObserver(async () => {
+        await waitNoDialog();
+        if (sedangScan) return;
+        const allPosts = document.querySelectorAll('[data-tracking-duration-id]');
+        if (allPosts.length >= 2) {
+            sedangScan = true;
+            for (const el of allPosts) {
+                if (!el || !parsePost(el)) continue;
+                found_artikle = true;
+                const textarea = document.querySelector(".multi-line-floating-textbox");
+                if (textarea) return;
+                const commentbox = el.getElementsByClassName('native-text');
+                const tombolKirim = Array.from(commentbox).find(node => {
+                    const teks = node.textContent ? node.textContent.trim().toLowerCase() : "";
+                    if (!teks) return false;
+                    return ["jawab", "tulis", "komentari", "postingan", "beri"].some(keyword => teks.includes(keyword));
                 });
+                if (tombolKirim) {
+                    found_artikle = true
+                    autoCloseRelevanDialog();
+                    tombolKirim.click();
+                } else {
+                    console.log("⚠️ Tombol tidak ditemukan atau tersembunyi, mencari ulang...");
+                }
             }
-        }
+            sedangScan = false;
+            if (!found_artikle) {
+                await forceRefreshWithRetry();
+            }
 
-        // Jalankan pengecekan batch
-        const validArticles = Array.from(artikelBaruSet).filter(el => el.isConnected);
-
-        if (validArticles.length >= 2) {
-            console.log("🟢 Batch siap:", validArticles.length);
-            observercontetn.disconnect();
-            cek_artikel(validArticles);
         }
     });
 
@@ -620,138 +601,110 @@ async function waitNoDialog() {
     });
 }
 
-async function cek_artikel(setArtikel) {
-    if (commentDone) return;
-    manageGroups();
-    for (const artikel of setArtikel) {
-        if (!parsePost(artikel)) continue;
-        found_artikle = true;
-        komentari();
 
-        await new Promise((resolve) => {
-            let attempt = 0;
 
-            // --- FUNGSI ACTION (Dibuat agar bisa dipanggil instan & berkala) ---
-            const performCheckAndClick = () => {
-                attempt++;
 
-                // 1. Cek apakah textbox sudah ada
-                const textbox = document.querySelector(".multi-line-floating-textbox");
-                if (textbox) {
-                    console.log("✅ TextBox Muncul.");
-                    if (clk) clearInterval(clk);
-                    resolve();
-                    return true; // Berhasil
+var kondisiStop = false;
+async function botKoment() {
+    // Reset status sebelum mulai
+    isCommenting = false;
+    kondisiStop = false;
+
+    console.log("🚀 Memulai pemantauan TextBox komentar...");
+
+    const observercomment = new MutationObserver(async (mutations, observer) => {
+        // Jika kondisi stop terpenuhi, matikan observer dan keluar
+        if (typeof kondisiStop !== 'undefined' && kondisiStop) {
+            observer.disconnect();
+            return;
+        }
+
+        for (const mutation of mutations) {
+            for (const node of mutation.addedNodes) {
+                if (node.nodeType !== 1) continue;
+
+                // Cari container textbox (baik di dalam node baru atau node itu sendiri)
+                const container = node.querySelector?.('.mentions-shadow-container') ||
+                    (node.classList?.contains('mentions-shadow-container') ? node : null);
+
+                if (container) {
+                    if (isCommenting) return;
+
+                    const textarea = document.querySelector(".multi-line-floating-textbox");
+                    const sendBtn = document.querySelector(".textbox-submit-button");
+
+                    if (textarea && sendBtn) {
+                        isCommenting = true;
+                        console.log("✅ TextBox Ditemukan. Mengisi pesan...");
+
+                        textarea.focus();
+                        textarea.value = commentToPost;
+                        // Aktifkan tombol & Kirim
+                        sendBtn.disabled = false;
+                        const clickEvent = document.createEvent("MouseEvents");
+                        clickEvent.initEvent("mousedown", true, true);
+                        sendBtn.dispatchEvent(clickEvent);
+
+                        // Simpan Log/Status
+                        if (typeof GM !== 'undefined') {
+                            await GM.setValue("group_" + grouptToPost, true);
+                            await GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS);
+                        }
+
+                        console.log("📤 Komentar Terkirim!");
+                        if (typeof showNotification === 'function') {
+                            showNotification("Komentar Berhasil: " + commentToPost);
+                        }
+
+                        // --- FINALISASI ---
+                        kondisiStop = true;
+                        observercontetn.disconnect()
+                        observer.disconnect(); // Berhenti memantau
+
+                        if (typeof startAutoTask === 'function') {
+                            startAutoTask();
+                        }
+                        return;
+                    } else {
+                        console.warn("⚠️ TextBox muncul tapi elemen internal belum siap.");
+                    }
                 }
-
-                // 2. Jika belum ada, cari tombol dan klik
-                const commentbox = artikel.getElementsByClassName('native-text');
-                const tombolKirim = Array.from(commentbox).find(el => {
-                    const t = el.textContent.toLowerCase();
-                    return ["jawab", "tulis", "komentari", "postingan", "beri"].some(keyword => t.includes(keyword));
-                });
-
-                if (tombolKirim) {
-                    console.log(`Klik percobaan ke-${attempt}`);
-                    autoCloseRelevanDialog();
-                    tombolKirim.click();
-                }
-
-                if (attempt > 20) {
-                    console.log("❌ Timeout");
-                    if (clk) clearInterval(clk);
-                    resolve();
-                    return true;
-                }
-                return false;
-            };
-
-            // --- EKSEKUSI PERTAMA (INSTAN TANPA DELAY) ---
-            const isDone = performCheckAndClick();
-
-            // --- JIKA KLIK PERTAMA BELUM BERHASIL, BARU JALANKAN INTERVAL ---
-            let clk = null;
-            if (!isDone) {
-                clk = setInterval(performCheckAndClick, 300); // 300ms untuk memberi nafas render browser
             }
-        });
-
-        // Jika sudah ketemu 1 artikel dan sedang proses komentar,
-        // biasanya kita ingin break loop agar tidak memproses artikel lain secara bersamaan
-        if (found_artikle) break;
-    }
-
-    if (!found_artikle) {
-        await waitNoDialog();
-        await forceRefreshWithRetry();
-    }
-}
-
-var janganklik = false
-let myObservere = null
-async function komentari() {
-    if (commentDone) return;
-
-    console.log("🧐 Mencari TextBox...");
-
-    const observer = new MutationObserver((mutations, obs) => {
-        const textarea = document.querySelector(".multi-line-floating-textbox");
-        const sendBtn = document.querySelector(".textbox-submit-button");
-
-        // Jika elemen sudah muncul
-        if (textarea && sendBtn) {
-            obs.disconnect(); // Berhenti mengamati segera setelah ketemu
-            eksekusiKirim(textarea, sendBtn);
         }
     });
 
-    // Mulai mengamati perubahan pada body dan sub-elemennya
-    observer.observe(document.body, {
+    // Mulai observasi ke seluruh dokumen
+    observercomment.observe(document.body, {
         childList: true,
         subtree: true
     });
-
-    // Timeout cadangan jika dalam 10 detik tidak muncul juga
-    setTimeout(() => observer.disconnect(), 10000);
 }
 
-function eksekusiKirim(textarea, sendBtn) {
-    if (commentDone || janganklik) return;
 
-    waitCommentReady((commentToPost) => {
-        textarea.focus();
-        textarea.value = commentToPost;
-        sendBtn.disabled = false;
 
-        const mousedownEvent = new MouseEvent('mousedown', {
-            bubbles: true,
-            cancelable: true
-        });
-
-        console.log("🚀 Mengirim Komentar...");
-        sendBtn.dispatchEvent(mousedownEvent);
-
-        commentDone = true;
-        ceker();
-
-        waitOverlayOrFail(8000)
-            .then(msg => {
-                showNotification("Komentar Sudah Terkirim : " + commentToPost);
-                if (observercontetn) observercontetn.disconnect();
-
-                GM.setValue("group_" + grouptToPost, true);
-                GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS);
-
-                setTimeout(() => {
+function startAutoTask() {
+    let myObservere = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            for (const node of mutation.addedNodes) {
+                if (node.nodeType !== 1) continue; // Bukan elemen
+                if (node.nodeType === 1 && document.querySelector(".snackbar-container")) {
                     location.href = "about:blank";
-                }, 10000);
-            })
-            .catch(err => {
-                console.warn("💥 Loading gagal:", err);
-                document.location.reload();
-            });
+                }
+            }
+        }
     });
+    myObservere.observe(document.body, { childList: true, subtree: true });
+    setTimeout(() => {
+        location.href = "about:blank";
+
+    }, 10000);
 }
+
+
+
+var janganklik = false
+let myObservere = null
+let sedangMengetik = false; // Variabel kontrol global baru
 
 function autoCloseRelevanDialog() {
     const closeBtn = document.querySelector('[aria-label="Tutup"]');
@@ -790,7 +743,7 @@ function waitOverlayOrFail(timeout = 8000) {
         const start = Date.now();
 
         const timer = setInterval(() => {
-            const overlay = document.querySelector(".loading-overlay");
+            const overlay = document.querySelector(".loading-overlay, [data-mcomponent='MSpinner'], ._55xd, revamped");
             const notif = document.querySelector(".snackbar-container");
             if (overlay || notif) {
                 clearInterval(timer);
@@ -800,13 +753,15 @@ function waitOverlayOrFail(timeout = 8000) {
                 reject("overlay tidak muncul dalam batas waktu");
             }
 
-        }, 200);
+        }, 50);
     });
 }
 
-async function forceRefreshWithRetry(maxRetries = 5) {
-    // 1. Selector lebih agresif mencakup semua kemungkinan loading FB Lite
-    const getLoading = () => document.querySelector(".loading-overlay, [data-mcomponent='MSpinner'], ._55xd, .snackbar-container");
+async function forceRefreshWithRetry() {
+    const getTrackingId = () => {
+        const el = document.querySelector("[data-tracking-duration-id]");
+        return el ? el.getAttribute("data-tracking-duration-id") : null;
+    };
 
     const dispatchTouch = (target, type, y) => {
         const touch = new Touch({
@@ -821,63 +776,54 @@ async function forceRefreshWithRetry(maxRetries = 5) {
         }));
     };
 
-    const performPull = async (scroller) => {
-        window.scrollTo(0, 0);
-        if (scroller) scroller.scrollTop = 0;
-        await new Promise(r => setTimeout(r, 200)); // Beri waktu DOM untuk stabil di posisi 0
+    const initialId = getTrackingId();
+    console.log(`🔄 ID Awal terdeteksi: ${initialId}`);
 
-        const target = scroller || document.body;
-        dispatchTouch(target, 'touchstart', 100);
-        for (let i = 100; i <= 700; i += 100) { // Tarikan lebih dalam (700px)
-            await new Promise(r => setTimeout(r, 15));
-            dispatchTouch(target, 'touchmove', i);
+    const performPull = () => {
+        console.log("⚡ Menjalankan Pull-to-Refresh...");
+        const scroller = document.querySelector('[data-type="vscroller"]') || document.body;
+        window.scrollTo(0, 0);
+        if (scroller !== document.body) scroller.scrollTop = 0;
+
+        dispatchTouch(scroller, 'touchstart', 100);
+        for (let i = 100; i <= 750; i += 150) { // Menambah jarak pull sedikit agar lebih mantap
+            dispatchTouch(scroller, 'touchmove', i);
         }
-        dispatchTouch(target, 'touchend', 700);
+        dispatchTouch(scroller, 'touchend', 750);
     };
 
-    for (let attempt = 1; attempt <= maxRetries; attempt++) {
-        const scroller = document.querySelector('[data-type="vscroller"]');
-        await performPull(scroller);
+    // --- Loop Utama ---
+    let success = false;
+    let attempt = 1;
 
-        // 2. Deteksi Loading Muncul (Polling lebih cepat: 50ms)
-        let startTime = Date.now();
-        let loadingDetected = false;
-        while (Date.now() - startTime < 4000) { // Tunggu muncul max 4 detik
-            if (getLoading()) {
-                loadingDetected = true;
+    while (!success) {
+        performPull();
+
+        const checkStartTime = Date.now();
+        const MAX_WAIT_TIME = 10000; // 10 detik
+
+        console.log(`⏳ [Percobaan ${attempt}] Menunggu ID berubah...`);
+
+        // Loop internal untuk cek ID setiap 0.5 detik
+        while (Date.now() - checkStartTime < MAX_WAIT_TIME) {
+            const currentId = getTrackingId();
+
+            if (currentId !== initialId && currentId !== null) {
+                console.log(`✅ BERHASIL! ID berubah menjadi: ${currentId}`);
+                success = true;
                 break;
             }
-            await new Promise(r => setTimeout(r, 50));
+            await new Promise(r => setTimeout(r, 500));
         }
 
-        if (loadingDetected) {
-
-            // 3. Deteksi Loading Hilang (Safety Timeout 12 detik)
-            startTime = Date.now();
-            while (Date.now() - startTime < 12000) {
-                if (!getLoading()) {
-                    Mutation_cekArticle()
-
-                    return true; // KELUAR DENGAN TRUE
-                }
-                await new Promise(r => setTimeout(r, 2));
-            }
-            console.warn("⚠️ Loading macet (Stuck), mencoba ulang...");
-        } else {
-            console.warn("❌ Sinyal pull gagal diterima sistem FB, mencoba ulang...");
+        if (!success) {
+            attempt++;
+            console.warn(`⚠️ Gagal dalam 10 detik. Mengulang tarik layar (Retry ke-${attempt})...`);
+            // Beri jeda sebentar sebelum narik lagi agar animasi CSS selesai
+            await new Promise(r => setTimeout(r, 1000));
         }
-
-        // Jeda sebelum retry agar tidak dianggap bot spamming
-        await new Promise(r => setTimeout(r, 1000));
     }
-
-    console.error("🚫 Gagal menyegarkan feed setelah beberapa percobaan.");
-    return false;
 }
-
-
-
-
 
 var TELEGRAM_TOKEN = '8396728370:AAHblTLr220NEd9PwS7BzzS5VWGcxix9RK8'; // GANTI
 var TELEGRAM_CHAT_ID = '-1002717306025'; // GANTI
@@ -1068,23 +1014,14 @@ function ceker() {
 (async () => {
     try {
         await fetchGroupsFromGitHub();
-
         const admins = await getAdminsUntilSuccess();
-        manageGroups()
         URLINI = document.URL;
         loadLocalAdmin()
         closeDialogFast()
+        botKoment()
         Mutation_cekArticle()
         observeDialog();
-        await forceRefreshWithRetry()
-        intervalURUTKAN = setInterval(async () => {
-            const nowurl = location.href;
-            if (nowurl !== URLINI) {
-                URLINI = nowurl;
-                await forceRefreshWithRetry()
-            }
-        }, 1000);
-
+        forceRefreshWithRetry()
 
 
     } catch (e) {
