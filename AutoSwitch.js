@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto Switch Account
 // @namespace    http://tampermonkey.net/
-// @version      3.95
+// @version      3.96
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoSwitch.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoSwitch.js
@@ -148,12 +148,12 @@
 
         // Cek apakah di halaman Bookmarks
         if (url.includes("bookmarks")) {
-            await delay(20000);
+            await delay(5000);
             await autoLogout();
         }
         // Cek apakah di halaman daftar akun (tidak ada feed)
         else if (!document.querySelector("[data-tracking-duration-id]")) {
-            await delay(20000); // Tunggu Bloks me-render halaman
+            await delay(7000); // Tunggu Bloks me-render halaman
             await pickAccount();
         }
     }
