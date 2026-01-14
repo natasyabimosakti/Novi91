@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JAGO 1
 // @namespace    http://tampermonkey.net/
-// @version      3.65
+// @version      3.66
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago1.js
@@ -54,6 +54,8 @@ var groups = [];
 let aktivitasObserver = null;
 let dialogObserver = null;
 var komentdone = false;
+var found_artikle = false
+
 // Fungsi ambil data grup
 let retry = 0;
 const MAX_RETRY = 10;
@@ -565,7 +567,7 @@ async function Mutation_cekArticle() {
         const id = el.getAttribute('data-tracking-duration-id');
         if (isValid(el) && !processedIds.has(id)) {
             artikelBaruSet.add(el);
-            // Jangan add ke processedIds dulu di sini jika ingin super aman, 
+            // Jangan add ke processedIds dulu di sini jika ingin super aman,
             // atau add jika sudah yakin valid.
         }
     });
@@ -618,112 +620,136 @@ async function waitNoDialog() {
 }
 
 async function cek_artikel(setArtikel) {
-
     if (commentDone) return;
-
-    manageGroups()
-    var found_artikle = false
+    manageGroups();
     for (const artikel of setArtikel) {
-        if (!parsePost(artikel)) continue; // ini SKIP hanya artikel ini
+        if (!parsePost(artikel)) continue;
         found_artikle = true;
-        const commentbox = artikel.getElementsByClassName('native-text');
-        const tombolKirim = Array.from(commentbox).find(el => {
-            const t = el.textContent.toLowerCase();
-            return t.includes("jawab") || t.includes("tulis") || t.includes("komentari") || t.includes("postingan") || t.includes("beri");
-        });
-        if (tombolKirim) {
-            console.log("TextBox komentar ditemukan:", tombolKirim);
-            autoCloseRelevanDialog()
-            komentari();
-            tombolKirim.click();
-            const textbox = document.querySelector(".multi-line-floating-textbox");
-            let clk = setInterval(() => {
+        komentari();
+
+        await new Promise((resolve) => {
+            let attempt = 0;
+
+            // --- FUNGSI ACTION (Dibuat agar bisa dipanggil instan & berkala) ---
+            const performCheckAndClick = () => {
+                attempt++;
+
+                // 1. Cek apakah textbox sudah ada
+                const textbox = document.querySelector(".multi-line-floating-textbox");
                 if (textbox) {
-                    console.log("✅ TextBox komentar Telah DI Klik & Muncul");
-                    clearInterval(clk)
-                } else {
+                    console.log("✅ TextBox Muncul.");
+                    if (clk) clearInterval(clk);
+                    resolve();
+                    return true; // Berhasil
+                }
+
+                // 2. Jika belum ada, cari tombol dan klik
+                const commentbox = artikel.getElementsByClassName('native-text');
+                const tombolKirim = Array.from(commentbox).find(el => {
+                    const t = el.textContent.toLowerCase();
+                    return ["jawab", "tulis", "komentari", "postingan", "beri"].some(keyword => t.includes(keyword));
+                });
+
+                if (tombolKirim) {
+                    console.log(`Klik percobaan ke-${attempt}`);
+                    autoCloseRelevanDialog();
                     tombolKirim.click();
                 }
-            }, 0)
 
-        }
+                if (attempt > 20) {
+                    console.log("❌ Timeout");
+                    if (clk) clearInterval(clk);
+                    resolve();
+                    return true;
+                }
+                return false;
+            };
+
+            // --- EKSEKUSI PERTAMA (INSTAN TANPA DELAY) ---
+            const isDone = performCheckAndClick();
+
+            // --- JIKA KLIK PERTAMA BELUM BERHASIL, BARU JALANKAN INTERVAL ---
+            let clk = null;
+            if (!isDone) {
+                clk = setInterval(performCheckAndClick, 300); // 300ms untuk memberi nafas render browser
+            }
+        });
+
+        // Jika sudah ketemu 1 artikel dan sedang proses komentar,
+        // biasanya kita ingin break loop agar tidak memproses artikel lain secara bersamaan
+        if (found_artikle) break;
     }
-
 
     if (!found_artikle) {
         await waitNoDialog();
-        // Menunggu output TRUE dari refresh sebelum melanjutkan
-        const refreshSuccess = await forceRefreshWithRetry();
-        if (refreshSuccess) {
-        }
+        await forceRefreshWithRetry();
     }
 }
+
 var janganklik = false
 let myObservere = null
 async function komentari() {
     if (commentDone) return;
 
-    let int = setInterval(() => {
-        if (commentDone) {
-            clearInterval(int);
-            return;
-        }
+    console.log("🧐 Mencari TextBox...");
 
+    const observer = new MutationObserver((mutations, obs) => {
         const textarea = document.querySelector(".multi-line-floating-textbox");
         const sendBtn = document.querySelector(".textbox-submit-button");
 
-        if (!textarea || !sendBtn) return; // textbox belum muncul → tunggu
+        // Jika elemen sudah muncul
+        if (textarea && sendBtn) {
+            obs.disconnect(); // Berhenti mengamati segera setelah ketemu
+            eksekusiKirim(textarea, sendBtn);
+        }
+    });
 
-        // textbox sudah siap → kirim komentar
-        waitCommentReady((commentToPost) => {
-            textarea.focus();
-            textarea.value = commentToPost;
-            sendBtn.disabled = false;
-            if (commentDone || janganklik) {
-                clearInterval(int);
-                return;
-            }
+    // Mulai mengamati perubahan pada body dan sub-elemennya
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
 
-            const mousedownEvent = new MouseEvent('mousedown', {
-                bubbles: true,
-                cancelable: true
-            });
+    // Timeout cadangan jika dalam 10 detik tidak muncul juga
+    setTimeout(() => observer.disconnect(), 10000);
+}
 
-            sendBtn.dispatchEvent(mousedownEvent);
-            if (!textarea) {
-                janganklik = true;
-            }
-            commentDone = true;
-            ceker()
-            waitOverlayOrFail(8000)
-                .then(msg => {
-                    clearInterval(int)
-                    showNotification("Komentar Sudah Terkirim : " + commentToPost);
+function eksekusiKirim(textarea, sendBtn) {
+    if (commentDone || janganklik) return;
 
+    waitCommentReady((commentToPost) => {
+        textarea.focus();
+        textarea.value = commentToPost;
+        sendBtn.disabled = false;
 
-
-                    if (observercontetn) observercontetn.disconnect();
-
-                    GM.setValue("group_" + grouptToPost, true);
-                    GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS);
-                    console.log("✅ Komentar DIKIRIM:", commentToPost);
-                    komentdone = true;
-                    clearInterval(intervalURUTKAN);
-                    waitNoDialog();
-                    setTimeout(() => {
-                        location.href = "about:blank";
-                    }, 10000);
-                })
-                .catch(err => {
-                    console.warn("💥 Loading gagal:", err);
-                    document.location.reload();
-                });
-
-
-
+        const mousedownEvent = new MouseEvent('mousedown', {
+            bubbles: true,
+            cancelable: true
         });
 
-    }, 1);
+        console.log("🚀 Mengirim Komentar...");
+        sendBtn.dispatchEvent(mousedownEvent);
+
+        commentDone = true;
+        ceker();
+
+        waitOverlayOrFail(8000)
+            .then(msg => {
+                showNotification("Komentar Sudah Terkirim : " + commentToPost);
+                if (observercontetn) observercontetn.disconnect();
+
+                GM.setValue("group_" + grouptToPost, true);
+                GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS);
+
+                setTimeout(() => {
+                    location.href = "about:blank";
+                }, 10000);
+            })
+            .catch(err => {
+                console.warn("💥 Loading gagal:", err);
+                document.location.reload();
+            });
+    });
 }
 
 function autoCloseRelevanDialog() {
