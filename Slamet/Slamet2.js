@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Slamet 2
 // @namespace    http://tampermonkey.net/
-// @version      3.85
+// @version      3.86
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet2.js
@@ -213,7 +213,6 @@ function loadLocalAdmin() {
     if (stored) {
         try {
             adminList = JSON.parse(stored);
-            console.log("✅ Admin list loaded from localStorage:", adminList.length, "names");
         } catch (e) {
             console.error("❌ Failed to parse local admin list:", e);
         }
@@ -262,7 +261,6 @@ async function getAdminsUntilSuccess() {
         try {
             const admins = await fetchAdminListFromGitHub();
             if (admins && admins.length > 0) {
-                console.log("Admin list berhasil diambil:", admins);
                 return admins; // selesai
             }
         } catch (e) {
@@ -512,7 +510,6 @@ function CekBacklist(postinganBL) {
 }
 
 function CekKeyword(postingan) {
-    console.log("🔍 CekKeyword untuk:", postingan);
     for (const DataKeyword of keyword) {
         const kata = DataKeyword.toLowerCase()
         if (postingan.toLowerCase().includes(kata)) {
@@ -548,12 +545,30 @@ let artikelBaruSet = new Set();
 let observercontetn = null;
 let timeoutCollect = null;
 
+let processedIds = new Set(); // Tambahkan ini agar tidak duplikasi ID yang sama
+
 async function Mutation_cekArticle() {
-    totalEksekusi++
-    console.log(`🎀   Total Di Eksekusi${totalEksekusi}`)
     if (!document.location.href.includes("group")) return;
     artikelBaruSet.clear();
 
+    // FUNGSI VALIDASI TERPISAH
+    const isValid = (el) => {
+        const hasText = el.textContent.trim().length > 10;
+        const hasBtn = el.querySelector('.native-text, [role="button"]');
+        return hasText && hasBtn;
+    };
+
+    // 1. SCAN AWAL (Cek artikel yang sudah ada di layar sebelum observer)
+    document.querySelectorAll('[data-tracking-duration-id]').forEach(el => {
+        const id = el.getAttribute('data-tracking-duration-id');
+        if (isValid(el) && !processedIds.has(id)) {
+            artikelBaruSet.add(el);
+            // Jangan add ke processedIds dulu di sini jika ingin super aman, 
+            // atau add jika sudah yakin valid.
+        }
+    });
+
+    // 2. OBSERVER UNTUK ARTIKEL BARU
     observercontetn = new MutationObserver((mutationsList) => {
         if (commentDone) return;
 
@@ -561,45 +576,32 @@ async function Mutation_cekArticle() {
             for (const node of mutation.addedNodes) {
                 if (node.nodeType !== 1) continue;
 
-                if (node.matches?.('[data-tracking-duration-id]')) {
-                    artikelBaruSet.add(node);
-                }
+                const elements = node.matches?.('[data-tracking-duration-id]') ?
+                    [node] : node.querySelectorAll?.('[data-tracking-duration-id]');
 
-                const descendants = node.querySelectorAll?.('[data-tracking-duration-id]');
-                if (descendants) {
-                    descendants.forEach(el => artikelBaruSet.add(el));
-                }
+                elements?.forEach(el => {
+                    const trackingId = el.getAttribute('data-tracking-duration-id');
+
+                    // CEK VALIDASI: Hanya masukkan jika BENAR-BENAR lengkap
+                    if (!processedIds.has(trackingId) && isValid(el)) {
+                        artikelBaruSet.add(el);
+                        processedIds.add(trackingId);
+                    }
+                });
             }
         }
 
-        // reset timer
-        if (timeoutCollect) clearTimeout(timeoutCollect);
+        // Jalankan pengecekan batch
+        const validArticles = Array.from(artikelBaruSet).filter(el => el.isConnected);
 
-        timeoutCollect = setTimeout(() => {
-
-            // scan ulang just in case FB modify innerHTML
-            document.querySelectorAll('[data-tracking-duration-id]')
-                .forEach(el => artikelBaruSet.add(el));
-
-            console.log("📦 koleksi sementara:", artikelBaruSet.size);
-
-            // belum memenuhi syarat, jangan stop observer
-            if (artikelBaruSet.size < 2) {
-                console.log("⏳ artikel kurang, menunggu...");
-                return; // biarkan observer lanjut
-            }
-
-            console.log("🟢 artikel siap:", artikelBaruSet.size);
+        if (validArticles.length >= 2) {
+            console.log("🟢 Batch siap:", validArticles.length);
             observercontetn.disconnect();
-            totalEksekusi = 0;
-
-            cek_artikel(artikelBaruSet);
-
-        }, 20); // 200ms supaya batch DOM stabil
+            cek_artikel(validArticles);
+        }
     });
 
     observercontetn.observe(document.body, { childList: true, subtree: true });
-    console.log("🟢 Mutation_cekArticle aktif");
 }
 
 async function waitNoDialog() {
@@ -612,11 +614,12 @@ async function waitNoDialog() {
         cek();
     });
 }
+
 async function cek_artikel(setArtikel) {
+
     if (commentDone) return;
 
     manageGroups()
-
     var found_artikle = false
     for (const artikel of setArtikel) {
         if (!parsePost(artikel)) continue; // ini SKIP hanya artikel ini
@@ -632,11 +635,14 @@ async function cek_artikel(setArtikel) {
             komentari();
             tombolKirim.click();
             const textbox = document.querySelector(".multi-line-floating-textbox");
-            if (textbox) {
-                console.log("✅ TextBox komentar Telah DI Klik & Muncul");
-            } else {
-                tombolKirim.click();
-            }
+            let clk = setInterval(() => {
+                if (textbox) {
+                    console.log("✅ TextBox komentar Telah DI Klik & Muncul");
+                    clearInterval(clk)
+                } else {
+                    tombolKirim.click();
+                }
+            }, 0)
 
         }
     }
@@ -647,12 +653,76 @@ async function cek_artikel(setArtikel) {
         // Menunggu output TRUE dari refresh sebelum melanjutkan
         const refreshSuccess = await forceRefreshWithRetry();
         if (refreshSuccess) {
-            console.log("♻️ Feed baru siap discan ulang.");
-            // Optional: Panggil kembali Mutation_cekArticle() jika diperlukan
         }
     }
 }
+var janganklik = false
+let myObservere = null
+async function komentari() {
+    if (commentDone) return;
 
+    let int = setInterval(() => {
+        if (commentDone) {
+            clearInterval(int);
+            return;
+        }
+
+        const textarea = document.querySelector(".multi-line-floating-textbox");
+        const sendBtn = document.querySelector(".textbox-submit-button");
+
+        if (!textarea || !sendBtn) return; // textbox belum muncul → tunggu
+
+        // textbox sudah siap → kirim komentar
+        waitCommentReady((commentToPost) => {
+            textarea.focus();
+            textarea.value = commentToPost;
+            sendBtn.disabled = false;
+            if (commentDone || janganklik) {
+                clearInterval(int);
+                return;
+            }
+
+            const mousedownEvent = new MouseEvent('mousedown', {
+                bubbles: true,
+                cancelable: true
+            });
+
+            sendBtn.dispatchEvent(mousedownEvent);
+            if (!textarea) {
+                janganklik = true;
+            }
+            commentDone = true;
+            ceker()
+            waitOverlayOrFail(8000)
+                .then(msg => {
+                    clearInterval(int)
+                    showNotification("Komentar Sudah Terkirim : " + commentToPost);
+
+
+
+                    if (observercontetn) observercontetn.disconnect();
+
+                    GM.setValue("group_" + grouptToPost, true);
+                    GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS);
+                    console.log("✅ Komentar DIKIRIM:", commentToPost);
+                    komentdone = true;
+                    clearInterval(intervalURUTKAN);
+                    waitNoDialog();
+                    setTimeout(() => {
+                        location.href = "about:blank";
+                    }, 10000);
+                })
+                .catch(err => {
+                    console.warn("💥 Loading gagal:", err);
+                    document.location.reload();
+                });
+
+
+
+        });
+
+    }, 1);
+}
 
 function autoCloseRelevanDialog() {
     const closeBtn = document.querySelector('[aria-label="Tutup"]');
@@ -752,13 +822,11 @@ async function forceRefreshWithRetry(maxRetries = 5) {
         }
 
         if (loadingDetected) {
-            console.log("⏳ Loading muncul, menunggu feed diperbarui...");
 
             // 3. Deteksi Loading Hilang (Safety Timeout 12 detik)
             startTime = Date.now();
             while (Date.now() - startTime < 12000) {
                 if (!getLoading()) {
-                    console.log("✅ Update Selesai!");
                     Mutation_cekArticle()
 
                     return true; // KELUAR DENGAN TRUE
@@ -778,68 +846,7 @@ async function forceRefreshWithRetry(maxRetries = 5) {
     return false;
 }
 
-let myObservere = null
-async function komentari() {
-    if (commentDone) return;
-    console.log("💬 Ready to comment mode aktif...");
-    closeDialogFast()
-    let int = setInterval(() => {
-        if (commentDone) {
-            clearInterval(int);
-            return;
-        }
 
-        const textarea = document.querySelector(".multi-line-floating-textbox");
-        const sendBtn = document.querySelector(".textbox-submit-button");
-
-        if (!textarea || !sendBtn) return; // textbox belum muncul → tunggu
-
-        // textbox sudah siap → kirim komentar
-        waitCommentReady((commentToPost) => {
-            textarea.focus();
-            textarea.value = commentToPost;
-            sendBtn.disabled = false;
-            if (commentDone) {
-                clearInterval(int);
-                return;
-            }
-            const clickEvent = document.createEvent("MouseEvents");
-            clickEvent.initEvent("mousedown", true, true);
-            sendBtn.dispatchEvent(clickEvent);
-            commentDone = true;
-
-            ceker()
-            waitOverlayOrFail(8000)
-                .then(msg => {
-                    clearInterval(int)
-                    console.log("💚 Loading detected:", msg);
-                    showNotification("Komentar Sudah Terkirim : " + commentToPost);
-
-
-
-                    if (observercontetn) observercontetn.disconnect();
-
-                    GM.setValue("group_" + grouptToPost, true);
-                    GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS);
-                    console.log("✅ Komentar DIKIRIM:", commentToPost);
-                    komentdone = true;
-                    clearInterval(intervalURUTKAN);
-                    waitNoDialog();
-                    setTimeout(() => {
-                        location.href = "about:blank";
-                    }, 10000);
-                })
-                .catch(err => {
-                    console.warn("💥 Loading gagal:", err);
-                    document.location.reload();
-                });
-
-
-
-        });
-
-    }, 1);
-}
 
 
 
@@ -895,7 +902,6 @@ async function sendToTelegram(message) {
     const SIMILARITY_THRESHOLD = 0.95; // 95% mirip ? dianggap sama
 
     if (similarity >= SIMILARITY_THRESHOLD && (now - lastTime < COOLDOWN)) {
-        console.log("?? Duplikat dicegah (mirip & <5 menit):", similarity);
         return;
     }
 
@@ -904,7 +910,6 @@ async function sendToTelegram(message) {
         url: `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(fullMessage)}`,
         onload: function (res) {
 
-            console.log("? Telegram terkirim:", res.responseText);
             GM.setValue("lastTelegramMessage", fullMessage);
             GM.setValue("lastTelegramTime", now);
             GM.setValue("lastTelegramSame", now);
@@ -952,7 +957,7 @@ async function cekMasalah() {
             const cleanText = dialog.textContent.trim();
             MsgError(SCRIPT_NAME)
             await sendToTelegram(`? Ada "masalah":\n\n${cleanText}`);
-
+            location.href = "https://m.facebook.com/bookmarks/"
         }
     } catch (e) {
         console.warn("? Error saat cek masalah:", e);
@@ -981,12 +986,10 @@ async function cekMasalah2() {
             const text = el.textContent;
             if (text.includes("Menunggu")) {
                 const before = text.split("Menunggu")[0].trim();
-                console.log(before); // akan tampil: "Lindaa Devianimantap"
             }
         });
 
 
-        console.log(adaMenunggu);
 
         if (adaMenunggu) {
             var before
@@ -994,7 +997,6 @@ async function cekMasalah2() {
                 const text = el.textContent;
                 if (text.includes("Menunggu")) {
                     before = text.split("Menunggu")[0].trim();
-                    console.log(before); // akan tampil: "Lindaa Devianimantap"
                 }
             });
             MsgError(SCRIPT_NAME)
