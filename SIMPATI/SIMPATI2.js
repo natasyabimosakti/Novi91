@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SIMPATI 2
 // @namespace    http://tampermonkey.net/
-// @version      3.13
+// @version      3.14
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI2.js
@@ -53,7 +53,7 @@ let aktivitasObserver = null;
 let dialogObserver = null;
 var komentdone = false;
 var found_artikle = false
-
+let isChecking = false;
 // Fungsi ambil data grup
 let retry = 0;
 const MAX_RETRY = 10;
@@ -550,7 +550,8 @@ let timeoutCollect = null;
 let processedIds = new Set(); // Tambahkan ini agar tidak duplikasi ID yang sama
 
 async function Mutation_cekArticle() {
-    if (!document.location.href.includes("group")) return;
+    if (!document.location.href.includes("group") || commentDone) return;
+    if (observercontetn) observercontetn.disconnect();
     artikelBaruSet.clear();
 
     // FUNGSI VALIDASI TERPISAH
@@ -618,44 +619,55 @@ async function waitNoDialog() {
 }
 
 async function cek_artikel(setArtikel) {
-    if (commentDone) return;
-    manageGroups();
+    // 1. Tambahkan pengecekan ketat di awal
+    if (commentDone || isChecking) return;
+    isChecking = true;
+
     for (const artikel of setArtikel) {
-        if (!parsePost(artikel)) continue;
+        // Cek apakah artikel masih ada di layar (terhubung ke DOM)
+        if (!artikel.isConnected || !parsePost(artikel)) continue;
+
         found_artikle = true;
+        // 2. Matikan observer segera setelah artikel valid ditemukan
+        if (observercontetn) {
+            observercontetn.disconnect();
+            observercontetn = null;
+        }
+
+        // Panggil komentari() hanya sekali
         komentari();
 
         await new Promise((resolve) => {
             let attempt = 0;
+            let clk = null;
 
-            // --- FUNGSI ACTION (Dibuat agar bisa dipanggil instan & berkala) ---
             const performCheckAndClick = () => {
                 attempt++;
-
-                // 1. Cek apakah textbox sudah ada
                 const textbox = document.querySelector(".multi-line-floating-textbox");
+
                 if (textbox) {
-                    console.log("✅ TextBox Muncul.");
                     if (clk) clearInterval(clk);
                     resolve();
-                    return true; // Berhasil
+                    return true;
                 }
 
-                // 2. Jika belum ada, cari tombol dan klik
+                // 3. Validasi ulang elemen tombolKirim
                 const commentbox = artikel.getElementsByClassName('native-text');
                 const tombolKirim = Array.from(commentbox).find(el => {
                     const t = el.textContent.toLowerCase();
                     return ["jawab", "tulis", "komentari", "postingan", "beri"].some(keyword => t.includes(keyword));
                 });
 
+                // Pastikan tombol ada DAN terlihat (offsetParent !== null)
                 if (tombolKirim) {
                     console.log(`Klik percobaan ke-${attempt}`);
                     autoCloseRelevanDialog();
                     tombolKirim.click();
+                } else {
+                    console.log("⚠️ Tombol tidak ditemukan atau tersembunyi, mencari ulang...");
                 }
 
                 if (attempt > 20) {
-                    console.log("❌ Timeout");
                     if (clk) clearInterval(clk);
                     resolve();
                     return true;
@@ -663,22 +675,17 @@ async function cek_artikel(setArtikel) {
                 return false;
             };
 
-            // --- EKSEKUSI PERTAMA (INSTAN TANPA DELAY) ---
             const isDone = performCheckAndClick();
-
-            // --- JIKA KLIK PERTAMA BELUM BERHASIL, BARU JALANKAN INTERVAL ---
-            let clk = null;
             if (!isDone) {
-                clk = setInterval(performCheckAndClick, 300); // 300ms untuk memberi nafas render browser
+                clk = setInterval(performCheckAndClick, 4); // Naikkan jeda sedikit agar DOM lebih stabil
             }
         });
 
-        // Jika sudah ketemu 1 artikel dan sedang proses komentar,
-        // biasanya kita ingin break loop agar tidak memproses artikel lain secara bersamaan
         if (found_artikle) break;
     }
 
     if (!found_artikle) {
+        isChecking = false;
         await waitNoDialog();
         await forceRefreshWithRetry();
     }
@@ -686,9 +693,10 @@ async function cek_artikel(setArtikel) {
 
 var janganklik = false
 let myObservere = null
+let sedangMengetik = false; // Variabel kontrol global baru
 async function komentari() {
-    if (commentDone) return;
-
+    if (commentDone || sedangMengetik) return;
+    sedangMengetik = true;
     console.log("🧐 Mencari TextBox...");
 
     const observer = new MutationObserver((mutations, obs) => {
@@ -697,8 +705,8 @@ async function komentari() {
 
         // Jika elemen sudah muncul
         if (textarea && sendBtn) {
-            obs.disconnect(); // Berhenti mengamati segera setelah ketemu
             eksekusiKirim(textarea, sendBtn);
+            obs.disconnect(); // Berhenti mengamati segera setelah ketemu
         }
     });
 
@@ -709,7 +717,9 @@ async function komentari() {
     });
 
     // Timeout cadangan jika dalam 10 detik tidak muncul juga
-    setTimeout(() => observer.disconnect(), 10000);
+    setTimeout(() => {
+        observer.disconnect();
+    }, 10000);
 }
 
 function eksekusiKirim(textarea, sendBtn) {
@@ -1073,14 +1083,7 @@ function ceker() {
         closeDialogFast()
         Mutation_cekArticle()
         observeDialog();
-        await forceRefreshWithRetry()
-        intervalURUTKAN = setInterval(async () => {
-            const nowurl = location.href;
-            if (nowurl !== URLINI) {
-                URLINI = nowurl;
-                await forceRefreshWithRetry()
-            }
-        }, 1000);
+
 
 
 
