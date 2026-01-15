@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Babon 3
 // @namespace    http://tampermonkey.net/
-// @version      3.91
+// @version      3.92
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon3.js
@@ -1004,7 +1004,7 @@ function ceker() {
         Mutation_cekArticle()
         observeDialog();
         forceRefreshWithRetry()
-
+        ceker()
 
     } catch (e) {
         console.error("❌ Tidak bisa memulai bot karena gagal fetch admin list:", e);
