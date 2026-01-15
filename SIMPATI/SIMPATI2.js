@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SIMPATI 2
 // @namespace    http://tampermonkey.net/
-// @version      3.18
+// @version      3.19
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI2.js
@@ -19,11 +19,6 @@
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'simpati2';
-
-
-var namagroup18 = 'Jawatengah';
-var Comment18 = 'bejo1';
-
 
 
 var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Comment/${Comment18}.json`;
@@ -609,9 +604,9 @@ async function Mutation_cekArticle() {
 
     artikelBaruSet.clear();
     observersudahjalam = true;
-    observercontetn = new MutationObserver((mutationsList) => {
+    observercontetn = new MutationObserver(async (mutationsList) => {
         if (commentDone) return;
-
+        await waitNoDialog();
         for (const mutation of mutationsList) {
             for (const node of mutation.addedNodes) {
                 if (node.nodeType !== 1) continue;
@@ -675,6 +670,7 @@ async function cek_artikel(setArtikel) {
     for (const artikel of setArtikel) {
         if (!parsePost(artikel)) continue; // ini SKIP hanya artikel ini
         found_artikle = true;
+        clearInterval(intervalURUTKAN);
         const commentbox = artikel.getElementsByClassName('native-text');
         const tombolKirim = Array.from(commentbox).find(el => {
             const t = el.textContent.toLowerCase();
@@ -683,7 +679,6 @@ async function cek_artikel(setArtikel) {
         if (tombolKirim) {
             console.log("TextBox komentar ditemukan:", tombolKirim);
             async function klikTextboxJikaSiap() {
-                autoCloseRelevanDialog()
                 tombolKirim.click();
                 const textbox = document.querySelector(".multi-line-floating-textbox");
                 if (textbox) {
@@ -753,9 +748,12 @@ async function komentari() {
                         clickEvent.initEvent("mousedown", true, true);
                         sendBtn.dispatchEvent(clickEvent);
                         console.log("✅ klik Kirim")
+                        var cekout = 0;
                         var cekkiment = setInterval(() => {
+                            cekout++
+                            if (cekout >= 100) location.reload()
 
-                            if (!textarea) {
+                            if (document.querySelector(".snackbar-container, .loading-overlay")) {
                                 clearInterval(cekkiment);
                                 showNotification("Komentar Sudah Terkirim : " + commentToPost);
                                 commentDone = true;
@@ -779,7 +777,7 @@ async function komentari() {
                                 }, 10000);
                             }
 
-                        }, 500)
+                        }, 100)
                     });
                 } else {
                     myObservere.disconnect();
@@ -976,10 +974,6 @@ function MsgError(message) {
     document.body.appendChild(notif);
     ;
 }
-
-
-
-observers.observe(document.body, { childList: true, subtree: true });
 
 // ===== MAIN FLOW =====
 (async () => {
