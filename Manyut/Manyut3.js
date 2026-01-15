@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.308
+// @version      3.309
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut3.js
@@ -34,7 +34,6 @@ var obsermasalah = null;
 let countA = 0;
 let sedangProsesAktivitas = false;
 let ObserverKlikAktitas = null;
-let sedangKlikUrutkan = false;
 let adminList = [];
 const LOCAL_KEY = "cachedAdminList";
 const VERSION_KEY = "cachedAdminVersion";
@@ -54,6 +53,7 @@ let dialogObserver = null;
 var komentdone = false;
 var found_artikle = false
 let isChecking = false;
+let isCommenting = false;
 // Fungsi ambil data grup
 let retry = 0;
 const MAX_RETRY = 10;
@@ -323,26 +323,6 @@ function handleAktivitasNode(node) {
 
 
 // ===== Pantau dialog =====
-function observeDialog() {
-    if (dialogObserver) return;
-    dialogObserver = new MutationObserver(() => {
-        const dialog = document.querySelector('[role="dialog"]');
-        const pesentation = document.querySelector('[role="presentation"]');
-        const dailog2 = document.querySelector(".dialog-vscroller");
-        if (pesentation || dailog2) {
-            sedangKlikUrutkan = true; // dialog muncul, jangan klik URUTKAN
-        } else {
-            sedangKlikUrutkan = false; // dialog hilang, bisa klik URUTKAN lagi
-        }
-        if (dialog) {
-            sedangProses = true; // dialog muncul, jangan klik URUTKAN
-        } else {
-            sedangProses = false; // dialog hilang, bisa klik URUTKAN lagi
-        }
-
-    });
-    dialogObserver.observe(document.body, { childList: true, subtree: true });
-}
 
 function Random(comment) {
     const numberRegex = /\d{2}/g;
@@ -913,11 +893,7 @@ async function cekMasalah() {
         const COOLDOWNPostingan = 60 * 60 * 1000; // 5 menit
         const lastTimepost = await GM.getValue("lastTelegramSame", 0);
 
-        if ((now - lastTimepost < COOLDOWNPostingan)) {
-            return;
-        } else {
-            GM.setValue("lastTelegramSame", 0);
-        }
+
 
         const elem = document.querySelectorAll("[data-screen-key-action-ids]")[1];
         if (!elem) return;
@@ -926,6 +902,15 @@ async function cekMasalah() {
         if (!dialog) return;
 
         const isi = dialog.textContent.toLowerCase();
+
+        if ((now - lastTimepost < COOLDOWNPostingan)) {
+            if (isi.includes("masalah")) {
+                location.href = "https://m.facebook.com/bookmarks/"
+            }
+            return;
+        } else {
+            GM.setValue("lastTelegramSame", 0);
+        }
         if (isi.includes("masalah")) {
             const cleanText = dialog.textContent.trim();
             MsgError(SCRIPT_NAME)
@@ -1020,7 +1005,7 @@ function ceker() {
         Mutation_cekArticle()
         observeDialog();
         forceRefreshWithRetry()
-
+        ceker()
 
     } catch (e) {
         console.error("❌ Tidak bisa memulai bot karena gagal fetch admin list:", e);
