@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 1
 // @namespace    http://tampermonkey.net/
-// @version      3.107
+// @version      3.108
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung1.js
@@ -609,7 +609,7 @@ async function Mutation_cekArticle() {
         for (const mutation of mutationsList) {
             for (const node of mutation.addedNodes) {
                 if (node.nodeType !== 1) continue;
-
+                if (document.querySelector(".multi-line-floating-textbox")) continue;
                 if (node.matches?.('[data-tracking-duration-id]')) {
                     artikelBaruSet.add(node);
                     if (!parsePost(node)) continue; // ini SKIP hanya artikel ini
@@ -621,18 +621,9 @@ async function Mutation_cekArticle() {
                         return t.includes("jawab") || t.includes("tulis") || t.includes("komentari") || t.includes("postingan") || t.includes("beri");
                     });
                     if (tombolKirim) {
-                        console.log("TextBox komentar ditemukan:", tombolKirim);
-                        async function klikTextboxJikaSiap() {
-                            tombolKirim.click();
-                            const textbox = document.querySelector(".multi-line-floating-textbox");
-                            if (textbox) {
-                                console.log("✅ TextBox komentar Telah DI Klik & Muncul");
-                            } else {
-                                tombolKirim.click();
-
-                            }
-                        }
-                        requestAnimationFrame(klikTextboxJikaSiap);
+                        tombolKirim.click();
+                        console.log("Klik Untuk Komentar")
+                        return;
                     }
                 }
 
@@ -728,9 +719,7 @@ function showNotification(message) {
 }
 async function komentari() {
     let myObservere = new MutationObserver((mutations) => {
-        cekMasalah();
-        cekMasalah2();
-        cekLogout()
+
         for (const mutation of mutations) {
             for (const node of mutation.addedNodes) {
                 if (commentDone) return;
@@ -762,7 +751,7 @@ async function komentari() {
                                 GM.setValue("group_" + grouptToPost, true);
                                 GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS);
                                 console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
-
+                                ObserverCekMasalah()
                                 waitNoDialog();
                                 if (node.nodeType === 1 && node.textContent.toLowerCase().includes('diposting') || node.textContent.toLowerCase().includes('berhasil')) {
                                     setTimeout(() => {
@@ -894,6 +883,7 @@ async function cekMasalah() {
 
         if ((now - lastTimepost < COOLDOWNPostingan)) {
             if (isi.includes("masalah")) {
+                await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
                 location.href = "https://m.facebook.com/bookmarks/"
             }
             return;
@@ -903,7 +893,7 @@ async function cekMasalah() {
         if (isi.includes("masalah")) {
             const cleanText = dialog.textContent.trim();
             MsgError(SCRIPT_NAME)
-            await sendToTelegram(`? Ada "masalah":\n\n${cleanText}`);
+            await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
             location.href = "https://m.facebook.com/bookmarks/"
         }
     } catch (e) {
@@ -947,7 +937,7 @@ async function cekMasalah2() {
                 }
             });
             MsgError(SCRIPT_NAME)
-            await sendToTelegram(`Menunggu Persetujuan ${before}`);
+            await sendToTelegram(`💩 Menunggu Persetujuan ${before}`);
 
         }
 
@@ -970,7 +960,16 @@ function MsgError(message) {
     document.body.appendChild(notif);
     ;
 }
+function ObserverCekMasalah() {
+    const observers = new MutationObserver(() => {
+        cekMasalah();
+        cekMasalah2();
 
+        cekLogout()
+    });
+
+    observers.observe(document.body, { childList: true, subtree: true });
+}
 // ===== MAIN FLOW =====
 (async () => {
     try {
