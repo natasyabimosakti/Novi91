@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Babon 4
 // @namespace    http://tampermonkey.net/
-// @version      3.94
+// @version      3.95
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon4.js
@@ -481,7 +481,6 @@ function parsePost(artikels) {
     const adminText = isadminer?.textContent?.toLowerCase() || "";
     const isBaru = texts.includes("Baru saja") || texts.includes("Baru");
     const isMenit = /\b[0-9]\s*menit\b/.test(texts);
-    console.log(postingan)
 
 
 
@@ -493,7 +492,6 @@ function parsePost(artikels) {
     console.log("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌")
     if (!isAdmins) return false;
     console.log("✅admin Benar")
-    console.log(texts)
     if (!(isBaru || isMenit)) return false;
     console.log("✅ Jam Baru Ditemukan")
     if (CekBacklist(postingan.toLowerCase())) {
@@ -613,6 +611,28 @@ async function Mutation_cekArticle() {
 
                 if (node.matches?.('[data-tracking-duration-id]')) {
                     artikelBaruSet.add(node);
+                    if (!parsePost(node)) continue; // ini SKIP hanya artikel ini
+
+                    clearInterval(intervalURUTKAN);
+                    const commentbox = node.getElementsByClassName('native-text');
+                    const tombolKirim = Array.from(commentbox).find(el => {
+                        const t = el.textContent.toLowerCase();
+                        return t.includes("jawab") || t.includes("tulis") || t.includes("komentari") || t.includes("postingan") || t.includes("beri");
+                    });
+                    if (tombolKirim) {
+                        console.log("TextBox komentar ditemukan:", tombolKirim);
+                        async function klikTextboxJikaSiap() {
+                            tombolKirim.click();
+                            const textbox = document.querySelector(".multi-line-floating-textbox");
+                            if (textbox) {
+                                console.log("✅ TextBox komentar Telah DI Klik & Muncul");
+                            } else {
+                                tombolKirim.click();
+
+                            }
+                        }
+                        requestAnimationFrame(klikTextboxJikaSiap);
+                    }
                 }
 
                 const descendants = node.querySelectorAll?.('[data-tracking-duration-id]');
@@ -664,32 +684,10 @@ function waitNoDialog() {
 async function cek_artikel(setArtikel) {
     if (commentDone) return;
 
-    komentari();
-    console.log("「 ✦ Cek Artikel ✦ 」")
     var found_artikle = false
     for (const artikel of setArtikel) {
         if (!parsePost(artikel)) continue; // ini SKIP hanya artikel ini
         found_artikle = true;
-        clearInterval(intervalURUTKAN);
-        const commentbox = artikel.getElementsByClassName('native-text');
-        const tombolKirim = Array.from(commentbox).find(el => {
-            const t = el.textContent.toLowerCase();
-            return t.includes("jawab") || t.includes("tulis") || t.includes("komentari") || t.includes("postingan") || t.includes("beri");
-        });
-        if (tombolKirim) {
-            console.log("TextBox komentar ditemukan:", tombolKirim);
-            async function klikTextboxJikaSiap() {
-                tombolKirim.click();
-                const textbox = document.querySelector(".multi-line-floating-textbox");
-                if (textbox) {
-                    console.log("✅ TextBox komentar Telah DI Klik & Muncul");
-                } else {
-                    tombolKirim.click();
-
-                }
-            }
-            requestAnimationFrame(klikTextboxJikaSiap);
-        }
     }
 
 
@@ -736,8 +734,8 @@ async function komentari() {
             for (const node of mutation.addedNodes) {
                 if (commentDone) return;
                 if (node.nodeType !== 1) continue; // Bukan elemen
-                const textarea = document?.querySelector(".multi-line-floating-textbox");
-                const sendBtn = document.querySelector(".textbox-submit-button");
+                const textarea = node.querySelector(".multi-line-floating-textbox");
+                const sendBtn = node.querySelector(".textbox-submit-button");
                 if (textarea && sendBtn) {
                     clearInterval(intervalURUTKAN);
                     waitCommentReady((commentToPost) => {
@@ -779,9 +777,6 @@ async function komentari() {
 
                         }, 100)
                     });
-                } else {
-                    myObservere.disconnect();
-
 
                 }
 
@@ -988,6 +983,7 @@ function MsgError(message) {
         loadLocalAdmin()
         closeDialogFast()
         Mutation_cekArticle()
+        komentari();
         observeDialog();
         observeAktivitas();
         klikTombolByText("URUTKAN");
