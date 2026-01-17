@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 2
 // @namespace    http://tampermonkey.net/
-// @version      3.106
+// @version      3.107
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil2.js
@@ -894,6 +894,7 @@ async function cekMasalah() {
 
         if ((now - lastTimepost < COOLDOWNPostingan)) {
             if (isi.includes("masalah")) {
+                await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
                 location.href = "https://m.facebook.com/bookmarks/"
             }
             return;
@@ -903,7 +904,7 @@ async function cekMasalah() {
         if (isi.includes("masalah")) {
             const cleanText = dialog.textContent.trim();
             MsgError(SCRIPT_NAME)
-            await sendToTelegram(`? Ada "masalah":\n\n${cleanText}`);
+            await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
             location.href = "https://m.facebook.com/bookmarks/"
         }
     } catch (e) {
@@ -947,7 +948,7 @@ async function cekMasalah2() {
                 }
             });
             MsgError(SCRIPT_NAME)
-            await sendToTelegram(`Menunggu Persetujuan ${before}`);
+            await sendToTelegram(`💩 Menunggu Persetujuan ${before}`);
 
         }
 
