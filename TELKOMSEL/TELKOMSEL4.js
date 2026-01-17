@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TELKOMSEL 4
 // @namespace    http://tampermonkey.net/
-// @version      3.19
+// @version      3.20
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL4.js
@@ -25,7 +25,7 @@ var Comment18 = 'telkomsel4';
 var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Comment/${Comment18}.json`;
 var SCRIPT_NAME = Comment18
 var refresh = 20;
-var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Lama.json"
+var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Baru.json"
 var keyword = ["ROOM", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001"]
 var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
 let adminPrefixSet = null;
@@ -49,7 +49,7 @@ var CommentList = [];
 var intervalURUTKAN = null;
 var commentDone = false;
 var groups = [];
-
+var observersudahjalam = false;
 // Fungsi ambil data grup
 async function fetchGroupsFromGitHub() {
     return new Promise((resolve, reject) => {
@@ -482,7 +482,6 @@ function parsePost(artikels) {
     const adminText = isadminer?.textContent?.toLowerCase() || "";
     const isBaru = texts.includes("Baru saja") || texts.includes("Baru");
     const isMenit = /\b[0-9]\s*menit\b/.test(texts);
-    console.log(postingan)
 
 
 
@@ -494,7 +493,6 @@ function parsePost(artikels) {
     console.log("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌")
     if (!isAdmins) return false;
     console.log("✅admin Benar")
-    console.log(texts)
     if (!(isBaru || isMenit)) return false;
     console.log("✅ Jam Baru Ditemukan")
     if (CekBacklist(postingan.toLowerCase())) {
@@ -511,7 +509,7 @@ function parsePost(artikels) {
 }
 async function tungguGroupAsync() {
     const start = Date.now();
-    while (Date.now() - start < 150000) { // 15 detik timeout
+    while (Date.now() - start < 15000) { // 15 detik timeout
         const result = getCommentForGroup();
         if (result) {
             commentToPost = Random(result.comment);
@@ -590,12 +588,8 @@ function cleanName(s) {
 
 
 function isAdminFast(name) {
-    adminPrefixSet = new Set();
-    for (let a of adminList) {
-        if (cleanName(name).includes(cleanName(a))) {
-            return true
-        }
-    }
+    const cleanedName = cleanName(name);
+    return adminList.some(a => cleanedName.includes(cleanName(a)));
 }
 
 
@@ -604,19 +598,42 @@ let observercontetn = null;
 let timeoutCollect = null;
 
 async function Mutation_cekArticle() {
-    if (!document.location.href.includes("group")) return;
+    if (!document.location.href.includes("group") || observersudahjalam) return;
+
 
     artikelBaruSet.clear();
-
-    observercontetn = new MutationObserver((mutationsList) => {
+    observersudahjalam = true;
+    observercontetn = new MutationObserver(async (mutationsList) => {
         if (commentDone) return;
-
+        await waitNoDialog();
         for (const mutation of mutationsList) {
             for (const node of mutation.addedNodes) {
                 if (node.nodeType !== 1) continue;
 
                 if (node.matches?.('[data-tracking-duration-id]')) {
                     artikelBaruSet.add(node);
+                    if (!parsePost(node)) continue; // ini SKIP hanya artikel ini
+
+                    clearInterval(intervalURUTKAN);
+                    const commentbox = node.getElementsByClassName('native-text');
+                    const tombolKirim = Array.from(commentbox).find(el => {
+                        const t = el.textContent.toLowerCase();
+                        return t.includes("jawab") || t.includes("tulis") || t.includes("komentari") || t.includes("postingan") || t.includes("beri");
+                    });
+                    if (tombolKirim) {
+                        console.log("TextBox komentar ditemukan:", tombolKirim);
+                        async function klikTextboxJikaSiap() {
+                            tombolKirim.click();
+                            const textbox = document.querySelector(".multi-line-floating-textbox");
+                            if (textbox) {
+                                console.log("✅ TextBox komentar Telah DI Klik & Muncul");
+                            } else {
+                                tombolKirim.click();
+
+                            }
+                        }
+                        requestAnimationFrame(klikTextboxJikaSiap);
+                    }
                 }
 
                 const descendants = node.querySelectorAll?.('[data-tracking-duration-id]');
@@ -645,6 +662,7 @@ async function Mutation_cekArticle() {
 
             console.log("🟢 artikel siap:", artikelBaruSet.size);
             observercontetn.disconnect();
+            observersudahjalam = false;
             cek_artikel(artikelBaruSet);
 
         }, 20); // 200ms supaya batch DOM stabil
@@ -667,32 +685,10 @@ function waitNoDialog() {
 async function cek_artikel(setArtikel) {
     if (commentDone) return;
 
-    komentari();
-    console.log("「 ✦ Cek Artikel ✦ 」")
     var found_artikle = false
     for (const artikel of setArtikel) {
         if (!parsePost(artikel)) continue; // ini SKIP hanya artikel ini
         found_artikle = true;
-        const commentbox = artikel.getElementsByClassName('native-text');
-        const tombolKirim = Array.from(commentbox).find(el => {
-            const t = el.textContent.toLowerCase();
-            return t.includes("jawab") || t.includes("tulis") || t.includes("komentari") || t.includes("postingan") || t.includes("beri");
-        });
-        if (tombolKirim) {
-            console.log("TextBox komentar ditemukan:", tombolKirim);
-            async function klikTextboxJikaSiap() {
-                autoCloseRelevanDialog()
-                tombolKirim.click();
-                const textbox = document.querySelector(".multi-line-floating-textbox");
-                if (textbox) {
-                    console.log("✅ TextBox komentar Telah DI Klik & Muncul");
-                } else {
-                    tombolKirim.click();
-
-                }
-            }
-            requestAnimationFrame(klikTextboxJikaSiap);
-        }
     }
 
 
@@ -732,13 +728,17 @@ function showNotification(message) {
 }
 async function komentari() {
     let myObservere = new MutationObserver((mutations) => {
+        cekMasalah();
+        cekMasalah2();
+        cekLogout()
         for (const mutation of mutations) {
             for (const node of mutation.addedNodes) {
                 if (commentDone) return;
                 if (node.nodeType !== 1) continue; // Bukan elemen
-                const textarea = document?.querySelector(".multi-line-floating-textbox");
-                const sendBtn = document.querySelector(".textbox-submit-button");
+                const textarea = node.querySelector(".multi-line-floating-textbox");
+                const sendBtn = node.querySelector(".textbox-submit-button");
                 if (textarea && sendBtn) {
+                    clearInterval(intervalURUTKAN);
                     waitCommentReady((commentToPost) => {
                         textarea.focus();
                         textarea.value = commentToPost;
@@ -746,31 +746,38 @@ async function komentari() {
                         const clickEvent = document.createEvent("MouseEvents");
                         clickEvent.initEvent("mousedown", true, true);
                         sendBtn.dispatchEvent(clickEvent);
-                        showNotification("Komentar Sudah Terkirim : " + commentToPost);
-                        commentDone = true;
-                        observercontetn.disconnect();
-                        myObservere.disconnect();
-                        GM.setValue("group_" + grouptToPost, true);
-                        GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS);
-                        console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
+                        console.log("✅ klik Kirim")
+                        var cekout = 0;
+                        var cekkiment = setInterval(() => {
+                            cekout++
+                            if (cekout >= 100) location.reload()
 
-                        clearInterval(intervalURUTKAN);
-                        waitNoDialog();
-                        if (node.nodeType === 1 && node.textContent.toLowerCase().includes('diposting') || node.textContent.toLowerCase().includes('berhasil')) {
-                            setTimeout(() => {
-                                location.href = "about:blank";
+                            if (document.querySelector(".snackbar-container, .loading-overlay")) {
+                                clearInterval(cekkiment);
+                                showNotification("Komentar Sudah Terkirim : " + commentToPost);
+                                commentDone = true;
+                                observercontetn.disconnect();
+                                observersudahjalam = false;
+                                myObservere.disconnect();
+                                GM.setValue("group_" + grouptToPost, true);
+                                GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS);
+                                console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
 
-                            }, 10000);
-                        }
-                        setTimeout(() => {
-                            location.href = "about:blank";
+                                waitNoDialog();
+                                if (node.nodeType === 1 && node.textContent.toLowerCase().includes('diposting') || node.textContent.toLowerCase().includes('berhasil')) {
+                                    setTimeout(() => {
+                                        location.href = "about:blank";
 
-                        }, 10000);
+                                    }, 10000);
+                                }
+                                setTimeout(() => {
+                                    location.href = "about:blank";
 
+                                }, 10000);
+                            }
+
+                        }, 100)
                     });
-                } else {
-                    myObservere.disconnect();
-
 
                 }
 
@@ -887,6 +894,7 @@ async function cekMasalah() {
 
         if ((now - lastTimepost < COOLDOWNPostingan)) {
             if (isi.includes("masalah")) {
+                await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
                 location.href = "https://m.facebook.com/bookmarks/"
             }
             return;
@@ -896,7 +904,7 @@ async function cekMasalah() {
         if (isi.includes("masalah")) {
             const cleanText = dialog.textContent.trim();
             MsgError(SCRIPT_NAME)
-            await sendToTelegram(`? Ada "masalah":\n\n${cleanText}`);
+            await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
             location.href = "https://m.facebook.com/bookmarks/"
         }
     } catch (e) {
@@ -940,7 +948,7 @@ async function cekMasalah2() {
                 }
             });
             MsgError(SCRIPT_NAME)
-            await sendToTelegram(`Menunggu Persetujuan ${before}`);
+            await sendToTelegram(`💩 Menunggu Persetujuan ${before}`);
 
         }
 
@@ -964,15 +972,6 @@ function MsgError(message) {
     ;
 }
 
-const observers = new MutationObserver(() => {
-    cekMasalah();
-    cekMasalah2();
-
-    cekLogout()
-});
-
-observers.observe(document.body, { childList: true, subtree: true });
-
 // ===== MAIN FLOW =====
 (async () => {
     try {
@@ -986,6 +985,7 @@ observers.observe(document.body, { childList: true, subtree: true });
         loadLocalAdmin()
         closeDialogFast()
         Mutation_cekArticle()
+        komentari();
         observeDialog();
         observeAktivitas();
         klikTombolByText("URUTKAN");
