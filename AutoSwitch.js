@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto Switch Account
 // @namespace    http://tampermonkey.net/
-// @version      3.97
+// @version      3.96
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoSwitch.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoSwitch.js
@@ -67,13 +67,14 @@
 
     // 2. Proses Logout (Halaman Bookmarks)
     async function autoLogout() {
+
         console.log("🔍 Memulai proses logout...");
         await updateCurrentAccount();
 
         // Scroll ke bawah agar tombol Keluar terlihat/termuat
         window.scrollTo(0, document.body.scrollHeight);
         await delay(2000);
-
+       if(!document.URL.includes("bookmarks")) return;
         const logoutBtn = document.querySelector('div[role="button"][aria-label="Keluar"]');
 
         if (logoutBtn) {
@@ -111,7 +112,7 @@
         const accountNodes = Array.from(document.querySelectorAll('div[data-bloks-name="bk.components.Flexbox"][role="button"][aria-label]'));
         if (accountNodes.length === 0) return;
 
-        const blacklist = ["pengaturan", "gunakan", "buat", "tambah", "login", "bantuan", "keluar","sandi","password"];
+        const blacklist = ["pengaturan", "gunakan", "buat", "tambah", "login", "bantuan", "keluar", "sandi", "password"];
         let candidates = accountNodes.map(el => ({
             el: el,
             name: normalize(el.getAttribute("aria-label"))
@@ -138,6 +139,7 @@
             await GM.setValue("useAccount", chosen.name);
             chosen.el.focus();
             await delay(500);
+            if (url.includes("login")) return;
             fbLiteClick(chosen.el);
         }
     }
@@ -152,7 +154,7 @@
             await autoLogout();
         }
         // Cek apakah di halaman daftar akun (tidak ada feed)
-        else if (!document.querySelector("[data-tracking-duration-id]")) {
+        else if (!document.querySelector("[data-tracking-duration-id]") ) {
             await delay(7000); // Tunggu Bloks me-render halaman
             await pickAccount();
         }
