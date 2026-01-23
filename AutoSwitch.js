@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto Switch Account
 // @namespace    http://tampermonkey.net/
-// @version      3.99
+// @version      3.100
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoSwitch.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoSwitch.js
@@ -19,14 +19,10 @@
 
 (function () {
     'use strict';
-
     const delay = (ms) => new Promise(r => setTimeout(r, ms));
-
     function normalize(s) {
         return s ? s.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").trim() : "";
     }
-
-    // Fungsi Klik Khusus FB Lite (Menghindari TypeError & Menembus MContainer)
     function fbLiteClick(el) {
         if (!el) return;
         console.log("🖱️ Mengirim event klik ke:", el.getAttribute('aria-label') || el.textContent);
@@ -43,8 +39,6 @@
             }
         });
     }
-
-    // 1. Ambil Nama Akun & Simpan ke Rotasi
     async function updateCurrentAccount() {
         const profileEl = document.querySelector('[aria-label*="Lihat profil Anda"]');
         if (profileEl) {
@@ -64,8 +58,6 @@
             }
         }
     }
-
-    // 2. Proses Logout (Halaman Bookmarks)
     async function autoLogout() {
 
         console.log("🔍 Memulai proses logout...");
@@ -79,17 +71,12 @@
 
         if (logoutBtn) {
             fbLiteClick(logoutBtn);
-
-            // Tunggu modal konfirmasi "Ya"
             for (let i = 0; i < 15; i++) {
                 await delay(1000);
-                // Selector berdasarkan HTML modal yang Anda kirim
                 const yaBtn = Array.from(document.querySelectorAll('div[role="button"]')).find(el => {
                     // 1. Cek aria-label (untuk variasi HTML pertama)
                     const label = el.getAttribute('aria-label');
                     if (label && label.trim().toLowerCase() === "ya") return true;
-
-                    // 2. Cek textContent (untuk variasi HTML kedua yang baru Anda kirim)
                     const text = el.textContent.trim().toLowerCase();
                     if (text === "ya") return true;
 
@@ -106,8 +93,6 @@
             console.warn("⚠️ Tombol Keluar tidak ditemukan di halaman ini.");
         }
     }
-
-    // 3. Proses Login (Halaman Switcher/Bloks)
     async function pickAccount() {
         const accountNodes = Array.from(document.querySelectorAll('div[data-bloks-name="bk.components.Flexbox"][role="button"][aria-label]'));
         if (accountNodes.length === 0) return;
@@ -117,9 +102,7 @@
             el: el,
             name: normalize(el.getAttribute("aria-label"))
         })).filter(c => c.name && !blacklist.some(word => c.name.includes(word)));
-
         console.log("👥 Daftar rotasi akun:", candidates.map(c => c.name));
-
         let lastAccount = normalize(await GM.getValue("useAccount", ""));
         let chosen = null;
 
@@ -143,26 +126,20 @@
             fbLiteClick(chosen.el);
         }
     }
-
-    // 4. Inisialisasi Utama
     async function main() {
         const url = location.href;
-
-        // Cek apakah di halaman Bookmarks
         if (url.includes("bookmarks")) {
             await delay(5000);
             await autoLogout();
         }
         // Cek apakah di halaman daftar akun (tidak ada feed)
         else if (!document.querySelector("[data-tracking-duration-id]") ) {
-            await delay(7000); // Tunggu Bloks me-render halaman
+            await delay(7000); 
             await pickAccount();
         }
     }
 
     main();
-
-    // Watchdog: Reload jika stuck/error
     setInterval(() => {
         if (document.body.textContent.includes("Ada masalah") ||
             document.body.textContent.includes("Kesalahan Sistem") ||
