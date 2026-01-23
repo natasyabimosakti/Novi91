@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto Switch Account
 // @namespace    http://tampermonkey.net/
-// @version      3.96
+// @version      3.97
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoSwitch.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoSwitch.js
@@ -139,7 +139,7 @@
             await GM.setValue("useAccount", chosen.name);
             chosen.el.focus();
             await delay(500);
-            if (url.includes("login")) return;
+            if (document.URL.includes("login")) return;
             fbLiteClick(chosen.el);
         }
     }
