@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto Switch Account
 // @namespace    http://tampermonkey.net/
-// @version      3.96
+// @version      3.97
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoSwitch.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoSwitch.js
@@ -111,7 +111,7 @@
         const accountNodes = Array.from(document.querySelectorAll('div[data-bloks-name="bk.components.Flexbox"][role="button"][aria-label]'));
         if (accountNodes.length === 0) return;
 
-        const blacklist = ["pengaturan", "gunakan", "buat", "tambah", "login", "bantuan"];
+        const blacklist = ["pengaturan", "gunakan", "buat", "tambah", "login", "bantuan", "keluar","sandi","password"];
         let candidates = accountNodes.map(el => ({
             el: el,
             name: normalize(el.getAttribute("aria-label"))
