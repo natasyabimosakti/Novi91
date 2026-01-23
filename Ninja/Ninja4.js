@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ninja 4
 // @namespace    http://tampermonkey.net/
-// @version      3.27
+// @version      3.28
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja4.js
@@ -544,6 +544,7 @@ async function manageGroups() {
     }
 
     const groupKey = `group_${grouptToPost}`;
+    if (groupKey === "group_")return;
     const sudahKomentar = await GM.getValue(groupKey, false);
     if (sudahKomentar) {
         console.log(`Sudah Komentar  ${now}`)
@@ -752,12 +753,6 @@ async function komentari() {
                                 console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
                                 ObserverCekMasalah()
                                 waitNoDialog();
-                                if (node.nodeType === 1 && node.textContent.toLowerCase().includes('diposting') || node.textContent.toLowerCase().includes('berhasil')) {
-                                    setTimeout(() => {
-                                        location.href = "about:blank";
-
-                                    }, 10000);
-                                }
                                 setTimeout(() => {
                                     location.href = "about:blank";
 
@@ -960,11 +955,22 @@ function MsgError(message) {
     ;
 }
 function ObserverCekMasalah() {
-    const observers = new MutationObserver(() => {
-        cekMasalah();
-        cekMasalah2();
+    const observers = new MutationObserver((mutations) => {
+        if (commentDone) return;
 
-        cekLogout()
+        for (const mutation of mutations) {
+            for (const node of mutation.addedNodes) {
+                cekMasalah();
+                cekMasalah2();
+                cekLogout()
+                if (node.nodeType === 1 && node.textContent.toLowerCase().includes('diposting') || node.textContent.toLowerCase().includes('berhasil')) {
+                    setTimeout(() => {
+                        location.href = "about:blank";
+
+                    }, 2000);
+                }
+            }
+        }
     });
 
     observers.observe(document.body, { childList: true, subtree: true });
