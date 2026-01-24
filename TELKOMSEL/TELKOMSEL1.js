@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TELKOMSEL 1
 // @namespace    http://tampermonkey.net/
-// @version      3.24
+// @version      3.25
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL1.js
@@ -867,27 +867,21 @@ async function cekMasalah() {
         const COOLDOWNPostingan = 60 * 60 * 1000; // 5 menit
         const lastTimepost = await GM.getValue("lastTelegramSame", 0);
 
-
-
-        const elem = document.querySelectorAll("[data-screen-key-action-ids]")[1];
-        if (!elem) return;
-
-        const dialog = elem.getElementsByClassName("dialog-vscroller")[0];
+        const dialog = document.getElementsByClassName("dialog-vscroller")[0];
         if (!dialog) return;
 
-        const isi = dialog.textContent.toLowerCase();
+        const isi = dialog?.textContent?.toLowerCase() || "";
+        const cleanText = isi.trim();
 
         if ((now - lastTimepost < COOLDOWNPostingan)) {
             if (isi.includes("masalah")) {
                 await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
                 location.href = "https://m.facebook.com/bookmarks/"
             }
-            return;
         } else {
             GM.setValue("lastTelegramSame", 0);
         }
         if (isi.includes("masalah")) {
-            const cleanText = dialog.textContent.trim();
             MsgError(SCRIPT_NAME)
             await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
             location.href = "https://m.facebook.com/bookmarks/"
@@ -913,8 +907,7 @@ async function cekMasalah2() {
         const elem = document.querySelectorAll("[data-long-click-action-id]")
         if (!elem) return;
 
-        const adaMenunggu = Array.from(elem).some(el => el.textContent.includes("Menunggu"));
-
+        const adaMenunggu = Array.from(elem ?? []).some(el => el.textContent?.includes("Menunggu"));
         Array.from(elem).forEach(el => {
             const text = el.textContent;
             if (text.includes("Menunggu")) {
@@ -960,13 +953,12 @@ function ObserverCekMasalah() {
     const observers = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
             for (const node of mutation.addedNodes) {
-                if (node.nodeType === 1 && node.textContent.toLowerCase().includes('diposting') || node.textContent.toLowerCase().includes('berhasil')) {
-                    cekMasalah();
-                    cekMasalah2();
-                    cekLogout()
+                cekMasalah();
+                cekMasalah2();
+                cekLogout()
+                if (node.nodeType === 1 && (node.textContent?.toLowerCase().includes('diposting') || node.textContent?.toLowerCase().includes('berhasil'))) {
                     setTimeout(() => {
                         location.href = "about:blank";
-
                     }, 2000);
                 }
             }
