@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.312
+// @version      3.313
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut2.js
@@ -26,7 +26,7 @@ var Comment18 = 'manyut2';
 var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Comment/${Comment18}.json`;
 var SCRIPT_NAME = Comment18
 var refresh = 20;
-var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Lama.json"
+var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Baru.json"
 var keyword = ["ROOM", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001"]
 var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
 let adminPrefixSet = null;
@@ -546,7 +546,7 @@ async function manageGroups() {
     }
 
     const groupKey = `group_${grouptToPost}`;
-    if (groupKey === "group_")return;
+    if (groupKey === "group_") return;
     const sudahKomentar = await GM.getValue(groupKey, false);
     if (sudahKomentar) {
         console.log(`Sudah Komentar  ${now}`)
@@ -958,14 +958,12 @@ function MsgError(message) {
 }
 function ObserverCekMasalah() {
     const observers = new MutationObserver((mutations) => {
-        if (commentDone) return;
-
         for (const mutation of mutations) {
             for (const node of mutation.addedNodes) {
-                cekMasalah();
-                cekMasalah2();
-                cekLogout()
                 if (node.nodeType === 1 && node.textContent.toLowerCase().includes('diposting') || node.textContent.toLowerCase().includes('berhasil')) {
+                    cekMasalah();
+                    cekMasalah2();
+                    cekLogout()
                     setTimeout(() => {
                         location.href = "about:blank";
 
