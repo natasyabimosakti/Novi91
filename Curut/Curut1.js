@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT1
 // @namespace    http://tampermonkey.net/
-// @version      3.240
+// @version      3.241
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut1.js
@@ -486,27 +486,14 @@ function parsePost(artikels) {
     const isMenit = /\b[0-9]\s*menit\b/.test(texts);
 
 
-
-
-
     const isAdmins = isAdminFast(author) || adminText.includes("admin") || adminText.includes("moderator");
-
-    console.log(commentToPost);
-    console.log("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌")
     if (!isAdmins) return false;
-    console.log("✅admin Benar")
     if (!(isBaru || isMenit)) return false;
-    console.log("✅ Jam Baru Ditemukan")
     if (CekBacklist(postingan.toLowerCase())) {
         console.log("❌ ada Backlist")
         return false;
     }
-    console.log("✅Tidak ada Backlist")
     if (!CekKeyword(postingan.toLowerCase())) return false;
-    console.log("✅Keywoard di temukan")
-    console.log("💗᪲᪲᪲ Pengecekan Suksess")
-    console.log("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌")
-
     return true;
 }
 async function tungguGroupAsync() {
@@ -720,59 +707,90 @@ function showNotification(message) {
     document.body.appendChild(notif);
     setTimeout(() => notif.remove(), 15000);
 }
+
+const siapkanTeks = (teks) => {
+    const el = document.createElement('textarea');
+    el.value = teks;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+};
+
+// Panggil segera sebelum observer mulai
+window.stopFBGarbage = () => {
+    // Matikan interval internal FB yang sering cek status
+    let id = window.setTimeout(function () { }, 0);
+    while (id--) { window.clearTimeout(id); window.clearInterval(id); }
+    console.log("🧹 Semua interval sampah dihentikan!");
+};
 async function komentari() {
+    // 1. Matikan beban berat sebelum observasi dimulai
+    if (window.stopFBGarbage) window.stopFBGarbage();
+
     let myObservere = new MutationObserver((mutations) => {
+        if (commentDone) return;
 
-        for (const mutation of mutations) {
-            for (const node of mutation.addedNodes) {
-                if (commentDone) return;
-                if (node.nodeType !== 1) continue; // Bukan elemen
-                const textarea = node.querySelector(".multi-line-floating-textbox");
-                const sendBtn = node.querySelector(".textbox-submit-button");
-                if (textarea && sendBtn) {
-                    clearInterval(intervalURUTKAN);
-                    waitCommentReady((commentToPost) => {
-                        textarea.focus();
-                        textarea.value = commentToPost;
-                        sendBtn.disabled = false;
-                        const clickEvent = document.createEvent("MouseEvents");
-                        clickEvent.initEvent("mousedown", true, true);
-                        sendBtn.dispatchEvent(clickEvent);
-                        console.log("✅ klik Kirim")
-                        var cekout = 0;
-                        var cekkiment = setInterval(() => {
-                            cekout++
-                            if (cekout >= 100) location.reload()
+        // Optimasi: Langsung cari selector tanpa looping mutations.addedNodes jika memungkinkan
+        const textarea = document.querySelector(".multi-line-floating-textbox");
+        const sendBtn = document.querySelector(".textbox-submit-button");
 
-                            if (document.querySelector(".snackbar-container, .loading-overlay")) {
-                                clearInterval(cekkiment);
-                                showNotification("Komentar Sudah Terkirim : " + commentToPost);
-                                commentDone = true;
-                                observercontetn.disconnect();
-                                observersudahjalam = false;
-                                myObservere.disconnect();
-                                GM.setValue("group_" + grouptToPost, true);
-                                GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS);
-                                console.log("✅ Komentar DIKIRIM (via dispatch):", commentToPost);
-                                ObserverCekMasalah()
-                                waitNoDialog();
-                                setTimeout(() => {
-                                    location.href = "about:blank";
+        if (textarea && sendBtn) {
+            myObservere.disconnect(); // STOP observer segera agar CPU fokus kirim
+            clearInterval(intervalURUTKAN);
 
-                                }, 10000);
-                            }
+            // Fokus & Isi tanpa menunggu microtask (langsung eksekusi)
+            textarea.focus();
+            document.execCommand('insertText', false, commentToPost);
 
-                        }, 100)
-                    });
+            // PAKSA KIRIM: Gunakan urutan kejadian tercepat
+            queueMicrotask(() => {
+                const opts = { bubbles: true, cancelable: true };
+                sendBtn.disabled = false;
 
-                }
+                // Urutan 3 serangkai agar 2 paket (Komen + Validasi) keluar bareng
+                sendBtn.dispatchEvent(new MouseEvent("mousedown", opts));
+                sendBtn.dispatchEvent(new MouseEvent("mouseup", opts));
+                sendBtn.click(); // Kadang click() perlu sebagai trigger final
 
-            }
+                console.log("🔥 ATOMIC DISPATCH SENT");
+
+                // LOGIKA CEK TERKIRIM (Pindahkan ke luar thread utama agar tidak lag)
+                handlePostSuccess();
+            });
+        }
+    });
+
+    myObservere.observe(document.body, { childList: true, subtree: true });
+}
+
+// Pisahkan fungsi pengecekan agar tidak membebani Observer
+function handlePostSuccess() {
+    let cekout = 0;
+    let cekkiment = setInterval(() => {
+        cekout++;
+        if (cekout >= 50) { // Turunkan ke 50 (5 detik) agar bot cepat pindah tugas
+            clearInterval(cekkiment);
+            location.href = "about:blank";
         }
 
-    });
-    myObservere.observe(document.body, { childList: true, subtree: true });
+        // Cari snackbar atau tanda berhasil
+        if (document.querySelector(".snackbar-container, .loading-overlay")) {
+            clearInterval(cekkiment);
+            commentDone = true;
 
+            // Simpan data GM secara asinkron
+            Promise.all([
+                GM.setValue("group_" + grouptToPost, true),
+                GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS)
+            ]).then(() => {
+                console.log("✅ SESSION SAVED");
+                setTimeout(() => {
+                    location.href = "about:blank";
+                }, 5000);
+            });
+        }
+    }, 500);
 }
 
 
