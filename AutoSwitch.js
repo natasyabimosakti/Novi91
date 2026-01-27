@@ -14,7 +14,6 @@
 // @grant        window.close
 // @grant        GM_xmlhttpRequest
 // @connect      api.telegram.org
-// @connect      raw.githubusercontent.com
 // ==/UserScript==
 
 (function () {
@@ -141,9 +140,9 @@
 
     main();
     setInterval(() => {
-        if (document.body.textContent.includes("Ada Masalah") ||
-            document.body.textContent.includes("Kesalahan Sistem") ||
-            document.body.textContent.includes("masalah login")) {
+        if (document.body.textContent.toLocaleLowerCase().includes("ada masalah") ||
+            document.body.textContent.toLocaleLowerCase().includes("Kesalahan Sistem") ||
+            document.body.textContent.toLocaleLowerCase().includes("masalah login")) {
             document.location.href = "https://www.facebook.com/bookmarks"
         }
     }, 1000);
