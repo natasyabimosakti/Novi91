@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti4
 // @namespace    http://tampermonkey.net/
-// @version      3.123
+// @version      3.124
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti4.js
@@ -883,7 +883,7 @@ async function cekMasalah() {
         const COOLDOWNPostingan = 60 * 60 * 1000; // 5 menit
         const lastTimepost = await GM.getValue("lastTelegramSame", 0);
 
-        const dialog = document.getElementsByClassName("dialog-vscroller")[0];
+        const dialog = document.querySelector("[role='dialog']");
         if (!dialog) return;
 
         const isi = dialog?.textContent?.toLowerCase() || "";
