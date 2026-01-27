@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto Switch Account
 // @namespace    http://tampermonkey.net/
-// @version      3.101
+// @version      3.102
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoSwitch.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/AutoSwitch.js
@@ -140,7 +140,8 @@
 
     main();
     setInterval(() => {
-        if (document.body.textContent.toLocaleLowerCase().includes("ada masalah") ||
+        const adaMasalah = document.querySelector("[role='dialog']")?.textContent?.toLowerCase().includes("ada masalah");
+        if (adaMasalah ||
             document.body.textContent.toLocaleLowerCase().includes("kesalahan sistem") ||
             document.body.textContent.toLocaleLowerCase().includes("masalah login")) {
             document.location.href = "https://www.facebook.com/bookmarks"
