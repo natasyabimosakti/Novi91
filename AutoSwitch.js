@@ -141,7 +141,7 @@
 
     main();
     setInterval(() => {
-        if (document.body.textContent.includes("Ada masalah") ||
+        if (document.body.textContent.includes("Ada Masalah") ||
             document.body.textContent.includes("Kesalahan Sistem") ||
             document.body.textContent.includes("masalah login")) {
             document.location.href = "https://www.facebook.com/bookmarks"
