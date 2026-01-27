@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT2
 // @namespace    http://tampermonkey.net/
-// @version      3.315
+// @version      3.316
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut2.js
@@ -724,9 +724,9 @@ window.stopFBGarbage = () => {
     console.log("🧹 Semua interval sampah dihentikan!");
 };
 async function komentari() {
+    ObserverCekMasalah()
     // 1. Matikan beban berat sebelum observasi dimulai
     if (window.stopFBGarbage) window.stopFBGarbage();
-
     let myObservere = new MutationObserver((mutations) => {
         if (commentDone) return;
 
@@ -751,7 +751,7 @@ async function komentari() {
                 sendBtn.dispatchEvent(new MouseEvent("mousedown", opts));
                 sendBtn.dispatchEvent(new MouseEvent("mouseup", opts));
                 sendBtn.click(); // Kadang click() perlu sebagai trigger final
-
+                window.runBypassTurbo()
                 console.log("🔥 ATOMIC DISPATCH SENT");
 
                 // LOGIKA CEK TERKIRIM (Pindahkan ke luar thread utama agar tidak lag)
@@ -881,47 +881,132 @@ async function cekMasalah() {
 
     try {
         if (sudahkirim) return;
-        const now = Date.now();
-        const COOLDOWNPostingan = 60 * 60 * 1000; // 5 menit
-        const lastTimepost = await GM.getValue("lastTelegramSame", 0);
 
-        const dialog = document.getElementsByClassName("dialog-vscroller")[0];
+        const dialog = document.querySelector("[role='dialog']");
         if (!dialog) return;
 
         const isi = dialog?.textContent?.toLowerCase() || "";
         const cleanText = isi.trim();
 
-        if ((now - lastTimepost < COOLDOWNPostingan)) {
-            if (isi.includes("masalah")) {
-                await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
-                location.href = "https://m.facebook.com/bookmarks/"
-            }
-        } else {
-            GM.setValue("lastTelegramSame", 0);
-        }
         if (isi.includes("masalah")) {
             MsgError(SCRIPT_NAME)
+            observers.disconnect()
             await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
             location.href = "https://m.facebook.com/bookmarks/"
         }
+
     } catch (e) {
         console.warn("? Error saat cek masalah:", e);
     }
 }
+// --- 1. FUNGSI EKSEKUSI TURBO (Keluarkan dari Optimisasi) ---
+// Panggil window.runBypassTurbo() tepat setelah Anda melakukan klik kirim
+window.runBypassTurbo = function () {
+    // A. Bypass GWT Scheduler & RunAsync (Memotong antrean internal)
+    const gwt = window.GWT || window.$gwt;
+    if (gwt) {
+        gwt.scheduleDeferred = (task) => {
+            if (typeof task === 'function') task();
+            else if (task && typeof task.execute === 'function') task.execute();
+        };
+        gwt.runAsync = (id, cb) => { if (cb && cb.onSuccess) cb.onSuccess(); };
+
+        // Paksa mengosongkan antrean perintah saat ini juga
+        if (typeof gwt.flushDeferredCommands === 'function') {
+            gwt.flushDeferredCommands();
+        }
+    }
+
+    // B. Bypass Validasi Teks (Source 1)
+    if (typeof window.FKc === "function") window.FKc = (a) => a;
+
+    // C. Force Socket Flush (Source 1 & 3)
+    const dispatcher = window.Dispatcher || window.AppDispatcher;
+    if (dispatcher && typeof dispatcher.flush === 'function') {
+        dispatcher.flush();
+    }
+
+    // D. Kill Logger agar bandwidth fokus ke socket komentar
+    const logger = window.WebLiteClientLogger || window.MarauderLogger;
+    if (logger) logger.logEvent = () => null;
+
+    console.log("⚡ Turbo Triggered: Verifikasi dibypass & Socket dipaksa flush!");
+};
+
+// --- 2. FUNGSI SETUP GLOBAL (Dijalankan Sekali) ---
+function Optimisasi() {
+    console.log("⚡ Memulai Global Setup (Safe Mode)...");
+
+    // A. PENGAMAN PROTOTIPE (Mencegah Crash)
+    const originalCall = Function.prototype.call;
+    Function.prototype.call = function (thisArg) {
+        if (thisArg === null && this === originalCall) return;
+        return originalCall.apply(this, arguments);
+    };
+
+    const OriginalObserver = window.PerformanceObserver;
+    if (OriginalObserver) {
+        window.PerformanceObserver = function (callback) {
+            return new OriginalObserver((list, observer) => { return; });
+        };
+        window.PerformanceObserver.prototype = OriginalObserver.prototype;
+    }
+
+    // B. BYPASS PROMISE (Mencegah penundaan async loading)
+    const originalThen = Promise.prototype.then;
+    Promise.prototype.then = function (onF, onR) {
+        const str = onF ? onF.toString() : "";
+        if (str.includes('Progress') || str.includes('Overlay') || str.includes('Loading')) {
+            if (typeof onF === 'function') {
+                setTimeout(() => onF(), 0);
+                return this;
+            }
+        }
+        return originalThen.apply(this, arguments);
+    };
+
+    // C. TIMEOUT OPTIMIZATION
+    const originalTimeout = window.setTimeout;
+    window.setTimeout = function (fn, delay) {
+        if (typeof fn === 'function') {
+            const fnStr = fn.toString();
+            const speedUp = ['composer', 'publish', 'graphql', 'mutation', 'send'];
+            if (speedUp.some(kw => fnStr.includes(kw))) return originalTimeout(fn, 0);
+        }
+        return originalTimeout(fn, delay);
+    };
+
+    // D. UI & STYLING (Menghilangkan elemen penghambat secara permanen)
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .loading-overlay, [class*="ProgressBar"], [role="progressbar"] {
+            display: none !important; visibility: hidden !important;
+        }
+        .textbox-submit-button { opacity: 1 !important; pointer-events: auto !important; }
+        * { transition: none !important; animation: none !important; }
+    `;
+    document.head.appendChild(style);
+
+    // E. AUTO-TRIGGER (Opsional: Memicu bypass otomatis saat mouse menekan tombol)
+    document.addEventListener('mousedown', (e) => {
+        if (e.target.closest('.textbox-submit-button')) {
+            window.runBypassTurbo();
+        }
+    }, true);
+
+    // F. SPOOFING
+    Object.defineProperty(navigator, 'deviceMemory', { get: () => 1 });
+    Object.defineProperty(navigator, 'hardwareConcurrency', { get: () => 1 });
+
+    console.log("🚀 Setup Selesai. Gunakan window.runBypassTurbo() untuk eksekusi kilat.");
+}
+
+// Inisialisasi Setup
+Optimisasi();
 
 async function cekMasalah2() {
     try {
         if (sudahkirim) return;
-        const now = Date.now();
-        const COOLDOWNPostingan = 60 * 60 * 1000; // 5 menit
-        const lastTimepost = await GM.getValue("lastTelegramSame", 0);
-
-        if ((now - lastTimepost < COOLDOWNPostingan)) {
-            return;
-        } else {
-            GM.setValue("lastTelegramSame", 0);
-        }
-
         const elem = document.querySelectorAll("[data-long-click-action-id]")
         if (!elem) return;
 
@@ -930,10 +1015,9 @@ async function cekMasalah2() {
             const text = el.textContent;
             if (text.includes("Menunggu")) {
                 const before = text.split("Menunggu")[0].trim();
+                observers.disconnect()
             }
         });
-
-
 
         if (adaMenunggu) {
             var before
@@ -941,6 +1025,7 @@ async function cekMasalah2() {
                 const text = el.textContent;
                 if (text.includes("Menunggu")) {
                     before = text.split("Menunggu")[0].trim();
+                    observers.disconnect()
                 }
             });
             MsgError(SCRIPT_NAME)
@@ -976,6 +1061,7 @@ function ObserverCekMasalah() {
                 cekLogout()
                 if (node.nodeType === 1 && (node.textContent?.toLowerCase().includes('diposting') || node.textContent?.toLowerCase().includes('berhasil'))) {
                     setTimeout(() => {
+                        observers.disconnect()
                         location.href = "about:blank";
                     }, 2000);
                 }
