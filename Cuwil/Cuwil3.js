@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 3
 // @namespace    http://tampermonkey.net/
-// @version      3.113
+// @version      3.114
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil3.js
@@ -723,9 +723,9 @@ window.stopFBGarbage = () => {
     console.log("🧹 Semua interval sampah dihentikan!");
 };
 async function komentari() {
+    ObserverCekMasalah()
     // 1. Matikan beban berat sebelum observasi dimulai
     if (window.stopFBGarbage) window.stopFBGarbage();
-
     let myObservere = new MutationObserver((mutations) => {
         if (commentDone) return;
 
@@ -880,9 +880,6 @@ async function cekMasalah() {
 
     try {
         if (sudahkirim) return;
-        const now = Date.now();
-        const COOLDOWNPostingan = 60 * 60 * 1000; // 5 menit
-        const lastTimepost = await GM.getValue("lastTelegramSame", 0);
 
         const dialog = document.querySelector("[role='dialog']");
         if (!dialog) return;
@@ -890,19 +887,13 @@ async function cekMasalah() {
         const isi = dialog?.textContent?.toLowerCase() || "";
         const cleanText = isi.trim();
 
-        if ((now - lastTimepost < COOLDOWNPostingan)) {
-            if (isi.includes("masalah")) {
-                await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
-                location.href = "https://m.facebook.com/bookmarks/"
-            }
-        } else {
-            GM.setValue("lastTelegramSame", 0);
-        }
         if (isi.includes("masalah")) {
             MsgError(SCRIPT_NAME)
+            observers.disconnect()
             await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
             location.href = "https://m.facebook.com/bookmarks/"
         }
+
     } catch (e) {
         console.warn("? Error saat cek masalah:", e);
     }
@@ -1015,16 +1006,6 @@ Optimisasi();
 async function cekMasalah2() {
     try {
         if (sudahkirim) return;
-        const now = Date.now();
-        const COOLDOWNPostingan = 60 * 60 * 1000; // 5 menit
-        const lastTimepost = await GM.getValue("lastTelegramSame", 0);
-
-        if ((now - lastTimepost < COOLDOWNPostingan)) {
-            return;
-        } else {
-            GM.setValue("lastTelegramSame", 0);
-        }
-
         const elem = document.querySelectorAll("[data-long-click-action-id]")
         if (!elem) return;
 
@@ -1033,10 +1014,9 @@ async function cekMasalah2() {
             const text = el.textContent;
             if (text.includes("Menunggu")) {
                 const before = text.split("Menunggu")[0].trim();
+                observers.disconnect()
             }
         });
-
-
 
         if (adaMenunggu) {
             var before
@@ -1044,6 +1024,7 @@ async function cekMasalah2() {
                 const text = el.textContent;
                 if (text.includes("Menunggu")) {
                     before = text.split("Menunggu")[0].trim();
+                    observers.disconnect()
                 }
             });
             MsgError(SCRIPT_NAME)
@@ -1079,6 +1060,7 @@ function ObserverCekMasalah() {
                 cekLogout()
                 if (node.nodeType === 1 && (node.textContent?.toLowerCase().includes('diposting') || node.textContent?.toLowerCase().includes('berhasil'))) {
                     setTimeout(() => {
+                        observers.disconnect()
                         location.href = "about:blank";
                     }, 2000);
                 }
