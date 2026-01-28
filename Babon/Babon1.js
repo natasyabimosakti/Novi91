@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Babon 1
 // @namespace    http://tampermonkey.net/
-// @version      3.106
+// @version      3.107
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon1.js
@@ -717,16 +717,9 @@ const siapkanTeks = (teks) => {
 };
 
 // Panggil segera sebelum observer mulai
-window.stopFBGarbage = () => {
-    // Matikan interval internal FB yang sering cek status
-    let id = window.setTimeout(function () { }, 0);
-    while (id--) { window.clearTimeout(id); window.clearInterval(id); }
-    console.log("🧹 Semua interval sampah dihentikan!");
-};
+
 async function komentari() {
     ObserverCekMasalah()
-    // 1. Matikan beban berat sebelum observasi dimulai
-    if (window.stopFBGarbage) window.stopFBGarbage();
     let myObservere = new MutationObserver((mutations) => {
         if (commentDone) return;
 
@@ -767,7 +760,7 @@ function handlePostSuccess() {
     let cekout = 0;
     let cekkiment = setInterval(() => {
         cekout++;
-        if (cekout >= 50) { // Turunkan ke 50 (5 detik) agar bot cepat pindah tugas
+        if (cekout >= 70) { // Turunkan ke 50 (5 detik) agar bot cepat pindah tugas
             clearInterval(cekkiment);
             location.href = "about:blank";
         }
@@ -965,20 +958,6 @@ function Optimisasi() {
         window.WebLiteClientLogger.logEvent = function () { return null; };
     }
 
-    // A. PENGAMAN PROTOTIPE (Mencegah Crash)
-    const originalCall = Function.prototype.call;
-    Function.prototype.call = function (thisArg) {
-        if (thisArg === null && this === originalCall) return;
-        return originalCall.apply(this, arguments);
-    };
-
-    const OriginalObserver = window.PerformanceObserver;
-    if (OriginalObserver) {
-        window.PerformanceObserver = function (callback) {
-            return new OriginalObserver((list, observer) => { return; });
-        };
-        window.PerformanceObserver.prototype = OriginalObserver.prototype;
-    }
 
     // B. BYPASS PROMISE (Mencegah penundaan async loading)
     const originalThen = Promise.prototype.then;
@@ -993,47 +972,11 @@ function Optimisasi() {
         return originalThen.apply(this, arguments);
     };
 
-    // C. TIMEOUT OPTIMIZATION
-    const originalTimeout = window.setTimeout;
-    window.setTimeout = function (fn, delay) {
-        if (typeof fn === 'function') {
-            // Ubah isi fungsi menjadi huruf kecil semua sebelum pengecekan
-            const fnStr = fn.toString().toLowerCase();
 
-            // Cukup tulis dengan huruf kecil di daftar keyword
-            const speedUp = ['composer', 'publish', 'graphql', 'mutation', 'send', 'flush', 'enqueue', 'dispatch', 'comet', 'preloader', 'payload', 'relay', 'enqueue', 'schedule'];
-
-            if (speedUp.some(kw => fnStr.includes(kw))) {
-                // console.log("⚡ Turbo Triggered for:", kw); // Opsional untuk debug
-                return originalTimeout(fn, 0);
-            }
-        }
-        return originalTimeout(fn, delay);
-    };
-
-    // D. UI & STYLING (Menghilangkan elemen penghambat secara permanen)
-    const style = document.createElement('style');
-    style.innerHTML = `
-        .loading-overlay, [class*="ProgressBar"], [role="progressbar"] {
-            display: none !important; visibility: hidden !important;
-        }
-        .textbox-submit-button { opacity: 1 !important; pointer-events: auto !important; }
-        * { transition: none !important; animation: none !important; }
-    `;
-    document.head.appendChild(style);
-
-    // E. AUTO-TRIGGER (Opsional: Memicu bypass otomatis saat mouse menekan tombol)
-    document.addEventListener('mousedown', (e) => {
-        if (e.target.closest('.textbox-submit-button')) {
-            window.runBypassTurbo();
-        }
-    }, true);
 
     // F. SPOOFING
     Object.defineProperty(navigator, 'deviceMemory', { get: () => 1 });
     Object.defineProperty(navigator, 'hardwareConcurrency', { get: () => 1 });
-
-    console.log("🚀 Setup Selesai. Gunakan window.runBypassTurbo() untuk eksekusi kilat.");
 }
 
 // Inisialisasi Setup
@@ -1098,7 +1041,7 @@ function ObserverCekMasalah() {
                     setTimeout(() => {
                         observers.disconnect()
                         location.href = "about:blank";
-                    }, 2000);
+                    }, 5000);
                 }
             }
         }
