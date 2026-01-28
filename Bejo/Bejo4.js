@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 4
 // @namespace    http://tampermonkey.net/
-// @version      3.112
+// @version      3.113
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
@@ -20,6 +20,7 @@
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'bejo4';
+
 
 
 
@@ -787,8 +788,7 @@ function handlePostSuccess() {
 }
 
 
-var TELEGRAM_TOKEN = '8396728370:AAHblTLr220NEd9PwS7BzzS5VWGcxix9RK8'; // GANTI
-var TELEGRAM_CHAT_ID = '-1002717306025'; // GANTI
+
 
 let lastMessageSent = ""; // lokal per tab/browser
 var sudahkirim = false
@@ -821,6 +821,8 @@ function levenshtein(a, b) {
 
 // Kirim ke Telegram, dengan deteksi spam berbasis kemiripan
 async function sendToTelegram(message) {
+    var TELEGRAM_TOKEN = '8396728370:AAHblTLr220NEd9PwS7BzzS5VWGcxix9RK8'; // GANTI
+    var TELEGRAM_CHAT_ID = '-1002717306025'; // GANTI
     if (sudahkirim) return;
     sudahkirim = true
     const fullMessage = `? [${SCRIPT_NAME}]\n${message}`;
@@ -883,7 +885,10 @@ async function cekMasalah() {
         MsgError(SCRIPT_NAME)
         observers.disconnect()
         await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
-        location.href = "https://m.facebook.com/bookmarks/"
+        setTimeout(() => {
+            location.href = "https://m.facebook.com/bookmarks/"
+        }, 2000);
+        
     }
 }
 // --- 1. FUNGSI EKSEKUSI TURBO (Keluarkan dari Optimisasi) ---
