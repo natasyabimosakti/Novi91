@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Babon 4
 // @namespace    http://tampermonkey.net/
-// @version      3.106
+// @version      3.107
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon4.js
@@ -19,6 +19,7 @@
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'babon4';
+
 
 
 var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Comment/${Comment18}.json`;
@@ -742,6 +743,7 @@ async function komentari() {
                 sendBtn.dispatchEvent(new MouseEvent("mousedown", opts));
                 sendBtn.dispatchEvent(new MouseEvent("mouseup", opts));
                 sendBtn.click(); // Kadang click() perlu sebagai trigger final
+                window.runBypassTurbo()
                 console.log("🔥 ATOMIC DISPATCH SENT");
 
                 // LOGIKA CEK TERKIRIM (Pindahkan ke luar thread utama agar tidak lag)
