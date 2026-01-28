@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 4
 // @namespace    http://tampermonkey.net/
-// @version      3.114
+// @version      3.115
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil4.js
@@ -750,7 +750,6 @@ async function komentari() {
                 sendBtn.dispatchEvent(new MouseEvent("mousedown", opts));
                 sendBtn.dispatchEvent(new MouseEvent("mouseup", opts));
                 sendBtn.click(); // Kadang click() perlu sebagai trigger final
-                window.runBypassTurbo()
                 console.log("🔥 ATOMIC DISPATCH SENT");
 
                 // LOGIKA CEK TERKIRIM (Pindahkan ke luar thread utama agar tidak lag)
@@ -901,40 +900,69 @@ async function cekMasalah() {
 // --- 1. FUNGSI EKSEKUSI TURBO (Keluarkan dari Optimisasi) ---
 // Panggil window.runBypassTurbo() tepat setelah Anda melakukan klik kirim
 window.runBypassTurbo = function () {
-    // A. Bypass GWT Scheduler & RunAsync (Memotong antrean internal)
-    const gwt = window.GWT || window.$gwt;
-    if (gwt) {
-        gwt.scheduleDeferred = (task) => {
-            if (typeof task === 'function') task();
-            else if (task && typeof task.execute === 'function') task.execute();
-        };
-        gwt.runAsync = (id, cb) => { if (cb && cb.onSuccess) cb.onSuccess(); };
+    try {
+        // A. Bypass GWT Scheduler & RunAsync (Memotong antrean internal)
+        const gwt = window.GWT || window.$gwt;
+        if (gwt) {
+            gwt.scheduleDeferred = (task) => {
+                if (typeof task === 'function') task();
+                else if (task && typeof task.execute === 'function') task.execute();
+            };
+            gwt.runAsync = (id, cb) => { if (cb && cb.onSuccess) cb.onSuccess(); };
 
-        // Paksa mengosongkan antrean perintah saat ini juga
-        if (typeof gwt.flushDeferredCommands === 'function') {
-            gwt.flushDeferredCommands();
+
+            if (typeof gwt.flushDeferredCommands === 'function') {
+                gwt.flushDeferredCommands();
+            }
         }
+        if (window.WebLitePipe && typeof WebLitePipe.setFlushComplete === 'function') {
+            WebLitePipe.setFlushComplete(0);
+        }
+        // B. Bypass Validasi Teks (Source 1)
+        if (typeof window.FKc === "function") window.FKc = (a) => a;
+
+        // C. Force Socket Flush (Source 1 & 3)
+        const dispatcher = window.Dispatcher || window.AppDispatcher;
+        if (dispatcher && typeof dispatcher.flush === 'function') {
+            dispatcher.flush();
+        }
+
+        // D. Kill Logger agar bandwidth fokus ke socket komentar
+        const logger = window.WebLiteClientLogger || window.MarauderLogger;
+        if (logger) logger.logEvent = () => null;
+
+        console.log("⚡ Turbo Triggered: Verifikasi dibypass & Socket dipaksa flush!");
+    } catch (e) {
+        console.error("⚠️ Turbo Error (Handled):", e);
     }
-
-    // B. Bypass Validasi Teks (Source 1)
-    if (typeof window.FKc === "function") window.FKc = (a) => a;
-
-    // C. Force Socket Flush (Source 1 & 3)
-    const dispatcher = window.Dispatcher || window.AppDispatcher;
-    if (dispatcher && typeof dispatcher.flush === 'function') {
-        dispatcher.flush();
-    }
-
-    // D. Kill Logger agar bandwidth fokus ke socket komentar
-    const logger = window.WebLiteClientLogger || window.MarauderLogger;
-    if (logger) logger.logEvent = () => null;
-
-    console.log("⚡ Turbo Triggered: Verifikasi dibypass & Socket dipaksa flush!");
 };
 
 // --- 2. FUNGSI SETUP GLOBAL (Dijalankan Sekali) ---
 function Optimisasi() {
     console.log("⚡ Memulai Global Setup (Safe Mode)...");
+    // BAGIAN INI CUKUP 1X
+    if (window.WebLitePipe) {
+        // Memaksa FB mengabaikan waktu render layar (Source 5)
+        window.WebLitePipe.callAfterScreenRendered = function (f) { f(); };
+        const lockSesi = (val) => console.log("🔒 Session Locked");
+        window.WebLitePipe.setLoginId = lockSesi;
+        window.WebLitePipe.setPreSessionId = lockSesi;
+        // Menipu sistem agar menganggap inisialisasi sudah selesai 100%
+        window.WebLitePipe.setFirstResponseComplete();
+
+        // Membungkam pelaporan log agar tidak terdeteksi spam (Source 5)
+
+    }
+    if (typeof envFlush === 'function') {
+        envFlush({
+            "dss": false, // Matikan penghemat data agar socket kencang
+            "pfs": true,  // Aktifkan prefetch untuk jalur data
+            "staticContentOnly": true
+        });
+    }
+    if (window.WebLiteClientLogger) {
+        window.WebLiteClientLogger.logEvent = function () { return null; };
+    }
 
     // A. PENGAMAN PROTOTIPE (Mencegah Crash)
     const originalCall = Function.prototype.call;
@@ -968,9 +996,16 @@ function Optimisasi() {
     const originalTimeout = window.setTimeout;
     window.setTimeout = function (fn, delay) {
         if (typeof fn === 'function') {
-            const fnStr = fn.toString();
-            const speedUp = ['composer', 'publish', 'graphql', 'mutation', 'send'];
-            if (speedUp.some(kw => fnStr.includes(kw))) return originalTimeout(fn, 0);
+            // Ubah isi fungsi menjadi huruf kecil semua sebelum pengecekan
+            const fnStr = fn.toString().toLowerCase();
+
+            // Cukup tulis dengan huruf kecil di daftar keyword
+            const speedUp = ['composer', 'publish', 'graphql', 'mutation', 'send', 'flush', 'enqueue', 'dispatch', 'comet', 'preloader', 'payload', 'relay', 'enqueue', 'schedule'];
+
+            if (speedUp.some(kw => fnStr.includes(kw))) {
+                // console.log("⚡ Turbo Triggered for:", kw); // Opsional untuk debug
+                return originalTimeout(fn, 0);
+            }
         }
         return originalTimeout(fn, delay);
     };
