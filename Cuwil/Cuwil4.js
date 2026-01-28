@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 4
 // @namespace    http://tampermonkey.net/
-// @version      3.116
+// @version      3.117
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil4.js
@@ -743,6 +743,7 @@ async function komentari() {
                 sendBtn.dispatchEvent(new MouseEvent("mousedown", opts));
                 sendBtn.dispatchEvent(new MouseEvent("mouseup", opts));
                 sendBtn.click(); // Kadang click() perlu sebagai trigger final
+                window.runBypassTurbo()
                 console.log("🔥 ATOMIC DISPATCH SENT");
 
                 // LOGIKA CEK TERKIRIM (Pindahkan ke luar thread utama agar tidak lag)
