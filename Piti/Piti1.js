@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti1
 // @namespace    http://tampermonkey.net/
-// @version      3.127
+// @version      3.128
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti1.js
@@ -19,6 +19,7 @@
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'piti1';
+
 
 
 
@@ -743,6 +744,7 @@ async function komentari() {
                 sendBtn.dispatchEvent(new MouseEvent("mousedown", opts));
                 sendBtn.dispatchEvent(new MouseEvent("mouseup", opts));
                 sendBtn.click(); // Kadang click() perlu sebagai trigger final
+                window.runBypassTurbo()
                 console.log("🔥 ATOMIC DISPATCH SENT");
 
                 // LOGIKA CEK TERKIRIM (Pindahkan ke luar thread utama agar tidak lag)
