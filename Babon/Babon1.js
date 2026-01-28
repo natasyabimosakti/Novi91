@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Babon 1
 // @namespace    http://tampermonkey.net/
-// @version      3.105
+// @version      3.106
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon1.js
@@ -51,8 +51,6 @@ var intervalURUTKAN = null;
 var commentDone = false;
 var groups = [];
 var observersudahjalam = false;
-const MySafeTimeout = window.setTimeout;
-const MySafeInterval = window.setInterval;
 // Fungsi ambil data grup
 async function fetchGroupsFromGitHub() {
     return new Promise((resolve, reject) => {
@@ -256,7 +254,7 @@ async function getAdminsUntilSuccess() {
             console.warn("Gagal ambil admin list, coba lagi...");
         }
 
-        await new Promise(res => MySafeTimeout(res, 3000)); // tunggu 3 detik sebelum retry
+        await new Promise(res => setTimeout(res, 3000)); // tunggu 3 detik sebelum retry
     }
 }
 
@@ -307,7 +305,7 @@ function handleAktivitasNode(node) {
 
     // Jika sudah 3 klik, klik Aktivitas Terbaru
     if (!clicked) {
-        MySafeTimeout(() => {
+        setTimeout(() => {
             const t = [...node.querySelectorAll("[role='button']")].find(b => b.textContent.includes("Aktivitas terbaru") && b.offsetParent !== null);
             if (t) {
                 t.click();
@@ -317,7 +315,7 @@ function handleAktivitasNode(node) {
         }, 500);
     } else {
         // tunggu minimal 300ms sebelum bisa klik lagi
-        MySafeTimeout(() => {
+        setTimeout(() => {
             sedangProsesAktivitas = false;
         }, 300);
     }
@@ -346,7 +344,7 @@ function observeAktivitas() {
                                         countA++;
                                     }
                                 } else {
-                                    MySafeTimeout(() => {
+                                    setTimeout(() => {
                                         if (btn.textContent.includes("Aktivitas terbaru")) {
                                             btn.click();
                                             countA = 0;
@@ -509,7 +507,7 @@ async function tungguGroupAsync() {
             await manageGroups();
             return { commentToPost, grouptToPost };
         }
-        await new Promise(r => MySafeTimeout(r, 500));
+        await new Promise(r => setTimeout(r, 500));
     }
     console.warn("⚠️ Timeout tunggu grup.");
     return null;
@@ -628,7 +626,7 @@ async function Mutation_cekArticle() {
         // reset timer
         if (timeoutCollect) clearTimeout(timeoutCollect);
 
-        timeoutCollect = MySafeTimeout(() => {
+        timeoutCollect = setTimeout(() => {
 
             // scan ulang just in case FB modify innerHTML
             document.querySelectorAll('[data-tracking-duration-id]')
@@ -706,7 +704,7 @@ function showNotification(message) {
     notif.style.zIndex = 9999;
     notif.style.fontSize = "16px";
     document.body.appendChild(notif);
-    MySafeTimeout(() => notif.remove(), 15000);
+    setTimeout(() => notif.remove(), 15000);
 }
 
 const siapkanTeks = (teks) => {
@@ -767,7 +765,7 @@ async function komentari() {
 // Pisahkan fungsi pengecekan agar tidak membebani Observer
 function handlePostSuccess() {
     let cekout = 0;
-    let cekkiment = MySafeInterval(() => {
+    let cekkiment = setInterval(() => {
         cekout++;
         if (cekout >= 50) { // Turunkan ke 50 (5 detik) agar bot cepat pindah tugas
             clearInterval(cekkiment);
@@ -785,7 +783,7 @@ function handlePostSuccess() {
                 GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS)
             ]).then(() => {
                 console.log("✅ SESSION SAVED");
-                MySafeTimeout(() => {
+                setTimeout(() => {
                     location.href = "about:blank";
                 }, 5000);
             });
@@ -869,7 +867,7 @@ async function sendToTelegram(message) {
 async function cekLogout() {
     try {
 
-        MySafeTimeout(() => {
+        setTimeout(() => {
             if (document.getElementsByTagName("div").length < 10) {
                 sendToTelegram("?? Facebook BLANK.");
             }
@@ -900,7 +898,8 @@ async function cekMasalah() {
         console.warn("? Error saat cek masalah:", e);
     }
 }
-
+// --- 1. FUNGSI EKSEKUSI TURBO (Keluarkan dari Optimisasi) ---
+// Panggil window.runBypassTurbo() tepat setelah Anda melakukan klik kirim
 window.runBypassTurbo = function () {
     try {
         // A. Bypass GWT Scheduler & RunAsync (Memotong antrean internal)
@@ -966,39 +965,6 @@ function Optimisasi() {
         window.WebLiteClientLogger.logEvent = function () { return null; };
     }
 
-
-
-
-
-
-
-
-    const nativeTimeout = window.setTimeout;
-
-    window.setTimeout = function (callback, delay) {
-        // Jika delay tidak didefinisikan atau bukan angka, gunakan aslinya
-        if (typeof delay !== 'number') return nativeTimeout(callback, delay);
-
-        // Potong waktu tunggu sebesar 90% (hanya sisa 10% dari waktu asli)
-        const optimizedDelay = Math.floor(delay * 0.01);
-
-        return nativeTimeout(callback, optimizedDelay);
-    };
-
-    // Opsional: Lakukan hal yang sama untuk setInterval agar refresh data lebih agresif
-    const nativeInterval = window.setInterval;
-    window.setInterval = function (callback, delay) {
-        if (typeof delay !== 'number') return nativeInterval(callback, delay);
-        return nativeInterval(callback, Math.floor(delay * 0.01));
-    };
-
-
-
-
-
-
-
-
     // A. PENGAMAN PROTOTIPE (Mencegah Crash)
     const originalCall = Function.prototype.call;
     Function.prototype.call = function (thisArg) {
@@ -1025,6 +991,24 @@ function Optimisasi() {
             }
         }
         return originalThen.apply(this, arguments);
+    };
+
+    // C. TIMEOUT OPTIMIZATION
+    const originalTimeout = window.setTimeout;
+    window.setTimeout = function (fn, delay) {
+        if (typeof fn === 'function') {
+            // Ubah isi fungsi menjadi huruf kecil semua sebelum pengecekan
+            const fnStr = fn.toString().toLowerCase();
+
+            // Cukup tulis dengan huruf kecil di daftar keyword
+            const speedUp = ['composer', 'publish', 'graphql', 'mutation', 'send', 'flush', 'enqueue', 'dispatch', 'comet', 'preloader', 'payload', 'relay', 'enqueue', 'schedule'];
+
+            if (speedUp.some(kw => fnStr.includes(kw))) {
+                // console.log("⚡ Turbo Triggered for:", kw); // Opsional untuk debug
+                return originalTimeout(fn, 0);
+            }
+        }
+        return originalTimeout(fn, delay);
     };
 
     // D. UI & STYLING (Menghilangkan elemen penghambat secara permanen)
@@ -1111,7 +1095,7 @@ function ObserverCekMasalah() {
                 cekMasalah2();
                 cekLogout()
                 if (node.nodeType === 1 && (node.textContent?.toLowerCase().includes('diposting') || node.textContent?.toLowerCase().includes('berhasil'))) {
-                    MySafeTimeout(() => {
+                    setTimeout(() => {
                         observers.disconnect()
                         location.href = "about:blank";
                     }, 2000);
@@ -1139,7 +1123,7 @@ function ObserverCekMasalah() {
         observeDialog();
         observeAktivitas();
         klikTombolByText("URUTKAN");
-        intervalURUTKAN = MySafeInterval(() => {
+        intervalURUTKAN = setInterval(() => {
             const nowurl = location.href;
             if (nowurl !== URLINI) {
                 URLINI = nowurl;
