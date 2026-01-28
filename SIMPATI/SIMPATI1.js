@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SIMPATI 1
 // @namespace    http://tampermonkey.net/
-// @version      3.30
+// @version      3.31
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI1.js
@@ -19,7 +19,6 @@
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'simpati1';
-
 
 
 var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Comment/${Comment18}.json`;
@@ -50,6 +49,7 @@ var intervalURUTKAN = null;
 var commentDone = false;
 var groups = [];
 var observersudahjalam = false;
+var observers = null
 // Fungsi ambil data grup
 async function fetchGroupsFromGitHub() {
     return new Promise((resolve, reject) => {
@@ -870,25 +870,18 @@ async function cekLogout() {
     }
 }
 async function cekMasalah() {
+    if (sudahkirim) return;
+    const dialog = document.querySelector("[role='dialog']");
+    if (!dialog) return;
 
-    try {
-        if (sudahkirim) return;
+    const isi = dialog?.textContent?.toLowerCase() || "";
+    const cleanText = isi.trim();
 
-        const dialog = document.querySelector("[role='dialog']");
-        if (!dialog) return;
-
-        const isi = dialog?.textContent?.toLowerCase() || "";
-        const cleanText = isi.trim();
-
-        if (isi.includes("masalah")) {
-            MsgError(SCRIPT_NAME)
-            observers.disconnect()
-            await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
-            location.href = "https://m.facebook.com/bookmarks/"
-        }
-
-    } catch (e) {
-        console.warn("? Error saat cek masalah:", e);
+    if (isi.includes("masalah")) {
+        MsgError(SCRIPT_NAME)
+        observers.disconnect()
+        await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
+        location.href = "https://m.facebook.com/bookmarks/"
     }
 }
 // --- 1. FUNGSI EKSEKUSI TURBO (Keluarkan dari Optimisasi) ---
@@ -983,36 +976,32 @@ function Optimisasi() {
 Optimisasi();
 
 async function cekMasalah2() {
-    try {
-        if (sudahkirim) return;
-        const elem = document.querySelectorAll("[data-long-click-action-id]")
-        if (!elem) return;
+    // 1. Cek flag di awal agar tidak double report
+    if (sudahkirim) return;
 
-        const adaMenunggu = Array.from(elem ?? []).some(el => el.textContent?.includes("Menunggu"));
-        Array.from(elem).forEach(el => {
-            const text = el.textContent;
-            if (text.includes("Menunggu")) {
-                const before = text.split("Menunggu")[0].trim();
-                observers.disconnect()
-            }
-        });
+    const elem = document.querySelectorAll("[data-long-click-action-id]");
+    if (!elem || elem.length === 0) return;
 
-        if (adaMenunggu) {
-            var before
-            Array.from(elem).forEach(el => {
-                const text = el.textContent;
-                if (text.includes("Menunggu")) {
-                    before = text.split("Menunggu")[0].trim();
-                    observers.disconnect()
-                }
-            });
-            MsgError(SCRIPT_NAME)
-            await sendToTelegram(`💩 Menunggu Persetujuan ${before}`);
+    // 2. Gunakan .find() daripada .forEach() untuk efisiensi
+    // Mencari elemen pertama yang mengandung kata "Menunggu"
+    const targetEl = Array.from(elem).find(el => el.textContent?.includes("Menunggu"));
 
+    if (targetEl) {
+        // 3. SEGERA set flag true & matikan observer
+        sudahkirim = true;
+        if (typeof observers !== 'undefined' && observers) {
+            observers.disconnect();
         }
 
-    } catch (e) {
-        console.warn("? Error saat cek masalah:", e);
+        // 4. Ambil teks secara aman
+        const text = targetEl.textContent;
+        const before = text.split("Menunggu")[0].trim() || "Seseorang";
+
+        // 5. Eksekusi pelaporan
+        MsgError(SCRIPT_NAME);
+        console.log(`⚠️ Masalah terdeteksi: Menunggu persetujuan ${before}`);
+
+        await sendToTelegram(`💩 Menunggu Persetujuan ${before}`);
     }
 }
 function MsgError(message) {
@@ -1031,15 +1020,17 @@ function MsgError(message) {
     ;
 }
 function ObserverCekMasalah() {
-    const observers = new MutationObserver((mutations) => {
+    // Simpan instance ke variabel yang sudah disiapkan
+    observers = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
             for (const node of mutation.addedNodes) {
                 cekMasalah();
                 cekMasalah2();
-                cekLogout()
+                cekLogout();
+
                 if (node.nodeType === 1 && (node.textContent?.toLowerCase().includes('diposting') || node.textContent?.toLowerCase().includes('berhasil'))) {
                     setTimeout(() => {
-                        observers.disconnect()
+                        stopObserver(); // Memanggil fungsi stop
                         location.href = "about:blank";
                     }, 5000);
                 }
@@ -1048,6 +1039,14 @@ function ObserverCekMasalah() {
     });
 
     observers.observe(document.body, { childList: true, subtree: true });
+}
+
+function stopObserver() {
+    if (observers) {
+        observers.disconnect();
+        observers = null; // Bersihkan memori
+        console.log("🛑 Observer berhasil dihentikan dari luar.");
+    }
 }
 // ===== MAIN FLOW =====
 (async () => {
