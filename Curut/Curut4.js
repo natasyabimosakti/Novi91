@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW CURUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.244
+// @version      3.245
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut4.js
@@ -50,6 +50,7 @@ var intervalURUTKAN = null;
 var commentDone = false;
 var groups = [];
 var observersudahjalam = false;
+var observers = null
 // Fungsi ambil data grup
 async function fetchGroupsFromGitHub() {
     return new Promise((resolve, reject) => {
@@ -716,16 +717,9 @@ const siapkanTeks = (teks) => {
 };
 
 // Panggil segera sebelum observer mulai
-window.stopFBGarbage = () => {
-    // Matikan interval internal FB yang sering cek status
-    let id = window.setTimeout(function () { }, 0);
-    while (id--) { window.clearTimeout(id); window.clearInterval(id); }
-    console.log("🧹 Semua interval sampah dihentikan!");
-};
+
 async function komentari() {
     ObserverCekMasalah()
-    // 1. Matikan beban berat sebelum observasi dimulai
-    if (window.stopFBGarbage) window.stopFBGarbage();
     let myObservere = new MutationObserver((mutations) => {
         if (commentDone) return;
 
@@ -767,7 +761,7 @@ function handlePostSuccess() {
     let cekout = 0;
     let cekkiment = setInterval(() => {
         cekout++;
-        if (cekout >= 50) { // Turunkan ke 50 (5 detik) agar bot cepat pindah tugas
+        if (cekout >= 70) { // Turunkan ke 50 (5 detik) agar bot cepat pindah tugas
             clearInterval(cekkiment);
             location.href = "about:blank";
         }
@@ -877,79 +871,87 @@ async function cekLogout() {
     }
 }
 async function cekMasalah() {
+    if (sudahkirim) return;
+    const dialog = document.querySelector("[role='dialog']");
+    if (!dialog) return;
 
-    try {
-        if (sudahkirim) return;
+    const isi = dialog?.textContent?.toLowerCase() || "";
+    const cleanText = isi.trim();
 
-        const dialog = document.querySelector("[role='dialog']");
-        if (!dialog) return;
-
-        const isi = dialog?.textContent?.toLowerCase() || "";
-        const cleanText = isi.trim();
-
-        if (isi.includes("masalah")) {
-            MsgError(SCRIPT_NAME)
-            observers.disconnect()
-            await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
-            location.href = "https://m.facebook.com/bookmarks/"
-        }
-
-    } catch (e) {
-        console.warn("? Error saat cek masalah:", e);
+    if (isi.includes("masalah")) {
+        MsgError(SCRIPT_NAME)
+        observers.disconnect()
+        await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
+        location.href = "https://m.facebook.com/bookmarks/"
     }
 }
 // --- 1. FUNGSI EKSEKUSI TURBO (Keluarkan dari Optimisasi) ---
 // Panggil window.runBypassTurbo() tepat setelah Anda melakukan klik kirim
 window.runBypassTurbo = function () {
-    // A. Bypass GWT Scheduler & RunAsync (Memotong antrean internal)
-    const gwt = window.GWT || window.$gwt;
-    if (gwt) {
-        gwt.scheduleDeferred = (task) => {
-            if (typeof task === 'function') task();
-            else if (task && typeof task.execute === 'function') task.execute();
-        };
-        gwt.runAsync = (id, cb) => { if (cb && cb.onSuccess) cb.onSuccess(); };
+    try {
+        // A. Bypass GWT Scheduler & RunAsync (Memotong antrean internal)
+        const gwt = window.GWT || window.$gwt;
+        if (gwt) {
+            gwt.scheduleDeferred = (task) => {
+                if (typeof task === 'function') task();
+                else if (task && typeof task.execute === 'function') task.execute();
+            };
+            gwt.runAsync = (id, cb) => { if (cb && cb.onSuccess) cb.onSuccess(); };
 
-        // Paksa mengosongkan antrean perintah saat ini juga
-        if (typeof gwt.flushDeferredCommands === 'function') {
-            gwt.flushDeferredCommands();
+
+            if (typeof gwt.flushDeferredCommands === 'function') {
+                gwt.flushDeferredCommands();
+            }
         }
+        if (window.WebLitePipe && typeof WebLitePipe.setFlushComplete === 'function') {
+            WebLitePipe.setFlushComplete(0);
+        }
+        // B. Bypass Validasi Teks (Source 1)
+        if (typeof window.FKc === "function") window.FKc = (a) => a;
+
+        // C. Force Socket Flush (Source 1 & 3)
+        const dispatcher = window.Dispatcher || window.AppDispatcher;
+        if (dispatcher && typeof dispatcher.flush === 'function') {
+            dispatcher.flush();
+        }
+
+        // D. Kill Logger agar bandwidth fokus ke socket komentar
+        const logger = window.WebLiteClientLogger || window.MarauderLogger;
+        if (logger) logger.logEvent = () => null;
+
+        console.log("⚡ Turbo Triggered: Verifikasi dibypass & Socket dipaksa flush!");
+    } catch (e) {
+        console.error("⚠️ Turbo Error (Handled):", e);
     }
-
-    // B. Bypass Validasi Teks (Source 1)
-    if (typeof window.FKc === "function") window.FKc = (a) => a;
-
-    // C. Force Socket Flush (Source 1 & 3)
-    const dispatcher = window.Dispatcher || window.AppDispatcher;
-    if (dispatcher && typeof dispatcher.flush === 'function') {
-        dispatcher.flush();
-    }
-
-    // D. Kill Logger agar bandwidth fokus ke socket komentar
-    const logger = window.WebLiteClientLogger || window.MarauderLogger;
-    if (logger) logger.logEvent = () => null;
-
-    console.log("⚡ Turbo Triggered: Verifikasi dibypass & Socket dipaksa flush!");
 };
 
 // --- 2. FUNGSI SETUP GLOBAL (Dijalankan Sekali) ---
 function Optimisasi() {
     console.log("⚡ Memulai Global Setup (Safe Mode)...");
+    // BAGIAN INI CUKUP 1X
+    if (window.WebLitePipe) {
+        // Memaksa FB mengabaikan waktu render layar (Source 5)
+        window.WebLitePipe.callAfterScreenRendered = function (f) { f(); };
+        const lockSesi = (val) => console.log("🔒 Session Locked");
+        window.WebLitePipe.setLoginId = lockSesi;
+        window.WebLitePipe.setPreSessionId = lockSesi;
+        // Menipu sistem agar menganggap inisialisasi sudah selesai 100%
+        window.WebLitePipe.setFirstResponseComplete();
 
-    // A. PENGAMAN PROTOTIPE (Mencegah Crash)
-    const originalCall = Function.prototype.call;
-    Function.prototype.call = function (thisArg) {
-        if (thisArg === null && this === originalCall) return;
-        return originalCall.apply(this, arguments);
-    };
+        // Membungkam pelaporan log agar tidak terdeteksi spam (Source 5)
 
-    const OriginalObserver = window.PerformanceObserver;
-    if (OriginalObserver) {
-        window.PerformanceObserver = function (callback) {
-            return new OriginalObserver((list, observer) => { return; });
-        };
-        window.PerformanceObserver.prototype = OriginalObserver.prototype;
     }
+    if (typeof envFlush === 'function') {
+        envFlush({
+            "dss": false, // Matikan penghemat data agar socket kencang
+            "pfs": true,  // Aktifkan prefetch untuk jalur data
+            "staticContentOnly": true
+        });
+    }
+    if (window.WebLiteClientLogger) {
+        window.WebLiteClientLogger.logEvent = function () { return null; };
+    }
+
 
     // B. BYPASS PROMISE (Mencegah penundaan async loading)
     const originalThen = Promise.prototype.then;
@@ -964,76 +966,43 @@ function Optimisasi() {
         return originalThen.apply(this, arguments);
     };
 
-    // C. TIMEOUT OPTIMIZATION
-    const originalTimeout = window.setTimeout;
-    window.setTimeout = function (fn, delay) {
-        if (typeof fn === 'function') {
-            const fnStr = fn.toString();
-            const speedUp = ['composer', 'publish', 'graphql', 'mutation', 'send'];
-            if (speedUp.some(kw => fnStr.includes(kw))) return originalTimeout(fn, 0);
-        }
-        return originalTimeout(fn, delay);
-    };
 
-    // D. UI & STYLING (Menghilangkan elemen penghambat secara permanen)
-    const style = document.createElement('style');
-    style.innerHTML = `
-        .loading-overlay, [class*="ProgressBar"], [role="progressbar"] {
-            display: none !important; visibility: hidden !important;
-        }
-        .textbox-submit-button { opacity: 1 !important; pointer-events: auto !important; }
-        * { transition: none !important; animation: none !important; }
-    `;
-    document.head.appendChild(style);
-
-    // E. AUTO-TRIGGER (Opsional: Memicu bypass otomatis saat mouse menekan tombol)
-    document.addEventListener('mousedown', (e) => {
-        if (e.target.closest('.textbox-submit-button')) {
-            window.runBypassTurbo();
-        }
-    }, true);
 
     // F. SPOOFING
     Object.defineProperty(navigator, 'deviceMemory', { get: () => 1 });
     Object.defineProperty(navigator, 'hardwareConcurrency', { get: () => 1 });
-
-    console.log("🚀 Setup Selesai. Gunakan window.runBypassTurbo() untuk eksekusi kilat.");
 }
 
 // Inisialisasi Setup
 Optimisasi();
 
 async function cekMasalah2() {
-    try {
-        if (sudahkirim) return;
-        const elem = document.querySelectorAll("[data-long-click-action-id]")
-        if (!elem) return;
+    // 1. Cek flag di awal agar tidak double report
+    if (sudahkirim) return;
 
-        const adaMenunggu = Array.from(elem ?? []).some(el => el.textContent?.includes("Menunggu"));
-        Array.from(elem).forEach(el => {
-            const text = el.textContent;
-            if (text.includes("Menunggu")) {
-                const before = text.split("Menunggu")[0].trim();
-                observers.disconnect()
-            }
-        });
+    const elem = document.querySelectorAll("[data-long-click-action-id]");
+    if (!elem || elem.length === 0) return;
 
-        if (adaMenunggu) {
-            var before
-            Array.from(elem).forEach(el => {
-                const text = el.textContent;
-                if (text.includes("Menunggu")) {
-                    before = text.split("Menunggu")[0].trim();
-                    observers.disconnect()
-                }
-            });
-            MsgError(SCRIPT_NAME)
-            await sendToTelegram(`💩 Menunggu Persetujuan ${before}`);
+    // 2. Gunakan .find() daripada .forEach() untuk efisiensi
+    // Mencari elemen pertama yang mengandung kata "Menunggu"
+    const targetEl = Array.from(elem).find(el => el.textContent?.includes("Menunggu"));
 
+    if (targetEl) {
+        // 3. SEGERA set flag true & matikan observer
+        sudahkirim = true;
+        if (typeof observers !== 'undefined' && observers) {
+            observers.disconnect();
         }
 
-    } catch (e) {
-        console.warn("? Error saat cek masalah:", e);
+        // 4. Ambil teks secara aman
+        const text = targetEl.textContent;
+        const before = text.split("Menunggu")[0].trim() || "Seseorang";
+
+        // 5. Eksekusi pelaporan
+        MsgError(SCRIPT_NAME);
+        console.log(`⚠️ Masalah terdeteksi: Menunggu persetujuan ${before}`);
+
+        await sendToTelegram(`💩 Menunggu Persetujuan ${before}`);
     }
 }
 function MsgError(message) {
@@ -1052,23 +1021,33 @@ function MsgError(message) {
     ;
 }
 function ObserverCekMasalah() {
-    const observers = new MutationObserver((mutations) => {
+    // Simpan instance ke variabel yang sudah disiapkan
+    observers = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
             for (const node of mutation.addedNodes) {
                 cekMasalah();
                 cekMasalah2();
-                cekLogout()
+                cekLogout();
+
                 if (node.nodeType === 1 && (node.textContent?.toLowerCase().includes('diposting') || node.textContent?.toLowerCase().includes('berhasil'))) {
                     setTimeout(() => {
-                        observers.disconnect()
+                        stopObserver(); // Memanggil fungsi stop
                         location.href = "about:blank";
-                    }, 2000);
+                    }, 5000);
                 }
             }
         }
     });
 
     observers.observe(document.body, { childList: true, subtree: true });
+}
+
+function stopObserver() {
+    if (observers) {
+        observers.disconnect();
+        observers = null; // Bersihkan memori
+        console.log("🛑 Observer berhasil dihentikan dari luar.");
+    }
 }
 // ===== MAIN FLOW =====
 (async () => {
