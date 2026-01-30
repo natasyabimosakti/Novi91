@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         BOSQUE 2
 // @namespace    http://tampermonkey.net/
-// @version      3.244
-// @description  try to take over the world!
+// @version      3.247
+// @description  try to take over the worldawadwdwdwd!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bosku/Bosku2.js
 // @author       You
