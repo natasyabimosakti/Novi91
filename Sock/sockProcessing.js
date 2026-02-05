@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Script 2: Data Processing
-// @version      3.1
+// @version      3.3
 // @match        https://*.facebook.com/*
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sock/sockProcessing.js
@@ -76,11 +76,11 @@ var robotsock = "off";
                 if (view.length < 100) {
                     if (contentStr.includes("diposting")) {
                         SuksessNotif("Telah Komentar")
-                        location.href = "about:blank";
+                        window.location.href = "about:blank";
                     }
                     if (contentStr.includes("Harap") && contentStr.includes("coba")) {
                         SuksessNotif("ERRRORRRR")
-                        location.href = "https://m.facebook.com/bookmarks/"
+                        window.location.href = "https://m.facebook.com/bookmarks/"
                     }
                 }
                 if (captureSwitch === "on") {
@@ -338,8 +338,8 @@ var robotsock = "off";
 
         // --- TAMPILAN FULL (TANPA GROUP COLLAPSED) ---
         console.log(`%c${label} [${view.length} bytes] %c Session: ${session} | ${syncSeq}`,
-            `color: ${color}; font-weight: bold; font-size: 11px;`,
-            `color: #aaa; font-size: 10px;`);
+                    `color: ${color}; font-weight: bold; font-size: 11px;`,
+                    `color: #aaa; font-size: 10px;`);
 
         if (msgExtracted) {
             console.log(`%c💬 MESSAGE : %c"${msgExtracted}"`, "color:#00ff41; font-weight:bold;", "color:#fff; background:#222; padding:2px;");
@@ -557,7 +557,7 @@ function cleanName(s) {
     function klikTombolByText(teks) {
         if (!document.location.href.includes("group") || komentdone) return;
         const tombol = Array.from(document.querySelectorAll('[role="button"], [tabindex="0"]'))
-            .find(el => el.textContent.trim() === teks);
+        .find(el => el.textContent.trim() === teks);
         if (tombol) {
             tombol.click();
             console.log(`✅ Klik tombol "${teks}"`);
@@ -705,8 +705,8 @@ function cleanName(s) {
         }
 
         const rotated = lastCount === 2
-            ? [angka[1], angka[0]]
-            : shuffleArray(angka);
+        ? [angka[1], angka[0]]
+        : shuffleArray(angka);
 
         const start = comment.slice(0, lastNums[0].index);
         const end = comment.slice(lastNums[lastCount - 1].index + 2);
