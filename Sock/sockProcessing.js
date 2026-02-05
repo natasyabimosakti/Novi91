@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Script 2: Data Processing
-// @version      3.0
+// @version      3.1
 // @match        https://*.facebook.com/*
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sock/sockProcessing.js
@@ -16,7 +16,7 @@
 
 
 
-var captureSwitch = "off";
+var captureSwitch = "on";
 let socket = null;
 let lastSession = null;
 let lastSync = 0
@@ -76,9 +76,11 @@ var robotsock = "off";
                 if (view.length < 100) {
                     if (contentStr.includes("diposting")) {
                         SuksessNotif("Telah Komentar")
+                        location.href = "about:blank";
                     }
                     if (contentStr.includes("Harap") && contentStr.includes("coba")) {
                         SuksessNotif("ERRRORRRR")
+                        location.href = "https://m.facebook.com/bookmarks/"
                     }
                 }
                 if (captureSwitch === "on") {
@@ -106,7 +108,7 @@ var robotsock = "off";
                         if (tempStorage.length > 0) {
                             arrayData = [];
                             listID = tempStorage; // Data lama terhapus, diganti data terbaru
-
+                            console.log(`LIST ID = ${listID.length}`)
                             let matches = [...contentStr.matchAll(/data-tracking-duration-id/g)];
 
                             matches.forEach((match, i) => {
@@ -115,12 +117,13 @@ var robotsock = "off";
                                 let chunk = contentStr.substring(start, end);
 
                                 // Simpan chunk jika memenuhi syarat
-                                if (chunk.length > 500 || i === matches.length - 1) {
+                                if (chunk.length > 11 || i === matches.length - 1) {
                                     arrayData.push(chunk);
                                 }
                             });
                             starkirim()
 
+                            console.log(`ARRAY data-tracking = ${arrayData.length}`)
 
                         } else {
                         }
