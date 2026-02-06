@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Script 2: Data Processing
-// @version      3.5
+// @version      3.6
 // @match        https://*.facebook.com/*
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sock/sockProcessing.js
@@ -16,7 +16,7 @@
 
 
 
-var captureSwitch = "on";
+var captureSwitch = "off";
 let socket = null;
 let lastSession = null;
 let lastSync = 0
