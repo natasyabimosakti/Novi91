@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Script 2: Data Processing
-// @version      3.4
+// @version      3.5
 // @match        https://*.facebook.com/*
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sock/sockProcessing.js
@@ -51,7 +51,7 @@ var observercontetAktivitas = null;
 var EXPIRATION_MS = 1 * 60 * 1000; // 5 minutes
 var observersudahjalam = false;
 var kirimkomentar = false;
-
+var sedangjalan = false
 // var refresh
 //          head                 session           sync & Seq     Kilk ID
 //📜 HEX : 00 34 02    c4 1b a9 be e2 3d 28 85   00 a9 00 c0  00 01 02 09  00 01 02 12 00 00 00 00 00 00 00 00 40 00 00 00 18 ff ff ff ff 00 00 01 9c 20 dc 2f 44 0c 02 5c 00 04 00
@@ -111,7 +111,7 @@ var robotsock = "off";
                             listID = tempStorage; // Data lama terhapus, diganti data terbaru
                             console.log(`LIST ID = ${listID.length}`)
                             let matches = [...contentStr.matchAll(/data-tracking-duration-id/g)];
-
+                            sedangjalan = true
                             matches.forEach((match, i) => {
                                 let start = match.index;
                                 let end = matches[i + 1] ? matches[i + 1].index : contentStr.length;
@@ -120,6 +120,7 @@ var robotsock = "off";
                                 // Simpan chunk jika memenuhi syarat
                                 if (chunk.length > 11 || i === matches.length - 1) {
                                     arrayData.push(chunk);
+
                                 }
                             });
                             starkirim()
@@ -187,6 +188,7 @@ var robotsock = "off";
                         filler2[10] = 0x00;
                         filler2[11] = 0x00;
                         filler2[12] = 0x0c;
+                        sedangjalan = true
                         break;
                     }
                 }
@@ -242,6 +244,7 @@ var robotsock = "off";
     }
     function starkirim() {
         if (!komentdone) {
+            sedangjalan = true
             if (arrayData.length > 0 && listID.length > 0 && gwtHeaderFiller.length > 0 && pengisi.length > 0 && filler2.length > 0 && sync.length > 0) {
                 for (let i = 0; i < arrayData.length; i++) {
                     // Cek jika chunk mengandung "room" dan belum pernah diproses
@@ -264,6 +267,7 @@ var robotsock = "off";
                 }
             }
         }
+        sedangjalan = false
     }
     // 1000 ms = 1 detik
     // --- FUNGSI TEMBAK ---
@@ -449,6 +453,7 @@ function cleanName(s) {
 async function cek_artikel() {
     cekkiment = setInterval(async () => {
         if (komentdone) return
+        if (sedangjalan) return
         await waitNoDialog();
         let data = document.querySelectorAll('[data-tracking-duration-id]')
         var found_artikle = false
