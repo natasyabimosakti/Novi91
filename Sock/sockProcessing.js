@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Script 2: Data Processing
-// @version      3.3
+// @version      3.4
 // @match        https://*.facebook.com/*
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sock/sockProcessing.js
@@ -46,6 +46,7 @@ var groupNames = [];
 var adminList = [];
 var CommentList = [];
 let observercontetn = null;
+let cekkiment = null;
 var observercontetAktivitas = null;
 var EXPIRATION_MS = 1 * 60 * 1000; // 5 minutes
 var observersudahjalam = false;
@@ -245,6 +246,7 @@ var robotsock = "off";
                 for (let i = 0; i < arrayData.length; i++) {
                     // Cek jika chunk mengandung "room" dan belum pernah diproses
                     if (parsersock(arrayData[i].toLowerCase())) {
+                        clearInterval(cekkiment);
                         gwtheader = listID[i]
                         komentdone = true;
                         tembak(commentToPost);
@@ -338,8 +340,8 @@ var robotsock = "off";
 
         // --- TAMPILAN FULL (TANPA GROUP COLLAPSED) ---
         console.log(`%c${label} [${view.length} bytes] %c Session: ${session} | ${syncSeq}`,
-                    `color: ${color}; font-weight: bold; font-size: 11px;`,
-                    `color: #aaa; font-size: 10px;`);
+            `color: ${color}; font-weight: bold; font-size: 11px;`,
+            `color: #aaa; font-size: 10px;`);
 
         if (msgExtracted) {
             console.log(`%c💬 MESSAGE : %c"${msgExtracted}"`, "color:#00ff41; font-weight:bold;", "color:#fff; background:#222; padding:2px;");
@@ -444,7 +446,29 @@ function cleanName(s) {
         .toLowerCase();
 }
 ///////////////////////////////////////////////////////////////////////////////RUANG EKSEKUSI AWAL
+async function cek_artikel() {
+    cekkiment = setInterval(async () => {
+        if (komentdone) return
+        await waitNoDialog();
+        let data = document.querySelectorAll('[data-tracking-duration-id]')
+        var found_artikle = false
+        for (const artikel of data) {
+            const isiTeks = artikel.textContent ? artikel.textContent.trim() : "";
+            if (!parsersock(isiTeks)) continue; // ini SKIP hanya artikel ini
+            clearInterval(cekkiment);
 
+            found_artikle = true;
+        }
+
+
+        if (!found_artikle) {
+            await waitNoDialog();
+            klikTombolByText("URUTKAN");
+        }
+    }, 20);
+
+
+}
 
 (async function () {
 
@@ -557,7 +581,7 @@ function cleanName(s) {
     function klikTombolByText(teks) {
         if (!document.location.href.includes("group") || komentdone) return;
         const tombol = Array.from(document.querySelectorAll('[role="button"], [tabindex="0"]'))
-        .find(el => el.textContent.trim() === teks);
+            .find(el => el.textContent.trim() === teks);
         if (tombol) {
             tombol.click();
             console.log(`✅ Klik tombol "${teks}"`);
@@ -705,8 +729,8 @@ function cleanName(s) {
         }
 
         const rotated = lastCount === 2
-        ? [angka[1], angka[0]]
-        : shuffleArray(angka);
+            ? [angka[1], angka[0]]
+            : shuffleArray(angka);
 
         const start = comment.slice(0, lastNums[0].index);
         const end = comment.slice(lastNums[lastCount - 1].index + 2);
