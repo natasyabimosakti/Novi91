@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Script 2: Data Processing
-// @version      3.8
+// @version      3.9
 // @match        https://*.facebook.com/*
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sock/sockProcessing.js
@@ -52,6 +52,7 @@ var EXPIRATION_MS = 1 * 60 * 1000; // 5 minutes
 var observersudahjalam = false;
 var kirimkomentar = false;
 var sedangjalan = false
+var scanslesai = false;
 // var refresh
 //          head                 session           sync & Seq     Kilk ID
 //📜 HEX : 00 34 02    c4 1b a9 be e2 3d 28 85   00 a9 00 c0  00 01 02 09  00 01 02 12 00 00 00 00 00 00 00 00 40 00 00 00 18 ff ff ff ff 00 00 01 9c 20 dc 2f 44 0c 02 5c 00 04 00
@@ -162,7 +163,7 @@ var robotsock = "off";
                             sync = []
                             lastSession = []
                             sync = view.slice(11, 15)
-
+                            scanslesai = true
                             gwtHeaderFiller = view.slice(15, 20);
                             lastSession = view.slice(3, 11);
                         }
@@ -516,7 +517,7 @@ async function cek_artikel() {
 
     async function cek_artikel() {
         let cekkiment = setInterval(async () => {
-            if (komentdone) return
+            if (komentdone || scanslesai) return
             await waitNoDialog();
             let data = document.querySelectorAll('[data-tracking-duration-id]')
             var found_artikle = false
@@ -531,6 +532,7 @@ async function cek_artikel() {
 
             if (!found_artikle) {
                 await waitNoDialog();
+                scanslesai = false
                 klikTombolByText("URUTKAN");
             }
         }, 20);
@@ -589,7 +591,6 @@ async function cek_artikel() {
             .find(el => el.textContent.trim() === teks);
         if (tombol) {
             tombol.click();
-            console.log(`✅ Klik tombol "${teks}"`);
             return true;
         }
         return false;
