@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Script 2: Data Processing
-// @version      3.6
+// @version      3.7
 // @match        https://*.facebook.com/*
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sock/sockProcessing.js
@@ -90,7 +90,7 @@ var robotsock = "off";
                 }
                 if (robotsock === "on") {
 
-                    if (view.length > 1000) {
+                    if (view.length > 500) {
                         let tempStorage = []; // Simpan sementara di sini
 
                         for (let i = 1000; i <= view.length - 7; i++) {
