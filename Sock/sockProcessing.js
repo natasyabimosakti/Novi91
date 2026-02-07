@@ -95,7 +95,7 @@ var robotsock = "off";
                     if (view.length > 100) {
                         let tempStorage = []; // Simpan sementara di sini
 
-                        for (let i = 500; i <= view.length - 7; i++) {
+                        for (let i = 200; i <= view.length - 7; i++) {
                             if (view[i] === pattern[0] &&
                                 view[i + 1] === pattern[1] &&
                                 view[i + 2] === pattern[2] &&
