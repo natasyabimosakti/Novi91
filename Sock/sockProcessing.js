@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name         Script 2: Data Processing
-// @version      3.9
+// @version      3.10
 // @match        https://*.facebook.com/*
 // @grant        none
+// @run-at       document-start
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sock/sockProcessing.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sock/sockProcessing.js
 // @connect      api.telegram.org
