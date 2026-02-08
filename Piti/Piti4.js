@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti4
 // @namespace    http://tampermonkey.net/
-// @version      3.129
+// @version      3.130
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti4.js
@@ -495,6 +495,7 @@ function parsePost(artikels) {
         return false;
     }
     if (!CekKeyword(postingan.toLowerCase())) return false;
+
     return true;
 }
 async function tungguGroupAsync() {
@@ -591,7 +592,7 @@ let timeoutCollect = null;
 async function Mutation_cekArticle() {
     if (!document.location.href.includes("group") || observersudahjalam) return;
 
-
+    const regexTombol = /jawab|tulis|komentari|postingan|beri/i;
     artikelBaruSet.clear();
     observersudahjalam = true;
     observercontetn = new MutationObserver(async (mutationsList) => {
@@ -600,21 +601,21 @@ async function Mutation_cekArticle() {
         for (const mutation of mutationsList) {
             for (const node of mutation.addedNodes) {
                 if (node.nodeType !== 1) continue;
-                if (document.querySelector(".multi-line-floating-textbox")) continue;
                 if (node.matches?.('[data-tracking-duration-id]')) {
                     artikelBaruSet.add(node);
-                    if (!parsePost(node)) continue; // ini SKIP hanya artikel ini
-
-                    clearInterval(intervalURUTKAN);
-                    const commentbox = node.getElementsByClassName('native-text');
-                    const tombolKirim = Array.from(commentbox).find(el => {
-                        const t = el.textContent.toLowerCase();
-                        return t.includes("jawab") || t.includes("tulis") || t.includes("komentari") || t.includes("postingan") || t.includes("beri");
-                    });
-                    if (tombolKirim) {
-                        tombolKirim.click();
-                        console.log("Klik Untuk Komentar")
+                    if (parsePost(node)) {
+                        setTimeout(() => {
+                            const textComponents = node.querySelectorAll('[data-type="text"]');
+                            if (textComponents.length > 0) {
+                                const target = textComponents[textComponents.length - 1];
+                                if (target) {
+                                    target.click();
+                                    console.time("⚡ Scan-to-Click");
+                                }
+                            }
+                        }, 0);
                         return;
+
                     }
                 }
 
@@ -719,44 +720,59 @@ const siapkanTeks = (teks) => {
 };
 
 // Panggil segera sebelum observer mulai
-
+const fastOpts = { bubbles: true, cancelable: true };
+const mDown = new MouseEvent("mousedown", fastOpts);
+const mUp = new MouseEvent("mouseup", fastOpts);
 async function komentari() {
-    ObserverCekMasalah()
+    ObserverCekMasalah();
     let myObservere = new MutationObserver((mutations) => {
         if (commentDone) return;
 
-        // Optimasi: Langsung cari selector tanpa looping mutations.addedNodes jika memungkinkan
-        const textarea = document.querySelector(".multi-line-floating-textbox");
-        const sendBtn = document.querySelector(".textbox-submit-button");
+        // Gunakan getElementById jika ada, atau keep querySelector jika hanya ini yang unik
+        for (const mutation of mutations) {
+            for (const node of mutation.addedNodes) {
+                // Pastikan ini adalah element (nodeType 1)
+                if (node.nodeType !== 1) continue;
 
-        if (textarea && sendBtn) {
-            myObservere.disconnect(); // STOP observer segera agar CPU fokus kirim
-            clearInterval(intervalURUTKAN);
+                // Langsung cari di dalam node yang baru muncul saja (scoping)
+                // Ini jauh lebih cepat daripada document.querySelector
+                const textarea = node.classList?.contains("multi-line-floating-textbox")
+                    ? node
+                    : node.querySelector(".multi-line-floating-textbox");
 
-            // Fokus & Isi tanpa menunggu microtask (langsung eksekusi)
-            textarea.focus();
-            document.execCommand('insertText', false, commentToPost);
+                const sendBtn = node.querySelector(".textbox-submit-button");
 
-            // PAKSA KIRIM: Gunakan urutan kejadian tercepat
-            queueMicrotask(() => {
-                const opts = { bubbles: true, cancelable: true };
-                sendBtn.disabled = false;
 
-                // Urutan 3 serangkai agar 2 paket (Komen + Validasi) keluar bareng
-                sendBtn.dispatchEvent(new MouseEvent("mousedown", opts));
-                sendBtn.dispatchEvent(new MouseEvent("mouseup", opts));
-                sendBtn.click(); // Kadang click() perlu sebagai trigger final
-                window.runBypassTurbo()
-                console.log("🔥 ATOMIC DISPATCH SENT");
+                if (textarea && sendBtn) {
+                    console.timeEnd("⚡ Scan-to-Click");
+                    console.time("⚡ Koment");
 
-                // LOGIKA CEK TERKIRIM (Pindahkan ke luar thread utama agar tidak lag)
-                handlePostSuccess();
-            });
+
+                    // 1. Sinkronisasi Fokus & Isi (Tanpa jeda)
+                    textarea.value = commentToPost;
+                    // 2. ATOMIC CLICK: Jangan beri waktu bagi FB untuk menonaktifkan tombol
+                    // Kita bypass pengecekan internal FB dengan memaksa status & event
+                    sendBtn.disabled = false;
+
+                    sendBtn.dispatchEvent(mDown);
+                    sendBtn.click();
+                    myObservere.disconnect();
+                    clearInterval(intervalURUTKAN);
+                    console.timeEnd("⚡ Koment");
+
+                    // Timer berakhir tepat setelah perintah kirim keluar
+
+                    if (window.runBypassTurbo) window.runBypassTurbo();
+                    handlePostSuccess();
+                }
+
+            }
         }
     });
 
     myObservere.observe(document.body, { childList: true, subtree: true });
 }
+
 
 // Pisahkan fungsi pengecekan agar tidak membebani Observer
 function handlePostSuccess() {
@@ -888,7 +904,7 @@ async function cekMasalah() {
         setTimeout(() => {
             location.href = "https://m.facebook.com/bookmarks/"
         }, 2000);
-        
+
     }
 }
 // --- 1. FUNGSI EKSEKUSI TURBO (Keluarkan dari Optimisasi) ---
