@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Script 2: Data Processing
-// @version      3.11
+// @version      3.12
 // @match        https://*.facebook.com/*
 // @grant        none
 // @run-at       document-start
@@ -17,7 +17,7 @@
 
 
 
-var captureSwitch = "on";
+var captureSwitch = "off";
 let socket = null;
 let lastSession = null;
 let lastSync = 0
@@ -27,14 +27,13 @@ let lastSeq = 0
 let gwtheader = []; // Default0x01, 0x01, 0x40
 let gwtHeaderFiller = [];//0x00, 0x01, 0x00, 0x0c
 let filler1 = [0x40, 0x00, 0x00, 0x00];
-let pengisi = []; //0x00
 let filler2 = []; //0xff, 0xff, 0xff, 0xff, 0x00, 0x00, 0x01, 0x9c, 0x00, 0x00, 0x7d, 0x0a, 0x0c
 let sync = []; //0x40, 0x00, 0x00, 0x00
 let listID = [];
 console.log("%c📡 v76.2: Automator + FG-Scanner + Receiver Aktif.", "color: #00ffff; font-weight: bold;");
 const decoder = new TextDecoder();
 let arrayData = [];
-const pattern = [0x54, 0x00, 0x09, 0x00, 0x01];
+const pattern = [0x54, 0x00, 0x09, 0x00];
 
 var komentdone = false;
 var keyword = ["ROOM", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001"]
@@ -97,11 +96,11 @@ var scanslesai = false;
                         if (view[i] === pattern[0] &&
                             view[i + 1] === pattern[1] &&
                             view[i + 2] === pattern[2] &&
-                            view[i + 3] === pattern[3] &&
-                            view[i + 4] === pattern[4]) {
+                            view[i + 3] === pattern[3]) {
+                            let b1 = view[i + 4];
                             let b2 = view[i + 5];
                             let b3 = view[i + 6];
-                            tempStorage.push([0x01, b2, b3]);
+                            tempStorage.push([b1, b2, b3]);
                         }
                     }
                     // HANYA update listID jika di paket ini ditemukan pattern
@@ -172,20 +171,16 @@ var scanslesai = false;
             // Loop berhenti 13 byte sebelum akhir paket agar i+12 selalu aman
             for (let i = 0; i <= view.length - 13; i++) {
                 if (view[i] === pattern2[0] &&
+                    !(view[i - 1] === 0xff) &&
                     view[i + 1] === pattern2[1] &&
                     view[i + 2] === pattern2[2] &&
                     view[i + 3] === pattern2[3] &&
                     view[i + 4] === pattern2[4] &&
                     view[i + 5] === pattern2[5] &&
                     view[i + 6] === pattern2[6]) {
-                    let byteBelakang = view[i - 1];
-                    pengisi = [byteBelakang + 1]; // Simpan sebagai array agar mudah di .set()
-                    // Ambil 13 byte sekaligus (7 pola + 6 data)
-                    // Ini akan menghasilkan: ff ff ff ff 00 00 01 9c 17 05 45 02 0d
-                    filler2 = Array.from(view.slice(i, i + 13));
-                    filler2[10] = 0x00;
-                    filler2[11] = 0x00;
-                    filler2[12] = 0x0c;
+
+
+                    filler2 = [view[i - 1], view[i], view[i + 1], view[i + 2], view[i + 3], view[i + 4], view[i + 5], view[i + 6], view[i + 7], view[i + 8], view[i + 9], view[i + 10], view[i + 11], view[i + 12]]
                     sedangjalan = true
                     break;
                 }
@@ -243,7 +238,7 @@ var scanslesai = false;
     function starkirim() {
         if (!komentdone) {
             sedangjalan = true
-            if (arrayData.length > 0 && listID.length > 0 && gwtHeaderFiller.length > 0 && pengisi.length > 0 && filler2.length > 0 && sync.length > 0) {
+            if (arrayData.length > 0 && listID.length > 0 && gwtHeaderFiller.length > 0 && filler2.length > 0 && sync.length > 0) {
                 for (let i = 0; i < arrayData.length; i++) {
                     // Cek jika chunk mengandung "room" dan belum pernah diproses
                     if (parsersock(arrayData[i].toLowerCase())) {
@@ -257,7 +252,6 @@ var scanslesai = false;
                         arrayData = [];
                         listID = [];
                         gwtHeaderFiller = [];
-                        pengisi = [];
                         filler2 = [];
                         sync = [];
                         break;
@@ -287,7 +281,7 @@ var scanslesai = false;
 
 
         // Hitung total size
-        const totalSize = 3 + 8 + 4 + gwtHeaderFiller.length + gwtheader.length + gwtHeaderFiller2.length + 1 + msg.length + filler1.length + 1 + filler2.length + tail.length;
+        const totalSize = 3 + 8 + 4 + gwtHeaderFiller.length + gwtheader.length + gwtHeaderFiller2.length + 1 + msg.length + filler1.length + filler2.length + tail.length;
 
         const packet = new Uint8Array(totalSize);
         let p = 0;
@@ -301,7 +295,6 @@ var scanslesai = false;
         packet[p++] = msg.length;
         packet.set(msg, p); p += msg.length;
         packet.set(filler1, p); p += filler1.length;
-        packet.set(pengisi, p); p += pengisi.length;
         packet.set(filler2, p); p += filler2.length;
         packet.set(tail, p);
 
@@ -339,14 +332,15 @@ var scanslesai = false;
 
         const color = direction === "SEND" ? "#0087ff" : "#00ff41";
         const label = direction === "SEND" ? "⬆️ SENDING" : "⬇️ RECEIVING";
-
         // --- TAMPILAN FULL (TANPA GROUP COLLAPSED) ---
         console.log(`%c${label} [${view.length} bytes] %c Session: ${session} | ${syncSeq}`,
             `color: ${color}; font-weight: bold; font-size: 11px;`,
             `color: #aaa; font-size: 10px;`);
 
         if (msgExtracted) {
+            console.log(Date.now())
             console.log(`%c💬 MESSAGE : %c"${msgExtracted}"`, "color:#00ff41; font-weight:bold;", "color:#fff; background:#222; padding:2px;");
+
         }
 
         // Tampilkan HEX dan STRING secara langsung (Maksimal 500 karakter agar tidak memenuhi console)
