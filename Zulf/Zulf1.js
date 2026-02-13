@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF1
 // @namespace    http://tampermonkey.net/
-// @version      3.95
+// @version      3.96
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
@@ -43,7 +43,7 @@ const VERSION_KEY = "cachedAdminVersion";
 var commentToPost = '';
 var grouptToPost = '';
 var now = Date.now();
-var EXPIRATION_MS = 1 * 60 * 1000; // 5 minutes
+var EXPIRATION_MS = 5 * 60 * 1000; // 5 minutes
 var URLINI = "";
 // Global arrays / variabel yang sebelumnya hardcode
 var groupNames = [];
@@ -521,6 +521,8 @@ async function tungguGroupAsync() {
 
 var sudahDiPanggil = false
 async function manageGroups() {
+    if (window.isManaging) return;
+    window.isManaging = true;
     const now = Date.now(); // update timestamp terbaru
     for (const { groupId, defaultValue } of groups) {
         const key = `group_${groupId}`;
@@ -536,13 +538,18 @@ async function manageGroups() {
     }
 
     const groupKey = `group_${grouptToPost}`;
-    if (groupKey === "group_") return;
+    if (groupKey === "group_") {
+        window.isManaging = false;
+        return;
+    }
     const sudahKomentar = await GM.getValue(groupKey, false);
     if (sudahKomentar) {
+        window.isManaging = false;
         console.log(`Sudah Komentar  ${now}`)
         location.href = "about:blank";
         return;
     }
+    window.isManaging = false; // Buka kunci jika proses selesai
 }
 
 function CekBacklist(postinganBL) {
@@ -727,13 +734,12 @@ async function komentari() {
     ObserverCekMasalah();
     let myObservere = new MutationObserver((mutations) => {
         if (commentDone) return;
-
         // Gunakan getElementById jika ada, atau keep querySelector jika hanya ini yang unik
         for (const mutation of mutations) {
+
             for (const node of mutation.addedNodes) {
                 // Pastikan ini adalah element (nodeType 1)
-                if (node.nodeType !== 1) continue;
-
+                if (commentDone || node.nodeType !== 1) continue;
                 // Langsung cari di dalam node yang baru muncul saja (scoping)
                 // Ini jauh lebih cepat daripada document.querySelector
                 const textarea = node.classList?.contains("multi-line-floating-textbox")
@@ -742,21 +748,16 @@ async function komentari() {
 
                 const sendBtn = node.querySelector(".textbox-submit-button");
 
-
                 if (textarea && sendBtn) {
+                    commentDone = true;
+                    myObservere.disconnect();
                     console.timeEnd("⚡ Scan-to-Click");
                     console.time("⚡ Koment");
-
-
                     // 1. Sinkronisasi Fokus & Isi (Tanpa jeda)
                     textarea.value = commentToPost;
-                    // 2. ATOMIC CLICK: Jangan beri waktu bagi FB untuk menonaktifkan tombol
-                    // Kita bypass pengecekan internal FB dengan memaksa status & event
                     sendBtn.disabled = false;
-
                     sendBtn.dispatchEvent(mDown);
                     sendBtn.click();
-                    myObservere.disconnect();
                     clearInterval(intervalURUTKAN);
                     console.timeEnd("⚡ Koment");
 
@@ -764,9 +765,11 @@ async function komentari() {
 
                     if (window.runBypassTurbo) window.runBypassTurbo();
                     handlePostSuccess();
+                    return;
                 }
 
             }
+            if (commentDone) break;
         }
     });
 
@@ -776,31 +779,18 @@ async function komentari() {
 
 // Pisahkan fungsi pengecekan agar tidak membebani Observer
 function handlePostSuccess() {
-    let cekout = 0;
-    let cekkiment = setInterval(() => {
-        cekout++;
-        if (cekout >= 70) { // Turunkan ke 50 (5 detik) agar bot cepat pindah tugas
-            clearInterval(cekkiment);
+    // Cari snackbar atau tanda berhasil
+    // Simpan data GM secara asinkron
+    Promise.all([
+        GM.setValue("group_" + grouptToPost, true),
+        GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS)
+    ]).then(() => {
+        console.log("✅ SESSION SAVED");
+        setTimeout(() => {
             location.href = "about:blank";
-        }
+        }, 5000);
+    });
 
-        // Cari snackbar atau tanda berhasil
-        if (document.querySelector(".snackbar-container, .loading-overlay")) {
-            clearInterval(cekkiment);
-            commentDone = true;
-
-            // Simpan data GM secara asinkron
-            Promise.all([
-                GM.setValue("group_" + grouptToPost, true),
-                GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS)
-            ]).then(() => {
-                console.log("✅ SESSION SAVED");
-                setTimeout(() => {
-                    location.href = "about:blank";
-                }, 5000);
-            });
-        }
-    }, 500);
 }
 
 
