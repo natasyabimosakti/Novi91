@@ -1,9 +1,8 @@
 // ==UserScript==
 // @name         Script 2: Data Processing
-// @version      3.12
+// @version      3.13
 // @match        https://*.facebook.com/*
 // @grant        none
-// @run-at       document-start
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sock/sockProcessing.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Sock/sockProcessing.js
 // @connect      api.telegram.org
@@ -53,311 +52,337 @@ var observersudahjalam = false;
 var kirimkomentar = false;
 var sedangjalan = false
 var scanslesai = false;
+let hasilIDs =[]
 // var refresh
 //          head                 session           sync & Seq     Kilk ID
 //📜 HEX : 00 34 02    c4 1b a9 be e2 3d 28 85   00 a9 00 c0  00 01 02 09  00 01 02 12 00 00 00 00 00 00 00 00 40 00 00 00 18 ff ff ff ff 00 00 01 9c 20 dc 2f 44 0c 02 5c 00 04 00
 
 
 ////RUANG SOCKET
-(function () {
-    'use strict';
-    ////////////////////////////////////////// ROBOT SOCK
+
+'use strict';
+////////////////////////////////////////// ROBOT SOCK
 
 
-    // --- HOOK WEBSOCKET UNTUK DATA MASUK & KELUAR ---
-    const OriginalWebSocket = window.WebSocket;
-    window.WebSocket = function (...args) {
-        const ws = new OriginalWebSocket(...args);
-        // Mencegat data MASUK (RECEIVING)
-        ws.addEventListener('message', function (event) {
-            let view = new Uint8Array(event.data);
-            const contentStr = decoder.decode(view);
+// --- HOOK WEBSOCKET UNTUK DATA MASUK & KELUAR ---
+const OriginalWebSocket = window.WebSocket;
+window.WebSocket = function (...args) {
+    const ws = new OriginalWebSocket(...args);
+    socket = ws;
+    // Mencegat data MASUK (RECEIVING)
+    ws.addEventListener('message', function (event) {
+        let view = new Uint8Array(event.data);
+        const contentStr = decoder.decode(view);
 
-            if (event.data instanceof ArrayBuffer) {
-                if (view.length < 100) {
-                    if (contentStr.includes("diposting")) {
-                        SuksessNotif("Telah Komentar")
-                        window.location.href = "about:blank";
-                    }
-                    if (contentStr.includes("Harap") && contentStr.includes("coba")) {
-                        SuksessNotif("ERRRORRRR")
-                        window.location.href = "https://m.facebook.com/bookmarks/"
-                    }
+
+
+        if (event.data instanceof ArrayBuffer) {
+            if (view.length < 100) {
+                if (contentStr.includes("diposting")) {
+                    SuksessNotif("Telah Komentar")
+                    window.location.href = "about:blank";
                 }
-                if (captureSwitch === "on") {
-
-                    humanize(event.data, "RECV");
+                if (contentStr.includes("Harap") && contentStr.includes("coba")) {
+                    SuksessNotif("ERRRORRRR")
+                    window.location.href = "https://m.facebook.com/bookmarks/"
                 }
-
-                if (view.length > 100) {
-                    let tempStorage = []; // Simpan sementara di sini
-
-                    for (let i = 0; i <= view.length - 7; i++) {
-                        if (view[i] === pattern[0] &&
-                            view[i + 1] === pattern[1] &&
-                            view[i + 2] === pattern[2] &&
-                            view[i + 3] === pattern[3]) {
-                            let b1 = view[i + 4];
-                            let b2 = view[i + 5];
-                            let b3 = view[i + 6];
-                            tempStorage.push([b1, b2, b3]);
-                        }
-                    }
-                    // HANYA update listID jika di paket ini ditemukan pattern
-                    if (tempStorage.length > 0) {
-                        arrayData = [];
-                        listID = tempStorage; // Data lama terhapus, diganti data terbaru
-
-                        console.log(`LIST ID = ${listID.length}`)
-                        let patternRegex = /data-tracking-duration-id/g;
-                        let matches = [...contentStr.matchAll(patternRegex)];
-                        sedangjalan = true
-                        matches.forEach((match, i) => {
-                            let start = match.index;
-                            let end = matches[i + 1] ? matches[i + 1].index : contentStr.length;
-                            let chunk = contentStr.substring(start, end);
-
-                            // Simpan chunk jika memenuhi syarat
-                            if (chunk.length > 11 || i === matches.length - 1) {
-                                arrayData.push(chunk);
-
-                            }
-                        });
-                        console.log(`ARRAY data-tracking = ${arrayData.length}`)
-
-                        starkirim()
-                    }
-                }
-
-
-
-
-
-
-
-
-
-                starkirim()
             }
-
-
-        });
-        // Mencegat data KELUAR (SENDING)
-        const originalSend = ws.send;
-        ws.send = function (data) {
             if (captureSwitch === "on") {
-                humanize(data, "SEND");
-            }
-            socket = this; // Simpan instance socket yang aktif
-            let view = new Uint8Array(data);
 
-            if (view.length > 50 && view.length < 1000) {
-                try {
-                    let strData = new TextDecoder().decode(view);
-                    if (strData.includes("-fg")) {
-                        gwtHeaderFiller = []
-                        sync = []
-                        lastSession = []
-                        sync = view.slice(11, 15)
-                        scanslesai = true
-                        gwtHeaderFiller = view.slice(15, 20);
-                        lastSession = view.slice(3, 11);
+                humanize(event.data, "RECV");
+            }
+            let tempStorage = []; // Simpan sementara di sini
+
+            if (view.length > 1000) {
+                // pattern header: 54 00 09 00
+                const hPatt = [0x54, 0x00, 0x09, 0x00];
+                // pattern target: "Komentari"
+                const tPatt = [0x4b, 0x6f, 0x6d, 0x65, 0x6e, 0x74, 0x61, 0x72, 0x69];
+                let tempStorage = []; // Simpan sementara di sini
+
+                // 1. Cari semua posisi index kata "Komentari" dalam byte array
+                for (let i = 0; i <= view.length - tPatt.length; i++) {
+                    let matchT = true;
+                    for (let j = 0; j < tPatt.length; j++) {
+                        if (view[i + j] !== tPatt[j]) { matchT = false; break; }
                     }
-                } catch (e) { }
-            }
 
+                    if (matchT) {
+                        // 2. Jika ketemu "Komentari", cari mundur ke belakang untuk nemu header 54 00 09 00 terdekat
+                        for (let k = i; k >= 0; k--) {
+                            if (view[k] === hPatt[0] &&
+                                view[k+1] === hPatt[1] &&
+                                view[k+2] === hPatt[2] &&
+                                view[k+3] === hPatt[3]) {
 
-            const pattern2 = [0xff, 0xff, 0xff, 0xff, 0x00, 0x00, 0x01];
-            // Loop berhenti 13 byte sebelum akhir paket agar i+12 selalu aman
-            for (let i = 0; i <= view.length - 13; i++) {
-                if (view[i] === pattern2[0] &&
-                    !(view[i - 1] === 0xff) &&
-                    view[i + 1] === pattern2[1] &&
-                    view[i + 2] === pattern2[2] &&
-                    view[i + 3] === pattern2[3] &&
-                    view[i + 4] === pattern2[4] &&
-                    view[i + 5] === pattern2[5] &&
-                    view[i + 6] === pattern2[6]) {
+                                // 3. Ambil 3 byte setelah header tersebut
+                                let b1 = view[k + 4];
+                                let b2 = view[k + 5];
+                                let b3 = view[k + 6];
 
+                                // Masukkan ke array dalam format hex string
+                                tempStorage.push([b1, b2, b3]);
 
-                    filler2 = [view[i - 1], view[i], view[i + 1], view[i + 2], view[i + 3], view[i + 4], view[i + 5], view[i + 6], view[i + 7], view[i + 8], view[i + 9], view[i + 10], view[i + 11], view[i + 12]]
-                    sedangjalan = true
-                    break;
-                }
-            }
-            if (lastSession && view.length > 20 && view.length < 1000) {
-                let foundOffset = -1;
-
-                // Scan paket untuk mencari posisi lastSession (biasanya ada di awal paket)
-                // Kita scan dari index 0 sampai 10 saja untuk menghemat CPU
-                for (let i = 0; i <= 15; i++) {
-                    let match = true;
-                    for (let j = 0; j < 8; j++) {
-                        if (view[i + j] !== lastSession[j]) {
-                            match = false;
-                            break;
+                                // Berhenti mencari header untuk kata "Komentari" yang ini
+                                break;
+                            }
                         }
                     }
-                    if (match) {
-                        foundOffset = i;
-                        break;
-                    }
                 }
 
-                // Jika Session ditemukan di dalam paket ini
-                if (foundOffset !== -1) {
-                    // Ambil Sync dan Seq berdasarkan posisi Session yang ditemukan (foundOffset)
-                    // Jika session di i, maka Sync biasanya di i+9 dan Seq di i+11
-                    lastSync = view[foundOffset + 9];
-                    lastSeq = view[foundOffset + 11];
+
+                // HANYA update listID jika di paket ini ditemukan pattern
+                if (tempStorage.length > 0) {
+                    arrayData = [];
+                    listID = tempStorage;
+                    console.log(`LIST ID = ${listID.length}`)
+                    console.log("Daftar ID Ditemukan:", listID);
+                    let patternRegex = /data-tracking-duration-id/g;
+                    let matches = [...contentStr.matchAll(patternRegex)];
+                    sedangjalan = true
+                    matches.forEach((match, i) => {
+                        let start = match.index;
+                        let end = matches[i + 1] ? matches[i + 1].index : contentStr.length;
+                        let chunk = contentStr.substring(start, end);
+
+                        // Simpan chunk jika memenuhi syarat
+                        if (chunk.length > 11 || i === matches.length - 1) {
+                            arrayData.push(chunk);
+
+                        }
+                    });
+                    console.log(`ARRAY data-tracking = ${arrayData.length}`)
+
+                    starkirim()
                 }
             }
+
+
+
+
+
+
+
+
+
             starkirim()
-
-            return originalSend.apply(this, arguments);
-
         }
 
-        return ws;
-    };
 
+    });
+    // Mencegat data KELUAR (SENDING)
+    const originalSend = ws.send;
+    ws.send = function (data) {
+        if (captureSwitch === "on") {
+            humanize(data, "SEND");
+        }
+        socket = this; // Simpan instance socket yang aktif
+        let view = new Uint8Array(data);
 
-
-
-    const desc = Object.getOwnPropertyDescriptor(WebSocket.prototype, 'onmessage');
-    if (desc && desc.set) {
-        Object.defineProperty(WebSocket.prototype, 'onmessage', {
-            set: function (cb) {
-                const wrapped = function (e) { humanize(e.data, "RECV"); return cb.apply(this, arguments); };
-                desc.set.call(this, wrapped);
-            },
-            get: function () { return desc.get.call(this); },
-            configurable: true
-        });
-    }
-    function starkirim() {
-        if (!komentdone) {
-            sedangjalan = true
-            if (arrayData.length > 0 && listID.length > 0 && gwtHeaderFiller.length > 0 && filler2.length > 0 && sync.length > 0) {
-                for (let i = 0; i < arrayData.length; i++) {
-                    // Cek jika chunk mengandung "room" dan belum pernah diproses
-                    if (parsersock(arrayData[i].toLowerCase())) {
-                        clearInterval(cekkiment);
-                        gwtheader = listID[i]
-                        komentdone = true;
-                        window.tembak(commentToPost);
-                        showNotification("Terkirim")
-                        if (observercontetn) observercontetn.disconnect();
-
-                        arrayData = [];
-                        listID = [];
-                        gwtHeaderFiller = [];
-                        filler2 = [];
-                        sync = [];
-                        break;
-                    }
+        if (view.length > 50 && view.length < 1000) {
+            try {
+                let strData = new TextDecoder().decode(view);
+                if (strData.includes("-fg")) {
+                    gwtHeaderFiller = []
+                    sync = []
+                    lastSession = []
+                    sync = view.slice(11, 15)
+                    scanslesai = true
+                    gwtHeaderFiller = view.slice(15, 20);
+                    lastSession = view.slice(3, 11);
                 }
-            }
-        }
-        sedangjalan = false
-    }
-    // 1000 ms = 1 detik
-    // --- FUNGSI TEMBAK ---
-    window.capture = function (onoff = "on") {
-        captureSwitch = onoff;
-    }
-    window.tembak = function (pesan = "Minta Link") {
-
-        if (!socket || !lastSession) return console.error("Koneksi belum siap. Klik/ketik di kolom komentar dulu!");
-        // Sinkronisasi GWT Filler dari vercodList
-
-        const msg = new TextEncoder().encode(pesan);
-        let mySeq = lastSeq + 1;
-
-        // Struktur konstanta
-        const gwtHeaderFiller2 = [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x04, 0x00];
-        const tail = [0x02, 0x5c, 0x00, 0x04, 0x00];
-
-
-
-        // Hitung total size
-        const totalSize = 3 + 8 + 4 + gwtHeaderFiller.length + gwtheader.length + gwtHeaderFiller2.length + 1 + msg.length + filler1.length + filler2.length + tail.length;
-
-        const packet = new Uint8Array(totalSize);
-        let p = 0;
-        packet.isPriority = true;
-        packet.set([0x00, totalSize - 2, 0x02], p); p += 3;
-        packet.set(lastSession, p); p += 8;
-        packet.set([sync[0], lastSync, sync[2], mySeq], p); p += 4;
-        packet.set(gwtHeaderFiller, p); p += gwtHeaderFiller.length;
-        packet.set(gwtheader, p); p += gwtheader.length; // INI SUDAH DINAMIS SEKARANG
-        packet.set(gwtHeaderFiller2, p); p += gwtHeaderFiller2.length;
-        packet[p++] = msg.length;
-        packet.set(msg, p); p += msg.length;
-        packet.set(filler1, p); p += filler1.length;
-        packet.set(filler2, p); p += filler2.length;
-        packet.set(tail, p);
-
-        socket.send(packet);
-        lastSeq = mySeq;
-        console.log(`%c🚀 SENT: "${pesan}" | ID: ${gwtheader[1].toString(16)} ${gwtheader[2].toString(16)} | Seq: ${mySeq}`, "color: #2ecc71; font-weight: bold;");
-    };
-
-    const humanize = async (data, direction) => {
-        if (!data) return;
-        let buffer;
-        if (data instanceof Blob) buffer = await data.arrayBuffer();
-        else if (data instanceof ArrayBuffer) buffer = data;
-        else if (ArrayBuffer.isView(data)) buffer = data.buffer;
-        else {
-            console.log(`%c${direction === "SEND" ? "⬆️" : "⬇️"} [STR] : ${data}`, "color: #888");
-            return;
+            } catch (e) { }
         }
 
-        const view = new Uint8Array(buffer);
-        const hex = Array.from(view).map(b => b.toString(16).padStart(2, '0')).join(" ");
-        // Ekstraksi Metadata
-        let session = view.length >= 11 ? Array.from(view.slice(3, 11)).map(b => b.toString(16).padStart(2, '0')).join("") : "N/A";
-        let syncSeq = view.length >= 15 ? `Sync: ${view[12].toString(16)} | Seq: ${view[14].toString(16)}` : "N/A";
 
-        // Cari Pesan Khusus (Marker 01 04 00)
-        let msgExtracted = "";
-        for (let i = 0; i < view.length - 3; i++) {
-            if (view[i] === 0x01 && view[i + 1] === 0x04 && view[i + 2] === 0x00) {
-                let len = view[i + 3];
-                msgExtracted = new TextDecoder().decode(view).substring(i + 4, i + 4 + len);
+        const pattern2 = [0xff, 0xff, 0xff, 0xff, 0x00, 0x00, 0x01];
+        // Loop berhenti 13 byte sebelum akhir paket agar i+12 selalu aman
+        for (let i = 0; i <= view.length - 13; i++) {
+            if (view[i] === pattern2[0] &&
+                !(view[i - 1] === 0xff) &&
+                view[i + 1] === pattern2[1] &&
+                view[i + 2] === pattern2[2] &&
+                view[i + 3] === pattern2[3] &&
+                view[i + 4] === pattern2[4] &&
+                view[i + 5] === pattern2[5] &&
+                view[i + 6] === pattern2[6]) {
+
+
+                filler2 = [view[i - 1], view[i], view[i + 1], view[i + 2], view[i + 3], view[i + 4], view[i + 5], view[i + 6], view[i + 7], view[i + 8], view[i + 9], view[i + 10], view[i + 11], view[i + 12]]
+                sedangjalan = true
                 break;
             }
         }
+        if (lastSession && view.length > 20 && view.length < 1000) {
+            let foundOffset = -1;
 
-        const color = direction === "SEND" ? "#0087ff" : "#00ff41";
-        const label = direction === "SEND" ? "⬆️ SENDING" : "⬇️ RECEIVING";
-        // --- TAMPILAN FULL (TANPA GROUP COLLAPSED) ---
-        console.log(`%c${label} [${view.length} bytes] %c Session: ${session} | ${syncSeq}`,
-            `color: ${color}; font-weight: bold; font-size: 11px;`,
-            `color: #aaa; font-size: 10px;`);
+            // Scan paket untuk mencari posisi lastSession (biasanya ada di awal paket)
+            // Kita scan dari index 0 sampai 10 saja untuk menghemat CPU
+            for (let i = 0; i <= 15; i++) {
+                let match = true;
+                for (let j = 0; j < 8; j++) {
+                    if (view[i + j] !== lastSession[j]) {
+                        match = false;
+                        break;
+                    }
+                }
+                if (match) {
+                    foundOffset = i;
+                    break;
+                }
+            }
 
-        if (msgExtracted) {
-            console.log(Date.now())
-            console.log(`%c💬 MESSAGE : %c"${msgExtracted}"`, "color:#00ff41; font-weight:bold;", "color:#fff; background:#222; padding:2px;");
-
+            // Jika Session ditemukan di dalam paket ini
+            if (foundOffset !== -1) {
+                // Ambil Sync dan Seq berdasarkan posisi Session yang ditemukan (foundOffset)
+                // Jika session di i, maka Sync biasanya di i+9 dan Seq di i+11
+                lastSync = view[foundOffset + 9];
+                lastSeq = view[foundOffset + 11];
+            }
         }
+        starkirim()
 
-        // Tampilkan HEX dan STRING secara langsung (Maksimal 500 karakter agar tidak memenuhi console)
-        const displayHex = hex.length > 500 ? hex.substring(0, 1000000) + "..." : hex;
-        console.log(`%c📜 HEX : %c${displayHex}`, "color:#888; font-size:10px;", "color:#aaa; font-family:monospace;");
-        console.log(`%c🔤 TXT : %c${new TextDecoder().decode(view)}`, "color:#888; font-size:10px;", "color:#ddd; font-family:monospace;");
+        return originalSend.apply(this, arguments);
 
-        // Garis pemisah antar paket agar tidak bingung
-        console.log("%c" + "-".repeat(50), "color: #333");
-    };
+    }
 
+    return ws;
+};
 
 
 
 
+const desc = Object.getOwnPropertyDescriptor(WebSocket.prototype, 'onmessage');
+if (desc && desc.set) {
+    Object.defineProperty(WebSocket.prototype, 'onmessage', {
+        set: function (cb) {
+            const wrapped = function (e) { humanize(e.data, "RECV"); return cb.apply(this, arguments); };
+            desc.set.call(this, wrapped);
+        },
+        get: function () { return desc.get.call(this); },
+        configurable: true
+    });
+}
+function starkirim() {
+    if (!komentdone) {
+        sedangjalan = true
+        if (arrayData.length > 0 && listID.length > 0 && gwtHeaderFiller.length > 0 && filler2.length > 0 && sync.length > 0) {
+            for (let i = 0; i < arrayData.length; i++) {
+                // Cek jika chunk mengandung "room" dan belum pernah diproses
+                if (parsersock(arrayData[i].toLowerCase())) {
+                    clearInterval(cekkiment);
+                    gwtheader = listID[i]
+                    komentdone = true;
+                    window.tembak(commentToPost);
+                    showNotification("Terkirim")
+                    if (observercontetn) observercontetn.disconnect();
 
-})();
+                    arrayData = [];
+                    listID = [];
+                    gwtHeaderFiller = [];
+                    filler2 = [];
+                    sync = [];
+                    break;
+                }
+            }
+        }
+    }
+    sedangjalan = false
+}
+// 1000 ms = 1 detik
+// --- FUNGSI TEMBAK ---
+window.capture = function (onoff = "on") {
+    captureSwitch = onoff;
+}
+window.tembak = function (pesan = "Minta Link") {
+
+    if (!socket || !lastSession) return console.error("Koneksi belum siap. Klik/ketik di kolom komentar dulu!");
+    // Sinkronisasi GWT Filler dari vercodList
+
+    const msg = new TextEncoder().encode(pesan);
+    let mySeq = lastSeq + 1;
+
+    // Struktur konstanta
+    const gwtHeaderFiller2 = [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x04, 0x00];
+    const tail = [0x02, 0x5c, 0x00, 0x04, 0x00];
+
+
+
+    // Hitung total size
+    const totalSize = 3 + 8 + 4 + gwtHeaderFiller.length + gwtheader.length + gwtHeaderFiller2.length + 1 + msg.length + filler1.length + filler2.length + tail.length;
+
+    const packet = new Uint8Array(totalSize);
+    let p = 0;
+    packet.isPriority = true;
+    packet.set([0x00, totalSize - 2, 0x02], p); p += 3;
+    packet.set(lastSession, p); p += 8;
+    packet.set([sync[0], lastSync, sync[2], mySeq], p); p += 4;
+    packet.set(gwtHeaderFiller, p); p += gwtHeaderFiller.length;
+    packet.set(gwtheader, p); p += gwtheader.length; // INI SUDAH DINAMIS SEKARANG
+    packet.set(gwtHeaderFiller2, p); p += gwtHeaderFiller2.length;
+    packet[p++] = msg.length;
+    packet.set(msg, p); p += msg.length;
+    packet.set(filler1, p); p += filler1.length;
+    packet.set(filler2, p); p += filler2.length;
+    packet.set(tail, p);
+
+    socket.send(packet);
+    lastSeq = mySeq;
+    console.log(`%c🚀 SENT: "${pesan}" | ID: ${gwtheader[1].toString(16)} ${gwtheader[2].toString(16)} | Seq: ${mySeq}`, "color: #2ecc71; font-weight: bold;");
+};
+
+const humanize = async (data, direction) => {
+    if (!data) return;
+    let buffer;
+    if (data instanceof Blob) buffer = await data.arrayBuffer();
+    else if (data instanceof ArrayBuffer) buffer = data;
+    else if (ArrayBuffer.isView(data)) buffer = data.buffer;
+    else {
+        console.log(`%c${direction === "SEND" ? "⬆️" : "⬇️"} [STR] : ${data}`, "color: #888");
+        return;
+    }
+
+    const view = new Uint8Array(buffer);
+    const hex = Array.from(view).map(b => b.toString(16).padStart(2, '0')).join(" ");
+    // Ekstraksi Metadata
+    let session = view.length >= 11 ? Array.from(view.slice(3, 11)).map(b => b.toString(16).padStart(2, '0')).join("") : "N/A";
+    let syncSeq = view.length >= 15 ? `Sync: ${view[12].toString(16)} | Seq: ${view[14].toString(16)}` : "N/A";
+
+    // Cari Pesan Khusus (Marker 01 04 00)
+    let msgExtracted = "";
+    for (let i = 0; i < view.length - 3; i++) {
+        if (view[i] === 0x01 && view[i + 1] === 0x04 && view[i + 2] === 0x00) {
+            let len = view[i + 3];
+            msgExtracted = new TextDecoder().decode(view).substring(i + 4, i + 4 + len);
+            break;
+        }
+    }
+
+    const color = direction === "SEND" ? "#0087ff" : "#00ff41";
+    const label = direction === "SEND" ? "⬆️ SENDING" : "⬇️ RECEIVING";
+    // --- TAMPILAN FULL (TANPA GROUP COLLAPSED) ---
+    console.log(`%c${label} [${view.length} bytes] %c Session: ${session} | ${syncSeq}`,
+                `color: ${color}; font-weight: bold; font-size: 11px;`,
+                `color: #aaa; font-size: 10px;`);
+
+    if (msgExtracted) {
+        console.log(Date.now())
+        console.log(`%c💬 MESSAGE : %c"${msgExtracted}"`, "color:#00ff41; font-weight:bold;", "color:#fff; background:#222; padding:2px;");
+
+    }
+
+    // Tampilkan HEX dan STRING secara langsung (Maksimal 500 karakter agar tidak memenuhi console)
+    const displayHex = hex.length > 500 ? hex.substring(0, 1000000) + "..." : hex;
+    console.log(`%c📜 HEX : %c${displayHex}`, "color:#888; font-size:10px;", "color:#aaa; font-family:monospace;");
+    console.log(`%c🔤 TXT : %c${new TextDecoder().decode(view)}`, "color:#888; font-size:10px;", "color:#ddd; font-family:monospace;");
+
+    // Garis pemisah antar paket agar tidak bingung
+    console.log("%c" + "-".repeat(50), "color: #333");
+};
+
+
+
+
 function showNotification(message) {
     const notif = document.createElement("div");
     notif.textContent = message;
@@ -469,7 +494,7 @@ async function cek_artikel() {
 function klikTombolByText(teks) {
     if (!document.location.href.includes("group") || komentdone) return;
     const tombol = Array.from(document.querySelectorAll('[role="button"], [tabindex="0"]'))
-        .find(el => el.textContent.trim() === teks);
+    .find(el => el.textContent.trim() === teks);
     if (tombol) {
         tombol.click();
         return true;
@@ -486,6 +511,8 @@ function waitNoDialog() {
         cek();
     });
 }
+
+
 
 (async function () {
 
@@ -726,8 +753,8 @@ function waitNoDialog() {
         }
 
         const rotated = lastCount === 2
-            ? [angka[1], angka[0]]
-            : shuffleArray(angka);
+        ? [angka[1], angka[0]]
+        : shuffleArray(angka);
 
         const start = comment.slice(0, lastNums[0].index);
         const end = comment.slice(lastNums[lastCount - 1].index + 2);
