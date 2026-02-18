@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 3
 // @namespace    http://tampermonkey.net/
-// @version      3.120
+// @version      3.121
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung3.js
@@ -124,15 +124,29 @@ async function fetchGroupsFromGitHub() {
 
 function getCommentForGroup() {
     const commentMap = {};
+    let ceknamagroup = "";
+    let ceknamagroup1 = "";
+    let ceknamagroup2 = "";
+    let ceknamagroup3 = "";
+    let ceknamagroup4 = "";
     for (let i = 0; i < groupNames.length; i++) {
         commentMap[groupNames[i]] = normalizeToBasicLatin(CommentList[i]);
     }
+    if (document.location.href.includes("user")) {
+        ceknamagroup = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[0]?.textContent || '';
+        ceknamagroup1 = document.querySelectorAll("[data-action-id][role='link']")[0]?.textContent || '';
+        ceknamagroup2 = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[1]?.textContent || '';
+        ceknamagroup3 = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[2]?.textContent || '';
+        ceknamagroup4 = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[3]?.textContent || '';
+    } else {
+        ceknamagroup = document.getElementsByClassName("fixed-container")[0]?.textContent || '';
+        ceknamagroup1 = document.getElementsByClassName('native-text')[5]?.textContent || '';
+        ceknamagroup2 = document.getElementsByClassName('native-text')[6]?.textContent || '';
+        ceknamagroup3 = document.getElementsByClassName('native-text')[7]?.textContent || '';
+        ceknamagroup4 = document.getElementsByClassName('native-text')[8]?.textContent || '';
 
-    const ceknamagroup = document.getElementsByClassName("fixed-container")[0]?.textContent || '';
-    const ceknamagroup1 = document.getElementsByClassName('native-text')[5]?.textContent || '';
-    const ceknamagroup2 = document.getElementsByClassName('native-text')[6]?.textContent || '';
-    const ceknamagroup3 = document.getElementsByClassName('native-text')[7]?.textContent || '';
-    const ceknamagroup4 = document.getElementsByClassName('native-text')[8]?.textContent || '';
+    }
+
 
     const allGroups = [
         normalizeToBasicLatin(ceknamagroup).toLowerCase(),
@@ -283,6 +297,65 @@ function klikTombolByText(teks) {
 }
 
 // ===== Tunggu tombol URUTKAN muncul =====
+function simulateHumanPullToRefresh(distance = 700) {
+    console.log("🚀 Menjalankan simulasi tarik layar...");
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+    // Gunakan penamaan variabel yang sangat unik agar tidak bentrok
+    const _startX = window.innerWidth / 2;
+    const _startY = 150;
+    const _steps = 25;
+    const _duration = 600;
+    const _identifier = Date.now();
+
+    // 1. Fungsi pembantu untuk membuat Touch Event
+    const createTouchEvent = (type, x, y) => {
+        const touchObj = new Touch({
+            identifier: _identifier,
+            target: document.body,
+            clientX: x,
+            clientY: y,
+            pageY: y,
+            radiusX: 2.5,
+            radiusY: 2.5,
+            force: 0.5,
+        });
+
+        return new TouchEvent(type, {
+            cancelable: true,
+            bubbles: true,
+            touches: [touchObj],
+            targetTouches: [touchObj],
+            changedTouches: [touchObj]
+        });
+    };
+
+    // 2. Kirim Touch Start
+    document.dispatchEvent(createTouchEvent('touchstart', _startX, _startY));
+
+    // 3. Jalankan Gerakan Menarik (Interval)
+    let _currentStep = 0;
+    const _moveInterval = setInterval(() => {
+        _currentStep++;
+
+        // Kalkulasi posisi Y saat ini (makin besar makin ke bawah)
+        const _currentY = _startY + (distance * (_currentStep / _steps));
+
+        document.dispatchEvent(createTouchEvent('touchmove', _startX, _currentY));
+
+        // Jika sudah mencapai jarak target
+        if (_currentStep >= _steps) {
+            clearInterval(_moveInterval);
+
+            // 4. Kirim Touch End
+            document.dispatchEvent(createTouchEvent('touchend', _startX, _currentY));
+            console.log("✅ Simulasi Pull-to-Refresh Selesai.");
+            Mutation_cekArticle()
+        }
+    }, _duration / _steps);
+}
 
 
 
@@ -685,7 +758,12 @@ async function cek_artikel(setArtikel) {
     if (!found_artikle) {
         console.log("Tidak ada artikel valid, tunggu dialog hilang lalu klik URUTKAN...");
         await waitNoDialog();
-        klikTombolByText("URUTKAN");
+        if (document.location.href.includes("user")) {
+            simulateHumanPullToRefresh()
+        } else {
+            klikTombolByText("URUTKAN");
+
+        }
     }
 }
 
@@ -1076,13 +1154,24 @@ function stopObserver() {
         Mutation_cekArticle()
         komentari();
         observeDialog();
-        observeAktivitas();
-        klikTombolByText("URUTKAN");
+        if (document.location.href.includes("user")) {
+            simulateHumanPullToRefresh()
+        } else {
+            observeAktivitas();
+            klikTombolByText("URUTKAN");
+
+
+        }
         intervalURUTKAN = setInterval(() => {
             const nowurl = location.href;
             if (nowurl !== URLINI) {
                 URLINI = nowurl;
-                klikTombolByText("URUTKAN");
+                if (document.location.href.includes("user")) {
+                    simulateHumanPullToRefresh()
+                } else {
+                    klikTombolByText("URUTKAN");
+
+                }
                 console.log("jalan");
             }
         }, 1000);
