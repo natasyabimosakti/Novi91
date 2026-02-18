@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TELKOMSEL 4
 // @namespace    http://tampermonkey.net/
-// @version      3.32
+// @version      3.33
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL4.js
@@ -20,6 +20,7 @@
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'telkomsel4';
+
 
 
 
@@ -836,6 +837,34 @@ async function komentari() {
                     sendBtn.disabled = false;
                     sendBtn.dispatchEvent(mDown);
                     sendBtn.click();
+                    clearInterval(intervalURUTKAN);
+                    console.timeEnd("⚡ Koment");
+
+                    // Timer berakhir tepat setelah perintah kirim keluar
+
+                    if (window.runBypassTurbo) window.runBypassTurbo();
+                    handlePostSuccess();
+                    return;
+                }
+
+                const textarea2 = node.classList?.contains(".internal-input")
+                    ? node
+                    : node.querySelector(".internal-input");
+
+                const sendBtn2 = document.querySelector("[aria-label='Posting komentar']");
+
+
+                if (textarea2 && sendBtn2) {
+                    commentDone = true;
+                    myObservere.disconnect();
+                    console.timeEnd("⚡ Scan-to-Click");
+                    console.time("⚡ Koment");
+                    // 1. Sinkronisasi Fokus & Isi (Tanpa jeda)
+                    textarea2.focus();
+                    textarea2.value = commentToPost;
+                    sendBtn2.disabled = false;
+                    sendBtn2.dispatchEvent(mDown);
+                    sendBtn2.click();
                     clearInterval(intervalURUTKAN);
                     console.timeEnd("⚡ Koment");
 
