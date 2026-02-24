@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti2
 // @namespace    http://tampermonkey.net/
-// @version      3.133
+// @version      3.134
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti2.js
@@ -19,7 +19,6 @@
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'piti2';
-
 
 
 
@@ -572,6 +571,28 @@ function parsePost(artikels) {
 
     return true;
 }
+
+
+function parsePost2(artikels) {
+    if (commentDone) return;
+
+    console.log("Cek Content")
+
+    const postingan = artikels.textContent || "";
+    const texts = postingan
+    const isBaru = texts.includes("Baru saja") || texts.includes("Baru");
+    const isMenit = /\b[0-9]\s*menit\b/.test(texts);
+
+    if (!(isBaru || isMenit)) return false;
+    if (CekBacklist(postingan.toLowerCase())) {
+        console.log("❌ ada Backlist")
+        return false;
+    }
+    if (!CekKeyword(postingan.toLowerCase())) return false;
+
+    return true;
+}
+
 async function tungguGroupAsync() {
     const start = Date.now();
     while (Date.now() - start < 15000) { // 15 detik timeout
@@ -681,26 +702,28 @@ async function Mutation_cekArticle() {
         await waitNoDialog();
         for (const mutation of mutationsList) {
             for (const node of mutation.addedNodes) {
-                if (node.nodeType !== 1) continue;
-                if (node.matches?.('[data-tracking-duration-id]')) {
-                    artikelBaruSet.add(node);
-                    if (parsePost(node)) {
-                        setTimeout(() => {
-                            const textComponents = node.querySelectorAll('[data-type="text"]');
-                            if (textComponents.length > 0) {
-                                const target = textComponents[textComponents.length - 1];
-                                if (target) {
-                                    target.click();
-                                    console.time("⚡ Scan-to-Click");
-                                }
-                            }
-                        }, 0);
-                        return;
+                const descendants = document.querySelectorAll?.('[data-tracking-duration-id]');
 
+                if (node.nodeType !== 1) continue;
+                if (descendants) {
+                    for (const poster of descendants) {
+                        if (parsePost2(poster)) {
+                            setTimeout(() => {
+                                const textComponents = poster.querySelectorAll('[data-type="text"]');
+                                if (textComponents.length > 0) {
+                                    const target = textComponents[textComponents.length - 1];
+                                    if (target) {
+                                        target.click();
+                                        console.time("⚡ Scan-to-Click");
+                                    }
+                                }
+                            }, 0);
+                            return;
+
+                        }
                     }
                 }
 
-                const descendants = node.querySelectorAll?.('[data-tracking-duration-id]');
                 if (descendants) {
                     descendants.forEach(el => artikelBaruSet.add(el));
                 }
