@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SIMPATI 4
 // @namespace    http://tampermonkey.net/
-// @version      3.37
+// @version      3.38
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI4.js
@@ -28,7 +28,7 @@ var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/C
 var SCRIPT_NAME = Comment18
 var refresh = 20;
 var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Baru.json"
-var keyword = ["ROOM", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001"]
+var keyword = ["ROOM", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
 var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
 let adminPrefixSet = null;
 
@@ -702,28 +702,31 @@ async function Mutation_cekArticle() {
         await waitNoDialog();
         for (const mutation of mutationsList) {
             for (const node of mutation.addedNodes) {
-                const descendants = document.querySelectorAll?.('[data-tracking-duration-id]');
 
                 if (node.nodeType !== 1) continue;
-                if (descendants) {
-                    for (const poster of descendants) {
-                        if (parsePost2(poster)) {
-                            setTimeout(() => {
-                                const textComponents = poster.querySelectorAll('[data-type="text"]');
-                                if (textComponents.length > 0) {
-                                    const target = textComponents[textComponents.length - 1];
-                                    if (target) {
-                                        target.click();
-                                        console.time("⚡ Scan-to-Click");
-                                    }
+                const posters = node.querySelectorAll?.('[data-tracking-duration-id]') || [];
+                const actualPosters = node.hasAttribute?.('data-tracking-duration-id')
+                    ? [node, ...posters]
+                    : posters;
+
+                for (const poster of actualPosters) {
+                    if (parsePost2(poster)) {
+                        setTimeout(() => {
+                            const textComponents = poster.querySelectorAll('[data-action-id]');
+                            if (textComponents.length > 0) {
+                                const target = textComponents[textComponents.length - 1];
+                                if (target) {
+                                    target.click();
+                                    console.time("⚡ Scan-to-Click");
                                 }
-                            }, 0);
-                            return;
+                            }
+                        }, 0);
+                        return;
 
-                        }
                     }
-                }
 
+                }
+                const descendants = document.querySelectorAll?.('[data-tracking-duration-id]');
                 if (descendants) {
                     descendants.forEach(el => artikelBaruSet.add(el));
                 }
