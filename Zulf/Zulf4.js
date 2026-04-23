@@ -18,10 +18,8 @@
 // @connect      localhost
 // ==/UserScript==
 
-
-
 var namagroup18 = 'Jawatengah';
-
+var Comment18 = 'cuan4';
 
 
 var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Comment/${Comment18}.json`;
