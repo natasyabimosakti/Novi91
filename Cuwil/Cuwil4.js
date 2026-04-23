@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 4
 // @namespace    http://tampermonkey.net/
-// @version      3.127
+// @version      3.128
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil4.js
@@ -20,7 +20,6 @@
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'cuwil4';
-
 
 
 
@@ -308,7 +307,7 @@ function simulateHumanPullToRefresh(distance = 700) {
     const _startX = window.innerWidth / 2;
     const _startY = 150;
     const _steps = 25;
-    const _duration = 50;
+    const _duration = 200;
     const _identifier = Date.now();
 
     // 1. Fungsi pembantu untuk membuat Touch Event
@@ -1251,7 +1250,7 @@ function kirimLaporan(pesan) {
                 }
                 console.log("jalan");
             }
-        }, 500);
+        }, 1000);
 
 
 
