@@ -21,6 +21,8 @@
 
 
 var namagroup18 = 'Jawatengah';
+var Comment18 = 'curut1';
+
 
 
 
