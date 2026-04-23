@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JAGO 4
 // @namespace    http://tampermonkey.net/
-// @version      3.81
+// @version      3.82
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago4.js
@@ -307,7 +307,7 @@ function simulateHumanPullToRefresh(distance = 700) {
     const _startX = window.innerWidth / 2;
     const _startY = 150;
     const _steps = 25;
-    const _duration = 600;
+    const _duration = 50;
     const _identifier = Date.now();
 
     // 1. Fungsi pembantu untuk membuat Touch Event
@@ -742,7 +742,7 @@ async function Mutation_cekArticle() {
             console.log("📦 koleksi sementara:", artikelBaruSet.size);
 
             // belum memenuhi syarat, jangan stop observer
-            if (artikelBaruSet.size < 2) {
+            if (artikelBaruSet.size < 0) {
                 console.log("⏳ artikel kurang, menunggu...");
                 return; // biarkan observer lanjut
             }
@@ -1226,7 +1226,7 @@ function stopObserver() {
                 }
                 console.log("jalan");
             }
-        }, 1000);
+        }, 500);
 
 
 
