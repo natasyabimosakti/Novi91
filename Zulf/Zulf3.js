@@ -18,8 +18,6 @@
 // @connect      localhost
 // ==/UserScript==
 
-
-
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'cuan3';
 
