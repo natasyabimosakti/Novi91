@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 3
 // @namespace    http://tampermonkey.net/
-// @version      3.124
+// @version      3.125
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung3.js
@@ -24,11 +24,12 @@ var Comment18 = 'untung3';
 
 
 
+
 var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Comment/${Comment18}.json`;
 var SCRIPT_NAME = Comment18
 var refresh = 20;
 var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Baru.json"
-var keyword = ["ROOM", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
+var keyword = ["ROOM", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001","🅻🅾🅼🅱🅰"]
 var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
 let adminPrefixSet = null;
 
@@ -307,7 +308,7 @@ function simulateHumanPullToRefresh(distance = 700) {
     const _startX = window.innerWidth / 2;
     const _startY = 150;
     const _steps = 25;
-    const _duration = 600;
+    const _duration = 50;
     const _identifier = Date.now();
 
     // 1. Fungsi pembantu untuk membuat Touch Event
@@ -702,31 +703,28 @@ async function Mutation_cekArticle() {
         await waitNoDialog();
         for (const mutation of mutationsList) {
             for (const node of mutation.addedNodes) {
+                const descendants = document.querySelectorAll?.('[data-tracking-duration-id]');
 
                 if (node.nodeType !== 1) continue;
-                const posters = node.querySelectorAll?.('[data-tracking-duration-id]') || [];
-                const actualPosters = node.hasAttribute?.('data-tracking-duration-id')
-                    ? [node, ...posters]
-                    : posters;
-
-                for (const poster of actualPosters) {
-                    if (parsePost2(poster)) {
-                        setTimeout(() => {
-                            const textComponents = poster.querySelectorAll('[data-action-id]');
-                            if (textComponents.length > 0) {
-                                const target = textComponents[textComponents.length - 1];
-                                if (target) {
-                                    target.click();
-                                    console.time("⚡ Scan-to-Click");
+                if (descendants) {
+                    for (const poster of descendants) {
+                        if (parsePost2(poster)) {
+                            setTimeout(() => {
+                                const textComponents = poster.querySelectorAll('[data-type="text"]');
+                                if (textComponents.length > 0) {
+                                    const target = textComponents[textComponents.length - 1];
+                                    if (target) {
+                                        target.click();
+                                        console.time("⚡ Scan-to-Click");
+                                    }
                                 }
-                            }
-                        }, 0);
-                        return;
+                            }, 0);
+                            return;
 
+                        }
                     }
-
                 }
-                const descendants = document.querySelectorAll?.('[data-tracking-duration-id]');
+
                 if (descendants) {
                     descendants.forEach(el => artikelBaruSet.add(el));
                 }
@@ -745,7 +743,7 @@ async function Mutation_cekArticle() {
             console.log("📦 koleksi sementara:", artikelBaruSet.size);
 
             // belum memenuhi syarat, jangan stop observer
-            if (artikelBaruSet.size < 2) {
+            if (artikelBaruSet.size < 0) {
                 console.log("⏳ artikel kurang, menunggu...");
                 return; // biarkan observer lanjut
             }
@@ -1229,7 +1227,7 @@ function stopObserver() {
                 }
                 console.log("jalan");
             }
-        }, 1000);
+        }, 500);
 
 
 
