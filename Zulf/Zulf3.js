@@ -21,7 +21,7 @@
 
 
 var namagroup18 = 'Jawatengah';
-
+var Comment18 = 'cuan3';
 
 
 var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Comment/${Comment18}.json`;
