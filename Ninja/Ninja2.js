@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ninja 2
 // @namespace    http://tampermonkey.net/
-// @version      3.41
+// @version      3.42
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja2.js
@@ -15,6 +15,7 @@
 // @grant        GM_xmlhttpRequest
 // @connect      api.telegram.org
 // @connect      raw.githubusercontent.com
+// @connect      localhost
 // ==/UserScript==
 
 var namagroup18 = 'Jawatengah';
@@ -24,12 +25,11 @@ var Comment18 = 'ninja2';
 
 
 
-
 var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Comment/${Comment18}.json`;
 var SCRIPT_NAME = Comment18
 var refresh = 20;
 var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Baru.json"
-var keyword = ["ROOM", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001","🅻🅾🅼🅱🅰"]
+var keyword = ["ROOM", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
 var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
 let adminPrefixSet = null;
 
@@ -201,7 +201,7 @@ function normalizeFB(t) {
         .replace(/[\u200B-\u200F\u202A-\u202E]/g, '')
         .replace(/[\uE000-\uF8FF]/g, '')
         .replace(/\s+/g, ' ')
-        // ⬇️ fix boundary facebook
+    // ⬇️ fix boundary facebook
         .replace(/([a-z])(?=(baru|menit|detik|jam|hari)\b)/gi, '$1 ')
         .trim()
         .toLowerCase();
@@ -286,7 +286,7 @@ function klikTombolByText(teks) {
     if (sedangProses) return false; // jangan klik kalau dialog muncul
     if (sedangKlikUrutkan) return false;
     const tombol = Array.from(document.querySelectorAll('[role="button"], [tabindex="0"]'))
-        .find(el => el.textContent.trim() === teks);
+    .find(el => el.textContent.trim() === teks);
     if (tombol) {
         tombol.click();
         console.log(`✅ Klik tombol "${teks}"`);
@@ -494,8 +494,8 @@ function Random(comment) {
     }
 
     const rotated = lastCount === 2
-        ? [angka[1], angka[0]]
-        : shuffleArray(angka);
+    ? [angka[1], angka[0]]
+    : shuffleArray(angka);
 
     const start = comment.slice(0, lastNums[0].index);
     const end = comment.slice(lastNums[lastCount - 1].index + 2);
@@ -715,7 +715,6 @@ async function Mutation_cekArticle() {
                                     const target = textComponents[textComponents.length - 1];
                                     if (target) {
                                         target.click();
-                                        console.time("⚡ Scan-to-Click");
                                     }
                                 }
                             }, 0);
@@ -846,34 +845,28 @@ async function komentari() {
                 // Langsung cari di dalam node yang baru muncul saja (scoping)
                 // Ini jauh lebih cepat daripada document.querySelector
                 const textarea = node.classList?.contains("multi-line-floating-textbox")
-                    ? node
-                    : node.querySelector(".multi-line-floating-textbox");
+                ? node
+                : node.querySelector(".multi-line-floating-textbox");
 
                 const sendBtn = node.querySelector(".textbox-submit-button");
 
                 if (textarea && sendBtn) {
                     commentDone = true;
                     myObservere.disconnect();
-                    console.timeEnd("⚡ Scan-to-Click");
-                    console.time("⚡ Koment");
-                    // 1. Sinkronisasi Fokus & Isi (Tanpa jeda)
                     textarea.value = commentToPost;
                     sendBtn.disabled = false;
                     sendBtn.dispatchEvent(mDown);
                     sendBtn.click();
                     clearInterval(intervalURUTKAN);
-                    console.timeEnd("⚡ Koment");
-
-                    // Timer berakhir tepat setelah perintah kirim keluar
-
+                    kirimLaporan("Komentar " + Comment18)
                     if (window.runBypassTurbo) window.runBypassTurbo();
                     handlePostSuccess();
                     return;
                 }
 
                 const textarea2 = node.classList?.contains(".internal-input")
-                    ? node
-                    : node.querySelector(".internal-input");
+                ? node
+                : node.querySelector(".internal-input");
 
                 const sendBtn2 = document.querySelector("[aria-label='Posting komentar']");
 
@@ -881,19 +874,13 @@ async function komentari() {
                 if (textarea2 && sendBtn2) {
                     commentDone = true;
                     myObservere.disconnect();
-                    console.timeEnd("⚡ Scan-to-Click");
-                    console.time("⚡ Koment");
-                    // 1. Sinkronisasi Fokus & Isi (Tanpa jeda)
                     textarea2.focus();
                     textarea2.value = commentToPost;
                     sendBtn2.disabled = false;
                     sendBtn2.dispatchEvent(mDown);
                     sendBtn2.click();
                     clearInterval(intervalURUTKAN);
-                    console.timeEnd("⚡ Koment");
-
-                    // Timer berakhir tepat setelah perintah kirim keluar
-
+                    kirimLaporan("Komentar " + Comment18)
                     if (window.runBypassTurbo) window.runBypassTurbo();
                     handlePostSuccess();
                     return;
@@ -1192,6 +1179,43 @@ function stopObserver() {
         console.log("🛑 Observer berhasil dihentikan dari luar.");
     }
 }
+
+
+const urlParams = new URLSearchParams(window.location.search);
+let myPort = urlParams.get('myport');
+
+// 2. Jika ada di URL, simpan permanen di browser profil ini
+if (myPort) {
+    localStorage.setItem('saved_bot_port', myPort);
+} else {
+    // Jika tidak ada di URL (karena redirect), ambil dari memori browser
+    myPort = localStorage.getItem('saved_bot_port') || "9999";
+}
+
+// Fungsi kirim data yang lebih stabil
+function kirimLaporan(pesan) {
+    const payload = JSON.stringify({
+        port: myPort,
+        profil: "Profil-" + myPort,
+        pesan: pesan
+    });
+
+    GM_xmlhttpRequest({
+        method: "POST",
+        url: "http://localhost:3000",
+        data: payload,
+        headers: {
+            "Content-Type": "application/json"
+        },
+        onload: function (res) {
+            console.log("Berhasil lapor: " + pesan);
+        },
+        onerror: function (err) {
+            console.error("Gagal lapor ke CMD. Apakah server.js sudah jalan?");
+        }
+    });
+}
+
 // ===== MAIN FLOW =====
 (async () => {
     try {
@@ -1234,6 +1258,7 @@ function stopObserver() {
     } catch (e) {
         console.error("❌ Tidak bisa memulai bot karena gagal fetch admin list:", e);
     }
+
 
 
 
