@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Penyok 1
 // @namespace    http://tampermonkey.net/
-// @version      3.103
+// @version      3.104
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok1.js
@@ -15,6 +15,8 @@
 // @grant        GM_xmlhttpRequest
 // @connect      api.telegram.org
 // @connect      raw.githubusercontent.com
+// @connect      localhost
+
 // ==/UserScript==
 
 var namagroup18 = 'Jawatengah';
