@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Penyok 1
 // @namespace    http://tampermonkey.net/
-// @version      3.105
+// @version      3.106
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Penyok/Penyok1.js
@@ -857,7 +857,6 @@ async function komentari() {
                     sendBtn.dispatchEvent(mDown);
                     sendBtn.click();
                     clearInterval(intervalURUTKAN);
-                    kirimLaporan("Komentar " + Comment18)
                     if (window.runBypassTurbo) window.runBypassTurbo();
                     handlePostSuccess();
                     return;
@@ -879,7 +878,6 @@ async function komentari() {
                     sendBtn2.dispatchEvent(mDown);
                     sendBtn2.click();
                     clearInterval(intervalURUTKAN);
-                    kirimLaporan("Komentar " + Comment18)
                     if (window.runBypassTurbo) window.runBypassTurbo();
                     handlePostSuccess();
                     return;
@@ -1179,41 +1177,6 @@ function stopObserver() {
     }
 }
 
-
-const urlParams = new URLSearchParams(window.location.search);
-let myPort = urlParams.get('myport');
-
-// 2. Jika ada di URL, simpan permanen di browser profil ini
-if (myPort) {
-    localStorage.setItem('saved_bot_port', myPort);
-} else {
-    // Jika tidak ada di URL (karena redirect), ambil dari memori browser
-    myPort = localStorage.getItem('saved_bot_port') || "9999";
-}
-
-// Fungsi kirim data yang lebih stabil
-function kirimLaporan(pesan) {
-    const payload = JSON.stringify({
-        port: myPort,
-        profil: "Profil-" + myPort,
-        pesan: pesan
-    });
-
-    GM_xmlhttpRequest({
-        method: "POST",
-        url: "http://localhost:3000",
-        data: payload,
-        headers: {
-            "Content-Type": "application/json"
-        },
-        onload: function (res) {
-            console.log("Berhasil lapor: " + pesan);
-        },
-        onerror: function (err) {
-            console.error("Gagal lapor ke CMD. Apakah server.js sudah jalan?");
-        }
-    });
-}
 
 // ===== MAIN FLOW =====
 (async () => {
