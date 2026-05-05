@@ -14,7 +14,7 @@
     // --- KONFIGURASI ---
     const progression = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765];
     const betTargetRange = { max: 27, min: 2 }; // Diperlebar agar tidak meleset saat lag
-    const waitStreak = 1; // Ubah ke 0 jika ingin langsung betting di Step 1 setelah result keluar
+    const waitStreak = 1; // Ubah ke 0 jika ingin langsung betting di Step 1 setelah result keluar aa 
     const unitValue = 10000; // 1 unit = Rp 10.000
 
     // --- STATE ---
