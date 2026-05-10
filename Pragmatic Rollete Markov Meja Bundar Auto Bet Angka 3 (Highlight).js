@@ -48,10 +48,26 @@
 
         ui = document.createElement('div');
         ui.id = 'roulette-markov-ui';
-        ui.style = `position:fixed; top:100px; left:20px; z-index:10000; background:rgba(0,0,0,0.9); 
+        ui.style = `position:fixed; top:100px; left:20px; z-index:10000; background:rgba(0,0,0,0.9);
                     color:#97ff95; padding:15px; border-radius:10px; font-family:monospace; font-size:12px;
                     border:1px solid #444; width:300px; box-shadow:0 0 15px rgba(0,0,0,0.5);`;
         document.body.appendChild(ui);
+
+        // Tambahkan CSS Animation untuk efek Pulse yang sangat mencolok
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes markov-glow-pulse {
+                0% { box-shadow: 0 0 10px #2ecc71, inset 0 0 5px #fff; }
+                50% { box-shadow: 0 0 25px #2ecc71, inset 0 0 10px #fff; }
+                100% { box-shadow: 0 0 10px #2ecc71, inset 0 0 5px #fff; }
+            }
+            @keyframes markov-yellow-pulse {
+                0% { box-shadow: 0 0 15px #f1c40f, inset 0 0 10px #fff; transform: scale(1); }
+                50% { box-shadow: 0 0 40px #f1c40f, inset 0 0 20px #fff; transform: scale(1.1); }
+                100% { box-shadow: 0 0 15px #f1c40f, inset 0 0 10px #fff; transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
     }
 
     function updateUI() {
@@ -101,6 +117,84 @@
                 ${state.history.slice().reverse().join(', ')}
             </div>
         `;
+        highlightRacetrack();
+    }
+
+    function highlightRacetrack() {
+        const tracks = document.querySelectorAll(SELECTORS.raceTrack);
+        const track = Array.from(tracks).find(t => t.offsetParent !== null); // Cari racetrack yang sedang tampil
+        if (!track) return;
+
+        // Reset semua spot terlebih dahulu (bersihkan highlight lama)
+        const allSpots = track.querySelectorAll('[data-bet-code]');
+        allSpots.forEach(s => {
+            // RESET styles spot
+            s.style.setProperty('background-color', '', 'important');
+            s.style.setProperty('box-shadow', '', 'important');
+            s.style.setProperty('z-index', '', 'important');
+            s.style.setProperty('display', '', 'important');
+
+            // Cari elemen teks terdalam yang berisi angka
+            const rtText = Array.from(s.querySelectorAll('*')).find(el =>
+                el.children.length === 0 && !isNaN(parseInt(el.textContent.trim()))
+            );
+
+            if (rtText) {
+                // RESET styles rtText
+                rtText.style.setProperty('background-color', '', 'important');
+                rtText.style.setProperty('box-shadow', '', 'important');
+                rtText.style.setProperty('border-radius', '', 'important');
+                rtText.style.setProperty('animation', '', 'important');
+                rtText.style.setProperty('color', '', 'important');
+                rtText.style.setProperty('font-weight', '', 'important');
+                rtText.style.setProperty('width', '', 'important');
+                rtText.style.setProperty('height', '', 'important');
+                rtText.style.setProperty('display', '', 'important');
+                rtText.style.setProperty('align-items', '', 'important');
+                rtText.style.setProperty('justify-content', '', 'important');
+                rtText.style.setProperty('border', '', 'important');
+                rtText.style.setProperty('transform', '', 'important');
+
+                const num = parseInt(rtText.textContent.trim());
+                if (isNaN(num)) return;
+
+                const isCenter = state.plannedCenters.includes(num);
+                const isNeighbor = state.lastBetNumbers.includes(num);
+
+                // JIka angka ada di rencana taruhan
+                if (isNeighbor || isCenter) {
+                    // Posisikan angka tepat di tengah area bet
+                    s.style.setProperty('display', 'flex', 'important');
+                    s.style.setProperty('align-items', 'center', 'important');
+                    s.style.setProperty('justify-content', 'center', 'important');
+                    s.style.setProperty('z-index', isCenter ? '100' : '90', 'important');
+
+                    rtText.style.setProperty('display', 'flex', 'important');
+                    rtText.style.setProperty('align-items', 'center', 'important');
+                    rtText.style.setProperty('justify-content', 'center', 'important');
+                    rtText.style.setProperty('border-radius', '50%', 'important');
+                    rtText.style.setProperty('width', isCenter ? '70px' : '70px', 'important');
+                    rtText.style.setProperty('height', isCenter ? '70px' : '70px', 'important');
+
+                    if (isCenter) {
+                        // ANGKA INTI / CLICK TARGET (Kuning Emas)
+                        rtText.style.setProperty('background-color', '#f1c40f', 'important');
+                        rtText.style.setProperty('color', '#7c0000', 'important');
+                        rtText.style.setProperty('font-weight', '900', 'important');
+                        rtText.style.setProperty('box-shadow', '0 0 20px #f1c40f, inset 0 0 10px #fff', 'important');
+                        rtText.style.setProperty('animation', 'markov-yellow-pulse 0.8s infinite', 'important');
+                        rtText.style.setProperty('border', '2px solid #fff', 'important');
+                    } else {
+                        // ANGKA TETANGGA / COVERED (Hijau Emerald)
+                        rtText.style.setProperty('background-color', '#2ecc71', 'important');
+                        rtText.style.setProperty('color', '#4400ff', 'important');
+                        rtText.style.setProperty('font-weight', 'bold', 'important');
+                        rtText.style.setProperty('box-shadow', '0 0 15px #2ecc71, inset 0 0 10px #fff', 'important');
+                        rtText.style.setProperty('animation', 'markov-glow-pulse 1.5s infinite', 'important');
+                    }
+                }
+            }
+        });
     }
 
     // --- HELPER: MERGE SEQUENCES WITHOUT DUPLICATES ---
@@ -137,7 +231,7 @@
     function extractNumbers(isNewRoundTrigger) {
         const getNumbersFromContainer = (container) => {
             if (!container) return [];
-            
+
             const items = Array.from(container.querySelectorAll(SELECTORS.itemSelector));
             return items.map(item => {
                 // Mencari div di dalam item yang berisi angka murni 0-36
@@ -155,7 +249,7 @@
         const historyContainer = Array.from(panels).find(p => p.querySelector(SELECTORS.itemSelector));
 
         const recentContainer = document.querySelector(SELECTORS.recentResults);
-        
+
         return {
             panel: getNumbersFromContainer(historyContainer).reverse(),
             bar: getNumbersFromContainer(recentContainer).reverse()
@@ -228,10 +322,11 @@
         const rect = el.getBoundingClientRect();
         const x = rect.left + rect.width / 2;
         const y = rect.top + rect.height / 2;
+        const win = el.ownerDocument.defaultView || window;
 
         const eventParams = {
             clientX: x, clientY: y,
-            view: window, bubbles: true, cancelable: true,
+            view: win, bubbles: true, cancelable: true,
             pointerId: 1, width: 1, height: 1, pressure: 0.5,
             pointerType: "mouse", isPrimary: true
         };
@@ -250,30 +345,43 @@
     }
 
     async function executeAutoBet() {
-        const track = document.querySelector(SELECTORS.raceTrack);
-        
-        if (!track || state.plannedCenters.length === 0 || state.isBettingExecuted) {
-            if (!track) console.warn("⚠️ Race Track [data-testid='race-track'] not found.");
+        // 1. Kunci segera di awal agar tidak terjadi eksekusi ganda dalam satu detik yang sama
+        if (state.isBettingExecuted || state.plannedCenters.length === 0) return;
+        state.isBettingExecuted = true;
+
+        const tracks = document.querySelectorAll(SELECTORS.raceTrack);
+        const track = Array.from(tracks).find(t => t.offsetParent !== null || t.getClientRects().length > 0);
+
+        if (!track) {
+            console.warn("⚠️ Race Track visual tidak ditemukan.");
+            state.isBettingExecuted = false; // Buka kembali kunci jika elemen tidak ada
             return;
         }
 
-        // Kunci segera untuk mencegah eksekusi ganda dalam satu putaran
-        state.isBettingExecuted = true;
+        // Jeda tambahan agar UI game benar-benar stabil menerima input setelah timer muncul
+        await new Promise(r => setTimeout(r, 300));
 
         console.log(`%c🚀 Auto Bet Executing: Centers [${state.plannedCenters.join(', ')}]`, "color: #fffa77; font-weight: bold;");
         updateUI();
 
         // 1. Klik Angka di Racetrack
+        const allSpots = Array.from(track.querySelectorAll('[data-bet-code]'));
+
         for (const num of state.plannedCenters) {
-            // Gunakan selector atribut yang sudah terbukti berhasil di manual console Anda
-            const targetSpot = track.querySelector(`[data-bet-code="${num}"]`);
-            
+            // Temukan spot yang berisi angka ini secara visual (Agnostik terhadap class)
+            const targetSpot = allSpots.find(s => {
+                return Array.from(s.querySelectorAll('*')).some(el =>
+                    el.children.length === 0 && el.textContent.trim() === num.toString()
+                );
+            });
+
             if (targetSpot) {
-                console.log(`🎯 Clicking betting spot: ${num}`);
+                console.log(`🎯 Clicking core number: ${num} (verified by visual text, clicking container)`);
+                // Klik container [data-bet-code] langsung, sesuai tes manual Anda yang berhasil
                 await bypassClick(targetSpot);
-                await new Promise(r => setTimeout(r, 100)); 
+                await new Promise(r => setTimeout(r, 200)); // Jeda antar klik agar server memproses
             } else {
-                console.warn(`⚠️ Betting spot for number ${num} not found on racetrack.`);
+                console.warn(`⚠️ Angka inti ${num} tidak ditemukan di racetrack.`);
             }
         }
 
@@ -313,7 +421,7 @@
         // 1. Deteksi fase taruhan berdasarkan keberadaan elemen countdown di DOM
         const allTimerSpans = document.querySelectorAll(SELECTORS.timer);
         const timerVisible = allTimerSpans.length > 0;
-        
+
         // Deteksi nilai detik secara spesifik dari span yang sedang aktif (visible)
         let activeTimerEl = null;
         let countdownVal = NaN;
@@ -326,7 +434,7 @@
             if (el && (el.offsetParent !== null || el.getClientRects().length > 0)) {
                 activeTimerEl = el;
                 countdownVal = sec;
-                break; 
+                break;
             }
         }
 
@@ -366,7 +474,7 @@
             if (rawData.panel.length > 0) state.panelSynced = true;
             initUI();
             updateUI();
-            return; 
+            return;
         }
 
         // 1. Sinkronisasi Panel (Hanya satu kali per ronde jika terdeteksi)
@@ -375,7 +483,7 @@
             freshData = mergeSequences(freshData, rawData.panel);
             state.panelSynced = true;
         }
-        
+
         // 2. Deteksi Angka Baru (Termasuk Twin)
         if (state.expectingResult && newestInBar !== undefined) {
             // Kasus A: Angka berubah (Result baru muncul)
@@ -383,7 +491,7 @@
                 console.log(`🎰 New Result Detected: ${newestInBar}`);
                 freshData = mergeSequences(freshData, rawData.bar);
                 state.expectingResult = false;
-            } 
+            }
             // Kasus B: Timer hilang (Betting Closed) tapi angka belum masuk
             else if (!timerVisible && state.isTimerActive) {
                  // Paksa ambil data terbaru dari bar saat transisi tutup
@@ -419,7 +527,7 @@
             }
         }
 
-        updateUI(); 
+        updateUI();
     }, 300); // Polling dipercepat untuk respon yang lebih akurat
 
     console.log("%c✔️ Roulette Markov Bot Active", "color:black; background:#97ff95; padding:5px; font-weight:bold;");
