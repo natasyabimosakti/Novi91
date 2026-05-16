@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JAGO 1
 // @namespace    http://tampermonkey.net/
-// @version      3.90
+// @version      3.91
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago1.js
@@ -200,7 +200,7 @@ function normalizeFB(t) {
         .replace(/[\u200B-\u200F\u202A-\u202E]/g, '')
         .replace(/[\uE000-\uF8FF]/g, '')
         .replace(/\s+/g, ' ')
-    // ⬇️ fix boundary facebook
+        // ⬇️ fix boundary facebook
         .replace(/([a-z])(?=(baru|menit|detik|jam|hari)\b)/gi, '$1 ')
         .trim()
         .toLowerCase();
@@ -216,7 +216,7 @@ function loadLocalAdmin() {
             adminList = JSON.parse(stored);
             console.log("✅ Admin list loaded from localStorage:", adminList.length, "names");
         } catch (e) {
-            console.error("❌ Failed to parse local admin list:", e);
+            errornotifikasi("❌ Failed to parse local admin");
         }
     }
 }
@@ -245,12 +245,14 @@ function fetchAdminListFromGitHub() {
 
                     resolve(adminList); // ✅ resolve setelah data siap
                 } catch (e) {
-                    console.error("❌ Failed to parse remote admin list:", e);
+                    errornotifikasi("❌ Failed to parse remote admin");
+
                     reject(e);
                 }
             },
             onerror: function (err) {
-                console.error("❌ Failed to load admin list from GitHub:", err);
+                errornotifikasi("❌ Failed to load admin list from GitHub");
+
                 reject(err);
             }
         });
@@ -285,7 +287,7 @@ function klikTombolByText(teks) {
     if (sedangProses) return false; // jangan klik kalau dialog muncul
     if (sedangKlikUrutkan) return false;
     const tombol = Array.from(document.querySelectorAll('[role="button"], [tabindex="0"]'))
-    .find(el => el.textContent.trim() === teks);
+        .find(el => el.textContent.trim() === teks);
     if (tombol) {
         tombol.click();
         console.log(`✅ Klik tombol "${teks}"`);
@@ -297,7 +299,7 @@ function klikTombolByText(teks) {
 }
 
 // ===== Tunggu tombol URUTKAN muncul =====
-function simulateHumanPullToRefresh(distance = 700) {
+function simulateHumanPullToRefresh(distance = 600) {
     console.log("🚀 Menjalankan simulasi tarik layar...");
     window.scrollTo({
         top: 0,
@@ -493,8 +495,8 @@ function Random(comment) {
     }
 
     const rotated = lastCount === 2
-    ? [angka[1], angka[0]]
-    : shuffleArray(angka);
+        ? [angka[1], angka[0]]
+        : shuffleArray(angka);
 
     const start = comment.slice(0, lastNums[0].index);
     const end = comment.slice(lastNums[lastCount - 1].index + 2);
@@ -564,7 +566,7 @@ function parsePost(artikels) {
     if (!isAdmins) return false;
     if (!(isBaru || isMenit)) return false;
     if (CekBacklist(postingan.toLowerCase())) {
-        console.log("❌ ada Backlist")
+        errornotifikasi("❌ ada Backlist")
         return false;
     }
     if (!CekKeyword(postingan.toLowerCase())) return false;
@@ -585,7 +587,7 @@ function parsePost2(artikels) {
 
     if (!(isBaru || isMenit)) return false;
     if (CekBacklist(postingan.toLowerCase())) {
-        console.log("❌ ada Backlist")
+        errornotifikasi("❌ ada Backlist")
         return false;
     }
     if (!CekKeyword(postingan.toLowerCase())) return false;
@@ -595,7 +597,7 @@ function parsePost2(artikels) {
 
 async function tungguGroupAsync() {
     const start = Date.now();
-    while (Date.now() - start < 15000) { // 15 detik timeout
+    while (Date.now() - start < 60000) { // 15 detik timeout
         const result = getCommentForGroup();
         if (result) {
             commentToPost = Random(result.comment);
@@ -605,11 +607,45 @@ async function tungguGroupAsync() {
             await manageGroups();
             return { commentToPost, grouptToPost };
         }
-        await new Promise(r => setTimeout(r, 500));
+        await new Promise(r => setTimeout(r, 1000));
     }
-    console.warn("⚠️ Timeout tunggu grup.");
+    errornotifikasi("tungguGroupAsync Error")
     return null;
 }
+
+function errornotifikasi(codeerror) {
+    // 1. Buat & Inject CSS langsung ke halaman (Warna diubah ke merah error)
+    const style = document.createElement('style');
+    style.innerHTML = `
+        #console-toast {
+            visibility: visible;
+            min-width: 250px;
+            background-color: #e74c3c; /* Merah untuk Error */
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 999999; /* Pastikan di paling depan */
+            bottom: 40px;
+            right: 30px;
+            font-family: sans-serif;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+            opacity: 1;
+            transition: opacity 0.5s ease-out, bottom 0.5s ease-out;
+        }
+    `;
+    document.head.appendChild(style);
+
+    // 2. Buat elemen Div untuk Toast
+    const toast = document.createElement('div');
+    toast.id = 'console-toast';
+    toast.innerText = codeerror;
+    document.body.appendChild(toast);
+
+    // 3. Hapus toast secara otomatis setelah 3 detik dengan efek fade out
+}
+
 
 
 
@@ -651,7 +687,7 @@ function CekBacklist(postinganBL) {
     for (const DataBacklist of Backlist) {
         const kata = DataBacklist.toLowerCase()
         if (postinganBL.toLowerCase().includes(kata)) {
-            console.log(`❌ Diblok karena mengandung: "${kata}"`);
+            errornotifikasi(`❌ Diblok karena mengandung: "${kata}"`)
             return true;
         }
     }
@@ -844,8 +880,8 @@ async function komentari() {
                 // Langsung cari di dalam node yang baru muncul saja (scoping)
                 // Ini jauh lebih cepat daripada document.querySelector
                 const textarea = node.classList?.contains("multi-line-floating-textbox")
-                ? node
-                : node.querySelector(".multi-line-floating-textbox");
+                    ? node
+                    : node.querySelector(".multi-line-floating-textbox");
 
                 const sendBtn = node.querySelector(".textbox-submit-button");
 
@@ -863,8 +899,8 @@ async function komentari() {
                 }
 
                 const textarea2 = node.classList?.contains(".internal-input")
-                ? node
-                : node.querySelector(".internal-input");
+                    ? node
+                    : node.querySelector(".internal-input");
 
                 const sendBtn2 = document.querySelector("[aria-label='Posting komentar']");
 
