@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JAGO 2
 // @namespace    http://tampermonkey.net/
-// @version      3.93
+// @version      3.94
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Jago/Jago2.js
@@ -53,6 +53,8 @@ var commentDone = false;
 var groups = [];
 var observersudahjalam = false;
 var observers = null
+var activeErrors = false;
+
 // Fungsi ambil data grup
 async function fetchGroupsFromGitHub() {
     return new Promise((resolve, reject) => {
@@ -566,7 +568,6 @@ function parsePost(artikels) {
     if (!isAdmins) return false;
     if (!(isBaru || isMenit)) return false;
     if (CekBacklist(postingan.toLowerCase())) {
-        errornotifikasi("❌ ada Backlist")
         return false;
     }
     if (!CekKeyword(postingan.toLowerCase())) return false;
@@ -587,7 +588,6 @@ function parsePost2(artikels) {
 
     if (!(isBaru || isMenit)) return false;
     if (CekBacklist(postingan.toLowerCase())) {
-        errornotifikasi("❌ ada Backlist")
         return false;
     }
     if (!CekKeyword(postingan.toLowerCase())) return false;
@@ -599,7 +599,7 @@ async function tungguGroupAsync() {
     const start = Date.now();
     while (Date.now() - start < 60000) { // 60 detik timeout
         const result = getCommentForGroup();
-        if (result) {
+        if (result && result.comment && result.groupName) {
             commentToPost = Random(result.comment);
             grouptToPost = result.groupName; // Saran: ubah ke groupToPost di seluruh skrip
             console.log(`✅ Nama grup : ${grouptToPost} | Comment : ${commentToPost}`);
@@ -614,6 +614,10 @@ async function tungguGroupAsync() {
 }
 
 function errornotifikasi(codeerror) {
+    if (activeErrors == true) {
+        return;
+    }
+    activeErrors = true;
     // 1. Buat & Inject CSS langsung ke halaman (Warna diubah ke merah error)
     const style = document.createElement('style');
     style.innerHTML = `
@@ -643,7 +647,6 @@ function errornotifikasi(codeerror) {
     toast.innerText = codeerror;
     document.body.appendChild(toast);
 
-    // 3. Hapus toast secara otomatis setelah 3 detik dengan efek fade out
 }
 
 
@@ -687,7 +690,6 @@ function CekBacklist(postinganBL) {
     for (const DataBacklist of Backlist) {
         const kata = DataBacklist.toLowerCase()
         if (postinganBL.toLowerCase().includes(kata)) {
-            errornotifikasi(`❌ Diblok karena mengandung: "${kata}"`)
             return true;
         }
     }
@@ -1226,7 +1228,7 @@ function stopObserver() {
         }
 
         const admins = await getAdminsUntilSuccess();
-        // manageGroups() // Dihapus karena sudah dijalankan di dalam tungguGroupAsync
+        manageGroups()
         if (commentToPost == "") {
             errornotifikasi("❌ Ready to comment masih kosong");
 
