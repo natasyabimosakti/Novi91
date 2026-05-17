@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 1
 // @namespace    http://tampermonkey.net/
-// @version      3.126
+// @version      3.127
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo1.js
@@ -24,10 +24,9 @@ var Comment18 = 'bejo1';
 
 
 
-
 var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Comment/${Comment18}.json`;
 var SCRIPT_NAME = Comment18
-var refresh = 400;
+var refresh = 300;
 var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Baru.json"
 var keyword = ["ROOM", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
 var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
@@ -602,13 +601,13 @@ async function tungguGroupAsync() {
         const result = getCommentForGroup();
         if (result) {
             commentToPost = Random(result.comment);
-            grouptToPost = result.groupName;
-            console.log("✅ Nama grup : " + grouptToPost + " | Comment : " + commentToPost);
+            grouptToPost = result.groupName; // Saran: ubah ke groupToPost di seluruh skrip
+            console.log(`✅ Nama grup : ${grouptToPost} | Comment : ${commentToPost}`);
             groups = groupNames.map(groupId => ({ groupId, defaultValue: false }));
             await manageGroups();
             return { commentToPost, grouptToPost };
         }
-        await new Promise(r => setTimeout(r, 1000));
+        await new Promise(resolve => setTimeout(resolve, 1000));
     }
     errornotifikasi("tungguGroupAsync Error")
     return null;
@@ -1222,7 +1221,7 @@ function stopObserver() {
 
         // Validasi: Berhenti jika grup tidak ditemukan agar tidak error di langkah berikutnya
         if (!groupFound || !grouptToPost) {
-            console.error("❌ Identitas grup tidak terdeteksi. Skrip dihentikan untuk mencegah error.");
+            errornotifikasi("❌ Identitas grup tidak terdeteksi. Skrip dihentikan untuk mencegah error.");
             return;
         }
 
