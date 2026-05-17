@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Babon 1
 // @namespace    http://tampermonkey.net/
-// @version      3.125
+// @version      3.126
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Babon/Babon1.js
@@ -21,6 +21,7 @@
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'babon1';
+
 
 
 
@@ -102,7 +103,7 @@ async function fetchGroupsFromGitHub() {
                         } else {
                             console.warn("⚠️ Tidak ada grup ditemukan dalam 15 detik.");
                         }
-                        resolve();
+                        resolve(res); // Mengirimkan hasil (res) ke pemanggil
                     });
 
                 } catch (e) {
@@ -597,7 +598,7 @@ function parsePost2(artikels) {
 
 async function tungguGroupAsync() {
     const start = Date.now();
-    while (Date.now() - start < 60000) { // 15 detik timeout
+    while (Date.now() - start < 60000) { // 60 detik timeout
         const result = getCommentForGroup();
         if (result) {
             commentToPost = Random(result.comment);
@@ -1217,10 +1218,20 @@ function stopObserver() {
 // ===== MAIN FLOW =====
 (async () => {
     try {
-        await fetchGroupsFromGitHub();
+        const groupFound = await fetchGroupsFromGitHub();
+
+        // Validasi: Berhenti jika grup tidak ditemukan agar tidak error di langkah berikutnya
+        if (!groupFound || !grouptToPost) {
+            console.error("❌ Identitas grup tidak terdeteksi. Skrip dihentikan untuk mencegah error.");
+            return;
+        }
 
         const admins = await getAdminsUntilSuccess();
-        manageGroups()
+        // manageGroups() // Dihapus karena sudah dijalankan di dalam tungguGroupAsync
+        if (commentToPost == "") {
+            errornotifikasi("❌ Ready to comment masih kosong");
+
+        }
         console.log("✅ Admin list ready:", admins);
         console.log("💬 Ready to comment:", commentToPost, grouptToPost);
         URLINI = document.URL;
