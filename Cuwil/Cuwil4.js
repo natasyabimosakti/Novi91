@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 4
 // @namespace    http://tampermonkey.net/
-// @version      3.137
+// @version      3.138
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil4.js
@@ -881,14 +881,14 @@ async function komentari() {
 
         // Pengecekan langsung ke dokumen untuk kecepatan maksimal
         const textarea = document.querySelector(".multi-line-floating-textbox, .internal-input");
-        const sendBtn = document.querySelector(".textbox-submit-button, [aria-label='Posting komentar']");
+        // Selector fleksibel: mencari class utama atau aria-label yang mengandung kata kunci Posting/Kirim/Send
+        const sendBtn = document.querySelector(".textbox-submit-button, [aria-label*='Posting komentar' i], [aria-label*='Kirim' i], [aria-label*='Send' i], [aria-label*='komentari' i]");
 
-        if (textarea && sendBtn) {
+        if (textarea) {
             commentDone = true;
-
+            myObservere.disconnect();
             // Tahap 1: Fokuskan elemen
             textarea.focus();
-
             // Tahap 2: Isi teks secara sinkron (insertText memicu event internal framework secara instan)
             document.execCommand('insertText', false, commentToPost);
 
@@ -899,6 +899,7 @@ async function komentari() {
             clearInterval(intervalURUTKAN);
             if (window.runBypassTurbo) window.runBypassTurbo();
             handlePostSuccess();
+
         }
     };
 
