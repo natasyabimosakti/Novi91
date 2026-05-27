@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cuwil 4
 // @namespace    http://tampermonkey.net/
-// @version      3.139
+// @version      3.140
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Cuwil/Cuwil4.js
@@ -891,17 +891,18 @@ async function komentari() {
         // Selector fleksibel: mencari class utama atau aria-label yang mengandung kata kunci Posting/Kirim/Send
         const sendBtn = document.querySelector(".textbox-submit-button, [aria-label*='Posting komentar' i], [aria-label*='Kirim' i], [aria-label*='Send' i], [aria-label*='komentari' i]");
 
-        if (textarea && sendBtn) {
+        if (textarea) {
             commentDone = true;
             if (myObservere) myObservere.disconnect();
             // Tahap 1: Fokuskan elemen
             textarea.focus();
             // Tahap 2: Isi teks secara sinkron (insertText memicu event internal framework secara instan)
             document.execCommand('insertText', false, commentToPost);
-
-            // Tahap 3: Aktifkan tombol & klik
             sendBtn.disabled = false;
             sendBtn.click();
+            sendBtn.dispatchEvent(mDown);
+            sendBtn.dispatchEvent(mUp);
+
             clearInterval(intervalURUTKAN);
             if (window.runBypassTurbo) window.runBypassTurbo();
             handlePostSuccess();
