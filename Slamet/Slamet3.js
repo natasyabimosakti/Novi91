@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Slamet 3
 // @namespace    http://tampermonkey.net/
-// @version      3.113
+// @version      3.114
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet3.js
@@ -869,64 +869,50 @@ const siapkanTeks = (teks) => {
 const fastOpts = { bubbles: true, cancelable: true };
 const mDown = new MouseEvent("mousedown", fastOpts);
 const mUp = new MouseEvent("mouseup", fastOpts);
+
+
+
+
 async function komentari() {
     ObserverCekMasalah();
-    let myObservere = new MutationObserver((mutations) => {
+
+    const checkAndFill = () => {
         if (commentDone) return;
-        // Gunakan getElementById jika ada, atau keep querySelector jika hanya ini yang unik
-        for (const mutation of mutations) {
 
-            for (const node of mutation.addedNodes) {
-                // Pastikan ini adalah element (nodeType 1)
-                if (commentDone || node.nodeType !== 1) continue;
-                // Langsung cari di dalam node yang baru muncul saja (scoping)
-                // Ini jauh lebih cepat daripada document.querySelector
-                const textarea = node.classList?.contains("multi-line-floating-textbox")
-                    ? node
-                    : node.querySelector(".multi-line-floating-textbox");
+        // Pengecekan langsung ke dokumen untuk kecepatan maksimal
+        const textarea = document.querySelector(".multi-line-floating-textbox, .internal-input");
+        const sendBtn = document.querySelector(".textbox-submit-button, [aria-label='Posting komentar']");
 
-                const sendBtn = node.querySelector(".textbox-submit-button");
+        if (textarea && sendBtn) {
+            commentDone = true;
 
-                if (textarea && sendBtn) {
-                    commentDone = true;
-                    myObservere.disconnect();
-                    textarea.value = commentToPost;
-                    sendBtn.disabled = false;
-                    sendBtn.dispatchEvent(mDown);
-                    sendBtn.click();
-                    clearInterval(intervalURUTKAN);
-                    if (window.runBypassTurbo) window.runBypassTurbo();
-                    handlePostSuccess();
-                    return;
-                }
+            // Tahap 1: Fokuskan elemen
+            textarea.focus();
 
-                const textarea2 = node.classList?.contains(".internal-input")
-                    ? node
-                    : node.querySelector(".internal-input");
+            // Tahap 2: Isi teks secara sinkron (insertText memicu event internal framework secara instan)
+            document.execCommand('insertText', false, commentToPost);
 
-                const sendBtn2 = document.querySelector("[aria-label='Posting komentar']");
+            // Tahap 3: Aktifkan tombol & klik
+            sendBtn.disabled = false;
+            sendBtn.dispatchEvent(mDown);
+            sendBtn.click();
+            if (myObservere) myObservere.disconnect();
 
-
-                if (textarea2 && sendBtn2) {
-                    commentDone = true;
-                    myObservere.disconnect();
-                    textarea2.focus();
-                    textarea2.value = commentToPost;
-                    sendBtn2.disabled = false;
-                    sendBtn2.dispatchEvent(mDown);
-                    sendBtn2.click();
-                    clearInterval(intervalURUTKAN);
-                    if (window.runBypassTurbo) window.runBypassTurbo();
-                    handlePostSuccess();
-                    return;
-                }
-
-            }
-            if (commentDone) break;
+            clearInterval(intervalURUTKAN);
+            if (window.runBypassTurbo) window.runBypassTurbo();
+            handlePostSuccess();
         }
-    });
+    };
 
-    myObservere.observe(document.body, { childList: true, subtree: true });
+    // Jalankan segera jika elemen kebetulan sudah ada (hidden)
+    checkAndFill();
+
+    let myObservere = new MutationObserver(checkAndFill);
+    myObservere.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: true // Menangkap perubahan visibilitas/class
+    });
 }
 
 
@@ -941,7 +927,7 @@ function handlePostSuccess() {
         console.log("✅ SESSION SAVED");
         setTimeout(() => {
             location.href = "about:blank";
-        }, 5000);
+        }, 10000);
     });
 
 }
@@ -1188,23 +1174,25 @@ function MsgError(message) {
 function ObserverCekMasalah() {
     // Simpan instance ke variabel yang sudah disiapkan
     observers = new MutationObserver((mutations) => {
-        for (const mutation of mutations) {
-            for (const node of mutation.addedNodes) {
-                cekMasalah();
-                cekMasalah2();
-                cekLogout();
+        // Pengecekan error & logout dilakukan sekali per batch mutasi agar performa tetap ringan
+        cekMasalah();
+        cekMasalah2();
+        cekLogout();
 
-                if (node.nodeType === 1 && (node.textContent?.toLowerCase().includes('diposting') || node.textContent?.toLowerCase().includes('berhasil'))) {
-                    setTimeout(() => {
-                        stopObserver(); // Memanggil fungsi stop
-                        location.href = "about:blank";
-                    }, 5000);
-                }
-            }
+        // Deteksi Instan (0ms): Pastikan container ada, memiliki class 'show', dan teks yang benar
+        const successSnack = document.querySelector('.snackbar-container.show');
+        if (successSnack && (successSnack.textContent.includes('diposting') || successSnack.textContent.includes('berhasil'))) {
+            stopObserver();
+            location.href = "about:blank";
         }
     });
 
-    observers.observe(document.body, { childList: true, subtree: true });
+    observers.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: true,        // Memantau perubahan class (show/hide)
+        attributeFilter: ['class']
+    });
 }
 
 function stopObserver() {
