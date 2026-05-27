@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF4
 // @namespace    http://tampermonkey.net/
-// @version      3.111
+// @version      3.112
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf4.js
@@ -896,8 +896,6 @@ async function komentari() {
             sendBtn.disabled = false;
             sendBtn.dispatchEvent(mDown);
             sendBtn.click();
-            if (myObservere) myObservere.disconnect();
-
             clearInterval(intervalURUTKAN);
             if (window.runBypassTurbo) window.runBypassTurbo();
             handlePostSuccess();
@@ -925,9 +923,6 @@ function handlePostSuccess() {
         GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS)
     ]).then(() => {
         console.log("✅ SESSION SAVED");
-        setTimeout(() => {
-            location.href = "about:blank";
-        }, 10000);
     });
 
 }
