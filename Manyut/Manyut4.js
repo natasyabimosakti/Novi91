@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.336
+// @version      3.337
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
@@ -131,6 +131,7 @@ function getCommentForGroup() {
     let ceknamagroup2 = "";
     let ceknamagroup3 = "";
     let ceknamagroup4 = "";
+    let ceknamagroup5 = "";
     for (let i = 0; i < groupNames.length; i++) {
         commentMap[groupNames[i]] = normalizeToBasicLatin(CommentList[i]);
     }
@@ -140,12 +141,15 @@ function getCommentForGroup() {
         ceknamagroup2 = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[1]?.textContent || '';
         ceknamagroup3 = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[2]?.textContent || '';
         ceknamagroup4 = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[3]?.textContent || '';
+        ceknamagroup5 = document.getElementsByClassName('native-text')[8]?.textContent || '';
+
     } else {
-        ceknamagroup = document.getElementsByClassName("fixed-container")[0]?.textContent || '';
+        ceknamagroup = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[0]?.textContent || '';
         ceknamagroup1 = document.getElementsByClassName('native-text')[5]?.textContent || '';
         ceknamagroup2 = document.getElementsByClassName('native-text')[6]?.textContent || '';
         ceknamagroup3 = document.getElementsByClassName('native-text')[7]?.textContent || '';
         ceknamagroup4 = document.getElementsByClassName('native-text')[8]?.textContent || '';
+        ceknamagroup5 = document.getElementsByClassName('native-text')[8]?.textContent || '';
 
     }
 
@@ -155,7 +159,9 @@ function getCommentForGroup() {
         normalizeToBasicLatin(ceknamagroup1).toLowerCase(),
         normalizeToBasicLatin(ceknamagroup2).toLowerCase(),
         normalizeToBasicLatin(ceknamagroup3).toLowerCase(),
-        normalizeToBasicLatin(ceknamagroup4).toLowerCase()
+        normalizeToBasicLatin(ceknamagroup4).toLowerCase(),
+        normalizeToBasicLatin(ceknamagroup5).toLowerCase()
+
     ];
 
     for (let groupName in commentMap) {
@@ -875,6 +881,7 @@ const mUp = new MouseEvent("mouseup", fastOpts);
 
 async function komentari() {
     ObserverCekMasalah();
+    let myObservere;
 
     const checkAndFill = () => {
         if (commentDone) return;
@@ -884,9 +891,9 @@ async function komentari() {
         // Selector fleksibel: mencari class utama atau aria-label yang mengandung kata kunci Posting/Kirim/Send
         const sendBtn = document.querySelector(".textbox-submit-button, [aria-label*='Posting komentar' i], [aria-label*='Kirim' i], [aria-label*='Send' i], [aria-label*='komentari' i]");
 
-        if (textarea) {
+        if (textarea && sendBtn) {
             commentDone = true;
-            myObservere.disconnect();
+            if (myObservere) myObservere.disconnect();
             // Tahap 1: Fokuskan elemen
             textarea.focus();
             // Tahap 2: Isi teks secara sinkron (insertText memicu event internal framework secara instan)
@@ -894,7 +901,6 @@ async function komentari() {
 
             // Tahap 3: Aktifkan tombol & klik
             sendBtn.disabled = false;
-            sendBtn.dispatchEvent(mDown);
             sendBtn.click();
             clearInterval(intervalURUTKAN);
             if (window.runBypassTurbo) window.runBypassTurbo();
@@ -903,15 +909,15 @@ async function komentari() {
         }
     };
 
-    // Jalankan segera jika elemen kebetulan sudah ada (hidden)
-    checkAndFill();
-
-    let myObservere = new MutationObserver(checkAndFill);
+    myObservere = new MutationObserver(checkAndFill);
     myObservere.observe(document.body, {
         childList: true,
         subtree: true,
         attributes: true // Menangkap perubahan visibilitas/class
     });
+
+    // Jalankan segera jika elemen kebetulan sudah ada (hidden)
+    checkAndFill();
 }
 
 
@@ -1179,7 +1185,9 @@ function ObserverCekMasalah() {
         const successSnack = document.querySelector('.snackbar-container.show');
         if (successSnack && (successSnack.textContent.includes('diposting') || successSnack.textContent.includes('berhasil'))) {
             stopObserver();
-            location.href = "about:blank";
+            setTimeout(() => {
+                location.href = "about:blank"
+            }, 5000);
         }
     });
 
@@ -1212,7 +1220,6 @@ function stopObserver() {
         }
 
         const admins = await getAdminsUntilSuccess();
-        manageGroups()
         if (commentToPost == "") {
             errornotifikasi("❌ Ready to comment masih kosong");
 
