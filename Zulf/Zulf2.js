@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF2
 // @namespace    http://tampermonkey.net/
-// @version      3.118
+// @version      3.119
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf2.js
@@ -20,7 +20,6 @@
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'cuan2';
-
 
 
 
@@ -866,19 +865,16 @@ async function komentari() {
                 if (commentDone || node.nodeType !== 1) continue;
                 // Langsung cari di dalam node yang baru muncul saja (scoping)
                 // Ini jauh lebih cepat daripada document.querySelector
-                const textarea = node.classList?.contains("multi-line-floating-textbox")
-                    ? node
-                    : node.querySelector(".multi-line-floating-textbox");
+                const textarea = node.querySelector(".multi-line-floating-textbox");
+                const sendBtn = node.querySelector(".textbox-submit-button");
 
-                const sendBtn = node.querySelector(".textbox-submit-button, [aria-label*='Posting komentar' i], [aria-label*='Kirim' i], [aria-label*='Send' i], [aria-label*='komentari' i]");
-
-                if (textarea) {
+                if (textarea && sendBtn) {
                     commentDone = true;
                     myObservere.disconnect();
                     const nativeTextAreaValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, "value")?.set ||
                         Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
                     nativeTextAreaValueSetter.call(textarea, commentToPost);
-                    textarea.dispatchEvent(new Event('input', { bubbles: true })); sendBtn.disabled = false;
+                    textarea.dispatchEvent(new Event('input', { bubbles: true }));
                     try { sendBtn.disabled = false; } catch (e) { }
                     try { sendBtn.dispatchEvent(mDown); } catch (e) { }
                     try { sendBtn.click(); } catch (e) { }
@@ -889,21 +885,13 @@ async function komentari() {
                     return;
                 }
 
-                const textarea2 = node.classList?.contains(".internal-input")
-                    ? node
-                    : node.querySelector(".internal-input");
+                const textarea2 = node.querySelector(".internal-input")
+                const sendBtn2 = node.querySelector("[aria-label*='Posting komentar' i]");
 
-                if (textarea2) {
+                if (textarea2 && sendBtn2) {
                     commentDone = true;
-                    myObservere.disconnect();
-                    const nativeTextAreaValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, "value")?.set ||
-                        Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
-                    nativeTextAreaValueSetter.call(textarea, commentToPost);
-                    textarea.dispatchEvent(new Event('input', { bubbles: true })); sendBtn.disabled = false;
-                    try { sendBtn.disabled = false; } catch (e) { }
-                    try { sendBtn.dispatchEvent(mDown); } catch (e) { }
-                    try { sendBtn.click(); } catch (e) { }
-                    try { sendBtn.dispatchEvent(mUp); } catch (e) { }
+                    textarea2.value = commentToPost;
+                    sendBtn2.click()
                     clearInterval(intervalURUTKAN);
                     if (window.runBypassTurbo) window.runBypassTurbo();
                     handlePostSuccess();
