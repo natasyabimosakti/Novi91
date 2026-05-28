@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF4
 // @namespace    http://tampermonkey.net/
-// @version      3.124
+// @version      3.125
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf4.js
@@ -20,7 +20,6 @@
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'cuan4';
-
 
 
 
@@ -150,6 +149,7 @@ function getCommentForGroup() {
     let ceknamagroup2 = "";
     let ceknamagroup3 = "";
     let ceknamagroup4 = "";
+    let ceknamagroup5 = "";
     for (let i = 0; i < groupNames.length; i++) {
         commentMap[groupNames[i]] = normalizeToBasicLatin(CommentList[i]);
     }
@@ -592,7 +592,7 @@ function parsePost(artikels) {
         return false;
     }
     if (!CekKeyword(postingan.toLowerCase())) return false;
-
+    window.focus();
     return true;
 }
 
