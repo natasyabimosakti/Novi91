@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti2
 // @namespace    http://tampermonkey.net/
-// @version      3.155
+// @version      3.156
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti2.js
@@ -20,6 +20,7 @@
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'piti2';
+
 
 
 
@@ -885,8 +886,8 @@ async function komentari() {
                     return;
                 }
 
-                const textarea2 = node.querySelector(".internal-input")
-                const sendBtn2 = node.querySelector("[aria-label*='Posting komentar' i]");
+                const textarea2 = document.querySelector(".internal-input")
+                const sendBtn2 = document.querySelector("[aria-label*='Posting komentar' i]");
 
                 if (textarea2 && sendBtn2) {
                     commentDone = true;
