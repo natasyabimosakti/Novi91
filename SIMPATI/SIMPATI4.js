@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SIMPATI 4
 // @namespace    http://tampermonkey.net/
-// @version      3.58
+// @version      3.59
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI4.js
@@ -731,6 +731,7 @@ async function Mutation_cekArticle() {
                 if (descendants) {
                     for (const poster of descendants) {
                         if (parsePost2(poster)) {
+                            window.focus();
                             setTimeout(() => {
                                 const textComponents = poster.querySelectorAll('[data-type="text"]');
                                 if (textComponents.length > 0) {
@@ -856,51 +857,48 @@ const mDown = new MouseEvent("mousedown", fastOpts);
 const mUp = new MouseEvent("mouseup", fastOpts);
 async function komentari() {
     ObserverCekMasalah();
-    let myObservere = new MutationObserver((mutations) => {
+    let myObservere;
+
+    const findAndPost = (root) => {
+        if (commentDone) return false;
+
+        // Mencari textarea (mendukung class lama dan baru)
+        const textarea = root.querySelector?.(".multi-line-floating-textbox, .internal-input") ||
+            (root.matches?.(".multi-line-floating-textbox, .internal-input") ? root : null);
+
+        // Menggunakan selector komprehensif yang Anda buat
+        const sendBtn = root.querySelector?.(".textbox-submit-button, [aria-label*='Posting komentar' i], [aria-label*='Kirim' i], [aria-label*='Send' i], [aria-label*='komentari' i]");
+
+        if (textarea && sendBtn) {
+            commentDone = true; // KUNCI SEGERA: Mencegah eksekusi ganda di thread yang sama
+            if (myObservere) myObservere.disconnect();
+            clearInterval(intervalURUTKAN);
+
+            textarea.value = commentToPost;
+            // Trigger event input agar Facebook tahu teks sudah terisi (mencegah tombol tetap abu-abu)
+            textarea.dispatchEvent(new Event('input', { bubbles: true }));
+
+            sendBtn.disabled = false;
+            sendBtn.dispatchEvent(mDown);
+            sendBtn.click();
+
+            if (window.runBypassTurbo) window.runBypassTurbo();
+            handlePostSuccess();
+            return true;
+        }
+        return false;
+    };
+
+    // 1. CEK AWAL: Jika elemen sudah ada di DOM (penting untuk story.php)
+    if (findAndPost(document)) return;
+
+    // 2. OBSERVER: Menunggu elemen muncul jika belum ada
+    myObservere = new MutationObserver((mutations) => {
         if (commentDone) return;
-        // Gunakan getElementById jika ada, atau keep querySelector jika hanya ini yang unik
         for (const mutation of mutations) {
-
             for (const node of mutation.addedNodes) {
-                // Pastikan ini adalah element (nodeType 1)
-                if (commentDone || node.nodeType !== 1) continue;
-                // Langsung cari di dalam node yang baru muncul saja (scoping)
-                // Ini jauh lebih cepat daripada document.querySelector
-                const textarea = node.querySelector(".multi-line-floating-textbox");
-                const sendBtn = node.querySelector(".textbox-submit-button");
-
-                if (textarea && sendBtn) {
-                    commentDone = true;
-                    myObservere.disconnect();
-                    const nativeTextAreaValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, "value")?.set ||
-                        Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
-                    nativeTextAreaValueSetter.call(textarea, commentToPost);
-                    textarea.dispatchEvent(new Event('input', { bubbles: true }));
-                    try { sendBtn.disabled = false; } catch (e) { }
-                    try { sendBtn.dispatchEvent(mDown); } catch (e) { }
-                    try { sendBtn.click(); } catch (e) { }
-                    try { sendBtn.dispatchEvent(mUp); } catch (e) { }
-                    clearInterval(intervalURUTKAN);
-                    if (window.runBypassTurbo) window.runBypassTurbo();
-                    handlePostSuccess();
-                    return;
-                }
-
-                const textarea2 = document.querySelector(".internal-input")
-                const sendBtn2 = document.querySelector("[aria-label*='Posting komentar' i]");
-
-                if (textarea2 && sendBtn2) {
-                    commentDone = true;
-                    textarea2.value = commentToPost;
-                    sendBtn2.click()
-                    clearInterval(intervalURUTKAN);
-                    if (window.runBypassTurbo) window.runBypassTurbo();
-                    handlePostSuccess();
-                    return;
-                }
-
+                if (node.nodeType === 1 && findAndPost(node)) return;
             }
-            if (commentDone) break;
         }
     });
 
@@ -917,9 +915,6 @@ function handlePostSuccess() {
         GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS)
     ]).then(() => {
         console.log("✅ SESSION SAVED");
-        setTimeout(() => {
-            location.href = "about:blank";
-        }, 15000);
     });
 
 }
