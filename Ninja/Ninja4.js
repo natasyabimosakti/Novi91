@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ninja 4
 // @namespace    http://tampermonkey.net/
-// @version      3.63
+// @version      3.64
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja4.js
@@ -733,6 +733,7 @@ async function Mutation_cekArticle() {
     artikelBaruSet.clear();
     observersudahjalam = true;
     observercontetn = new MutationObserver(async (mutationsList) => {
+        cek_artikel_ganda()
         if (commentDone) return;
         await waitNoDialog();
         for (const mutation of mutationsList) {
@@ -788,6 +789,42 @@ async function Mutation_cekArticle() {
     console.log("🟢 Mutation_cekArticle aktif");
 }
 
+
+
+
+
+
+
+
+function cek_artikel_ganda() {
+
+    if (commentDone) return;
+    if (document.querySelector(".multi-line-floating-textbox, .internal-input")) return;
+
+    const descendants = document.querySelectorAll?.('[data-tracking-duration-id]');
+    if (!descendants) return;
+    for (const poster of descendants) {
+        if (parsePost2(poster)) {
+            const textComponents = poster.querySelectorAll('[data-type="text"]');
+            if (textComponents.length > 0) {
+                const target = textComponents[textComponents.length - 1];
+                if (target) {
+                    target.click();
+                    console.log("🟢 cek_artikel_ganda aktif");
+                }
+            }
+            return;
+
+        }
+    }
+
+}
+
+
+
+
+
+
 function waitNoDialog() {
     return new Promise(resolve => {
         function cek() {
@@ -805,6 +842,7 @@ async function cek_artikel(setArtikel) {
     for (const artikel of setArtikel) {
         if (!parsePost(artikel)) continue;
         found_artikle = true;
+
     }
 
 
