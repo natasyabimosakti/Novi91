@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Slamet 4
 // @namespace    http://tampermonkey.net/
-// @version      3.120
+// @version      3.121
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Slamet/Slamet4.js
@@ -24,7 +24,7 @@ var Comment18 = 'slamet4';
 
 
 
-// --- ANTI-THROTTLE SPOOFING (Ensures execution in background tabs) ---
+
 (function () {
     Object.defineProperty(document, 'visibilityState', { value: 'visible', writable: true });
     Object.defineProperty(document, 'hidden', { value: false, writable: true });
@@ -44,10 +44,6 @@ var Comment18 = 'slamet4';
         }
     }, 10); // Dipercepat menjadi 1 detik
 })();
-
-
-
-
 
 var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Comment/${Comment18}.json`;
 var SCRIPT_NAME = Comment18
@@ -78,8 +74,6 @@ var commentDone = false;
 var groups = [];
 var observersudahjalam = false;
 var observers = null
-var activeErrors = false;
-
 // Fungsi ambil data grup
 async function fetchGroupsFromGitHub() {
     return new Promise((resolve, reject) => {
@@ -129,7 +123,7 @@ async function fetchGroupsFromGitHub() {
                         } else {
                             console.warn("⚠️ Tidak ada grup ditemukan dalam 15 detik.");
                         }
-                        resolve(res); // Mengirimkan hasil (res) ke pemanggil
+                        resolve();
                     });
 
                 } catch (e) {
@@ -156,7 +150,6 @@ function getCommentForGroup() {
     let ceknamagroup2 = "";
     let ceknamagroup3 = "";
     let ceknamagroup4 = "";
-    let ceknamagroup5 = "";
     for (let i = 0; i < groupNames.length; i++) {
         commentMap[groupNames[i]] = normalizeToBasicLatin(CommentList[i]);
     }
@@ -166,16 +159,15 @@ function getCommentForGroup() {
         ceknamagroup2 = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[1]?.textContent || '';
         ceknamagroup3 = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[2]?.textContent || '';
         ceknamagroup4 = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[3]?.textContent || '';
-        ceknamagroup5 = document.getElementsByClassName('native-text')[8]?.textContent || '';
+        ceknamagroup5 = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[4]?.textContent || '';
 
     } else {
-        ceknamagroup = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[0]?.textContent || '';
+        ceknamagroup = document.getElementsByClassName("fixed-container")[0]?.textContent || '';
         ceknamagroup1 = document.getElementsByClassName('native-text')[5]?.textContent || '';
         ceknamagroup2 = document.getElementsByClassName('native-text')[6]?.textContent || '';
         ceknamagroup3 = document.getElementsByClassName('native-text')[7]?.textContent || '';
         ceknamagroup4 = document.getElementsByClassName('native-text')[8]?.textContent || '';
-        ceknamagroup5 = document.getElementsByClassName('native-text')[8]?.textContent || '';
-
+        ceknamagroup5 = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[0]?.textContent || '';
     }
 
 
@@ -186,7 +178,6 @@ function getCommentForGroup() {
         normalizeToBasicLatin(ceknamagroup3).toLowerCase(),
         normalizeToBasicLatin(ceknamagroup4).toLowerCase(),
         normalizeToBasicLatin(ceknamagroup5).toLowerCase()
-
     ];
 
     for (let groupName in commentMap) {
@@ -249,7 +240,7 @@ function loadLocalAdmin() {
             adminList = JSON.parse(stored);
             console.log("✅ Admin list loaded from localStorage:", adminList.length, "names");
         } catch (e) {
-            errornotifikasi("❌ Failed to parse local admin");
+            console.error("❌ Failed to parse local admin list:", e);
         }
     }
 }
@@ -278,14 +269,12 @@ function fetchAdminListFromGitHub() {
 
                     resolve(adminList); // ✅ resolve setelah data siap
                 } catch (e) {
-                    errornotifikasi("❌ Failed to parse remote admin");
-
+                    console.error("❌ Failed to parse remote admin list:", e);
                     reject(e);
                 }
             },
             onerror: function (err) {
-                errornotifikasi("❌ Failed to load admin list from GitHub");
-
+                console.error("❌ Failed to load admin list from GitHub:", err);
                 reject(err);
             }
         });
@@ -332,7 +321,7 @@ function klikTombolByText(teks) {
 }
 
 // ===== Tunggu tombol URUTKAN muncul =====
-function simulateHumanPullToRefresh(distance = 600) {
+function simulateHumanPullToRefresh(distance = 700) {
     console.log("🚀 Menjalankan simulasi tarik layar...");
     window.scrollTo({
         top: 0,
@@ -599,6 +588,7 @@ function parsePost(artikels) {
     if (!isAdmins) return false;
     if (!(isBaru || isMenit)) return false;
     if (CekBacklist(postingan.toLowerCase())) {
+        console.log("❌ ada Backlist")
         return false;
     }
     if (!CekKeyword(postingan.toLowerCase())) return false;
@@ -619,6 +609,7 @@ function parsePost2(artikels) {
 
     if (!(isBaru || isMenit)) return false;
     if (CekBacklist(postingan.toLowerCase())) {
+        console.log("❌ ada Backlist")
         return false;
     }
     if (!CekKeyword(postingan.toLowerCase())) return false;
@@ -628,58 +619,20 @@ function parsePost2(artikels) {
 
 async function tungguGroupAsync() {
     const start = Date.now();
-    while (Date.now() - start < 60000) { // 60 detik timeout
+    while (Date.now() - start < 15000) { // 15 detik timeout
         const result = getCommentForGroup();
         if (result && result.comment && result.groupName) {
             commentToPost = Random(result.comment);
-            grouptToPost = result.groupName; // Saran: ubah ke groupToPost di seluruh skrip
-            console.log(`✅ Nama grup : ${grouptToPost} | Comment : ${commentToPost}`);
+            grouptToPost = result.groupName;
+            console.log("✅ Nama grup : " + grouptToPost + " | Comment : " + commentToPost);
             groups = groupNames.map(groupId => ({ groupId, defaultValue: false }));
-            await manageGroups();
             return { commentToPost, grouptToPost };
         }
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(r => setTimeout(r, 500));
     }
-    errornotifikasi("tungguGroupAsync Error")
+    console.warn("⚠️ Timeout tunggu grup.");
     return null;
 }
-
-function errornotifikasi(codeerror) {
-    if (activeErrors == true) {
-        return;
-    }
-    activeErrors = true;
-    // 1. Buat & Inject CSS langsung ke halaman (Warna diubah ke merah error)
-    const style = document.createElement('style');
-    style.innerHTML = `
-        #console-toast {
-            visibility: visible;
-            min-width: 250px;
-            background-color: #e74c3c; /* Merah untuk Error */
-            color: #fff;
-            text-align: center;
-            border-radius: 8px;
-            padding: 16px;
-            position: fixed;
-            z-index: 999999; /* Pastikan di paling depan */
-            bottom: 40px;
-            right: 30px;
-            font-family: sans-serif;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
-            opacity: 1;
-            transition: opacity 0.5s ease-out, bottom 0.5s ease-out;
-        }
-    `;
-    document.head.appendChild(style);
-
-    // 2. Buat elemen Div untuk Toast
-    const toast = document.createElement('div');
-    toast.id = 'console-toast';
-    toast.innerText = codeerror;
-    document.body.appendChild(toast);
-
-}
-
 
 
 
@@ -721,6 +674,7 @@ function CekBacklist(postinganBL) {
     for (const DataBacklist of Backlist) {
         const kata = DataBacklist.toLowerCase()
         if (postinganBL.toLowerCase().includes(kata)) {
+            console.log(`❌ Diblok karena mengandung: "${kata}"`);
             return true;
         }
     }
@@ -772,6 +726,7 @@ async function Mutation_cekArticle() {
         for (const mutation of mutationsList) {
             for (const node of mutation.addedNodes) {
                 const descendants = document.querySelectorAll?.('[data-tracking-duration-id]');
+
                 if (node.nodeType !== 1) continue;
                 if (descendants) {
                     for (const poster of descendants) {
@@ -831,7 +786,7 @@ function waitNoDialog() {
         function cek() {
             const dialog = document.querySelector('[role="dialog"], .loading-overlay');
             if (!dialog) return resolve();
-            setTimeout(cek, 50); // FIXED: requestAnimationFrame tidak berjalan di tab background
+            requestAnimationFrame(cek);
         }
         cek();
     });
@@ -899,49 +854,68 @@ const siapkanTeks = (teks) => {
 const fastOpts = { bubbles: true, cancelable: true };
 const mDown = new MouseEvent("mousedown", fastOpts);
 const mUp = new MouseEvent("mouseup", fastOpts);
-
-
 async function komentari() {
     ObserverCekMasalah();
-    let myObservere;
-
-    const checkAndFill = () => {
+    let myObservere = new MutationObserver((mutations) => {
         if (commentDone) return;
+        // Gunakan getElementById jika ada, atau keep querySelector jika hanya ini yang unik
+        for (const mutation of mutations) {
 
-        // Pengecekan langsung ke dokumen untuk kecepatan maksimal
-        const textarea = document.querySelector(".multi-line-floating-textbox, .internal-input");
-        // Selector fleksibel: mencari class utama atau aria-label yang mengandung kata kunci Posting/Kirim/Send
-        const sendBtn = document.querySelector(".textbox-submit-button, [aria-label*='Posting komentar' i], [aria-label*='Kirim' i], [aria-label*='Send' i], [aria-label*='komentari' i]");
+            for (const node of mutation.addedNodes) {
+                // Pastikan ini adalah element (nodeType 1)
+                if (commentDone || node.nodeType !== 1) continue;
+                // Langsung cari di dalam node yang baru muncul saja (scoping)
+                // Ini jauh lebih cepat daripada document.querySelector
+                const textarea = node.classList?.contains("multi-line-floating-textbox")
+                    ? node
+                    : node.querySelector(".multi-line-floating-textbox");
 
-        if (textarea) {
-            commentDone = true;
-            // Tahap 1: Fokuskan elemen
-            const nativeTextAreaValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, "value")?.set ||
-                Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
-            nativeTextAreaValueSetter.call(textarea, commentToPost);
-            textarea.dispatchEvent(new Event('input', { bubbles: true }));
-            if (sendBtn) {
-                try { sendBtn.disabled = false; } catch (e) { }
-                try { sendBtn.click(); } catch (e) { }
-                try { sendBtn.dispatchEvent(mDown); } catch (e) { }
-                try { sendBtn.dispatchEvent(mUp); } catch (e) { }
-                if (myObservere) myObservere.disconnect();
-                clearInterval(intervalURUTKAN);
-                if (window.runBypassTurbo) window.runBypassTurbo();
-                handlePostSuccess();
+                const sendBtn = node.querySelector(".textbox-submit-button, [aria-label*='Posting komentar' i], [aria-label*='Kirim' i], [aria-label*='Send' i], [aria-label*='komentari' i]");
+
+                if (textarea) {
+                    commentDone = true;
+                    myObservere.disconnect();
+                    const nativeTextAreaValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, "value")?.set ||
+                        Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
+                    nativeTextAreaValueSetter.call(textarea, commentToPost);
+                    textarea.dispatchEvent(new Event('input', { bubbles: true })); sendBtn.disabled = false;
+                    try { sendBtn.disabled = false; } catch (e) { }
+                    try { sendBtn.dispatchEvent(mDown); } catch (e) { }
+                    try { sendBtn.click(); } catch (e) { }
+                    try { sendBtn.dispatchEvent(mUp); } catch (e) { }
+                    clearInterval(intervalURUTKAN);
+                    if (window.runBypassTurbo) window.runBypassTurbo();
+                    handlePostSuccess();
+                    return;
+                }
+
+                const textarea2 = node.classList?.contains(".internal-input")
+                    ? node
+                    : node.querySelector(".internal-input");
+
+                if (textarea2) {
+                    commentDone = true;
+                    myObservere.disconnect();
+                    const nativeTextAreaValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, "value")?.set ||
+                        Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
+                    nativeTextAreaValueSetter.call(textarea, commentToPost);
+                    textarea.dispatchEvent(new Event('input', { bubbles: true })); sendBtn.disabled = false;
+                    try { sendBtn.disabled = false; } catch (e) { }
+                    try { sendBtn.dispatchEvent(mDown); } catch (e) { }
+                    try { sendBtn.click(); } catch (e) { }
+                    try { sendBtn.dispatchEvent(mUp); } catch (e) { }
+                    clearInterval(intervalURUTKAN);
+                    if (window.runBypassTurbo) window.runBypassTurbo();
+                    handlePostSuccess();
+                    return;
+                }
+
             }
+            if (commentDone) break;
         }
-    };
-
-    myObservere = new MutationObserver(checkAndFill);
-    myObservere.observe(document.body, {
-        childList: true,
-        subtree: true,
-        attributes: true // Menangkap perubahan visibilitas/class
     });
 
-    // Jalankan segera jika elemen kebetulan sudah ada (hidden)
-    checkAndFill();
+    myObservere.observe(document.body, { childList: true, subtree: true });
 }
 
 
@@ -954,6 +928,9 @@ function handlePostSuccess() {
         GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS)
     ]).then(() => {
         console.log("✅ SESSION SAVED");
+        setTimeout(() => {
+            location.href = "about:blank";
+        }, 15000);
     });
 
 }
@@ -1200,27 +1177,23 @@ function MsgError(message) {
 function ObserverCekMasalah() {
     // Simpan instance ke variabel yang sudah disiapkan
     observers = new MutationObserver((mutations) => {
-        // Pengecekan error & logout dilakukan sekali per batch mutasi agar performa tetap ringan
-        cekMasalah();
-        cekMasalah2();
-        cekLogout();
+        for (const mutation of mutations) {
+            for (const node of mutation.addedNodes) {
+                cekMasalah();
+                cekMasalah2();
+                cekLogout();
 
-        // Deteksi Instan (0ms): Pastikan container ada, memiliki class 'show', dan teks yang benar
-        const successSnack = document.querySelector('.snackbar-container.show');
-        if (successSnack && (successSnack.textContent.includes('diposting') || successSnack.textContent.includes('berhasil'))) {
-            stopObserver();
-            setTimeout(() => {
-                location.href = "about:blank"
-            }, 5000);
+                if (node.nodeType === 1 && (node.textContent?.toLowerCase().includes('diposting') || node.textContent?.toLowerCase().includes('berhasil'))) {
+                    setTimeout(() => {
+                        stopObserver(); // Memanggil fungsi stop
+                        location.href = "about:blank";
+                    }, 5000);
+                }
+            }
         }
     });
 
-    observers.observe(document.body, {
-        childList: true,
-        subtree: true,
-        attributes: true,        // Memantau perubahan class (show/hide)
-        attributeFilter: ['class']
-    });
+    observers.observe(document.body, { childList: true, subtree: true });
 }
 
 function stopObserver() {
@@ -1235,19 +1208,10 @@ function stopObserver() {
 // ===== MAIN FLOW =====
 (async () => {
     try {
-        const groupFound = await fetchGroupsFromGitHub();
-
-        // Validasi: Berhenti jika grup tidak ditemukan agar tidak error di langkah berikutnya
-        if (!groupFound || !grouptToPost) {
-            errornotifikasi("❌ Identitas grup tidak terdeteksi. Skrip dihentikan untuk mencegah error.");
-            return;
-        }
+        await fetchGroupsFromGitHub();
 
         const admins = await getAdminsUntilSuccess();
-        if (commentToPost == "") {
-            errornotifikasi("❌ Ready to comment masih kosong");
-
-        }
+        manageGroups()
         console.log("✅ Admin list ready:", admins);
         console.log("💬 Ready to comment:", commentToPost, grouptToPost);
         URLINI = document.URL;
