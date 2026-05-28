@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW MANYUT4
 // @namespace    http://tampermonkey.net/
-// @version      3.344
+// @version      3.345
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Manyut/Manyut4.js
@@ -21,7 +21,6 @@
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'manyut4';
-
 
 
 
@@ -150,6 +149,7 @@ function getCommentForGroup() {
     let ceknamagroup2 = "";
     let ceknamagroup3 = "";
     let ceknamagroup4 = "";
+    let ceknamagroup5 = "";
     for (let i = 0; i < groupNames.length; i++) {
         commentMap[groupNames[i]] = normalizeToBasicLatin(CommentList[i]);
     }
@@ -592,7 +592,7 @@ function parsePost(artikels) {
         return false;
     }
     if (!CekKeyword(postingan.toLowerCase())) return false;
-
+    window.focus();
     return true;
 }
 
