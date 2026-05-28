@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ninja 1
 // @namespace    http://tampermonkey.net/
-// @version      3.55
+// @version      3.56
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Ninja/Ninja1.js
@@ -20,6 +20,31 @@
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'ninja1';
+
+
+
+
+// --- ANTI-THROTTLE SPOOFING (Ensures execution in background tabs) ---
+(function () {
+    Object.defineProperty(document, 'visibilityState', { value: 'visible', writable: true });
+    Object.defineProperty(document, 'hidden', { value: false, writable: true });
+    const origAddEventListener = EventTarget.prototype.addEventListener;
+    EventTarget.prototype.addEventListener = function (type, listener, options) {
+        if (['visibilitychange', 'blur', 'pagehide', 'webkitvisibilitychange'].includes(type)) return;
+        return origAddEventListener.call(this, type, listener, options);
+    };
+    setInterval(() => {
+        if (document.hidden !== false) {
+            Object.defineProperty(document, 'hidden', { value: false, writable: true });
+            document.dispatchEvent(new Event('visibilitychange', { bubbles: true }));
+            document.dispatchEvent(new Event('webkitvisibilitychange', { bubbles: true }));
+            document.dispatchEvent(new Event('focus', { bubbles: true }));
+            // Menipu Facebook agar menganggap user melakukan aktivitas kecil
+            window.dispatchEvent(new Event('mousemove'));
+        }
+    }, 10); // Dipercepat menjadi 1 detik
+})();
+
 
 
 
@@ -747,7 +772,6 @@ async function Mutation_cekArticle() {
         for (const mutation of mutationsList) {
             for (const node of mutation.addedNodes) {
                 const descendants = document.querySelectorAll?.('[data-tracking-duration-id]');
-
                 if (node.nodeType !== 1) continue;
                 if (descendants) {
                     for (const poster of descendants) {
@@ -807,7 +831,7 @@ function waitNoDialog() {
         function cek() {
             const dialog = document.querySelector('[role="dialog"], .loading-overlay');
             if (!dialog) return resolve();
-            requestAnimationFrame(cek);
+            setTimeout(cek, 50); // FIXED: requestAnimationFrame tidak berjalan di tab background
         }
         cek();
     });
@@ -877,8 +901,6 @@ const mDown = new MouseEvent("mousedown", fastOpts);
 const mUp = new MouseEvent("mouseup", fastOpts);
 
 
-
-
 async function komentari() {
     ObserverCekMasalah();
     let myObservere;
@@ -895,12 +917,20 @@ async function komentari() {
             commentDone = true;
             if (myObservere) myObservere.disconnect();
             // Tahap 1: Fokuskan elemen
-            textarea.focus();
-            // Tahap 2: Isi teks secara sinkron (insertText memicu event internal framework secara instan)
-            document.execCommand('insertText', false, commentToPost);
+            const nativeTextAreaValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, "value")?.set ||
+                Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
+
+            if (nativeTextAreaValueSetter) {
+                nativeTextAreaValueSetter.call(textarea, commentToPost);
+                // Trigger event agar sistem menyadari ada teks dan tombol "Kirim" menyala (Enable)
+                textarea.dispatchEvent(new Event('input', { bubbles: true }));
+                textarea.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+
+            // Tahap 2: Eksekusi Klik Instan
             sendBtn.disabled = false;
-            sendBtn.click();
             sendBtn.dispatchEvent(mDown);
+            sendBtn.click();
             sendBtn.dispatchEvent(mUp);
 
             clearInterval(intervalURUTKAN);
