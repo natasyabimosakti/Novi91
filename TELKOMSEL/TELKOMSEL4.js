@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TELKOMSEL 4
 // @namespace    http://tampermonkey.net/
-// @version      3.51
+// @version      3.52
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/TELKOMSEL/TELKOMSEL4.js
@@ -915,28 +915,21 @@ async function komentari() {
 
         if (textarea) {
             commentDone = true;
-            if (myObservere) myObservere.disconnect();
             // Tahap 1: Fokuskan elemen
             const nativeTextAreaValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, "value")?.set ||
                 Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
-
-            if (nativeTextAreaValueSetter) {
-                nativeTextAreaValueSetter.call(textarea, commentToPost);
-                // Trigger event agar sistem menyadari ada teks dan tombol "Kirim" menyala (Enable)
-                textarea.dispatchEvent(new Event('input', { bubbles: true }));
-                textarea.dispatchEvent(new Event('change', { bubbles: true }));
+            nativeTextAreaValueSetter.call(textarea, commentToPost);
+            textarea.dispatchEvent(new Event('input', { bubbles: true }));
+            if (sendBtn) {
+                try { sendBtn.disabled = false; } catch (e) { }
+                try { sendBtn.click(); } catch (e) { }
+                try { sendBtn.dispatchEvent(mDown); } catch (e) { }
+                try { sendBtn.dispatchEvent(mUp); } catch (e) { }
+                if (myObservere) myObservere.disconnect();
+                clearInterval(intervalURUTKAN);
+                if (window.runBypassTurbo) window.runBypassTurbo();
+                handlePostSuccess();
             }
-
-            // Tahap 2: Eksekusi Klik Instan
-            sendBtn.disabled = false;
-            sendBtn.dispatchEvent(mDown);
-            sendBtn.click();
-            sendBtn.dispatchEvent(mUp);
-
-            clearInterval(intervalURUTKAN);
-            if (window.runBypassTurbo) window.runBypassTurbo();
-            handlePostSuccess();
-
         }
     };
 
