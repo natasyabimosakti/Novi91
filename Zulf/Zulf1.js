@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW ZULF1
 // @namespace    http://tampermonkey.net/
-// @version      3.121
+// @version      3.122
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
@@ -21,7 +21,6 @@
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'cuan1';
-
 
 
 
@@ -150,6 +149,7 @@ function getCommentForGroup() {
     let ceknamagroup2 = "";
     let ceknamagroup3 = "";
     let ceknamagroup4 = "";
+    let ceknamagroup5 = "";
     for (let i = 0; i < groupNames.length; i++) {
         commentMap[groupNames[i]] = normalizeToBasicLatin(CommentList[i]);
     }
@@ -592,7 +592,7 @@ function parsePost(artikels) {
         return false;
     }
     if (!CekKeyword(postingan.toLowerCase())) return false;
-
+    window.focus();
     return true;
 }
 
