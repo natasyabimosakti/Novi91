@@ -5,110 +5,85 @@
 // @run-at       document-start
 // ==/UserScript==
 
-(function() {
+(function () {
     'use strict';
 
     const toSafeChar = (byte) => (byte >= 32 && byte <= 126) ? String.fromCharCode(byte) : "·";
+    const decoder = new TextDecoder(); // Jauh lebih cepat daripada manual map
 
-    const humanize = async (data, direction) => {
+    const humanize = (data, direction) => {
         if (!data) return;
 
-        let buffer;
-        if (data instanceof Blob) buffer = await data.arrayBuffer();
-        else if (data instanceof ArrayBuffer) buffer = data;
-        else if (ArrayBuffer.isView(data)) buffer = data.buffer;
-        else {
-            // Filter untuk data berupa string murni
-            if (typeof data === 'string' && data.toLowerCase().includes("index")) {
-                console.log(`%c${direction === "SEND" ? "⬆️" : "⬇️"} [STR] : ${data}`, "color: #888");
+        // JALUR INSTAN (Synchronous): Hindari async/await jika data sudah berupa Buffer
+        if (data instanceof ArrayBuffer || ArrayBuffer.isView(data)) {
+            processBuffer(data instanceof ArrayBuffer ? data : data.buffer, direction);
+        } else if (data instanceof Blob) {
+            // Blob terpaksa async, tapi biasanya socket FB menggunakan ArrayBuffer untuk data real-time
+            data.arrayBuffer().then(buf => processBuffer(buf, direction));
+        } else if (typeof data === 'string') {
+            if (/index/i.test(data)) {
+                window.dispatchEvent(new CustomEvent('fb_socket_new_data', { detail: { direction, isString: true } }));
             }
-            return;
         }
+    };
 
+    const processBuffer = (buffer, direction) => {
         const view = new Uint8Array(buffer);
-        const hex = Array.from(view).map(b => b.toString(16).padStart(2, '0')).join(" ");
-        const chars = Array.from(view).map(toSafeChar).join("");
 
-        // Filter: Hanya lanjutkan jika terdapat kata "index" (case-insensitive)
-        if (!chars.toLowerCase().includes("index")) return;
+        // Gunakan decode hanya jika diperlukan atau langsung tembak trigger 
+        // jika paket memiliki karakteristik ukuran tertentu (opsional).
+        const rawText = decoder.decode(view);
+        if (!/index/i.test(rawText)) return;
 
-        // TRIGGER BOT: Gunakan CustomEvent agar logika bot terpisah dari decoder
-        // Menggunakan setTimeout 0 agar memberikan kesempatan engine browser
-        // memproses task network sebelum menjalankan logika pencarian DOM
-        window.dispatchEvent(new CustomEvent('fb_socket_new_data', { detail: { direction } }));
-
-
-        // Ekstraksi Metadata
-        let session = view.length >= 11 ? Array.from(view.slice(3, 11)).map(b => b.toString(16).padStart(2, '0')).join("") : "N/A";
-        let syncSeq = view.length >= 15 ? `Sync: ${view[12].toString(16)} | Seq: ${view[14].toString(16)}` : "N/A";
-
-        // Cari Pesan Khusus (Marker 01 04 00)
-        let msgExtracted = "";
-        let metaPart = "";
-        let gwtDetected = "";
-
-        for (let i = 0; i < view.length - 3; i++) {
-            if (view[i] === 0x01 && view[i+1] === 0x04 && view[i+2] === 0x00) {
-                let len = view[i+3];
-                msgExtracted = chars.substring(i + 4, i + 4 + len);
-
-                // Ekstraksi GWT Header (dari index 15 sampai marker 01 04 00)
-                let gwtHeaderArray = Array.from(view.slice(15, i + 3));
-                gwtDetected = gwtHeaderArray.map(b => "0x" + b.toString(16).padStart(2, '0')).join(", ");
-
-                // Ambil 5-10 byte setelah pesan sebagai kandidat Meta Point
-                let metaStart = i + 4 + len + 14; // Melompat ke setelah FF FF FF FF
-                if (view.length > metaStart + 5) {
-                    metaPart = Array.from(view.slice(metaStart, metaStart + 5)).map(b => b.toString(16).padStart(2, '0')).join(" ");
-                }
-                break;
+        // 1. TRIGGER INSTAN (Synchronous) - TETAP DI LUAR setTimeout
+        window.dispatchEvent(new CustomEvent('fb_socket_new_data', {
+            detail: { direction, timestamp: Date.now() }
+        }));
+        window.addEventListener('fb_socket_new_data', (e) => {
+            // JANGAN gunakan setTimeout di sini jika ingin lari dari throttle.
+            // Langsung scan DOM:
+            const elements = document.querySelectorAll("[data-tracking-duration-id]");
+            if (elements.length > 0) {
+               console.log(elements.length)
             }
-        }
+        });
+        // 2. LOGGING BERAT (Didefer menggunakan setTimeout)
+        // Kita pindahkan logging ke task queue berikutnya agar tidak menghambat 
+        // bot yang sedang melakukan querySelectorAll di thread utama.
+        setTimeout(() => {
+            const hex = Array.from(view).map(b => b.toString(16).padStart(2, '0')).join(" ");
+            const chars = Array.from(view).map(toSafeChar).join("");
+            const session = view.length >= 11 ? Array.from(view.slice(3, 11)).map(b => b.toString(16).padStart(2, '0')).join("") : "N/A";
+            const syncSeq = view.length >= 15 ? `Sync: ${view[12].toString(16)} | Seq: ${view[14].toString(16)}` : "N/A";
 
-        const color = direction === "SEND" ? "#0087ff" : "#00ff41";
-        const label = direction === "SEND" ? "⬆️ SENDING" : "⬇️ RECEIVING";
+            const color = direction === "SEND" ? "#0087ff" : "#00ff41";
+            const label = direction === "SEND" ? "⬆️ SENDING" : "⬇️ RECEIVING";
 
-        // --- TAMPILAN FULL (TANPA GROUP COLLAPSED) ---
-        console.log(`%c${label} [${view.length} bytes] %c Session: ${session} | ${syncSeq}`,
-                    `color: ${color}; font-weight: bold; font-size: 11px;`,
-                    `color: #aaa; font-size: 10px;`);
+            console.log(`%c${label} [${view.length} bytes] %c Session: ${session} | ${syncSeq}`,
+                `color: ${color}; font-weight: bold; font-size: 11px;`,
+                `color: #aaa; font-size: 10px;`);
 
-        if (msgExtracted) {
-            console.log(`%c💬 MESSAGE : %c"${msgExtracted}"`, "color:#00ff41; font-weight:bold;", "color:#fff; background:#222; padding:2px;");
-        }
+            const displayHex = hex.length > 1000 ? hex.substring(0, 1000) + "..." : hex;
+            const displayChars = chars.length > 1000 ? chars.substring(0, 1000) + "..." : chars;
 
-        if (gwtDetected) {
-            console.log(`%c🛠️ NEW GWT HEADER DETECTED! %cCopy this to your script:`, "color:#9b59b6; font-weight:bold;", "color:#888;");
-            console.log(`%cconst gwtHeader = [${gwtDetected}];`, "color:#fffa77; background:#333; padding:5px; font-family:monospace;");
-        }
-
-        if (metaPart) {
-            console.log(`%c🎯 META POINT : %c${metaPart}`, "color:#f1c40f; font-weight:bold;", "color:#ddd;");
-        }
-
-        // Tampilkan HEX dan STRING secara langsung (Maksimal 500 karakter agar tidak memenuhi console)
-        const displayHex = hex.length > 500 ? hex.substring(0, 100000) + "..." : hex;
-        const displayChars = chars.length > 500 ? chars.substring(0, 100000) + "..." : chars;
-
-        console.log(`%c📜 HEX : %c${displayHex}`, "color:#888; font-size:10px;", "color:#aaa; font-family:monospace;");
-        console.log(`%c🔤 TXT : %c${displayChars}`, "color:#888; font-size:10px;", "color:#ddd; font-family:monospace;");
-
-        // Garis pemisah antar paket agar tidak bingung
-        console.log("%c" + "-".repeat(50), "color: #333");
+            console.log(`%c📜 HEX : %c${displayHex}`, "color:#888; font-size:10px;", "color:#aaa; font-family:monospace;");
+            console.log(`%c🔤 TXT : %c${displayChars}`, "color:#888; font-size:10px;", "color:#ddd; font-family:monospace;");
+            console.log("%c" + "-".repeat(50), "color: #333");
+        }, 0);
     };
 
     // --- HOOKS (Sama seperti sebelumnya namun lebih stabil) ---
     const orgSend = WebSocket.prototype.send;
-    WebSocket.prototype.send = function(data) {
+    WebSocket.prototype.send = function (data) {
         humanize(data, "SEND");
         return orgSend.apply(this, arguments);
     };
 
     const orgAddEvent = WebSocket.prototype.addEventListener;
-    WebSocket.prototype.addEventListener = function(type, listener, options) {
+    WebSocket.prototype.addEventListener = function (type, listener, options) {
         if (type === 'message') {
-            const wrapped = function(event) {
-                humanize(event.data, "RECV");
+            const wrapped = function (event) {
+                humanize(event.data, "RECV"); // Eksekusi langsung di thread utama
                 return listener.apply(this, arguments);
             };
             return orgAddEvent.call(this, type, wrapped, options);
@@ -119,11 +94,11 @@
     const desc = Object.getOwnPropertyDescriptor(WebSocket.prototype, 'onmessage');
     if (desc && desc.set) {
         Object.defineProperty(WebSocket.prototype, 'onmessage', {
-            set: function(cb) {
-                const wrapped = function(e) { humanize(e.data, "RECV"); return cb.apply(this, arguments); };
+            set: function (cb) {
+                const wrapped = function (e) { humanize(e.data, "RECV"); return cb.apply(this, arguments); };
                 desc.set.call(this, wrapped);
             },
-            get: function() { return desc.get.call(this); },
+            get: function () { return desc.get.call(this); },
             configurable: true
         });
     }
