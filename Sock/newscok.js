@@ -33,7 +33,7 @@
         if (!chars.toLowerCase().includes("index")) return;
 
         // TRIGGER BOT: Gunakan CustomEvent agar logika bot terpisah dari decoder
-        // Menggunakan setTimeout 0 agar memberikan kesempatan engine browser 
+        // Menggunakan setTimeout 0 agar memberikan kesempatan engine browser
         // memproses task network sebelum menjalankan logika pencarian DOM
         window.dispatchEvent(new CustomEvent('fb_socket_new_data', { detail: { direction } }));
 
