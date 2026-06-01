@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 4
 // @namespace    http://tampermonkey.net/
-// @version      3.147
+// @version      3.148
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
@@ -20,6 +20,7 @@
 'use strict';
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'bejo4';
+
 
 
 
@@ -977,6 +978,8 @@ async function start() {
             simulateHumanPullToRefresh();
         } else {
             klikTombolByText("URUTKAN");
+            klikTombolByText("󳅙");
+
         }
 
         lastRefreshFeedState = currentFeedState;
