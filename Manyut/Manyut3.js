@@ -17,6 +17,12 @@
 // @connect      raw.githubusercontent.com
 // @grant        window.focus
 
+var namagroup18 = 'Jawatengah';
+var Comment18 = 'manyut3';
+
+
+
+
 
 // --- 1. ANTI-THROTTLE & KEEP-ALIVE (Solusi Tab Background) ---
 (function () {
