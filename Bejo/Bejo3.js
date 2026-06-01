@@ -23,7 +23,6 @@ var Comment18 = 'bejo3';
 
 
 
-
 // --- 1. ANTI-THROTTLE & KEEP-ALIVE (Solusi Tab Background) ---
 (function () {
     // Memaksa properti visibility agar selalu 'visible'
@@ -55,14 +54,14 @@ var SCRIPT_NAME = Comment18
 let isAdminListReady = false; // Flag penanda kesiapan data
 var refresh = 300; // Percepat durasi animasi tarik layar agar selesai dalam 200ms
 let commentDone = false; // Flag untuk menghentikan aksi jika bot sudah selesai bertugas
+let lastRefreshFeedState = "20"; // Menyimpan ID postingan terakhir untuk mendeteksi perubahan feed
 let lastObservedUrl = location.href;
 const LOCAL_KEY = "cachedAdminList";
 const VERSION_KEY = "cachedAdminVersion";
 let watchdogTimer = null; // Timer untuk mencegah bot macet jika refresh gagal
 var commentToPost = ""; // Dikosongkan agar tidak mengirim komentar default sebelum data siap
+let botObserver = null; // Observer utama untuk memantau feed
 var grouptToPost = '';
-const toSafeChar = (byte) => (byte >= 32 && byte <= 126) ? String.fromCharCode(byte) : "·";
-const decoder = new TextDecoder(); // Jauh lebih cepat daripada manual map
 var groupNames = [];
 var CommentList = [];
 let countA = 0;
@@ -316,24 +315,10 @@ function fetchAdminListFromGitHub() {
         });
     });
 }
-
-
-function humanize(data, direction) {
-    if (!data || !commentToPost) return; // Tunda capture sebelum commentToPost siap
-
-    // JALUR INSTAN (Synchronous): Hindari async/await jika data sudah berupa Buffer
-    if (data instanceof ArrayBuffer || ArrayBuffer.isView(data)) {
-        processBuffer(data instanceof ArrayBuffer ? data : data.buffer, direction);
-    } else if (data instanceof Blob) {
-        // Blob terpaksa async, tapi biasanya socket FB menggunakan ArrayBuffer untuk data real-time
-        data.arrayBuffer().then(buf => processBuffer(buf, direction));
-    } else if (typeof data === 'string') {
-        if (/index|URUTKAN|Tutup/i.test(data)) {
-            window.dispatchEvent(new CustomEvent('fb_socket_new_data', { detail: { direction, isString: true } }));
-        }
-    }
-}
+var obs2 = false;
 function observeDialog() {
+    if (obs2) return;
+    obs2 = true;
     const dialogObserver = new MutationObserver(() => {
         const dialog = document.querySelector('[role="dialog"]');
         const pesentation = document.querySelector('[role="presentation"]');
@@ -351,56 +336,6 @@ function observeDialog() {
 
     });
     dialogObserver.observe(document.body, { childList: true, subtree: true });
-}
-function processBuffer(buffer, direction) {
-    const view = new Uint8Array(buffer);
-
-    // Gunakan decode hanya jika diperlukan atau langsung tembak trigger
-    // jika paket memiliki karakteristik ukuran tertentu (opsional).
-    const rawText = decoder.decode(view);
-    if (!/index|URUTKAN/i.test(rawText) || /Tutup/i.test(rawText)) return;
-    console.time("Proses Ambil Data");
-    // 1. TRIGGER INSTAN (Synchronous) - TETAP DI LUAR setTimeout
-    window.dispatchEvent(new CustomEvent('fb_socket_new_data', {
-        detail: { direction, timestamp: Date.now() }
-    }));
-
-}
-
-
-
-// Listener dipindahkan ke luar fungsi agar tidak duplikat (Fix Memory Leak)
-window.addEventListener('fb_socket_new_data', BOTMODE);
-
-// --- HOOKS (Sama seperti sebelumnya namun lebih stabil) ---
-const orgSend = WebSocket.prototype.send;
-WebSocket.prototype.send = function (data) {
-    humanize(data, "SEND");
-    return orgSend.apply(this, arguments);
-};
-
-const orgAddEvent = WebSocket.prototype.addEventListener;
-WebSocket.prototype.addEventListener = function (type, listener, options) {
-    if (type === 'message') {
-        const wrapped = function (event) {
-            humanize(event.data, "RECV"); // Eksekusi langsung di thread utama
-            return listener.apply(this, arguments);
-        };
-        return orgAddEvent.call(this, type, wrapped, options);
-    }
-    return orgAddEvent.apply(this, arguments);
-};
-
-const desc = Object.getOwnPropertyDescriptor(WebSocket.prototype, 'onmessage');
-if (desc && desc.set) {
-    Object.defineProperty(WebSocket.prototype, 'onmessage', {
-        set: function (cb) {
-            const wrapped = function (e) { humanize(e.data, "RECV"); return cb.apply(this, arguments); };
-            desc.set.call(this, wrapped);
-        },
-        get: function () { return desc.get.call(this); },
-        configurable: true
-    });
 }
 
 
@@ -487,9 +422,11 @@ function isAdminFast(name) {
     return adminList.some(a => cleanedName.includes(cleanName(a)));
 }
 
+var obs3 = false;
 
 function observeAktivitas() {
-
+    if (obs3) return;
+    obs3 = true;
     let myObserver = null;
     myObserver = new MutationObserver((mutations) => {
         if (commentDone) return;
@@ -592,81 +529,52 @@ function simulateHumanPullToRefresh(distance = 700) {
 
 
 var skiper = false;
+var obs4 = false;
 
-function BOTMODE(e) {
+function BOTMODE() {
+    if (obs4) return;
+    obs4 = true;
     if (skiper) return;
-    komentari()
-    // Hentikan penantian jika ada data baru masuk atau dipicu manual oleh watchdog
-    if (watchdogTimer) {
-        clearTimeout(watchdogTimer);
-        watchdogTimer = null;
-    }
-
-    // Cek apakah data admin sudah siap
-    if (!isAdminListReady) return;
-
-    const elements = document.body.querySelectorAll?.('[data-tracking-duration-id]');
-    if (!elements || commentDone) return;
-
     const isUserPage = document.location.href.includes("user");
-    let foundValidPost = false; // Flag untuk mendeteksi apakah ada postingan yang lolos filter
 
-    for (let i = 0, len = elements.length; i < len; i++) {
-        const el = elements[i];
-        if (foundValidPost || commentDone) return;
+    if (!botObserver) {
+        botObserver = new MutationObserver(async (mutationsList) => {
 
-        const isValid = isUserPage ? parsePost2(el) : parsePost(el);
+            for (const mutation of mutationsList) {
+                for (const node of mutation.addedNodes) {
+                    const descendants = document.querySelectorAll?.('[data-tracking-duration-id]');
+                    if (!descendants || commentDone) return;
 
-        if (isValid) {
-            console.time("Data Ditemukan Sampai Prosess")
-            foundValidPost = true;
-            const textComponents = el.querySelectorAll('[data-type="text"]');
-            const target = textComponents[textComponents.length - 1];
-            if (target && !commentDone) {
-                // 1. Standby Pounce: Aktifkan observer pengisi teks hanya satu kali
-                const fire = (retry = 0) => {
-                    // Berhenti jika komentar sudah terkirim atau sudah mencoba 50x
-                    if (commentDone || retry > 100) return;
 
-                    // Klik instan tanpa scanning DOM lagi
-                    target.click();
-                    skiper = true;
-                    // Rekursi mikro menggunakan MessageChannel agar tetap kencang di background
-                    const chan = new MessageChannel();
-                    chan.port1.onmessage = () => fire(retry + 1);
-                    chan.port2.postMessage(null);
-                    // Gunakan queueMicrotask: lebih ringan dan lebih cepat dari MessageChannel
-                    queueMicrotask(() => fire(retry + 1));
-                };
-                fire();
+                    if (node.nodeType !== 1) continue;
+                    if (descendants) {
+                        for (let i = 0, len = descendants.length; i < len; i++) {
+                            var el = descendants[i]
+                            if (commentDone) return;
+                            const isValid = isUserPage ? parsePost2(el) : parsePost(el);
+                            const textComponents = el.querySelectorAll('[data-type="text"]');
+                            if (isValid) {
+                                botObserver.disconnect();
+                                skiper = true;
+                                if (textComponents.length > 0) {
+                                    const target = textComponents[textComponents.length - 1];
+                                    if (target) {
+                                        target.click();
+                                    }
+                                }
+                                return;
+                            }
+                        }
+                    }
+
+                }
             }
-        }
+        });
+
+        botObserver.observe(document.body, { childList: true, subtree: true });
     }
 
-    // Gunakan try-catch atau cek eksistensi agar tidak error "Timer does not exist" saat dipicu watchdog
-    try { console.timeEnd("Proses Ambil Data"); } catch (e) { }
 
-    // Logika Refresh & Continuity
-    if (!foundValidPost && !commentDone) {
-
-        if (document.location.href.includes("user")) {
-            simulateHumanPullToRefresh()
-        } else {
-            klikTombolByText("URUTKAN");
-
-        }
-
-        // JIKA refresh gagal memicu data masuk ke socket, watchdog akan memicu ulang BOTMODE secara manual
-        // agar bot tidak berhenti selamanya.
-        watchdogTimer = setTimeout(() => {
-            if (!commentDone) {
-                // Gunakan MessageChannel untuk membangkitkan loop jika setTimeout di-throttle 1 detik
-                const chan = new MessageChannel();
-                chan.port1.onmessage = () => BOTMODE({ detail: { watchdog: true } });
-                chan.port2.postMessage(null);
-            }
-        }, refresh);
-    }
 }
 
 // --- 2. BACKGROUND POLLER (Bypass Throttling) ---
@@ -727,7 +635,10 @@ function handlePostSuccess() {
     });
 
 }
+var obs5 = false;
 function komentari() {
+    if (obs5) return;
+    obs5 = true;
     if (commentDone || !commentToPost) return;
 
     // Cek DOM secara langsung untuk elemen yang sudah ada
@@ -751,7 +662,6 @@ function komentari() {
     pollerChannel.port2.postMessage(null);
 }
 
-// --- 3. URL WATCHER (Optimasi Beban BOTMODE) ---
 setInterval(async () => {
     if (location.href !== lastObservedUrl) {
         const oldUrl = lastObservedUrl;
@@ -761,23 +671,21 @@ setInterval(async () => {
 
         if (isTargetPage) {
             console.log("%c🔄 URL Berubah: Mencocokkan ulang commentToPost...", "color: #00ffff; font-weight: bold;");
-            commentDone = false; // Reset status agar bot bisa bekerja di grup baru
-            if (myObservere) { myObservere.disconnect(); myObservere = null; }
-            commentToPost = "";  // Kosongkan sementara agar humanize berhenti memproses socket
+            await start()
 
-            // Jalankan ulang pencarian identitas grup
-            await tungguGroupAsync();
         } else if (wasTargetPage && !isTargetPage) {
             // Jika meninggalkan halaman grup, hentikan aktivitas bot
             commentToPost = "";
-            console.log("%c⏹️ Meninggalkan Halaman Target: Pemrosesan socket dihentikan.", "color: #ff4444;");
+            console.log("%c⏹️ Meninggalkan Halaman Target.", "color: #ff4444;");
         }
     }
 }, 1000); // Cek setiap 1 detik (sangat ringan dibandingkan per-packet)
 
 
-
+var obs1 = false;
 function ObserverCekMasalah() {
+    if (obs1) return;
+    obs1 = true;
     observers = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
             for (const node of mutation.addedNodes) {
@@ -1018,12 +926,8 @@ async function manageGroups() {
 
 
 
+async function start() {
 
-
-
-
-// --- 3. INITIALIZATION FLOW ---
-(async () => {
 
     // Mencegah inisialisasi jika bukan halaman target
     if (!document.location.href.includes("group") && !document.location.href.includes("user")) return;
@@ -1032,6 +936,7 @@ async function manageGroups() {
 
     // Tunggu admin list dan group list (yang juga mengisi commentToPost) selesai
     // Promise.all memastikan kedua proses berjalan secara paralel namun kita menunggu keduanya selesai
+
     await Promise.all([
         fetchAdminListFromGitHub(),
         fetchGroupsFromGitHub(),
@@ -1068,12 +973,53 @@ async function manageGroups() {
     // Agar engine internal Facebook selesai melakukan binding event listener
     await new Promise(r => setTimeout(r, 1500));
     console.log("%c🚀 Memulai Trigger Awal (Refresh)...", "color: #00ff00; font-weight: bold;");
-    if (document.location.href.includes("user")) {
-        simulateHumanPullToRefresh()
-    } else {
-        klikTombolByText("URUTKAN");
 
-    }
+    // 1. Heartbeat Interaction: Klik/Refresh berkala agar proses tetap hidup
+
+
+    BOTMODE(); // Trigger manual pertama kali
+    komentari()
     ObserverCekMasalah()
     MsgError(SCRIPT_NAME)
+
+    setInterval(() => {
+        // 1. Berhenti jika postingan ditemukan atau proses komentar sudah selesai
+        if (commentDone || skiper) return;
+        let currentFeedState = "";
+        // 2. Deteksi Perubahan: Cukup bandingkan ID postingan teratas. 
+        // Karena setiap refresh ID akan berubah, ini cara tercepat untuk mendeteksi pembaruan data.
+        const isUserPage = document.location.href.includes("user");
+
+        if (isUserPage) {
+            // Metode User: Pantau atribut postingan (berubah saat Pull-to-Refresh)
+            const topPost1 = document.querySelector('[data-tracking-duration-id]');
+            currentFeedState = topPost1?.querySelector("[data-fd-action]")?.getAttribute("data-fd-action");
+        } else {
+            // Metode Group: Pantau atribut dari container refresh (berubah saat klik URUTKAN)
+            const topPost2 = document.querySelector('[data-tracking-duration-id]');
+            currentFeedState = topPost2?.getAttribute("data-tracking-duration-id");
+        }
+        if (currentFeedState == lastRefreshFeedState) return;
+
+        if (document.querySelector(".loading-overlay")) {
+            lastRefreshFeedState = "re"
+            return;
+        }
+
+        if (isUserPage) {
+            simulateHumanPullToRefresh();
+        } else {
+            klikTombolByText("URUTKAN");
+        }
+
+        lastRefreshFeedState = currentFeedState;
+    }, 300); // Heartbeat cepat (300ms) dengan proteksi redundansi
+}
+
+
+
+// --- 3. INITIALIZATION FLOW ---
+(async () => {
+    start()
+
 })();
