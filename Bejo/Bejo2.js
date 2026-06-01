@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 2
 // @namespace    http://tampermonkey.net/
-// @version      3.146
+// @version      3.147
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo2.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo2.js
@@ -20,7 +20,6 @@
 'use strict';
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'bejo2';
-
 
 
 
@@ -97,6 +96,70 @@ function Optimisasi() {
 Optimisasi();
 
 let myObservere = null;
+let masterObserver = null;
+var obs3 = false;
+function initMasterObserver() {
+    if (obs3) return;
+    obs3 = true;
+    if (masterObserver) return;
+
+    masterObserver = new MutationObserver((mutations) => {
+        // 1. Logika Dialog (Selalu cek state elemen saat ini)
+        const dialog = document.querySelector('[role="dialog"]');
+        const presentation = document.querySelector('[role="presentation"]');
+        const dialogVscroller = document.querySelector(".dialog-vscroller");
+
+        sedangKlikUrutkan = !!(presentation || dialogVscroller);
+        sedangProses = !!dialog;
+
+        // 2. Logika Mutasi Nodes
+        for (const mutation of mutations) {
+            for (const node of mutation.addedNodes) {
+                if (node.nodeType !== 1) continue;
+
+                // Cek Masalah & Status Post
+                cekMasalah();
+                cekMasalah2();
+                cekLogout();
+
+                if (node.textContent?.toLowerCase().includes('diposting') || node.textContent?.toLowerCase().includes('berhasil')) {
+                    setTimeout(() => {
+                        if (masterObserver) masterObserver.disconnect();
+                        location.href = "about:blank";
+                    }, 5000);
+                }
+
+                // Cek Aktivitas Terbaru (Hanya di halaman grup)
+                if (!commentDone && location.href.includes("group")) {
+                    const text = node.textContent || "";
+                    if (text.includes("Aktivitas terbaru")) {
+                        const tombol = node.querySelectorAll("[role='button']");
+                        if (tombol.length >= 2) {
+                            tombol.forEach(btn => {
+                                if (countA < 3) {
+                                    if (btn.textContent.includes("Postingan baru")) {
+                                        btn.click();
+                                        countA++;
+                                    }
+                                } else {
+                                    setTimeout(() => {
+                                        if (btn.textContent.includes("Aktivitas terbaru")) {
+                                            btn.click();
+                                            countA = 0;
+                                        }
+                                    }, 100);
+                                }
+                            });
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    masterObserver.observe(document.body, { childList: true, subtree: true });
+    console.log("🛠️ Master Observer diaktifkan.");
+}
 
 async function tungguGroupAsync() {
     const start = Date.now();
@@ -316,28 +379,6 @@ function fetchAdminListFromGitHub() {
         });
     });
 }
-var obs2 = false;
-function observeDialog() {
-    if (obs2) return;
-    obs2 = true;
-    const dialogObserver = new MutationObserver(() => {
-        const dialog = document.querySelector('[role="dialog"]');
-        const pesentation = document.querySelector('[role="presentation"]');
-        const dailog2 = document.querySelector(".dialog-vscroller");
-        if (pesentation || dailog2) {
-            sedangKlikUrutkan = true; // dialog muncul, jangan klik URUTKAN
-        } else {
-            sedangKlikUrutkan = false; // dialog hilang, bisa klik URUTKAN lagi
-        }
-        if (dialog) {
-            sedangProses = true; // dialog muncul, jangan klik URUTKAN
-        } else {
-            sedangProses = false; // dialog hilang, bisa klik URUTKAN lagi
-        }
-
-    });
-    dialogObserver.observe(document.body, { childList: true, subtree: true });
-}
 
 
 
@@ -421,48 +462,6 @@ function cleanName(s) {
 function isAdminFast(name) {
     const cleanedName = cleanName(name);
     return adminList.some(a => cleanedName.includes(cleanName(a)));
-}
-
-var obs3 = false;
-
-function observeAktivitas() {
-    if (obs3) return;
-    obs3 = true;
-    let myObserver = null;
-    myObserver = new MutationObserver((mutations) => {
-        if (commentDone) return;
-
-        if (document.location.href.includes("group")) {
-            for (const mutation of mutations) {
-                for (const node of mutation.addedNodes) {
-                    if (node.nodeType !== 1) continue; // Bukan elemen
-                    const text = node.textContent || "";
-                    if (text.includes("Aktivitas terbaru")) {
-                        const tombol = node.querySelectorAll("[role='button']");
-                        if (tombol.length >= 2) {
-                            tombol.forEach(btn => {
-                                if (countA < 3) {
-                                    if (btn.textContent.includes("Postingan baru")) {
-                                        btn.click();
-                                        countA++;
-                                    }
-                                } else {
-                                    setTimeout(() => {
-                                        if (btn.textContent.includes("Aktivitas terbaru")) {
-                                            btn.click();
-                                            countA = 0;
-                                        }
-                                    }, 100);
-                                }
-                            });
-                        }
-                    }
-                }
-            }
-        }
-    });
-    myObserver.observe(document.body, { childList: true, subtree: true });
-
 }
 
 
@@ -683,37 +682,6 @@ setInterval(async () => {
 }, 1000); // Cek setiap 1 detik (sangat ringan dibandingkan per-packet)
 
 
-var obs1 = false;
-function ObserverCekMasalah() {
-    if (obs1) return;
-    obs1 = true;
-    observers = new MutationObserver((mutations) => {
-        for (const mutation of mutations) {
-            for (const node of mutation.addedNodes) {
-                cekMasalah();
-                cekMasalah2();
-                cekLogout();
-
-                if (node.nodeType === 1 && (node.textContent?.toLowerCase().includes('diposting') || node.textContent?.toLowerCase().includes('berhasil'))) {
-                    setTimeout(() => {
-                        stopObserver();
-                        location.href = "about:blank";
-                    }, 5000);
-                }
-            }
-        }
-    });
-
-    observers.observe(document.body, { childList: true, subtree: true });
-}
-
-function stopObserver() {
-    if (observers) {
-        observers.disconnect();
-        observers = null;
-        console.log("🛑 Observer berhasil dihentikan dari luar.");
-    }
-}
 function MsgError(message) {
     const notif = document.createElement("div");
     notif.textContent = message;
@@ -739,7 +707,7 @@ async function cekMasalah() {
 
     if (isi.includes("masalah")) {
         MsgError(SCRIPT_NAME)
-        observers.disconnect()
+        if (masterObserver) masterObserver.disconnect();
         await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
         setTimeout(() => {
             location.href = "https://m.facebook.com/bookmarks/"
@@ -790,8 +758,8 @@ async function cekMasalah2() {
 
     if (targetEl) {
         sudahkirim = true;
-        if (typeof observers !== 'undefined' && observers) {
-            observers.disconnect();
+        if (masterObserver) {
+            masterObserver.disconnect();
         }
 
         const text = targetEl.textContent;
@@ -944,9 +912,8 @@ async function start() {
         tungguGroupAsync()
 
     ]);
-    observeDialog();
+    initMasterObserver();
 
-    observeAktivitas()
     // --- VALIDASI KETAT: Tunggu commentToPost benar-benar terisi sebelum lanjut ---
     if (!commentToPost) {
         console.log("%c⏳ Menunggu identitas grup terdeteksi untuk mengisi commentToPost...", "color: #ffa500;");
@@ -980,7 +947,6 @@ async function start() {
 
     BOTMODE(); // Trigger manual pertama kali
     komentari()
-    ObserverCekMasalah()
     MsgError(SCRIPT_NAME)
 
     setInterval(() => {
