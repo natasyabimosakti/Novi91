@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 4
 // @namespace    http://tampermonkey.net/
-// @version      3.148
+// @version      3.149
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
@@ -75,6 +75,8 @@ var observers = null
 var groups = [];
 var now = Date.now();
 var EXPIRATION_MS = 5 * 60 * 1000;
+var currentFeedState = "";
+
 const fastOpts = { bubbles: true, cancelable: true };
 const mDown = new MouseEvent("mousedown", fastOpts);
 const mUp = new MouseEvent("mouseup", fastOpts);
@@ -318,14 +320,13 @@ function getCommentForGroup() {
 }
 
 function klikTombolByText(teks) {
-    if (commentDone) return false;
-    if (sedangProses) return false; // jangan klik kalau dialog muncul
-    if (sedangKlikUrutkan) return false;
-
     const tombol = Array.from(document.querySelectorAll('[role="button"], [tabindex="0"]'))
         .find(el => el.textContent.trim() === teks);
     if (tombol) {
+        currentFeedState = tombol.getAttribute("data-action-id")
+        if (lastRefreshFeedState == currentFeedState) return;
         tombol.click();
+        lastRefreshFeedState = currentFeedState
         return true;
     }
     return false;
@@ -555,7 +556,6 @@ function BOTMODE() {
                             const isValid = isUserPage ? parsePost2(el) : parsePost(el);
                             const textComponents = el.querySelectorAll('[data-type="text"]');
                             if (isValid) {
-                                botObserver.disconnect();
                                 skiper = true;
                                 if (textComponents.length > 0) {
                                     const target = textComponents[textComponents.length - 1];
@@ -604,8 +604,6 @@ const tryPost = (root) => {
         document.querySelector(BTN_SEL);
 
     if (textarea && sendBtn) {
-        commentDone = true;
-        if (myObservere) { myObservere.disconnect(); myObservere = null; }
 
         console.time("Kirim Komentar");
 
@@ -614,6 +612,9 @@ const tryPost = (root) => {
         else textarea.value = commentToPost;
         sendBtn.dispatchEvent(mDown);
         sendBtn.click();
+        commentDone = true;
+        if (myObservere) { myObservere.disconnect(); myObservere = null; }
+        botObserver.disconnect();
         handlePostSuccess()
         console.timeEnd("Kirim Komentar");
         console.timeEnd("Data Ditemukan Sampai Prosess")
@@ -953,8 +954,7 @@ async function start() {
     setInterval(() => {
         // 1. Berhenti jika postingan ditemukan atau proses komentar sudah selesai
         if (commentDone || skiper) return;
-        let currentFeedState = "";
-        // 2. Deteksi Perubahan: Cukup bandingkan ID postingan teratas. 
+        // 2. Deteksi Perubahan: Cukup bandingkan ID postingan teratas.
         // Karena setiap refresh ID akan berubah, ini cara tercepat untuk mendeteksi pembaruan data.
         const isUserPage = document.location.href.includes("user");
 
@@ -962,12 +962,8 @@ async function start() {
             // Metode User: Pantau atribut postingan (berubah saat Pull-to-Refresh)
             const topPost1 = document.querySelector('[data-tracking-duration-id]');
             currentFeedState = topPost1?.querySelector("[data-fd-action]")?.getAttribute("data-fd-action");
-        } else {
-            // Metode Group: Pantau atribut dari container refresh (berubah saat klik URUTKAN)
-            const topPost2 = document.querySelector('[data-tracking-duration-id]');
-            currentFeedState = topPost2?.getAttribute("data-tracking-duration-id");
+            if (currentFeedState == lastRefreshFeedState) return;
         }
-        if (currentFeedState == lastRefreshFeedState) return;
 
         if (document.querySelector(".loading-overlay")) {
             lastRefreshFeedState = "re"
@@ -978,11 +974,8 @@ async function start() {
             simulateHumanPullToRefresh();
         } else {
             klikTombolByText("URUTKAN");
-            klikTombolByText("󳅙");
-
         }
 
-        lastRefreshFeedState = currentFeedState;
     }, 300); // Heartbeat cepat (300ms) dengan proteksi redundansi
 }
 
