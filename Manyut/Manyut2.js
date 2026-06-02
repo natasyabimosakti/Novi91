@@ -16,6 +16,7 @@
 // @connect      api.telegram.org
 // @connect      raw.githubusercontent.com
 // @grant        window.focus
+// ==/UserScript==
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'manyut2';
