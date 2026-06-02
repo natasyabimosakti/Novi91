@@ -23,7 +23,6 @@ var Comment18 = 'manyut3';
 
 
 
-
 // --- 1. ANTI-THROTTLE & KEEP-ALIVE (Solusi Tab Background) ---
 (function () {
     // Memaksa properti visibility agar selalu 'visible'
