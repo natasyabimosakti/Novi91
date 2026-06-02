@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Untung 1
 // @namespace    http://tampermonkey.net/
-// @version      3.150
+// @version      3.151
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung1.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Untung/Untung1.js
@@ -20,6 +20,7 @@
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'untung1';
+
 
 
 
@@ -561,6 +562,8 @@ function BOTMODE() {
                                     const target = textComponents[textComponents.length - 1];
                                     if (target) {
                                         target.click();
+                                        console.time("Data Ditemukan Sampai Prosess")
+
                                     }
                                 }
                                 return;
@@ -585,45 +588,6 @@ pollerChannel.port1.onmessage = () => { if (!commentDone) komentari(); };
 const TXT_SEL = ".multi-line-floating-textbox, .internal-input";
 const BTN_SEL = ".textbox-submit-button, [aria-label='Posting komentar']";
 
-const tryPost = (root) => {
-    if (commentDone) return true;
-
-    // 1. Mencari textarea: Menggunakan matches lebih cepat daripada querySelector jika root adalah elemennya
-    const textarea =
-        (root.nodeType === 1 && root.matches?.(TXT_SEL) ? root : null) ||
-        document.body.lastElementChild?.querySelector(TXT_SEL) ||
-        (root.querySelector ? root.querySelector(TXT_SEL) : null);
-
-    if (!textarea) return false;
-
-    const sendBtn =
-        textarea.parentElement?.querySelector('.textbox-submit-button') ||
-        textarea.closest('[data-mcomponent="MContainer"]')?.querySelector('[aria-label="Posting komentar"]') ||
-        (textarea.form ? textarea.form.querySelector(BTN_SEL) : null) ||
-        document.body.lastElementChild?.querySelector(BTN_SEL) ||
-        document.querySelector(BTN_SEL);
-
-    if (textarea && sendBtn) {
-
-        console.time("Kirim Komentar");
-
-        // ATOMIC EXECUTION: Lewati focus() dan dispatchEvent manual yang menghambat eksekusi sinkron
-        if (nativeSetter) nativeSetter.call(textarea, commentToPost);
-        else textarea.value = commentToPost;
-        sendBtn.dispatchEvent(mDown);
-        sendBtn.click();
-        commentDone = true;
-        if (myObservere) { myObservere.disconnect(); myObservere = null; }
-        botObserver.disconnect();
-        handlePostSuccess()
-        console.timeEnd("Kirim Komentar");
-        console.timeEnd("Data Ditemukan Sampai Prosess")
-        window.focus();
-        if (window.runBypassTurbo) window.runBypassTurbo();
-        return true;
-    }
-    return false;
-};
 
 function handlePostSuccess() {
     Promise.all([
@@ -643,15 +607,44 @@ function komentari() {
     obs5 = true;
     if (commentDone || !commentToPost) return;
 
-    // Cek DOM secara langsung untuk elemen yang sudah ada
-    if (tryPost(document)) return;
-
-    // Pasang observer untuk menangkap render elemen baru secara instan
     if (!myObservere) {
         myObservere = new MutationObserver((mutations) => {
-            for (const m of mutations) {
-                for (const node of m.addedNodes) {
-                    if (node.nodeType === 1 && tryPost(node)) return;
+            for (const mutation of mutations) {
+                for (const node of mutation.addedNodes) {
+
+                    if (commentDone || node.nodeType !== 1) continue;
+
+                    const textarea =
+                        (node.nodeType === 1 && node.matches?.(TXT_SEL) ? node : null) ||
+                        document.body.lastElementChild?.querySelector(TXT_SEL) ||
+                        (node.querySelector ? node.querySelector(TXT_SEL) : null);
+
+                    if (!textarea) return false;
+
+                    const sendBtn = (node.nodeType === 1 && node.matches?.(BTN_SEL) ? node : null) ||
+                        textarea.parentElement?.querySelector('.textbox-submit-button') ||
+                        textarea.closest('[data-mcomponent="MContainer"]')?.querySelector('[aria-label="Posting komentar"]') ||
+                        (textarea.form ? textarea.form.querySelector(BTN_SEL) : null) ||
+                        document.body.lastElementChild?.querySelector(BTN_SEL) ||
+                        document.querySelector(BTN_SEL);
+                    if (textarea && sendBtn) {
+                        console.time("Kirim Komentar");
+                        // ATOMIC EXECUTION: Lewati focus() dan dispatchEvent manual yang menghambat eksekusi sinkron
+                        if (nativeSetter) nativeSetter.call(textarea, commentToPost);
+                        else textarea.value = commentToPost;
+                        sendBtn.dispatchEvent(mDown);
+                        sendBtn.click();
+                        console.timeEnd("Kirim Komentar");
+                        commentDone = true;
+                        if (myObservere) { myObservere.disconnect(); myObservere = null; }
+                        botObserver.disconnect();
+                        handlePostSuccess()
+                        console.timeEnd("Data Ditemukan Sampai Prosess")
+                        window.focus();
+                        if (window.runBypassTurbo) window.runBypassTurbo();
+                        return true;
+                    }
+
                 }
             }
         });
