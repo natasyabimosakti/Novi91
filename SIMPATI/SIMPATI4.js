@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SIMPATI 4
 // @namespace    http://tampermonkey.net/
-// @version      3.66
+// @version      3.67
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/SIMPATI/SIMPATI4.js
@@ -975,8 +975,10 @@ async function start() {
         if (isUserPage) {
             simulateHumanPullToRefresh();
         } else {
-            klikTombolByText("URUTKAN");
-            klikTombolByText('\u{f1953}');
+            const ikonTombolTarget = ['\u{f1953}', '\u{f3159}','URUTKAN'];
+            ikonTombolTarget.forEach(ikon => {
+                klikTombolByText(ikon);
+            });
         }
 
     }, 300); // Heartbeat cepat (300ms) dengan proteksi redundansi
