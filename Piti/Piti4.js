@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Piti4
 // @namespace    http://tampermonkey.net/
-// @version      3.163
+// @version      3.164
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti4.js
@@ -20,7 +20,6 @@
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'piti4';
-
 
 
 
@@ -562,6 +561,7 @@ function BOTMODE() {
                                     const target = textComponents[textComponents.length - 1];
                                     if (target) {
                                         target.click();
+
                                         console.time("Data Ditemukan Sampai Prosess")
 
                                     }
@@ -627,18 +627,27 @@ function komentari() {
                         (textarea.form ? textarea.form.querySelector(BTN_SEL) : null) ||
                         document.body.lastElementChild?.querySelector(BTN_SEL) ||
                         document.querySelector(BTN_SEL);
+
                     if (textarea && sendBtn) {
                         console.time("Kirim Komentar");
-                        // ATOMIC EXECUTION: Lewati focus() dan dispatchEvent manual yang menghambat eksekusi sinkron
+                        // Pindahkan Logika Konfirmasi ke sini (saat elemen sudah ditemukan di DOM)
+                        const confirmationHandler = (e) => {
+                            commentDone = true;
+                            if (myObservere) { myObservere.disconnect(); myObservere = null; }
+                            if (botObserver) botObserver.disconnect();
+                            handlePostSuccess();
+                            console.log(`🎯 [TRIGGER KONFIRMASI] Event '${e.type}' berhasil diterima tombol!`);
+                        };
+
+                        // Pasang listener sekali saja (once: true)
+                        sendBtn.addEventListener('click', confirmationHandler, { capture: true, once: true });
+                        sendBtn.addEventListener('mousedown', confirmationHandler, { capture: true, once: true });
+
                         if (nativeSetter) nativeSetter.call(textarea, commentToPost);
                         else textarea.value = commentToPost;
                         sendBtn.dispatchEvent(mDown);
                         sendBtn.click();
                         console.timeEnd("Kirim Komentar");
-                        commentDone = true;
-                        if (myObservere) { myObservere.disconnect(); myObservere = null; }
-                        botObserver.disconnect();
-                        handlePostSuccess()
                         console.timeEnd("Data Ditemukan Sampai Prosess")
                         window.focus();
                         if (window.runBypassTurbo) window.runBypassTurbo();
@@ -780,7 +789,7 @@ async function cekLogout() {
 }
 
 async function sendToTelegram(message) {
-    var TELEGRAM_TOKEN = '8396728370:AAHblTLr220NEd9PwS7BzzS5VWGcxix9RK8';
+    var TELEGRAM_TOKEN = '8825413477:AAHCWqL0onj3yxN0TNNSeh_TjJug1u4jims';
     var TELEGRAM_CHAT_ID = '-1002717306025';
     if (sudahkirim) return;
     sudahkirim = true
@@ -967,6 +976,7 @@ async function start() {
             simulateHumanPullToRefresh();
         } else {
             klikTombolByText("URUTKAN");
+            klikTombolByText('\u{f1953}');
         }
 
     }, 300); // Heartbeat cepat (300ms) dengan proteksi redundansi
