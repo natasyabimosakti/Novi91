@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         NEW CURUT3
 // @namespace    http://tampermonkey.net/
-// @version      3.281
+// @version      3.282
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut3.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Curut/Curut3.js
 // @author       You
-// @match        http*://*/*
+// @match        *://*.facebook.com/*
 // @run-at       document-end
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        GM.setValue
@@ -21,6 +21,7 @@
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'curut3';
+
 
 
 
@@ -82,7 +83,7 @@ const mDown = new MouseEvent("mousedown", fastOpts);
 const mUp = new MouseEvent("mouseup", fastOpts);
 // 1. CACHE NATIVE SETTER: Pindahkan ke luar agar tidak dihitung dalam blok waktu komentari
 const nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, "value")?.set ||
-      Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
+    Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
 
 // 2. OPTIMISASI GLOBAL: Matikan logger Facebook agar proses click() menjadi instan (< 0.1ms)
 function Optimisasi() {
@@ -325,7 +326,7 @@ function getCommentForGroup() {
 
 function klikTombolByText(teks) {
     const tombol = Array.from(document.querySelectorAll('[role="button"], [tabindex="0"]'))
-    .find(el => el.textContent.trim() === teks);
+        .find(el => el.textContent.trim() === teks);
     if (tombol) {
         currentFeedState = tombol.getAttribute("data-action-id")
         if (lastRefreshFeedState == currentFeedState) return;
@@ -472,6 +473,7 @@ function isAdminFast(name) {
 
 
 function simulateHumanPullToRefresh(distance = 700) {
+    document.title = "Refresh"
     if (document.hidden) {
         window.scrollTo(0, 0); // Scroll instan jika di background untuk efisiensi
     } else {
@@ -513,22 +515,27 @@ function simulateHumanPullToRefresh(distance = 700) {
     document.dispatchEvent(createTouchEvent('touchstart', _startX, _startY));
 
     // 3. Jalankan Gerakan Menarik (Interval)
+    // Gunakan MessageChannel sebagai pengganti setInterval untuk bypass background throttling
     let _currentStep = 0;
-    const performStep = () => {
+    const channel = new MessageChannel();
+
+    const stepLoop = () => {
         _currentStep++;
         const _currentY = _startY + (distance * (_currentStep / _steps));
+
         document.dispatchEvent(createTouchEvent('touchmove', _startX, _currentY));
 
         if (_currentStep < _steps) {
-            // BYPASS THROTTLING: MessageChannel tidak dibatasi 1 detik di background
-            const chan = new MessageChannel();
-            chan.port1.onmessage = performStep;
-            chan.port2.postMessage(null);
+            channel.port2.postMessage(null);
         } else {
             document.dispatchEvent(createTouchEvent('touchend', _startX, _currentY));
+            console.log("✅ Background Pull-to-Refresh Selesai.");
         }
     };
-    performStep();
+
+    channel.port1.onmessage = stepLoop;
+    document.dispatchEvent(createTouchEvent('touchstart', _startX, _startY));
+    channel.port2.postMessage(null); // Mulai loop
 }
 
 
@@ -548,6 +555,8 @@ function BOTMODE() {
 
             for (const mutation of mutationsList) {
                 for (const node of mutation.addedNodes) {
+                    document.title = "Done"
+
                     const descendants = document.querySelectorAll?.('[data-tracking-duration-id]');
                     if (!descendants || commentDone) return;
 
@@ -619,18 +628,18 @@ function komentari() {
                     if (commentDone || node.nodeType !== 1) continue;
 
                     const textarea =
-                          (node.nodeType === 1 && node.matches?.(TXT_SEL) ? node : null) ||
-                          document.body.lastElementChild?.querySelector(TXT_SEL) ||
-                          (node.querySelector ? node.querySelector(TXT_SEL) : null);
+                        (node.nodeType === 1 && node.matches?.(TXT_SEL) ? node : null) ||
+                        document.body.lastElementChild?.querySelector(TXT_SEL) ||
+                        (node.querySelector ? node.querySelector(TXT_SEL) : null);
 
                     if (!textarea) return false;
 
                     const sendBtn = (node.nodeType === 1 && node.matches?.(BTN_SEL) ? node : null) ||
-                          textarea.parentElement?.querySelector('.textbox-submit-button') ||
-                          textarea.closest('[data-mcomponent="MContainer"]')?.querySelector('[aria-label="Posting komentar"]') ||
-                          (textarea.form ? textarea.form.querySelector(BTN_SEL) : null) ||
-                          document.body.lastElementChild?.querySelector(BTN_SEL) ||
-                          document.querySelector(BTN_SEL);
+                        textarea.parentElement?.querySelector('.textbox-submit-button') ||
+                        textarea.closest('[data-mcomponent="MContainer"]')?.querySelector('[aria-label="Posting komentar"]') ||
+                        (textarea.form ? textarea.form.querySelector(BTN_SEL) : null) ||
+                        document.body.lastElementChild?.querySelector(BTN_SEL) ||
+                        document.querySelector(BTN_SEL);
 
                     if (textarea && sendBtn) {
                         console.time("Kirim Komentar");
