@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NEW Bejo 4
 // @namespace    http://tampermonkey.net/
-// @version      3.152
+// @version      3.153
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Bejo/Bejo4.js
@@ -20,7 +20,6 @@
 'use strict';
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'bejo4';
-
 
 
 
@@ -76,7 +75,7 @@ var groups = [];
 var now = Date.now();
 var EXPIRATION_MS = 5 * 60 * 1000;
 var currentFeedState = "";
-
+var cekurlutama = ""
 const fastOpts = { bubbles: true, cancelable: true };
 const mDown = new MouseEvent("mousedown", fastOpts);
 const mUp = new MouseEvent("mouseup", fastOpts);
@@ -97,7 +96,11 @@ function Optimisasi() {
     if (gwt) gwt.scheduleDeferred = (task) => typeof task === 'function' ? task() : task?.execute?.();
 }
 Optimisasi();
+// Gunakan unsafeWindow jika kamu bermain di Tampermonkey/Violentmonkey
 
+
+
+console.log(cekurlutama)
 let myObservere = null;
 let masterObserver = null;
 var obs3 = false;
@@ -133,7 +136,7 @@ function initMasterObserver() {
                 }
 
                 // Cek Aktivitas Terbaru (Hanya di halaman grup)
-                if (!commentDone && location.href.includes("group")) {
+                if (!commentDone && cekurlutama.includes("group")) {
                     const text = node.textContent || "";
                     if (text.includes("Aktivitas terbaru")) {
                         const tombol = node.querySelectorAll("[role='button']");
@@ -283,7 +286,7 @@ function getCommentForGroup() {
     for (let i = 0; i < groupNames.length; i++) {
         commentMap[groupNames[i]] = normalizeToBasicLatin(CommentList[i]);
     }
-    if (document.location.href.includes("user")) {
+    if (cekurlutama.includes("user")) {
         ceknamagroup = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[0]?.textContent || '';
         ceknamagroup1 = document.querySelectorAll("[data-action-id][role='link']")[0]?.textContent || '';
         ceknamagroup2 = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[1]?.textContent || '';
@@ -537,7 +540,7 @@ function BOTMODE() {
     if (obs4) return;
     obs4 = true;
     if (skiper) return;
-    const isUserPage = document.location.href.includes("user");
+    const isUserPage = cekurlutama.includes("user");
 
     if (!botObserver) {
         botObserver = new MutationObserver(async (mutationsList) => {
@@ -667,9 +670,9 @@ function komentari() {
 }
 
 setInterval(async () => {
-    if (location.href !== lastObservedUrl) {
+    if (cekurlutama !== lastObservedUrl) {
         const oldUrl = lastObservedUrl;
-        lastObservedUrl = location.href;
+        lastObservedUrl = cekurlutama
         const isTargetPage = lastObservedUrl.includes("group") || lastObservedUrl.includes("user");
         const wasTargetPage = oldUrl.includes("group") || oldUrl.includes("user");
 
@@ -903,7 +906,7 @@ async function start() {
 
 
     // Mencegah inisialisasi jika bukan halaman target
-    if (!document.location.href.includes("group") && !document.location.href.includes("user")) return;
+    if (!cekurlutama.includes("group") && !cekurlutama.includes("user")) return;
 
     console.log("%c📡 Memulai sinkronisasi data...", "color: #00ffff; font-weight: bold;");
 
@@ -935,7 +938,7 @@ async function start() {
     }
 
     console.log("%c✅ Inisialisasi Selesai. Data & Comment Siap: " + commentToPost, "color: #00ff00; font-weight: bold;");
-
+    console.log("url adalah " + cekurlutama)
     // 1. Tunggu sampai document.body tersedia dan tidak dalam status 'loading'
     while (document.readyState === 'loading') {
         await new Promise(r => setTimeout(r, 100));
@@ -958,7 +961,7 @@ async function start() {
         if (commentDone || skiper) return;
         // 2. Deteksi Perubahan: Cukup bandingkan ID postingan teratas.
         // Karena setiap refresh ID akan berubah, ini cara tercepat untuk mendeteksi pembaruan data.
-        const isUserPage = document.location.href.includes("user");
+        const isUserPage = cekurlutama.includes("user");
 
         if (isUserPage) {
             // Metode User: Pantau atribut postingan (berubah saat Pull-to-Refresh)
@@ -975,7 +978,7 @@ async function start() {
         if (isUserPage) {
             simulateHumanPullToRefresh();
         } else {
-            const ikonTombolTarget = ['\u{f1953}', '\u{f3159}','URUTKAN'];
+            const ikonTombolTarget = ['\u{f1953}', '\u{f3159}', 'URUTKAN'];
             ikonTombolTarget.forEach(ikon => {
                 klikTombolByText(ikon);
             });
@@ -988,6 +991,43 @@ async function start() {
 
 // --- 3. INITIALIZATION FLOW ---
 (async () => {
+    const targetWindow = typeof unsafeWindow !== 'undefined' ? unsafeWindow : window;
+
+    function ambilDataWlsec() {
+        let targetUrl = "URL tidak ditemukan";
+
+        try {
+            if (targetWindow.__wlsec && targetWindow.__wlsec.json_struct) {
+                const jsonStruct = JSON.parse(targetWindow.__wlsec.json_struct);
+                targetUrl = jsonStruct?.requestedUrlFromWww || targetUrl;
+
+                cekurlutama = targetUrl
+
+                console.log("Berhasil mendapatkan URL:", cekurlutama);
+                // Tulis kode kamu selanjutnya di sini setelah URL berhasil didapat
+                // ...
+
+                return true; // Hentikan perulangan jika berhasil
+            }
+        } catch (error) {
+            // Kita silent saja karena kita tahu ini akan sering terjadi di awal loading
+        }
+        return false;
+    }
+
+    // Lakukan pengecekan berkala setiap 500ms sampai datanya muncul
+    const intervalCek = setInterval(() => {
+        const sukses = ambilDataWlsec();
+        if (sukses) {
+            clearInterval(intervalCek); // Stop ngecek jika sudah ketemu
+        }
+    }, 500);
+
+    // Batasi pencarian maksimal 10 detik agar tidak membebani browser jika data memang tidak ada
+    setTimeout(() => {
+        clearInterval(intervalCek);
+    }, 10000);
+
     start()
 
 })();
