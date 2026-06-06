@@ -108,7 +108,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     cekMasalah2();
                     cekLogout();
 
-                    if (node.textContent?.toLowerCase().includes('diposting') || node.textContent?.toLowerCase().includes('berhasil')) {
+                    if (node.textContent?.toLowerCase().includes('diposting') || node.textContent?.toLowerCase().includes('berhasil') || document.querySelector(".snackbar-container")) {
+                        commentDone = true;
                         setTimeout(() => {
                             if (masterObserver) masterObserver.disconnect();
                             location.href = "about:blank";
@@ -638,6 +639,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                             console.time("Kirim Komentar");
                             // Pindahkan Logika Konfirmasi ke sini (saat elemen sudah ditemukan di DOM)
                             const confirmationHandler = (e) => {
+                                if (myObservere) { myObservere.disconnect(); myObservere = null; }
                                 if (botObserver) botObserver.disconnect();
                                 handlePostSuccess();
                                 console.log(`🎯 [TRIGGER KONFIRMASI] Event '${e.type}' berhasil diterima tombol!`);
@@ -646,7 +648,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                             // Pasang listener sekali saja (once: true)
                             sendBtn.addEventListener('click', confirmationHandler, { capture: true, once: true });
                             sendBtn.addEventListener('mousedown', confirmationHandler, { capture: true, once: true });
-
+                            let retries = 0;
                             if (nativeSetter) nativeSetter.call(textarea, commentToPost);
                             else textarea.value = commentToPost;
                             sendBtn.dispatchEvent(mDown);
@@ -655,7 +657,27 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                             console.timeEnd("Data Ditemukan Sampai Prosess")
                             window.focus();
                             if (window.runBypassTurbo) window.runBypassTurbo();
+
+                            const clickRetry = setInterval(() => {
+                                if (commentDone || retries > 15) {
+                                    clearInterval(clickRetry);
+                                    return;
+                                }
+                                if (!document.querySelector(".dialog-vscroller")) {
+                                    if (nativeSetter) nativeSetter.call(textarea, commentToPost);
+                                    else textarea.value = commentToPost;
+                                    sendBtn.dispatchEvent(mDown);
+                                    sendBtn.click();
+                                    console.timeEnd("Kirim Komentar");
+                                    console.timeEnd("Data Ditemukan Sampai Prosess")
+                                    window.focus();
+                                    if (window.runBypassTurbo) window.runBypassTurbo();
+                                }
+                                retries++;
+                            }, 100); // Delay 100ms agar hemat CPU
                             return true;
+
+
                         }
 
                     }
@@ -957,16 +979,16 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         komentari()
         MsgError(SCRIPT_NAME)
 
-    const heartbeat = () => {
+        const heartbeat = () => {
             // 1. Berhenti jika postingan ditemukan atau proses komentar sudah selesai
             if (commentDone || skiper) return;
 
-        if (Date.now() - now > 240000) {
-            refresh = 5000;
-            refreshNonUser = 5000;
-        }
+            if (Date.now() - now > 240000) {
+                refresh = 5000;
+                refreshNonUser = 5000;
+            }
 
-        // 2. Deteksi Perubahan: Cukup bandingkan ID postingan teratas.
+            // 2. Deteksi Perubahan: Cukup bandingkan ID postingan teratas.
             // Karena setiap refresh ID akan berubah, ini cara tercepat untuk mendeteksi pembaruan data.
             const isUserPage = cekurlutama.includes("user");
             const JumlahKontent = document.querySelectorAll('[data-tracking-duration-id]').length;
@@ -974,16 +996,16 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 // Metode User: Pantau atribut postingan (berubah saat Pull-to-Refresh)
                 const topPost1 = document.querySelector('[data-tracking-duration-id]');
                 currentFeedState = topPost1?.querySelector("[data-fd-action]")?.getAttribute("data-fd-action");
-            if (currentFeedState == lastRefreshFeedState) {
-                setTimeout(heartbeat, refreshNonUser);
-                return;
-            }
+                if (currentFeedState == lastRefreshFeedState) {
+                    setTimeout(heartbeat, refreshNonUser);
+                    return;
+                }
             }
 
             if (document.querySelector(".loading-overlay")) {
                 lastRefreshFeedState = "re"
-            setTimeout(heartbeat, refreshNonUser);
-            return;
+                setTimeout(heartbeat, refreshNonUser);
+                return;
             }
 
             if (isUserPage && JumlahKontent > 0) {
@@ -995,9 +1017,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 });
             }
 
-        setTimeout(heartbeat, refreshNonUser);
-    };
-    heartbeat();
+            setTimeout(heartbeat, refreshNonUser);
+        };
+        heartbeat();
     }
 
 
