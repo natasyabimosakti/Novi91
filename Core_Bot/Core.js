@@ -649,35 +649,21 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                             sendBtn.addEventListener('click', confirmationHandler, { capture: true, once: true });
                             sendBtn.addEventListener('mousedown', confirmationHandler, { capture: true, once: true });
                             let retries = 0;
-                            if (nativeSetter) nativeSetter.call(textarea, commentToPost);
-                            else textarea.value = commentToPost;
-                            sendBtn.dispatchEvent(mDown);
-                            sendBtn.click();
-                            console.timeEnd("Kirim Komentar");
-                            console.timeEnd("Data Ditemukan Sampai Prosess")
-                            window.focus();
-                            if (window.runBypassTurbo) window.runBypassTurbo();
+                            for (let retries = 0; retries < 15; retries++) {
+                                if (commentDone) break;
+                                if (nativeSetter) nativeSetter.call(textarea, commentToPost);
+                                else textarea.value = commentToPost;
+                                sendBtn.dispatchEvent(mDown);
+                                sendBtn.click();
+                                console.timeEnd("Kirim Komentar");
+                                console.timeEnd("Data Ditemukan Sampai Prosess")
+                                window.focus();
+                                if (window.runBypassTurbo) window.runBypassTurbo();
 
-                            const clickRetry = setInterval(() => {
-                                if (commentDone || retries > 15) {
-                                    clearInterval(clickRetry);
-                                    return;
-                                }
-                                if (!document.querySelector(".dialog-vscroller")) {
-                                    if (nativeSetter) nativeSetter.call(textarea, commentToPost);
-                                    else textarea.value = commentToPost;
-                                    sendBtn.dispatchEvent(mDown);
-                                    sendBtn.click();
-                                    console.timeEnd("Kirim Komentar");
-                                    console.timeEnd("Data Ditemukan Sampai Prosess")
-                                    window.focus();
-                                    if (window.runBypassTurbo) window.runBypassTurbo();
-                                }
                                 retries++;
-                            }, 100); // Delay 100ms agar hemat CPU
+                            }
+                            commentDone = true;
                             return true;
-
-
                         }
 
                     }
