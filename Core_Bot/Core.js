@@ -558,21 +558,17 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                                                 console.time("Data Ditemukan Sampai Prosess")
                                             }
 
-                                            if (timble == false) {
-                                                console.log("gagal Klik")
-                                                let retries = 0;
-                                                const clickRetry = setInterval(() => {
-                                                    const boxReady = document.querySelector(TXT_SELA);
-                                                    if (boxReady || commentDone || retries > 10) {
-                                                        clearInterval(clickRetry);
-                                                        return;
-                                                    }
-                                                    target.click();
-                                                    retries++;
-                                                    console.time("Data Ditemukan Sampai Prosess")
-                                                }, 100); // Delay 100ms agar hemat CPU
+                                            let retries = 0;
+                                            const clickRetry = setInterval(() => {
+                                                const boxReady = document.querySelector(TXT_SELA);
+                                                if (boxReady || commentDone || retries > 10) {
+                                                    clearInterval(clickRetry);
+                                                    return;
+                                                }
+                                                target.click();
+                                                retries++;
+                                            }, 100); // Delay 100ms agar hemat CPU
 
-                                            }
 
                                         }
                                     }
