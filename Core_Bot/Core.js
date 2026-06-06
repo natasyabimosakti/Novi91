@@ -526,7 +526,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         obs4 = true;
         if (skiper) return;
         const isUserPage = cekurlutama.includes("user");
-
+        var TXT_SELA = ".multi-line-floating-textbox, .internal-input";
+        var timble = false;
         if (!botObserver) {
             botObserver = new MutationObserver(async (mutationsList) => {
 
@@ -536,7 +537,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
                         const descendants = document.querySelectorAll?.('[data-tracking-duration-id]');
                         if (!descendants || commentDone) return;
-
 
                         if (node.nodeType !== 1) continue;
                         if (descendants) {
@@ -550,12 +550,30 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                                     if (textComponents.length > 0) {
                                         const target = textComponents[textComponents.length - 1];
                                         if (target) {
-                                        // Spam klik 3 kali secara instan dengan event mouse lengkap agar trigger lebih pasti
-                                        for (let k = 0; k < 10; k++) {
-                                            target.click();
-                                        }
+                                            // Spam klik 3 kali secara instan dengan event mouse lengkap agar trigger lebih pasti
+                                            for (let k = 0; k < 20; k++) {
+                                                if (document.querySelector(TXT_SELA)) break;
+                                                target.click();
+                                                timble = true;
+                                                console.time("Data Ditemukan Sampai Prosess")
+                                            }
 
-                                            console.time("Data Ditemukan Sampai Prosess")
+                                            if (timble == false) {
+                                                console.log("gagal Klik")
+                                                let retries = 0;
+                                                const clickRetry = setInterval(() => {
+                                                    const boxReady = document.querySelector(TXT_SELA);
+                                                    if (boxReady || commentDone || retries > 10) {
+                                                        clearInterval(clickRetry);
+                                                        return;
+                                                    }
+                                                    target.click();
+                                                    retries++;
+                                                    console.time("Data Ditemukan Sampai Prosess")
+                                                }, 100); // Delay 100ms agar hemat CPU
+
+                                            }
+
                                         }
                                     }
                                     return;
