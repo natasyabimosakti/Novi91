@@ -110,16 +110,16 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     cekMasalah2();
                     cekLogout();
 
-                const textLower = node.textContent?.toLowerCase() || "";
-                const isSuccess = textLower.includes('diposting') || textLower.includes('berhasil') || (node.querySelector && node.querySelector(".snackbar-container")) || (node.classList && node.classList.contains("snackbar-container"));
-                if (!commentDone && isSuccess) {
+                    const textLower = node.textContent?.toLowerCase() || "";
+                    const isSuccess = textLower.includes('diposting') || textLower.includes('berhasil') || (node.querySelector && node.querySelector(".snackbar-container")) || (node.classList && node.classList.contains("snackbar-container"));
+                    if (!commentDone && isSuccess) {
                         commentDone = true;
                         Blockafter()
                         setTimeout(() => {
                             if (masterObserver) masterObserver.disconnect();
                             location.href = "about:blank";
                         }, 5000);
-                    break; // Hentikan pemrosesan node lain dalam batch yang sama
+                        break; // Hentikan pemrosesan node lain dalam batch yang sama
                     }
 
                     // Cek Aktivitas Terbaru (Hanya di halaman grup)
@@ -651,6 +651,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                             sendBtn.click();
                             console.timeEnd("Kirim Komentar");
                             console.timeEnd("Data Ditemukan Sampai Prosess")
+                            Blockafter()
                             window.focus();
                             if (window.runBypassTurbo) window.runBypassTurbo();
                             handlePostSuccess();
