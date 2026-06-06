@@ -959,10 +959,16 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         komentari()
         MsgError(SCRIPT_NAME)
 
-        setInterval(() => {
+    const heartbeat = () => {
             // 1. Berhenti jika postingan ditemukan atau proses komentar sudah selesai
             if (commentDone || skiper) return;
-            // 2. Deteksi Perubahan: Cukup bandingkan ID postingan teratas.
+
+        if (Date.now() - now > 240000) {
+            refresh = 5000;
+            refreshNonUser = 5000;
+        }
+
+        // 2. Deteksi Perubahan: Cukup bandingkan ID postingan teratas.
             // Karena setiap refresh ID akan berubah, ini cara tercepat untuk mendeteksi pembaruan data.
             const isUserPage = cekurlutama.includes("user");
             const JumlahKontent = document.querySelectorAll('[data-tracking-duration-id]').length;
@@ -970,12 +976,16 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 // Metode User: Pantau atribut postingan (berubah saat Pull-to-Refresh)
                 const topPost1 = document.querySelector('[data-tracking-duration-id]');
                 currentFeedState = topPost1?.querySelector("[data-fd-action]")?.getAttribute("data-fd-action");
-                if (currentFeedState == lastRefreshFeedState) return;
+            if (currentFeedState == lastRefreshFeedState) {
+                setTimeout(heartbeat, refreshNonUser);
+                return;
+            }
             }
 
             if (document.querySelector(".loading-overlay")) {
                 lastRefreshFeedState = "re"
-                return;
+            setTimeout(heartbeat, refreshNonUser);
+            return;
             }
 
             if (isUserPage && JumlahKontent > 0) {
@@ -987,7 +997,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 });
             }
 
-        }, refreshNonUser); // Heartbeat cepat (300ms) dengan proteksi redundansi
+        setTimeout(heartbeat, refreshNonUser);
+    };
+    heartbeat();
     }
 
 
