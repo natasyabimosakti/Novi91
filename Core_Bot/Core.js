@@ -32,7 +32,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     var SCRIPT_NAME = Comment18
     let isAdminListReady = false; // Flag penanda kesiapan data
     var refresh = 600; // Percepat durasi animasi tarik layar agar selesai dalam 200ms
-    var refreshNonUser = 300;
+    var refreshNonUser = 600;
     let commentDone = false; // Flag untuk menghentikan aksi jika bot sudah selesai bertugas
     let lastRefreshFeedState = "20"; // Menyimpan ID postingan terakhir untuk mendeteksi perubahan feed
     let lastObservedUrl = location.href;
@@ -57,6 +57,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     var EXPIRATION_MS = 5 * 60 * 1000;
     var currentFeedState = "";
     var cekurlutama = ""
+    var ceksimulasi = false;
     const fastOpts = { bubbles: true, cancelable: true };
     const mDown = new MouseEvent("mousedown", fastOpts);
     const mUp = new MouseEvent("mouseup", fastOpts);
@@ -109,13 +110,16 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     cekMasalah2();
                     cekLogout();
 
-                    if (node.textContent?.toLowerCase().includes('diposting') || node.textContent?.toLowerCase().includes('berhasil') || document.querySelector(".snackbar-container")) {
+                const textLower = node.textContent?.toLowerCase() || "";
+                const isSuccess = textLower.includes('diposting') || textLower.includes('berhasil') || (node.querySelector && node.querySelector(".snackbar-container")) || (node.classList && node.classList.contains("snackbar-container"));
+                if (!commentDone && isSuccess) {
                         commentDone = true;
                         Blockafter()
                         setTimeout(() => {
                             if (masterObserver) masterObserver.disconnect();
                             location.href = "about:blank";
                         }, 5000);
+                    break; // Hentikan pemrosesan node lain dalam batch yang sama
                     }
 
                     // Cek Aktivitas Terbaru (Hanya di halaman grup)
@@ -454,7 +458,10 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     }
 
 
-    function simulateHumanPullToRefresh(distance = 700) {
+    function simulateHumanPullToRefresh(distance = 800) {
+
+        if (skiper || document.querySelector(".loading-overlay") || ceksimulasi == true) return;
+        ceksimulasi = true;
         if (document.hidden) {
             window.scrollTo(0, 0); // Scroll instan jika di background untuk efisiensi
         } else {
@@ -517,6 +524,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         channel.port1.onmessage = stepLoop;
         document.dispatchEvent(createTouchEvent('touchstart', _startX, _startY));
         channel.port2.postMessage(null); // Mulai loop
+        ceksimulasi = false;
     }
 
 
@@ -790,6 +798,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         block.style.width = '300px';
         block.style.height = '300px';
         block.style.backgroundColor = 'blue';
+        block.id = "babon-blocker";
         block.style.position = 'fixed';
         block.style.top = '0px';
         block.style.left = '00px';
