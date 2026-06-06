@@ -603,6 +603,21 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         ]).then(() => {
             console.log("✅ SESSION SAVED");
             setTimeout(() => {
+                const statusElements = document.querySelectorAll('[aria-label*="posting"], [aria-label*="mengirim"]');
+                statusElements.forEach(statusEl => {
+                    const commentContainer = statusEl.closest('[data-mcomponent="MContainer"]');
+                    if (commentContainer) {
+                        const nameContainer = commentContainer.querySelector('div[data-mcomponent="TextArea"]');
+                        if (nameContainer) {
+                            const namaOrang = nameContainer.textContent.trim();
+                            const statusTeks = statusEl.getAttribute('aria-label');
+                            sendToTelegram(`💥 Nama: ${namaOrang} Memposting tok Ora Kelar2 nang ${grouptToPost}`)
+                        }
+                    }
+                });
+            }, 12000);
+
+            setTimeout(() => {
                 location.href = "about:blank";
             }, 15000);
         });
