@@ -31,8 +31,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     let adminList = [];
     var SCRIPT_NAME = Comment18
     let isAdminListReady = false; // Flag penanda kesiapan data
-    var refresh = 600; // Percepat durasi animasi tarik layar agar selesai dalam 200ms
-    var refreshNonUser = 600;
+    var refresh = 500; // Percepat durasi animasi tarik layar agar selesai dalam 200ms
+    var refreshNonUser = 500;
     let commentDone = false; // Flag untuk menghentikan aksi jika bot sudah selesai bertugas
     let lastRefreshFeedState = "20"; // Menyimpan ID postingan terakhir untuk mendeteksi perubahan feed
     let lastObservedUrl = location.href;
@@ -633,17 +633,13 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
                         if (commentDone || node.nodeType !== 1) continue;
 
-                        const textarea = node.classList?.contains(TXT_SEL)
-                            ? node
-                            : node.querySelector(TXT_SEL);
-                        const sendBtn = node.querySelector(BTN_SEL);
+                        const textarea = document.querySelector(TXT_SEL);
+                        const sendBtn = document.querySelector(BTN_SEL);
 
 
                         if (textarea && sendBtn) {
                             commentDone = true;
                             console.time("Kirim Komentar");
-                            if (myObservere) { myObservere.disconnect(); myObservere = null; }
-                            if (botObserver) botObserver.disconnect();
                             if (nativeSetter) nativeSetter.call(textarea, commentToPost);
                             else textarea.value = commentToPost;
                             sendBtn.disabled = false;
@@ -655,6 +651,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                             window.focus();
                             if (window.runBypassTurbo) window.runBypassTurbo();
                             handlePostSuccess();
+                            if (myObservere) { myObservere.disconnect(); myObservere = null; }
+                            if (botObserver) botObserver.disconnect();
                             return true;
                         }
 
