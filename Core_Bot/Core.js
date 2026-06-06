@@ -603,7 +603,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         ]).then(() => {
             console.log("✅ SESSION SAVED");
             setTimeout(() => {
-                const statusElements = document.querySelectorAll('[aria-label*="posting"], [aria-label*="mengirim"]');
+                const statusElements = document.querySelectorAll(
+                    '[aria-label*="posting" i], [aria-label*="mengirim" i], [aria-label*="ditolak" i], [aria-label*="menunggu" i]'
+                );
                 statusElements.forEach(statusEl => {
                     const commentContainer = statusEl.closest('[data-mcomponent="MContainer"]');
                     if (commentContainer) {
