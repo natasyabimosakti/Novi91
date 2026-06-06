@@ -32,7 +32,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     var SCRIPT_NAME = Comment18
     let isAdminListReady = false; // Flag penanda kesiapan data
     var refresh = 600; // Percepat durasi animasi tarik layar agar selesai dalam 200ms
-    var refreshNonUser = 400;
+    var refreshNonUser = 300;
     let commentDone = false; // Flag untuk menghentikan aksi jika bot sudah selesai bertugas
     let lastRefreshFeedState = "20"; // Menyimpan ID postingan terakhir untuk mendeteksi perubahan feed
     let lastObservedUrl = location.href;
@@ -550,10 +550,12 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                                     if (textComponents.length > 0) {
                                         const target = textComponents[textComponents.length - 1];
                                         if (target) {
+                                        // Spam klik 3 kali secara instan dengan event mouse lengkap agar trigger lebih pasti
+                                        for (let k = 0; k < 10; k++) {
                                             target.click();
+                                        }
 
                                             console.time("Data Ditemukan Sampai Prosess")
-
                                         }
                                     }
                                     return;
@@ -949,7 +951,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             // 2. Deteksi Perubahan: Cukup bandingkan ID postingan teratas.
             // Karena setiap refresh ID akan berubah, ini cara tercepat untuk mendeteksi pembaruan data.
             const isUserPage = cekurlutama.includes("user");
-
+            const JumlahKontent = document.querySelectorAll('[data-tracking-duration-id]').length;
             if (isUserPage) {
                 // Metode User: Pantau atribut postingan (berubah saat Pull-to-Refresh)
                 const topPost1 = document.querySelector('[data-tracking-duration-id]');
@@ -962,7 +964,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 return;
             }
 
-            if (isUserPage) {
+            if (isUserPage && JumlahKontent > 0) {
                 simulateHumanPullToRefresh();
             } else {
                 const ikonTombolTarget = ['\u{f1953}', '\u{f3159}', 'URUTKAN'];
