@@ -52,6 +52,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     var observersudahjalam = false;
     var observers = null
     var groups = [];
+    var skiper = false;
     var now = Date.now();
     var EXPIRATION_MS = 5 * 60 * 1000;
     var currentFeedState = "";
@@ -110,6 +111,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
                     if (node.textContent?.toLowerCase().includes('diposting') || node.textContent?.toLowerCase().includes('berhasil') || document.querySelector(".snackbar-container")) {
                         commentDone = true;
+                        Blockafter()
                         setTimeout(() => {
                             if (masterObserver) masterObserver.disconnect();
                             location.href = "about:blank";
@@ -309,6 +311,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         if (tombol) {
             currentFeedState = tombol.getAttribute("data-action-id")
             if (lastRefreshFeedState == currentFeedState) return;
+            if (skiper || document.querySelector(".loading-overlay")) return;
             tombol.click();
             lastRefreshFeedState = currentFeedState
             return true;
@@ -519,7 +522,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
 
 
-    var skiper = false;
+
     var obs4 = false;
 
     function BOTMODE() {
@@ -552,25 +555,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                                         const target = textComponents[textComponents.length - 1];
                                         if (target) {
                                             // Spam klik 3 kali secara instan dengan event mouse lengkap agar trigger lebih pasti
-                                            for (let k = 0; k < 20; k++) {
-                                                if (document.querySelector(TXT_SELA)) break;
-                                                target.click();
-                                                timble = true;
-                                                console.time("Data Ditemukan Sampai Prosess")
-                                            }
-
-                                            let retries = 0;
-                                            const clickRetry = setInterval(() => {
-                                                const boxReady = document.querySelector(TXT_SELA);
-                                                if (boxReady || commentDone || retries > 10) {
-                                                    clearInterval(clickRetry);
-                                                    return;
-                                                }
-                                                target.click();
-                                                retries++;
-                                            }, 100); // Delay 100ms agar hemat CPU
-
-
+                                            skiper = true;
+                                            target.click();
+                                            console.time("Data Ditemukan Sampai Prosess")
                                         }
                                     }
                                     return;
@@ -638,48 +625,27 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
                         if (commentDone || node.nodeType !== 1) continue;
 
-                        const textarea =
-                            (node.nodeType === 1 && node.matches?.(TXT_SEL) ? node : null) ||
-                            document.body.lastElementChild?.querySelector(TXT_SEL) ||
-                            (node.querySelector ? node.querySelector(TXT_SEL) : null);
+                        const textarea = node.classList?.contains(TXT_SEL)
+                            ? node
+                            : node.querySelector(TXT_SEL);
+                        const sendBtn = node.querySelector(BTN_SEL);
 
-                        if (!textarea) return false;
-
-                        const sendBtn = (node.nodeType === 1 && node.matches?.(BTN_SEL) ? node : null) ||
-                            textarea.parentElement?.querySelector('.textbox-submit-button') ||
-                            textarea.closest('[data-mcomponent="MContainer"]')?.querySelector('[aria-label="Posting komentar"]') ||
-                            (textarea.form ? textarea.form.querySelector(BTN_SEL) : null) ||
-                            document.body.lastElementChild?.querySelector(BTN_SEL) ||
-                            document.querySelector(BTN_SEL);
 
                         if (textarea && sendBtn) {
-                            console.time("Kirim Komentar");
-                            // Pindahkan Logika Konfirmasi ke sini (saat elemen sudah ditemukan di DOM)
-                            const confirmationHandler = (e) => {
-                                if (myObservere) { myObservere.disconnect(); myObservere = null; }
-                                if (botObserver) botObserver.disconnect();
-                                handlePostSuccess();
-                                console.log(`🎯 [TRIGGER KONFIRMASI] Event '${e.type}' berhasil diterima tombol!`);
-                            };
-
-                            // Pasang listener sekali saja (once: true)
-                            sendBtn.addEventListener('click', confirmationHandler, { capture: true, once: true });
-                            sendBtn.addEventListener('mousedown', confirmationHandler, { capture: true, once: true });
-                            let retries = 0;
-                            for (let retries = 0; retries < 15; retries++) {
-                                if (commentDone) break;
-                                if (nativeSetter) nativeSetter.call(textarea, commentToPost);
-                                else textarea.value = commentToPost;
-                                sendBtn.dispatchEvent(mDown);
-                                sendBtn.click();
-                                console.timeEnd("Kirim Komentar");
-                                console.timeEnd("Data Ditemukan Sampai Prosess")
-                                window.focus();
-                                if (window.runBypassTurbo) window.runBypassTurbo();
-
-                                retries++;
-                            }
                             commentDone = true;
+                            console.time("Kirim Komentar");
+                            if (myObservere) { myObservere.disconnect(); myObservere = null; }
+                            if (botObserver) botObserver.disconnect();
+                            if (nativeSetter) nativeSetter.call(textarea, commentToPost);
+                            else textarea.value = commentToPost;
+                            sendBtn.disabled = false;
+                            sendBtn.dispatchEvent(mDown);
+                            sendBtn.click();
+                            console.timeEnd("Kirim Komentar");
+                            console.timeEnd("Data Ditemukan Sampai Prosess")
+                            window.focus();
+                            if (window.runBypassTurbo) window.runBypassTurbo();
+                            handlePostSuccess();
                             return true;
                         }
 
@@ -816,7 +782,23 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             console.warn("? Error saat cek logout:", e);
         }
     }
+    function Blockafter() {
 
+        const block = document.createElement('div');
+
+        // 2. Beri gaya yang mencolok dan posisi melayang (fixed)
+        block.style.width = '300px';
+        block.style.height = '300px';
+        block.style.backgroundColor = 'blue';
+        block.style.position = 'fixed';
+        block.style.top = '0px';
+        block.style.left = '00px';
+        block.style.zIndex = '9999'; // Agar selalu di depan
+
+        // 3. Masukkan ke halaman
+        document.body.appendChild(block);
+
+    }
     async function sendToTelegram(message) {
         var TELEGRAM_TOKEN = '8825413477:AAHCWqL0onj3yxN0TNNSeh_TjJug1u4jims';
         var TELEGRAM_CHAT_ID = '-1002717306025';
