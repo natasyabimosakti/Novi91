@@ -638,8 +638,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                             console.time("Kirim Komentar");
                             // Pindahkan Logika Konfirmasi ke sini (saat elemen sudah ditemukan di DOM)
                             const confirmationHandler = (e) => {
-                                commentDone = true;
-                                if (myObservere) { myObservere.disconnect(); myObservere = null; }
                                 if (botObserver) botObserver.disconnect();
                                 handlePostSuccess();
                                 console.log(`🎯 [TRIGGER KONFIRMASI] Event '${e.type}' berhasil diterima tombol!`);
