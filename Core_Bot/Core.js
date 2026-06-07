@@ -1025,7 +1025,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         heartbeat();
     }
 
-    var NamaFb = "";
 
     async function adamasalah(reason) {
         console.log("[Sistem] Memulai proses pencarian...");
