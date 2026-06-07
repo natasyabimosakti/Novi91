@@ -1049,7 +1049,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                         const htmlKonten = postBoxContainer.innerHTML;
 
                         // Cek apakah di dalam kotak kontainer besar ini terdapat teks kotak postingan
-                        if (htmlKonten.includes("Tulis sesuatu...")) {
+                        if (htmlKonten.includes("Tulis")) {
                             targetElement = btn; // Kunci target profil asli Anda!
                             break;
                         }
@@ -1065,7 +1065,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
                 // 3. Tunggu selama 3 detik agar halaman profil selesai loading
                 console.log("[Sistem] Menunggu halaman profil termuat (3 detik)...");
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 5000));
 
                 // 4. Ambil data nama profil dengan aman (Anti-Error)
                 const screenRoot = document.querySelector("#screen-root");
