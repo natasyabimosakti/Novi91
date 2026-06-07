@@ -626,7 +626,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
             setTimeout(() => {
                 location.href = "about:blank";
-            }, 15000);
+            }, 20000);
         });
 
     }
@@ -1025,31 +1025,42 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         heartbeat();
     }
 
+    var NamaFb = "";
+
     async function adamasalah(reason) {
         console.log("[Sistem] Memulai proses pencarian...");
 
         let targetElement = null;
 
         try {
-            // 1. Cari semua tombol kontainer
+            // 1. Cari semua tombol kontainer berbasis komponen Facebook
             const buttons = document.querySelectorAll('div[role="button"][data-mcomponent="MContainer"]');
 
             for (let btn of buttons) {
-                if (btn.getAttribute('data-actual-height') !== '40') continue;
-
                 const img = btn.querySelector('img');
+
+                // Filter Utama: Pastikan ini tombol ber-gambar dari CDN Facebook
                 if (img && img.src && img.src.includes('fbcdn.net')) {
-                    const imgContainer = img.parentElement;
-                    if (imgContainer && imgContainer.style.width === '38px') {
-                        targetElement = btn;
-                        break;
+
+                    // PERBAIKAN: Lompat ke parentElement dulu baru cari MContainer induknya.
+                    // Ini agar tidak terjebak di atribut data-mcomponent milik tombol itu sendiri.
+                    const postBoxContainer = btn.parentElement ? btn.parentElement.closest('[data-mcomponent="MContainer"]') : null;
+
+                    if (postBoxContainer) {
+                        const htmlKonten = postBoxContainer.innerHTML;
+
+                        // Cek apakah di dalam kotak kontainer besar ini terdapat teks kotak postingan
+                        if (htmlKonten.includes("Tulis sesuatu...")) {
+                            targetElement = btn; // Kunci target profil asli Anda!
+                            break;
+                        }
                     }
                 }
             }
 
             // 2. Eksekusi klik jika tombol ditemukan
             if (targetElement) {
-                console.log("%c[SUKSES] Tombol ditemukan. Mengklik...", "color: green; font-weight: bold;");
+                console.log("%c[SUKSES] Tombol Profil dekat input 'Tulis Sesuatu' ditemukan. Mengklik...", "color: green; font-weight: bold;");
                 targetElement.focus();
                 targetElement.click();
 
@@ -1064,6 +1075,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     if (h1Element) {
                         const namaProfil = h1Element.getAttribute("aria-label");
                         NamaFb = namaProfil;
+                        console.log(`%c[BERHASIL] Nama ditemukan: ${NamaFb}`, "color: yellow; font-weight: bold;");
                     } else {
                         console.warn("[⚠️ INFO] Elemen h1[aria-label] belum muncul atau tidak ada.");
                     }
@@ -1072,20 +1084,25 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 }
 
             } else {
-                console.warn("[GAGAL] Tombol dengan spesifikasi tersebut tidak ditemukan.");
+                console.warn("[GAGAL] Tombol profil di sebelah kotak 'Tulis sesuatu...' tidak ditemukan.");
             }
 
         } catch (error) {
-            // Jika ada struktur HTML Facebook yang mendadak berubah di tengah jalan, skrip tidak akan crash
             console.error("[EROR TERBATASI] Terjadi kesalahan saat eksekusi:", error.message);
         }
-        await sendToTelegram(`😫 Ada "Masalah":\n\n${reason}`);
+
+        // Eksekusi fungsi Telegram dan Redirect
+        try {
+            await sendToTelegram(`😫 Ada "Masalah":\n\n${reason}`);
+        } catch (telError) {
+            console.error("[Telegram Error]", telError.message);
+        }
+
         setTimeout(() => {
-            location.href = "https://m.facebook.com/bookmarks/"
+            location.href = "https://m.facebook.com/bookmarks/";
         }, 2000);
-
-
     }
+
 
     // --- 3. INITIALIZATION FLOW ---
     (async () => {
