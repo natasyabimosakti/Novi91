@@ -616,9 +616,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     if (commentContainer) {
                         const nameContainer = commentContainer.querySelector('div[data-mcomponent="TextArea"]');
                         if (nameContainer) {
-                            const namaOrang = nameContainer.textContent.trim();
+                            NamaFb = nameContainer.textContent.trim();
                             const statusTeks = statusEl.getAttribute('aria-label');
-                            sendToTelegram(`💥 Nama: ${namaOrang} Memposting tok Ora Kelar2 nang ${grouptToPost}`)
+                            sendToTelegram(`💥 Nama: ${NamaFb} Memposting tok Ora Kelar2 nang ${grouptToPost}`)
                         }
                     }
                 });
@@ -725,10 +725,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         if (isi.includes("masalah")) {
             MsgError(SCRIPT_NAME)
             if (masterObserver) masterObserver.disconnect();
-            await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
-            setTimeout(() => {
-                location.href = "https://m.facebook.com/bookmarks/"
-            }, 2000);
+            adamasalah(cleanText);
+
 
         }
     }
@@ -1027,7 +1025,67 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         heartbeat();
     }
 
+    async function adamasalah(reason) {
+        console.log("[Sistem] Memulai proses pencarian...");
 
+        let targetElement = null;
+
+        try {
+            // 1. Cari semua tombol kontainer
+            const buttons = document.querySelectorAll('div[role="button"][data-mcomponent="MContainer"]');
+
+            for (let btn of buttons) {
+                if (btn.getAttribute('data-actual-height') !== '40') continue;
+
+                const img = btn.querySelector('img');
+                if (img && img.src && img.src.includes('fbcdn.net')) {
+                    const imgContainer = img.parentElement;
+                    if (imgContainer && imgContainer.style.width === '38px') {
+                        targetElement = btn;
+                        break;
+                    }
+                }
+            }
+
+            // 2. Eksekusi klik jika tombol ditemukan
+            if (targetElement) {
+                console.log("%c[SUKSES] Tombol ditemukan. Mengklik...", "color: green; font-weight: bold;");
+                targetElement.focus();
+                targetElement.click();
+
+                // 3. Tunggu selama 3 detik agar halaman profil selesai loading
+                console.log("[Sistem] Menunggu halaman profil termuat (3 detik)...");
+                await new Promise(resolve => setTimeout(resolve, 3000));
+
+                // 4. Ambil data nama profil dengan aman (Anti-Error)
+                const screenRoot = document.querySelector("#screen-root");
+                if (screenRoot) {
+                    const h1Element = screenRoot.querySelector("h1[aria-label]");
+                    if (h1Element) {
+                        const namaProfil = h1Element.getAttribute("aria-label");
+                        NamaFb = namaProfil;
+                    } else {
+                        console.warn("[⚠️ INFO] Elemen h1[aria-label] belum muncul atau tidak ada.");
+                    }
+                } else {
+                    console.warn("[⚠️ INFO] Elemen #screen-root tidak ditemukan di halaman ini.");
+                }
+
+            } else {
+                console.warn("[GAGAL] Tombol dengan spesifikasi tersebut tidak ditemukan.");
+            }
+
+        } catch (error) {
+            // Jika ada struktur HTML Facebook yang mendadak berubah di tengah jalan, skrip tidak akan crash
+            console.error("[EROR TERBATASI] Terjadi kesalahan saat eksekusi:", error.message);
+        }
+        await sendToTelegram(`😫 Ada "Masalah":\n\n${reason}`);
+        setTimeout(() => {
+            location.href = "https://m.facebook.com/bookmarks/"
+        }, 2000);
+
+
+    }
 
     // --- 3. INITIALIZATION FLOW ---
     (async () => {
