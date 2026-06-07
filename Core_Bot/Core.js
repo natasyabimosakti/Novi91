@@ -53,6 +53,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     var observers = null
     var groups = [];
     var skiper = false;
+    var NamaFb = "";
     var now = Date.now();
     var EXPIRATION_MS = 5 * 60 * 1000;
     var currentFeedState = "";
@@ -548,6 +549,15 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                         document.title = "Done"
 
                         const descendants = document.querySelectorAll?.('[data-tracking-duration-id]');
+
+                        // Deteksi nama akun hanya jika belum terisi
+                        if (!NamaFb) {
+                            const placeholder = document.querySelector("[placeholder]")?.getAttribute("placeholder");
+                            if (placeholder && placeholder.includes("sebagai ")) {
+                                NamaFb = placeholder.split("sebagai ")[1].replace('...', '').trim();
+                            }
+                        }
+
                         if (!descendants || commentDone) return;
 
                         if (node.nodeType !== 1) continue;
@@ -638,6 +648,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
 
                         if (textarea && sendBtn) {
+
                             commentDone = true;
                             console.time("Kirim Komentar");
                             if (nativeSetter) nativeSetter.call(textarea, commentToPost);
@@ -812,7 +823,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         var TELEGRAM_CHAT_ID = '-1002717306025';
         if (sudahkirim) return;
         sudahkirim = true
-        const fullMessage = `? [${SCRIPT_NAME}]\n${message}`;
+        // Tambahkan nama akun ke pesan Telegram
+        const fullMessage = `👤 [${NamaFb || 'Unknown'}]\n🤖 [${SCRIPT_NAME}]\n${message}`;
         const normalizedMessage = normalizeText(fullMessage);
 
         const lastSent = await GM.getValue("lastTelegramMessage", "");
