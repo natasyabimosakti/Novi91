@@ -1011,7 +1011,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 return;
             }
 
-            if (isUserPage && JumlahKontent > 0) {
+            if (isUserPage && JumlahKontent > 2) {
                 simulateHumanPullToRefresh();
             } else {
                 const ikonTombolTarget = ['\u{f1953}', '\u{f3159}', 'URUTKAN'];
