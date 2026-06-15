@@ -1143,6 +1143,24 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             clearInterval(intervalCek);
         }, 10000);
 
+        let attempts = 0;
+        const interval = setInterval(() => {
+            attempts++;
+            const button = Array.from(document.querySelectorAll('div[role="button"][aria-label]'))
+                .find(el => {
+                    const label = el.getAttribute('aria-label')?.toLowerCase() || "";
+                    const isJoin = label.includes('gabung grup') || label.includes('join');
+                    const isDisabled = el.getAttribute('aria-disabled') === 'true';
+                    return isJoin && !label.includes('batalkan') && !isDisabled;
+                });
 
+            if (button && typeof button.click === 'function') {
+                console.log('✅ Tombol ditemukan, klik sekarang...');
+                button.click();
+            } else if (attempts >= 10) {
+                console.log('❌ Tombol tidak ditemukan setelah 10 kali percobaan. Berhenti.');
+                clearInterval(interval);
+            }
+        }, 1000); // Coba setiap 1 detik
     })();
 };
