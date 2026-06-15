@@ -1161,6 +1161,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 console.log('❌ Tombol tidak ditemukan setelah 10 kali percobaan. Berhenti.');
                 clearInterval(interval);
             }
-        }, 1000); // Coba setiap 1 detik
+        }, 2000); // Coba setiap 1 detik
     })();
 };
