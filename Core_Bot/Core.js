@@ -950,6 +950,11 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         // --- VALIDASI KETAT: Tunggu commentToPost benar-benar terisi sebelum lanjut ---
         if (!commentToPost) {
             console.log("%c⏳ Menunggu identitas grup terdeteksi untuk mengisi commentToPost...", "color: #ffa500;");
+            if (cekurlutama.includes("user")) {
+                const baseUrl = cekurlutama.split('/user/')[0];
+                document.location.href = baseUrl;
+            }
+
             while (!commentToPost) {
                 const res = getCommentForGroup();
                 if (res) {
