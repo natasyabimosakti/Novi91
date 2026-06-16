@@ -58,6 +58,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     var EXPIRATION_MS = 5 * 60 * 1000;
     var currentFeedState = "";
     var cekurlutama = ""
+    var tekoprofile = ""
     var ceksimulasi = false;
     const fastOpts = { bubbles: true, cancelable: true };
     const mDown = new MouseEvent("mousedown", fastOpts);
@@ -822,7 +823,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         if (sudahkirim) return;
         sudahkirim = true
         // Tambahkan nama akun ke pesan Telegram
-        const fullMessage = `👤 [${NamaFb || 'Unknown'}]\n🤖 [${SCRIPT_NAME}]\n${message}`;
+        const fullMessage = `👤 [${tekoprofile || 'Unknown'}]\n👤 [${NamaFb || 'Unknown'}]\n🤖 [${SCRIPT_NAME}]\n${message}`;
         const normalizedMessage = normalizeText(fullMessage);
 
         const lastSent = await GM.getValue("lastTelegramMessage", "");
@@ -967,7 +968,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 await new Promise(r => setTimeout(r, 1000));
             }
         }
-
+        if (document.querySelector(".chrome-toast-profile")) {
+            tekoprofile = document.querySelector(".chrome-toast-profile").textContent || "";
+        }
         console.log("%c✅ Inisialisasi Selesai. Data & Comment Siap: " + commentToPost, "color: #00ff00; font-weight: bold;");
         console.log("url adalah " + cekurlutama)
         // 1. Tunggu sampai document.body tersedia dan tidak dalam status 'loading'
