@@ -1168,8 +1168,10 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 });
 
             if (button && typeof button.click === 'function') {
-                console.log('✅ Tombol ditemukan, klik sekarang...');
-                button.click();
+                if (button.textContent.includes("gabung") && !button.textContent.includes("batalkan")) {
+                    console.log('✅ Tombol ditemukan, klik sekarang...');
+                    button.click();
+                }
             } else if (attempts >= 10) {
                 console.log('❌ Tombol tidak ditemukan setelah 10 kali percobaan. Berhenti.');
                 clearInterval(interval);
