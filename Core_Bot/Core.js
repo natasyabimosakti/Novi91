@@ -829,10 +829,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
         const SIMILARITY_THRESHOLD = 0.95;
 
-        if (similarity >= SIMILARITY_THRESHOLD && (now - lastTime < COOLDOWN)) {
-            console.log("?? Duplikat dicegah (mirip & <5 menit):", similarity);
-            return;
-        }
 
         // Membuat tombol inline dengan status awal "Kosong" (⬜)
         const replyMarkup = JSON.stringify({
