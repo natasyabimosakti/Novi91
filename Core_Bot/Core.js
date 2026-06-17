@@ -539,7 +539,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         if (obs4) return;
         obs4 = true;
         if (skiper) return;
-        const isUserPage = cekurlutama.includes("user");
         var TXT_SELA = ".multi-line-floating-textbox, .internal-input";
         var timble = false;
         if (!botObserver) {
@@ -566,6 +565,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                             for (let i = 0, len = descendants.length; i < len; i++) {
                                 var el = descendants[i]
                                 if (commentDone) return;
+                                const isUserPage = cekurlutama.includes("user");
                                 const isValid = isUserPage ? parsePost2(el) : parsePost(el);
                                 const textComponents = el.querySelectorAll('[data-type="text"]');
                                 if (isValid) {
