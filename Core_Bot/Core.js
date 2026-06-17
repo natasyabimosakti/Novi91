@@ -53,14 +53,11 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     var observers = null
     var groups = [];
     var skiper = false;
-    var NamaFb = "";
     var now = Date.now();
     var EXPIRATION_MS = 5 * 60 * 1000;
     var currentFeedState = "";
     var cekurlutama = ""
-    var tekoprofile = ""
     var ceksimulasi = false;
-    let lastTelegramUpdateId = 0; // Melacak ID pembaruan Telegram
     const fastOpts = { bubbles: true, cancelable: true };
     const mDown = new MouseEvent("mousedown", fastOpts);
     const mUp = new MouseEvent("mouseup", fastOpts);
@@ -540,6 +537,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         if (obs4) return;
         obs4 = true;
         if (skiper) return;
+
         var TXT_SELA = ".multi-line-floating-textbox, .internal-input";
         var timble = false;
         if (!botObserver) {
@@ -550,24 +548,14 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                         document.title = "Done"
 
                         const descendants = document.querySelectorAll?.('[data-tracking-duration-id]');
-
-                        // Deteksi nama akun hanya jika belum terisi
-                        if (!NamaFb) {
-                            const placeholder = document.querySelector("[placeholder]")?.getAttribute("placeholder");
-                            if (placeholder && placeholder.includes("sebagai ")) {
-                                NamaFb = placeholder.split("sebagai ")[1].replace('...', '').trim();
-                            }
-                        }
-
                         if (!descendants || commentDone) return;
 
                         if (node.nodeType !== 1) continue;
                         if (descendants) {
-                            // Cek status user page secara dinamis di dalam observer agar reaktif terhadap perubahan URL
-                            const isUserPage = cekurlutama.includes("user");
                             for (let i = 0, len = descendants.length; i < len; i++) {
                                 var el = descendants[i]
                                 if (commentDone) return;
+                                const isUserPage = cekurlutama.includes("user");
                                 const isValid = isUserPage ? parsePost2(el) : parsePost(el);
                                 const textComponents = el.querySelectorAll('[data-type="text"]');
                                 if (isValid) {
@@ -619,9 +607,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     if (commentContainer) {
                         const nameContainer = commentContainer.querySelector('div[data-mcomponent="TextArea"]');
                         if (nameContainer) {
-                            NamaFb = nameContainer.textContent.trim();
+                            const namaOrang = nameContainer.textContent.trim();
                             const statusTeks = statusEl.getAttribute('aria-label');
-                            sendToTelegram(`💥 Nama: ${NamaFb} Memposting tok Ora Kelar2 nang ${grouptToPost}`)
+                            sendToTelegram(`💥 Nama: ${namaOrang} Memposting tok Ora Kelar2 nang ${grouptToPost}`)
                         }
                     }
                 });
@@ -629,7 +617,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
             setTimeout(() => {
                 location.href = "about:blank";
-            }, 20000);
+            }, 15000);
         });
 
     }
@@ -651,7 +639,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
 
                         if (textarea && sendBtn) {
-
                             commentDone = true;
                             console.time("Kirim Komentar");
                             if (nativeSetter) nativeSetter.call(textarea, commentToPost);
@@ -728,8 +715,10 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         if (isi.includes("masalah")) {
             MsgError(SCRIPT_NAME)
             if (masterObserver) masterObserver.disconnect();
-            adamasalah(cleanText);
-
+            await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
+            setTimeout(() => {
+                location.href = "https://m.facebook.com/bookmarks/"
+            }, 2000);
 
         }
     }
@@ -819,9 +808,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         document.body.appendChild(block);
 
     }
-    //Daftarkan URL tersebut ke Telegram dengan membuka link ini di browser Anda: https://api.telegram.org/bot<TOKEN_ANDA>/setWebhook?url=<URL_WEB_APP_GAS>
-
-    // daftar token webhok https://api.telegram.org/bot8841941027:AAGt1LTI8GCVAOb2EAQzaQTP33n-qJTrFa4/setWebhook?url=https://script.google.com/macros/s/AKfycbzYmcqQIkT2H0TvxpGDi3d7ZuitzFaf3AotZa3OzpzyQQJop6WVs1Cp0iJv9QhQp_BR/exec
     async function sendToTelegram(message) {
         var TELEGRAM_TOKEN = '8841941027:AAGt1LTI8GCVAOb2EAQzaQTP33n-qJTrFa4';
         var TELEGRAM_CHAT_ID = '-1002717306025';
@@ -870,6 +856,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             }
         });
     }
+
 
     function normalizeText(text) {
         return text
@@ -962,11 +949,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         // --- VALIDASI KETAT: Tunggu commentToPost benar-benar terisi sebelum lanjut ---
         if (!commentToPost) {
             console.log("%c⏳ Menunggu identitas grup terdeteksi untuk mengisi commentToPost...", "color: #ffa500;");
-            if (cekurlutama.includes("user")) {
-                const baseUrl = cekurlutama.split('/user/')[0];
-                document.location.href = baseUrl;
-            }
-
             while (!commentToPost) {
                 const res = getCommentForGroup();
                 if (res) {
@@ -979,9 +961,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 await new Promise(r => setTimeout(r, 1000));
             }
         }
-        if (document.querySelector(".chrome-toast-profile")) {
-            tekoprofile = document.querySelector(".chrome-toast-profile").textContent || "";
-        }
+
         console.log("%c✅ Inisialisasi Selesai. Data & Comment Siap: " + commentToPost, "color: #00ff00; font-weight: bold;");
         console.log("url adalah " + cekurlutama)
         // 1. Tunggu sampai document.body tersedia dan tidak dalam status 'loading'
@@ -1030,7 +1010,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 return;
             }
 
-            if (isUserPage && JumlahKontent > 2) {
+            if (isUserPage && JumlahKontent > 0) {
                 simulateHumanPullToRefresh();
             } else {
                 const ikonTombolTarget = ['\u{f1953}', '\u{f3159}', 'URUTKAN'];
@@ -1045,82 +1025,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     }
 
 
-    async function adamasalah(reason) {
-        console.log("[Sistem] Memulai proses pencarian...");
-
-        let targetElement = null;
-
-        try {
-            // 1. Cari semua tombol kontainer berbasis komponen Facebook
-            const buttons = document.querySelectorAll('div[role="button"][data-mcomponent="MContainer"]');
-
-            for (let btn of buttons) {
-                const img = btn.querySelector('img');
-
-                // Filter Utama: Pastikan ini tombol ber-gambar dari CDN Facebook
-                if (img && img.src && img.src.includes('fbcdn.net')) {
-
-                    // PERBAIKAN: Lompat ke parentElement dulu baru cari MContainer induknya.
-                    // Ini agar tidak terjebak di atribut data-mcomponent milik tombol itu sendiri.
-                    const postBoxContainer = btn.parentElement ? btn.parentElement.closest('[data-mcomponent="MContainer"]') : null;
-
-                    if (postBoxContainer) {
-                        const htmlKonten = postBoxContainer.innerHTML;
-
-                        // Cek apakah di dalam kotak kontainer besar ini terdapat teks kotak postingan
-                        if (htmlKonten.includes("Tulis")) {
-                            targetElement = btn; // Kunci target profil asli Anda!
-                            break;
-                        }
-                    }
-                }
-            }
-
-            // 2. Eksekusi klik jika tombol ditemukan
-            if (targetElement) {
-                console.log("%c[SUKSES] Tombol Profil dekat input 'Tulis Sesuatu' ditemukan. Mengklik...", "color: green; font-weight: bold;");
-                targetElement.focus();
-                targetElement.click();
-
-                // 3. Tunggu selama 3 detik agar halaman profil selesai loading
-                console.log("[Sistem] Menunggu halaman profil termuat (3 detik)...");
-                await new Promise(resolve => setTimeout(resolve, 5000));
-
-                // 4. Ambil data nama profil dengan aman (Anti-Error)
-                const screenRoot = document.querySelector("#screen-root");
-                if (screenRoot) {
-                    const h1Element = screenRoot.querySelector("h1[aria-label]");
-                    if (h1Element) {
-                        const namaProfil = h1Element.getAttribute("aria-label");
-                        NamaFb = namaProfil;
-                        console.log(`%c[BERHASIL] Nama ditemukan: ${NamaFb}`, "color: yellow; font-weight: bold;");
-                    } else {
-                        console.warn("[⚠️ INFO] Elemen h1[aria-label] belum muncul atau tidak ada.");
-                    }
-                } else {
-                    console.warn("[⚠️ INFO] Elemen #screen-root tidak ditemukan di halaman ini.");
-                }
-
-            } else {
-                console.warn("[GAGAL] Tombol profil di sebelah kotak 'Tulis sesuatu...' tidak ditemukan.");
-            }
-
-        } catch (error) {
-            console.error("[EROR TERBATASI] Terjadi kesalahan saat eksekusi:", error.message);
-        }
-
-        // Eksekusi fungsi Telegram dan Redirect
-        try {
-            await sendToTelegram(`😫 Ada "Masalah":\n\n${reason}`);
-        } catch (telError) {
-            console.error("[Telegram Error]", telError.message);
-        }
-
-        setTimeout(() => {
-            location.href = "https://m.facebook.com/bookmarks/";
-        }, 2000);
-    }
-
 
     // --- 3. INITIALIZATION FLOW ---
     (async () => {
@@ -1134,15 +1038,14 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     const jsonStruct = JSON.parse(targetWindow.__wlsec.json_struct);
                     targetUrl = jsonStruct?.requestedUrlFromWww || targetUrl;
 
-                    if (cekurlutama === targetUrl) return true;
-                    
-                    const isFirstInit = (cekurlutama === "");
-                    cekurlutama = targetUrl;
+                    cekurlutama = targetUrl
 
                     console.log("Berhasil mendapatkan URL:", cekurlutama);
-                    if (isFirstInit) start();
+                    // Tulis kode kamu selanjutnya di sini setelah URL berhasil didapat
+                    // ...
+                    start()
 
-                    return true; 
+                    return true; // Hentikan perulangan jika berhasil
                 }
             } catch (error) {
                 // Kita silent saja karena kita tahu ini akan sering terjadi di awal loading
@@ -1153,7 +1056,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         // Lakukan pengecekan berkala setiap 500ms sampai datanya muncul
         const intervalCek = setInterval(() => {
             const sukses = ambilDataWlsec();
-            // Hapus clearInterval agar cekurlutama tetap terupdate jika terjadi navigasi tanpa reload
+            if (sukses) {
+                clearInterval(intervalCek); // Stop ngecek jika sudah ketemu
+            }
         }, 500);
 
         // Batasi pencarian maksimal 10 detik agar tidak membebani browser jika data memang tidak ada
@@ -1161,26 +1066,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             clearInterval(intervalCek);
         }, 10000);
 
-        let attempts = 0;
-        const interval = setInterval(() => {
-            attempts++;
-            const button = Array.from(document.querySelectorAll('div[role="button"][aria-label]'))
-                .find(el => {
-                    const label = el.getAttribute('aria-label')?.toLowerCase() || "";
-                    const isJoin = label.includes('gabung grup') || label.includes('join');
-                    const isDisabled = el.getAttribute('aria-disabled') === 'true';
-                    return isJoin && !label.includes('batalkan') && !isDisabled;
-                });
 
-            if (button && typeof button.click === 'function') {
-                if (button.textContent.includes("gabung") && !button.textContent.includes("batalkan")) {
-                    console.log('✅ Tombol ditemukan, klik sekarang...');
-                    button.click();
-                }
-            } else if (attempts >= 10) {
-                console.log('❌ Tombol tidak ditemukan setelah 10 kali percobaan. Berhenti.');
-                clearInterval(interval);
-            }
-        }, 2000); // Coba setiap 1 detik
     })();
 };
