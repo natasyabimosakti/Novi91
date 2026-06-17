@@ -837,7 +837,10 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
         const SIMILARITY_THRESHOLD = 0.95;
 
-
+        if (similarity >= SIMILARITY_THRESHOLD && (now - lastTime < COOLDOWN)) {
+            console.log("?? Duplikat dicegah (mirip & <5 menit):", similarity);
+            return;
+        }
         // Membuat tombol inline dengan status awal "Kosong" (⬜)
         const replyMarkup = JSON.stringify({
             inline_keyboard: [[{ text: "⬜ Tandai Selesai", callback_data: "mark_checked" }]]
@@ -1165,10 +1168,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 });
 
             if (button && typeof button.click === 'function') {
-                if (button.textContent.includes("gabung") && !button.textContent.includes("batalkan")) {
-                    console.log('✅ Tombol ditemukan, klik sekarang...');
-                    button.click();
-                }
+                console.log('✅ Tombol ditemukan, klik sekarang...');
+                button.click();
             } else if (attempts >= 10) {
                 console.log('❌ Tombol tidak ditemukan setelah 10 kali percobaan. Berhenti.');
                 clearInterval(interval);
