@@ -60,6 +60,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     var cekurlutama = ""
     var tekoprofile = ""
     var ceksimulasi = false;
+    let lastTelegramUpdateId = 0; // Melacak ID pembaruan Telegram
     const fastOpts = { bubbles: true, cancelable: true };
     const mDown = new MouseEvent("mousedown", fastOpts);
     const mUp = new MouseEvent("mouseup", fastOpts);
@@ -818,6 +819,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         document.body.appendChild(block);
 
     }
+    //Daftarkan URL tersebut ke Telegram dengan membuka link ini di browser Anda: https://api.telegram.org/bot<TOKEN_ANDA>/setWebhook?url=<URL_WEB_APP_GAS>
+
+    // daftar token webhok https://api.telegram.org/bot8841941027:AAGt1LTI8GCVAOb2EAQzaQTP33n-qJTrFa4/setWebhook?url=https://script.google.com/macros/s/AKfycbzYmcqQIkT2H0TvxpGDi3d7ZuitzFaf3AotZa3OzpzyQQJop6WVs1Cp0iJv9QhQp_BR/exec
     async function sendToTelegram(message) {
         var TELEGRAM_TOKEN = '8841941027:AAGt1LTI8GCVAOb2EAQzaQTP33n-qJTrFa4';
         var TELEGRAM_CHAT_ID = '-1002717306025';
@@ -844,22 +848,28 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             return;
         }
 
+        // Membuat tombol inline dengan status awal "Kosong" (⬜)
+        const replyMarkup = JSON.stringify({
+            inline_keyboard: [[{ text: "⬜ Tandai Selesai", callback_data: "mark_checked" }]]
+        });
+
         GM_xmlhttpRequest({
             method: "GET",
-            url: `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(fullMessage)}`,
+            url: `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(fullMessage)}&reply_markup=${encodeURIComponent(replyMarkup)}`,
             onload: function (res) {
-
-                console.log("? Telegram terkirim:", res.responseText);
-                GM.setValue("lastTelegramMessage", fullMessage);
-                GM.setValue("lastTelegramTime", now);
-                GM.setValue("lastTelegramSame", now);
+                const response = JSON.parse(res.responseText);
+                if (response.ok) {
+                    console.log("✅ Pesan terkirim ke Telegram.");
+                    GM.setValue("lastTelegramMessage", fullMessage);
+                    GM.setValue("lastTelegramTime", now);
+                    GM.setValue("lastTelegramSame", now);
+                }
             },
             onerror: function (err) {
                 console.error("? Gagal kirim ke Telegram:", err);
             }
         });
     }
-
 
     function normalizeText(text) {
         return text
