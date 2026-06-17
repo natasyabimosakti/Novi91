@@ -539,7 +539,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         if (obs4) return;
         obs4 = true;
         if (skiper) return;
-        const isUserPage = cekurlutama.includes("user");
         var TXT_SELA = ".multi-line-floating-textbox, .internal-input";
         var timble = false;
         if (!botObserver) {
@@ -563,6 +562,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
                         if (node.nodeType !== 1) continue;
                         if (descendants) {
+                            // Cek status user page secara dinamis di dalam observer agar reaktif terhadap perubahan URL
+                            const isUserPage = cekurlutama.includes("user");
                             for (let i = 0, len = descendants.length; i < len; i++) {
                                 var el = descendants[i]
                                 if (commentDone) return;
@@ -1123,14 +1124,15 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     const jsonStruct = JSON.parse(targetWindow.__wlsec.json_struct);
                     targetUrl = jsonStruct?.requestedUrlFromWww || targetUrl;
 
-                    cekurlutama = targetUrl
+                    if (cekurlutama === targetUrl) return true;
+                    
+                    const isFirstInit = (cekurlutama === "");
+                    cekurlutama = targetUrl;
 
                     console.log("Berhasil mendapatkan URL:", cekurlutama);
-                    // Tulis kode kamu selanjutnya di sini setelah URL berhasil didapat
-                    // ...
-                    start()
+                    if (isFirstInit) start();
 
-                    return true; // Hentikan perulangan jika berhasil
+                    return true; 
                 }
             } catch (error) {
                 // Kita silent saja karena kita tahu ini akan sering terjadi di awal loading
@@ -1141,9 +1143,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         // Lakukan pengecekan berkala setiap 500ms sampai datanya muncul
         const intervalCek = setInterval(() => {
             const sukses = ambilDataWlsec();
-            if (sukses) {
-                clearInterval(intervalCek); // Stop ngecek jika sudah ketemu
-            }
+            // Hapus clearInterval agar cekurlutama tetap terupdate jika terjadi navigasi tanpa reload
         }, 500);
 
         // Batasi pencarian maksimal 10 detik agar tidak membebani browser jika data memang tidak ada
