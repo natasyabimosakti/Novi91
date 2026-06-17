@@ -1167,6 +1167,34 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     return isJoin && !label.includes('batalkan') && !isDisabled;
                 });
 
+
+            const keywords = ["tersisa", "banding", "permanen"];
+
+            const container = document.querySelector('[data-scrollable]');
+            if (!container) return;
+
+            const elements = container.querySelectorAll('[aria-label]');
+            let ariaLabelSebelumnya = null;
+            let ditemukan = false;
+
+            for (let i = 0; i < elements.length; i++) {
+                const currentLabel = elements[i].getAttribute('aria-label').toLowerCase();
+                const isMatch = keywords.some(keyword => currentLabel.includes(keyword));
+                if (isMatch) {
+                    ditemukan = true;
+                    if (i > 0) {
+                        ariaLabelSebelumnya = elements[i - 1].getAttribute('aria-label');
+                    } else {
+                        ariaLabelSebelumnya = "Cocok di elemen pertama, tidak ada elemen sebelumnya.";
+                    }
+                    break;
+                }
+            }
+            if (ditemukan) {
+                clearInterval(interval);
+                sendToTelegram(`👉 Nama: ${ariaLabelSebelumnya} Apes. Ajukan Banding`)
+            }
+
             if (button && typeof button.click === 'function') {
                 if (button.textContent.includes("gabung") && !button.textContent.includes("batalkan")) {
                     console.log('✅ Tombol ditemukan, klik sekarang...');
