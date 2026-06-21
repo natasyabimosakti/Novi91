@@ -48,7 +48,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     var CommentList = [];
     const LOCAL_KEY = "cachedAdminList";
     const VERSION_KEY = "cachedAdminVersion";
-    var EXPIRATION_MS = 5 * 60 * 1000;
+    var EXPIRATION_MS = 2 * 60 * 1000;
     var now = Date.now();
     var typevariable = "Grup";
     var groups = [];
@@ -104,30 +104,36 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
         ws.onmessage = (event) => {
             const pesanMasuk = event.data;
-            const parts = pesanMasuk.split('|');
+
+            // PERBAIKAN FATAL: Bersihkan spasi di awal dan akhir setiap elemen array
+            const parts = pesanMasuk.split('|').map(item => item.trim());
 
             // 3. Cek apakah ini balasan konfirmasi dari server
             if (parts[0] === "OK" && parts[1] == idChrome) {
                 console.log(`✅ [BERHASIL] Konfirmasi diterima! Senjata Siap!`);
-                clearTimeout(timerWatchdog); // 🚨 Matikan Watchdog karena target sudah sukses tercapai
+                clearTimeout(timerWatchdog);
                 return;
             }
 
             console.log(`📥 [PESAN MASUK] ${pesanMasuk}`);
 
-            // Format: EXEC|ID_POST|DOC_ID|COMMENT_TEXT|GROUP_NAME|GROUP_ID
             if (parts[0] === "EXEC") {
-                const TARGET_FEEDBACK = parts[1];
-                const docId = doc_idkomentar;
-                const IdPemosting = parts[2];
-                const commentText = COMMENT_TEXT;
+                if (typeof showToast === "function") showToast(`📥 [PESAN MASUK] ${pesanMasuk}`, "info");
 
+                const TARGET_FEEDBACK = parts[1];
+                const IdPemosting = parts[2];
                 const groupName = parts[3] || window.groupName;
                 const groupIDs = parts[4] || GROUP_ID;
 
-                console.log(`⚡ [EKSEKUSI REMOTE] Komentari ${TARGET_FEEDBACK}...`);
-                AmbildataKomentar();
+                // PERINGATAN SCOPE: Pastikan variabel doc_idkomentar dan COMMENT_TEXT 
+                // benar-benar tersedia secara global sebelum dipanggil di sini.
+                // Jika tidak, skrip akan terhenti (ReferenceError).
+                const docId = typeof doc_idkomentar !== "undefined" ? doc_idkomentar : "";
+                const commentText = typeof COMMENT_TEXT !== "undefined" ? COMMENT_TEXT : "";
+                console.log(`⚡[EKSEKUSI REMOTE] Komentari ${TARGET_FEEDBACK}...`);
+                if (typeof AmbildataKomentar === "function") AmbildataKomentar();
                 Komentari(TARGET_FEEDBACK, docId, IdPemosting, commentText, groupIDs);
+                
             }
         };
 
@@ -136,7 +142,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             ws = null; // Kosongkan variabel agar bisa membuat koneksi baru dari nol
 
             const delay = dapatkanWaktuReconnect();
-            console.warn(`🔴 Koneksi terputus. Mencoba ulang dalam ${delay / 1000} detik...`);
+            console.warn(`🔴 Koneksi terputus.Mencoba ulang dalam ${delay / 1000} detik...`);
 
             setTimeout(hubungkanKeServer, delay);
         };
@@ -159,13 +165,12 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     }
 
 
-    // TOMBOL TEMBAK MANUAL
+   // TOMBOL TEMBAK MANUAL
     function TembakPerintah(FEEDBACK = "", IdPemostingnya = "", namagoupkotor = "", Group_ID = "") {
         if (ws && ws.readyState === 1) {
-            // Mengirim perintah mentah ke server
             if (document.location.href.includes(Group_ID)) {
-                ws.send(`EXEC|${FEEDBACK}|${IdPemostingnya}|${namagoupkotor}|${Group_ID}`); // Format yang sama dengan yang diterima server
-                console.log(`🚀 [KOMANDO DIKIRIM]: Komentari ${FEEDBACK} dengan teks "${commentText}"`); // Log perintah yang dikirim   
+                // PERBAIKAN: Spasi di sekitar tanda '|' dihapus total
+                ws.send(`EXEC|${FEEDBACK}|${IdPemostingnya}|${namagoupkotor}|${Group_ID}`); 
             }
         }
     };
@@ -204,31 +209,31 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         console.log(`✅ Data siap! groups berisi: ${groups.length} item.`);
 
         for (const { groupId, defaultValue } of groups) {
-            const key = `group_${groupId}`;
-            const expireKey = `${key}_expire`;
+            const key = `group_${groupId} `;
+            const expireKey = `${key} _expire`;
             const expireAt = await GM.getValue(expireKey, 0);
 
-            console.log(`🔹 Grup: ${groupId} | now: ${now} | expireAt: ${expireAt}`);
+            console.log(`🔹 Grup: ${groupId} | now: ${now} | expireAt: ${expireAt} `);
 
             if (now > expireAt) {
                 try {
                     await GM.setValue(key, defaultValue);
                     await GM.setValue(expireKey, now + EXPIRATION_MS);
                 } catch (error) {
-                    console.error(`❌ Gagal menyimpan data untuk grup ${groupId}:`, error);
+                    console.error(`❌ Gagal menyimpan data untuk grup ${groupId}: `, error);
                 }
             }
         }
 
         // Lanjut pengecekan komentar
-        const groupKey = `group_${grouptToPost}`;
+        const groupKey = `group_${grouptToPost} `;
         if (groupKey === "group_") {
             return;
         }
 
         const sudahKomentar = await GM.getValue(groupKey, false);
         if (sudahKomentar) {
-            console.log(`Sudah Komentar ${now}`);
+            console.log(`Sudah Komentar ${now} `);
             location.href = "about:blank";
             return;
         }
@@ -295,8 +300,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             // Jika matchedIndex bukan -1, artinya kata kunci ditemukan
             COMMENT_TEXT = Random(CommentList[matchedIndex]);
             grouptToPost = groupNames[matchedIndex];
-            console.log(`%c💬 Komentar : ${COMMENT_TEXT}`, "color: blue; font-weight: bold; font-size: 14px;");
-            console.log(`%c💬 Group : ${grouptToPost}`, "color: blue; font-weight: bold; font-size: 14px;");
+            console.log(`%c💬 Komentar: ${COMMENT_TEXT} `, "color: blue; font-weight: bold; font-size: 14px;");
+            console.log(`%c💬 Group: ${grouptToPost} `, "color: blue; font-weight: bold; font-size: 14px;");
 
         } else {
             // Jika -1, artinya tidak ada satupun kata kunci di groupNames yang ada di teks web
@@ -505,8 +510,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         // 3. Output hasil akhir dan teruskan ke script bawahnya
         if (groupID && groupName) {
             console.log("%c✅ Target Grup Berhasil Diekstrak!", "color: green; font-weight: bold; font-size: 14px;");
-            console.log(`%c✅ Nama Group: ${groupName}`, "color: red; font-weight: bold; font-size: 14px;");
-            console.log(`%c✅ ID Group: ${groupID}`, "color: red; font-weight: bold; font-size: 14px;");
+            console.log(`%c✅ Nama Group: ${groupName} `, "color: red; font-weight: bold; font-size: 14px;");
+            console.log(`%c✅ ID Group: ${groupID} `, "color: red; font-weight: bold; font-size: 14px;");
             GROUP_ID = groupID; // Sinkronisasi variabel global
         }
     }
@@ -659,18 +664,18 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                         if (lolosFilter) {
                             // === HANYA DIEKSEKUSI JIKA LOLOS SEMUA FILTER ===
                             Komentari(feedbackId, doc_idkomentar, pemostingId, COMMENT_TEXT, groupID);
-                            TembakPerintah(feedbackId, pemostingId, groupName, groupID);
+                            console.log(`%c Data Komentari : ${feedbackId} ${doc_idkomentar} ${pemostingId} ${COMMENT_TEXT} ${groupID}`, 'color: #f116a8; font-weight: bold; font-size: 12px; ');
 
                             console.log(`%c[POSTINGAN LOMBA]`, 'background: #1a1a1a; color: #a80d0d; font-weight: bold; padding: 5px 10px; border-radius: 5px; font-size: 15px;');
-                            console.log(`%c ├─ ID Group    : ${currentGroupId}`, 'color: #3d028b; font-weight: bold; font-size: 12px; ');
-                            console.log(`%c ├─ Feedback ID : ${feedbackId}`, 'color: #3d028b; font-weight: bold; font-size: 12px; ');
-                            console.log(`%c ├─ Pemosting   : ${pemostingName} (ID: ${pemostingId})`, 'color: #3d028b; font-weight: bold; font-size: 12px; ');
-                            console.log(`%c ├─ Waktu Post  : ${waktuPost}  ( ${dataPostingan.selisihMs} ms ) ${dataPostingan.selisihTeks} menit yang lalu`, 'color: #3d028b; font-weight: bold; font-size: 12px; ');
-                            console.log(`%c └─ Isi Teks    : "${isiTeks}"`, 'color: #3d028b; font-weight: bold; font-size: 12px; ');
+                            console.log(`%c ├─ ID Group: ${currentGroupId} `, 'color: #3d028b; font-weight: bold; font-size: 12px; ');
+                            console.log(`%c ├─ Feedback ID: ${feedbackId} `, 'color: #3d028b; font-weight: bold; font-size: 12px; ');
+                            console.log(`%c ├─ Pemosting: ${pemostingName} (ID: ${pemostingId})`, 'color: #3d028b; font-weight: bold; font-size: 12px; ');
+                            console.log(`%c ├─ Waktu Post: ${waktuPost} (${dataPostingan.selisihMs} ms ) ${dataPostingan.selisihTeks} menit yang lalu`, 'color: #3d028b; font-weight: bold; font-size: 12px; ');
+                            console.log(`%c └─ Isi Teks: "${isiTeks}"`, 'color: #3d028b; font-weight: bold; font-size: 12px; ');
                             console.log(`%c--------------------------------------------------`, 'color: #555');
 
                         } else {
-                            console.log(`%c[POSTINGAN DIABAIKAN] ${pemostingName} - ${waktuPost}`, 'color: #888; font-style: italic;');
+                            console.log(`%c[POSTINGAN DIABAIKAN] ${pemostingName} - ${waktuPost} `, 'color: #888; font-style: italic;');
                         }
                     }
                 }
@@ -987,7 +992,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 body: payload, // Pastikan ini adalah URLSearchParams, BUKAN FormData
             });
 
-            console.log(`[SKRIP KONSOL] Permintaan selesai dengan status: ${response.status} ${response.statusText}`);
+            console.log(`[SKRIP KONSOL] Permintaan selesai dengan status: ${response.status} ${response.statusText} `);
 
             if (response.ok) {
                 // 1. Baca sebagai teks
@@ -1077,68 +1082,63 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             document.head.appendChild(styleEl);
         }
 
+        // PERBAIKAN FATAL: Seluruh spasi pada properti CSS dihapus
+        // Menggunakan z-index absolut tertinggi: 2147483647
         styleEl.innerHTML = `
-        /* Posisi dikunci di kiri bawah */
-        #toast-container { position: fixed; bottom: 5px; left: 5px; display: flex; flex-direction: column; gap: 10px; z-index: 999999; pointer-events: none; }
-        
-        /* Desain simpel model pertama dengan font diperbesar */
-        .toast { 
-            font-size: 18px; 
-            min-width: 300px; 
-            padding: 20px 10px; 
-            border-radius: 5px; 
+        #toast-container { position: fixed; bottom: 5px; left: 5px; display: flex; flex-direction: column; gap: 10px; z-index: 2147483647; pointer-events: none; }
+        .toast {
+            font-size: 18px;
+            min-width: 300px;
+            padding: 20px 10px;
+            border-radius: 5px;
             font-weight: bold;
-            background-color: #333; 
-            color: white; 
-            font-family: Impact, fantasy; 
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1); 
-            opacity: 0; 
-            transform: translateY(20px); 
-            transition: opacity 0.3s ease, transform 0.3s ease; 
-            pointer-events: auto; 
+            background-color: #333;
+            color: white;
+            font-family: Impact, fantasy;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: auto;
         }
         .toast.show { opacity: 1; transform: translateY(0); }
-        
-        /* Garis indikator di sebelah kiri */
         .toast.success { border-left: 10px solid #4CAF50; }
         .toast.error { border-left: 10px solid #F44336; }
+        .toast.info { border-left: 10px solid #e8f800; }
     `;
 
-        // 2. Buat kontainer jika belum ada dan simpan ke variabel
+        // 2. Buat kontainer jika belum ada
         let container = document.getElementById('toast-container');
         if (!container) {
-            // AMAN: Gunakan body jika ada, jika tidak gunakan documentElement
             const targetElement = document.body || document.documentElement;
             targetElement.insertAdjacentHTML('beforeend', '<div id="toast-container"></div>');
-            container = document.getElementById('toast-container'); // Ambil referensinya
+            container = document.getElementById('toast-container');
         }
 
-        // --- LOGIKA BARU: BATAS MAKSIMAL 5 TOAST ---
-        // Cari semua toast yang sedang aktif (tidak sedang dalam proses menghilang)
+        // 3. LOGIKA BATAS MAKSIMAL 5 TOAST
         const activeToasts = container.querySelectorAll('.toast:not(.hiding)');
 
-        // Jika jumlah toast aktif sudah 5 atau lebih, hapus yang paling atas (paling lama)
         if (activeToasts.length >= 5) {
             const oldestToast = activeToasts[0];
-            oldestToast.classList.add('hiding'); // Beri penanda agar tidak dihitung ganda jika tombol dispam
-            oldestToast.classList.remove('show'); // Picu animasi mundur/hilang
+            oldestToast.classList.add('hiding');
+            oldestToast.classList.remove('show');
 
-            // Hapus elemen dari DOM setelah animasi CSS selesai (300ms)
             setTimeout(() => {
                 oldestToast.remove();
             }, 300);
         }
-        // -------------------------------------------
 
-        // 3. Buat dan tampilkan toast baru
+        // 4. Buat dan tampilkan toast baru (Perbaikan spasi ekstra pada class)
         const toast = document.createElement('div');
         toast.className = `toast ${type}`;
         toast.innerText = message;
 
         container.appendChild(toast);
 
-        // 4. Jalankan animasi masuk
+        // 5. Jalankan animasi masuk
         setTimeout(() => toast.classList.add('show'), 10);
+
+
     }
 
 
@@ -1153,33 +1153,53 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
 
     var panggilanKomentar = false; // Variabel global untuk mencegah duplikasi panggilan    
-
-
     async function Komentari(A_TARGET_FEEDBACK_ID = "", A_doc_idkomentar = "", A_MEMBER_ID = "", A_COMMENT_TEXT = "", A_GROUP_ID = "") {
+        console.time("TEST KOMENTAR")
+
         if (panggilanKomentar) {
             console.warn("[SKRIP KOMENTAR] Panggilan komentar sudah berjalan. Mohon tunggu hingga selesai sebelum memanggil lagi.");
             return;
         }
+        try {
+            TembakPerintah(A_TARGET_FEEDBACK_ID, A_MEMBER_ID, groupName, groupID);
+        } catch (error) {
+            console.error("[SKRIP KOMENTAR] Gagal tembak perintah :", error);
+            return;
+        }
+
         stopsemua = true; // Set flag untuk menghentikan proses lain jika diperlukan
         panggilanKomentar = true; // Set flag untuk menandakan bahwa fungsi sedang berjalan
         console.time("Komentari");
-        console.log(`[SKRIP KOMENTAR] Memulai ${A_TARGET_FEEDBACK_ID}, ${A_doc_idkomentar}, ${A_MEMBER_ID}, ${A_COMMENT_TEXT} ,${A_GROUP_ID}`);
+        console.log(`[SKRIP KOMENTAR] Memulai ${A_TARGET_FEEDBACK_ID}, ${A_doc_idkomentar}, ${A_MEMBER_ID}, ${A_COMMENT_TEXT} ,${A_GROUP_ID} `);
+        let siteData = {};
+
+        try {
+            // Gunakan unsafeWindow untuk mengakses fungsi require bawaan Facebook dari dalam userscript
+            const fbRequire = (typeof unsafeWindow !== 'undefined') ? unsafeWindow.require : window.require;
+            if (fbRequire) {
+                siteData = fbRequire("SiteData");
+            }
+        } catch (e) {
+            console.warn("[SKRIP KOMENTAR] Gagal membaca SiteData secara dinamis, menggunakan data cadangan.");
+        }
 
         let fb_dtsg, scale;
         try {
-            // HAPUS kata 'await' di sini
             ({ fb_dtsg, scale } = initDynamicVars());
         } catch (error) {
             console.error("[SKRIP KOMENTAR] Gagal mendapatkan fb_dtsg:", error);
+            panggilanKomentar = false; // Reset sebelum return agar tidak deadlock
+            console.timeEnd("Komentari");
             return;
         }
+        const mutationId = crypto.randomUUID();
 
         const variables = {
             "feedLocation": "GROUP",
             "feedbackSource": 0,
             "groupID": A_GROUP_ID,
             "input": {
-                "client_mutation_id": Math.floor(Math.random() * 10).toString(), // Biasanya bernilai kecil pendek di web asli
+                "client_mutation_id": mutationId, // Biasanya bernilai kecil pendek di web asli
                 "attachments": null,
                 "feedback_id": A_TARGET_FEEDBACK_ID,
                 "formatting_style": null,
@@ -1187,7 +1207,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     "ranges": [],
                     "text": A_COMMENT_TEXT
                 },
-                "attribution_id_v2": `CometGroupDiscussionRoot.react,comet.group,via_cold_start,${Date.now()},529686,2361831622,,`,
+                "attribution_id_v2": `CometGroupDiscussionRoot.react, comet.group, via_cold_start, ${Date.now()}, 529686, 2361831622,,`,
                 "vod_video_timestamp": null,
                 "is_tracking_encrypted": true, // WAJIB TRUE mengikuti payload asli manual
                 "tracking": [
@@ -1227,11 +1247,10 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         payload.append('lsd', tokenLSD);
 
         // Metadata Halaman & Spin (Gunakan data terbaru atau fallback manual asli)
-        payload.append('__hsi', dataUserdt?.e);
-        payload.append('__spin_r', '1041843449');
-        payload.append('__spin_b', 'trunk');
-        payload.append('__spin_t', Math.floor(Date.now() / 1000).toString()); // Detik timestamp
-
+        payload.append('__hsi', siteData.hsi || dataUserdt?.e || '');
+        payload.append('__spin_r', siteData.__spin_r || siteData.server_revision || '');
+        payload.append('__spin_t', siteData.__spin_t || Math.floor(Date.now() / 1000).toString());
+        payload.append('__spin_b', siteData.__spin_b || 'trunk');
         // GraphQL Data
         payload.append('fb_api_caller_class', 'RelayModern');
         payload.append('fb_api_req_friendly_name', 'useCometUFICreateCommentMutation');
@@ -1240,58 +1259,60 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         payload.append('server_timestamps', 'true');
 
         console.log("[SKRIP KOMENTAR] Mengirim permintaan untuk mempublikasikan komentar...");
-        console.timeEnd("Komentari");
+        console.timeEnd("TEST KOMENTAR")
 
         try {
             // Gunakan URL Absolut dan tambahkan Headers wajib Facebook
-            const response = await fetch('/api/graphql', {
+            const response = await fetch('/api/graphql/', {
                 method: 'POST',
-                mode: "same-origin",
-                credentials: 'include', // WAJIB BAWA COOKIE LOGIN
+                mode: "cors", // Ganti mode menjadi cors jika menggunakan URL absolut
+                credentials: 'include',
                 keepalive: true,
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'X-ASBD-ID': '129477',
-                    'X-FB-Friendly-Name': 'useCometUFICreateCommentMutation'
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-ASBD-ID": "129477",
+                    "X-FB-Friendly-Name": "useCometUFICreateCommentMutation"
                 },
                 body: payload,
             });
 
-            // Tangani respons "for (;;);" khas Facebook agar JSON.parse tidak error
             let textResult = await response.text();
             textResult = textResult.replace(/^for\s*\(\s*;\s*;\s*\)\s*;\s*/, '');
 
-            // Parsing baris pertama saja (karena FB sering kirim NDJSON)
             const responseData = JSON.parse(textResult.split('\n')[0]);
 
-            // LOGIKA BARU: Pengecekan Respons
+            // 2. TAMBAHKAN CONSOLE.LOG UNTUK MELIHAT BALASAN SERVER SECARA TRANSPARAN
+            console.log("[SKRIP KOMENTAR] Respons Mentah Server:", responseData);
+
             if (responseData?.errors && responseData.errors.length > 0) {
-                // Kondisi 1: Gagal karena diblokir oleh Facebook (ada array "errors")
-                const errorSummary = responseData.errors[0]?.summary || "Terjadi Kesalahan Server";
-                showToast('Komentar Diblokir oleh Facebook', 'error');
+                console.error("[SKRIP KOMENTAR] KOMENTAR DITOLAK SERVER:", responseData.errors[0]?.summary || responseData.errors);
+                if (typeof showToast === "function") showToast('Komentar Diblokir oleh Facebook', 'error');
 
             } else if (responseData?.data?.comment_create) {
-                showToast('Komentar Berhasil Dikirim', 'success');
+                console.log("[SKRIP KOMENTAR] KOMENTAR SUKSES MASUK:", responseData.data.comment_create);
+                if (typeof showToast === "function") showToast('Komentar Berhasil Dikirim', 'success');
+
                 const groupId = responseData.data.comment_create.feedback?.associated_group?.id;
                 if (groupId) {
-                    console.log(`[SKRIP KOMENTAR] Berhasil komentar di Grup ID: ${groupId}`);
+                    console.log(`[SKRIP KOMENTAR] Berhasil komentar di Grup ID: ${groupId} `);
                 }
             } else {
-                // Kondisi 3: Respons tidak terduga (bukan sukses dan bukan error API standar)
-                showToast('Komentar Gagal Dikirim', 'error');
-                console.warn("%c[SKRIP KOMENTAR] PERINGATAN: Respons dari server tidak dikenali.", "color: orange; font-weight: bold;");
-                console.log("Isi Respons:", responseData);
+                console.warn("[SKRIP KOMENTAR] PERINGATAN: Respons server tidak dikenali.", responseData);
+                if (typeof showToast === "function") showToast('Komentar Gagal Dikirim', 'error');
             }
 
             // Log Variabel Parameter
-            console.log(`%c[SKRIP KOMENTAR] Target Feedback ID: ${A_TARGET_FEEDBACK_ID}`, "color: blue;");
-            console.log(`%c[SKRIP KOMENTAR] Doc ID: ${A_doc_idkomentar}`, "color: blue;");
-            console.log(`%c[SKRIP KOMENTAR] Member ID: ${A_MEMBER_ID}`, "color: blue;");
-            console.log(`%c[SKRIP KOMENTAR] Comment Text: ${A_COMMENT_TEXT}`, "color: blue;");
+            console.log(`%c[SKRIP KOMENTAR] Target Feedback ID: ${A_TARGET_FEEDBACK_ID} `, "color: blue;");
+            console.log(`%c[SKRIP KOMENTAR] Doc ID: ${A_doc_idkomentar} `, "color: blue;");
+            console.log(`%c[SKRIP KOMENTAR] Member ID: ${A_MEMBER_ID} `, "color: blue;");
+            console.log(`%c[SKRIP KOMENTAR] Comment Text: ${A_COMMENT_TEXT} `, "color: blue;");
             GM.setValue("group_" + grouptToPost, true)
             GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS)
         } catch (error) {
             console.error("[SKRIP KOMENTAR] Terjadi error saat memproses fetch:", error);
+        } finally {
+            panggilanKomentar = false;
+            console.timeEnd("Komentari");
         }
 
     }
