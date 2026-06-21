@@ -68,30 +68,38 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
 
     let ws;
-    let waktuReconnect = 2000;
-    let timerTungguServer; // Variabel penampung timer 5 detik
+    let timerWatchdog; // Ubah nama agar fungsinya lebih jelas sebagai penjaga
     const idChrome = Math.floor(Math.random() * 9999);
 
+    function dapatkanWaktuReconnect() {
+        return 2000 + Math.floor(Math.random() * 2000);
+    }
+
     function hubungkanKeServer() {
-        // PENCEGAHAN GANDA
+        // 1. PENCEGAHAN GANDA
         if (ws && (ws.readyState === WebSocket.CONNECTING || ws.readyState === WebSocket.OPEN)) {
             return;
         }
 
         console.log("🔄 Mencoba terhubung ke server lokal (ws://localhost:9015)...");
+
+        // 2. Bersihkan sisa timer sebelumnya jika ada
+        clearTimeout(timerWatchdog);
+
         ws = new WebSocket('ws://localhost:9015');
+
+        // 🚨 KUNCI PERBAIKAN: Mulai hitung mundur 5 detik TEPAT SETELAH soket dibuat!
+        // Jika onopen tidak pernah terpicu karena Chrome memblokir tab background, timer ini akan membunuhnya.
+        timerWatchdog = setTimeout(() => {
+            console.warn("⏳ Soket menggantung (Connecting) atau Server lambat. Memaksa reset...");
+            if (ws) ws.close(); // Menutup paksa akan memicu ws.onclose -> mencoba ulang otomatis
+        }, 5000);
 
         ws.onopen = () => {
             console.log(`🟢 [ID: ${idChrome}] Terhubung jaringan. Meminta konfirmasi server...`);
-
-            // 1. Kirim ID Chrome ke server
+            // Kirim ID Chrome ke server
             ws.send(`MSUK|${idChrome}`);
-
-            // 2. Mulai hitung mundur 5 detik (5000 ms)
-            timerTungguServer = setTimeout(() => {
-                console.warn("⏳ Server lambat/tidak membalas dalam 5 detik. Mengulang koneksi...");
-                ws.close(); // Ini akan otomatis memicu ws.onclose -> hubungkanKeServer()
-            }, 5000);
+            // Biarkan timerWatchdog tetap berjalan. Ia akan bertugas ganda menunggu balasan "OK".
         };
 
         ws.onmessage = (event) => {
@@ -101,8 +109,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             // 3. Cek apakah ini balasan konfirmasi dari server
             if (parts[0] === "OK" && parts[1] == idChrome) {
                 console.log(`✅ [BERHASIL] Konfirmasi diterima! Senjata Siap!`);
-                clearTimeout(timerTungguServer); // Matikan timer 5 detik agar koneksi tidak diputus
-                return; // Hentikan eksekusi di sini agar tidak lanjut ke logika bawah
+                clearTimeout(timerWatchdog); // 🚨 Matikan Watchdog karena target sudah sukses tercapai
+                return;
             }
 
             console.log(`📥 [PESAN MASUK] ${pesanMasuk}`);
@@ -124,15 +132,22 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         };
 
         ws.onclose = (event) => {
-            clearTimeout(timerTungguServer); // Bersihkan timer untuk mencegah kebocoran memori
-            console.warn(`🔴 Koneksi terputus. Mencoba ulang dalam ${waktuReconnect / 1000} detik...`);
-            setTimeout(hubungkanKeServer, waktuReconnect);
+            clearTimeout(timerWatchdog); // Pastikan watchdog mati
+            ws = null; // Kosongkan variabel agar bisa membuat koneksi baru dari nol
+
+            const delay = dapatkanWaktuReconnect();
+            console.warn(`🔴 Koneksi terputus. Mencoba ulang dalam ${delay / 1000} detik...`);
+
+            setTimeout(hubungkanKeServer, delay);
         };
 
         ws.onerror = (error) => {
-            clearTimeout(timerTungguServer); // Bersihkan timer
+            clearTimeout(timerWatchdog);
             console.error("❌ Terjadi kesalahan pada WebSocket.");
-            ws.close();
+            // Tutup manual jika terjadi error agar segera masuk ke fungsi onclose
+            if (ws && ws.readyState !== WebSocket.CLOSED) {
+                ws.close();
+            }
         };
     }
 
@@ -142,10 +157,10 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     } else {
         window.addEventListener('load', hubungkanKeServer);
     }
-    
+
 
     // TOMBOL TEMBAK MANUAL
-    window.TembakPerintah = function (FEEDBACK, IdPemostingnya, namagoupkotor, Group_ID) {
+    function TembakPerintah(FEEDBACK = "", IdPemostingnya = "", namagoupkotor = "", Group_ID = "") {
         if (ws && ws.readyState === 1) {
             // Mengirim perintah mentah ke server
             if (document.location.href.includes(Group_ID)) {
@@ -154,8 +169,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             }
         }
     };
-
-
 
 
 
@@ -644,11 +657,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                         };
                         const lolosFilter = parsePost(dataPostingan);
                         if (lolosFilter) {
-                            TembakPerintah(feedbackId, pemostingId, groupName);
                             // === HANYA DIEKSEKUSI JIKA LOLOS SEMUA FILTER ===
                             Komentari(feedbackId, doc_idkomentar, pemostingId, COMMENT_TEXT, groupID);
-
-                            //window.TembakPerintah = function (FEEDBACK, IdPemostingnya,namagoupkotor) {
+                            TembakPerintah(feedbackId, pemostingId, groupName, groupID);
 
                             console.log(`%c[POSTINGAN LOMBA]`, 'background: #1a1a1a; color: #a80d0d; font-weight: bold; padding: 5px 10px; border-radius: 5px; font-size: 15px;');
                             console.log(`%c ├─ ID Group    : ${currentGroupId}`, 'color: #3d028b; font-weight: bold; font-size: 12px; ');
