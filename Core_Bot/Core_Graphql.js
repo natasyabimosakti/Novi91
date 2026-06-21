@@ -1326,7 +1326,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             }
         }
 
-
+ 
 
         await Promise.all([
             fetchGroupsFromGitHub(),
