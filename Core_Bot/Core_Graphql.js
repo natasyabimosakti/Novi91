@@ -69,40 +69,80 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
     let ws;
     let waktuReconnect = 2000;
+    let timerTungguServer; // Variabel penampung timer 5 detik
     const idChrome = Math.floor(Math.random() * 9999);
 
     function hubungkanKeServer() {
+        // PENCEGAHAN GANDA
+        if (ws && (ws.readyState === WebSocket.CONNECTING || ws.readyState === WebSocket.OPEN)) {
+            return;
+        }
+
+        console.log("🔄 Mencoba terhubung ke server lokal (ws://localhost:9015)...");
         ws = new WebSocket('ws://localhost:9015');
 
         ws.onopen = () => {
-            const waktuKirim = Date.now();
-            console.log(`🟢 [Kirim ${waktuKirim}] Senjata Siap!`);
+            console.log(`🟢 [ID: ${idChrome}] Terhubung jaringan. Meminta konfirmasi server...`);
+
+            // 1. Kirim ID Chrome ke server
+            ws.send(`MSUK|${idChrome}`);
+
+            // 2. Mulai hitung mundur 5 detik (5000 ms)
+            timerTungguServer = setTimeout(() => {
+                console.warn("⏳ Server lambat/tidak membalas dalam 5 detik. Mengulang koneksi...");
+                ws.close(); // Ini akan otomatis memicu ws.onclose -> hubungkanKeServer()
+            }, 5000);
         };
 
         ws.onmessage = (event) => {
             const pesanMasuk = event.data;
             const parts = pesanMasuk.split('|');
+
+            // 3. Cek apakah ini balasan konfirmasi dari server
+            if (parts[0] === "OK" && parts[1] == idChrome) {
+                console.log(`✅ [BERHASIL] Konfirmasi diterima! Senjata Siap!`);
+                clearTimeout(timerTungguServer); // Matikan timer 5 detik agar koneksi tidak diputus
+                return; // Hentikan eksekusi di sini agar tidak lanjut ke logika bawah
+            }
+
             console.log(`📥 [PESAN MASUK] ${pesanMasuk}`);
-            // Format: EXEC|ID_POST|DOC_ID|COMMENT_TEXT
+
+            // Format: EXEC|ID_POST|DOC_ID|COMMENT_TEXT|GROUP_NAME|GROUP_ID
             if (parts[0] === "EXEC") {
                 const TARGET_FEEDBACK = parts[1];
                 const docId = doc_idkomentar;
                 const IdPemosting = parts[2];
                 const commentText = COMMENT_TEXT;
-                groupName = parts[3] || groupName; // Update nama grup jika dikirim dari server, jika tidak gunakan yang sudah ada
-                const groupIDs = parts[4] || GROUP_ID; // Update ID grup jika dikirim dari server, jika tidak gunakan yang sudah ada
+
+                const groupName = parts[3] || window.groupName;
+                const groupIDs = parts[4] || GROUP_ID;
 
                 console.log(`⚡ [EKSEKUSI REMOTE] Komentari ${TARGET_FEEDBACK}...`);
-                AmbildataKomentar()
+                AmbildataKomentar();
                 Komentari(TARGET_FEEDBACK, docId, IdPemosting, commentText, groupIDs);
             }
         };
 
-        ws.onclose = () => {
+        ws.onclose = (event) => {
+            clearTimeout(timerTungguServer); // Bersihkan timer untuk mencegah kebocoran memori
+            console.warn(`🔴 Koneksi terputus. Mencoba ulang dalam ${waktuReconnect / 1000} detik...`);
             setTimeout(hubungkanKeServer, waktuReconnect);
         };
-        ws.onerror = () => ws.close();
+
+        ws.onerror = (error) => {
+            clearTimeout(timerTungguServer); // Bersihkan timer
+            console.error("❌ Terjadi kesalahan pada WebSocket.");
+            ws.close();
+        };
     }
+
+    // Eksekusi awal
+    if (document.readyState === 'complete') {
+        hubungkanKeServer();
+    } else {
+        window.addEventListener('load', hubungkanKeServer);
+    }
+    
 
     // TOMBOL TEMBAK MANUAL
     window.TembakPerintah = function (FEEDBACK, IdPemostingnya, namagoupkotor, Group_ID) {
@@ -115,7 +155,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         }
     };
 
-    hubungkanKeServer();
 
 
 
@@ -1326,7 +1365,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             }
         }
 
- 
+
 
         await Promise.all([
             fetchGroupsFromGitHub(),
