@@ -52,7 +52,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     var now = Date.now();
     var typevariable = "Grup";
     var groups = [];
-
+    var presesmintadata = false; // Flag untuk mencegah tumpang tindih proses mintaData()
+    var stopsemua = false; // Flag untuk menghentikan semua proses jika diperlukan  
 
 
 
@@ -107,8 +108,10 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     window.TembakPerintah = function (FEEDBACK, IdPemostingnya, namagoupkotor, Group_ID) {
         if (ws && ws.readyState === 1) {
             // Mengirim perintah mentah ke server
-            ws.send(`EXEC|${FEEDBACK}|${IdPemostingnya}|${namagoupkotor}|${Group_ID}`); // Format yang sama dengan yang diterima server
-            console.log(`🚀 [KOMANDO DIKIRIM]: Komentari ${FEEDBACK} dengan teks "${commentText}"`); // Log perintah yang dikirim   
+            if (document.location.href.includes(Group_ID)) {
+                ws.send(`EXEC|${FEEDBACK}|${IdPemostingnya}|${namagoupkotor}|${Group_ID}`); // Format yang sama dengan yang diterima server
+                console.log(`🚀 [KOMANDO DIKIRIM]: Komentari ${FEEDBACK} dengan teks "${commentText}"`); // Log perintah yang dikirim   
+            }
         }
     };
 
@@ -797,12 +800,14 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
 
     async function mintaData() {
+        presesmintadata = true;
         initDynamicVars()
         let fb_dtsg, scale;
         try {
             ({ fb_dtsg, scale } = await initDynamicVars());
         } catch (error) {
             console.error("[SKRIP KONSOL] Gagal mengambil variabel dinamis:", error);
+            presesmintadata = false;
             return;
         }
 
@@ -975,6 +980,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 // 5. Cek apakah setelah dicari-cari, 'node'-nya tetap tidak ada
                 if (!node) {
                     showToast('Data node tidak ditemukan', 'error');
+                    presesmintadata = false; // Reset flag jika data tidak ditemukan
                     return;
                 }
 
@@ -983,10 +989,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 const hasFeed = node?.group_feed?.edges || node?.group_member_feed?.edges;
 
                 if (isGroup && hasFeed) {
+                    presesmintadata = false; // Reset flag setelah berhasil
                     console.log("%c[SKRIP KONSOL] SUKSES! Data feed berhasil didapatkan.", "color: green; font-weight: bold;");
-
-                    // DATA SIAP DIPROSES:
-                    // const edges = node.group_feed?.edges || node.group_member_feed?.edges;
 
                 } else {
                     showToast('minta data Error struktur bukan Group Feed', 'error');
@@ -998,6 +1002,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         } catch (error) {
             // Menangkap error jaringan, atau error saat JSON.parse (jika format server kacau)
             showToast('Terjadi error saat memproses permintaan', 'error');
+            presesmintadata = false; // Reset flag jika terjadi error
             console.error("%c[SKRIP KONSOL] GAGAL! Terjadi error saat memproses permintaan.", "color: red; font-weight: bold;", error);
         }
     }
@@ -1105,6 +1110,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             console.warn("[SKRIP KOMENTAR] Panggilan komentar sudah berjalan. Mohon tunggu hingga selesai sebelum memanggil lagi.");
             return;
         }
+        stopsemua = true; // Set flag untuk menghentikan proses lain jika diperlukan
         panggilanKomentar = true; // Set flag untuk menandakan bahwa fungsi sedang berjalan
         console.time("Komentari");
         console.log(`[SKRIP KOMENTAR] Memulai ${A_TARGET_FEEDBACK_ID}, ${A_doc_idkomentar}, ${A_MEMBER_ID}, ${A_COMMENT_TEXT} ,${A_GROUP_ID}`);
@@ -1232,7 +1238,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             console.log(`%c[SKRIP KOMENTAR] Doc ID: ${A_doc_idkomentar}`, "color: blue;");
             console.log(`%c[SKRIP KOMENTAR] Member ID: ${A_MEMBER_ID}`, "color: blue;");
             console.log(`%c[SKRIP KOMENTAR] Comment Text: ${A_COMMENT_TEXT}`, "color: blue;");
-
+            GM.setValue("group_" + grouptToPost, true)
+            GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS)
         } catch (error) {
             console.error("[SKRIP KOMENTAR] Terjadi error saat memproses fetch:", error);
         }
@@ -1334,7 +1341,24 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         console.log("[SKRIP KONSOL] PAGINATION_QUERY_DOC_ID siap:", PAGINATION_QUERY_DOC_ID);
 
 
-        await mintaData();
+
+        async function jalankanLooping() {
+            try {
+                // Jika sedang tidak ada proses, jalankan
+                if (presesmintadata == false && stopsemua == false) {
+                    await mintaData();
+
+                }
+            } catch (error) {
+                console.error("Terjadi kesalahan saat meminta data:", error);
+                presesmintadata = false; // Pastikan kunci dibuka jika terjadi error
+            } finally {
+                setTimeout(jalankanLooping, 700);
+            }
+        }
+
+        // Mulai jalankan
+        jalankanLooping();
 
     })();
 
