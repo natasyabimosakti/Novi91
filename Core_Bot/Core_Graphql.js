@@ -1464,7 +1464,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 console.error("Terjadi kesalahan saat meminta data:", error);
                 presesmintadata = false; // Pastikan kunci dibuka jika terjadi error
             } finally {
-                setTimeout(jalankanLooping, 700);
+                setTimeout(jalankanLooping, 400);
             }
         }
 
