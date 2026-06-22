@@ -59,7 +59,45 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
 
 
+    // Fungsi untuk membuat dan memperbarui indikator status Socket di kiri atas
+    function updateStatusSocket(status) {
+        let statusEl = document.getElementById('bejo-socket-status');
 
+        // Jika elemen belum ada, buat baru
+        if (!statusEl) {
+            statusEl = document.createElement('div');
+            statusEl.id = 'bejo-socket-status';
+
+            // CSS untuk memaksa posisi di Kiri Atas dan tembus UI Facebook
+            statusEl.style.position = 'fixed';
+            statusEl.style.top = '5px';
+            statusEl.style.left = '5px';
+            statusEl.style.padding = '8px 15px';
+            statusEl.style.borderRadius = '5px';
+            statusEl.style.color = '#fff';
+            statusEl.style.fontWeight = 'bold';
+            statusEl.style.fontSize = '14px';
+            statusEl.style.fontFamily = 'Arial, sans-serif';
+            statusEl.style.zIndex = '2147483647'; // Nilai absolut maksimal
+            statusEl.style.boxShadow = '0 4px 6px rgba(0,0,0,0.3)';
+            statusEl.style.pointerEvents = 'none'; // Agar tidak mengganggu klik mouse
+            statusEl.style.transition = 'background-color 0.3s ease';
+
+            document.body.appendChild(statusEl);
+        }
+
+        // Perbarui warna dan teks berdasarkan status
+        if (status === 'CONNECTING') {
+            statusEl.style.backgroundColor = '#FF9800'; // Oranye
+            statusEl.innerText = '🔌 Socket: Menyambung...';
+        } else if (status === 'CONNECTED') {
+            statusEl.style.backgroundColor = '#4CAF50'; // Hijau
+            statusEl.innerText = '🟢 Socket: Terhubung';
+        } else if (status === 'DISCONNECTED') {
+            statusEl.style.backgroundColor = '#F44336'; // Merah
+            statusEl.innerText = '🔴 Socket: Terputus';
+        }
+    }
 
 
 
@@ -82,7 +120,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         }
 
         console.log("🔄 Mencoba terhubung ke server lokal (ws://localhost:9015)...");
-
+        updateStatusSocket('CONNECTING');
         // 2. Bersihkan sisa timer sebelumnya jika ada
         clearTimeout(timerWatchdog);
 
@@ -111,6 +149,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             // 3. Cek apakah ini balasan konfirmasi dari server
             if (parts[0] === "OK" && parts[1] == idChrome) {
                 console.log(`✅ [BERHASIL] Konfirmasi diterima! Senjata Siap!`);
+                updateStatusSocket('CONNECTED');
                 clearTimeout(timerWatchdog);
                 return;
             }
@@ -133,14 +172,14 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 console.log(`⚡[EKSEKUSI REMOTE] Komentari ${TARGET_FEEDBACK}...`);
                 if (typeof AmbildataKomentar === "function") AmbildataKomentar();
                 Komentari(TARGET_FEEDBACK, docId, IdPemosting, commentText, groupIDs);
-                
+
             }
         };
 
         ws.onclose = (event) => {
             clearTimeout(timerWatchdog); // Pastikan watchdog mati
             ws = null; // Kosongkan variabel agar bisa membuat koneksi baru dari nol
-
+            updateStatusSocket('DISCONNECTED');
             const delay = dapatkanWaktuReconnect();
             console.warn(`🔴 Koneksi terputus.Mencoba ulang dalam ${delay / 1000} detik...`);
 
@@ -149,6 +188,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
         ws.onerror = (error) => {
             clearTimeout(timerWatchdog);
+            updateStatusSocket('DISCONNECTED');
             console.error("❌ Terjadi kesalahan pada WebSocket.");
             // Tutup manual jika terjadi error agar segera masuk ke fungsi onclose
             if (ws && ws.readyState !== WebSocket.CLOSED) {
@@ -165,12 +205,12 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     }
 
 
-   // TOMBOL TEMBAK MANUAL
+    // TOMBOL TEMBAK MANUAL
     function TembakPerintah(FEEDBACK = "", IdPemostingnya = "", namagoupkotor = "", Group_ID = "") {
         if (ws && ws.readyState === 1) {
             if (document.location.href.includes(Group_ID)) {
                 // PERBAIKAN: Spasi di sekitar tanda '|' dihapus total
-                ws.send(`EXEC|${FEEDBACK}|${IdPemostingnya}|${namagoupkotor}|${Group_ID}`); 
+                ws.send(`EXEC|${FEEDBACK}|${IdPemostingnya}|${namagoupkotor}|${Group_ID}`);
             }
         }
     };
