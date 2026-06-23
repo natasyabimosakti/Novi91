@@ -29,7 +29,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
 
     var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Comment/${Comment18}.json`;
-    var keyword = ["ROOM", "R**M", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
+    var keyword = ["ROOM", "R**M", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
     var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
     var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Baru.json"
     var TELEGRAM_TOKEN = '8841941027:AAGt1LTI8GCVAOb2EAQzaQTP33n-qJTrFa4';
@@ -102,6 +102,102 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
 
 
+    function buatDashboardUI() {
+        const uiId = 'bejo-terminal-dashboard';
+        if (document.getElementById(uiId)) return; // Jangan buat dua kali
+
+        // Container Utama
+        const dash = document.createElement('div');
+        dash.id = uiId;
+        dash.style.position = 'fixed';
+        dash.style.bottom = '100px';
+        dash.style.left = '5px';
+        dash.style.width = '350px';
+        dash.style.backgroundColor = 'rgba(15, 15, 15, 0.95)';
+        dash.style.color = '#00ff00';
+        dash.style.fontFamily = 'Consolas, monospace';
+        dash.style.fontSize = '12px';
+        dash.style.borderRadius = '8px';
+        dash.style.border = '1px solid #333';
+        dash.style.zIndex = '2147483646'; // Sedikit di bawah Toast Anda
+        dash.style.boxShadow = '0 5px 15px rgba(0,0,0,0.6)';
+        dash.style.display = 'flex';
+        dash.style.flexDirection = 'column';
+        dash.style.transition = 'all 0.3s ease';
+
+        // Header
+        const header = document.createElement('div');
+        header.style.backgroundColor = '#222';
+        header.style.padding = '8px 12px';
+        header.style.borderTopLeftRadius = '8px';
+        header.style.borderTopRightRadius = '8px';
+        header.style.fontWeight = 'bold';
+        header.style.color = '#fff';
+        header.style.display = 'flex';
+        header.style.justifyContent = 'space-between';
+        header.style.borderBottom = '1px solid #444';
+        header.innerHTML = `<span>🖥️ Monitor Script</span><span id="bejo-toggle" style="cursor:pointer; padding:0 5px;">[ - ]</span>`;
+        dash.appendChild(header);
+
+        // Area Log (Tempat teks berjalan)
+        const content = document.createElement('div');
+        content.id = 'bejo-log-content';
+        content.style.height = '250px';
+        content.style.overflowY = 'auto';
+        content.style.padding = '10px';
+        content.style.display = 'flex';
+        content.style.flexDirection = 'column';
+        content.style.gap = '5px';
+        dash.appendChild(content);
+
+        document.body.appendChild(dash);
+
+        // Fungsi Minimize/Maximize Jendela
+        document.getElementById('bejo-toggle').addEventListener('click', function () {
+            if (content.style.display === 'none') {
+                content.style.display = 'flex';
+                this.innerText = '[ - ]';
+                dash.style.width = '350px';
+            } else {
+                content.style.display = 'none';
+                this.innerText = '[ + ]';
+                dash.style.width = '150px';
+            }
+        });
+    }
+
+    // ==========================================
+    // FUNGSI PENCETAK LOG KE DASHBOARD
+    // ==========================================
+    function cetakLog(pesan, tipe = 'info') {
+        const content = document.getElementById('bejo-log-content');
+        if (!content) return;
+
+        let warna = '#eee05e'; // Default hijau (info)
+        if (tipe === 'error') warna = '#ff4444'; // Merah
+        if (tipe === 'warning') warna = '#ca9911'; // Oranye
+        if (tipe === 'success') warna = '#66ff00'; // Cyan
+
+        const logLine = document.createElement('div');
+        const waktu = new Date().toLocaleTimeString('id-ID');
+
+        // Membersihkan pesan dari format %c bawaan console.log lama Anda jika terbawa
+        const pesanBersih = pesan.replace(/%c/g, '');
+
+        logLine.innerHTML = `<span style="color:#666;">[${waktu}]</span> <span style="color:${warna};">${pesanBersih}</span>`;
+        content.appendChild(logLine);
+
+        // Auto-scroll ke paling bawah
+        content.scrollTop = content.scrollHeight;
+
+        // Batasi maksimal 80 baris agar RAM browser tidak penuh
+        if (content.childNodes.length > 40) {
+            content.removeChild(content.firstChild);
+        }
+
+        // Opsional: Tetap buang ke console bawaan sebagai backup
+        // console.log(`[Script] ${pesanBersih}`); 
+    }
 
 
 
@@ -118,8 +214,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         if (ws && (ws.readyState === WebSocket.CONNECTING || ws.readyState === WebSocket.OPEN)) {
             return;
         }
-
-        console.log("🔄 Mencoba terhubung ke server lokal (ws://localhost:9015)...");
         updateStatusSocket('CONNECTING');
         // 2. Bersihkan sisa timer sebelumnya jika ada
         clearTimeout(timerWatchdog);
@@ -181,15 +275,12 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             ws = null; // Kosongkan variabel agar bisa membuat koneksi baru dari nol
             updateStatusSocket('DISCONNECTED');
             const delay = dapatkanWaktuReconnect();
-            console.warn(`🔴 Koneksi terputus.Mencoba ulang dalam ${delay / 1000} detik...`);
-
             setTimeout(hubungkanKeServer, delay);
         };
 
         ws.onerror = (error) => {
             clearTimeout(timerWatchdog);
             updateStatusSocket('DISCONNECTED');
-            console.error("❌ Terjadi kesalahan pada WebSocket.");
             // Tutup manual jika terjadi error agar segera masuk ke fungsi onclose
             if (ws && ws.readyState !== WebSocket.CLOSED) {
                 ws.close();
@@ -242,18 +333,15 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         }
 
         const now = Date.now();
-
-        // --- TAMBAHKAN INI JIKA BELUM ADA ---
-        // Misalnya kita set kedaluwarsa 24 Jam (dalam milidetik)
         const groups = groupNames.map(groupId => ({ groupId, defaultValue: false }));
         console.log(`✅ Data siap! groups berisi: ${groups.length} item.`);
 
         for (const { groupId, defaultValue } of groups) {
-            const key = `group_${groupId} `;
-            const expireKey = `${key} _expire`;
+            const key = `group_${groupId}`;
+            const expireKey = `${key}_expire`;
             const expireAt = await GM.getValue(expireKey, 0);
 
-            console.log(`🔹 Grup: ${groupId} | now: ${now} | expireAt: ${expireAt} `);
+            console.log(`🔹 Grup: ${groupId} | now: ${now} | expireAt: ${expireAt}`);
 
             if (now > expireAt) {
                 try {
@@ -266,14 +354,14 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         }
 
         // Lanjut pengecekan komentar
-        const groupKey = `group_${grouptToPost} `;
+        const groupKey = `group_${grouptToPost}`;
         if (groupKey === "group_") {
             return;
         }
 
         const sudahKomentar = await GM.getValue(groupKey, false);
         if (sudahKomentar) {
-            console.log(`Sudah Komentar ${now} `);
+            console.log(`Sudah Komentar ${now}`);
             location.href = "about:blank";
             return;
         }
@@ -390,6 +478,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                         console.log("%c👥 Daftar Admin Berhasil Dimuat:", "color: #fffa77; font-weight: bold;", adminList);
                         resolve(adminList); // ✅ resolve setelah data siap
                     } catch (e) {
+                        cetakLog(`❌ Failed to parse remote admin list`, 'error');
+
                         console.error("❌ Failed to parse remote admin list:", e);
                         reject(e);
                     }
@@ -627,135 +717,151 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     async function capturePcket() {
         'use strict';
 
-        // Set untuk mencegah duplikasi pencetakan log di console
         const processedPosts = new Set();
-        const processedCache = new Map();
-        // Fungsi inti untuk menyisir objek JSON mencari data postingan
-        function extractFromJSON(jsonObj, rawString) {
-            // Abaikan komponen header atau pembatas halaman
-            if (rawString.includes('"GroupsSectionHeaderUnit"')) {
-                return;
-            }
 
+        // 1. EXTREME SKIP LIST: 'comet_sections' DIHAPUS dari sini agar teks bisa terbaca!
+        // 'extensions' tetap diblokir karena berisi data analitik raksasa yang membebani CPU.
+        const IGNORED_KEYS = {
+            'extensions': 1, 'plugins': 1, 'ghl_label': 1,
+            'text_format_metadata': 1, 'attachments': 1, 'action_links': 1,
+            'top_reactions': 1, 'reaction_display_config': 1, 'profile_picture': 1,
+            'actor_photo': 1, 'context_layout': 1, 'layout': 1, 'header': 1,
+            'shareable_from_perspective_of_feed_ufi': 1
+        };
+
+        function processObject(jsonObj, fallbackTime) {
             let currentGroupId = "Tidak ditemukan";
 
-            let fallbackTimeMatch = /"(?:creation_time|publish_time)"\s*:\s*(\d+)/.exec(rawString);
-            let fallbackTime = fallbackTimeMatch ? parseInt(fallbackTimeMatch[1], 10) : null;
-
-            // Fungsi pencarian ke dalam (rekursif)
             function deepSearch(obj) {
-                if (!obj || typeof obj !== 'object') return;
+                if (!obj || typeof obj !== 'object') return false;
 
-                // Tangkap ID Group
+                // Tangkap ID Grup
                 if (obj.associated_group && obj.associated_group.id) {
                     currentGroupId = obj.associated_group.id;
                 }
 
-                // Ciri khas postingan/komentar yang valid
-                if (obj.feedback && (obj.message || obj.body || obj.text)) {
+                // Validasi keberadaan Feedback ID (ZmV... dsb)
+                let feedbackId = obj.feedback?.id || obj.feedback?.story?.feedback_context?.feedback?.id || null;
 
-                    let feedbackId = obj.feedback.id ||
-                        (obj.feedback.story && obj.feedback.story.feedback_context?.feedback?.id) ||
-                        null;
+                // Jika ID ada dan belum pernah diproses
+                if (feedbackId && feedbackId.length <= 40 && feedbackId.startsWith('ZmV')) {
 
-                    if (feedbackId && feedbackId.length <= 40) {
+                    // Cari Teks (Menjangkau lebih dalam jika ada di comet_sections)
+                    let isiTeks = obj.message?.text || obj.body?.text || obj.text ||
+                        obj.comet_sections?.message?.story?.message?.text || null;
+
+                    // Jika teks ketemu, kita eksekusi!
+                    if (isiTeks !== null && !processedPosts.has(feedbackId)) {
                         processedPosts.add(feedbackId);
-                        // 1. Ekstraksi Teks
-                        let isiTeks = "Tanpa teks (Hanya foto/video/share link)";
-                        if (obj.message && obj.message.text) isiTeks = obj.message.text;
-                        else if (obj.body && obj.body.text) isiTeks = obj.body.text;
-                        else if (obj.text) isiTeks = obj.text;
 
-                        // 2. Ekstraksi Identitas Pemosting
-                        let authorObj = obj.author || obj.actor ||
-                            (obj.story_header?.story?.actor) ||
-                            (obj.actors && obj.actors[0] ? obj.actors[0] : null) ||
-                            obj.owning_profile;
+                        let authorObj = obj.author || obj.actor || obj.story_header?.story?.actor ||
+                            (obj.actors && obj.actors[0]) || obj.owning_profile;
 
                         let pemostingName = authorObj?.name || "Tidak ditemukan";
                         let pemostingId = authorObj?.id || "Tidak ditemukan";
-
                         if (pemostingId === currentGroupId) {
                             pemostingName = "Tidak ditemukan";
                             pemostingId = "Tidak ditemukan";
                         }
 
-                        // 3. Ekstraksi Waktu (Menggunakan Fallback jika tidak ada di cabang ini)
                         let rawTime = obj.creation_time || obj.created_time || obj.publish_time ||
-                            (obj.story_header?.story?.creation_time) || fallbackTime;
+                            obj.story_header?.story?.creation_time || fallbackTime;
 
                         let waktuPost = "Tidak ditemukan";
                         if (rawTime) {
                             waktuPost = new Date(rawTime * 1000).toLocaleString('id-ID', {
-                                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
-                                hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short'
+                                hour: '2-digit', minute: '2-digit', second: '2-digit'
                             }) + ' WIB';
                         }
-                        const dataPostingan = {
-                            currentGroupId,
-                            feedbackId,
-                            pemostingName: (pemostingName || "").trim(),
-                            pemostingId,
-                            waktuPost,
-                            rawTime, // Pastikan ini tidak undefined di sumbernya
-                            isiTeks: (isiTeks || "").trim()
-                        };
-                        const lolosFilter = parsePost(dataPostingan);
-                        if (lolosFilter) {
-                            // === HANYA DIEKSEKUSI JIKA LOLOS SEMUA FILTER ===
-                            Komentari(feedbackId, doc_idkomentar, pemostingId, COMMENT_TEXT, groupID);
-                            console.log(`%c Data Komentari : ${feedbackId} ${doc_idkomentar} ${pemostingId} ${COMMENT_TEXT} ${groupID}`, 'color: #f116a8; font-weight: bold; font-size: 12px; ');
 
-                            console.log(`%c[POSTINGAN LOMBA]`, 'background: #1a1a1a; color: #a80d0d; font-weight: bold; padding: 5px 10px; border-radius: 5px; font-size: 15px;');
-                            console.log(`%c ├─ ID Group: ${currentGroupId} `, 'color: #3d028b; font-weight: bold; font-size: 12px; ');
-                            console.log(`%c ├─ Feedback ID: ${feedbackId} `, 'color: #3d028b; font-weight: bold; font-size: 12px; ');
-                            console.log(`%c ├─ Pemosting: ${pemostingName} (ID: ${pemostingId})`, 'color: #3d028b; font-weight: bold; font-size: 12px; ');
-                            console.log(`%c ├─ Waktu Post: ${waktuPost} (${dataPostingan.selisihMs} ms ) ${dataPostingan.selisihTeks} menit yang lalu`, 'color: #3d028b; font-weight: bold; font-size: 12px; ');
-                            console.log(`%c └─ Isi Teks: "${isiTeks}"`, 'color: #3d028b; font-weight: bold; font-size: 12px; ');
-                            console.log(`%c--------------------------------------------------`, 'color: #555');
+                        const dataPostingan = { currentGroupId, feedbackId, pemostingName, pemostingId, waktuPost, rawTime, isiTeks: isiTeks.trim() };
 
-                        } else {
-                            console.log(`%c[POSTINGAN DIABAIKAN] ${pemostingName} - ${waktuPost} `, 'color: #888; font-style: italic;');
+                        try {
+                            if (parsePost(dataPostingan)) {
+
+                                Komentari(feedbackId, doc_idkomentar, pemostingId, COMMENT_TEXT, groupID);
+                                // 3. Eksekusi fungsi tambahan SETELAH payload utama meluncur
+                                try {
+                                    TembakPerintah(feedbackId, pemostingId, groupName, groupID);
+                                } catch (error) {
+                                    console.error("[SKRIP KOMENTAR] Gagal tembak perintah tambahan:", error);
+                                }
+                                cetakLog(`📫 [ POSTINGAN DITEMUKAN ]`, 'success');
+                                cetakLog(`--------------------------`, 'success');
+                                cetakLog(`📌Nama Group  : ${grouptToPost}`, 'success');
+                                cetakLog(`● ID Group    : ${groupID}`, 'success');
+                                cetakLog(`👤Postingan   : ${pemostingName}`, 'success');
+                                cetakLog(`● ID Pemosting: ${pemostingId}`, 'success');
+                                cetakLog(`>_FeedID      : ${feedbackId}`, 'success');
+                                cetakLog(`🕒Waktu       : ${waktuPost}`, 'success');
+
+                                console.log(`%c[LOMBA] 🎯 DITEMUKAN! | ID: ${feedbackId} | Waktu: ${waktuPost}`, 'color: #00ff00; font-weight: bold; font-size: 13px; background: #111; padding: 3px;');
+                            } else {
+                                console.log(`%c[LOMBA] Tidak memenuhi kriteria filter parsePost()`, 'color: #ffaa00; font-style: italic;');
+                            }
+                        } catch (e) {
+                            console.error("Error di parsePost atau Komentari:", e);
+                        }
+
+                        return true;
+                    }
+                }
+
+                // Traversing cabang
+                if (Array.isArray(obj)) {
+                    for (let i = 0; i < obj.length; i++) {
+                        if (deepSearch(obj[i])) return true;
+                    }
+                } else {
+                    for (let key in obj) {
+                        if (IGNORED_KEYS[key] === 1) continue;
+                        if (obj.hasOwnProperty(key)) {
+                            if (deepSearch(obj[key])) return true;
                         }
                     }
                 }
-
-                for (let key in obj) {
-                    if (obj.hasOwnProperty(key)) {
-                        deepSearch(obj[key]);
-                    }
-                }
+                return false;
             }
 
-            deepSearch(jsonObj);
+            return deepSearch(jsonObj);
         }
 
         function extractPostData(rawText) {
-            if (!rawText) return;
+            if (!rawText || rawText.indexOf('"feedback"') === -1) return;
 
-            // Bersihkan prefix keamanan bawaan Facebook (misal: "for (;;);")
-            const cleanText = rawText.replace(/^for\s*\(\s*;\s*;\s*\)\s*;\s*/, '');
+            const startTime = performance.now();
+            let itemsFound = 0;
 
-            try {
-                const jsonObj = JSON.parse(cleanText);
-                extractFromJSON(jsonObj, cleanText);
-            } catch (e) {
-                // Parsing untuk GraphQL JSONL stream
-                const lines = cleanText.split('\n');
-                for (const line of lines) {
-                    if (line.trim()) {
+            let cleanText = rawText.startsWith('for (;;);') ? rawText.slice(9) : rawText;
+
+            let fallbackTime = null;
+            const timeIdx = cleanText.indexOf('"creation_time":');
+            if (timeIdx !== -1) {
+                fallbackTime = parseInt(cleanText.substring(timeIdx + 16, timeIdx + 26), 10);
+            }
+
+            let startIdx = 0;
+            const len = cleanText.length;
+
+            while (startIdx < len) {
+                let endIdx = cleanText.indexOf('\n', startIdx);
+                if (endIdx === -1) endIdx = len;
+
+                if (endIdx - startIdx > 100) {
+                    const line = cleanText.substring(startIdx, endIdx);
+
+                    if (line.indexOf('"feedback"') !== -1) {
                         try {
-                            const parsedLine = JSON.parse(line);
-                            extractFromJSON(parsedLine, line);
+                            const jsonObj = JSON.parse(line);
+                            if (processObject(jsonObj, fallbackTime)) itemsFound++;
                         } catch (err) { }
                     }
                 }
+                startIdx = endIdx + 1;
             }
+
         }
 
-        // ==========================================
-        // INTERCEPT NETWORK INTERFACE (XHR + FETCH)
-        // ==========================================
         const originalOpen = XMLHttpRequest.prototype.open;
         XMLHttpRequest.prototype.open = function (method, url, ...args) {
             this._url = url;
@@ -765,10 +871,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         const originalSend = XMLHttpRequest.prototype.send;
         XMLHttpRequest.prototype.send = function (body) {
             this.addEventListener('readystatechange', function () {
-                if ((this.readyState === 3 || this.readyState === 4) && this._url && this._url.includes('/api/graphql/')) {
-                    if (this.responseText) {
-                        extractPostData(this.responseText);
-                    }
+                if ((this.readyState === 3 || this.readyState === 4) && this._url && this._url.indexOf('/api/graphql/') !== -1) {
+                    if (this.responseText) extractPostData(this.responseText);
                 }
             });
             return originalSend.apply(this, arguments);
@@ -778,14 +882,10 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         window.fetch = async function (...args) {
             const url = args[0];
             const response = await originalFetch.apply(this, args);
-
-            if (typeof url === 'string' && url.includes('/api/graphql/')) {
+            if (typeof url === 'string' && url.indexOf('/api/graphql/') !== -1) {
                 const clone = response.clone();
-                clone.text().then(text => {
-                    extractPostData(text);
-                }).catch(() => { });
+                clone.text().then(text => extractPostData(text)).catch(() => { });
             }
-
             return response;
         };
     }
@@ -832,6 +932,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         for (const DataBacklist of Backlist) {
             const kata = DataBacklist.toLowerCase()
             if (postinganBL.toLowerCase().includes(kata)) {
+                cetakLog(`⚠️  Postingan di backlist ${postinganBL}`, 'info');
                 return true;
             }
         }
@@ -906,7 +1007,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             return;
         }
 
-
+        siapkanPeluruKomentar()
 
         // 1. Simpan data JSON ke dalam variabel object
         const variablesUser = {
@@ -1084,9 +1185,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 const hasFeed = node?.group_feed?.edges || node?.group_member_feed?.edges;
 
                 if (isGroup && hasFeed) {
-                    presesmintadata = false; // Reset flag setelah berhasil
-                    console.log("%c[SKRIP KONSOL] SUKSES! Data feed berhasil didapatkan.", "color: green; font-weight: bold;");
+                    cetakLog(`Respond  : Suksess`, 'success');
 
+                    presesmintadata = false; // Reset flag setelah berhasil
                 } else {
                     showToast('minta data Error struktur bukan Group Feed', 'error');
                     console.warn("%c[SKRIP KONSOL] GAGAL! HTTP Sukses, tapi struktur bukan Group Feed.", "color: orange; font-weight: bold;");
@@ -1189,28 +1290,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
 
 
-
-
-
-    var panggilanKomentar = false; // Variabel global untuk mencegah duplikasi panggilan    
-    async function Komentari(A_TARGET_FEEDBACK_ID = "", A_doc_idkomentar = "", A_MEMBER_ID = "", A_COMMENT_TEXT = "", A_GROUP_ID = "") {
-        console.time("TEST KOMENTAR")
-
-        if (panggilanKomentar) {
-            console.warn("[SKRIP KOMENTAR] Panggilan komentar sudah berjalan. Mohon tunggu hingga selesai sebelum memanggil lagi.");
-            return;
-        }
-        try {
-            TembakPerintah(A_TARGET_FEEDBACK_ID, A_MEMBER_ID, groupName, groupID);
-        } catch (error) {
-            console.error("[SKRIP KOMENTAR] Gagal tembak perintah :", error);
-            return;
-        }
-
-        stopsemua = true; // Set flag untuk menghentikan proses lain jika diperlukan
-        panggilanKomentar = true; // Set flag untuk menandakan bahwa fungsi sedang berjalan
-        console.time("Komentari");
-        console.log(`[SKRIP KOMENTAR] Memulai ${A_TARGET_FEEDBACK_ID}, ${A_doc_idkomentar}, ${A_MEMBER_ID}, ${A_COMMENT_TEXT} ,${A_GROUP_ID} `);
+    let templatePayload = new URLSearchParams();
+    let templateVariables = {};
+    function siapkanPeluruKomentar() {
         let siteData = {};
 
         try {
@@ -1229,23 +1311,41 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         } catch (error) {
             console.error("[SKRIP KOMENTAR] Gagal mendapatkan fb_dtsg:", error);
             panggilanKomentar = false; // Reset sebelum return agar tidak deadlock
-            console.timeEnd("Komentari");
             return;
         }
         const mutationId = crypto.randomUUID();
 
-        const variables = {
+        // Parameter Identitas Utama
+        templatePayload.append('av', dataUser.__user); // Sesuai payload manual asli Anda
+        templatePayload.append('__user', dataUser.__user);
+        templatePayload.append('__a', '1');
+        templatePayload.append('__req', '1l'); // Menandakan alur request pertama/live
+
+        // Token & Keamanan
+        templatePayload.append('fb_dtsg', fb_dtsg);
+        templatePayload.append('jazoest', dataUser.jazoest);
+        templatePayload.append('lsd', tokenLSD);
+
+        // Metadata Halaman & Spin (Gunakan data terbaru atau fallback manual asli)
+        templatePayload.append('__hsi', siteData.hsi || dataUserdt?.e || '');
+        templatePayload.append('__spin_r', siteData.__spin_r || siteData.server_revision || '');
+        templatePayload.append('__spin_t', siteData.__spin_t || Math.floor(Date.now() / 1000).toString());
+        templatePayload.append('__spin_b', siteData.__spin_b || 'trunk');
+        // GraphQL Data
+        templatePayload.append('fb_api_caller_class', 'RelayModern');
+        templatePayload.append('fb_api_req_friendly_name', 'useCometUFICreateCommentMutation');
+        templatePayload.append('server_timestamps', 'true');
+
+
+        templateVariables = {
             "feedLocation": "GROUP",
             "feedbackSource": 0,
-            "groupID": A_GROUP_ID,
             "input": {
                 "client_mutation_id": mutationId, // Biasanya bernilai kecil pendek di web asli
                 "attachments": null,
-                "feedback_id": A_TARGET_FEEDBACK_ID,
                 "formatting_style": null,
                 "message": {
                     "ranges": [],
-                    "text": A_COMMENT_TEXT
                 },
                 "attribution_id_v2": `CometGroupDiscussionRoot.react, comet.group, via_cold_start, ${Date.now()}, 529686, 2361831622,,`,
                 "vod_video_timestamp": null,
@@ -1272,88 +1372,85 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             "__relay_internal__pv__CometUFICommentAutoTranslationTyperelayprovider": "AUTO_TRANSLATE"
         };
 
-        // PERBAIKAN 2: WAJIB gunakan URLSearchParams, BUKAN FormData
-        const payload = new URLSearchParams();
+    }
 
-        // Parameter Identitas Utama
-        payload.append('av', dataUser.__user); // Sesuai payload manual asli Anda
-        payload.append('__user', dataUser.__user);
-        payload.append('__a', '1');
-        payload.append('__req', '1l'); // Menandakan alur request pertama/live
+    var panggilanKomentar = false;
 
-        // Token & Keamanan
-        payload.append('fb_dtsg', fb_dtsg);
-        payload.append('jazoest', dataUser.jazoest);
-        payload.append('lsd', tokenLSD);
+    // Dibuat tanpa async di awal deklarasi utama jika memungkinkan, tapi tetap async untuk await response nanti
+    async function Komentari(A_TARGET_FEEDBACK_ID = "", A_doc_idkomentar = "", A_MEMBER_ID = "", A_COMMENT_TEXT = "", A_GROUP_ID = "") {
+        if (panggilanKomentar) {
+            console.warn("[SKRIP KOMENTAR] Panggilan komentar sudah berjalan.");
+            return;
+        }
+        cetakLog(`⌯⌲ [ KIRIM KOMENTAR ]`, 'info');
 
-        // Metadata Halaman & Spin (Gunakan data terbaru atau fallback manual asli)
-        payload.append('__hsi', siteData.hsi || dataUserdt?.e || '');
-        payload.append('__spin_r', siteData.__spin_r || siteData.server_revision || '');
-        payload.append('__spin_t', siteData.__spin_t || Math.floor(Date.now() / 1000).toString());
-        payload.append('__spin_b', siteData.__spin_b || 'trunk');
-        // GraphQL Data
-        payload.append('fb_api_caller_class', 'RelayModern');
-        payload.append('fb_api_req_friendly_name', 'useCometUFICreateCommentMutation');
-        payload.append('doc_id', A_doc_idkomentar);
-        payload.append('variables', JSON.stringify(variables));
-        payload.append('server_timestamps', 'true');
+        stopsemua = true;
+        panggilanKomentar = true;
 
-        console.log("[SKRIP KOMENTAR] Mengirim permintaan untuk mempublikasikan komentar...");
-        console.timeEnd("TEST KOMENTAR")
+        // 1. Siapkan Payload Secepat Mungkin (Tanpa await atau fungsi eksternal yang berat)
+        templateVariables.groupID = A_GROUP_ID;
+        templateVariables.input.feedback_id = A_TARGET_FEEDBACK_ID;
+        templateVariables.input.message.text = A_COMMENT_TEXT;
+        templateVariables.input.client_mutation_id = crypto.randomUUID();
+        templateVariables.input.idempotence_token = `client:${crypto.randomUUID()}`;
+        templateVariables.input.session_id = crypto.randomUUID();
+
+        let payload = new URLSearchParams(templatePayload);
+        payload.set('doc_id', A_doc_idkomentar);
+        payload.set('variables', JSON.stringify(templateVariables));
+
+        // 2. TEMBAK SEKARANG JUGA! (Simpan promise-nya, jangan langsung di-await agar tidak memblokir timer)
+        const fetchPromise = fetch('/api/graphql/', {
+            method: 'POST',
+            mode: "cors",
+            credentials: 'include',
+            keepalive: true,
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "X-ASBD-ID": "129477",
+                "X-FB-Friendly-Name": "useCometUFICreateCommentMutation"
+            },
+            body: payload,
+        });
+
 
         try {
-            // Gunakan URL Absolut dan tambahkan Headers wajib Facebook
-            const response = await fetch('/api/graphql/', {
-                method: 'POST',
-                mode: "cors", // Ganti mode menjadi cors jika menggunakan URL absolut
-                credentials: 'include',
-                keepalive: true,
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                    "X-ASBD-ID": "129477",
-                    "X-FB-Friendly-Name": "useCometUFICreateCommentMutation"
-                },
-                body: payload,
-            });
-
+            const response = await fetchPromise; // Sekarang kita tunggu hasil jaringannya
             let textResult = await response.text();
             textResult = textResult.replace(/^for\s*\(\s*;\s*;\s*\)\s*;\s*/, '');
 
             const responseData = JSON.parse(textResult.split('\n')[0]);
-
-            // 2. TAMBAHKAN CONSOLE.LOG UNTUK MELIHAT BALASAN SERVER SECARA TRANSPARAN
             console.log("[SKRIP KOMENTAR] Respons Mentah Server:", responseData);
 
             if (responseData?.errors && responseData.errors.length > 0) {
+                cetakLog(`[ ❌ KOMENTAR DITOLAK ]`, 'warning');
+                cetakLog(`[ ❌ Akun Terblokir   ]`, 'warning');
+
                 console.error("[SKRIP KOMENTAR] KOMENTAR DITOLAK SERVER:", responseData.errors[0]?.summary || responseData.errors);
                 if (typeof showToast === "function") showToast('Komentar Diblokir oleh Facebook', 'error');
-
             } else if (responseData?.data?.comment_create) {
-                console.log("[SKRIP KOMENTAR] KOMENTAR SUKSES MASUK:", responseData.data.comment_create);
-                if (typeof showToast === "function") showToast('Komentar Berhasil Dikirim', 'success');
+                cetakLog(`[ ✅ KOMENTAR BERHASIL TERKIRIM ]`, 'success');
+                cetakLog(`[ 📨 ${A_COMMENT_TEXT} ]`, 'success');
 
-                const groupId = responseData.data.comment_create.feedback?.associated_group?.id;
-                if (groupId) {
-                    console.log(`[SKRIP KOMENTAR] Berhasil komentar di Grup ID: ${groupId} `);
-                }
+                console.log("%c[SKRIP KOMENTAR] KOMENTAR SUKSES MASUK!", "color: #00ff00; font-weight: bold;");
+                if (typeof showToast === "function") showToast('Komentar Berhasil Dikirim', 'success');
             } else {
                 console.warn("[SKRIP KOMENTAR] PERINGATAN: Respons server tidak dikenali.", responseData);
-                if (typeof showToast === "function") showToast('Komentar Gagal Dikirim', 'error');
+                cetakLog(`[ ⚠️ KOMENTAR TERKIRIM ]`, 'warning');
+                cetakLog(`[ ❓ RESPON TIDAK DI KETAHUI ]`, 'warning');
+                cetakLog(`[ SILAHKAN CEK AKUN FACEBOOK ]`, 'warning');
+
+
             }
 
-            // Log Variabel Parameter
-            console.log(`%c[SKRIP KOMENTAR] Target Feedback ID: ${A_TARGET_FEEDBACK_ID} `, "color: blue;");
-            console.log(`%c[SKRIP KOMENTAR] Doc ID: ${A_doc_idkomentar} `, "color: blue;");
-            console.log(`%c[SKRIP KOMENTAR] Member ID: ${A_MEMBER_ID} `, "color: blue;");
-            console.log(`%c[SKRIP KOMENTAR] Comment Text: ${A_COMMENT_TEXT} `, "color: blue;");
-            GM.setValue("group_" + grouptToPost, true)
-            GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS)
+            GM.setValue("group_" + grouptToPost, true);
+            GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS);
+
         } catch (error) {
+            cetakLog(`[ 🚨 Function KOMENTAR Error ]`, 'error');
             console.error("[SKRIP KOMENTAR] Terjadi error saat memproses fetch:", error);
         } finally {
-            console.timeEnd("Komentari");
         }
-
     }
 
     // Fungsi untuk menangkap/menunggu variabel dengan Promise
@@ -1446,6 +1543,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         ]);
 
         await capturePcket();
+        buatDashboardUI()
 
         console.log("[SKRIP KONSOL] Menunggu PAGINATION_QUERY_DOC_ID...");
         console.log("[SKRIP KONSOL] PAGINATION_QUERY_DOC_ID siap:", PAGINATION_QUERY_DOC_ID);
@@ -1457,13 +1555,13 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 // Jika sedang tidak ada proses, jalankan
                 if (presesmintadata == false && stopsemua == false) {
                     await mintaData();
-
+                    cetakLog(`Send : Minta Data`, 'info');
                 }
             } catch (error) {
                 console.error("Terjadi kesalahan saat meminta data:", error);
                 presesmintadata = false; // Pastikan kunci dibuka jika terjadi error
             } finally {
-                setTimeout(jalankanLooping, 400);
+                setTimeout(jalankanLooping, 700);
             }
         }
 
