@@ -219,9 +219,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         clearTimeout(timerWatchdog);
 
         ws = new WebSocket('ws://localhost:9015');
-
-        // 🚨 KUNCI PERBAIKAN: Mulai hitung mundur 5 detik TEPAT SETELAH soket dibuat!
-        // Jika onopen tidak pernah terpicu karena Chrome memblokir tab background, timer ini akan membunuhnya.
         timerWatchdog = setTimeout(() => {
             console.warn("⏳ Soket menggantung (Connecting) atau Server lambat. Memaksa reset...");
             if (ws) ws.close(); // Menutup paksa akan memicu ws.onclose -> mencoba ulang otomatis
@@ -248,11 +245,11 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 return;
             }
 
-            console.log(`📥 [PESAN MASUK] ${pesanMasuk}`);
-
             if (parts[0] === "EXEC") {
-                if (typeof showToast === "function") showToast(`📥 [PESAN MASUK] ${pesanMasuk}`, "info");
-
+                cetakLog(`---------------------------------`, 'info');
+                cetakLog(`[ SOCK MASUK ]`, 'info');
+                cetakLog(`📥 Pesan : ${pesanMasuk}`, "info")
+                cetakLog(`🕒 Waktu : ${Date.now()}`, "info")
                 const TARGET_FEEDBACK = parts[1];
                 const IdPemosting = parts[2];
                 const groupName = parts[3] || window.groupName;
@@ -266,6 +263,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 console.log(`⚡[EKSEKUSI REMOTE] Komentari ${TARGET_FEEDBACK}...`);
                 if (typeof AmbildataKomentar === "function") AmbildataKomentar();
                 Komentari(TARGET_FEEDBACK, docId, IdPemosting, commentText, groupIDs);
+
+
 
             }
         };
@@ -713,14 +712,36 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         cachedFbDtsg = dataUserdt.f || fb_dtsg;
         return { fb_dtsg, scale };
     }
+    // 1. LETAKKAN DI LUAR FUNGSI: Agar memori postingan yang sudah dikomen tidak hilang!
+    const processedPosts = new Set();
 
-    async function capturePcket() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // 2. UBAH NAMA DAN PARAMETER FUNGSI UTAMA
+    function capturePcket2(rawText) {
         'use strict';
 
-        const processedPosts = new Set();
+        // Langsung hentikan jika teks kosong atau tidak ada kata feedback
+        if (!rawText || rawText.indexOf('"feedback"') === -1) return;
 
-        // 1. EXTREME SKIP LIST: 'comet_sections' DIHAPUS dari sini agar teks bisa terbaca!
-        // 'extensions' tetap diblokir karena berisi data analitik raksasa yang membebani CPU.
         const IGNORED_KEYS = {
             'extensions': 1, 'plugins': 1, 'ghl_label': 1,
             'text_format_metadata': 1, 'attachments': 1, 'action_links': 1,
@@ -735,22 +756,16 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             function deepSearch(obj) {
                 if (!obj || typeof obj !== 'object') return false;
 
-                // Tangkap ID Grup
                 if (obj.associated_group && obj.associated_group.id) {
                     currentGroupId = obj.associated_group.id;
                 }
 
-                // Validasi keberadaan Feedback ID (ZmV... dsb)
                 let feedbackId = obj.feedback?.id || obj.feedback?.story?.feedback_context?.feedback?.id || null;
 
-                // Jika ID ada dan belum pernah diproses
                 if (feedbackId && feedbackId.length <= 40 && feedbackId.startsWith('ZmV')) {
-
-                    // Cari Teks (Menjangkau lebih dalam jika ada di comet_sections)
                     let isiTeks = obj.message?.text || obj.body?.text || obj.text ||
                         obj.comet_sections?.message?.story?.message?.text || null;
 
-                    // Jika teks ketemu, kita eksekusi!
                     if (isiTeks !== null && !processedPosts.has(feedbackId)) {
                         processedPosts.add(feedbackId);
 
@@ -778,14 +793,14 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
                         try {
                             if (parsePost(dataPostingan)) {
-
                                 Komentari(feedbackId, doc_idkomentar, pemostingId, COMMENT_TEXT, groupID);
-                                // 3. Eksekusi fungsi tambahan SETELAH payload utama meluncur
+
                                 try {
                                     TembakPerintah(feedbackId, pemostingId, groupName, groupID);
                                 } catch (error) {
                                     console.error("[SKRIP KOMENTAR] Gagal tembak perintah tambahan:", error);
                                 }
+
                                 cetakLog(`📫 [ POSTINGAN DITEMUKAN ]`, 'success');
                                 cetakLog(`--------------------------`, 'success');
                                 cetakLog(`📌Nama Group  : ${grouptToPost}`, 'success');
@@ -794,10 +809,10 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                                 cetakLog(`● ID Pemosting: ${pemostingId}`, 'success');
                                 cetakLog(`>_FeedID      : ${feedbackId}`, 'success');
                                 cetakLog(`🕒Waktu       : ${waktuPost}`, 'success');
+                                console.log(`%c[LOMBA] 🎯 DITEMUKAN | ID: ${feedbackId} | Waktu: ${Date.now()}`, 'color: #00ff00; font-weight: bold; font-size: 13px; background: #111; padding: 3px;');
 
-                                console.log(`%c[LOMBA] 🎯 DITEMUKAN! | ID: ${feedbackId} | Waktu: ${waktuPost}`, 'color: #00ff00; font-weight: bold; font-size: 13px; background: #111; padding: 3px;');
                             } else {
-                                console.log(`%c[LOMBA] Tidak memenuhi kriteria filter parsePost()`, 'color: #ffaa00; font-style: italic;');
+                                console.log(`%c Dari Respond`, 'color: #ffaa00; font-style: italic;');
                             }
                         } catch (e) {
                             console.error("Error di parsePost atau Komentari:", e);
@@ -807,7 +822,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     }
                 }
 
-                // Traversing cabang
                 if (Array.isArray(obj)) {
                     for (let i = 0; i < obj.length; i++) {
                         if (deepSearch(obj[i])) return true;
@@ -826,68 +840,36 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             return deepSearch(jsonObj);
         }
 
-        function extractPostData(rawText) {
-            if (!rawText || rawText.indexOf('"feedback"') === -1) return;
+        // 3. LOGIKA EXTRACT POST DATA PINDAH KE SINI
+        let itemsFound = 0;
+        let cleanText = rawText.startsWith('for (;;);') ? rawText.slice(9) : rawText;
 
-            const startTime = performance.now();
-            let itemsFound = 0;
-
-            let cleanText = rawText.startsWith('for (;;);') ? rawText.slice(9) : rawText;
-
-            let fallbackTime = null;
-            const timeIdx = cleanText.indexOf('"creation_time":');
-            if (timeIdx !== -1) {
-                fallbackTime = parseInt(cleanText.substring(timeIdx + 16, timeIdx + 26), 10);
-            }
-
-            let startIdx = 0;
-            const len = cleanText.length;
-
-            while (startIdx < len) {
-                let endIdx = cleanText.indexOf('\n', startIdx);
-                if (endIdx === -1) endIdx = len;
-
-                if (endIdx - startIdx > 100) {
-                    const line = cleanText.substring(startIdx, endIdx);
-
-                    if (line.indexOf('"feedback"') !== -1) {
-                        try {
-                            const jsonObj = JSON.parse(line);
-                            if (processObject(jsonObj, fallbackTime)) itemsFound++;
-                        } catch (err) { }
-                    }
-                }
-                startIdx = endIdx + 1;
-            }
-
+        let fallbackTime = null;
+        const timeIdx = cleanText.indexOf('"creation_time":');
+        if (timeIdx !== -1) {
+            fallbackTime = parseInt(cleanText.substring(timeIdx + 16, timeIdx + 26), 10);
         }
 
-        const originalOpen = XMLHttpRequest.prototype.open;
-        XMLHttpRequest.prototype.open = function (method, url, ...args) {
-            this._url = url;
-            return originalOpen.apply(this, [method, url, ...args]);
-        };
+        let startIdx = 0;
+        const len = cleanText.length;
 
-        const originalSend = XMLHttpRequest.prototype.send;
-        XMLHttpRequest.prototype.send = function (body) {
-            this.addEventListener('readystatechange', function () {
-                if ((this.readyState === 3 || this.readyState === 4) && this._url && this._url.indexOf('/api/graphql/') !== -1) {
-                    if (this.responseText) extractPostData(this.responseText);
+        while (startIdx < len) {
+            let endIdx = cleanText.indexOf('\n', startIdx);
+            if (endIdx === -1) endIdx = len;
+
+            // Potong per baris untuk mempercepat JSON.parse
+            if (endIdx - startIdx > 100) {
+                const line = cleanText.substring(startIdx, endIdx);
+
+                if (line.indexOf('"feedback"') !== -1) {
+                    try {
+                        const jsonObj = JSON.parse(line);
+                        if (processObject(jsonObj, fallbackTime)) itemsFound++;
+                    } catch (err) { }
                 }
-            });
-            return originalSend.apply(this, arguments);
-        };
-
-        const originalFetch = window.fetch;
-        window.fetch = async function (...args) {
-            const url = args[0];
-            const response = await originalFetch.apply(this, args);
-            if (typeof url === 'string' && url.indexOf('/api/graphql/') !== -1) {
-                const clone = response.clone();
-                clone.text().then(text => extractPostData(text)).catch(() => { });
             }
-            return response;
-        };
+            startIdx = endIdx + 1;
+        }
     }
 
 
@@ -1007,65 +989,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             return;
         }
 
-        siapkanPeluruKomentar()
-
-        // 1. Simpan data JSON ke dalam variabel object
-        const variablesUser = {
-            "feedLocation": "GROUP_MEMBER_BIO_FEED",
-            "feedbackSource": null,
-            "focusCommentID": null,
-            "memberID": MEMBER_ID,
-            "postsToLoad": 1,
-            "privacySelectorRenderLocation": "COMET_STREAM",
-            "referringStoryRenderLocation": null,
-            "renderLocation": "group_bio",
-            "sortingSetting": "CHRONOLOGICAL",
-            "scale": scale,
-            "useDefaultActor": false,
-            "id": GROUP_ID,
-
-            // Variabel internal Relay Facebook (dikumpulkan menggunakan ...internalRelay di bawah)
-            "__relay_internal__pv__GHLShouldChangeAdIdFieldNamerelayprovider": true,
-            "__relay_internal__pv__GHLShouldChangeSponsoredDataFieldNamerelayprovider": true,
-            "__relay_internal__pv__CometFeedStory_enable_reactor_facepilerelayprovider": false,
-            "__relay_internal__pv__CometFeedStory_enable_social_bubblesrelayprovider": false,
-            "__relay_internal__pv__CometFeedStory_enable_post_permalink_white_space_clickrelayprovider": false,
-            "__relay_internal__pv__CometUFICommentActionLinksRewriteEnabledrelayprovider": false,
-            "__relay_internal__pv__CometUFICommentAvatarStickerAnimatedImagerelayprovider": false,
-            "__relay_internal__pv__IsWorkUserrelayprovider": false,
-            "__relay_internal__pv__TestPilotShouldIncludeDemoAdUseCaserelayprovider": false,
-            "__relay_internal__pv__FBReels_deprecate_short_form_video_context_gkrelayprovider": true,
-            "__relay_internal__pv__FBReels_enable_view_dubbed_audio_type_gkrelayprovider": true,
-            "__relay_internal__pv__CometFeedShareMedia_shouldPrefetchShareImagerelayprovider": false,
-            "__relay_internal__pv__CometImmersivePhotoCanUserDisable3DMotionrelayprovider": false,
-            "__relay_internal__pv__WorkCometIsEmployeeGKProviderrelayprovider": false,
-            "__relay_internal__pv__IsMergQAPollsrelayprovider": false,
-            "__relay_internal__pv__FBReelsMediaFooter_comet_enable_reels_ads_gkrelayprovider": true,
-            "__relay_internal__pv__CometUFIReactionsEnableShortNamerelayprovider": false,
-            "__relay_internal__pv__CometUFICommentAutoTranslationTyperelayprovider": "AUTO_TRANSLATE",
-            "__relay_internal__pv__CometUFIShareActionMigrationrelayprovider": true,
-            "__relay_internal__pv__CometUFISingleLineUFIrelayprovider": true,
-            "__relay_internal__pv__relay_provider_comet_ufi_ssr_seo_deferrelayprovider": true,
-            "__relay_internal__pv__CometUFI_dedicated_comment_routable_dialog_gkrelayprovider": true,
-            "__relay_internal__pv__ReelsIFUCard_reelsIFULikeCountrelayprovider": false,
-            "__relay_internal__pv__FBReelsIFUTileContent_reelsIFUPlayOnHoverrelayprovider": true,
-            "__relay_internal__pv__GroupsCometGYSJFeedItemHeightrelayprovider": 206,
-            "__relay_internal__pv__ShouldEnableBakedInTextStoriesrelayprovider": false,
-            "__relay_internal__pv__StoriesShouldIncludeFbNotesrelayprovider": true
-        };
-
-
-
-
-
-
-
-
-
-
 
         const variables = {
-            "count": 5,
+            "count": 3,
             "cursor": null,
             "feedLocation": "GROUP",
             "feedType": "DISCUSSION",
@@ -1111,14 +1037,11 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         const payload = new URLSearchParams();
         payload.append('fb_dtsg', fb_dtsg);
         payload.append('doc_id', PAGINATION_QUERY_DOC_ID);
-        if (typevariable === "Profil") {
-            payload.append('variables', JSON.stringify(variablesUser));
-        } else {
-            payload.append('variables', JSON.stringify(variables));
-        }
+        payload.append('variables', JSON.stringify(variables));
         payload.append('fb_api_caller_class', 'RelayModern');
         payload.append('fb_api_req_friendly_name', 'GroupsCometFeedRegularStoriesPaginationQuery');
         try {
+            const t0_Network = performance.now();
             const response = await fetch('/api/graphql/', { // 1. URL ABSOLUT
                 method: 'POST',
                 mode: "same-origin",
@@ -1136,32 +1059,24 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             console.log(`[SKRIP KONSOL] Permintaan selesai dengan status: ${response.status} ${response.statusText} `);
 
             if (response.ok) {
-                // 1. Baca sebagai teks
                 let textResult = await response.text();
-
+                capturePcket2(textResult)
                 if (!textResult || textResult.trim() === "") {
                     showToast('Minta data Error', 'error');
                     return;
                 }
-
-                // 2. BERSIHKAN PROTEKSI FACEBOOK (Hapus awalan 'for (;;);' jika ada)
-                // Ini wajib karena sering membuat parse error di karakter pertama
                 textResult = textResult.replace(/^for\s*\(\s*;\s*;\s*\)\s*;\s*/, '');
 
-                // 3. Pecah teks berdasarkan baris baru (NDJSON)
                 const lines = textResult.split('\n');
 
                 let result = null;
                 let node = null;
 
-                // 4. Cari JSON yang benar di antara tumpukan baris
                 for (const line of lines) {
                     if (!line.trim()) continue; // Lewati baris kosong
 
                     try {
                         const parsedLine = JSON.parse(line);
-
-                        // Cek apakah baris JSON ini adalah data GraphQL yang kita cari
                         if (parsedLine?.data?.node) {
                             result = parsedLine;
                             node = parsedLine.data.node;
@@ -1173,7 +1088,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     }
                 }
 
-                // 5. Cek apakah setelah dicari-cari, 'node'-nya tetap tidak ada
                 if (!node) {
                     showToast('Data node tidak ditemukan', 'error');
                     presesmintadata = false; // Reset flag jika data tidak ditemukan
@@ -1186,7 +1100,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
                 if (isGroup && hasFeed) {
                     cetakLog(`Respond  : Suksess`, 'success');
-
                     presesmintadata = false; // Reset flag setelah berhasil
                 } else {
                     showToast('minta data Error struktur bukan Group Feed', 'error');
@@ -1196,7 +1109,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
             }
         } catch (error) {
-            // Menangkap error jaringan, atau error saat JSON.parse (jika format server kacau)
             showToast('Terjadi error saat memproses permintaan', 'error');
             presesmintadata = false; // Reset flag jika terjadi error
             console.error("%c[SKRIP KONSOL] GAGAL! Terjadi error saat memproses permintaan.", "color: red; font-weight: bold;", error);
@@ -1310,7 +1222,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             ({ fb_dtsg, scale } = initDynamicVars());
         } catch (error) {
             console.error("[SKRIP KOMENTAR] Gagal mendapatkan fb_dtsg:", error);
-            panggilanKomentar = false; // Reset sebelum return agar tidak deadlock
             return;
         }
         const mutationId = crypto.randomUUID();
@@ -1429,7 +1340,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 console.error("[SKRIP KOMENTAR] KOMENTAR DITOLAK SERVER:", responseData.errors[0]?.summary || responseData.errors);
                 if (typeof showToast === "function") showToast('Komentar Diblokir oleh Facebook', 'error');
             } else if (responseData?.data?.comment_create) {
+                cetakLog(`---------------------------------`, 'success');
                 cetakLog(`[ ✅ KOMENTAR BERHASIL TERKIRIM ]`, 'success');
+                cetakLog(`[ 🕑 WAKTU : ${Date.now()} ]`, 'success');
                 cetakLog(`[ 📨 ${A_COMMENT_TEXT} ]`, 'success');
 
                 console.log("%c[SKRIP KOMENTAR] KOMENTAR SUKSES MASUK!", "color: #00ff00; font-weight: bold;");
@@ -1541,15 +1454,13 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             waitForPaginationId(),
             manageGroups()
         ]);
-
-        await capturePcket();
         buatDashboardUI()
 
         console.log("[SKRIP KONSOL] Menunggu PAGINATION_QUERY_DOC_ID...");
         console.log("[SKRIP KONSOL] PAGINATION_QUERY_DOC_ID siap:", PAGINATION_QUERY_DOC_ID);
 
 
-
+        siapkanPeluruKomentar()
         async function jalankanLooping() {
             try {
                 // Jika sedang tidak ada proses, jalankan
@@ -1561,7 +1472,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 console.error("Terjadi kesalahan saat meminta data:", error);
                 presesmintadata = false; // Pastikan kunci dibuka jika terjadi error
             } finally {
-                setTimeout(jalankanLooping, 700);
+                setTimeout(jalankanLooping, 200);
             }
         }
 
