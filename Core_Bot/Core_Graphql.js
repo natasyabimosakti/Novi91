@@ -27,7 +27,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
 
 
-
+    var portingsock = 9016;
     var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Comment/${Comment18}.json`;
     var keyword = ["ROOM", "R**M", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
     var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
@@ -218,7 +218,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         // 2. Bersihkan sisa timer sebelumnya jika ada
         clearTimeout(timerWatchdog);
 
-        ws = new WebSocket('ws://localhost:9015');
+        ws = new WebSocket(`ws://localhost:${portingsock}`);
         timerWatchdog = setTimeout(() => {
             console.warn("⏳ Soket menggantung (Connecting) atau Server lambat. Memaksa reset...");
             if (ws) ws.close(); // Menutup paksa akan memicu ws.onclose -> mencoba ulang otomatis
