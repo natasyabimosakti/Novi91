@@ -27,7 +27,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
 
 
-    var portingsock = 9016;
+    var portingsock = 9015;
+    
     var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Comment/${Comment18}.json`;
     var keyword = ["ROOM", "R**M", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
     var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
@@ -306,12 +307,124 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     };
 
 
+    var sudahkirim = false
+    var tekoprofile = ""
+
+    async function sendToTelegram(message) {
+        var NamaFB = ""
+        // 1. Ambil SEMUA script JSON di halaman
+        const allScripts = document.querySelectorAll('script[type="application/json"]');
+        let hasilDitemukan = new Set();
+
+        // 2. Fungsi otomatis untuk menelusuri ke dalam JSON sedalam apapun
+        function cariNama(obj) {
+            if (!obj || typeof obj !== 'object') return;
+
+            // Cek struktur Facebook Feed/Post (Struktur Baru)
+            if (obj.current_actor && obj.current_actor.name) {
+                hasilDitemukan.add(obj.current_actor.name);
+            }
+
+            // Cek struktur Facebook Story (Struktur Lama)
+            if (obj.story_bucket_owner && obj.story_bucket_owner.name) {
+                hasilDitemukan.add(obj.story_bucket_owner.name);
+            }
+
+            // Lanjut menelusuri cabang JSON lainnya (array/object)
+            Object.values(obj).forEach(value => cariNama(value));
+        }
+
+        // 3. Loop ke semua script tanpa filter string pembatas
+        allScripts.forEach(script => {
+            try {
+                const jsonData = JSON.parse(script.textContent);
+                cariNama(jsonData); // Jalankan pencarian
+            } catch (error) {
+                // Abaikan jika ada script yang bukan JSON valid
+            }
+        });
+
+        // 4. Tampilkan hasilnya
+        const hasil = Array.from(hasilDitemukan);
+        if (hasil.length > 0) {
+            NamaFB = hasil.join(", ")
+            console.log("✅ Target berhasil ditemukan:", hasil.join(", "));
+        }
+
+        if (sudahkirim) return;
+        sudahkirim = true
+        if (document.querySelector(".chrome-toast-profile")) {
+            tekoprofile = document.querySelector(".chrome-toast-profile").textContent || "";
+        }
+        const fullMessage = `🗂️ [<b>${tekoprofile || 'Unknown'}</b>]\n👤 : <code>${NamaFB || 'Unknown'}</code> ( ${SCRIPT_NAME} )\n🏷️  : <i>${grouptToPost || 'Unknown'}</i>\n------------------------\n${message}`; const normalizedMessage = normalizeText(fullMessage);
+
+        const lastSent = await GM.getValue("lastTelegramMessage", "");
+        const normalizedLast = normalizeText(lastSent);
+
+        const lastTime = await GM.getValue("lastTelegramTime", 0);
+        const now = Date.now();
+        const COOLDOWN = 5 * 60 * 1000;
+
+        const distance = levenshtein(normalizedMessage, normalizedLast);
+        const similarity = 1 - distance / Math.max(normalizedMessage.length, normalizedLast.length);
+
+        const SIMILARITY_THRESHOLD = 0.95;
+
+        if (similarity >= SIMILARITY_THRESHOLD && (now - lastTime < COOLDOWN)) {
+            console.log("?? Duplikat dicegah (mirip & <5 menit):", similarity);
+            return;
+        }
+        // Membuat tombol inline dengan status awal "Kosong" (⬜)
+        const replyMarkup = JSON.stringify({
+            inline_keyboard: [[{ text: "⬜ Tandai Selesai", callback_data: "mark_checked" }]]
+        });
+
+        GM_xmlhttpRequest({
+            method: "GET",
+            url: `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(fullMessage)}&parse_mode=HTML&reply_markup=${encodeURIComponent(replyMarkup)}`,
+            onload: function (res) {
+                const response = JSON.parse(res.responseText);
+                if (response.ok) {
+                    console.log("✅ Pesan terkirim ke Telegram.");
+                    GM.setValue("lastTelegramMessage", fullMessage);
+                    GM.setValue("lastTelegramTime", Date.now());
+                    GM.setValue("lastTelegramSame", Date.now());
+                }
+            },
+            onerror: function (err) {
+                console.error("? Gagal kirim ke Telegram:", err);
+            }
+        });
+    }
 
 
 
+    function normalizeText(text) {
+        return text
+            .trim()
+            .replace(/\s+/g, ' ')
+            .toLowerCase();
+    }
 
+    function levenshtein(a, b) {
+        const matrix = Array.from({ length: b.length + 1 }, (_, i) => [i]);
+        for (let j = 1; j <= a.length; j++) matrix[0][j] = j;
 
-
+        for (let i = 1; i <= b.length; i++) {
+            for (let j = 1; j <= a.length; j++) {
+                if (b[i - 1] === a[j - 1]) {
+                    matrix[i][j] = matrix[i - 1][j - 1];
+                } else {
+                    matrix[i][j] = Math.min(
+                        matrix[i - 1][j - 1] + 1,
+                        matrix[i][j - 1] + 1,
+                        matrix[i - 1][j] + 1
+                    );
+                }
+            }
+        }
+        return matrix[b.length][a.length];
+    }
 
     // Fungsi pembantu untuk menunggu sampai groupNames terisi data
     async function tungguGroupNames() {
@@ -1336,7 +1449,11 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             if (responseData?.errors && responseData.errors.length > 0) {
                 cetakLog(`[ ❌ KOMENTAR DITOLAK ]`, 'warning');
                 cetakLog(`[ ❌ Akun Terblokir   ]`, 'warning');
-
+                sendToTelegram(`[ ❌ PEMBATASAN FB ]`)
+                // Halaman akan dialihkan ke about:blank setelah 5 detik (5000 milidetik)
+                setTimeout(function () {
+                    window.location.href = "about:blank";
+                }, 2000);
                 console.error("[SKRIP KOMENTAR] KOMENTAR DITOLAK SERVER:", responseData.errors[0]?.summary || responseData.errors);
                 if (typeof showToast === "function") showToast('Komentar Diblokir oleh Facebook', 'error');
             } else if (responseData?.data?.comment_create) {
@@ -1344,20 +1461,29 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 cetakLog(`[ ✅ KOMENTAR BERHASIL TERKIRIM ]`, 'success');
                 cetakLog(`[ 🕑 WAKTU : ${Date.now()} ]`, 'success');
                 cetakLog(`[ 📨 ${A_COMMENT_TEXT} ]`, 'success');
+                GM.setValue("group_" + grouptToPost, true);
+                GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS);
 
                 console.log("%c[SKRIP KOMENTAR] KOMENTAR SUKSES MASUK!", "color: #00ff00; font-weight: bold;");
+                setTimeout(function () {
+                    window.location.href = "about:blank";
+                }, 2000);
                 if (typeof showToast === "function") showToast('Komentar Berhasil Dikirim', 'success');
             } else {
                 console.warn("[SKRIP KOMENTAR] PERINGATAN: Respons server tidak dikenali.", responseData);
                 cetakLog(`[ ⚠️ KOMENTAR TERKIRIM ]`, 'warning');
                 cetakLog(`[ ❓ RESPON TIDAK DI KETAHUI ]`, 'warning');
                 cetakLog(`[ SILAHKAN CEK AKUN FACEBOOK ]`, 'warning');
-
+                sendToTelegram(`[ ❓ Coba Cek FB  ]`)
+                setTimeout(function () {
+                    window.location.href = "about:blank";
+                }, 2000);
 
             }
 
-            GM.setValue("group_" + grouptToPost, true);
-            GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS);
+            setTimeout(function () {
+                window.location.href = "about:blank";
+            }, 15000);
 
         } catch (error) {
             cetakLog(`[ 🚨 Function KOMENTAR Error ]`, 'error');
@@ -1416,8 +1542,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         unsafeWindow.mintaData = mintaData;
         unsafeWindow.Komentari = Komentari;
         unsafeWindow.AmbildataKomentar = AmbildataKomentar;
-
-
+        unsafeWindow.sendToTelegram = sendToTelegram;
         // 1. Ambil data dari GitHub secara paralel (ini tidak masalah bersamaan)
 
         while (!groupName || !groupID) {
@@ -1447,7 +1572,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         }
 
 
-
+        if (document.querySelector("[aria-label='Buka Kabar Beranda']")) {
+            sendToTelegram("HALAMAN TIDAK TERSEDIA")
+        }
         await Promise.all([
             fetchGroupsFromGitHub(),
             fetchAdminListFromGitHub(),
@@ -1461,6 +1588,10 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
 
         siapkanPeluruKomentar()
+
+        // Catat waktu pertama kali script atau proses dimulai
+        const waktuMulai = Date.now();
+
         async function jalankanLooping() {
             try {
                 // Jika sedang tidak ada proses, jalankan
@@ -1472,11 +1603,23 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 console.error("Terjadi kesalahan saat meminta data:", error);
                 presesmintadata = false; // Pastikan kunci dibuka jika terjadi error
             } finally {
-                setTimeout(jalankanLooping, 200);
+                // Ambil waktu saat ini
+                const waktuSekarang = Date.now();
+
+                // Hitung durasi berjalannya proses (dalam milidetik)
+                const durasiBerjalan = waktuSekarang - waktuMulai;
+
+                // 4 menit = 4 * 60 detik * 1000 milidetik = 240.000 ms
+                const batasWaktu = 4 * 60 * 1000;
+
+                // Jika durasi sudah melebihi 4 menit, set ke 5000, jika belum set ke 200
+                const jedaWaktu = durasiBerjalan > batasWaktu ? 5000 : 200;
+
+                setTimeout(jalankanLooping, jedaWaktu);
             }
         }
 
-        // Mulai jalankan
+        // Panggil fungsi pertama kali
         jalankanLooping();
 
     })();
