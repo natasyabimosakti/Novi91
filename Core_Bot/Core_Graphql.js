@@ -251,18 +251,16 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 const IdPemosting = parts[2];
                 const groupName = parts[3] || window.groupName;
                 const groupIDs = parts[4] || GROUP_ID;
-
                 // PERINGATAN SCOPE: Pastikan variabel doc_idkomentar dan COMMENT_TEXT 
                 // benar-benar tersedia secara global sebelum dipanggil di sini.
                 // Jika tidak, skrip akan terhenti (ReferenceError).
                 const docId = typeof doc_idkomentar !== "undefined" ? doc_idkomentar : "";
                 const commentText = typeof COMMENT_TEXT !== "undefined" ? COMMENT_TEXT : "";
                 console.log(`⚡[EKSEKUSI REMOTE] Komentari ${TARGET_FEEDBACK}...`);
-                if (typeof AmbildataKomentar === "function") AmbildataKomentar();
-                Komentari(TARGET_FEEDBACK, docId, IdPemosting, commentText, groupIDs);
-
-
-
+                if (parts[4] && document.location.href.includes(scangroup)) {
+                    if (typeof AmbildataKomentar === "function") AmbildataKomentar();
+                    Komentari(TARGET_FEEDBACK, docId, IdPemosting, commentText, groupIDs);
+                }
             }
         };
 
