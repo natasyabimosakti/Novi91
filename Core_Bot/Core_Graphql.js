@@ -26,7 +26,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
     var portingsock = 9015;
     var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Comment/${Comment18}.json`;
-    var keyword = ["ROOM", "R**M", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
+    var keyword = ["ROOM", "R**M", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
     var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
     var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Baru.json"
     var TELEGRAM_TOKEN = '8841941027:AAGt1LTI8GCVAOb2EAQzaQTP33n-qJTrFa4';
@@ -1062,7 +1062,40 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
 
 
+    async function PerintahLogout() {
 
+        try {
+            // 1. Ekstrak nilai 'h' dari elemen HTML (Cari input dengan name="h")
+            let tokenElemen = document.querySelector('input[name="h"]');
+
+            if (!tokenElemen) {
+                throw new Error("Token 'h' tidak ditemukan di halaman ini. Pastikan Anda berada di halaman yang tepat.");
+            }
+
+            let nilaiH = tokenElemen.value; // Mendapatkan token dinamis
+
+            // 2. Masukkan ke dalam payload
+            let payload = new URLSearchParams();
+            payload.set('button_location', "settings");
+            payload.set('button_name', "logout");
+            payload.set('h', nilaiH); // Gunakan variabel nilaiH yang diekstrak secara live
+            payload.set('ref', 'mb');
+
+            console.log(`Berhasil mengekstrak token: ${nilaiH}`);
+
+            // Lanjutkan dengan proses fetch...
+            const response = await fetch('/logout.php', {
+                method: 'POST',
+                body: payload,
+                // ... (konfigurasi header lainnya) ...
+            });
+
+            console.log("Request selesai dengan status:", response.status);
+            document.location.href = "https://www.facebook.com/login"
+        } catch (error) {
+            console.error("Gagal mengeksekusi:", error.message);
+        }
+    }
 
 
 
@@ -1446,6 +1479,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 cetakLog(`[ ❌ KOMENTAR DITOLAK ]`, 'warning');
                 cetakLog(`[ ❌ Akun Terblokir   ]`, 'warning');
                 sendToTelegram(`[ ❌ PEMBATASAN FB ]`)
+                PerintahLogout()
                 // Halaman akan dialihkan ke about:blank setelah 5 detik (5000 milidetik)
                 setTimeout(function () {
                     window.location.href = "about:blank";
