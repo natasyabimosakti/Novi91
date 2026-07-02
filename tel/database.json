@@ -1,93 +1,248 @@
 {
-  "daftar_akun": {
-    "slamet1": { "session_token": "string_sesi_telegram_A", "username_web": "userWebA123" },
-    "slamet2": { "session_token": "string_sesi_telegram_B", "username_web": "userWebB456" },
-    "slamet3": { "session_token": "string_sesi_telegram_C", "username_web": "userWebB456" },
-    "slamet4": { "session_token": "string_sesi_telegram_D", "username_web": "userWebB456" },
-    "jago1": { "session_token": "string_sesi_telegram_E", "username_web": "userWebB456" },
-    "jago2": { "session_token": "string_sesi_telegram_F", "username_web": "userWebB456" },
-    "jago3": { "session_token": "string_sesi_telegram_G", "username_web": "userWebB456" },
-    "jago4": { "session_token": "string_sesi_telegram_H", "username_web": "userWebB456" },
-    "curut1": { "session_token": "string_sesi_telegram_I", "username_web": "userWebB456" },
-    "curut2": { "session_token": "string_sesi_telegram_J", "username_web": "userWebB456" },
-    "curut3": { "session_token": "string_sesi_telegram_K", "username_web": "userWebB456" },
-    "curut4": { "session_token": "string_sesi_telegram_L", "username_web": "userWebB456" },
-    "penyok1": { "session_token": "string_sesi_telegram_M", "username_web": "userWebB456" },
-    "penyok2": { "session_token": "string_sesi_telegram_N", "username_web": "userWebB456" },
-    "penyok3": { "session_token": "string_sesi_telegram_O", "username_web": "userWebB456" },
-    "penyok4": { "session_token": "string_sesi_telegram_P", "username_web": "userWebB456" },
-    "telkomsel1": { "session_token": "string_sesi_telegram_Q", "username_web": "userWebB456" },
-    "telkomsel2": { "session_token": "string_sesi_telegram_R", "username_web": "userWebB456" },
-    "telkomsel3": { "session_token": "string_sesi_telegram_S", "username_web": "userWebB456" },
-    "telkomsel4": { "session_token": "string_sesi_telegram_T", "username_web": "userWebB456" },
-    "ninja1": { "session_token": "string_sesi_telegram_U", "username_web": "userWebB456" },
-    "ninja2": { "session_token": "string_sesi_telegram_V", "username_web": "userWebB456" },
-    "ninja3": { "session_token": "string_sesi_telegram_W", "username_web": "userWebB456" },
-    "ninja4": { "session_token": "string_sesi_telegram_X", "username_web": "userWebB456" },
-    "bejo1": { "session_token": "string_sesi_telegram_Y", "username_web": "userWebB456" },
-    "bejo2": { "session_token": "string_sesi_telegram_Z", "username_web": "userWebB456" },
-    "bejo3": { "session_token": "string_sesi_telegram_AA", "username_web": "userWebB456" },
-    "bejo4": { "session_token": "string_sesi_telegram_AB", "username_web": "userWebB456" },
-    "jul1": { "session_token": "string_sesi_telegram_AC", "username_web": "userWebB456" },
-    "jul2": { "session_token": "string_sesi_telegram_AD", "username_web": "userWebB456" },
-    "jul3": { "session_token": "string_sesi_telegram_AE", "username_web": "userWebB456" },
-    "jul4": { "session_token": "string_sesi_telegram_AF", "username_web": "userWebB456" },
-    "manyut1": { "session_token": "string_sesi_telegram_AG", "username_web": "userWebB456" },
-    "manyut2": { "session_token": "string_sesi_telegram_AH", "username_web": "userWebB456" },
-    "manyut3": { "session_token": "string_sesi_telegram_AI", "username_web": "userWebB456" },
-    "manyut4": { "session_token": "string_sesi_telegram_AJ", "username_web": "userWebB456" },
-    "cuan1": { "session_token": "string_sesi_telegram_AK", "username_web": "userWebB456" },
-    "cuan2": { "session_token": "string_sesi_telegram_AL", "username_web": "userWebB456" },
-    "cuan3": { "session_token": "string_sesi_telegram_AM", "username_web": "userWebB456" },
-    "cuan4": { "session_token": "string_sesi_telegram_AN", "username_web": "userWebB456" }
-  },
-  "format_komentar_per_grup": {
-    "ID_GRUP_AB": {
-      "slamet1": "Komentar slamet1 {username_web}",
-      "slamet2": "Komentar slamet2 {username_web}",
-      "slamet3": "Komentar slamet3 {username_web}",
-      "slamet4": "Komentar slamet4 {username_web}",
-      "jago1": "Komentar jago1 {username_web}",
-      "jago2": "Komentar jago2 {username_web}",
-      "jago3": "Komentar jago3 {username_web}",
-      "jago4": "Komentar jago4 {username_web}",
-      "curut1": "Komentar curut1 {username_web}",
-      "curut2": "Komentar curut2 {username_web}",
-      "curut3": "Komentar curut3 {username_web}",
-      "curut4": "Komentar curut4 {username_web}",
-      "penyok1": "Komentar penyok1 {username_web}",
-      "penyok2": "Komentar penyok2 {username_web}",
-      "penyok3": "Komentar penyok3 {username_web}",
-      "penyok4": "Komentar penyok4 {username_web}",
-      "telkomsel1": "Komentar telkomsel1 {username_web}",
-      "telkomsel2": "Komentar telkomsel2 {username_web}",
-      "telkomsel3": "Komentar telkomsel3 {username_web}",
-      "telkomsel4": "Komentar telkomsel4 {username_web}",
-      "ninja1": "Komentar ninja1 {username_web}",
-      "ninja2": "Komentar ninja2 {username_web}",
-      "ninja3": "Komentar ninja3 {username_web}",
-      "ninja4": "Komentar ninja4 {username_web}",
-      "bejo1": "Komentar bejo1 {username_web}",
-      "bejo2": "Komentar bejo2 {username_web}",
-      "bejo3": "Komentar bejo3 {username_web}",
-      "bejo4": "Komentar bejo4 {username_web}",
-      "jul1": "Komentar jul1 {username_web}",
-      "jul2": "Komentar jul2 {username_web}",
-      "jul3": "Komentar jul3 {username_web}",
-      "jul4": "Komentar jul4 {username_web}",
-      "manyut1": "Komentar manyut1 {username_web}",
-      "manyut2": "Komentar manyut2 {username_web}",
-      "manyut3": "Komentar manyut3 {username_web}",
-      "manyut4": "Komentar manyut4 {username_web}",
-      "cuan1": "Komentar cuan1 {username_web}",
-      "cuan2": "Komentar cuan2 {username_web}",
-      "cuan3": "Komentar cuan3 {username_web}",
-      "cuan4": "Komentar cuan4 {username_web}"
+    "daftar_akun": {
+        "slamet1": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_A"
+        },
+        "slamet2": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_B"
+        },
+        "slamet3": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_C"
+        },
+        "slamet4": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_D"
+        },
+        "jago1": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_E"
+        },
+        "jago2": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_F"
+        },
+        "jago3": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_G"
+        },
+        "jago4": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_H"
+        },
+        "curut1": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_I"
+        },
+        "curut2": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_J"
+        },
+        "curut3": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_K"
+        },
+        "curut4": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_L"
+        },
+        "penyok1": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_M"
+        },
+        "penyok2": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_N"
+        },
+        "penyok3": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_O"
+        },
+        "penyok4": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_P"
+        },
+        "telkomsel1": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_Q"
+        },
+        "telkomsel2": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_R"
+        },
+        "telkomsel3": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_S"
+        },
+        "telkomsel4": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_T"
+        },
+        "ninja1": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_U"
+        },
+        "ninja2": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_V"
+        },
+        "ninja3": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_W"
+        },
+        "ninja4": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_X"
+        },
+        "bejo1": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_Y"
+        },
+        "bejo2": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_Z"
+        },
+        "bejo3": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_AA"
+        },
+        "bejo4": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_AB"
+        },
+        "jul1": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_AC"
+        },
+        "jul2": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_AD"
+        },
+        "jul3": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_AE"
+        },
+        "jul4": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_AF"
+        },
+        "manyut1": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_AG"
+        },
+        "manyut2": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_AH"
+        },
+        "manyut3": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_AI"
+        },
+        "manyut4": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_AJ"
+        },
+        "cuan1": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_AK"
+        },
+        "cuan2": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_AL"
+        },
+        "cuan3": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_AM"
+        },
+        "cuan4": {
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_AN"
+        }
     },
-    "ID_GRUP_CD": {
-      "slamet1": "Hadir grup 2 min {username_web}",
-      "slamet2": "Gas grup 2 {username_web}"
-      // Lanjutkan untuk 40 akun di grup CD, dan grup lainnya
+    "format_komentar_per_grup": {
+        "-5471155849": {
+            "slamet1": "SIJITOGEL AOMA123 37*15*50",
+            "slamet2": "SIJITOGEL BOLET25 02*09*60",
+            "slamet3": "SIJITOGEL USER03 11*22*33",
+            "slamet4": "SIJITOGEL USER04 44*55*66",
+            "jago1": "SIJITOGEL USER05 12*34*56",
+            "jago2": "SIJITOGEL USER06 23*45*67",
+            "jago3": "SIJITOGEL USER07 34*56*78",
+            "jago4": "SIJITOGEL USER08 45*67*89",
+            "curut1": "SIJITOGEL USER09 56*78*90",
+            "curut2": "SIJITOGEL USER10 67*89*01",
+            "curut3": "SIJITOGEL USER11 78*90*12",
+            "curut4": "SIJITOGEL USER12 89*01*23",
+            "penyok1": "SIJITOGEL USER13 90*12*34",
+            "penyok2": "SIJITOGEL USER14 01*23*45",
+            "penyok3": "SIJITOGEL USER15 11*11*11",
+            "penyok4": "SIJITOGEL USER16 22*22*22",
+            "telkomsel1": "SIJITOGEL USER17 33*33*33",
+            "telkomsel2": "SIJITOGEL USER18 44*44*44",
+            "telkomsel3": "SIJITOGEL USER19 55*55*55",
+            "telkomsel4": "SIJITOGEL USER20 66*66*66",
+            "ninja1": "SIJITOGEL USER21 77*77*77",
+            "ninja2": "SIJITOGEL USER22 88*88*88",
+            "ninja3": "SIJITOGEL USER23 99*99*99",
+            "ninja4": "SIJITOGEL USER24 00*00*00",
+            "bejo1": "SIJITOGEL USER25 12*12*12",
+            "bejo2": "SIJITOGEL USER26 23*23*23",
+            "bejo3": "SIJITOGEL USER27 34*34*34",
+            "bejo4": "SIJITOGEL USER28 45*45*45",
+            "jul1": "SIJITOGEL USER29 56*56*56",
+            "jul2": "SIJITOGEL USER30 67*67*67",
+            "jul3": "SIJITOGEL USER31 78*78*78",
+            "jul4": "SIJITOGEL USER32 89*89*89",
+            "manyut1": "SIJITOGEL USER33 90*90*90",
+            "manyut2": "SIJITOGEL USER34 01*01*01",
+            "manyut3": "SIJITOGEL USER35 13*13*13",
+            "manyut4": "SIJITOGEL USER36 24*24*24",
+            "cuan1": "SIJITOGEL USER37 35*35*35",
+            "cuan2": "SIJITOGEL USER38 46*46*46",
+            "cuan3": "SIJITOGEL USER39 57*57*57",
+            "cuan4": "SIJITOGEL USER40 68*68*68"
+        }
     }
-  }
 }
