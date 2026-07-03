@@ -2,20 +2,20 @@
     "daftar_akun": {
         "jago1": {
             "nama": "Akun JAGO1",
-            "api_id": 1234567,
-            "api_hash": "isi_api_hash_disini",
+            "api_id": 35934401,
+            "api_hash": "e7419d22584988098e2f59dd38799341",
             "session_token": "1BQANOTEuMTA4LjU2LjE2NwG7nEsdPD4+b4X5RHgX6RRqS3YzSgCebn60rIVgAe6TEkCcbGoGiGcDQLrND0gjnl70MNMJpyoFWhvuWlsMTPIeL0ZqrOVZuNv/JQAnM8QxJolFG0qvHms8SAADnzTMsZfbZgIxjoVB8HNvTsCvs248eMmHzg0pMzB9uth074pM8aSclIMDWoNB+EmgA2N9+xG1zY65FP9z1YIB6oeuMdJlVCs1RIuYuUN0C/C6H4O1VzQILG0mBbUDGDDKY64shLQwHYBMCSoSLA2GOlqIgBQTN0YbvB/bVCTahZa1wcpR28Tj58LL6/0+DjfgOYc9zeLyCFQ8f/lNB/Gpi0nHwi+01g=="
         },
         "jago2": {
             "nama": "Akun JAGO2",
-            "api_id": 1234567,
-            "api_hash": "isi_api_hash_disini",
+            "api_id": 36383589,
+            "api_hash": "d9ddef3042e5696bd0b3418ee4c723a6",
             "session_token": "1BQANOTEuMTA4LjU2LjE2NwG7Jrfa1c2jeWAgTVx4r/KonHt6TMZd3XMdOW0JkH4/42QghzUJwlJvo1d9o7hwSdcCq7DkF8RDzJC5hhyY419SifJKOmXNauaB6hx9SGf/X90nUVap8W+VjRdXx3B7lxxK84C2OlcpuTzve/kRgPYelJGc6Ey7SCYDcQT4aYhpB31Illqkwd23a2quL+dku6suJC4SjVWBlsms+OHtzrSATAOKJX5hiGfLdJmpKG5vEfU9XhpJJXEMNEq4qEJe2t448LQhZIzHYzhRRy2A1NoGbBS3J4vEqbbdEFfYhWAbHh1WPOE126qJOb2AlmmcC/aoAfqSlvrapUTHDfQLSkOm0g=="
         },
         "jago3": {
             "nama": "Akun JAGO3",
-            "api_id": 1234567,
-            "api_hash": "isi_api_hash_disini",
+            "api_id": 38754413,
+            "api_hash": "a954b39bfa31f1ba89d0203d2b51e0cb",
             "session_token": "1BQANOTEuMTA4LjU2LjE2NwG7Mj37mMFmxf0p0qEMhgBvsDJTzoktaJ8JoEnZeg0to0/pIY6MyDHN/KkSRgI7pa9APxhiVqUElwmhXkGEf88VEEvCYEcDlTkj5wlNwUFsmzcfRzF2GAmbDN/wfXaN65FHo1ar+lDraZfKsHqt32UNAkQADpAKWJkTAL7JTSWLXWjfzfPj/3DJMRq7xCO0znVYSLXTJ4op43+mLRLeDwwmFLVSOwSTrpbnfJyKdqWuugKeh/OiyyizwrVcEg/kq2SMwvwG+DcfEpAeYcr6Adi3kz1xrrW4m9uRlLGxOnHtnE2Q0A1d+4uyCPlLowHSIikXKU1aIHevDsQ3f8lTo+60Iw=="
         },
         "jago4": {
