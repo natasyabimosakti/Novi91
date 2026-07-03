@@ -20,8 +20,8 @@
         },
         "jago4": {
             "nama": "Akun JAGO4",
-            "api_id": 1234567,
-            "api_hash": "isi_api_hash_disini",
+            "api_id": 32413281,
+            "api_hash": "b79c0d2812efc806dc9bfcc5bcecefae",
             "session_token": "1BQANOTEuMTA4LjU2LjE2NwG7mG0UGBVvW9ozKEC/S1SAjATdYXy5P02K7Va4YKPmd1WSh2AccbFHL+F9NeqfdjZ+nOKqgXSj1ueh9pBjaMij9Ty0B7ON0oqPr0Yb532m3d9o+8VSXqZL6naNPZgOjlWWBAcAivFdlYLMM6YPGlPQl4VbefcGMowaWsMS34UJv1961e7wRN0TUGu8CWxSH0DeCBH+EgsgDQT0SiBVAESP7att9Aa4E2nIbqX4zJDU85LXpI0Usrey4hKYw6TxNQlbpFAbup08hfp/Dxkn9PXu/Ros79UuMlG2hLXBlcLWL+FnMl0IKaJAOEN58q0HFCtcNB4rs5WBDyiTuVklyAzlcg=="
         },
         "penyok1": {
