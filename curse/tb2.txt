@@ -1,0 +1,159 @@
+{
+    "daftar_akun": {
+        "jago1": {
+            "nama": "Akun JAGO1",
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_E"
+        },
+        "jago2": {
+            "nama": "Akun JAGO2",
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_F"
+        },
+        "jago3": {
+            "nama": "Akun JAGO3",
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_G"
+        },
+        "jago4": {
+            "nama": "Akun JAGO4",
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_H"
+        },
+        "penyok1": {
+            "nama": "Akun PENYOK1",
+            "api_id": 35475261,
+            "api_hash": "4423de9e96f2062359f201f051c3df80",
+            "session_token": "1BQANOTEuMTA4LjU2LjE0MgG7KN8X5llgn6bHvOeXGMtlBYQUVn6M+XznjRBMNmKrzS4gpIjeBl5UO+XZ7WPYpu2SSznFzczKTgaz9mYf+C+S2MaTqC0flAdMOeRk+61+qIXsyVNe1v47g0y1AsLGPMcRkyaCu9FhNTJn8W3VJo24cO7S5hOvQxxjZzlkfJw9ekbdtsxfvC9w5l2XcNu9MoohMHuZSCr4xT5NCrtSYRQA01lQzgX3iFc+Pipp2fpWkvk2T/ecF6D894E4h2Ak/DLfqtLILX+XRIDEBQoBLvUNzJTq5SXLIwg9Zo9CS7BmlV0SL/aaPRobj3ZYiHlAz42/RWFpMad3q81NIoYM/mTUtQ=="
+        },
+        "penyok2": {
+            "nama": "Akun PENYOK2",
+            "api_id": 34119111,
+            "api_hash": "dde14089554619cbccbdb49c2dad8ae1",
+            "session_token": "1BQANOTEuMTA4LjU2LjE0MgG7MfAg5Trw2whXYwkY82FxMGMSaedFaL1SxNOoawq77B/zKvTTXE2woASQQYgXCzxvs5283NvJzwm9ozFgLrrEyGtGKk0YlpgbU08Pl7H0Ra3Ut6buGOseLfrWjy1F/67tAl4XV5jm2tyGiLJaiKfizVfyqanghJz7boDPlkHSD1h3IWEkQF7BObxc4orMvX1mQnK+d7DttVPB0SvZaEKXl0C0mUdoHLm0ftv/lM5riBG+OaiO7jsFPcq84j5D4GY0aRjHswFtW6g3X2yK+vwXxDWXTQsHRA989zboRC/l7DtACo2HWEtgoT7HKMgbTB7SMEbdGidGlAX6gZTlssWTlg=="
+        },
+        "penyok3": {
+            "nama": "Akun PENYOK3",
+            "api_id": 38364650,
+            "api_hash": "69f22d8f4b6f1adbe5e6716d5a304add",
+            "session_token": "1BQANOTEuMTA4LjU2LjE0MgG7HM46r25RZp+saLMMqmXgC/uHF+YEChAi3GIb//PubxcyC402hqDG+P5EUMqzMbCO/zvqk82mU34d/vBcZuf+8C7Kpm2jDK7kI+PYUva/S3NyNdA9gx6BtDzO1eMcARjHWyrHTqZ4qNrzDf9Xd26yeemwnKyLAY7O1MTDOsnVKPZwUiSoAN/efS80M3g0Y6h1knFKapnusrwJnZybNlKR2xKO4fiP93WzU32bJp7dLQqC4xIkYhyb9iNUWYy56++VTnjv7B0Ii343RotLgnzOV6fIfGBD17VsYyDtjx6anAlJ90NNWDzV4htR/gZXnIhlA7q9MvwKwr7SZ/bRgdRWqg=="
+        },
+        "penyok4": {
+            "nama": "Akun PENYOK4",
+            "api_id": 36788510,
+            "api_hash": "1ad1cb528a60469d889beeffc6e8e1db",
+            "session_token": "1BQANOTEuMTA4LjU2LjE0MgG7bQaGoq0FaeFPvorx4vbP393/saRLM0PQHfSJ5WJMWJ6tC04gzIa+MOyhNrV/TsW2vU27dPqHfYhU5mr+ZS9uZTes1Yyb0iyelkVrWWJgyLqavml3N7ViMizZ7EyMiUtVy6d8YODw07hwp7UL/1bVEs3xmkI9VoLvgxB0l4diIrprUJ8fyuCFK8HXVDnrbbLLpul5pP8YaBU6oUvTWk0QYZ+O5/nYSaEPkEp2rOrIsOUn0hPtAmurqtkWR6eKaVpm/U3QAvIYYi4lr0EHmAeQAcCZgPDLaHea8mcS/KBMBrSceFz/eGnz5Bzhlts8HtRGnTxJoDrCbr0rvJkn6O7Rxw=="
+        },
+        "telkomsel1": {
+            "nama": "Akun TELKOMSEL1",
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_Q"
+        },
+        "telkomsel2": {
+            "nama": "Akun TELKOMSEL2",
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_R"
+        },
+        "telkomsel3": {
+            "nama": "Akun TELKOMSEL3",
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_S"
+        },
+        "telkomsel4": {
+            "nama": "Akun TELKOMSEL4",
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_T"
+        },
+        "bejo1": {
+            "nama": "Akun BEJO1",
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_Y"
+        },
+        "bejo2": {
+            "nama": "Akun BEJO2",
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_Z"
+        },
+        "bejo3": {
+            "nama": "Akun BEJO3",
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_AA"
+        },
+        "bejo4": {
+            "nama": "Akun BEJO4",
+            "api_id": 1234567,
+            "api_hash": "isi_api_hash_disini",
+            "session_token": "string_sesi_telegram_AB"
+        }
+    },
+    "format_komentar_per_grup": {
+        "-5362920751": {
+            "_catatan": "Group KEI",
+            "jago1": "#keitogel = (SASISU42) = 55*90*06",
+            "jago2": "#keitogel = (PURARA23) = 71*96*75",
+            "jago3": "#keitogel = (MUBENGAN52) = 34*13*79",
+            "jago4": "#keitogel = (KOLANGKALING) = 74*82*84",
+            "penyok1": "#keitogel = (OKBOSKU555) = 01*44*31",
+            "penyok2": "#keitogel = (NYOTEKTAIMU) = 70*54*57",
+            "penyok3": "#keitogel = (SUWUNBOSQU) = 80*51*95",
+            "penyok4": "#keitogel = (DENGAKSEKBOL) = 37*13*02",
+            "telkomsel1": "#keitogel = (IKAT22) = 47*54*49",
+            "telkomsel2": "#keitogel = (OBJEKTIF) = 33*92*66",
+            "telkomsel3": "#keitogel = (PETANI) = 64*40*69",
+            "telkomsel4": "#keitogel = (TERTUTUP) = 25*16*85",
+            "bejo1": "#keitogel = (SEMPRUL28) = 37*15*50",
+            "bejo2": "#keitogel = (KANGKUNG55) = 02*09*60",
+            "bejo3": "#keitogel = (GELEM15) = 52*26*70",
+            "bejo4": "#keitogel = (WAGE93) = 94*89*29"
+        },
+        "-2717306025": {
+            "_catatan": "Tukang Lapor",
+            "jago1": "HADIR USER05 11*11*11",
+            "jago2": "HADIR USER06 11*11*11",
+            "jago3": "HADIR USER07 11*11*11",
+            "jago4": "HADIR USER08 11*11*11",
+            "penyok1": "HADIR USER13 11*11*11",
+            "penyok2": "HADIR USER14 11*11*11",
+            "penyok3": "HADIR USER15 11*11*11",
+            "penyok4": "HADIR USER16 11*11*11",
+            "telkomsel1": "HADIR USER17 11*11*11",
+            "telkomsel2": "HADIR USER18 11*11*11",
+            "telkomsel3": "HADIR USER19 11*11*11",
+            "telkomsel4": "HADIR USER20 11*11*11",
+            "bejo1": "HADIR USER25 11*11*11",
+            "bejo2": "HADIR USER26 11*11*11",
+            "bejo3": "HADIR USER27 11*11*11",
+            "bejo4": "HADIR USER28 11*11*11"
+        },
+        "-5459977585": {
+            "_catatan": "Test ROOM",
+            "jago1": "jago1",
+            "jago2": "jago2",
+            "jago3": "jago3",
+            "jago4": "jago4",
+            "penyok1": "penyok1",
+            "penyok2": "penyok2",
+            "penyok3": "penyok3",
+            "penyok4": "penyok4",
+            "telkomsel1": "telkomsel1",
+            "telkomsel2": "telkomsel2",
+            "telkomsel3": "telkomsel3",
+            "telkomsel4": "telkomsel4",
+            "bejo1": "bejo1",
+            "bejo2": "bejo2",
+            "bejo3": "bejo3",
+            "bejo4": "bejo4"
+        }
+    }
+}
