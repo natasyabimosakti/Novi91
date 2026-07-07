@@ -1,503 +1,182 @@
-
-
+// babon_core.js
 window.initBabonLogic = function (namagroup18, Comment18) {
 
 
+    // --- 1. ANTI-THROTTLE & KEEP-ALIVE (Solusi Tab Background) ---
+    (function () {
+        // Memaksa properti visibility agar selalu 'visible'
+        Object.defineProperty(document, 'visibilityState', { value: 'visible', writable: true });
+        Object.defineProperty(document, 'hidden', { value: false, writable: true });
+        Object.defineProperty(document, 'hasFocus', { value: () => true, writable: true });
 
+        // Blokir event listener yang mencoba mendeteksi perpindahan tab
+        const origAddEventListener = EventTarget.prototype.addEventListener;
+        EventTarget.prototype.addEventListener = function (type, listener, options) {
+            if (['visibilitychange', 'blur', 'focus', 'pagehide', 'webkitvisibilitychange'].includes(type)) return;
+            return origAddEventListener.call(this, type, listener, options);
+        };
 
-
-
-
-
-
-
-    var GROUP_ID = "1121229279202731";
-    var MEMBER_ID = "61550121298009"
-    var TARGET_FEEDBACK_ID = "ZmVlZGJhY2s6MTY3NjEwOTQyMDM4MTM3OA=="; // tugas akhir cari dari respon graph
-    var groupName = null; //Nama Group mentah yang akan digabung dengan nama user, diambil dari judul tab atau script tag
-    var doc_idkomentar = null; //require("useCometUFICreateCommentMutation_facebookRelayOperation")
-
-    //AmbildataKomentar()
-    //Komentari(A_TARGET_FEEDBACK_ID, doc_idkomentar, A_MEMBER_ID, COMMENT_TEXT) tinggal isi A_TARGET_FEEDBACK_ID, dan A_MEMBER_ID
-
-
-    // Tugas akhin pasang interval buat panggil mintaData()
-
-
-
-
-
-
+        setInterval(() => {
+            if (document.hidden !== false) {
+                Object.defineProperty(document, 'hidden', { value: false, writable: true });
+                Object.defineProperty(document, 'visibilityState', { value: 'visible', writable: true });
+                window.dispatchEvent(new Event('mousemove'));
+            }
+        }, 100); // Heartbeat stabil menjaga status 'visible' palsu
+    })();
     var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Comment/${Comment18}.json`;
-    var keyword = ["ROOM", "R**M", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
+    var keyword = ["ROOM", "R**M", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌","nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
     var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
     var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Baru.json"
     var TELEGRAM_TOKEN = '8841941027:AAGt1LTI8GCVAOb2EAQzaQTP33n-qJTrFa4';
     var TELEGRAM_CHAT_ID = '-1002717306025';
     let adminList = [];
     var SCRIPT_NAME = Comment18
-    var limitwaktu = 15; // dalam menit, untuk filter postingan baru
-    var grouptToPost = '';
-    var groupID = null; // 
-    var COMMENT_TEXT = "Cobakan";
-    var cachedFbDtsg = null;
-    var cachedScale = null;
-    var PAGINATION_QUERY_DOC_ID = ""; // require("ProfileCometContextualProfileGroupPostsFeedPaginationQuery_facebookRelayOperation");
-    var tokenLSD = null;
-    var groupNames = [];
-    var CommentList = [];
+    let isAdminListReady = false; // Flag penanda kesiapan data
+    var refresh = 500; // Percepat durasi animasi tarik layar agar selesai dalam 200ms
+    var refreshNonUser = 500;
+    let commentDone = false; // Flag untuk menghentikan aksi jika bot sudah selesai bertugas
+    let lastRefreshFeedState = "20"; // Menyimpan ID postingan terakhir untuk mendeteksi perubahan feed
+    let lastObservedUrl = location.href;
     const LOCAL_KEY = "cachedAdminList";
     const VERSION_KEY = "cachedAdminVersion";
-    var EXPIRATION_MS = 2 * 60 * 1000;
-    var now = Date.now();
-    var typevariable = "Grup";
+    let watchdogTimer = null; // Timer untuk mencegah bot macet jika refresh gagal
+    var commentToPost = ""; // Dikosongkan agar tidak mengirim komentar default sebelum data siap
+    let botObserver = null; // Observer utama untuk memantau feed
+    var grouptToPost = '';
+    var groupNames = [];
+    var CommentList = [];
+    let countA = 0;
+    let sedangProses = false;
+    let sedangKlikUrutkan = false;
+    let lastMessageSent = "";
+    var sudahkirim = false
+    var observersudahjalam = false;
+    var observers = null
     var groups = [];
-    var presesmintadata = false; // Flag untuk mencegah tumpang tindih proses mintaData()
-    var stopsemua = false; // Flag untuk menghentikan semua proses jika diperlukan  
+    var skiper = false;
+    var NamaFb = "";
+    var now = Date.now();
+    var EXPIRATION_MS = 5 * 60 * 1000;
+    var currentFeedState = "";
+    var cekurlutama = ""
+    var tekoprofile = ""
+    var ceksimulasi = false;
+    const fastOpts = { bubbles: true, cancelable: true };
+    const mDown = new MouseEvent("mousedown", fastOpts);
+    const mUp = new MouseEvent("mouseup", fastOpts);
+    // 1. CACHE NATIVE SETTER: Pindahkan ke luar agar tidak dihitung dalam blok waktu komentari
+    const nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, "value")?.set ||
+        Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
 
-
-
-
-
-    // Fungsi untuk membuat dan memperbarui indikator status Socket di kiri atas
-    function updateStatusSocket(status) {
-        let statusEl = document.getElementById('bejo-socket-status');
-
-        // Jika elemen belum ada, buat baru
-        if (!statusEl) {
-            statusEl = document.createElement('div');
-            statusEl.id = 'bejo-socket-status';
-
-            // CSS untuk memaksa posisi di Kiri Atas dan tembus UI Facebook
-            statusEl.style.position = 'fixed';
-            statusEl.style.top = '5px';
-            statusEl.style.left = '5px';
-            statusEl.style.padding = '8px 15px';
-            statusEl.style.borderRadius = '5px';
-            statusEl.style.color = '#fff';
-            statusEl.style.fontWeight = 'bold';
-            statusEl.style.fontSize = '14px';
-            statusEl.style.fontFamily = 'Arial, sans-serif';
-            statusEl.style.zIndex = '2147483647'; // Nilai absolut maksimal
-            statusEl.style.boxShadow = '0 4px 6px rgba(0,0,0,0.3)';
-            statusEl.style.pointerEvents = 'none'; // Agar tidak mengganggu klik mouse
-            statusEl.style.transition = 'background-color 0.3s ease';
-
-            document.body.appendChild(statusEl);
+    // 2. OPTIMISASI GLOBAL: Matikan logger Facebook agar proses click() menjadi instan (< 0.1ms)
+    function Optimisasi() {
+        if (window.WebLiteClientLogger) window.WebLiteClientLogger.logEvent = () => null;
+        if (window.MarauderLogger) window.MarauderLogger.logEvent = () => null;
+        if (window.WebLitePipe) {
+            window.WebLitePipe.callAfterScreenRendered = (f) => f();
+            window.WebLitePipe.setFirstResponseComplete();
         }
-
-        // Perbarui warna dan teks berdasarkan status
-        if (status === 'CONNECTING') {
-            statusEl.style.backgroundColor = '#FF9800'; // Oranye
-            statusEl.innerText = '🔌 Socket: Menyambung...';
-        } else if (status === 'CONNECTED') {
-            statusEl.style.backgroundColor = '#4CAF50'; // Hijau
-            statusEl.innerText = '🟢 Socket: Terhubung';
-        } else if (status === 'DISCONNECTED') {
-            statusEl.style.backgroundColor = '#F44336'; // Merah
-            statusEl.innerText = '🔴 Socket: Terputus';
-        }
+        // Bypass GWT scheduler untuk mempercepat flush data socket
+        const gwt = window.GWT || window.$gwt;
+        if (gwt) gwt.scheduleDeferred = (task) => typeof task === 'function' ? task() : task?.execute?.();
     }
-
-
-
-
-    function buatDashboardUI() {
-        const uiId = 'bejo-terminal-dashboard';
-        if (document.getElementById(uiId)) return; // Jangan buat dua kali
-
-        // Container Utama
-        const dash = document.createElement('div');
-        dash.id = uiId;
-        dash.style.position = 'fixed';
-        dash.style.bottom = '100px';
-        dash.style.left = '5px';
-        dash.style.width = '350px';
-        dash.style.backgroundColor = 'rgba(15, 15, 15, 0.95)';
-        dash.style.color = '#00ff00';
-        dash.style.fontFamily = 'Consolas, monospace';
-        dash.style.fontSize = '12px';
-        dash.style.borderRadius = '8px';
-        dash.style.border = '1px solid #333';
-        dash.style.zIndex = '2147483646'; // Sedikit di bawah Toast Anda
-        dash.style.boxShadow = '0 5px 15px rgba(0,0,0,0.6)';
-        dash.style.display = 'flex';
-        dash.style.flexDirection = 'column';
-        dash.style.transition = 'all 0.3s ease';
-
-        // Header
-        const header = document.createElement('div');
-        header.style.backgroundColor = '#222';
-        header.style.padding = '8px 12px';
-        header.style.borderTopLeftRadius = '8px';
-        header.style.borderTopRightRadius = '8px';
-        header.style.fontWeight = 'bold';
-        header.style.color = '#fff';
-        header.style.display = 'flex';
-        header.style.justifyContent = 'space-between';
-        header.style.borderBottom = '1px solid #444';
-        header.innerHTML = `<span>🖥️ Monitor Script</span><span id="bejo-toggle" style="cursor:pointer; padding:0 5px;">[ - ]</span>`;
-        dash.appendChild(header);
-
-        // Area Log (Tempat teks berjalan)
-        const content = document.createElement('div');
-        content.id = 'bejo-log-content';
-        content.style.height = '250px';
-        content.style.overflowY = 'auto';
-        content.style.padding = '10px';
-        content.style.display = 'flex';
-        content.style.flexDirection = 'column';
-        content.style.gap = '5px';
-        dash.appendChild(content);
-
-        document.body.appendChild(dash);
-
-        // Fungsi Minimize/Maximize Jendela
-        document.getElementById('bejo-toggle').addEventListener('click', function () {
-            if (content.style.display === 'none') {
-                content.style.display = 'flex';
-                this.innerText = '[ - ]';
-                dash.style.width = '350px';
-            } else {
-                content.style.display = 'none';
-                this.innerText = '[ + ]';
-                dash.style.width = '150px';
-            }
-        });
-    }
-
-    // ==========================================
-    // FUNGSI PENCETAK LOG KE DASHBOARD
-    // ==========================================
-    function cetakLog(pesan, tipe = 'info') {
-        const content = document.getElementById('bejo-log-content');
-        if (!content) return;
-
-        let warna = '#eee05e'; // Default hijau (info)
-        if (tipe === 'error') warna = '#ff4444'; // Merah
-        if (tipe === 'warning') warna = '#ca9911'; // Oranye
-        if (tipe === 'success') warna = '#66ff00'; // Cyan
-
-        const logLine = document.createElement('div');
-        const waktu = new Date().toLocaleTimeString('id-ID');
-
-        // Membersihkan pesan dari format %c bawaan console.log lama Anda jika terbawa
-        const pesanBersih = pesan.replace(/%c/g, '');
-
-        logLine.innerHTML = `<span style="color:#666;">[${waktu}]</span> <span style="color:${warna};">${pesanBersih}</span>`;
-        content.appendChild(logLine);
-
-        // Auto-scroll ke paling bawah
-        content.scrollTop = content.scrollHeight;
-
-        // Batasi maksimal 80 baris agar RAM browser tidak penuh
-        if (content.childNodes.length > 40) {
-            content.removeChild(content.firstChild);
-        }
-
-        // Opsional: Tetap buang ke console bawaan sebagai backup
-        // console.log(`[Script] ${pesanBersih}`); 
-    }
-
-
-
-    let ws;
-    let timerWatchdog; // Ubah nama agar fungsinya lebih jelas sebagai penjaga
-    const idChrome = Math.floor(Math.random() * 9999);
-
-    function dapatkanWaktuReconnect() {
-        return 2000 + Math.floor(Math.random() * 2000);
-    }
-
-    function hubungkanKeServer() {
-        // 1. PENCEGAHAN GANDA
-        if (ws && (ws.readyState === WebSocket.CONNECTING || ws.readyState === WebSocket.OPEN)) {
-            return;
-        }
-        updateStatusSocket('CONNECTING');
-        // 2. Bersihkan sisa timer sebelumnya jika ada
-        clearTimeout(timerWatchdog);
-
-        ws = new WebSocket('ws://localhost:9016');
-        timerWatchdog = setTimeout(() => {
-            console.warn("⏳ Soket menggantung (Connecting) atau Server lambat. Memaksa reset...");
-            if (ws) ws.close(); // Menutup paksa akan memicu ws.onclose -> mencoba ulang otomatis
-        }, 5000);
-
-        ws.onopen = () => {
-            console.log(`🟢 [ID: ${idChrome}] Terhubung jaringan. Meminta konfirmasi server...`);
-            // Kirim ID Chrome ke server
-            ws.send(`MSUK|${idChrome}`);
-            // Biarkan timerWatchdog tetap berjalan. Ia akan bertugas ganda menunggu balasan "OK".
-        };
-
-        ws.onmessage = (event) => {
-            const pesanMasuk = event.data;
-
-            // PERBAIKAN FATAL: Bersihkan spasi di awal dan akhir setiap elemen array
-            const parts = pesanMasuk.split('|').map(item => item.trim());
-
-            // 3. Cek apakah ini balasan konfirmasi dari server
-            if (parts[0] === "OK" && parts[1] == idChrome) {
-                console.log(`✅ [BERHASIL] Konfirmasi diterima! Senjata Siap!`);
-                updateStatusSocket('CONNECTED');
-                clearTimeout(timerWatchdog);
-                return;
-            }
-
-            if (parts[0] === "EXEC") {
-                cetakLog(`---------------------------------`, 'info');
-                cetakLog(`[ SOCK MASUK ]`, 'info');
-                cetakLog(`📥 Pesan : ${pesanMasuk}`, "info")
-                cetakLog(`🕒 Waktu : ${Date.now()}`, "info")
-                const TARGET_FEEDBACK = parts[1];
-                const IdPemosting = parts[2];
-                const groupName = parts[3] || window.groupName;
-                const groupIDs = parts[4] || GROUP_ID;
-
-                // PERINGATAN SCOPE: Pastikan variabel doc_idkomentar dan COMMENT_TEXT 
-                // benar-benar tersedia secara global sebelum dipanggil di sini.
-                // Jika tidak, skrip akan terhenti (ReferenceError).
-                const docId = typeof doc_idkomentar !== "undefined" ? doc_idkomentar : "";
-                const commentText = typeof COMMENT_TEXT !== "undefined" ? COMMENT_TEXT : "";
-                console.log(`⚡[EKSEKUSI REMOTE] Komentari ${TARGET_FEEDBACK}...`);
-                if (typeof AmbildataKomentar === "function") AmbildataKomentar();
-                Komentari(TARGET_FEEDBACK, docId, IdPemosting, commentText, groupIDs);
-
-
-
-            }
-        };
-
-        ws.onclose = (event) => {
-            clearTimeout(timerWatchdog); // Pastikan watchdog mati
-            ws = null; // Kosongkan variabel agar bisa membuat koneksi baru dari nol
-            updateStatusSocket('DISCONNECTED');
-            const delay = dapatkanWaktuReconnect();
-            setTimeout(hubungkanKeServer, delay);
-        };
-
-        ws.onerror = (error) => {
-            clearTimeout(timerWatchdog);
-            updateStatusSocket('DISCONNECTED');
-            // Tutup manual jika terjadi error agar segera masuk ke fungsi onclose
-            if (ws && ws.readyState !== WebSocket.CLOSED) {
-                ws.close();
-            }
-        };
-    }
-
-    // Eksekusi awal
-    if (document.readyState === 'complete') {
-        hubungkanKeServer();
-    } else {
-        window.addEventListener('load', hubungkanKeServer);
-    }
-
-
-    // TOMBOL TEMBAK MANUAL
-    function TembakPerintah(FEEDBACK = "", IdPemostingnya = "", namagoupkotor = "", Group_ID = "") {
-        if (ws && ws.readyState === 1) {
-            if (document.location.href.includes(Group_ID)) {
-                // PERBAIKAN: Spasi di sekitar tanda '|' dihapus total
-                ws.send(`EXEC|${FEEDBACK}|${IdPemostingnya}|${namagoupkotor}|${Group_ID}`);
-            }
-        }
-    };
-
-
-
-
-
-
-
-
-
-    // Fungsi pembantu untuk menunggu sampai groupNames terisi data
-    async function tungguGroupNames() {
-        return new Promise(resolve => {
-            const cekInterval = setInterval(() => {
-                if (groupNames && groupNames.length > 0) {
-                    clearInterval(cekInterval);
-                    resolve();
-                }
-            }, 500);
-        });
-    }
-
-    async function manageGroups() {
-        if (!groupNames || groupNames.length === 0) {
-            console.log("⏳ Menunggu aliran data masuk ke groupNames...");
-            await tungguGroupNames();
-        }
-
-        const now = Date.now();
-        const groups = groupNames.map(groupId => ({ groupId, defaultValue: false }));
-        console.log(`✅ Data siap! groups berisi: ${groups.length} item.`);
-
-        for (const { groupId, defaultValue } of groups) {
-            const key = `group_${groupId}`;
-            const expireKey = `${key}_expire`;
-            const expireAt = await GM.getValue(expireKey, 0);
-
-            console.log(`🔹 Grup: ${groupId} | now: ${now} | expireAt: ${expireAt}`);
-
-            if (now > expireAt) {
-                try {
-                    await GM.setValue(key, defaultValue);
-                    await GM.setValue(expireKey, now + EXPIRATION_MS);
-                } catch (error) {
-                    console.error(`❌ Gagal menyimpan data untuk grup ${groupId}: `, error);
-                }
-            }
-        }
-
-        // Lanjut pengecekan komentar
-        const groupKey = `group_${grouptToPost}`;
-        if (groupKey === "group_") {
-            return;
-        }
-
-        const sudahKomentar = await GM.getValue(groupKey, false);
-        if (sudahKomentar) {
-            console.log(`Sudah Komentar ${now}`);
-            location.href = "about:blank";
-            return;
-        }
-    }
-
-
-
-
-
-
-    async function fetchGroupsFromGitHub() {
-        const commentMap = {};
-
-        return new Promise((resolve, reject) => {
-            GM_xmlhttpRequest({
-                method: "GET",
-                url: URLGROUP,
-                onload: function (response) {
-                    try {
-                        const data = JSON.parse(response.responseText);
-
-
-
-
-
-                        data.forEach((item) => {
-                            if (item.group && item.comment) {
-                                groupNames.push(normalizeToBasicLatin(item.group).toLowerCase());
-                                CommentList.push(item.comment);
+    Optimisasi();
+    // Gunakan unsafeWindow jika kamu bermain di Tampermonkey/Violentmonkey
+
+
+
+    console.log(cekurlutama)
+    let myObservere = null;
+    let masterObserver = null;
+    var obs3 = false;
+    function initMasterObserver() {
+        if (obs3) return;
+        obs3 = true;
+        if (masterObserver) return;
+
+        masterObserver = new MutationObserver((mutations) => {
+            // 1. Logika Dialog (Selalu cek state elemen saat ini)
+            const dialog = document.querySelector('[role="dialog"]');
+            const presentation = document.querySelector('[role="presentation"]');
+            const dialogVscroller = document.querySelector(".dialog-vscroller");
+
+            sedangKlikUrutkan = !!(presentation || dialogVscroller);
+            sedangProses = !!dialog;
+
+            // 2. Logika Mutasi Nodes
+            for (const mutation of mutations) {
+                for (const node of mutation.addedNodes) {
+                    if (node.nodeType !== 1) continue;
+
+                    // Cek Masalah & Status Post
+                    cekMasalah();
+                    cekMasalah2();
+                    cekLogout();
+
+                    const textLower = node.textContent?.toLowerCase() || "";
+                    const isSuccess = textLower.includes('diposting') || textLower.includes('berhasil') || (node.querySelector && node.querySelector(".snackbar-container")) || (node.classList && node.classList.contains("snackbar-container"));
+                    if (!commentDone && isSuccess) {
+                        commentDone = true;
+                        Blockafter()
+                        setTimeout(() => {
+                            if (masterObserver) masterObserver.disconnect();
+                            location.href = "about:blank";
+                        }, 5000);
+                        break; // Hentikan pemrosesan node lain dalam batch yang sama
+                    }
+
+                    // Cek Aktivitas Terbaru (Hanya di halaman grup)
+                    if (!commentDone && cekurlutama.includes("group")) {
+                        const text = node.textContent || "";
+                        if (text.includes("Aktivitas terbaru")||text.includes("Aktivitas terkini")) {
+                            const tombol = node.querySelectorAll("[role='button']");
+                            if (tombol.length >= 2) {
+                                tombol.forEach(btn => {
+                                    if (countA < 3) {
+                                        if (btn.textContent.includes("Postingan baru")) {
+                                            btn.click();
+                                            countA++;
+                                        }
+                                    } else {
+                                        setTimeout(() => {
+                                            if (btn.textContent.includes("Aktivitas terbaru")||btn.textContent.includes("Aktivitas terkini")) {
+                                                btn.click();
+                                                countA = 0;
+                                            }
+                                        }, 100);
+                                    }
+                                });
                             }
-                        });
-
-                        if (namagroup18 && Comment18) {
-                            groupNames.push(normalizeToBasicLatin(namagroup18).toLowerCase());
-                            CommentList.push(Comment18);
                         }
-
-
-                        AmbildataKomentar()
-
-
-                        resolve();
-
-                    } catch (e) {
-                        console.error("❌ Gagal parse JSON grup:", e);
-                        reject(e);
                     }
-                },
-                onerror: function (err) {
-                    console.error("❌ Gagal ambil grup dari GitHub:", err);
-                    reject(err);
                 }
-            });
-        });
-    }
-
-
-    function AmbildataKomentar() {
-        var textDariWeb = groupName || "";
-        var textWebLower = textDariWeb.toLowerCase();
-        var matchedIndex = groupNames.findIndex(kataKunci => textWebLower.includes(kataKunci));
-
-        if (matchedIndex !== -1) {
-            // Jika matchedIndex bukan -1, artinya kata kunci ditemukan
-            COMMENT_TEXT = Random(CommentList[matchedIndex]);
-            grouptToPost = groupNames[matchedIndex];
-            console.log(`%c💬 Komentar: ${COMMENT_TEXT} `, "color: blue; font-weight: bold; font-size: 14px;");
-            console.log(`%c💬 Group: ${grouptToPost} `, "color: blue; font-weight: bold; font-size: 14px;");
-
-        } else {
-            // Jika -1, artinya tidak ada satupun kata kunci di groupNames yang ada di teks web
-            console.log("❌ Tidak ada kata kunci yang cocok di dalam kalimat tersebut.");
-        }
-        initDynamicVars()
-        console.log("✅ Group list berhasil diambil (GitHub + Lokal):", groupNames, CommentList);
-
-
-    }
-
-
-    function normalizeToBasicLatin(str) {
-        return str.replace(/[\u{1D400}-\u{1D7FF}]/gu, (ch) => {
-            const boldA = 0x1D400;
-            const normalA = 0x41; // ASCII A
-            let code = ch.codePointAt(0);
-            if (code >= boldA && code <= boldA + 25) {
-                return String.fromCharCode(normalA + (code - boldA));
             }
-            return ch;
         });
+
+        masterObserver.observe(document.body, { childList: true, subtree: true });
+        console.log("🛠️ Master Observer diaktifkan.");
     }
 
-    async function fetchAdminListFromGitHub() {
-        return new Promise((resolve, reject) => {
-            GM_xmlhttpRequest({
-                method: "GET",
-                url: URLADMIN,
-                onload: function (response) {
-                    try {
-                        const data = JSON.parse(response.responseText);
-                        const latestVersion = data.version;
-                        const admins = data.admins;
+    async function tungguGroupAsync() {
+        const start = Date.now();
+        while (Date.now() - start < 15000) { // 15 detik timeout
+            const result = getCommentForGroup();
+            if (result && result.comment && result.groupName) {
+                commentToPost = Random(result.comment);
+                grouptToPost = result.groupName;
+                window.commentToPost = commentToPost; // Pastikan variabel global terupdate
+                console.log("✅ Nama grup : " + grouptToPost + " | Comment : " + commentToPost);
+                groups = groupNames.map(groupId => ({ groupId, defaultValue: false }));
+                await manageGroups();
 
-                        const currentVersion = localStorage.getItem(VERSION_KEY);
-                        if (currentVersion !== latestVersion) {
-                            console.log("⬆️ New admin version found:", latestVersion);
-                            localStorage.setItem(LOCAL_KEY, JSON.stringify(admins));
-                            localStorage.setItem(VERSION_KEY, latestVersion);
-                            adminList = admins;
-                        } else {
-                            console.log("⏩ Admin list is up-to-date (version:", currentVersion + ")");
-                            adminList = JSON.parse(localStorage.getItem(LOCAL_KEY)) || [];
-                        }
-                        console.log("%c👥 Daftar Admin Berhasil Dimuat:", "color: #fffa77; font-weight: bold;", adminList);
-                        resolve(adminList); // ✅ resolve setelah data siap
-                    } catch (e) {
-                        cetakLog(`❌ Failed to parse remote admin list`, 'error');
-
-                        console.error("❌ Failed to parse remote admin list:", e);
-                        reject(e);
-                    }
-                },
-                onerror: function (err) {
-                    console.error("❌ Failed to load admin list from GitHub:", err);
-                    reject(err);
-                }
-            });
-        });
+                return { commentToPost, grouptToPost };
+            }
+            await new Promise(r => setTimeout(r, 500));
+        }
+        console.warn("⚠️ Timeout tunggu grup.");
+        return null;
     }
-
-
-
-
-
-
-
-
 
     function Random(comment) {
         const numberRegex = /\d{2}/g;
@@ -541,380 +220,215 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
 
 
-
-
-
-
-
-    async function otomatisEkstrakDataGrup() {
-        let namagurpuser = "";
-        let namaGrupMentah = "";
-
-        console.log("⏳ Memulai pencarian data grup & user (Maksimal 10 detik)...");
-
-        // Loop berjalan maksimal 10 kali (Jeda 1 detik tiap putaran)
-        for (let i = 0; i < 10; i++) {
-
-            // 1. CEK ELEMEN NAMA USER TERLEBIH DAHULU
-            const elemenUser = document.querySelector('[data-ad-rendering-role="profile_name"]');
-
-            if (elemenUser) {
-                namagurpuser = (elemenUser.textContent || "").trim();
-                console.log(`✨ Elemen nama user langsung ditemukan: "${namagurpuser}"`);
-
-                // JIKA USER KETEMU, LANGSUNG AMBIL NAMA GRUP DARI JUDUL TAB (Cepat & Akurat)
-                let docTitle = document.title;
-                namaGrupMentah = docTitle.replace(/^\(\d+\)\s*/, '').replace(/\s*\|\s*Facebook\s*/g, '').trim();
-
-                // Coba ambil ID dari URL sekalian jika ada
-                const urlMatch = window.location.href.match(/\/groups\/(\d+)/);
-                if (urlMatch) groupID = urlMatch[1];
-
-                // Jika ID juga langsung didapat dari URL, kita bisa langsung keluar dari Loop Utama
-                if (groupID) {
-                    console.log("🚀 Semua data langsung didapat tanpa memindai script tag!");
-                    break;
-                }
-            }
-
-            // 2. KONDISI JIKA USER BELUM KETEMU ATAU ID URL BELUM SIAP (Metode Cadangan: Scan Script)
-            const semuaScript = document.querySelectorAll('script[type="application/json"]');
-            for (let script of semuaScript) {
-                const teksData = script.textContent || script.innerHTML;
-
-                // Cari ID Group jika belum ada
-                if (!groupID) {
-                    const matchIdBaru = teksData.match(/"groupID":"(\d+)"/);
-                    const matchIdLama = teksData.match(/"__typename":"Group","id":"(\d+)"/);
-
-                    if (matchIdBaru) groupID = matchIdBaru[1];
-                    else if (matchIdLama) groupID = matchIdLama[1];
-                }
-
-                // Cari Nama Group Mentah lewat script (hanya jika judul tab belum berhasil diambil)
-                if (!namaGrupMentah) {
-                    const matchNamaBaru = teksData.match(/"meta":\{"title":"([^"]+)"\}/);
-
-                    if (matchNamaBaru && matchNamaBaru[1] !== "Facebook") {
-                        try { namaGrupMentah = JSON.parse('"' + matchNamaBaru[1] + '"'); } catch (e) { namaGrupMentah = matchNamaBaru[1]; }
-                    } else if (groupID) {
-                        const regexLama = new RegExp('"id":"' + groupID + '","name":"([^"]+)"');
-                        const matchNamaLama = teksData.match(regexLama);
-                        if (matchNamaLama) {
-                            try { namaGrupMentah = JSON.parse('"' + matchNamaLama[1] + '"'); } catch (e) { namaGrupMentah = matchNamaLama[1]; }
-                        }
-                    }
-                }
-            }
-
-            // Cek apakah data sudah lengkap di putaran ini
-            if (groupID && namaGrupMentah && namagurpuser) {
-                break;
-            }
-
-            // Jeda 1 detik jika data belum siap
-            await new Promise(resolve => setTimeout(resolve, 1000));
-        }
-
-        // ==========================================
-        // VALIDASI CADANGAN AKHIR (Jika loop selesai tapi ada yang kosong)
-        // ==========================================
-        if (!groupID) {
-            const urlMatch = window.location.href.match(/\/groups\/(\d+)/);
-            if (urlMatch) groupID = urlMatch[1];
-        }
-
-        if (!namaGrupMentah) {
-            let docTitle = document.title;
-            namaGrupMentah = docTitle.replace(/^\(\d+\)\s*/, '').replace(/\s*\|\s*Facebook\s*/g, '').trim();
-        }
-
-        // ==========================================
-        // PROSES GABUNG AKHIR
-        // ==========================================
-        if (namaGrupMentah) {
-            groupName = (namaGrupMentah.trim() + " " + namagurpuser).trim();
-        }
-
-        // 3. Output hasil akhir dan teruskan ke script bawahnya
-        if (groupID && groupName) {
-            console.log("%c✅ Target Grup Berhasil Diekstrak!", "color: green; font-weight: bold; font-size: 14px;");
-            console.log(`%c✅ Nama Group: ${groupName} `, "color: red; font-weight: bold; font-size: 14px;");
-            console.log(`%c✅ ID Group: ${groupID} `, "color: red; font-weight: bold; font-size: 14px;");
-            GROUP_ID = groupID; // Sinkronisasi variabel global
-        }
-    }
-
-    // Jalankan fungsinya
-
-
-    // Deklarasi variabel global
-
-    // HAPUS kata 'async', ubah menjadi fungsi biasa
-    function initDynamicVars() {
-        // 1. Jika sudah ada di cache, langsung kembalikan (0.01 ms)
-        if (cachedFbDtsg && cachedScale !== null) {
-            return { fb_dtsg: cachedFbDtsg, scale: cachedScale };
-        }
-
-        // 2. Jika belum ada, baru ambil dari memori internal Facebook
-        const fb_dtsg = require("DTSGInitialData").token;
-        const scale = window.devicePixelRatio;
-
-        if (!fb_dtsg) {
-            throw new Error("'fb_dtsg' tidak ditemukan. Pastikan Anda sudah login.");
-        }
-
-        // 3. Simpan ke variabel global untuk pemanggilan berikutnya
-        cachedFbDtsg = fb_dtsg;
-        cachedScale = scale;
-
-        const elemenScript = document.getElementById('__eqmc');
-
-        if (elemenScript) {
-            const dataJson = JSON.parse(elemenScript.textContent);
-            // Ambil string URL dari properti "u"
-            const urlU = dataJson.u;
-
-            // Ekstrak parameter URL-nya secara otomatis
-            const infoUser = Object.fromEntries(new URLSearchParams(urlU.split('?')[1]));
-
-            // Simpan ke window agar bisa kamu panggil kapan saja di konsol
-            window.dataUser = infoUser;
-            window.dataUserdt = dataJson;
-        }
-        // 1. Ambil semua elemen script application/json di halaman
-        const semuaScript = document.querySelectorAll('script[type="application/json"]');
-
-        // 2. Loop setiap script untuk mencari yang berisi data LSD
-        for (const script of semuaScript) {
-            if (script.textContent.includes('"LSD"')) {
-                // 3. Jika ketemu, langsung tembak menggunakan Regex
-                const polaRegex = /"LSD"\s*,\s*\[\]\s*,\s*\{\s*"token"\s*:\s*"([^"]+)"\}/;
-                const hasilCocok = script.textContent.match(polaRegex);
-
-                if (hasilCocok && hasilCocok[1]) {
-                    tokenLSD = hasilCocok[1];
-                    break; // Hentikan loop karena token sudah ketemu
-                }
-            }
-        }
-
-        // 4. Output hasilnya
-        if (tokenLSD) {
-            window.tokenLSD = tokenLSD; // Simpan ke variabel global
-            console.log("%c[SUKSES] Token LSD Ditemukan!", "color: green; font-weight: bold;");
-            console.log("Nilai Token:", tokenLSD);
-        } else {
-            console.log("%c[GAGAL] Token LSD tidak ditemukan di script mana pun.", "color: red;");
-        }
-
-        cachedFbDtsg = dataUserdt.f || fb_dtsg;
-        return { fb_dtsg, scale };
-    }
-    // 1. LETAKKAN DI LUAR FUNGSI: Agar memori postingan yang sudah dikomen tidak hilang!
-    const processedPosts = new Set();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // 2. UBAH NAMA DAN PARAMETER FUNGSI UTAMA
-    function capturePcket2(rawText) {
-        'use strict';
-
-        // Langsung hentikan jika teks kosong atau tidak ada kata feedback
-        if (!rawText || rawText.indexOf('"feedback"') === -1) return;
-
-        const IGNORED_KEYS = {
-            'extensions': 1, 'plugins': 1, 'ghl_label': 1,
-            'text_format_metadata': 1, 'attachments': 1, 'action_links': 1,
-            'top_reactions': 1, 'reaction_display_config': 1, 'profile_picture': 1,
-            'actor_photo': 1, 'context_layout': 1, 'layout': 1, 'header': 1,
-            'shareable_from_perspective_of_feed_ufi': 1
-        };
-
-        function processObject(jsonObj, fallbackTime) {
-            let currentGroupId = "Tidak ditemukan";
-
-            function deepSearch(obj) {
-                if (!obj || typeof obj !== 'object') return false;
-
-                if (obj.associated_group && obj.associated_group.id) {
-                    currentGroupId = obj.associated_group.id;
-                }
-
-                let feedbackId = obj.feedback?.id || obj.feedback?.story?.feedback_context?.feedback?.id || null;
-
-                if (feedbackId && feedbackId.length <= 40 && feedbackId.startsWith('ZmV')) {
-                    let isiTeks = obj.message?.text || obj.body?.text || obj.text ||
-                        obj.comet_sections?.message?.story?.message?.text || null;
-
-                    if (isiTeks !== null && !processedPosts.has(feedbackId)) {
-                        processedPosts.add(feedbackId);
-
-                        let authorObj = obj.author || obj.actor || obj.story_header?.story?.actor ||
-                            (obj.actors && obj.actors[0]) || obj.owning_profile;
-
-                        let pemostingName = authorObj?.name || "Tidak ditemukan";
-                        let pemostingId = authorObj?.id || "Tidak ditemukan";
-                        if (pemostingId === currentGroupId) {
-                            pemostingName = "Tidak ditemukan";
-                            pemostingId = "Tidak ditemukan";
-                        }
-
-                        let rawTime = obj.creation_time || obj.created_time || obj.publish_time ||
-                            obj.story_header?.story?.creation_time || fallbackTime;
-
-                        let waktuPost = "Tidak ditemukan";
-                        if (rawTime) {
-                            waktuPost = new Date(rawTime * 1000).toLocaleString('id-ID', {
-                                hour: '2-digit', minute: '2-digit', second: '2-digit'
-                            }) + ' WIB';
-                        }
-
-                        const dataPostingan = { currentGroupId, feedbackId, pemostingName, pemostingId, waktuPost, rawTime, isiTeks: isiTeks.trim() };
-
-                        try {
-                            if (parsePost(dataPostingan)) {
-                                Komentari(feedbackId, doc_idkomentar, pemostingId, COMMENT_TEXT, groupID);
-
-                                try {
-                                    TembakPerintah(feedbackId, pemostingId, groupName, groupID);
-                                } catch (error) {
-                                    console.error("[SKRIP KOMENTAR] Gagal tembak perintah tambahan:", error);
-                                }
-
-                                cetakLog(`📫 [ POSTINGAN DITEMUKAN ]`, 'success');
-                                cetakLog(`--------------------------`, 'success');
-                                cetakLog(`📌Nama Group  : ${grouptToPost}`, 'success');
-                                cetakLog(`● ID Group    : ${groupID}`, 'success');
-                                cetakLog(`👤Postingan   : ${pemostingName}`, 'success');
-                                cetakLog(`● ID Pemosting: ${pemostingId}`, 'success');
-                                cetakLog(`>_FeedID      : ${feedbackId}`, 'success');
-                                cetakLog(`🕒Waktu       : ${waktuPost}`, 'success');
-                                console.log(`%c[LOMBA] 🎯 DITEMUKAN | ID: ${feedbackId} | Waktu: ${Date.now()}`, 'color: #00ff00; font-weight: bold; font-size: 13px; background: #111; padding: 3px;');
-
-                            } else {
-                                console.log(`%c Dari Respond`, 'color: #ffaa00; font-style: italic;');
-                            }
-                        } catch (e) {
-                            console.error("Error di parsePost atau Komentari:", e);
-                        }
-
-                        return true;
-                    }
-                }
-
-                if (Array.isArray(obj)) {
-                    for (let i = 0; i < obj.length; i++) {
-                        if (deepSearch(obj[i])) return true;
-                    }
-                } else {
-                    for (let key in obj) {
-                        if (IGNORED_KEYS[key] === 1) continue;
-                        if (obj.hasOwnProperty(key)) {
-                            if (deepSearch(obj[key])) return true;
-                        }
-                    }
-                }
-                return false;
-            }
-
-            return deepSearch(jsonObj);
-        }
-
-        // 3. LOGIKA EXTRACT POST DATA PINDAH KE SINI
-        let itemsFound = 0;
-        let cleanText = rawText.startsWith('for (;;);') ? rawText.slice(9) : rawText;
-
-        let fallbackTime = null;
-        const timeIdx = cleanText.indexOf('"creation_time":');
-        if (timeIdx !== -1) {
-            fallbackTime = parseInt(cleanText.substring(timeIdx + 16, timeIdx + 26), 10);
-        }
-
-        let startIdx = 0;
-        const len = cleanText.length;
-
-        while (startIdx < len) {
-            let endIdx = cleanText.indexOf('\n', startIdx);
-            if (endIdx === -1) endIdx = len;
-
-            // Potong per baris untuk mempercepat JSON.parse
-            if (endIdx - startIdx > 100) {
-                const line = cleanText.substring(startIdx, endIdx);
-
-                if (line.indexOf('"feedback"') !== -1) {
+    async function fetchGroupsFromGitHub() {
+        return new Promise((resolve, reject) => {
+            GM_xmlhttpRequest({
+                method: "GET",
+                url: URLGROUP,
+                onload: function (response) {
                     try {
-                        const jsonObj = JSON.parse(line);
-                        if (processObject(jsonObj, fallbackTime)) itemsFound++;
-                    } catch (err) { }
+                        const data = JSON.parse(response.responseText);
+
+                        data.forEach((item) => {
+                            if (item.group && item.comment) {
+                                groupNames.push(normalizeToBasicLatin(item.group).toLowerCase());
+                                CommentList.push(item.comment);
+                            }
+                        });
+
+                        if (namagroup18 && Comment18) {
+                            groupNames.push(normalizeToBasicLatin(namagroup18).toLowerCase());
+                            CommentList.push(Comment18);
+                        }
+
+                        console.log("✅ Group list berhasil diambil (GitHub + Lokal):", groupNames.length);
+                        resolve();
+
+                    } catch (e) {
+                        console.error("❌ Gagal parse JSON grup:", e);
+                        reject(e);
+                    }
+                },
+                onerror: function (err) {
+                    console.error("❌ Gagal ambil grup dari GitHub:", err);
+                    reject(err);
                 }
-            }
-            startIdx = endIdx + 1;
+            });
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+    function getCommentForGroup() {
+        const commentMap = {};
+        let ceknamagroup = "";
+        let ceknamagroup1 = "";
+        let ceknamagroup2 = "";
+        let ceknamagroup3 = "";
+        let ceknamagroup4 = "";
+        let ceknamagroup5 = "";
+        for (let i = 0; i < groupNames.length; i++) {
+            commentMap[groupNames[i]] = normalizeToBasicLatin(CommentList[i]);
         }
+        if (cekurlutama.includes("user")) {
+            ceknamagroup = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[0]?.textContent || '';
+            ceknamagroup1 = document.querySelectorAll("[data-action-id][role='link']")[0]?.textContent || '';
+            ceknamagroup2 = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[1]?.textContent || '';
+            ceknamagroup3 = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[2]?.textContent || '';
+            ceknamagroup4 = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[3]?.textContent || '';
+            ceknamagroup5 = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[4]?.textContent || '';
+
+        } else {
+            ceknamagroup = document.getElementsByClassName("fixed-container")[0]?.textContent || '';
+            ceknamagroup1 = document.getElementsByClassName('native-text')[5]?.textContent || '';
+            ceknamagroup2 = document.getElementsByClassName('native-text')[6]?.textContent || '';
+            ceknamagroup3 = document.getElementsByClassName('native-text')[7]?.textContent || '';
+            ceknamagroup4 = document.getElementsByClassName('native-text')[8]?.textContent || '';
+            ceknamagroup5 = document.querySelectorAll("[data-action-id][role='link'][data-focusable='true']")[0]?.textContent || '';
+        }
+
+
+        const allGroups = [
+            normalizeToBasicLatin(ceknamagroup).toLowerCase(),
+            normalizeToBasicLatin(ceknamagroup1).toLowerCase(),
+            normalizeToBasicLatin(ceknamagroup2).toLowerCase(),
+            normalizeToBasicLatin(ceknamagroup3).toLowerCase(),
+            normalizeToBasicLatin(ceknamagroup4).toLowerCase(),
+            normalizeToBasicLatin(ceknamagroup5).toLowerCase()
+        ];
+
+        for (let groupName in commentMap) {
+            if (allGroups.some(text => text.includes(groupName))) {
+
+                return { groupName, comment: commentMap[groupName] };
+            }
+        }
+        return null;
+    }
+
+    function klikTombolByText(teks) {
+        const tombol = Array.from(document.querySelectorAll('[role="button"], [tabindex="0"]'))
+            .find(el => el.textContent.trim() === teks);
+        if (tombol) {
+            currentFeedState = tombol.getAttribute("data-action-id")
+            if (lastRefreshFeedState == currentFeedState) return;
+            if (skiper || document.querySelector(".loading-overlay")) return;
+            tombol.click();
+            lastRefreshFeedState = currentFeedState
+            return true;
+        }
+        return false;
+    }
+
+    function normalizeToBasicLatin(str) {
+        return str.replace(/[\u{1D400}-\u{1D7FF}]/gu, (ch) => {
+            const boldA = 0x1D400;
+            const normalA = 0x41; // ASCII A
+            let code = ch.codePointAt(0);
+            if (code >= boldA && code <= boldA + 25) {
+                return String.fromCharCode(normalA + (code - boldA));
+            }
+            return ch;
+        });
+    }
+
+    function fetchAdminListFromGitHub() {
+        return new Promise((resolve, reject) => {
+            GM_xmlhttpRequest({
+                method: "GET",
+                url: URLADMIN,
+                onload: function (response) {
+                    try {
+                        const data = JSON.parse(response.responseText);
+                        const latestVersion = data.version;
+                        const admins = data.admins;
+
+                        const currentVersion = localStorage.getItem(VERSION_KEY);
+                        if (currentVersion !== latestVersion) {
+                            console.log("⬆️ New admin version found:", latestVersion);
+                            localStorage.setItem(LOCAL_KEY, JSON.stringify(admins));
+                            localStorage.setItem(VERSION_KEY, latestVersion);
+                            adminList = admins;
+                        } else {
+                            console.log("⏩ Admin list is up-to-date (version:", currentVersion + ")");
+                            adminList = JSON.parse(localStorage.getItem(LOCAL_KEY)) || [];
+                        }
+
+                        isAdminListReady = true; // Set ke true setelah data berhasil diolah
+                        console.log("%c👥 Daftar Admin Berhasil Dimuat:", "color: #fffa77; font-weight: bold;", adminList);
+                        resolve(adminList); // ✅ resolve setelah data siap
+                    } catch (e) {
+                        console.error("❌ Failed to parse remote admin list:", e);
+                        reject(e);
+                    }
+                },
+                onerror: function (err) {
+                    console.error("❌ Failed to load admin list from GitHub:", err);
+                    reject(err);
+                }
+            });
+        });
     }
 
 
-    // 1. Tambahkan parameter limitwaktu dengan nilai default 5
-    // Terima langsung objek 'artikels'
-    function isPostinganBaruRaw(artikels) {
-        const timestamp = parseInt(artikels.rawTime, 10);
-        const waktuPostMs = timestamp * 1000;
-        const waktuSekarangMs = Date.now();
 
-        // 1. Dapatkan selisih dalam milidetik murni
-        const selisihMs = waktuSekarangMs - waktuPostMs;
-        const selisihMenit = selisihMs / 60000;
 
-        // 2. Titipkan kedua nilainya ke dalam object
-        artikels.selisihMs = selisihMs; // Tambahan baru untuk ms
-        artikels.selisihTeks = selisihMenit.toFixed(1);
 
-        return selisihMenit >= 0 && selisihMenit < limitwaktu;
-    }
 
     function parsePost(artikels) {
-        const texts = (artikels.isiTeks || "").toLowerCase();
-        const author = (artikels.pemostingName || "").toLowerCase();
 
-        const isAdmins = isAdminFast(author);
+
+        const postingan = artikels.textContent || "";
+        const texts = postingan
+        const namafb = artikels.getElementsByTagName("span")[0];
+        const author = namafb?.textContent?.toLowerCase() || "";
+        const isadminer = artikels.querySelector("[data-focusable]");
+        const adminText = isadminer?.textContent?.toLowerCase() || "";
+        const isBaru = texts.includes("Baru saja") || texts.includes("Baru");
+        const isMenit = /\b[0-9]\s*menit\b/.test(texts);
+
+
+        const isAdmins = isAdminFast(author) || adminText.includes("admin") || adminText.includes("moderator");
         if (!isAdmins) return false;
-
-        // Kirim seluruh objek 'artikels', bukan cuma rawTime-nya
-        if (!isPostinganBaruRaw(artikels, 5)) return false;
-
-        if (CekBacklist(texts)) return false;
-        if (!CekKeyword(texts)) return false;
-
+        if (!(isBaru || isMenit)) return false;
+        if (CekBacklist(postingan.toLowerCase())) {
+            return false;
+        }
+        if (!CekKeyword(postingan.toLowerCase())) return false;
+        window.focus();
         return true;
     }
 
 
+    function parsePost2(artikels) {
+
+        const postingan = artikels.textContent || "";
+        const texts = postingan
+        const isBaru = texts.includes("Baru saja") || texts.includes("Baru");
+        const isMenit = /\b[0-9]\s*menit\b/.test(texts);
+
+        if (!(isBaru || isMenit)) return false;
+        if (CekBacklist(postingan.toLowerCase())) {
+            console.log("❌ ada Backlist")
+            return false;
+        }
+        if (!CekKeyword(postingan.toLowerCase())) return false;
+
+        return true;
+    }
 
 
     function CekBacklist(postinganBL) {
         for (const DataBacklist of Backlist) {
             const kata = DataBacklist.toLowerCase()
             if (postinganBL.toLowerCase().includes(kata)) {
-                cetakLog(`⚠️  Postingan di backlist ${postinganBL}`, 'info');
                 return true;
             }
         }
@@ -940,545 +454,757 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             .toLowerCase();
     }
 
+
+
     function isAdminFast(name) {
         const cleanedName = cleanName(name);
         return adminList.some(a => cleanedName.includes(cleanName(a)));
     }
 
 
+    function simulateHumanPullToRefresh(distance = 800) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    async function mintaData() {
-        presesmintadata = true;
-        initDynamicVars()
-        let fb_dtsg, scale;
-        try {
-            ({ fb_dtsg, scale } = await initDynamicVars());
-        } catch (error) {
-            console.error("[SKRIP KONSOL] Gagal mengambil variabel dinamis:", error);
-            presesmintadata = false;
-            return;
+        if (skiper || document.querySelector(".loading-overlay") || ceksimulasi == true) return;
+        ceksimulasi = true;
+        if (document.hidden) {
+            window.scrollTo(0, 0); // Scroll instan jika di background untuk efisiensi
+        } else {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         }
+        // Gunakan penamaan variabel yang sangat unik agar tidak bentrok
+        const _startX = window.innerWidth / 2;
+        const _startY = 150;
+        const _steps = 25;
+        const _duration = refresh;
+        const _identifier = Date.now();
 
-
-        const variables = {
-            "count": 3,
-            "cursor": null,
-            "feedLocation": "GROUP",
-            "feedType": "DISCUSSION",
-            "feedbackSource": 0,
-            "focusCommentID": null,
-            "privacySelectorRenderLocation": "COMET_STREAM",
-            "referringStoryRenderLocation": null,
-            "renderLocation": "group",
-            "scale": scale,
-            "sortingSetting": "CHRONOLOGICAL",
-            "stream_initial_count": 1,
-            "useDefaultActor": false,
-            "id": GROUP_ID,
-            "__relay_internal__pv__GHLShouldChangeAdIdFieldNamerelayprovider": true,
-            "__relay_internal__pv__GHLShouldChangeSponsoredDataFieldNamerelayprovider": true,
-            "__relay_internal__pv__CometFeedStory_enable_reactor_facepilerelayprovider": false,
-            "__relay_internal__pv__CometFeedStory_enable_social_bubblesrelayprovider": false,
-            "__relay_internal__pv__CometFeedStory_enable_post_permalink_white_space_clickrelayprovider": false,
-            "__relay_internal__pv__CometUFICommentActionLinksRewriteEnabledrelayprovider": false,
-            "__relay_internal__pv__CometUFICommentAvatarStickerAnimatedImagerelayprovider": false,
-            "__relay_internal__pv__IsWorkUserrelayprovider": false,
-            "__relay_internal__pv__TestPilotShouldIncludeDemoAdUseCaserelayprovider": false,
-            "__relay_internal__pv__FBReels_deprecate_short_form_video_context_gkrelayprovider": true,
-            "__relay_internal__pv__FBReels_enable_view_dubbed_audio_type_gkrelayprovider": true,
-            "__relay_internal__pv__CometFeedShareMedia_shouldPrefetchShareImagerelayprovider": false,
-            "__relay_internal__pv__CometImmersivePhotoCanUserDisable3DMotionrelayprovider": false,
-            "__relay_internal__pv__WorkCometIsEmployeeGKProviderrelayprovider": false,
-            "__relay_internal__pv__IsMergQAPollsrelayprovider": false,
-            "__relay_internal__pv__FBReelsMediaFooter_comet_enable_reels_ads_gkrelayprovider": true,
-            "__relay_internal__pv__CometUFIReactionsEnableShortNamerelayprovider": false,
-            "__relay_internal__pv__CometUFICommentAutoTranslationTyperelayprovider": "AUTO_TRANSLATE",
-            "__relay_internal__pv__CometUFIShareActionMigrationrelayprovider": true,
-            "__relay_internal__pv__CometUFISingleLineUFIrelayprovider": true,
-            "__relay_internal__pv__relay_provider_comet_ufi_ssr_seo_deferrelayprovider": true,
-            "__relay_internal__pv__CometUFI_dedicated_comment_routable_dialog_gkrelayprovider": true,
-            "__relay_internal__pv__ReelsIFUCard_reelsIFULikeCountrelayprovider": false,
-            "__relay_internal__pv__FBReelsIFUTileContent_reelsIFUPlayOnHoverrelayprovider": true,
-            "__relay_internal__pv__GroupsCometGYSJFeedItemHeightrelayprovider": 206,
-            "__relay_internal__pv__ShouldEnableBakedInTextStoriesrelayprovider": false,
-            "__relay_internal__pv__StoriesShouldIncludeFbNotesrelayprovider": true
-        };
-
-        const payload = new URLSearchParams();
-        payload.append('fb_dtsg', fb_dtsg);
-        payload.append('doc_id', PAGINATION_QUERY_DOC_ID);
-        payload.append('variables', JSON.stringify(variables));
-        payload.append('fb_api_caller_class', 'RelayModern');
-        payload.append('fb_api_req_friendly_name', 'GroupsCometFeedRegularStoriesPaginationQuery');
-        try {
-            const t0_Network = performance.now();
-            const response = await fetch('/api/graphql/', { // 1. URL ABSOLUT
-                method: 'POST',
-                mode: "same-origin",
-                credentials: 'include', // 2. WAJIB BAWA COOKIE LOGIN
-                keepalive: true,
-                headers: {
-                    // 3. HEADER WAJIB FACEBOOK RELAY
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'X-ASBD-ID': '129477', // Konstanta internal FB
-                    'X-FB-Friendly-Name': 'GroupsCometFeedRegularStoriesPaginationQuery'
-                },
-                body: payload, // Pastikan ini adalah URLSearchParams, BUKAN FormData
+        // 1. Fungsi pembantu untuk membuat Touch Event
+        const createTouchEvent = (type, x, y) => {
+            const touchObj = new Touch({
+                identifier: _identifier,
+                target: document.body,
+                clientX: x,
+                clientY: y,
+                pageY: y,
+                radiusX: 2.5,
+                radiusY: 2.5,
+                force: 0.5,
             });
 
-            console.log(`[SKRIP KONSOL] Permintaan selesai dengan status: ${response.status} ${response.statusText} `);
-
-            if (response.ok) {
-                let textResult = await response.text();
-                capturePcket2(textResult)
-                if (!textResult || textResult.trim() === "") {
-                    showToast('Minta data Error', 'error');
-                    return;
-                }
-                textResult = textResult.replace(/^for\s*\(\s*;\s*;\s*\)\s*;\s*/, '');
-
-                const lines = textResult.split('\n');
-
-                let result = null;
-                let node = null;
-
-                for (const line of lines) {
-                    if (!line.trim()) continue; // Lewati baris kosong
-
-                    try {
-                        const parsedLine = JSON.parse(line);
-                        if (parsedLine?.data?.node) {
-                            result = parsedLine;
-                            node = parsedLine.data.node;
-                            break; // Langsung hentikan pencarian jika sudah ketemu
-                        }
-                    } catch (err) {
-                        // Abaikan diam-diam jika ada baris yang memang bukan JSON
-                        continue;
-                    }
-                }
-
-                if (!node) {
-                    showToast('Data node tidak ditemukan', 'error');
-                    presesmintadata = false; // Reset flag jika data tidak ditemukan
-                    return;
-                }
-
-                // 6. Validasi struktur
-                const isGroup = node?.__typename === "Group";
-                const hasFeed = node?.group_feed?.edges || node?.group_member_feed?.edges;
-
-                if (isGroup && hasFeed) {
-                    cetakLog(`Respond  : Suksess`, 'success');
-                    presesmintadata = false; // Reset flag setelah berhasil
-                } else {
-                    showToast('minta data Error struktur bukan Group Feed', 'error');
-                    console.warn("%c[SKRIP KONSOL] GAGAL! HTTP Sukses, tapi struktur bukan Group Feed.", "color: orange; font-weight: bold;");
-                    console.warn("[SKRIP KONSOL] Detail Node yang ditangkap:", node);
-                }
-
-            }
-        } catch (error) {
-            showToast('Terjadi error saat memproses permintaan', 'error');
-            presesmintadata = false; // Reset flag jika terjadi error
-            console.error("%c[SKRIP KONSOL] GAGAL! Terjadi error saat memproses permintaan.", "color: red; font-weight: bold;", error);
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-    function showToast(message, type = 'success') {
-        // 1. Timpa CSS dengan desain model pertama (Dark Mode klasik)
-        let styleEl = document.getElementById('toast-styles');
-        if (!styleEl) {
-            styleEl = document.createElement('style');
-            styleEl.id = 'toast-styles';
-            document.head.appendChild(styleEl);
-        }
-
-        // PERBAIKAN FATAL: Seluruh spasi pada properti CSS dihapus
-        // Menggunakan z-index absolut tertinggi: 2147483647
-        styleEl.innerHTML = `
-        #toast-container { position: fixed; bottom: 5px; left: 5px; display: flex; flex-direction: column; gap: 10px; z-index: 2147483647; pointer-events: none; }
-        .toast {
-            font-size: 18px;
-            min-width: 300px;
-            padding: 20px 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            background-color: #333;
-            color: white;
-            font-family: Impact, fantasy;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            pointer-events: auto;
-        }
-        .toast.show { opacity: 1; transform: translateY(0); }
-        .toast.success { border-left: 10px solid #4CAF50; }
-        .toast.error { border-left: 10px solid #F44336; }
-        .toast.info { border-left: 10px solid #e8f800; }
-    `;
-
-        // 2. Buat kontainer jika belum ada
-        let container = document.getElementById('toast-container');
-        if (!container) {
-            const targetElement = document.body || document.documentElement;
-            targetElement.insertAdjacentHTML('beforeend', '<div id="toast-container"></div>');
-            container = document.getElementById('toast-container');
-        }
-
-        // 3. LOGIKA BATAS MAKSIMAL 5 TOAST
-        const activeToasts = container.querySelectorAll('.toast:not(.hiding)');
-
-        if (activeToasts.length >= 5) {
-            const oldestToast = activeToasts[0];
-            oldestToast.classList.add('hiding');
-            oldestToast.classList.remove('show');
-
-            setTimeout(() => {
-                oldestToast.remove();
-            }, 300);
-        }
-
-        // 4. Buat dan tampilkan toast baru (Perbaikan spasi ekstra pada class)
-        const toast = document.createElement('div');
-        toast.className = `toast ${type}`;
-        toast.innerText = message;
-
-        container.appendChild(toast);
-
-        // 5. Jalankan animasi masuk
-        setTimeout(() => toast.classList.add('show'), 10);
-
-
-    }
-
-
-
-
-
-
-
-
-
-    let templatePayload = new URLSearchParams();
-    let templateVariables = {};
-    function siapkanPeluruKomentar() {
-        let siteData = {};
-
-        try {
-            // Gunakan unsafeWindow untuk mengakses fungsi require bawaan Facebook dari dalam userscript
-            const fbRequire = (typeof unsafeWindow !== 'undefined') ? unsafeWindow.require : window.require;
-            if (fbRequire) {
-                siteData = fbRequire("SiteData");
-            }
-        } catch (e) {
-            console.warn("[SKRIP KOMENTAR] Gagal membaca SiteData secara dinamis, menggunakan data cadangan.");
-        }
-
-        let fb_dtsg, scale;
-        try {
-            ({ fb_dtsg, scale } = initDynamicVars());
-        } catch (error) {
-            console.error("[SKRIP KOMENTAR] Gagal mendapatkan fb_dtsg:", error);
-            return;
-        }
-        const mutationId = crypto.randomUUID();
-
-        // Parameter Identitas Utama
-        templatePayload.append('av', dataUser.__user); // Sesuai payload manual asli Anda
-        templatePayload.append('__user', dataUser.__user);
-        templatePayload.append('__a', '1');
-        templatePayload.append('__req', '1l'); // Menandakan alur request pertama/live
-
-        // Token & Keamanan
-        templatePayload.append('fb_dtsg', fb_dtsg);
-        templatePayload.append('jazoest', dataUser.jazoest);
-        templatePayload.append('lsd', tokenLSD);
-
-        // Metadata Halaman & Spin (Gunakan data terbaru atau fallback manual asli)
-        templatePayload.append('__hsi', siteData.hsi || dataUserdt?.e || '');
-        templatePayload.append('__spin_r', siteData.__spin_r || siteData.server_revision || '');
-        templatePayload.append('__spin_t', siteData.__spin_t || Math.floor(Date.now() / 1000).toString());
-        templatePayload.append('__spin_b', siteData.__spin_b || 'trunk');
-        // GraphQL Data
-        templatePayload.append('fb_api_caller_class', 'RelayModern');
-        templatePayload.append('fb_api_req_friendly_name', 'useCometUFICreateCommentMutation');
-        templatePayload.append('server_timestamps', 'true');
-
-
-        templateVariables = {
-            "feedLocation": "GROUP",
-            "feedbackSource": 0,
-            "input": {
-                "client_mutation_id": mutationId, // Biasanya bernilai kecil pendek di web asli
-                "attachments": null,
-                "formatting_style": null,
-                "message": {
-                    "ranges": [],
-                },
-                "attribution_id_v2": `CometGroupDiscussionRoot.react, comet.group, via_cold_start, ${Date.now()}, 529686, 2361831622,,`,
-                "vod_video_timestamp": null,
-                "is_tracking_encrypted": true, // WAJIB TRUE mengikuti payload asli manual
-                "tracking": [
-                    // Catatan: Jika gagal, isi array ini dengan string tracking asli yang kamu dapat dari DOM post tersebut
-                    "{\"assistant_caller\":\"comet_above_composer\",\"conversation_guide_session_id\":null,\"conversation_guide_shown\":null}"
-                ],
-                "feedback_source": "PROFILE",
-                "idempotence_token": `client:${crypto.randomUUID()}`,
-                "session_id": crypto.randomUUID()
-            },
-            "inviteShortLinkKey": null,
-            "renderLocation": null,
-            "scale": scale || 1,
-            "useDefaultActor": false,
-            "focusCommentID": null,
-            "translationType": "AUTO_TRANSLATE",
-            "canUseNicknameOnComet": false,
-            "__relay_internal__pv__groups_comet_use_glvrelayprovider": false,
-            "__relay_internal__pv__CometUFICommentActionLinksRewriteEnabledrelayprovider": false,
-            "__relay_internal__pv__CometUFICommentAvatarStickerAnimatedImagerelayprovider": false,
-            "__relay_internal__pv__IsWorkUserrelayprovider": false,
-            "__relay_internal__pv__CometUFICommentAutoTranslationTyperelayprovider": "AUTO_TRANSLATE"
+            return new TouchEvent(type, {
+                cancelable: true,
+                bubbles: true,
+                touches: [touchObj],
+                targetTouches: [touchObj],
+                changedTouches: [touchObj]
+            });
         };
 
+        // 2. Kirim Touch Start
+        document.dispatchEvent(createTouchEvent('touchstart', _startX, _startY));
+
+        // 3. Jalankan Gerakan Menarik (Interval)
+        // Gunakan MessageChannel sebagai pengganti setInterval untuk bypass background throttling
+        let _currentStep = 0;
+        const channel = new MessageChannel();
+
+        const stepLoop = () => {
+            _currentStep++;
+            const _currentY = _startY + (distance * (_currentStep / _steps));
+
+            document.dispatchEvent(createTouchEvent('touchmove', _startX, _currentY));
+
+            if (_currentStep < _steps) {
+                channel.port2.postMessage(null);
+            } else {
+                document.dispatchEvent(createTouchEvent('touchend', _startX, _currentY));
+                console.log("✅ Background Pull-to-Refresh Selesai.");
+            }
+        };
+
+        channel.port1.onmessage = stepLoop;
+        document.dispatchEvent(createTouchEvent('touchstart', _startX, _startY));
+        channel.port2.postMessage(null); // Mulai loop
+        ceksimulasi = false;
     }
 
-    var panggilanKomentar = false;
 
-    // Dibuat tanpa async di awal deklarasi utama jika memungkinkan, tapi tetap async untuk await response nanti
-    async function Komentari(A_TARGET_FEEDBACK_ID = "", A_doc_idkomentar = "", A_MEMBER_ID = "", A_COMMENT_TEXT = "", A_GROUP_ID = "") {
-        if (panggilanKomentar) {
-            console.warn("[SKRIP KOMENTAR] Panggilan komentar sudah berjalan.");
+
+
+
+    var obs4 = false;
+
+    function BOTMODE() {
+        if (obs4) return;
+        obs4 = true;
+        if (skiper) return;
+        var TXT_SELA = ".multi-line-floating-textbox, .internal-input";
+        var timble = false;
+        if (!botObserver) {
+            botObserver = new MutationObserver(async (mutationsList) => {
+
+                for (const mutation of mutationsList) {
+                    for (const node of mutation.addedNodes) {
+                        document.title = "Done"
+
+                        const descendants = document.querySelectorAll?.('[data-tracking-duration-id]');
+
+                        // Deteksi nama akun hanya jika belum terisi
+                        if (!NamaFb) {
+                            const placeholder = document.querySelector("[placeholder]")?.getAttribute("placeholder");
+                            if (placeholder && placeholder.includes("sebagai ")) {
+                                NamaFb = placeholder.split("sebagai ")[1].replace('...', '').trim();
+                            }
+                        }
+
+                        if (!descendants || commentDone) return;
+
+                        if (node.nodeType !== 1) continue;
+                        if (descendants) {
+                            for (let i = 0, len = descendants.length; i < len; i++) {
+                                var el = descendants[i]
+                                if (commentDone) return;
+                                const isUserPage = cekurlutama.includes("user");
+                                const isValid = isUserPage ? parsePost2(el) : parsePost(el);
+                                const textComponents = el.querySelectorAll('[data-type="text"]');
+                                if (isValid) {
+                                    skiper = true;
+                                    if (textComponents.length > 0) {
+                                        const target = textComponents[textComponents.length - 1];
+                                        if (target) {
+                                            // Spam klik 3 kali secara instan dengan event mouse lengkap agar trigger lebih pasti
+                                            skiper = true;
+                                            target.click();
+                                            console.time("Data Ditemukan Sampai Prosess")
+                                        }
+                                    }
+                                    return;
+                                }
+                            }
+                        }
+
+                    }
+                }
+            });
+
+            botObserver.observe(document.body, { childList: true, subtree: true });
+        }
+
+
+    }
+
+    // --- 2. BACKGROUND POLLER (Bypass Throttling) ---
+    const pollerChannel = new MessageChannel();
+    pollerChannel.port1.onmessage = () => { if (!commentDone) komentari(); };
+
+    const TXT_SEL = ".multi-line-floating-textbox, .internal-input";
+    const BTN_SEL = ".textbox-submit-button, [aria-label='Posting komentar']";
+
+
+    function handlePostSuccess() {
+        Promise.all([
+            GM.setValue("group_" + grouptToPost, true),
+            GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS)
+        ]).then(() => {
+            console.log("✅ SESSION SAVED");
+            setTimeout(() => {
+                const statusElements = document.querySelectorAll(
+                    '[aria-label*="posting" i], [aria-label*="mengirim" i], [aria-label*="ditolak" i], [aria-label*="menunggu" i]'
+                );
+                statusElements.forEach(statusEl => {
+                    const commentContainer = statusEl.closest('[data-mcomponent="MContainer"]');
+                    if (commentContainer) {
+                        const nameContainer = commentContainer.querySelector('div[data-mcomponent="TextArea"]');
+                        if (nameContainer) {
+                            NamaFb = nameContainer.textContent.trim();
+                            const statusTeks = statusEl.getAttribute('aria-label');
+                            sendToTelegram(`💥 Nama: ${NamaFb} Memposting tok Ora Kelar2 nang ${grouptToPost}`)
+                        }
+                    }
+                });
+            }, 12000);
+
+            setTimeout(() => {
+                location.href = "about:blank";
+            }, 20000);
+        });
+
+    }
+    var obs5 = false;
+    function komentari() {
+        if (obs5) return;
+        obs5 = true;
+        if (commentDone || !commentToPost) return;
+
+        if (!myObservere) {
+            myObservere = new MutationObserver((mutations) => {
+                for (const mutation of mutations) {
+                    for (const node of mutation.addedNodes) {
+
+                        if (commentDone || node.nodeType !== 1) continue;
+
+                        const textarea = document.querySelector(TXT_SEL);
+                        const sendBtn = document.querySelector(BTN_SEL);
+
+
+                        if (textarea && sendBtn) {
+
+                            commentDone = true;
+                            console.time("Kirim Komentar");
+                            if (nativeSetter) nativeSetter.call(textarea, commentToPost);
+                            else textarea.value = commentToPost;
+                            sendBtn.disabled = false;
+                            sendBtn.dispatchEvent(mDown);
+                            sendBtn.click();
+                            console.timeEnd("Kirim Komentar");
+                            console.timeEnd("Data Ditemukan Sampai Prosess")
+                            Blockafter()
+                            window.focus();
+                            if (window.runBypassTurbo) window.runBypassTurbo();
+                            handlePostSuccess();
+                            if (myObservere) { myObservere.disconnect(); myObservere = null; }
+                            if (botObserver) botObserver.disconnect();
+                            return true;
+                        }
+
+                    }
+                }
+            });
+            myObservere.observe(document.body, { childList: true, subtree: true });
+        }
+
+        // --- HEARTBEAT BACKGROUND ---
+        // MessageChannel melewati limitasi background throttling browser.
+        // Ini memastikan bot tetap melakukan polling re-check meski tab tidak aktif.
+        pollerChannel.port2.postMessage(null);
+    }
+
+    setInterval(async () => {
+        if (cekurlutama !== lastObservedUrl) {
+            const oldUrl = lastObservedUrl;
+            lastObservedUrl = cekurlutama
+            const isTargetPage = lastObservedUrl.includes("group") || lastObservedUrl.includes("user");
+            const wasTargetPage = oldUrl.includes("group") || oldUrl.includes("user");
+
+            if (isTargetPage) {
+                console.log("%c🔄 URL Berubah: Mencocokkan ulang commentToPost...", "color: #00ffff; font-weight: bold;");
+                await start()
+
+            } else if (wasTargetPage && !isTargetPage) {
+                // Jika meninggalkan halaman grup, hentikan aktivitas bot
+                commentToPost = "";
+                console.log("%c⏹️ Meninggalkan Halaman Target.", "color: #ff4444;");
+            }
+        }
+    }, 1000); // Cek setiap 1 detik (sangat ringan dibandingkan per-packet)
+
+
+    function MsgError(message) {
+        const notif = document.createElement("div");
+        notif.textContent = message;
+        notif.style.position = "fixed";
+        notif.style.bottom = "30px";
+        notif.style.left = "4px";
+        notif.style.padding = "10px 20px";
+        notif.style.backgroundColor = "green";
+        notif.style.color = "white";
+        notif.style.borderRadius = "5px";
+        notif.style.zIndex = 9999;
+        notif.style.fontSize = "16px";
+        document.body.appendChild(notif);
+        ;
+    }
+    async function cekMasalah() {
+        if (sudahkirim) return;
+        const dialog = document.querySelector("[role='dialog']");
+        if (!dialog) return;
+
+        const isi = dialog?.textContent?.toLowerCase() || "";
+        const cleanText = isi.trim();
+
+        if (isi.includes("masalah")) {
+            MsgError(SCRIPT_NAME)
+            if (masterObserver) masterObserver.disconnect();
+            adamasalah(cleanText);
+
+
+        }
+    }
+    window.runBypassTurbo = function () {
+        try {
+            const gwt = window.GWT || window.$gwt;
+            if (gwt) {
+                gwt.scheduleDeferred = (task) => {
+                    if (typeof task === 'function') task();
+                    else if (task && typeof task.execute === 'function') task.execute();
+                };
+                gwt.runAsync = (id, cb) => { if (cb && cb.onSuccess) cb.onSuccess(); };
+
+
+                if (typeof gwt.flushDeferredCommands === 'function') {
+                    gwt.flushDeferredCommands();
+                }
+            }
+            if (window.WebLitePipe && typeof window.WebLitePipe.setFlushComplete === 'function') {
+                window.WebLitePipe.setFlushComplete(0);
+            }
+            if (typeof window.FKc === "function") window.FKc = (a) => a;
+
+            const dispatcher = window.Dispatcher || window.AppDispatcher;
+            if (dispatcher && typeof dispatcher.flush === 'function') {
+                dispatcher.flush();
+            }
+
+            const logger = window.WebLiteClientLogger || window.MarauderLogger;
+            if (logger) logger.logEvent = () => null;
+
+            console.log("⚡ Turbo Triggered: Verifikasi dibypass & Socket dipaksa flush!");
+        } catch (e) {
+            console.error("⚠️ Turbo Error (Handled):", e);
+        }
+    };
+    async function cekMasalah2() {
+        if (sudahkirim) return;
+
+        const elem = document.querySelectorAll("[data-long-click-action-id]");
+        if (!elem || elem.length === 0) return;
+
+        const targetEl = Array.from(elem).find(el => el.textContent?.includes("Menunggu"));
+
+        if (targetEl) {
+            sudahkirim = true;
+            if (masterObserver) {
+                masterObserver.disconnect();
+            }
+
+            const text = targetEl.textContent;
+            const before = text.split("Menunggu")[0].trim() || "Seseorang";
+
+            MsgError(SCRIPT_NAME);
+            console.log(`⚠️ Masalah terdeteksi: Menunggu persetujuan ${before}`);
+
+            await sendToTelegram(`💩 Menunggu Persetujuan ${before}`);
+        }
+    }
+    async function cekLogout() {
+        try {
+
+            setTimeout(() => {
+                if (document.getElementsByTagName("div").length < 10) {
+                    sendToTelegram("?? Facebook BLANK.");
+                }
+            }, 2000)
+        } catch (e) {
+            console.warn("? Error saat cek logout:", e);
+        }
+    }
+    function Blockafter() {
+
+        const block = document.createElement('div');
+
+        // 2. Beri gaya yang mencolok dan posisi melayang (fixed)
+        block.style.width = '300px';
+        block.style.height = '300px';
+        block.style.backgroundColor = 'blue';
+        block.id = "babon-blocker";
+        block.style.position = 'fixed';
+        block.style.top = '0px';
+        block.style.left = '00px';
+        block.style.zIndex = '9999'; // Agar selalu di depan
+
+        // 3. Masukkan ke halaman
+        document.body.appendChild(block);
+
+    }
+    async function sendToTelegram(message) {
+
+        if (sudahkirim) return;
+        sudahkirim = true
+        const fullMessage = `👤 [${tekoprofile || 'Unknown'}]\n👤 [${NamaFb || 'Unknown'}]\n🤖 [${SCRIPT_NAME}]\n${message}`;
+        const normalizedMessage = normalizeText(fullMessage);
+
+        const lastSent = await GM.getValue("lastTelegramMessage", "");
+        const normalizedLast = normalizeText(lastSent);
+
+        const lastTime = await GM.getValue("lastTelegramTime", 0);
+        const now = Date.now();
+        const COOLDOWN = 5 * 60 * 1000;
+
+        const distance = levenshtein(normalizedMessage, normalizedLast);
+        const similarity = 1 - distance / Math.max(normalizedMessage.length, normalizedLast.length);
+
+        const SIMILARITY_THRESHOLD = 0.95;
+
+        if (similarity >= SIMILARITY_THRESHOLD && (now - lastTime < COOLDOWN)) {
+            console.log("?? Duplikat dicegah (mirip & <5 menit):", similarity);
             return;
         }
-        cetakLog(`⌯⌲ [ KIRIM KOMENTAR ]`, 'info');
+        // Membuat tombol inline dengan status awal "Kosong" (⬜)
+        const replyMarkup = JSON.stringify({
+            inline_keyboard: [[{ text: "⬜ Tandai Selesai", callback_data: "mark_checked" }]]
+        });
 
-        stopsemua = true;
-        panggilanKomentar = true;
-
-        // 1. Siapkan Payload Secepat Mungkin (Tanpa await atau fungsi eksternal yang berat)
-        templateVariables.groupID = A_GROUP_ID;
-        templateVariables.input.feedback_id = A_TARGET_FEEDBACK_ID;
-        templateVariables.input.message.text = A_COMMENT_TEXT;
-        templateVariables.input.client_mutation_id = crypto.randomUUID();
-        templateVariables.input.idempotence_token = `client:${crypto.randomUUID()}`;
-        templateVariables.input.session_id = crypto.randomUUID();
-
-        let payload = new URLSearchParams(templatePayload);
-        payload.set('doc_id', A_doc_idkomentar);
-        payload.set('variables', JSON.stringify(templateVariables));
-
-        // 2. TEMBAK SEKARANG JUGA! (Simpan promise-nya, jangan langsung di-await agar tidak memblokir timer)
-        const fetchPromise = fetch('/api/graphql/', {
-            method: 'POST',
-            mode: "cors",
-            credentials: 'include',
-            keepalive: true,
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-                "X-ASBD-ID": "129477",
-                "X-FB-Friendly-Name": "useCometUFICreateCommentMutation"
+        GM_xmlhttpRequest({
+            method: "GET",
+            url: `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(fullMessage)}&reply_markup=${encodeURIComponent(replyMarkup)}`,
+            onload: function (res) {
+                const response = JSON.parse(res.responseText);
+                if (response.ok) {
+                    console.log("✅ Pesan terkirim ke Telegram.");
+                    GM.setValue("lastTelegramMessage", fullMessage);
+                    GM.setValue("lastTelegramTime", now);
+                    GM.setValue("lastTelegramSame", now);
+                }
             },
-            body: payload,
-        });
-
-
-        try {
-            const response = await fetchPromise; // Sekarang kita tunggu hasil jaringannya
-            let textResult = await response.text();
-            textResult = textResult.replace(/^for\s*\(\s*;\s*;\s*\)\s*;\s*/, '');
-
-            const responseData = JSON.parse(textResult.split('\n')[0]);
-            console.log("[SKRIP KOMENTAR] Respons Mentah Server:", responseData);
-
-            if (responseData?.errors && responseData.errors.length > 0) {
-                cetakLog(`[ ❌ KOMENTAR DITOLAK ]`, 'warning');
-                cetakLog(`[ ❌ Akun Terblokir   ]`, 'warning');
-
-                console.error("[SKRIP KOMENTAR] KOMENTAR DITOLAK SERVER:", responseData.errors[0]?.summary || responseData.errors);
-                if (typeof showToast === "function") showToast('Komentar Diblokir oleh Facebook', 'error');
-            } else if (responseData?.data?.comment_create) {
-                cetakLog(`---------------------------------`, 'success');
-                cetakLog(`[ ✅ KOMENTAR BERHASIL TERKIRIM ]`, 'success');
-                cetakLog(`[ 🕑 WAKTU : ${Date.now()} ]`, 'success');
-                cetakLog(`[ 📨 ${A_COMMENT_TEXT} ]`, 'success');
-
-                console.log("%c[SKRIP KOMENTAR] KOMENTAR SUKSES MASUK!", "color: #00ff00; font-weight: bold;");
-                if (typeof showToast === "function") showToast('Komentar Berhasil Dikirim', 'success');
-            } else {
-                console.warn("[SKRIP KOMENTAR] PERINGATAN: Respons server tidak dikenali.", responseData);
-                cetakLog(`[ ⚠️ KOMENTAR TERKIRIM ]`, 'warning');
-                cetakLog(`[ ❓ RESPON TIDAK DI KETAHUI ]`, 'warning');
-                cetakLog(`[ SILAHKAN CEK AKUN FACEBOOK ]`, 'warning');
-
-
+            onerror: function (err) {
+                console.error("? Gagal kirim ke Telegram:", err);
             }
-
-            GM.setValue("group_" + grouptToPost, true);
-            GM.setValue("group_" + grouptToPost + "_expire", Date.now() + EXPIRATION_MS);
-
-        } catch (error) {
-            cetakLog(`[ 🚨 Function KOMENTAR Error ]`, 'error');
-            console.error("[SKRIP KOMENTAR] Terjadi error saat memproses fetch:", error);
-        } finally {
-        }
-    }
-
-    // Fungsi untuk menangkap/menunggu variabel dengan Promise
-    function waitForPaginationId() {
-        return new Promise((resolve) => {
-            const check = setInterval(() => {
-                // Di dalam setInterval(..., waktu) kamu:
-
-                try {
-                    const mod_komentar = require("useCometUFICreateCommentMutation_facebookRelayOperation")
-                    if (mod_komentar) {
-                        doc_idkomentar = mod_komentar;
-                    }
-                    const mod = require("GroupsCometFeedRegularStoriesPaginationQuery_facebookRelayOperation");
-                    // Cukup gunakan if (mod) untuk mengecek apakah datanya ada
-                    if (mod) {
-                        PAGINATION_QUERY_DOC_ID = mod;
-                        typevariable = "Grup";
-                        clearInterval(check);
-                        resolve(); // Melanjutkan ke baris berikutnya
-                        return; // PENTING: Hentikan fungsi di sini agar tidak mengeksekusi mod2
-                    }
-                } catch (e) {
-                    // Abaikan error diam-diam. Ini wajar jika modul belum dirender oleh Facebook.
-                }
-
-                try {
-                    const mod_komentar = require("useCometUFICreateCommentMutation_facebookRelayOperation")
-                    if (mod_komentar) {
-                        doc_idkomentar = mod_komentar;
-                    }
-                    const mod2 = require("ProfileCometContextualProfileGroupPostsFeedPaginationQuery_facebookRelayOperation");
-                    if (mod2) {
-                        PAGINATION_QUERY_DOC_ID = mod2;
-                        typevariable = "Profil";
-                        clearInterval(check);
-                        resolve();
-                        return;
-                    }
-                } catch (e) {
-                    // Abaikan error
-                }
-            }, 1000);
         });
     }
 
 
+    function normalizeText(text) {
+        return text
+            .trim()
+            .replace(/\s+/g, ' ')
+            .toLowerCase();
+    }
 
-    (async function () {
-        unsafeWindow.mintaData = mintaData;
-        unsafeWindow.Komentari = Komentari;
-        unsafeWindow.AmbildataKomentar = AmbildataKomentar;
+    function levenshtein(a, b) {
+        const matrix = Array.from({ length: b.length + 1 }, (_, i) => [i]);
+        for (let j = 1; j <= a.length; j++) matrix[0][j] = j;
+
+        for (let i = 1; i <= b.length; i++) {
+            for (let j = 1; j <= a.length; j++) {
+                if (b[i - 1] === a[j - 1]) {
+                    matrix[i][j] = matrix[i - 1][j - 1];
+                } else {
+                    matrix[i][j] = Math.min(
+                        matrix[i - 1][j - 1] + 1,
+                        matrix[i][j - 1] + 1,
+                        matrix[i - 1][j] + 1
+                    );
+                }
+            }
+        }
+        return matrix[b.length][a.length];
+    }
 
 
-        // 1. Ambil data dari GitHub secara paralel (ini tidak masalah bersamaan)
 
-        while (!groupName || !groupID) {
-            await otomatisEkstrakDataGrup();
-            if (!groupName || !groupID) {
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                console.log("[SKRIP KONSOL] groupName belum ada, mencoba lagi...");
+
+
+    async function manageGroups() {
+        if (window.isManaging) return;
+        window.isManaging = true;
+        const now = Date.now();
+        for (const { groupId, defaultValue } of groups) {
+            const key = `group_${groupId}`;
+            const expireKey = `${key}_expire`;
+            const expireAt = await GM.getValue(expireKey, 0);
+
+            console.log(`🔹 Grup: ${groupId} | now: ${now} | expireAt: ${expireAt}`);
+
+            if (now > expireAt) {
+                await GM.setValue(key, defaultValue);
+                await GM.setValue(expireKey, now + EXPIRATION_MS);
             }
         }
 
-        initDynamicVars()
-
-        var urlAsli = window.location.href;
-
-        // 1. Lakukan pencocokan (tampung dulu ke variabel, jangan langsung ditarik [1]-nya)
-        var matchUrl = urlAsli.match(/\/user\/(\d+)/);
-        var tek = require("CurrentUserInitialData").USER_ID
-        // 2. Cek apakah kecocokan berhasil ditemukan
-        if (tek) {
-            MEMBER_ID = tek; // Update global variabel
-        } else {
-            if (matchUrl) {
-                var memberId = matchUrl[1]; // Aman diambil karena matchUrl bukan null
-                console.log("✅ ID saja:", memberId);
-                MEMBER_ID = memberId; // Update global variabel
-            }
+        const groupKey = `group_${grouptToPost}`;
+        if (groupKey === "group_") {
+            window.isManaging = false;
+            return;
         }
+        const sudahKomentar = await GM.getValue(groupKey, false);
+        if (sudahKomentar) {
+            window.isManaging = false;
+            console.log(`Sudah Komentar  ${now}`)
+            location.href = "about:blank";
+            return;
+        }
+        window.isManaging = false;
+    }
 
 
+
+
+
+
+
+    async function start() {
+
+
+        // Mencegah inisialisasi jika bukan halaman target
+        if (!cekurlutama.includes("group") && !cekurlutama.includes("user")) return;
+
+        console.log("%c📡 Memulai sinkronisasi data...", "color: #00ffff; font-weight: bold;");
+
+        // Tunggu admin list dan group list (yang juga mengisi commentToPost) selesai
+        // Promise.all memastikan kedua proses berjalan secara paralel namun kita menunggu keduanya selesai
 
         await Promise.all([
-            fetchGroupsFromGitHub(),
             fetchAdminListFromGitHub(),
-            waitForPaginationId(),
-            manageGroups()
+            fetchGroupsFromGitHub(),
+            tungguGroupAsync()
+
         ]);
-        buatDashboardUI()
+        initMasterObserver();
 
-        console.log("[SKRIP KONSOL] Menunggu PAGINATION_QUERY_DOC_ID...");
-        console.log("[SKRIP KONSOL] PAGINATION_QUERY_DOC_ID siap:", PAGINATION_QUERY_DOC_ID);
+        // --- VALIDASI KETAT: Tunggu commentToPost benar-benar terisi sebelum lanjut ---
+        if (!commentToPost) {
+            console.log("%c⏳ Menunggu identitas grup terdeteksi untuk mengisi commentToPost...", "color: #ffa500;");
+            if (cekurlutama.includes("user")) {
+                const baseUrl = cekurlutama.split('/user/')[0];
+                document.location.href = baseUrl;
+            }
 
-
-        siapkanPeluruKomentar()
-        async function jalankanLooping() {
-            try {
-                // Jika sedang tidak ada proses, jalankan
-                if (presesmintadata == false && stopsemua == false) {
-                    await mintaData();
-                    cetakLog(`Send : Minta Data`, 'info');
+            while (!commentToPost) {
+                const res = getCommentForGroup();
+                if (res) {
+                    commentToPost = Random(res.comment);
+                    grouptToPost = res.groupName;
+                    window.commentToPost = commentToPost;
+                    await manageGroups()
+                    break;
                 }
-            } catch (error) {
-                console.error("Terjadi kesalahan saat meminta data:", error);
-                presesmintadata = false; // Pastikan kunci dibuka jika terjadi error
-            } finally {
-                setTimeout(jalankanLooping, 200);
+                await new Promise(r => setTimeout(r, 1000));
             }
         }
+        if (document.querySelector(".chrome-toast-profile")) {
+            tekoprofile = document.querySelector(".chrome-toast-profile").textContent || "";
+        }
+        console.log("%c✅ Inisialisasi Selesai. Data & Comment Siap: " + commentToPost, "color: #00ff00; font-weight: bold;");
+        console.log("url adalah " + cekurlutama)
+        // 1. Tunggu sampai document.body tersedia dan tidak dalam status 'loading'
+        while (document.readyState === 'loading') {
+            await new Promise(r => setTimeout(r, 100));
+        }
 
-        // Mulai jalankan
-        jalankanLooping();
+        // 2. Berikan jeda tambahan (Safety Buffer) sekitar 1.5 detik
+        // Agar engine internal Facebook selesai melakukan binding event listener
+        await new Promise(r => setTimeout(r, 1500));
+        console.log("%c🚀 Memulai Trigger Awal (Refresh)...", "color: #00ff00; font-weight: bold;");
 
+        // 1. Heartbeat Interaction: Klik/Refresh berkala agar proses tetap hidup
+
+
+        BOTMODE(); // Trigger manual pertama kali
+        komentari()
+        MsgError(SCRIPT_NAME)
+
+        const heartbeat = () => {
+            // 1. Berhenti jika postingan ditemukan atau proses komentar sudah selesai
+            if (commentDone || skiper) return;
+
+            if (Date.now() - now > 240000) {
+                refresh = 5000;
+                refreshNonUser = 5000;
+            }
+
+            // 2. Deteksi Perubahan: Cukup bandingkan ID postingan teratas.
+            // Karena setiap refresh ID akan berubah, ini cara tercepat untuk mendeteksi pembaruan data.
+            const isUserPage = cekurlutama.includes("user");
+            const JumlahKontent = document.querySelectorAll('[data-tracking-duration-id]').length;
+            if (isUserPage) {
+                // Metode User: Pantau atribut postingan (berubah saat Pull-to-Refresh)
+                const topPost1 = document.querySelector('[data-tracking-duration-id]');
+                currentFeedState = topPost1?.querySelector("[data-fd-action]")?.getAttribute("data-fd-action");
+                if (currentFeedState == lastRefreshFeedState) {
+                    setTimeout(heartbeat, refreshNonUser);
+                    return;
+                }
+            }
+
+            if (document.querySelector(".loading-overlay")) {
+                lastRefreshFeedState = "re"
+                setTimeout(heartbeat, refreshNonUser);
+                return;
+            }
+
+            if (isUserPage && JumlahKontent > 2) {
+                simulateHumanPullToRefresh();
+            } else {
+                const ikonTombolTarget = ['\u{f1953}', '\u{f3159}', 'URUTKAN'];
+                ikonTombolTarget.forEach(ikon => {
+                    klikTombolByText(ikon);
+                });
+            }
+
+            setTimeout(heartbeat, refreshNonUser);
+        };
+        heartbeat();
+    }
+
+
+    async function adamasalah(reason) {
+        console.log("[Sistem] Memulai proses pencarian...");
+
+        let targetElement = null;
+
+        try {
+            // 1. Cari semua tombol kontainer berbasis komponen Facebook
+            const buttons = document.querySelectorAll('div[role="button"][data-mcomponent="MContainer"]');
+
+            for (let btn of buttons) {
+                const img = btn.querySelector('img');
+
+                // Filter Utama: Pastikan ini tombol ber-gambar dari CDN Facebook
+                if (img && img.src && img.src.includes('fbcdn.net')) {
+
+                    // PERBAIKAN: Lompat ke parentElement dulu baru cari MContainer induknya.
+                    // Ini agar tidak terjebak di atribut data-mcomponent milik tombol itu sendiri.
+                    const postBoxContainer = btn.parentElement ? btn.parentElement.closest('[data-mcomponent="MContainer"]') : null;
+
+                    if (postBoxContainer) {
+                        const htmlKonten = postBoxContainer.innerHTML;
+
+                        // Cek apakah di dalam kotak kontainer besar ini terdapat teks kotak postingan
+                        if (htmlKonten.includes("Tulis")) {
+                            targetElement = btn; // Kunci target profil asli Anda!
+                            break;
+                        }
+                    }
+                }
+            }
+
+            // 2. Eksekusi klik jika tombol ditemukan
+            if (targetElement) {
+                console.log("%c[SUKSES] Tombol Profil dekat input 'Tulis Sesuatu' ditemukan. Mengklik...", "color: green; font-weight: bold;");
+                targetElement.focus();
+                targetElement.click();
+
+                // 3. Tunggu selama 3 detik agar halaman profil selesai loading
+                console.log("[Sistem] Menunggu halaman profil termuat (3 detik)...");
+                await new Promise(resolve => setTimeout(resolve, 5000));
+
+                // 4. Ambil data nama profil dengan aman (Anti-Error)
+                const screenRoot = document.querySelector("#screen-root");
+                if (screenRoot) {
+                    const h1Element = screenRoot.querySelector("h1[aria-label]");
+                    if (h1Element) {
+                        const namaProfil = h1Element.getAttribute("aria-label");
+                        NamaFb = namaProfil;
+                        console.log(`%c[BERHASIL] Nama ditemukan: ${NamaFb}`, "color: yellow; font-weight: bold;");
+                    } else {
+                        console.warn("[⚠️ INFO] Elemen h1[aria-label] belum muncul atau tidak ada.");
+                    }
+                } else {
+                    console.warn("[⚠️ INFO] Elemen #screen-root tidak ditemukan di halaman ini.");
+                }
+
+            } else {
+                console.warn("[GAGAL] Tombol profil di sebelah kotak 'Tulis sesuatu...' tidak ditemukan.");
+            }
+
+        } catch (error) {
+            console.error("[EROR TERBATASI] Terjadi kesalahan saat eksekusi:", error.message);
+        }
+
+        // Eksekusi fungsi Telegram dan Redirect
+        try {
+            await sendToTelegram(`😫 Ada "Masalah":\n\n${reason}`);
+        } catch (telError) {
+            console.error("[Telegram Error]", telError.message);
+        }
+
+        setTimeout(() => {
+            location.href = "https://m.facebook.com/bookmarks/";
+        }, 2000);
+    }
+
+
+    // --- 3. INITIALIZATION FLOW ---
+    (async () => {
+        const targetWindow = typeof unsafeWindow !== 'undefined' ? unsafeWindow : window;
+
+        function ambilDataWlsec() {
+            let targetUrl = "URL tidak ditemukan";
+
+            try {
+                if (targetWindow.__wlsec && targetWindow.__wlsec.json_struct) {
+                    const jsonStruct = JSON.parse(targetWindow.__wlsec.json_struct);
+                    targetUrl = jsonStruct?.requestedUrlFromWww || targetUrl;
+
+                    cekurlutama = targetUrl
+
+                    console.log("Berhasil mendapatkan URL:", cekurlutama);
+                    // Tulis kode kamu selanjutnya di sini setelah URL berhasil didapat
+                    // ...
+                    start()
+
+                    return true; // Hentikan perulangan jika berhasil
+                }
+            } catch (error) {
+                // Kita silent saja karena kita tahu ini akan sering terjadi di awal loading
+            }
+            return false;
+        }
+
+        // Lakukan pengecekan berkala setiap 500ms sampai datanya muncul
+        const intervalCek = setInterval(() => {
+            const sukses = ambilDataWlsec();
+            if (sukses) {
+                clearInterval(intervalCek); // Stop ngecek jika sudah ketemu
+            }
+        }, 500);
+
+        // Batasi pencarian maksimal 10 detik agar tidak membebani browser jika data memang tidak ada
+        setTimeout(() => {
+            clearInterval(intervalCek);
+        }, 10000);
+
+        let attempts = 0;
+        const interval = setInterval(() => {
+            attempts++;
+            const button = Array.from(document.querySelectorAll('div[role="button"][aria-label]'))
+                .find(el => {
+                    const label = el.getAttribute('aria-label')?.toLowerCase() || "";
+                    const isJoin = label.includes('gabung grup') || label.includes('join');
+                    const isDisabled = el.getAttribute('aria-disabled') === 'true';
+                    return isJoin && !label.includes('batalkan') && !isDisabled;
+                });
+
+
+            const keywords = ["tersisa", "banding", "permanen"];
+
+            const container = document.querySelector('[data-scrollable]');
+            if (!container) return;
+
+            const elements = container.querySelectorAll('[aria-label]');
+            let ariaLabelSebelumnya = null;
+            let ditemukan = false;
+
+            for (let i = 0; i < elements.length; i++) {
+                const currentLabel = elements[i].getAttribute('aria-label').toLowerCase();
+                const isMatch = keywords.some(keyword => currentLabel.includes(keyword));
+                if (isMatch) {
+                    ditemukan = true;
+                    if (i > 0) {
+                        ariaLabelSebelumnya = elements[i - 1].getAttribute('aria-label');
+                    } else {
+                        ariaLabelSebelumnya = "Cocok di elemen pertama, tidak ada elemen sebelumnya.";
+                    }
+                    break;
+                }
+            }
+            if (ditemukan) {
+                clearInterval(interval);
+                sendToTelegram(`👉 Nama: ${ariaLabelSebelumnya} Apes. Ajukan Banding`)
+            }
+
+            if (button && typeof button.click === 'function') {
+                if (button.textContent.includes("gabung") && !button.textContent.includes("batalkan")) {
+                    console.log('✅ Tombol ditemukan, klik sekarang...');
+                    button.click();
+                }
+            } else if (attempts >= 10) {
+                console.log('❌ Tombol tidak ditemukan setelah 10 kali percobaan. Berhenti.');
+                clearInterval(interval);
+            }
+        }, 2000); // Coba setiap 1 detik
     })();
-
 };
