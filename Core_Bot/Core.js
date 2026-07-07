@@ -129,7 +129,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     // Cek Aktivitas Terbaru (Hanya di halaman grup)
                     if (!commentDone && cekurlutama.includes("group")) {
                         const text = node.textContent || "";
-                        if (text.includes("Aktivitas terbaru")) {
+                        if (text.includes("Aktivitas terbaru")||text.includes("Aktivitas terkini")) {
                             const tombol = node.querySelectorAll("[role='button']");
                             if (tombol.length >= 2) {
                                 tombol.forEach(btn => {
@@ -140,7 +140,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                                         }
                                     } else {
                                         setTimeout(() => {
-                                            if (btn.textContent.includes("Aktivitas terbaru")) {
+                                            if (btn.textContent.includes("Aktivitas terbaru")||btn.textContent.includes("Aktivitas terkini")) {
                                                 btn.click();
                                                 countA = 0;
                                             }
