@@ -214,7 +214,11 @@ var tableCol3 = 42;
         const ui = document.createElement('div');
         ui.id = 'bot-ui-panel';
         ui.innerHTML = `
-            <div class="bot-header">🤖 Pragmatic Bot UI</div>
+            <div class="bot-header" id="bot-drag-handle" style="cursor: grab; display: flex; justify-content: space-between; align-items: center;">
+                <span style="flex: 1; text-align: center; margin-left: 15px;">🤖 Pragmatic Bot UI</span>
+                <span id="bot-minimize" style="cursor: pointer; font-size: 14px; font-weight: bold; padding: 0 5px;" title="Minimize">_</span>
+            </div>
+            <div id="bot-content-wrap">
             <div class="bot-row"><span class="bot-label">STATUS</span><span id="bot-status" class="bot-val bot-closed">WAITING</span></div>
             <div class="bot-row"><span class="bot-label">TABLE ID</span><span id="bot-table" class="bot-val" style="color: #00ffcc; font-size: 10px;">-</span></div>
             <div class="bot-row"><span class="bot-label">GAME ID</span><span id="bot-game" class="bot-val" style="color: #00ffcc; font-size: 10px;">-</span></div>
@@ -266,19 +270,20 @@ var tableCol3 = 42;
                     <div class="sb-col"><span class="sb-sub">COLUMN STREAK</span><span id="s-str-col" class="sb-val" style="color:#ef4444;">0</span></div>
                 </div>
             </div>
+            </div>
         `;
 
         const style = document.createElement('style');
         style.textContent = `
             #bot-ui-panel {
-                position: fixed; top: 20px; left: 20px; width: 220px;
+                position: fixed; top: 80px; right: 20px; width: 220px;
                 background: rgba(15, 23, 42, 0.85);
                 backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
                 border: 1px solid rgba(0, 255, 204, 0.2);
                 border-radius: 8px; padding: 10px; color: #fff;
                 font-family: 'Inter', 'Segoe UI', sans-serif;
                 z-index: 999999; box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
-                pointer-events: none; /* Klik tembus ke game */
+                pointer-events: auto; /* Bisa diklik agar bisa digeser */
             }
             .bot-header {
                 font-weight: 800; font-size: 11px; text-align: center;
@@ -312,6 +317,51 @@ var tableCol3 = 42;
             document.head.appendChild(style);
         };
         attachUI();
+
+        // --- DRAG & MINIMIZE LOGIC ---
+        const dragHandle = ui.querySelector('#bot-drag-handle');
+        const minBtn = ui.querySelector('#bot-minimize');
+        const contentWrap = ui.querySelector('#bot-content-wrap');
+
+        let isMinimized = false;
+        minBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isMinimized = !isMinimized;
+            contentWrap.style.display = isMinimized ? 'none' : 'block';
+            minBtn.textContent = isMinimized ? '□' : '_';
+        });
+
+        let isDragging = false, startX, startY, initialX, initialY;
+        
+        dragHandle.addEventListener('mousedown', (e) => {
+            if (e.target === minBtn) return;
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            const rect = ui.getBoundingClientRect();
+            initialX = rect.left;
+            initialY = rect.top;
+            dragHandle.style.cursor = 'grabbing';
+            e.preventDefault(); // Mencegah blok teks terblokir saat drag
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const dx = e.clientX - startX;
+            const dy = e.clientY - startY;
+            ui.style.left = (initialX + dx) + 'px';
+            ui.style.top = (initialY + dy) + 'px';
+            ui.style.bottom = 'auto'; // Hapus property asli
+            ui.style.right = 'auto';  // Hapus property asli
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                dragHandle.style.cursor = 'grab';
+            }
+        });
+        // -----------------------------
     }
     let uiEls = null;
     function updateUI(key, val, className = '') {
