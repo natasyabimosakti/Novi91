@@ -24,7 +24,20 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             }
         }, 100); // Heartbeat stabil menjaga status 'visible' palsu
     })();
-    var URLGROUP = `http://127.0.0.1:8080/${Comment18}.json`;
+
+
+
+    // Menentukan URL berdasarkan variabel global pasar (dari @require)
+    var baseURL = `http://127.0.0.1:8080/${Comment18}.json`;
+    var URLGROUP = baseURL;
+
+    if (typeof pasar !== 'undefined') {
+        if (pasar === "SG") {
+            URLGROUP = `http://127.0.0.1:8080/${Comment18}_SG.json`;
+        } else if (pasar === "SD") {
+            URLGROUP = `http://127.0.0.1:8080/${Comment18}_SD.json`;
+        }
+    }
     var keyword = ["ROOM", "R**M", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝗠𝗕𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
     var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
     var URLADMIN = "http://127.0.0.1:8080/Admin_group_Baru.json";
@@ -222,38 +235,57 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
     async function fetchGroupsFromGitHub() {
         return new Promise((resolve, reject) => {
-            GM_xmlhttpRequest({
-                method: "GET",
-                url: URLGROUP,
-                onload: function (response) {
-                    try {
-                        const data = JSON.parse(response.responseText);
-
-                        data.forEach((item) => {
-                            if (item.group && item.comment) {
-                                groupNames.push(normalizeToBasicLatin(item.group).toLowerCase());
-                                CommentList.push(item.comment);
-                            }
-                        });
-
-                        if (namagroup18 && Comment18) {
-                            groupNames.push(normalizeToBasicLatin(namagroup18).toLowerCase());
-                            CommentList.push(Comment18);
+            function loadGroup(urlToFetch) {
+                GM_xmlhttpRequest({
+                    method: "GET",
+                    url: urlToFetch,
+                    onload: function (response) {
+                        // Cek HTTP status code untuk fallback (contoh: 404 Not Found)
+                        if (response.status !== 200 && urlToFetch !== baseURL) {
+                            console.log("⚠️ Fallback ke baseURL karena " + urlToFetch + " tidak ditemukan.");
+                            return loadGroup(baseURL);
                         }
 
-                        console.log("✅ Group list berhasil diambil (GitHub + Lokal):", groupNames.length);
-                        resolve();
+                        try {
+                            const data = JSON.parse(response.responseText);
 
-                    } catch (e) {
-                        console.error("❌ Gagal parse JSON grup:", e);
-                        reject(e);
+                            data.forEach((item) => {
+                                if (item.group && item.comment) {
+                                    groupNames.push(normalizeToBasicLatin(item.group).toLowerCase());
+                                    CommentList.push(item.comment);
+                                }
+                            });
+
+                            if (namagroup18 && Comment18) {
+                                groupNames.push(normalizeToBasicLatin(namagroup18).toLowerCase());
+                                CommentList.push(Comment18);
+                            }
+
+                            console.log("✅ Group list berhasil diambil dari " + urlToFetch + ":", groupNames.length);
+                            resolve();
+
+                        } catch (e) {
+                            if (urlToFetch !== baseURL) {
+                                console.log("⚠️ JSON invalid dari " + urlToFetch + ", fallback ke baseURL.");
+                                return loadGroup(baseURL);
+                            }
+                            console.error("❌ Gagal parse JSON grup:", e);
+                            reject(e);
+                        }
+                    },
+                    onerror: function (err) {
+                        if (urlToFetch !== baseURL) {
+                            console.log("⚠️ Error jaringan dari " + urlToFetch + ", fallback ke baseURL.");
+                            return loadGroup(baseURL);
+                        }
+                        console.error("❌ Gagal ambil grup:", err);
+                        reject(err);
                     }
-                },
-                onerror: function (err) {
-                    console.error("❌ Gagal ambil grup dari GitHub:", err);
-                    reject(err);
-                }
-            });
+                });
+            }
+
+            // Mulai fetch dari URL utama
+            loadGroup(URLGROUP);
         });
     }
 
