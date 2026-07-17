@@ -68,7 +68,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     var observers = null
     var groups = [];
     var skiper = false;
-    var NamaFb = "";
     var now = Date.now();
     var EXPIRATION_MS = 5 * 60 * 1000;
     var currentFeedState = "";
@@ -585,12 +584,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                         const descendants = document.querySelectorAll?.('[data-tracking-duration-id]');
 
                         // Deteksi nama akun hanya jika belum terisi
-                        if (!NamaFb) {
-                            const placeholder = document.querySelector("[placeholder]")?.getAttribute("placeholder");
-                            if (placeholder && placeholder.includes("sebagai ")) {
-                                NamaFb = placeholder.split("sebagai ")[1].replace('...', '').trim();
-                            }
-                        }
+
 
                         if (!descendants || commentDone) return;
 
@@ -651,9 +645,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     if (commentContainer) {
                         const nameContainer = commentContainer.querySelector('div[data-mcomponent="TextArea"]');
                         if (nameContainer) {
-                            NamaFb = nameContainer.textContent.trim();
-                            const statusTeks = statusEl.getAttribute('aria-label');
-                            sendToTelegram(`💥 Nama: ${NamaFb} Memposting tok Ora Kelar2 nang ${grouptToPost}`)
+                            sendToTelegram(`💥 Nama:Memposting tok Ora Kelar2 nang ${grouptToPost}`)
                         }
                     }
                 });
@@ -851,10 +843,97 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         document.body.appendChild(block);
 
     }
+
+    function getFacebookName() {
+        var targetId = "";
+
+        const html = document.documentElement.innerHTML;
+
+        // Regex untuk mencari userid
+        const regexUserId = /"userid":(\d+)/;
+        const match = html.match(regexUserId);
+
+        if (match && match[1]) {
+            const userId = match[1];
+            console.log(`%c[Otomatis] Berhasil menemukan User ID: ${userId}`, 'color: #00ff00; font-weight: bold; font-size: 16px;');
+            targetId = userId
+        }
+        return new Promise((resolve, reject) => {
+            if (window.top !== window.self) {
+                reject("Berjalan di dalam iframe");
+                return;
+            }
+
+            const url = `https://www.facebook.com/profile.php?id=${targetId}`;
+            console.log(`[Script] 🔍 Memaksa cari via Desktop (www) untuk ID: ${targetId}...`);
+
+            GM_xmlhttpRequest({
+                method: "GET",
+                url: url,
+                withCredentials: true,
+                anonymous: false,
+                headers: {
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "navigate",
+                    "Upgrade-Insecure-Requests": "1"
+                },
+                onload: function (response) {
+                    if (response.status !== 200) {
+                        reject(`Gagal mengakses profil. Status: ${response.status}`);
+                        return;
+                    }
+
+                    const html = response.responseText;
+                    let userName = "";
+
+                    let jsonMatch = html.match(/"__(?:isProfile|typename)":"(?:User|Page)","name":"([^"]+)"/) ||
+                        html.match(/"name":"([^"]+)","__isProfile":"(?:User|Page)"/);
+                    if (jsonMatch) userName = jsonMatch[1];
+
+                    if (!userName || userName.trim() === "Facebook") {
+                        let metaMatch = html.match(/<meta property="og:title" content="([^"]+)"/i);
+                        if (metaMatch) userName = metaMatch[1];
+                    }
+
+                    if (!userName || userName.trim() === "Facebook") {
+                        let titleMatch = html.match(/<title>([\s\S]*?)<\/title>/i);
+                        if (titleMatch) userName = titleMatch[1];
+                    }
+
+                    if (userName) {
+                        try {
+                            userName = JSON.parse('"' + userName.replace(/"/g, '\\"') + '"');
+                        } catch (e) { }
+
+                        userName = userName.replace(/ \| Facebook$/i, '')
+                            .replace(/ - Facebook$/i, '')
+                            .trim();
+                    }
+
+                    if (!userName || userName === "Facebook" || userName.includes("Log in")) {
+                        reject("Gagal mendapatkan nama.");
+                    } else {
+                        // PENTING: Gunakan resolve() untuk menggantikan return
+                        resolve(userName);
+                    }
+                },
+                onerror: function (error) {
+                    reject(`Request Error: ${error}`);
+                }
+            });
+        });
+    }
+
+
+
     async function sendToTelegram(message) {
 
         if (sudahkirim) return;
         sudahkirim = true
+        const namaFB = await getFacebookName();
+
         const fullMessage = `👤 [${tekoprofile || 'Unknown'}]\n👤 [${NamaFb || 'Unknown'}]\n🤖 [${SCRIPT_NAME}]\n${message}`;
         const normalizedMessage = normalizeText(fullMessage);
 
@@ -1119,8 +1198,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     const h1Element = screenRoot.querySelector("h1[aria-label]");
                     if (h1Element) {
                         const namaProfil = h1Element.getAttribute("aria-label");
-                        NamaFb = namaProfil;
-                        console.log(`%c[BERHASIL] Nama ditemukan: ${NamaFb}`, "color: yellow; font-weight: bold;");
                     } else {
                         console.warn("[⚠️ INFO] Elemen h1[aria-label] belum muncul atau tidak ada.");
                     }
