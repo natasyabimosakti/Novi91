@@ -937,10 +937,10 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 timeout: 3000,
 
                 onload: function (response) {
-
+                    console.log("[kirimDataKeLokal] Status:", response.status, "Respon:", response.responseText);
                 },
-                onerror: function () {
-
+                onerror: function (err) {
+                    console.log("[kirimDataKeLokal] Error koneksi:", err);
                 },
                 ontimeout: function () {
                 },
@@ -1310,7 +1310,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 [SCRIPT_NAME]: NamaFbku
             }
         });
-
+        console.log(`✅ Berhasil ${ToastProfile} ${NamaFbku}`)
         let attempts = 0;
         const interval = setInterval(() => {
             attempts++;
