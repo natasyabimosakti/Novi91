@@ -857,7 +857,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         }
         return new Promise((resolve, reject) => {
             if (window.top !== window.self) {
-                reject("Berjalan di dalam iframe");
+                resolve("Unknown");
                 return;
             }
 
@@ -878,7 +878,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 },
                 onload: function (response) {
                     if (response.status !== 200) {
-                        reject(`Gagal mengakses profil. Status: ${response.status}`);
+                        console.warn(`Gagal mengakses profil. Status: ${response.status}`);
+                        resolve("Unknown");
                         return;
                     }
 
@@ -910,14 +911,16 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     }
 
                     if (!userName || userName === "Facebook" || userName.includes("Log in")) {
-                        reject("Gagal mendapatkan nama.");
+                        console.warn("Gagal mendapatkan nama.");
+                        resolve("Unknown");
                     } else {
                         // PENTING: Gunakan resolve() untuk menggantikan return
                         resolve(userName);
                     }
                 },
                 onerror: function (error) {
-                    reject(`Request Error: ${error}`);
+                    console.warn(`Request Error: ${error}`);
+                    resolve("Unknown");
                 }
             });
         });
@@ -949,11 +952,16 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         }
     }
 
-    async function sendToTelegram(message) {
-        var tekoprofile = "Group Baru"
+    async function sendToTelegram(message, forceAccountName = null) {
+        var tekoprofile = "Group Baru";
+    
         if (sudahkirim) return;
-        sudahkirim = true
-        const NamaFbku = await getFacebookName();
+        sudahkirim = true;
+        
+        let NamaFbku = forceAccountName;
+        if (!NamaFbku) {
+            NamaFbku = await getFacebookName();
+        }
 
         const fullMessage = `👤 [${tekoprofile || 'Unknown'}]\n👤 [${NamaFbku || 'Unknown'}]\n🤖 [${SCRIPT_NAME}]\n${message}`;
         const normalizedMessage = normalizeText(fullMessage);
@@ -1292,9 +1300,10 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             clearInterval(intervalCek);
         }, 10000);
         const NamaFbku = await getFacebookName();
+        let ToastProfile = "Group Baru";
         kirimDataKeLokal({
             "type": "Online",
-            "profile": "Group Baru",
+            "profile": ToastProfile,
             "account": {
                 [SCRIPT_NAME]: NamaFbku
             }
@@ -1314,10 +1323,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
             const keywords = ["tersisa", "banding", "permanen"];
 
-            const container = document.querySelector('[data-scrollable]');
-            if (!container) return;
-
-            const elements = container.querySelectorAll('[aria-label]');
+            const elements = document.querySelectorAll('[aria-label]');
             let ariaLabelSebelumnya = null;
             let ditemukan = false;
 
@@ -1329,14 +1335,16 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     if (i > 0) {
                         ariaLabelSebelumnya = elements[i - 1].getAttribute('aria-label');
                     } else {
-                        ariaLabelSebelumnya = "Cocok di elemen pertama, tidak ada elemen sebelumnya.";
+                        ariaLabelSebelumnya = "Cocok di elemen pertama";
                     }
                     break;
                 }
             }
             if (ditemukan) {
                 clearInterval(interval);
-                sendToTelegram(`👉 Nama: ${ariaLabelSebelumnya} Apes. Ajukan Banding`)
+                const pesanError = `👉 Apes. Ajukan Banding`;
+                sendToTelegram(pesanError, ariaLabelSebelumnya);
+                return; // Stop eksekusi agar tidak lanjut nge-klik tombol
             }
 
             if (button && typeof button.click === 'function') {
