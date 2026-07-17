@@ -1297,12 +1297,16 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         setTimeout(() => {
             clearInterval(intervalCek);
         }, 10000);
-        var ToastProfile = ""
-        if (document.querySelector(".chrome-toast-profile")) {
-            ToastProfile = document.querySelector(".chrome-toast-profile").textContent || "";
+        const NamaFbku = await getFacebookName();
+        let ToastProfile = "";
+        for (let i = 0; i < 15; i++) { // Tunggu maksimal 3 detik (15 x 200ms)
+            const toast = document.querySelector(".chrome-toast-profile");
+            if (toast && toast.textContent) {
+                ToastProfile = toast.textContent.trim();
+                break;
+            }
+            await new Promise(r => setTimeout(r, 300));
         }
-
-        const NamaFbku = await getFacebookName()
         kirimDataKeLokal({
             "type": "Online",
             "profile": ToastProfile,
