@@ -808,8 +808,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
             MsgError(SCRIPT_NAME);
             console.log(`⚠️ Masalah terdeteksi: Menunggu persetujuan ${before}`);
-
-            await sendToTelegram(`💩 Menunggu Persetujuan ${before}`);
         }
     }
     async function cekLogout() {
@@ -1247,7 +1245,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
         // Eksekusi fungsi Telegram dan Redirect
         try {
-            await sendToTelegram(`😫 Ada "Masalah":\n\n${reason}`);
+            await sendToTelegram(`😫 Ada "Masalah Coba Lagi"`);
         } catch (telError) {
             console.error("[Telegram Error]", telError.message);
         }
