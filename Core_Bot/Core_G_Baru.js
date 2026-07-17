@@ -950,11 +950,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     }
 
     async function sendToTelegram(message) {
-        var tekoprofile = ""
-        if (document.querySelector(".chrome-toast-profile")) {
-            tekoprofile = document.querySelector(".chrome-toast-profile").textContent || "";
-        }
-
+        var tekoprofile = "Group Baru"
         if (sudahkirim) return;
         sudahkirim = true
         const NamaFbku = await getFacebookName();
@@ -1296,18 +1292,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             clearInterval(intervalCek);
         }, 10000);
         const NamaFbku = await getFacebookName();
-        let ToastProfile = "";
-        for (let i = 0; i < 15; i++) { // Tunggu maksimal 3 detik (15 x 200ms)
-            const toast = document.querySelector(".chrome-toast-profile");
-            if (toast && toast.textContent) {
-                ToastProfile = toast.textContent.trim();
-                break;
-            }
-            await new Promise(r => setTimeout(r, 300));
-        }
         kirimDataKeLokal({
             "type": "Online",
-            "profile": ToastProfile,
+            "profile": "Group Baru",
             "account": {
                 [SCRIPT_NAME]: NamaFbku
             }
