@@ -72,7 +72,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     var EXPIRATION_MS = 5 * 60 * 1000;
     var currentFeedState = "";
     var cekurlutama = ""
-    var tekoprofile = ""
     var ceksimulasi = false;
     const fastOpts = { bubbles: true, cancelable: true };
     const mDown = new MouseEvent("mousedown", fastOpts);
@@ -926,17 +925,52 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         });
     }
 
+    function kirimDataKeLokal(payloadObj) {
+        try {
+            GM_xmlhttpRequest({
+                method: "POST",
+                url: "http://localhost:3000/api/data",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                data: JSON.stringify(payloadObj),
+                timeout: 3000,
 
+                onload: function (response) {
+
+                },
+                onerror: function () {
+
+                },
+                ontimeout: function () {
+                },
+                onabort: function () {
+                }
+            });
+        } catch (e) {
+        }
+    }
 
     async function sendToTelegram(message) {
+        var tekoprofile = ""
+        if (document.querySelector(".chrome-toast-profile")) {
+            tekoprofile = document.querySelector(".chrome-toast-profile").textContent || "";
+        }
 
         if (sudahkirim) return;
         sudahkirim = true
-        const namaFB = await getFacebookName();
+        const NamaFbku = await getFacebookName();
 
-        const fullMessage = `👤 [${tekoprofile || 'Unknown'}]\n👤 [${NamaFb || 'Unknown'}]\n🤖 [${SCRIPT_NAME}]\n${message}`;
+        const fullMessage = `👤 [${tekoprofile || 'Unknown'}]\n👤 [${NamaFbku || 'Unknown'}]\n🤖 [${SCRIPT_NAME}]\n${message}`;
         const normalizedMessage = normalizeText(fullMessage);
-
+        kirimDataKeLokal({
+            "type": "Error",
+            "profile": tekoprofile,
+            "account": {
+                [SCRIPT_NAME]: NamaFbku
+            },
+            "masalah": message
+        });
         const lastSent = await GM.getValue("lastTelegramMessage", "");
         const normalizedLast = normalizeText(lastSent);
 
@@ -1085,9 +1119,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 await new Promise(r => setTimeout(r, 1000));
             }
         }
-        if (document.querySelector(".chrome-toast-profile")) {
-            tekoprofile = document.querySelector(".chrome-toast-profile").textContent || "";
-        }
+
         console.log("%c✅ Inisialisasi Selesai. Data & Comment Siap: " + commentToPost, "color: #00ff00; font-weight: bold;");
         console.log("url adalah " + cekurlutama)
         // 1. Tunggu sampai document.body tersedia dan tidak dalam status 'loading'
@@ -1265,6 +1297,19 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         setTimeout(() => {
             clearInterval(intervalCek);
         }, 10000);
+        var ToastProfile = ""
+        if (document.querySelector(".chrome-toast-profile")) {
+            ToastProfile = document.querySelector(".chrome-toast-profile").textContent || "";
+        }
+
+        const NamaFbku = await getFacebookName()
+        kirimDataKeLokal({
+            "type": "Online",
+            "profile": ToastProfile,
+            "account": {
+                [SCRIPT_NAME]: NamaFbku
+            }
+        });
 
         let attempts = 0;
         const interval = setInterval(() => {
