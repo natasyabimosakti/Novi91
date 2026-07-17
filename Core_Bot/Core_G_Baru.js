@@ -72,7 +72,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     var EXPIRATION_MS = 5 * 60 * 1000;
     var currentFeedState = "";
     var cekurlutama = ""
-    var tekoprofile = ""
     var ceksimulasi = false;
     const fastOpts = { bubbles: true, cancelable: true };
     const mDown = new MouseEvent("mousedown", fastOpts);
@@ -809,8 +808,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
             MsgError(SCRIPT_NAME);
             console.log(`⚠️ Masalah terdeteksi: Menunggu persetujuan ${before}`);
-
-            await sendToTelegram(`💩 Menunggu Persetujuan ${before}`);
         }
     }
     async function cekLogout() {
@@ -926,17 +923,52 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         });
     }
 
+    function kirimDataKeLokal(payloadObj) {
+        try {
+            GM_xmlhttpRequest({
+                method: "POST",
+                url: "http://localhost:3000/api/data",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                data: JSON.stringify(payloadObj),
+                timeout: 3000,
 
+                onload: function (response) {
+                    console.log("[kirimDataKeLokal] Status:", response.status, "Respon:", response.responseText);
+                },
+                onerror: function (err) {
+                    console.log("[kirimDataKeLokal] Error koneksi:", err);
+                },
+                ontimeout: function () {
+                },
+                onabort: function () {
+                }
+            });
+        } catch (e) {
+        }
+    }
 
     async function sendToTelegram(message) {
+        var tekoprofile = ""
+        if (document.querySelector(".chrome-toast-profile")) {
+            tekoprofile = document.querySelector(".chrome-toast-profile").textContent || "";
+        }
 
         if (sudahkirim) return;
         sudahkirim = true
-        const namaFB = await getFacebookName();
+        const NamaFbku = await getFacebookName();
 
-        const fullMessage = `👤 [${tekoprofile || 'Unknown'}]\n👤 [${NamaFb || 'Unknown'}]\n🤖 [${SCRIPT_NAME}]\n${message}`;
+        const fullMessage = `👤 [${tekoprofile || 'Unknown'}]\n👤 [${NamaFbku || 'Unknown'}]\n🤖 [${SCRIPT_NAME}]\n${message}`;
         const normalizedMessage = normalizeText(fullMessage);
-
+        kirimDataKeLokal({
+            "type": "Error",
+            "profile": tekoprofile,
+            "account": {
+                [SCRIPT_NAME]: NamaFbku
+            },
+            "masalah": message
+        });
         const lastSent = await GM.getValue("lastTelegramMessage", "");
         const normalizedLast = normalizeText(lastSent);
 
@@ -1085,9 +1117,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 await new Promise(r => setTimeout(r, 1000));
             }
         }
-        if (document.querySelector(".chrome-toast-profile")) {
-            tekoprofile = document.querySelector(".chrome-toast-profile").textContent || "";
-        }
+
         console.log("%c✅ Inisialisasi Selesai. Data & Comment Siap: " + commentToPost, "color: #00ff00; font-weight: bold;");
         console.log("url adalah " + cekurlutama)
         // 1. Tunggu sampai document.body tersedia dan tidak dalam status 'loading'
@@ -1215,7 +1245,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
         // Eksekusi fungsi Telegram dan Redirect
         try {
-            await sendToTelegram(`😫 Ada "Masalah":\n\n${reason}`);
+            await sendToTelegram(`😫 Ada "Masalah Coba Lagi"`);
         } catch (telError) {
             console.error("[Telegram Error]", telError.message);
         }
@@ -1265,7 +1295,24 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         setTimeout(() => {
             clearInterval(intervalCek);
         }, 10000);
-
+        const NamaFbku = await getFacebookName();
+        let ToastProfile = "";
+        for (let i = 0; i < 15; i++) { // Tunggu maksimal 3 detik (15 x 200ms)
+            const toast = document.querySelector(".chrome-toast-profile");
+            if (toast && toast.textContent) {
+                ToastProfile = toast.textContent.trim();
+                break;
+            }
+            await new Promise(r => setTimeout(r, 300));
+        }
+        kirimDataKeLokal({
+            "type": "Online",
+            "profile": ToastProfile,
+            "account": {
+                [SCRIPT_NAME]: NamaFbku
+            }
+        });
+        console.log(`✅ Berhasil ${ToastProfile} ${NamaFbku}`)
         let attempts = 0;
         const interval = setInterval(() => {
             attempts++;
