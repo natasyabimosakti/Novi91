@@ -742,18 +742,31 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     }
     async function cekMasalah() {
         if (sudahkirim) return;
-        const dialog = document.querySelector("[role='dialog']");
-        if (!dialog) return;
+        let errorText = "";
 
-        const isi = dialog?.textContent?.toLowerCase() || "";
+        const dialog = document.querySelector("[role='dialog']");
+        if (dialog) {
+            errorText = dialog.textContent || "";
+        } else {
+            // Deteksi tampilan error baru Facebook (misal: tulisan "Ada Masalah" di tag h2)
+            const errorHeaders = document.querySelectorAll("h2, span");
+            for (const el of errorHeaders) {
+                if (el.textContent && el.textContent.toLowerCase().includes("ada masalah")) {
+                    errorText = el.parentElement ? el.parentElement.textContent : el.textContent;
+                    break;
+                }
+            }
+        }
+
+        if (!errorText) return;
+
+        const isi = errorText.toLowerCase();
         const cleanText = isi.trim();
 
         if (isi.includes("masalah")) {
             MsgError(SCRIPT_NAME)
             if (masterObserver) masterObserver.disconnect();
             adamasalah(cleanText);
-
-
         }
     }
     window.runBypassTurbo = function () {
@@ -953,11 +966,12 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     }
 
     async function sendToTelegram(message, forceAccountName = null) {
-        var tekoprofile = "Group Baru";
-    
+        var tekoprofile = "Group Baru"
+        
+
         if (sudahkirim) return;
         sudahkirim = true;
-        
+
         let NamaFbku = forceAccountName;
         if (!NamaFbku) {
             NamaFbku = await getFacebookName();
@@ -1256,7 +1270,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
         setTimeout(() => {
             location.href = "https://m.facebook.com/bookmarks/";
-        }, 2000);
+        }, 10000);
     }
 
 
@@ -1301,6 +1315,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         }, 10000);
         const NamaFbku = await getFacebookName();
         let ToastProfile = "Group Baru";
+
         kirimDataKeLokal({
             "type": "Online",
             "profile": ToastProfile,
