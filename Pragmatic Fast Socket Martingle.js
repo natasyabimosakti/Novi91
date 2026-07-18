@@ -332,7 +332,7 @@ var tableCol3 = 42;
         });
 
         let isDragging = false, startX, startY, initialX, initialY;
-        
+
         dragHandle.addEventListener('mousedown', (e) => {
             if (e.target === minBtn) return;
             isDragging = true;
@@ -544,13 +544,17 @@ var tableCol3 = 42;
         let betsXml = "";
         let betCount = 0;
 
+        const fiboSteps = [5, 5, 10, 15, 25, 40, 65, 105, 210, 420, 840, 1680];
+
         for (let key in window.BetModels) {
             let m = window.BetModels[key];
             if (m.active && m.code) {
-                let amt = startBet * Math.pow(2, m.step);
+                let currentStepVal = (m.step < fiboSteps.length) ? fiboSteps[m.step] : fiboSteps[fiboSteps.length - 1];
+                let amt = currentStepVal * 1000;
+                
                 betsXml += `<bet amt="${amt}" bc="${m.code}" ck="${ts}"/>`;
                 betCount++;
-                console.log(`%c[BOT] MENYIAPKAN BET: ${m.name} | Amount: ${amt} | Code: ${m.code}`, 'color:#a855f7;font-weight:bold;');
+                console.log(`%c[BOT] MENYIAPKAN BET: ${m.name} | Step: ${m.step} | Amount: ${amt} | Code: ${m.code}`, 'color:#a855f7;font-weight:bold;');
             }
         }
 
