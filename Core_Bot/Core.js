@@ -38,6 +38,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             URLGROUP = `http://127.0.0.1:8080/${Comment18}_SD.json`;
         }
     }
+    var nama_FB_Global = "Unknown"
     var keyword = ["ROOM", "R**M", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝗠𝗕𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
     var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
     var URLADMIN = "http://127.0.0.1:8080/Admin_group_Baru.json";
@@ -744,30 +745,38 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         if (sudahkirim) return;
         let errorText = "";
 
-        const dialog = document.querySelector("[role='dialog']");
-        if (dialog) {
-            errorText = dialog.textContent || "";
-        } else {
-            // Deteksi tampilan error baru Facebook (misal: tulisan "Ada Masalah" di tag h2)
-            const errorHeaders = document.querySelectorAll("h2, span");
+        // 1. Cek SEMUA dialog (Karena FB sering punya dialog tersembunyi/loading)
+        const dialogs = document.querySelectorAll("[role='dialog']");
+        for (const dialog of dialogs) {
+            const text = dialog.textContent ? dialog.textContent.toLowerCase() : "";
+            if (text.includes("masalah") && text.includes("coba lagi")) {
+                errorText = text;
+                break;
+            }
+        }
+
+        // 2. Fallback deteksi via H2 jika cara di atas gagal
+        if (!errorText) {
+            const errorHeaders = document.querySelectorAll("h2");
             for (const el of errorHeaders) {
-                if (el.textContent && el.textContent.toLowerCase().includes("ada masalah")) {
-                    errorText = el.parentElement ? el.parentElement.textContent : el.textContent;
-                    break;
+                const text = el.textContent ? el.textContent.toLowerCase() : "";
+                if (text.includes("ada masalah")) {
+                    const parentText = el.parentElement ? el.parentElement.textContent.toLowerCase() : text;
+                    if (parentText.includes("coba lagi")) {
+                        errorText = parentText;
+                        break;
+                    }
                 }
             }
         }
 
         if (!errorText) return;
 
-        const isi = errorText.toLowerCase();
-        const cleanText = isi.trim();
+        const cleanText = errorText.trim();
 
-        if (isi.includes("masalah")) {
-            MsgError(SCRIPT_NAME)
-            if (masterObserver) masterObserver.disconnect();
-            adamasalah(cleanText);
-        }
+        MsgError(SCRIPT_NAME)
+        if (masterObserver) masterObserver.disconnect();
+        adamasalah(cleanText);
     }
     window.runBypassTurbo = function () {
         try {
@@ -966,17 +975,16 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     }
 
     async function sendToTelegram(message, forceAccountName = null) {
-        var tekoprofile = ""
-        if (document.querySelector(".chrome-toast-profile")) {
-            tekoprofile = document.querySelector(".chrome-toast-profile").textContent || "";
-        }
+        var tekoprofile = "Group Baru"
+
 
         if (sudahkirim) return;
         sudahkirim = true;
 
-        let NamaFbku = forceAccountName;
+        let NamaFbku = forceAccountName || nama_FB_Global;
         if (!NamaFbku) {
             NamaFbku = await getFacebookName();
+            nama_FB_Global = NamaFbku;
         }
 
         const fullMessage = `👤 [${tekoprofile || 'Unknown'}]\n👤 [${NamaFbku || 'Unknown'}]\n🤖 [${SCRIPT_NAME}]\n${message}`;
@@ -1189,6 +1197,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             if (isUserPage && JumlahKontent > 2) {
                 simulateHumanPullToRefresh();
             } else {
+                // HAPUS OBFUSCATE (unicode \u{f1953}, dsb) karena sangat rawan berubah.
+                // Gunakan teks native yang selalu ada di FB Lite.
                 const ikonTombolTarget = ['\u{f1953}', '\u{f3159}', 'URUTKAN'];
                 ikonTombolTarget.forEach(ikon => {
                     klikTombolByText(ikon);
@@ -1256,24 +1266,16 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         setTimeout(() => {
             clearInterval(intervalCek);
         }, 10000);
-        const NamaFbku = await getFacebookName();
-        let ToastProfile = "";
-        for (let i = 0; i < 15; i++) { // Tunggu maksimal 3 detik (15 x 200ms)
-            const toast = document.querySelector(".chrome-toast-profile");
-            if (toast && toast.textContent) {
-                ToastProfile = toast.textContent.trim();
-                break;
-            }
-            await new Promise(r => setTimeout(r, 300));
-        }
+        nama_FB_Global = await getFacebookName();
+        let ToastProfile = "Group Baru";
         kirimDataKeLokal({
             "type": "Online",
             "profile": ToastProfile,
             "account": {
-                [SCRIPT_NAME]: NamaFbku
+                [SCRIPT_NAME]: nama_FB_Global
             }
         });
-        console.log(`✅ Berhasil ${ToastProfile} ${NamaFbku}`)
+        console.log(`✅ Berhasil ${ToastProfile} ${nama_FB_Global}`)
         let attempts = 0;
         const interval = setInterval(() => {
             attempts++;
