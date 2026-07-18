@@ -967,7 +967,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
     async function sendToTelegram(message, forceAccountName = null) {
         var tekoprofile = "Group Baru"
-        
+
 
         if (sudahkirim) return;
         sudahkirim = true;
@@ -1200,68 +1200,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
 
     async function adamasalah(reason) {
-        console.log("[Sistem] Memulai proses pencarian...");
+        console.log("[Sistem] Mengirim laporan error 'Ada Masalah' ke Telegram...");
 
-        let targetElement = null;
-
-        try {
-            // 1. Cari semua tombol kontainer berbasis komponen Facebook
-            const buttons = document.querySelectorAll('div[role="button"][data-mcomponent="MContainer"]');
-
-            for (let btn of buttons) {
-                const img = btn.querySelector('img');
-
-                // Filter Utama: Pastikan ini tombol ber-gambar dari CDN Facebook
-                if (img && img.src && img.src.includes('fbcdn.net')) {
-
-                    // PERBAIKAN: Lompat ke parentElement dulu baru cari MContainer induknya.
-                    // Ini agar tidak terjebak di atribut data-mcomponent milik tombol itu sendiri.
-                    const postBoxContainer = btn.parentElement ? btn.parentElement.closest('[data-mcomponent="MContainer"]') : null;
-
-                    if (postBoxContainer) {
-                        const htmlKonten = postBoxContainer.innerHTML;
-
-                        // Cek apakah di dalam kotak kontainer besar ini terdapat teks kotak postingan
-                        if (htmlKonten.includes("Tulis")) {
-                            targetElement = btn; // Kunci target profil asli Anda!
-                            break;
-                        }
-                    }
-                }
-            }
-
-            // 2. Eksekusi klik jika tombol ditemukan
-            if (targetElement) {
-                console.log("%c[SUKSES] Tombol Profil dekat input 'Tulis Sesuatu' ditemukan. Mengklik...", "color: green; font-weight: bold;");
-                targetElement.focus();
-                targetElement.click();
-
-                // 3. Tunggu selama 3 detik agar halaman profil selesai loading
-                console.log("[Sistem] Menunggu halaman profil termuat (3 detik)...");
-                await new Promise(resolve => setTimeout(resolve, 5000));
-
-                // 4. Ambil data nama profil dengan aman (Anti-Error)
-                const screenRoot = document.querySelector("#screen-root");
-                if (screenRoot) {
-                    const h1Element = screenRoot.querySelector("h1[aria-label]");
-                    if (h1Element) {
-                        const namaProfil = h1Element.getAttribute("aria-label");
-                    } else {
-                        console.warn("[⚠️ INFO] Elemen h1[aria-label] belum muncul atau tidak ada.");
-                    }
-                } else {
-                    console.warn("[⚠️ INFO] Elemen #screen-root tidak ditemukan di halaman ini.");
-                }
-
-            } else {
-                console.warn("[GAGAL] Tombol profil di sebelah kotak 'Tulis sesuatu...' tidak ditemukan.");
-            }
-
-        } catch (error) {
-            console.error("[EROR TERBATASI] Terjadi kesalahan saat eksekusi:", error.message);
-        }
-
-        // Eksekusi fungsi Telegram dan Redirect
+        // Eksekusi fungsi Telegram (sendToTelegram akan otomatis memanggil getFacebookName jika nama kosong)
         try {
             await sendToTelegram(`😫 Ada "Masalah Coba Lagi"`);
         } catch (telError) {
@@ -1315,7 +1256,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         }, 10000);
         const NamaFbku = await getFacebookName();
         let ToastProfile = "Group Baru";
-
         kirimDataKeLokal({
             "type": "Online",
             "profile": ToastProfile,
