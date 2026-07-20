@@ -20,6 +20,8 @@ var tableDozen3 = 45;
 var tableCol1 = 40;
 var tableCol2 = 41;
 var tableCol3 = 42;
+var fiboSteps = [5, 5, 10, 15, 25, 40, 65, 105, 210, 420, 840, 1680];
+
 (function () {
     'use strict';
     async function bypassClick(el) {
@@ -352,7 +354,7 @@ var tableCol3 = 42;
             ui.style.left = (initialX + dx) + 'px';
             ui.style.top = (initialY + dy) + 'px';
             ui.style.bottom = 'auto'; // Hapus property asli
-            ui.style.right = 'auto';  // Hapus property asli
+            ui.style.right = 'auto'; // Hapus property asli
         });
 
         window.addEventListener('mouseup', () => {
@@ -544,7 +546,6 @@ var tableCol3 = 42;
         let betsXml = "";
         let betCount = 0;
 
-        const fiboSteps = [5, 5, 10, 15, 25, 40, 65, 105, 210, 420, 840, 1680];
 
         for (let key in window.BetModels) {
             let m = window.BetModels[key];
