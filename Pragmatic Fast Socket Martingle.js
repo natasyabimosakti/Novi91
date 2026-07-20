@@ -551,7 +551,7 @@ var tableCol3 = 42;
             if (m.active && m.code) {
                 let currentStepVal = (m.step < fiboSteps.length) ? fiboSteps[m.step] : fiboSteps[fiboSteps.length - 1];
                 let amt = currentStepVal * 1000;
-                
+
                 betsXml += `<bet amt="${amt}" bc="${m.code}" ck="${ts}"/>`;
                 betCount++;
                 console.log(`%c[BOT] MENYIAPKAN BET: ${m.name} | Step: ${m.step} | Amount: ${amt} | Code: ${m.code}`, 'color:#a855f7;font-weight:bold;');
