@@ -1267,7 +1267,15 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             clearInterval(intervalCek);
         }, 10000);
         nama_FB_Global = await getFacebookName();
-        let ToastProfile = "Group Baru";
+        let ToastProfile = "";
+        for (let i = 0; i < 15; i++) { // Tunggu maksimal 3 detik (15 x 200ms)
+            const toast = document.querySelector(".chrome-toast-profile");
+            if (toast && toast.textContent) {
+                ToastProfile = toast.textContent.trim();
+                break;
+            }
+            await new Promise(r => setTimeout(r, 300));
+        }
         kirimDataKeLokal({
             "type": "Online",
             "profile": ToastProfile,
@@ -1307,10 +1315,19 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     break;
                 }
             }
+            const isAgeRestricted = document.body.innerText.includes("usia 18+");
+
+            if (isAgeRestricted) {
+                clearInterval(interval);
+                const pesanError = `Batasan Usia 18+, Facebook ini Tidak dapat di gunakan`;
+                sendToTelegram(pesanError, ariaLabelSebelumnya);
+                return; // Stop eksekusi agar tidak lanjut nge-klik tombol
+            }
+
             if (ditemukan) {
                 clearInterval(interval);
                 const pesanError = `👉 Apes. Ajukan Banding`;
-                sendToTelegram(pesanError, ariaLabelSebelumnya);
+                sendToTelegram(pesanError);
                 return; // Stop eksekusi agar tidak lanjut nge-klik tombol
             }
 
