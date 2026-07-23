@@ -1267,15 +1267,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             clearInterval(intervalCek);
         }, 10000);
         nama_FB_Global = await getFacebookName();
-        let ToastProfile = "";
-        for (let i = 0; i < 15; i++) { // Tunggu maksimal 3 detik (15 x 200ms)
-            const toast = document.querySelector(".chrome-toast-profile");
-            if (toast && toast.textContent) {
-                ToastProfile = toast.textContent.trim();
-                break;
-            }
-            await new Promise(r => setTimeout(r, 300));
-        }
+        let ToastProfile = "Group Baru";
         kirimDataKeLokal({
             "type": "Online",
             "profile": ToastProfile,
