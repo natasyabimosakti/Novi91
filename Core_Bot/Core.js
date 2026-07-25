@@ -423,7 +423,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         const isadminer = artikels.querySelector("[data-focusable]");
         const adminText = isadminer?.textContent?.toLowerCase() || "";
         const isBaru = texts.includes("Baru saja") || texts.includes("Baru");
-        const isMenit = /\b[0-9]\s*menit\b/.test(texts);
+        const isMenit = /\b(?:[0-9]|1[0-5])\s*menit\b/.test(texts);
 
 
         const isAdmins = isAdminFast(author) || adminText.includes("admin") || adminText.includes("moderator");
@@ -443,7 +443,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         const postingan = artikels.textContent || "";
         const texts = postingan
         const isBaru = texts.includes("Baru saja") || texts.includes("Baru");
-        const isMenit = /\b[0-9]\s*menit\b/.test(texts);
+        const isMenit = /\b(?:[0-9]|1[0-5])\s*menit\b/.test(texts);
 
         if (!(isBaru || isMenit)) return false;
         if (CekBacklist(postingan.toLowerCase())) {
