@@ -1298,7 +1298,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 });
 
 
-            const keywords = ["banding"];
+            const keywords = ["permanent", "menangguhkan", "Ajukan Banding"];
 
             const elements = document.querySelectorAll('[aria-label]');
             let ariaLabelSebelumnya = null;
