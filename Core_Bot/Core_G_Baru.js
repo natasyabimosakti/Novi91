@@ -584,7 +584,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                         const descendants = document.querySelectorAll?.('[data-tracking-duration-id]');
 
                         // Deteksi nama akun hanya jika belum terisi
-
+                        if (document.querySelectorAll('[aria-label="Lain kali"]')[0]) {
+                            document.querySelectorAll('[aria-label="Lain kali"]')[0].click();
+                        }
 
                         if (!descendants || commentDone) return;
 
