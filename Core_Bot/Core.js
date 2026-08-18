@@ -2,7 +2,7 @@
 window.initBabonLogic = function (namagroup19, Comment19) {
 
 
-    // --- 1. ANTI-THROTTLE & KEEP-ALIVE (Solusi Tab Background) ---
+    // --- 1. ANTI-THROTTLE & KEEP-ALIVE (Solusi Tab Background) ---a
     (function () {
         // Memaksa properti visibility agar selalu 'visible'
         Object.defineProperty(document, 'visibilityState', { value: 'visible', writable: true });
@@ -42,7 +42,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
     var keyword = ["P4S4RAN", "P4S4RAN SGP", "PASARAN SDY", "T-BAK", "ROOM", "R**M", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝗠𝗕𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
     var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
     var URLADMIN = "http://127.0.0.1:8080/Admin_group_Baru.json";
-    var TELEGRAM_TOKEN = '8841941027:AAGt1LTI8GCVAOb2EAQzaQTP33n-qJTrFa4';
+    var TELEGRAM_TOKEN = '8841941027:-qJTrFa4';
     var TELEGRAM_CHAT_ID = '-1002717306025';
     let adminList = [];
     var SCRIPT_NAME = Comment19
@@ -255,7 +255,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                                 }
                             });
 
-                            if ( && Comment19) {
+                            if (namagroup19 && Comment19) {
                                 groupNames.push(normalizeToBasicLatin(namagroup19).toLowerCase());
                                 CommentList.push(Comment19);
                             }
@@ -587,7 +587,6 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                         if (document.querySelectorAll('[aria-label="Lain kali"]')[0]) {
                             document.querySelectorAll('[aria-label="Lain kali"]')[0].click();
                         }
-
                         if (!descendants || commentDone) return;
 
                         if (node.nodeType !== 1) continue;
@@ -954,7 +953,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         try {
             GM_xmlhttpRequest({
                 method: "POST",
-                url: "http://localhost:3000/api/data",
+                url: "http://localhost:3001/api/data",
                 headers: {
                     "Content-Type": "application/json"
                 },
