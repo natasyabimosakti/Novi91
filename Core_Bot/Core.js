@@ -47,8 +47,8 @@ window.initBabonLogic = function (namagroup19, Comment19) {
     let adminList = [];
     var SCRIPT_NAME = Comment19
     let isAdminListReady = false; // Flag penanda kesiapan data
-    var refresh = 500; // Percepat durasi animasi tarik layar agar selesai dalam 200ms
-    var refreshNonUser = 500;
+    var refresh = 300; // Percepat durasi animasi tarik layar agar selesai dalam 200ms
+    var refreshNonUser = 300;
     let commentDone = false; // Flag untuk menghentikan aksi jika bot sudah selesai bertugas
     let lastRefreshFeedState = "20"; // Menyimpan ID postingan terakhir untuk mendeteksi perubahan feed
     let lastObservedUrl = location.href;
@@ -493,7 +493,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
     }
 
 
-    function simulateHumanPullToRefresh(distance = 800) {
+    function simulateHumanPullToRefresh(distance = 700) {
 
         if (skiper || document.querySelector(".loading-overlay") || ceksimulasi == true) return;
         ceksimulasi = true;
