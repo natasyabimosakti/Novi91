@@ -1323,7 +1323,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             if (isAgeRestricted) {
                 clearInterval(interval);
                 const pesanError = `Batasan Usia 18+, Facebook ini Tidak dapat di gunakan`;
-                sendToTelegram(pesanError, ariaLabelSebelumnya);
+                sendToTelegram(pesanError);
                 return; // Stop eksekusi agar tidak lanjut nge-klik tombol
             }
 
