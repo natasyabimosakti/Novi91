@@ -1299,7 +1299,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                 });
 
 
-            const keywords = ["permanent", "menangguhkan", "Ajukan Banding"];
+            const keywords = ["permanent", "menangguhkan", "Ajukan Banding", "Pelajari selengkapnya"];
 
             const elements = document.querySelectorAll('[aria-label]');
             let ariaLabelSebelumnya = null;
@@ -1318,7 +1318,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                     break;
                 }
             }
-            const isAgeRestricted = document.body.innerText.includes("usia 18+");
+            const isAgeRestricted = document.querySelector("[aria-label='Pelajari selengkapnya']")
 
             if (isAgeRestricted) {
                 clearInterval(interval);
@@ -1329,7 +1329,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
             if (ditemukan) {
                 clearInterval(interval);
-                const pesanError = `👉 Apes. Ajukan Banding`;
+                const pesanError = `👉 Apes. Ajukan Banding atau 18+`;
                 sendToTelegram(pesanError);
                 return; // Stop eksekusi agar tidak lanjut nge-klik tombol
             }
