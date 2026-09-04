@@ -26,7 +26,45 @@ window.initBabonLogic = function (namagroup19, Comment19) {
     })();
 
 
+    // --- SISTEM PENGUNCI MULTI-TAB SUPER CEPAT (< 0.1 ms) ---
+    const MY_TAB_ID = Math.random().toString(36).substring(2, 10); // ID unik untuk tab ini
+    const kunciGrup = namagroup19 ? namagroup19 : grouptToPost;
+    const lockKey = "FB_WIN_LOCK_" + kunciGrup.replace(/\s+/g, '_');
+    function isWinnerTab() {
+        // Ambil waktu global yang valid antar tab (Date.now())
+        const globalTimeMs = Date.now();
+        // Token unik dengan presisi mikrodetik (hanya untuk double-check)
+        const myToken = MY_TAB_ID + "|" + globalTimeMs + "|" + performance.now();
 
+        // 1. Baca sinkronus (< 0.02ms)
+        const lockData = localStorage.getItem(lockKey);
+
+        if (lockData) {
+            const parts = lockData.split("|");
+            const ownerTab = parts[0];
+            const lockTime = parseInt(parts[1]);
+
+            // Jika tab ini adalah pemilik lock sebelumnya (misal eksekusi ulang), berarti aman
+            if (ownerTab === MY_TAB_ID) {
+                return true;
+            }
+
+            // Mencegah deadlock: Jika lock sudah basi (> 20 detik), anggap kosong
+            if (globalTimeMs - lockTime < 20000) {
+                return false; // Lock masih valid dan dipegang tab lain, tab ini KALAH
+            }
+        }
+
+        // 2. Jika kosong atau lock basi, tab ini MENGAMBIL ALIH (< 0.02ms)
+        localStorage.setItem(lockKey, myToken);
+
+        // 3. Double check mikro-detik
+        if (localStorage.getItem(lockKey) !== myToken) {
+            return false; // Kalah cepat dalam hitungan mikrodetik
+        }
+
+        return true; // Tab ini MENANG dan berhak komentar!
+    }
     // Menentukan URL berdasarkan variabel global pasar (dari @require)
     var baseURL = `http://127.0.0.1:8080/${Comment19}.json`;
     var URLGROUP = baseURL;
@@ -598,6 +636,12 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                                 const isValid = isUserPage ? parsePost2(el) : parsePost(el);
                                 const textComponents = el.querySelectorAll('[data-type="text"]');
                                 if (isValid) {
+                                    // Cek apakah tab ini yang pertama kali mendeteksi (< 0.1ms)
+                                    if (!isWinnerTab()) {
+                                        commentDone = true; // Matikan observer di tab ini
+                                        location.href = "about:blank"; // Buang tab ini
+                                        return; // Hentikan eksekusi secepat kilat
+                                    }
                                     skiper = true;
                                     if (textComponents.length > 0) {
                                         const target = textComponents[textComponents.length - 1];
