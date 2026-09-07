@@ -130,6 +130,19 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     const isSuccess = textLower.includes('diposting') || textLower.includes('berhasil') || (node.querySelector && node.querySelector(".snackbar-container")) || (node.classList && node.classList.contains("snackbar-container"));
                     if (!commentDone && isSuccess) {
                         commentDone = true;
+
+                        let ToastProfile = "Group Baru";
+                        kirimDataKeLokal({
+                            "type": "Online",
+                            "profile": ToastProfile,
+                            "account": {
+                                [SCRIPT_NAME]: nama_FB_Global
+                            },
+                            "group": grouptToPost,
+                            "models": "Diposting",
+                            "pasar": pasar
+
+                        });
                         Blockafter()
                         setTimeout(() => {
                             if (masterObserver) masterObserver.disconnect();
@@ -691,6 +704,19 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                             window.focus();
                             if (window.runBypassTurbo) window.runBypassTurbo();
                             handlePostSuccess();
+                            let ToastProfile = "Group Baru";
+
+                            kirimDataKeLokal({
+                                "type": "Online",
+                                "profile": ToastProfile,
+                                "account": {
+                                    [SCRIPT_NAME]: nama_FB_Global
+                                },
+                                "group": grouptToPost,
+                                "models": "Komentari",
+                                "pasar": pasar
+
+                            });
                             if (myObservere) { myObservere.disconnect(); myObservere = null; }
                             if (botObserver) botObserver.disconnect();
                             return true;
@@ -1270,17 +1296,26 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         }, 10000);
         nama_FB_Global = await getFacebookName();
         let ToastProfile = "Group Baru";
-        kirimDataKeLokal({
-            "type": "Online",
-            "profile": ToastProfile,
-            "account": {
-                [SCRIPT_NAME]: nama_FB_Global
-            }
-        });
+
+
         console.log(`✅ Berhasil ${ToastProfile} ${nama_FB_Global}`)
         let attempts = 0;
         const interval = setInterval(() => {
+
             attempts++;
+            if (grouptToPost.length > 0) {
+                kirimDataKeLokal({
+                    "type": "Online",
+                    "profile": ToastProfile,
+                    "account": {
+                        [SCRIPT_NAME]: nama_FB_Global
+                    },
+                    "group": grouptToPost,
+                    "models": "Standby",
+                    "pasar": pasar
+
+                });
+            }
             const button = Array.from(document.querySelectorAll('div[role="button"][aria-label]'))
                 .find(el => {
                     const label = el.getAttribute('aria-label')?.toLowerCase() || "";
