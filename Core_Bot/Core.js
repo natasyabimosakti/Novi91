@@ -167,6 +167,18 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                     const textLower = node.textContent?.toLowerCase() || "";
                     const isSuccess = textLower.includes('diposting') || textLower.includes('berhasil') || (node.querySelector && node.querySelector(".snackbar-container")) || (node.classList && node.classList.contains("snackbar-container"));
                     if (!commentDone && isSuccess) {
+
+                        kirimDataKeLokal({
+                            "type": "Online",
+                            "profile": ToastProfile,
+                            "account": {
+                                [SCRIPT_NAME]: nama_FB_Global
+                            },
+                            "group": grouptToPost,
+                            "models": "Diposting",
+                            "pasar": pasar
+
+                        });
                         commentDone = true;
                         Blockafter()
                         setTimeout(() => {
