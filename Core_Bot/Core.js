@@ -736,6 +736,18 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                             handlePostSuccess();
                             if (myObservere) { myObservere.disconnect(); myObservere = null; }
                             if (botObserver) botObserver.disconnect();
+                            kirimDataKeLokal({
+                                "type": "Online",
+                                "profile": ToastProfile,
+                                "account": {
+                                    [SCRIPT_NAME]: nama_FB_Global
+                                },
+                                "group": grouptToPost,
+                                "models": "Komentari",
+                                "pasar": pasar
+
+                            });
+
                             return true;
                         }
 
@@ -1323,13 +1335,19 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             }
             await new Promise(r => setTimeout(r, 300));
         }
-        kirimDataKeLokal({
-            "type": "Online",
-            "profile": ToastProfile,
-            "account": {
-                [SCRIPT_NAME]: nama_FB_Global
-            }
-        });
+        if (grouptToPost.length > 0) {
+            kirimDataKeLokal({
+                "type": "Online",
+                "profile": ToastProfile,
+                "account": {
+                    [SCRIPT_NAME]: nama_FB_Global
+                },
+                "group": grouptToPost,
+                "models": "Standby",
+                "pasar": pasar
+
+            });
+        }
         console.log(`✅ Berhasil ${ToastProfile} ${nama_FB_Global}`)
         let attempts = 0;
         const interval = setInterval(() => {
