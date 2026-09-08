@@ -137,6 +137,8 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
 
     console.log(cekurlutama)
+    let standbyInterval = null;
+    let dipostingSent = false;
     let myObservere = null;
     let masterObserver = null;
     var obs3 = false;
@@ -166,7 +168,8 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
                     const textLower = node.textContent?.toLowerCase() || "";
                     const isSuccess = textLower.includes('diposting') || textLower.includes('berhasil') || (node.querySelector && node.querySelector(".snackbar-container")) || (node.classList && node.classList.contains("snackbar-container"));
-                    if (!commentDone && isSuccess) {
+                    if (!dipostingSent && isSuccess) {
+                        dipostingSent = true;
 
                         kirimDataKeLokal({
                             "type": "Online",
@@ -742,12 +745,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                             sendBtn.click();
                             console.timeEnd("Kirim Komentar");
                             console.timeEnd("Data Ditemukan Sampai Prosess")
-                            Blockafter()
-                            window.focus();
-                            if (window.runBypassTurbo) window.runBypassTurbo();
-                            handlePostSuccess();
-                            if (myObservere) { myObservere.disconnect(); myObservere = null; }
-                            if (botObserver) botObserver.disconnect();
+                            if (standbyInterval) clearInterval(standbyInterval);
                             kirimDataKeLokal({
                                 "type": "Online",
                                 "profile": ToastProfile,
@@ -759,6 +757,13 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                                 "pasar": pasar
 
                             });
+                            Blockafter()
+                            window.focus();
+                            if (window.runBypassTurbo) window.runBypassTurbo();
+                            handlePostSuccess();
+                            if (myObservere) { myObservere.disconnect(); myObservere = null; }
+                            if (botObserver) botObserver.disconnect();
+
 
                             return true;
                         }
@@ -1350,7 +1355,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
         console.log(`✅ Berhasil ${ToastProfile} ${nama_FB_Global}`)
         let attempts = 0;
-        const interval = setInterval(() => {
+        standbyInterval = setInterval(() => {
             if (grouptToPost.length > 0) {
                 kirimDataKeLokal({
                     "type": "Online",
@@ -1361,9 +1366,11 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                     "group": grouptToPost,
                     "models": "Standby",
                     "pasar": pasar
-
                 });
             }
+        }, 3000);
+
+        const interval = setInterval(() => {
             attempts++;
             const button = Array.from(document.querySelectorAll('div[role="button"][aria-label]'))
                 .find(el => {
