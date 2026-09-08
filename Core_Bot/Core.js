@@ -167,7 +167,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                     }
                 }
 
-                if (!commentDone && isGlobalSuccess) {
+                if (isGlobalSuccess) {
                     const isSuccess = true;
                     // Lanjut ke eksekusi keberhasilan
                     if (grouptToPost.length > 0 && ToastProfile !== "" && nama_FB_Global !== "Unknown") {
@@ -190,7 +190,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                     setTimeout(() => {
                         if (masterObserver) masterObserver.disconnect();
                         location.href = "about:blank";
-                    }, 5000);
+                    }, 15000);
                     break;
                 }
 
@@ -205,7 +205,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
                     const textLower = node.textContent?.toLowerCase() || "";
                     const isSuccess = textLower.includes('diposting') || textLower.includes('berhasil') || (node.querySelector && node.querySelector(".snackbar-container")) || (node.classList && node.classList.contains("snackbar-container"));
-                    if (!commentDone && isSuccess) {
+                    if (isSuccess) {
                         if (grouptToPost.length > 0 && ToastProfile !== "" && nama_FB_Global !== "Unknown") {
                             kirimDataKeLokal({
                                 "type": "Online",
@@ -219,6 +219,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                             });
                             console.log("diposting Sudah Berhail ______________________")
                         }
+                        console.log("diposting Sudah Berhail _____________isSuccess_________")
 
 
                         commentDone = true;
