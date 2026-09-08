@@ -130,9 +130,12 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
                     const textLower = node.textContent?.toLowerCase() || "";
                     const isSuccess = textLower.includes('diposting') || textLower.includes('berhasil') || (node.querySelector && node.querySelector(".snackbar-container")) || (node.classList && node.classList.contains("snackbar-container"));
-                    if (!dipostingSent && isSuccess) {
-                        dipostingSent = true;
+                    if (!commentDone && isSuccess) {
                         let ToastProfile = "Group Baru";
+                        if (standbyInterval !== null) {
+                            clearInterval(standbyInterval)
+                            standbyInterval = null;
+                        }
                         kirimDataKeLokal({
                             "type": "Online",
                             "profile": ToastProfile,
