@@ -156,15 +156,13 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             sedangProses = !!dialog;
 
             // 2. Logika Mutasi Nodes
+            let needCheckMasalah = false;
             for (const mutation of mutations) {
                 for (const node of mutation.addedNodes) {
                     // Jangan skip node tipe 3 (Text) karena Facebook mungkin hanya menambah Text Node
                     if (node.nodeType !== 1 && node.nodeType !== 3) continue;
 
-                    // Cek Masalah & Status Post
-                    cekMasalah();
-                    cekMasalah2();
-                    cekLogout();
+                    needCheckMasalah = true;
 
                     // Cek Aktivitas Terbaru (Hanya di halaman grup)
                     if (!commentDone && cekurlutama.includes("group")) {
@@ -191,6 +189,13 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                         }
                     }
                 }
+            }
+
+            // Panggil cek masalah HANYA 1 kali per batch mutasi (bukan per node) untuk hemat CPU
+            if (needCheckMasalah) {
+                cekMasalah();
+                cekMasalah2();
+                cekLogout();
             }
         });
 
@@ -743,51 +748,57 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
         if (!myObservere) {
             myObservere = new MutationObserver((mutations) => {
+                if (commentDone) return;
+
+                let hasNewNodes = false;
                 for (const mutation of mutations) {
                     for (const node of mutation.addedNodes) {
+                        if (node.nodeType === 1) {
+                            hasNewNodes = true;
+                            break;
+                        }
+                    }
+                    if (hasNewNodes) break;
+                }
 
-                        if (commentDone || node.nodeType !== 1) continue;
+                if (hasNewNodes) {
+                    const textarea = document.querySelector(TXT_SEL);
+                    const sendBtn = document.querySelector(BTN_SEL);
 
-                        const textarea = document.querySelector(TXT_SEL);
-                        const sendBtn = document.querySelector(BTN_SEL);
-
-
-                        if (textarea && sendBtn) {
-
-                            commentDone = true;
-                            console.time("Kirim Komentar");
-                            if (nativeSetter) nativeSetter.call(textarea, commentToPost);
-                            else textarea.value = commentToPost;
-                            sendBtn.disabled = false;
-                            sendBtn.dispatchEvent(mDown);
-                            sendBtn.click();
-                            console.timeEnd("Kirim Komentar");
-                            console.timeEnd("Data Ditemukan Sampai Prosess")
-                            Blockafter()
-                            window.focus();
-                            if (window.runBypassTurbo) window.runBypassTurbo();
-                            handlePostSuccess();
-                            if (myObservere) { myObservere.disconnect(); myObservere = null; }
-                            if (botObserver) botObserver.disconnect();
-                            if (ToastProfile === "") {
-                                const toast = document.querySelector(".chrome-toast-profile") || document.querySelector(".toast-profile-selector");
-                                if (toast && toast.textContent) ToastProfile = toast.textContent.trim();
-                            }
-
-                            kirimDataKeLokal({
-                                "type": "Online",
-                                "profile": ToastProfile,
-                                "account": {
-                                    [SCRIPT_NAME]: nama_FB_Global
-                                },
-                                "group": grouptToPost,
-                                "models": "Komentari",
-                                "pasar": pasar
-                            });
-
-                            return true;
+                    if (textarea && sendBtn) {
+                        commentDone = true;
+                        console.time("Kirim Komentar");
+                        if (nativeSetter) nativeSetter.call(textarea, commentToPost);
+                        else textarea.value = commentToPost;
+                        sendBtn.disabled = false;
+                        sendBtn.dispatchEvent(mDown);
+                        sendBtn.click();
+                        console.timeEnd("Kirim Komentar");
+                        console.timeEnd("Data Ditemukan Sampai Prosess");
+                        Blockafter();
+                        window.focus();
+                        if (window.runBypassTurbo) window.runBypassTurbo();
+                        handlePostSuccess();
+                        if (myObservere) { myObservere.disconnect(); myObservere = null; }
+                        if (botObserver) botObserver.disconnect();
+                        
+                        if (ToastProfile === "") {
+                            const toast = document.querySelector(".chrome-toast-profile") || document.querySelector(".toast-profile-selector");
+                            if (toast && toast.textContent) ToastProfile = toast.textContent.trim();
                         }
 
+                        kirimDataKeLokal({
+                            "type": "Online",
+                            "profile": ToastProfile,
+                            "account": {
+                                [SCRIPT_NAME]: nama_FB_Global
+                            },
+                            "group": grouptToPost,
+                            "models": "Komentari",
+                            "pasar": pasar
+                        });
+
+                        return true;
                     }
                 }
             });
