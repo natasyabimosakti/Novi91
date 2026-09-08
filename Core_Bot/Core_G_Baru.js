@@ -73,6 +73,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
     var EXPIRATION_MS = 5 * 60 * 1000;
     var currentFeedState = "";
     var cekurlutama = ""
+    let standbyInterval = null;
+    let dipostingSent = false;
     var ceksimulasi = false;
     const fastOpts = { bubbles: true, cancelable: true };
     const mDown = new MouseEvent("mousedown", fastOpts);
@@ -128,9 +130,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
                     const textLower = node.textContent?.toLowerCase() || "";
                     const isSuccess = textLower.includes('diposting') || textLower.includes('berhasil') || (node.querySelector && node.querySelector(".snackbar-container")) || (node.classList && node.classList.contains("snackbar-container"));
-                    if (!commentDone && isSuccess) {
-                        commentDone = true;
-
+                    if (!dipostingSent && isSuccess) {
+                        dipostingSent = true;
                         let ToastProfile = "Group Baru";
                         kirimDataKeLokal({
                             "type": "Online",
@@ -143,6 +144,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                             "pasar": pasar
 
                         });
+                        commentDone = true;
                         Blockafter()
                         setTimeout(() => {
                             if (masterObserver) masterObserver.disconnect();
@@ -1300,9 +1302,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
         console.log(`✅ Berhasil ${ToastProfile} ${nama_FB_Global}`)
         let attempts = 0;
-        const interval = setInterval(() => {
-
-            attempts++;
+        standbyInterval = setInterval(() => {
             if (grouptToPost.length > 0) {
                 kirimDataKeLokal({
                     "type": "Online",
@@ -1313,9 +1313,11 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     "group": grouptToPost,
                     "models": "Standby",
                     "pasar": pasar
-
                 });
             }
+        }, 3000);
+        const interval = setInterval(() => {
+            attempts++;
             const button = Array.from(document.querySelectorAll('div[role="button"][aria-label]'))
                 .find(el => {
                     const label = el.getAttribute('aria-label')?.toLowerCase() || "";
