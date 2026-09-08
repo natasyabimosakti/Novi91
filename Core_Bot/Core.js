@@ -170,7 +170,6 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                     const isSuccess = textLower.includes('diposting') || textLower.includes('berhasil') || (node.querySelector && node.querySelector(".snackbar-container")) || (node.classList && node.classList.contains("snackbar-container"));
                     if (!dipostingSent && isSuccess) {
                         dipostingSent = true;
-
                         kirimDataKeLokal({
                             "type": "Online",
                             "profile": ToastProfile,
