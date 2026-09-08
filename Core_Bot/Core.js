@@ -154,32 +154,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
             sedangKlikUrutkan = !!(presentation || dialogVscroller);
             sedangProses = !!dialog;
-            const snackbarGlobal = document.querySelector(".snackbar-container.show");
-            if (snackbarGlobal) {
-                const sbText = snackbarGlobal.textContent?.toLowerCase() || "";
-                if (sbText.includes('diposting') || sbText.includes('berhasil')) {
-                    commentDone = true;
-                    if (grouptToPost.length > 0 && ToastProfile !== "" && nama_FB_Global !== "Unknown") {
-                        kirimDataKeLokal({
-                            "type": "Online",
-                            "profile": ToastProfile,
-                            "account": {
-                                [SCRIPT_NAME]: nama_FB_Global
-                            },
-                            "group": grouptToPost,
-                            "models": "Diposting",
-                            "pasar": pasar
-                        });
-                        console.log("diposting Sudah Berhasil ______________________");
-                    }
 
-                    Blockafter();
-                    setTimeout(() => {
-                        if (masterObserver) masterObserver.disconnect();
-                        location.href = "about:blank";
-                    }, 20000);
-                }
-            }
             // 2. Logika Mutasi Nodes
             for (const mutation of mutations) {
                 for (const node of mutation.addedNodes) {
@@ -222,9 +197,48 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         masterObserver.observe(document.body, { childList: true, subtree: true });
         console.log("🛠️ Master Observer diaktifkan.");
 
-        // Polling independen untuk mendeteksi snackbar sukses.
-        // Ini memastikan sukses tetap terdeteksi meskipun masterObserver diputus oleh cekMasalah()
+        // Observer Realtime khusus untuk mendeteksi snackbar sukses.
+        // Berjalan independen dari masterObserver agar tidak terputus oleh cekMasalah()
+        const snackbarObserver = new MutationObserver(() => {
+            const snackbarGlobal = document.querySelector(".snackbar-container.show");
+            if (snackbarGlobal) {
+                const sbText = snackbarGlobal.textContent?.toLowerCase() || "";
+                if (sbText.includes('diposting') || sbText.includes('berhasil')) {
+                    commentDone = true;
+                    snackbarObserver.disconnect();
+                    
+                    if (grouptToPost.length > 0 && ToastProfile !== "" && nama_FB_Global !== "Unknown") {
+                        kirimDataKeLokal({
+                            "type": "Online",
+                            "profile": ToastProfile,
+                            "account": {
+                                [SCRIPT_NAME]: nama_FB_Global
+                            },
+                            "group": grouptToPost,
+                            "models": "Diposting",
+                            "pasar": pasar
+                        });
+                        console.log("diposting Sudah Berhasil ______________________");
+                    }
+                    console.log("diposting Sudah Berhasil _____________REALTIME_SUCCESS_________");
 
+                    Blockafter();
+                    setTimeout(() => {
+                        if (masterObserver) masterObserver.disconnect();
+                        location.href = "about:blank";
+                    }, 20000);
+                }
+            }
+        });
+        
+        // Memantau penambahan elemen, perubahan teks, dan penambahan class (seperti .show)
+        snackbarObserver.observe(document.body, { 
+            childList: true, 
+            subtree: true, 
+            attributes: true, 
+            attributeFilter: ['class'],
+            characterData: true
+        });
     }
 
     async function tungguGroupAsync() {
