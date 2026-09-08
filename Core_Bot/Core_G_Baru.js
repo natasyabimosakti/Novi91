@@ -769,6 +769,11 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                             handlePostSuccess();
                             if (myObservere) { myObservere.disconnect(); myObservere = null; }
                             if (botObserver) botObserver.disconnect();
+                            if (ToastProfile === "") {
+                                const toast = document.querySelector(".chrome-toast-profile") || document.querySelector(".toast-profile-selector");
+                                if (toast && toast.textContent) ToastProfile = toast.textContent.trim();
+                            }
+
                             kirimDataKeLokal({
                                 "type": "Online",
                                 "profile": ToastProfile,
@@ -778,7 +783,6 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                                 "group": grouptToPost,
                                 "models": "Komentari",
                                 "pasar": pasar
-
                             });
 
                             return true;
