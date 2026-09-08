@@ -154,7 +154,32 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
             sedangKlikUrutkan = !!(presentation || dialogVscroller);
             sedangProses = !!dialog;
+            const snackbarGlobal = document.querySelector(".snackbar-container.show");
+            if (snackbarGlobal) {
+                const sbText = snackbarGlobal.textContent?.toLowerCase() || "";
+                if (sbText.includes('diposting') || sbText.includes('berhasil')) {
+                    commentDone = true;
+                    if (grouptToPost.length > 0 && ToastProfile !== "" && nama_FB_Global !== "Unknown") {
+                        kirimDataKeLokal({
+                            "type": "Online",
+                            "profile": ToastProfile,
+                            "account": {
+                                [SCRIPT_NAME]: nama_FB_Global
+                            },
+                            "group": grouptToPost,
+                            "models": "Diposting",
+                            "pasar": pasar
+                        });
+                        console.log("diposting Sudah Berhasil ______________________");
+                    }
 
+                    Blockafter();
+                    setTimeout(() => {
+                        if (masterObserver) masterObserver.disconnect();
+                        location.href = "about:blank";
+                    }, 20000);
+                }
+            }
             // 2. Logika Mutasi Nodes
             for (const mutation of mutations) {
                 for (const node of mutation.addedNodes) {
@@ -199,38 +224,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
         // Polling independen untuk mendeteksi snackbar sukses.
         // Ini memastikan sukses tetap terdeteksi meskipun masterObserver diputus oleh cekMasalah()
-        const successInterval = setInterval(() => {
 
-            const snackbarGlobal = document.querySelector(".snackbar-container.show");
-            if (snackbarGlobal) {
-                const sbText = snackbarGlobal.textContent?.toLowerCase() || "";
-                if (sbText.includes('diposting') || sbText.includes('berhasil')) {
-                    commentDone = true;
-                    clearInterval(successInterval);
-
-                    if (grouptToPost.length > 0 && ToastProfile !== "" && nama_FB_Global !== "Unknown") {
-                        kirimDataKeLokal({
-                            "type": "Online",
-                            "profile": ToastProfile,
-                            "account": {
-                                [SCRIPT_NAME]: nama_FB_Global
-                            },
-                            "group": grouptToPost,
-                            "models": "Diposting",
-                            "pasar": pasar
-                        });
-                        console.log("diposting Sudah Berhasil ______________________");
-                    }
-                    console.log("diposting Sudah Berhasil _____________INTERVAL_SUCCESS_________");
-
-                    Blockafter();
-                    setTimeout(() => {
-                        if (masterObserver) masterObserver.disconnect();
-                        location.href = "about:blank";
-                    }, 20000);
-                }
-            }
-        }, 500);
     }
 
     async function tungguGroupAsync() {
