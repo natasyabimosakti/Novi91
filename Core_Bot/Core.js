@@ -200,10 +200,6 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         // Polling independen untuk mendeteksi snackbar sukses.
         // Ini memastikan sukses tetap terdeteksi meskipun masterObserver diputus oleh cekMasalah()
         const successInterval = setInterval(() => {
-            if (commentDone) {
-                clearInterval(successInterval);
-                return;
-            }
 
             const snackbarGlobal = document.querySelector(".snackbar-container.show");
             if (snackbarGlobal) {
@@ -231,7 +227,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                     setTimeout(() => {
                         if (masterObserver) masterObserver.disconnect();
                         location.href = "about:blank";
-                    }, 5000);
+                    }, 20000);
                 }
             }
         }, 500);
