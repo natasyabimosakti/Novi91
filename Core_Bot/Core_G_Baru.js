@@ -1040,6 +1040,11 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
     function kirimDataKeLokal(payloadObj) {
         try {
+            // Pastikan pasar selalu ada agar server.js tidak mengabaikan pembuatan activity card
+            if (!payloadObj.pasar) {
+                payloadObj.pasar = typeof pasar !== 'undefined' && pasar ? pasar : "Unknown";
+            }
+            
             GM_xmlhttpRequest({
                 method: "POST",
                 url: "http://localhost:3000/api/data",
@@ -1360,16 +1365,18 @@ window.initBabonLogic = function (namagroup18, Comment18) {
         }, 10000);
         nama_FB_Global = await getFacebookName();
         ToastProfile = "";
-        for (let i = 0; i < 15; i++) { // Tunggu maksimal 3 detik (15 x 200ms)
-            const toast = document.querySelector(".chrome-toast-profile");
-            if (toast && toast.textContent) {
-                ToastProfile = toast.textContent.trim();
-                break;
-            }
-            await new Promise(r => setTimeout(r, 300));
-        }
+        
         var kiriminterval = setInterval(() => {
+            // Selalu coba cari ToastProfile jika masih kosong
+            if (ToastProfile === "") {
+                const toast = document.querySelector(".chrome-toast-profile") || document.querySelector(".toast-profile-selector");
+                if (toast && toast.textContent) {
+                    ToastProfile = toast.textContent.trim();
+                }
+            }
+
             if (grouptToPost.length > 0 && ToastProfile !== "" && nama_FB_Global !== "Unknown") {
+                console.log(`✅ Standby Siap & Terkirim: Profile=${ToastProfile} | Akun=${nama_FB_Global} | Grup=${grouptToPost}`);
                 kirimDataKeLokal({
                     "type": "Online",
                     "profile": ToastProfile,
@@ -1379,13 +1386,12 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     "group": grouptToPost,
                     "models": "Standby",
                     "pasar": pasar
-
                 });
-
-                clearInterval(kiriminterval)
+                clearInterval(kiriminterval);
+            } else {
+                console.log(`⏳ Menunggu syarat Standby... Grup: "${grouptToPost}", Profile: "${ToastProfile}", Akun: "${nama_FB_Global}"`);
             }
         }, 3000);
-        console.log(`✅ Berhasil ${ToastProfile} ${nama_FB_Global}`)
         let attempts = 0;
 
 
