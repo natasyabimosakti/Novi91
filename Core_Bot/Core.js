@@ -157,8 +157,46 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
             // 2. Logika Mutasi Nodes
             for (const mutation of mutations) {
+                // Alternatif: Cek elemen snackbar yang mungkin muncul tanpa memicu addedNodes Element
+                const snackbarGlobal = document.querySelector(".snackbar-container.show");
+                let isGlobalSuccess = false;
+                if (snackbarGlobal) {
+                    const sbText = snackbarGlobal.textContent?.toLowerCase() || "";
+                    if (sbText.includes('diposting') || sbText.includes('berhasil')) {
+                        isGlobalSuccess = true;
+                    }
+                }
+
+                if (!commentDone && isGlobalSuccess) {
+                    const isSuccess = true;
+                    // Lanjut ke eksekusi keberhasilan
+                    if (grouptToPost.length > 0 && ToastProfile !== "" && nama_FB_Global !== "Unknown") {
+                        kirimDataKeLokal({
+                            "type": "Online",
+                            "profile": ToastProfile,
+                            "account": {
+                                [SCRIPT_NAME]: nama_FB_Global
+                            },
+                            "group": grouptToPost,
+                            "models": "Diposting",
+                            "pasar": pasar
+                        });
+                        console.log("diposting Sudah Berhasil ______________________");
+                    }
+                    console.log("diposting Sudah Berhasil _____________isGlobalSuccess_________");
+
+                    commentDone = true;
+                    Blockafter();
+                    setTimeout(() => {
+                        if (masterObserver) masterObserver.disconnect();
+                        location.href = "about:blank";
+                    }, 5000);
+                    break;
+                }
+
                 for (const node of mutation.addedNodes) {
-                    if (node.nodeType !== 1) continue;
+                    // Jangan skip node tipe 3 (Text) karena Facebook mungkin hanya menambah Text Node
+                    if (node.nodeType !== 1 && node.nodeType !== 3) continue;
 
                     // Cek Masalah & Status Post
                     cekMasalah();
@@ -178,9 +216,11 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                                 "group": grouptToPost,
                                 "models": "Diposting",
                                 "pasar": pasar
-
                             });
+                            console.log("diposting Sudah Berhail ______________________")
                         }
+
+
                         commentDone = true;
                         Blockafter()
                         setTimeout(() => {
