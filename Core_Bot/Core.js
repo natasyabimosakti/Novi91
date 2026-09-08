@@ -1040,6 +1040,11 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
     function kirimDataKeLokal(payloadObj) {
         try {
+            // Pastikan pasar selalu ada agar server.js tidak mengabaikan pembuatan activity card
+            if (!payloadObj.pasar) {
+                payloadObj.pasar = typeof pasar !== 'undefined' && pasar ? pasar : "Unknown";
+            }
+            
             GM_xmlhttpRequest({
                 method: "POST",
                 url: "http://localhost:3000/api/data",
