@@ -206,7 +206,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                 if (sbText.includes('diposting') || sbText.includes('berhasil')) {
                     commentDone = true;
                     snackbarObserver.disconnect();
-                    
+
                     if (grouptToPost.length > 0 && ToastProfile !== "" && nama_FB_Global !== "Unknown") {
                         kirimDataKeLokal({
                             "type": "Online",
@@ -230,12 +230,12 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                 }
             }
         });
-        
+
         // Memantau penambahan elemen, perubahan teks, dan penambahan class (seperti .show)
-        snackbarObserver.observe(document.body, { 
-            childList: true, 
-            subtree: true, 
-            attributes: true, 
+        snackbarObserver.observe(document.body, {
+            childList: true,
+            subtree: true,
+            attributes: true,
             attributeFilter: ['class'],
             characterData: true
         });
@@ -1382,7 +1382,6 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
                 });
 
-                clearInterval(kiriminterval)
             }
         }, 3000);
         console.log(`✅ Berhasil ${ToastProfile} ${nama_FB_Global}`)
