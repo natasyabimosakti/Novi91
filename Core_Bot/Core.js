@@ -112,6 +112,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
     var currentFeedState = "";
     var cekurlutama = ""
     var ceksimulasi = false;
+    var kiriminterval = null;
     const fastOpts = { bubbles: true, cancelable: true };
     const mDown = new MouseEvent("mousedown", fastOpts);
     const mUp = new MouseEvent("mouseup", fastOpts);
@@ -137,8 +138,6 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
 
     console.log(cekurlutama)
-    let standbyInterval = null;
-    let dipostingSent = false;
     let myObservere = null;
     let masterObserver = null;
     var obs3 = false;
@@ -168,8 +167,11 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
                     const textLower = node.textContent?.toLowerCase() || "";
                     const isSuccess = textLower.includes('diposting') || textLower.includes('berhasil') || (node.querySelector && node.querySelector(".snackbar-container")) || (node.classList && node.classList.contains("snackbar-container"));
-                    if (!dipostingSent && isSuccess) {
-                        dipostingSent = true;
+                    if (!commentDone && isSuccess) {
+                        if (kiriminterval !== null) {
+                            clearInterval(kiriminterval)
+                            kiriminterval = null;
+                        }
                         kirimDataKeLokal({
                             "type": "Online",
                             "profile": ToastProfile,
@@ -744,7 +746,12 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                             sendBtn.click();
                             console.timeEnd("Kirim Komentar");
                             console.timeEnd("Data Ditemukan Sampai Prosess")
-                            if (standbyInterval) clearInterval(standbyInterval);
+                            Blockafter()
+                            window.focus();
+                            if (window.runBypassTurbo) window.runBypassTurbo();
+                            handlePostSuccess();
+                            if (myObservere) { myObservere.disconnect(); myObservere = null; }
+                            if (botObserver) botObserver.disconnect();
                             kirimDataKeLokal({
                                 "type": "Online",
                                 "profile": ToastProfile,
@@ -756,13 +763,6 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                                 "pasar": pasar
 
                             });
-                            Blockafter()
-                            window.focus();
-                            if (window.runBypassTurbo) window.runBypassTurbo();
-                            handlePostSuccess();
-                            if (myObservere) { myObservere.disconnect(); myObservere = null; }
-                            if (botObserver) botObserver.disconnect();
-
 
                             return true;
                         }
@@ -1351,10 +1351,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             }
             await new Promise(r => setTimeout(r, 300));
         }
-
-        console.log(`✅ Berhasil ${ToastProfile} ${nama_FB_Global}`)
-        let attempts = 0;
-        standbyInterval = setInterval(() => {
+        kiriminterval = setInterval(() => {
             if (grouptToPost.length > 0) {
                 kirimDataKeLokal({
                     "type": "Online",
@@ -1365,11 +1362,18 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                     "group": grouptToPost,
                     "models": "Standby",
                     "pasar": pasar
+
                 });
+
+                clearInterval(kiriminterval)
             }
         }, 3000);
+        console.log(`✅ Berhasil ${ToastProfile} ${nama_FB_Global}`)
+        let attempts = 0;
+
 
         const interval = setInterval(() => {
+
             attempts++;
             const button = Array.from(document.querySelectorAll('div[role="button"][aria-label]'))
                 .find(el => {
