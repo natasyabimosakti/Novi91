@@ -106,13 +106,13 @@ window.initBabonLogic = function (namagroup19, Comment19) {
     var observersudahjalam = false;
     var observers = null
     var groups = [];
+    var ToastProfile = "";
     var skiper = false;
     var now = Date.now();
     var EXPIRATION_MS = 5 * 60 * 1000;
     var currentFeedState = "";
     var cekurlutama = ""
     var ceksimulasi = false;
-    var kiriminterval = null;
     const fastOpts = { bubbles: true, cancelable: true };
     const mDown = new MouseEvent("mousedown", fastOpts);
     const mUp = new MouseEvent("mouseup", fastOpts);
@@ -168,21 +168,19 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                     const textLower = node.textContent?.toLowerCase() || "";
                     const isSuccess = textLower.includes('diposting') || textLower.includes('berhasil') || (node.querySelector && node.querySelector(".snackbar-container")) || (node.classList && node.classList.contains("snackbar-container"));
                     if (!commentDone && isSuccess) {
-                        if (kiriminterval !== null) {
-                            clearInterval(kiriminterval)
-                            kiriminterval = null;
-                        }
-                        kirimDataKeLokal({
-                            "type": "Online",
-                            "profile": ToastProfile,
-                            "account": {
-                                [SCRIPT_NAME]: nama_FB_Global
-                            },
-                            "group": grouptToPost,
-                            "models": "Diposting",
-                            "pasar": pasar
+                        if (grouptToPost.length > 0 && ToastProfile !== "" && nama_FB_Global !== "Unknown") {
+                            kirimDataKeLokal({
+                                "type": "Online",
+                                "profile": ToastProfile,
+                                "account": {
+                                    [SCRIPT_NAME]: nama_FB_Global
+                                },
+                                "group": grouptToPost,
+                                "models": "Diposting",
+                                "pasar": pasar
 
-                        });
+                            });
+                        }
                         commentDone = true;
                         Blockafter()
                         setTimeout(() => {
@@ -1342,7 +1340,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             clearInterval(intervalCek);
         }, 10000);
         nama_FB_Global = await getFacebookName();
-        let ToastProfile = "";
+        ToastProfile = "";
         for (let i = 0; i < 15; i++) { // Tunggu maksimal 3 detik (15 x 200ms)
             const toast = document.querySelector(".chrome-toast-profile");
             if (toast && toast.textContent) {
@@ -1351,8 +1349,8 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             }
             await new Promise(r => setTimeout(r, 300));
         }
-        kiriminterval = setInterval(() => {
-            if (grouptToPost.length > 0) {
+        var kiriminterval = setInterval(() => {
+            if (grouptToPost.length > 0 && ToastProfile !== "" && nama_FB_Global !== "Unknown") {
                 kirimDataKeLokal({
                     "type": "Online",
                     "profile": ToastProfile,
