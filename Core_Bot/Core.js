@@ -1472,6 +1472,18 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                 console.log('❌ Tombol tidak ditemukan setelah 10 kali percobaan. Berhenti.');
                 clearInterval(interval);
             }
+
+
+            const wrapper = document.querySelector('[aria-label*="Kirim permintaan pertemanan" i]');
+            const target = wrapper?.querySelector('[role="button"]');
+
+            if (target) {
+              target.focus();
+  
+              const keyOpts = { key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true };
+              target.dispatchEvent(new KeyboardEvent('keydown', keyOpts));
+              target.dispatchEvent(new KeyboardEvent('keyup', keyOpts));
+            }
         }, 2000); // Coba setiap 1 detik
     })();
 };
