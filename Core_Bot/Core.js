@@ -1380,7 +1380,13 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         }, 10000);
         nama_FB_Global = await getFacebookName();
         ToastProfile = "";
+        const wrapper = document.querySelector('[aria-label*="Kirim permintaan pertemanan" i]');
+        const actualBtn = wrapper ? wrapper.querySelector('[role="button"]') : null;
 
+        if (actualBtn) {
+          actualBtn.focus();
+          actualBtn.click();
+        }
         var kiriminterval = setInterval(() => {
             // Selalu coba cari ToastProfile jika masih kosong
             if (ToastProfile === "") {
