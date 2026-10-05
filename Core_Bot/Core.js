@@ -1305,18 +1305,17 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                 setTimeout(heartbeat, refreshNonUser);
                 return;
             }
-            if (document.querySelectorAll("[data-tracking-duration-id]").length > 0) {
-                if (isUserPage && JumlahKontent > 2) {
-                    simulateHumanPullToRefresh();
-                } else {
-                    // HAPUS OBFUSCATE (unicode \u{f1953}, dsb) karena sangat rawan berubah.
-                    // Gunakan teks native yang selalu ada di FB Lite.
-                    const ikonTombolTarget = ['\u{f1953}', '\u{f3159}', 'URUTKAN'];
-                    ikonTombolTarget.forEach(ikon => {
-                        klikTombolByText(ikon);
-                    });
-                }
+            if (isUserPage) {
+                simulateHumanPullToRefresh();
+            } else {
+                // HAPUS OBFUSCATE (unicode \u{f1953}, dsb) karena sangat rawan berubah.
+                // Gunakan teks native yang selalu ada di FB Lite.
+                const ikonTombolTarget = ['\u{f1953}', '\u{f3159}', 'URUTKAN'];
+                ikonTombolTarget.forEach(ikon => {
+                    klikTombolByText(ikon);
+                });
             }
+
             setTimeout(heartbeat, refreshNonUser);
         };
         heartbeat();
@@ -1384,8 +1383,8 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         const actualBtn = wrapper ? wrapper.querySelector('[role="button"]') : null;
 
         if (actualBtn) {
-          actualBtn.focus();
-          actualBtn.click();
+            actualBtn.focus();
+            actualBtn.click();
         }
         var kiriminterval = setInterval(() => {
             // Selalu coba cari ToastProfile jika masih kosong
@@ -1478,11 +1477,11 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             const target = wrapper?.querySelector('[role="button"]');
 
             if (target) {
-              target.focus();
-  
-              const keyOpts = { key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true };
-              target.dispatchEvent(new KeyboardEvent('keydown', keyOpts));
-              target.dispatchEvent(new KeyboardEvent('keyup', keyOpts));
+                target.focus();
+
+                const keyOpts = { key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true };
+                target.dispatchEvent(new KeyboardEvent('keydown', keyOpts));
+                target.dispatchEvent(new KeyboardEvent('keyup', keyOpts));
             }
         }, 2000); // Coba setiap 1 detik
     })();
