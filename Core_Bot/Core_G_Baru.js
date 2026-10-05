@@ -253,6 +253,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
             if (result && result.comment && result.groupName) {
                 commentToPost = Random(result.comment);
                 grouptToPost = result.groupName;
+                if (grouptToPost.includes("ALTER") || grouptToPost.includes("alter")) {
+                    keyword.push("HK", "SGP", "SYD");
+                }
                 window.commentToPost = commentToPost; // Pastikan variabel global terupdate
                 console.log("✅ Nama grup : " + grouptToPost + " | Comment : " + commentToPost);
                 groups = groupNames.map(groupId => ({ groupId, defaultValue: false }));
@@ -781,7 +784,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                         handlePostSuccess();
                         if (myObservere) { myObservere.disconnect(); myObservere = null; }
                         if (botObserver) botObserver.disconnect();
-                        
+
                         if (ToastProfile === "") {
                             const toast = document.querySelector(".chrome-toast-profile") || document.querySelector(".toast-profile-selector");
                             if (toast && toast.textContent) ToastProfile = toast.textContent.trim();
