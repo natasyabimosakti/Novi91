@@ -1308,8 +1308,8 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                 setTimeout(heartbeat, refreshNonUser);
                 return;
             }
-            if (document.querySelectorAll("[data-tracking-duration-id]").length > 0) {
-                if (isUserPage && JumlahKontent > 2) {
+            if (!document.querySelector(".prevent-scrolling")) {
+                if (isUserPage) {
                     simulateHumanPullToRefresh();
                 } else {
                     // HAPUS OBFUSCATE (unicode \u{f1953}, dsb) karena sangat rawan berubah.
