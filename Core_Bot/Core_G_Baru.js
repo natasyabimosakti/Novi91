@@ -231,7 +231,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
                     setTimeout(() => {
                         if (masterObserver) masterObserver.disconnect();
                         location.href = "about:blank";
-                    }, 20000);
+                    }, 30000);
                 }
             }
         });
@@ -736,7 +736,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
             setTimeout(() => {
                 location.href = "about:blank";
-            }, 20000);
+            }, 30000);
         });
 
     }
