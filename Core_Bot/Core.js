@@ -1305,17 +1305,18 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                 setTimeout(heartbeat, refreshNonUser);
                 return;
             }
-            if (isUserPage) {
-                simulateHumanPullToRefresh();
-            } else {
-                // HAPUS OBFUSCATE (unicode \u{f1953}, dsb) karena sangat rawan berubah.
-                // Gunakan teks native yang selalu ada di FB Lite.
-                const ikonTombolTarget = ['\u{f1953}', '\u{f3159}', 'URUTKAN'];
-                ikonTombolTarget.forEach(ikon => {
-                    klikTombolByText(ikon);
-                });
+            if (!document.querySelector(".prevent-scrolling")) {
+                if (isUserPage) {
+                    simulateHumanPullToRefresh();
+                } else {
+                    // HAPUS OBFUSCATE (unicode \u{f1953}, dsb) karena sangat rawan berubah.
+                    // Gunakan teks native yang selalu ada di FB Lite.
+                    const ikonTombolTarget = ['\u{f1953}', '\u{f3159}', 'URUTKAN'];
+                    ikonTombolTarget.forEach(ikon => {
+                        klikTombolByText(ikon);
+                    });
+                }
             }
-
             setTimeout(heartbeat, refreshNonUser);
         };
         heartbeat();
