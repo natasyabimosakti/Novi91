@@ -38,7 +38,7 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
         // 1. Baca sinkronus (< 0.02ms)
         const lockData = localStorage.getItem(lockKey);
-
+        console.log(lockKey)
         if (lockData) {
             const parts = lockData.split("|");
             const ownerTab = parts[0];
