@@ -28,9 +28,9 @@ window.initBabonLogic = function (namagroup18, Comment18) {
 
     // --- SISTEM PENGUNCI MULTI-TAB SUPER CEPAT (< 0.1 ms) ---
     const MY_TAB_ID = Math.random().toString(36).substring(2, 10); // ID unik untuk tab ini
-    const kunciGrup = namagroup18 ? namagroup18 : grouptToPost;
-    const lockKey = "FB_WIN_LOCK_" + kunciGrup.replace(/\s+/g, '_');
     function isWinnerTab() {
+        const kunciGrup = namagroup18 ? namagroup18 : grouptToPost;
+        const lockKey = "FB_WIN_LOCK_" + kunciGrup.replace(/\s+/g, '_');
         // Ambil waktu global yang valid antar tab (Date.now())
         const globalTimeMs = Date.now();
         // Token unik dengan presisi mikrodetik (hanya untuk double-check)
