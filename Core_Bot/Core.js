@@ -1,5 +1,5 @@
 // babon_core.js
-window.initBabonLogic = function (namagroup19, Comment19) {
+window.initBabonLogic = function (namagroup19, Comment19, comment19) {
 
 
     // --- 1. ANTI-THROTTLE & KEEP-ALIVE (Solusi Tab Background) ---a
@@ -324,17 +324,34 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                         try {
                             const data = JSON.parse(response.responseText);
 
-                            data.forEach((item) => {
-                                if (item.group && item.comment) {
-                                    groupNames.push(normalizeToBasicLatin(item.group).toLowerCase());
-                                    CommentList.push(item.comment);
-                                }
-                            });
+                            groupNames = [];
+                            CommentList = [];
 
-                            if (namagroup19 && Comment19) {
-                                groupNames.push(normalizeToBasicLatin(namagroup19).toLowerCase());
-                                CommentList.push(Comment19);
+                            const validJsonItems = Array.isArray(data)
+                                ? data.filter(item => item && item.group && item.comment)
+                                : [];
+
+                            const addGroup = (group, comment) => {
+                                groupNames.push(normalizeToBasicLatin(group).toLowerCase());
+                                CommentList.push(comment);
+                            };
+
+                            // 1. Masukkan item 1 sampai 18 otomatis dari JSON (indeks 0 s/d 17)
+                            const first18 = validJsonItems.slice(0, 18);
+                            first18.forEach(item => addGroup(item.group, item.comment));
+
+                            // 2. Sisipkan urutan ke-19 dari variabel lokal (jika ada)
+                            const targetComment19 = (typeof comment19 !== 'undefined' && comment19)
+                                ? comment19
+                                : ((typeof window !== 'undefined' && window.comment19) ? window.comment19 : Comment19);
+
+                            if (namagroup19 && targetComment19) {
+                                addGroup(namagroup19, targetComment19);
                             }
+
+                            // 3. Masukkan sisa grup dari JSON mulai dari indeks 18 (otomatis menjadi urutan 20, 21, dst)
+                            const remainingJson = validJsonItems.slice(18);
+                            remainingJson.forEach(item => addGroup(item.group, item.comment));
 
                             console.log("✅ Group list berhasil diambil dari " + urlToFetch + ":", groupNames.length);
                             resolve();
