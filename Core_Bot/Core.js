@@ -36,8 +36,10 @@ window.initBabonLogic = function (namagroup19, Comment19, comment19) {
         if (typeof grouptToPost === 'string' && grouptToPost.trim() !== '') {
             keys.push("FB_WIN_LOCK_" + grouptToPost.trim().toLowerCase().replace(/\s+/g, '_'));
         }
-        // 2. ID grup dari URL Facebook tab ini (misal: 1656327495254226, 809325610667476, 1857153011678555)
-        const url = (typeof location !== 'undefined' && location.href) || (typeof cekurlutama !== 'undefined' && cekurlutama) || "";
+        // 2. ID grup dari URL Facebook (prioritaskan cekurlutama karena menyimpan URL asli sebelum redirect ke www.facebook.com)
+        const url = (typeof cekurlutama !== 'undefined' && cekurlutama.includes("group"))
+            ? cekurlutama
+            : ((typeof location !== 'undefined' && location.href.includes("group")) ? location.href : "");
         const match = url.match(/\/groups\/([^\/?#]+)/);
         if (match && match[1]) {
             const idKey = "FB_WIN_LOCK_" + match[1].toLowerCase().replace(/\s+/g, '_');
