@@ -36,10 +36,22 @@ window.initBabonLogic = function (namagroup19, Comment19, comment19) {
         if (typeof grouptToPost === 'string' && grouptToPost.trim() !== '') {
             keys.push("FB_WIN_LOCK_" + grouptToPost.trim().toLowerCase().replace(/\s+/g, '_'));
         }
-        // 2. ID grup dari URL Facebook (prioritaskan cekurlutama karena menyimpan URL asli sebelum redirect ke www.facebook.com)
-        const url = (typeof cekurlutama !== 'undefined' && cekurlutama.includes("group"))
-            ? cekurlutama
-            : ((typeof location !== 'undefined' && location.href.includes("group")) ? location.href : "");
+        // 2. ID grup dari URL Facebook (prioritaskan cekurlutama / __wlsec karena menyimpan URL asli sebelum redirect ke www.facebook.com)
+        let url = (typeof cekurlutama !== 'undefined' && cekurlutama.includes("group")) ? cekurlutama : "";
+        if (!url) {
+            try {
+                const tw = typeof unsafeWindow !== 'undefined' ? unsafeWindow : window;
+                if (tw.__wlsec && tw.__wlsec.json_struct) {
+                    const parsed = JSON.parse(tw.__wlsec.json_struct);
+                    if (parsed?.requestedUrlFromWww && parsed.requestedUrlFromWww.includes("group")) {
+                        url = parsed.requestedUrlFromWww;
+                    }
+                }
+            } catch (e) {}
+        }
+        if (!url && typeof location !== 'undefined' && location.href.includes("group")) {
+            url = location.href;
+        }
         const match = url.match(/\/groups\/([^\/?#]+)/);
         if (match && match[1]) {
             const idKey = "FB_WIN_LOCK_" + match[1].toLowerCase().replace(/\s+/g, '_');
