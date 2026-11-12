@@ -13,7 +13,7 @@
 {"group":"RIATOTO","comment":"#RIATOTO IKLAN77 = 02*45*20"},
 {"group":"LOGAM","comment":"#LOGAMTOTO=INCLUDE79= 07*38#"},
 {"group":"KANGTOTO","comment":"#KANGTOTO=INDOR55=(36,25,00)"},
-{"group":"K86","comment":"K86TOTO ( IDLEN26 ) : 42*03*37"},
+{"group":"AJANG","comment":"K86TOTO ( IDLEN26 ) : 42*03*37"},
 {"group":"TOYIB","comment":"#TOYIBSLOT ( INBUL20 ) : 41*18*23"},
 {"group":"WAKA","comment":"#WAKATOTO ( INDPAL88 ) 31*99"},
 {"group":"KOI","comment":"#KOITOTO ( INDPAL88 ) 43*10"},
