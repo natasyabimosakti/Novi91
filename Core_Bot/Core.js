@@ -678,22 +678,81 @@ window.initBabonLogic = function (namagroup19, Comment19) {
     let RAW_PAYLOAD_DARI_FACEBOOK = "";
     let lastCapturedFuncName = "";
 
+    // Ekstrak token sesi dari SEMUA request GraphQL (agar semua 4 FB selalu punya token segar)
+    function extractSessionTokensFromBody(bodyStr) {
+        if (!bodyStr || !bodyStr.includes("&")) return;
+        try {
+            const sp = new URLSearchParams(bodyStr);
+            const setIf = (key, cur) => {
+                const v = sp.get(key);
+                return (v !== null && v.trim() !== "") ? v.trim() : cur;
+            };
+            av = setIf('av', av);
+            __user = setIf('__user', __user);
+            fb_dtsg = setIf('fb_dtsg', fb_dtsg);
+            jazoest = setIf('jazoest', jazoest);
+            __aaid = setIf('__aaid', __aaid);
+            __a = setIf('__a', __a);
+            __hs = setIf('__hs', __hs);
+            dpr = setIf('dpr', dpr);
+            __ccg = setIf('__ccg', __ccg);
+            __rev = setIf('__rev', __rev);
+            __s = setIf('__s', __s);
+            __hsi = setIf('__hsi', __hsi);
+            __dyn = setIf('__dyn', __dyn);
+            __csr = setIf('__csr', __csr);
+            __hsdp = setIf('__hsdp', __hsdp);
+            __hblp = setIf('__hblp', __hblp);
+            __sjsp = setIf('__sjsp', __sjsp);
+            __comet_req = setIf('__comet_req', __comet_req);
+            lsd = setIf('lsd', lsd);
+            __spin_r = setIf('__spin_r', __spin_r);
+            __spin_b = setIf('__spin_b', __spin_b);
+            __spin_t = setIf('__spin_t', __spin_t);
+            __jssesw = setIf('__jssesw', __jssesw);
+            server_timestamps = setIf('server_timestamps', server_timestamps);
+        } catch (e) { }
+    }
+
     // Fungsi Pengecek Payload Universal
     function checkAndParsePayload(bodyStr) {
         if (!bodyStr || typeof bodyStr !== 'string') return;
+
+        // SELALU ekstrak token sesi dari request GraphQL apa pun
+        extractSessionTokensFromBody(bodyStr);
 
         let matchDocId = bodyStr.match(/doc_id=(\d+)/);
         if (matchDocId && matchDocId[1].length > 5 && bodyStr.includes("variables=")) {
             let funcName = (bodyStr.split("fb_api_req_friendly_name=")[1] || "").split("&")[0];
 
-            // Blokir payload yang tidak relevan (seperti Hovercard saat mouse digerakkan)
-            if (funcName.includes("Hovercard") || funcName.includes("Notification") || funcName.includes("Chat") || funcName.includes("Typing")) {
+            // Blokir semua Mutation dan query non-feed (JoinForum, RecAffordance, Composer, Typeahead, Hovercard, dll)
+            if (
+                !funcName ||
+                funcName.includes("Mutation") ||
+                funcName.includes("Hovercard") ||
+                funcName.includes("Notification") ||
+                funcName.includes("Chat") ||
+                funcName.includes("Typing") ||
+                funcName.includes("Composer") ||
+                funcName.includes("Typeahead") ||
+                funcName.includes("RecAffordance") ||
+                funcName.includes("Comment")
+            ) {
                 return;
             }
 
-            // Filter ketat: Pastikan request Feed / Profile / Group
-            if (bodyStr.includes("%22feedLocation%22") || bodyStr.includes("%22feedCursor%22") || bodyStr.includes("%22groupID%22") || bodyStr.includes("FeedPagination") || bodyStr.includes("ProfileCometContextualProfileGroupPostsFeedPaginationQuery")) {
+            // Filter KETAT: HANYA kunci query Feed Pagination (jangan tertimpa query groupID biasa!)
+            const isFeedQuery = (
+                funcName.includes("FeedPagination") ||
+                funcName.includes("StoriesPagination") ||
+                funcName.includes("PostsFeedPagination") ||
+                funcName.includes("GroupFeedPagination") ||
+                funcName === "GroupsCometFeedRegularStoriesPaginationQuery" ||
+                funcName === "ProfileCometContextualProfileGroupPostsFeedPaginationQuery" ||
+                (bodyStr.includes("%22feedLocation%22") && (bodyStr.includes("%22feedCursor%22") || bodyStr.includes("%22cursor%22")))
+            );
 
+            if (isFeedQuery) {
                 RAW_PAYLOAD_DARI_FACEBOOK = bodyStr;
 
                 // Mencegah console penuh (Spam). Hanya log jika jenis query berubah.
