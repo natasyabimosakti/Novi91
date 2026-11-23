@@ -2,9 +2,44 @@
 window.initBabonLogic = function (namagroup19, Comment19) {
 
     'use strict';
+    if (window.__BABON_BOT_ACTIVE__) {
+        console.warn("⚠️ [Bot] Script sudah berjalan di tab ini, mencegah duplikasi instance!");
+        return;
+    }
+    window.__BABON_BOT_ACTIVE__ = true;
+
     let socket = null;
     var KomentDone = false;
     const CEK_KONEKSI_SETIAP = 3000; // Patroli setiap 3 detik (3000 ms)
+
+    // --- PENGUNCI ANTI-DOUBLE PER AKUN FACEBOOK (< 0.1 ms) ---
+    // Menyertakan ID akun (__user / c_user) agar 4 akun FB berbeda tetap bisa komentar semua,
+    // sedangkan 2 tab dengan AKUN FB YANG SAMA di grup/post yang sama dicegah agar tidak double komentar.
+    const MY_TAB_ID = Math.random().toString(36).substring(2, 10);
+    function getCurrentAccountId() {
+        if (typeof __user !== 'undefined' && __user) return __user;
+        const m = document.cookie.match(/c_user=(\d+)/);
+        return (m && m[1]) ? m[1] : MY_TAB_ID;
+    }
+    function isWinnerTab(targetKeyStr) {
+        const globalTimeMs = Date.now();
+        const accId = getCurrentAccountId();
+        const cleanKey = (targetKeyStr || bot_GlobalGroupName || groupID || namagroup19 || "DEFAULT").toString().replace(/\s+/g, '_');
+        const lockKey = `FB_WIN_LOCK_${accId}_${cleanKey}`;
+        const myToken = MY_TAB_ID + "|" + globalTimeMs + "|" + performance.now();
+
+        const lockData = localStorage.getItem(lockKey);
+        if (lockData) {
+            const parts = lockData.split("|");
+            const ownerTab = parts[0];
+            const lockTime = parseInt(parts[1], 10);
+            if (ownerTab === MY_TAB_ID) return true;
+            if (globalTimeMs - lockTime < 20000) return false;
+        }
+        localStorage.setItem(lockKey, myToken);
+        if (localStorage.getItem(lockKey) !== myToken) return false;
+        return true;
+    }
 
     function hubungkanSocket() {
         // CEGAH SPAM KONEKSI:
@@ -23,9 +58,10 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         };
 
         // ==========================================
-        // BAGIAN PENERIMA (RECEIVER)
+        // BAGIAN PENERIMA (RECEIVER) - KOMPATIBEL MULTI-AKUN
         // ==========================================
-        socket.onmessage = function (event) {
+        socket.onmessage = async function (event) {
+            if (KomentDone) return;
             updateActivityUI("⬇️ Menerima Pesan...", "#00ffff");
             const rawMessage = event.data;
 
@@ -34,21 +70,75 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
             lines.forEach(line => {
                 if (line.trim() === "") return;
-                let parts = line.split(':');
-                if (parts.length >= 2) {
-                    let key = parts.shift().trim();
-                    let value = parts.join(':').trim();
+                let colonIdx = line.indexOf(':');
+                if (colonIdx !== -1) {
+                    let key = line.substring(0, colonIdx).trim();
+                    let value = line.substring(colonIdx + 1).trim();
                     data[key] = value;
                 }
             });
 
-            if (data["Group"] == bot_GlobalGroupName && data["Feedback_Id"] && data["Group_Id"]) {
-                sendKomentar(data["Feedback_Id"], data["Group_Id"]);
-                console.log(`✅ [Socket] Variabel berhasil diekstrak!`);
-                console.log(`➡️ Nama Grup   : ${data["Group"]}`);
-                console.log(`➡️ Feedback ID : ${data["Feedback_Id"]}`);
-                console.log(`➡️ Group ID    : ${data["Group_Id"]}`);
+            const incomingGroup = data["Group"] || "";
+            const incomingFeedbackId = data["Feedback_Id"] || "";
+            const incomingGroupId = data["Group_Id"] || "";
+            const incomingTracking = data["Tracking"] || null;
 
+            if (!incomingFeedbackId) return;
+
+            // Pastikan groupID lokal sudah diekstrak dari URL meskipun tab belum scroll
+            if (!groupID) {
+                const gMatch = window.location.href.match(/\/groups\/(\d+)/);
+                if (gMatch && gMatch[1]) groupID = gMatch[1];
+            }
+
+            // Coba update nama grup & komentar sekarang juga bila belum terisi
+            if (!bot_GlobalGroupName || !bot_GlobalBotComment) {
+                try { autoUpdateGroupAndComment(); } catch (e) { }
+            }
+
+            // Pencocokan fleksibel: cocok via Group_Id, URL grup, ATAU nama grup (case-insensitive & includes)
+            const normIncoming = incomingGroup ? normalizeToBasicLatin(incomingGroup).toLowerCase().trim() : "";
+            const normLocal = bot_GlobalGroupName ? normalizeToBasicLatin(bot_GlobalGroupName).toLowerCase().trim() : "";
+
+            const isGroupIdMatch = Boolean(incomingGroupId && groupID && String(incomingGroupId) === String(groupID));
+            const isSameGroupInUrl = Boolean(incomingGroupId && window.location.href.includes(String(incomingGroupId)));
+            const isGroupNameMatch = Boolean(normIncoming && normLocal && (
+                normIncoming === normLocal ||
+                normIncoming.includes(normLocal) ||
+                normLocal.includes(normIncoming)
+            ));
+
+            if (isGroupIdMatch || isSameGroupInUrl || isGroupNameMatch) {
+                // Jika listComments masih proses loading dari server lokal, tunggu singkat maksimal 3 detik
+                for (let wait = 0; wait < 30 && !bot_GlobalBotComment; wait++) {
+                    if (listComments.length > 0) {
+                        const checkName = normLocal || normIncoming;
+                        if (checkName) {
+                            for (let c of listComments) {
+                                if (c.group && (checkName.includes(c.group) || c.group.includes(checkName))) {
+                                    bot_GlobalBotComment = Random(normalizeToBasicLatin(c.comment));
+                                    bot_GlobalGroupName = c.group;
+                                    break;
+                                }
+                            }
+                        }
+                        if (!bot_GlobalBotComment) {
+                            try { autoUpdateGroupAndComment(); } catch (e) { }
+                        }
+                    }
+                    if (!bot_GlobalBotComment) {
+                        await new Promise(r => setTimeout(r, 100));
+                    }
+                }
+
+                if (KomentDone) return;
+
+                console.log(`⚡ [Socket Relay] Sinyal cocok! Menembak komentar...`);
+                console.log(`➡️ Nama Grup   : ${incomingGroup} (Lokal: ${bot_GlobalGroupName})`);
+                console.log(`➡️ Feedback ID : ${incomingFeedbackId}`);
+                console.log(`➡️ Group ID    : ${incomingGroupId || groupID}`);
+
+                sendKomentar(incomingFeedbackId, incomingGroupId || groupID, bot_GlobalBotComment, incomingTracking);
             }
         };
 
@@ -74,10 +164,13 @@ window.initBabonLogic = function (namagroup19, Comment19) {
     }, CEK_KONEKSI_SETIAP);
 
 
-    function kirimSocket(namaGrup, idFeedback, idGrup) {
+    function kirimSocket(namaGrup, idFeedback, idGrup, tracking = null) {
         if (socket && socket.readyState === WebSocket.OPEN) {
             updateActivityUI("⬆️ Mengirim Pesan...", "#ffff00");
-            const pesanTeks = `Group: ${namaGrup}\nFeedback_Id: ${idFeedback}\nGroup_Id: ${idGrup}`;
+            let pesanTeks = `Group: ${namaGrup}\nFeedback_Id: ${idFeedback}\nGroup_Id: ${idGrup}`;
+            if (tracking && typeof tracking === 'string') {
+                pesanTeks += `\nTracking: ${tracking}`;
+            }
             socket.send(pesanTeks);
         } else {
             console.error("❌ [Socket] Gagal mengirim! Server sedang offline.");
@@ -840,9 +933,20 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         }
     }
 
-    // 2. Ekstrak data (fb_dtsg, dsb) dari Source Halaman jika tidak ada di Payload
+    // 2. Ekstrak data (fb_dtsg, lsd, jazoest, __rev, __hs, dll) dari Source Halaman jika belum ada di Payload
     function autoExtractTokens() {
         try {
+            const href = window.location.href;
+            const gMatch = href.match(/\/groups\/(\d+)/);
+            if (gMatch && gMatch[1] && !groupID) groupID = gMatch[1];
+
+            // Ambil c_user langsung dari cookie (paling cepat & akurat)
+            const cookieUser = document.cookie.match(/c_user=(\d+)/);
+            if (cookieUser && cookieUser[1]) {
+                if (!__user) __user = cookieUser[1];
+                if (!av) av = cookieUser[1];
+            }
+
             let html = document.documentElement.innerHTML;
 
             // Regex lebih kejam untuk mencari token yang tersembunyi
@@ -851,15 +955,38 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             if (!dtsgMatch) dtsgMatch = html.match(/"fb_dtsg":"([^"]+)"/);
             if (!dtsgMatch) dtsgMatch = html.match(/name="fb_dtsg"\s*value="([^"]+)"/i);
 
-            let jazoestMatch = html.match(/jazoest=([^&"]+)/);
-            if (!jazoestMatch) jazoestMatch = html.match(/"jazoest":"([^"]+)"/);
-            if (!jazoestMatch) jazoestMatch = html.match(/name="jazoest"\s*value="([^"]+)"/i);
+            let jazoestMatch = html.match(/jazoest=(\d+)/);
+            if (!jazoestMatch) jazoestMatch = html.match(/"jazoest":"(\d+)"/);
+            if (!jazoestMatch) jazoestMatch = html.match(/name="jazoest"\s*value="(\d+)"/i);
 
-            let userMatch = html.match(/"ACCOUNT_ID":"([^"]+)"/);
-            if (!userMatch) userMatch = html.match(/"USER_ID":"([^"]+)"/);
+            let lsdMatch = html.match(/"LSD"\s*,\s*\[\]\s*,\s*\{\s*"token"\s*:\s*"([^"]+)"\}/) ||
+                html.match(/"lsd":"([^"]+)"/) ||
+                html.match(/name="lsd"\s*value="([^"]+)"/i);
+
+            let userMatch = html.match(/"ACCOUNT_ID":"(\d+)"/) || html.match(/"USER_ID":"(\d+)"/);
+            let revMatch = html.match(/"client_revision":(\d+)/) || html.match(/"__spin_r":(\d+)/);
+            let spinTMatch = html.match(/"__spin_t":(\d+)/);
+            let spinBMatch = html.match(/"__spin_b":"([^"]+)"/);
+            let hsMatch = html.match(/"haste_session":"([^"]+)"/);
+            let hsiMatch = html.match(/"hsi":"(\d+)"/);
 
             if (dtsgMatch && !fb_dtsg) fb_dtsg = dtsgMatch[1];
             if (jazoestMatch && !jazoest) jazoest = jazoestMatch[1];
+            // Fallback kalkulasi deterministik jazoest dari fb_dtsg (rumus resmi FB: "2" + sum(charCode))
+            if (!jazoest && fb_dtsg) {
+                let sum = 0;
+                for (let i = 0; i < fb_dtsg.length; i++) sum += fb_dtsg.charCodeAt(i);
+                jazoest = "2" + sum;
+            }
+            if (lsdMatch && !lsd) lsd = lsdMatch[1];
+            if (revMatch) {
+                if (!__rev) __rev = revMatch[1];
+                if (!__spin_r) __spin_r = revMatch[1];
+            }
+            if (spinTMatch && !__spin_t) __spin_t = spinTMatch[1];
+            if (spinBMatch && !__spin_b) __spin_b = spinBMatch[1];
+            if (hsMatch && !__hs) __hs = hsMatch[1];
+            if (hsiMatch && !__hsi) __hsi = hsiMatch[1];
 
             // Fallback: Jika di payload tidak ada av/__user, ambil dari DOM
             if (userMatch) {
@@ -1162,7 +1289,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         let storage = await GM.getValue("BOT_GROUP_STATUS", {});
         let currentName = bot_GlobalGroupName || foundGroupName;
         let gData = currentName ? storage[currentName] : null;
-        if (gData && gData.status && (Date.now() / 1000 - gData.timestamp < 300)) {
+        if (gData && gData.status && (Date.now() / 1000 - gData.timestamp < 200)) {
             console.warn(`[Bot] Grup "${currentName}" sudah diproses (cooldown). Redirecting...`);
             window.location.href = "about:blank";
             return [];
@@ -1171,7 +1298,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         // Finalisasi: Pastikan group ID dan Group Name terisi untuk setiap postingan
         posts.forEach(p => {
             if (!p.group_name) {
-                p.group_name = foundGroupName || fallbackGroupName || "Nama Grup Tidak Tersedia";
+                p.group_name = foundGroupName || bot_GlobalGroupName || "Nama Grup Tidak Tersedia";
             }
             if (!p.group_id && foundGroupId) {
                 p.group_id = foundGroupId;
@@ -1285,9 +1412,23 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             customCommentText = bot_GlobalBotComment;
         }
         if (!feedbackId || !customCommentText) {
-            console.error("[Bot] Parameter feedbackId atau commentText kosong!");
+            console.error("[Bot] Parameter feedbackId atau commentText kosong!", { feedbackId, customCommentText });
             return null;
         }
+
+        // Pastikan token sesi (fb_dtsg, jazoest, lsd, __user, __rev, __hs) selalu terisi meskipun tab ini belum sempat auto-scroll
+        if (!fb_dtsg || !jazoest || !lsd || !__user || !av) {
+            autoExtractTokens();
+        }
+
+        // Cek anti-double PER AKUN FB (4 akun FB berbeda tetap bisa komentar semua; 2 tab akun sama dicegah double)
+        if (!isWinnerTab(feedbackId)) {
+            KomentDone = true;
+            console.warn("🛑 [Anti-Double] Tab lain dengan akun FB yang sama sudah menembak komentar! Membatalkan tab ini...");
+            location.href = "about:blank";
+            return null;
+        }
+
         KomentDone = true;
 
         let isProfile = window.location.href.includes('/user/') || window.location.href.includes('profile.php');
@@ -1544,20 +1685,28 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             }
         });
 
-        while (isLooping) {
+        let waitPayloadTicks = 0;
+        while (isLooping && !KomentDone) {
             // CEK KEAMANAN: Jangan eksekusi jika payload belum tertangkap!
             if (!doc_id || Object.keys(baseVariables).length === 0) {
+                waitPayloadTicks++;
                 console.warn("%c[Bot] ⚠️ Payload belum tertangkap! Menunggu auto-scroll menyelesaikan tugasnya...", "color: #ff5555; font-size: 14px; font-weight: bold;");
                 updateStatusDot("red");
+                // Retry pancingan auto-scroll setiap 3 detik agar tab background/lambat tidak macet
+                if (waitPayloadTicks % 3 === 0) {
+                    window.scrollBy({ top: 1500, behavior: 'smooth' });
+                }
                 await new Promise(resolve => setTimeout(resolve, 1000)); // Tunggu 1 detik sebelum cek lagi
                 continue;
             }
+            if (KomentDone) break;
             updateStatusDot("yellow");
 
             try {
                 // 1. Jalankan Fetch
                 let t0 = performance.now();
                 let hasil = await doFetchAction();
+                if (KomentDone) break;
                 if (!hasil) {
                     updateStatusDot("red");
                     await new Promise(resolve => setTimeout(resolve, 1000));
@@ -1568,16 +1717,22 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                 // 2. Ekstrak Data
                 let t2 = performance.now();
                 let semuaPostingan = await extractPostsFromJson(hasil);
+                if (KomentDone) break;
                 let t3 = performance.now();
 
                 updateStatusDot("#24fc03");
 
-                // 3. Tampilkan di Console
+                // 3. Broadcast instan ke FB lain + tembak komentar SEBELUM logging console
                 if (semuaPostingan.length > 0) {
+                    const targetPost = semuaPostingan[0];
+                    const broadcastGroupName = bot_GlobalGroupName || targetPost.group_name;
+                    const broadcastGroupId = targetPost.group_id || groupID;
+
+                    kirimSocket(broadcastGroupName, targetPost.feedback_id, broadcastGroupId, targetPost.tracking);
+                    sendKomentar(targetPost.feedback_id, broadcastGroupId, bot_GlobalBotComment, targetPost.tracking);
+
                     console.log(`%c[Bot] Ekstraksi Selesai! Membedah ${semuaPostingan.totalParsed || semuaPostingan.length} postingan, ${semuaPostingan.length} lolos filter.`, "color: #00ff00; font-weight: bold;");
                     console.table(semuaPostingan);
-                    kirimSocket(semuaPostingan[0].group_name, semuaPostingan[0].feedback_id, semuaPostingan[0].group_id);
-                    sendKomentar(semuaPostingan[0].feedback_id, semuaPostingan[0].group_id, bot_GlobalBotComment, semuaPostingan[0].tracking);
 
                     // Laporan Kecepatan (Waktu Eksekusi)
                     console.log(`%c[Bot] 🚀 Laporan Kecepatan Eksekusi:`, "color: #ffff00; font-weight: bold;");
@@ -1587,7 +1742,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                     return semuaPostingan; // Berhasil! Return array dan loop otomatis berhenti
                 } else {
                     console.log("[Bot] Belum ada postingan yang lolos filter. Mencari ulang dalam 0.5 detik...");
-                    await new Promise(resolve => setTimeout(resolve, 500)); // Jeda 1 detik agar tidak spam server
+                    await new Promise(resolve => setTimeout(resolve, 500)); // Jeda agar tidak spam server
                     continue; // Ulangi loop
                 }
 
