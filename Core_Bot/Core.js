@@ -498,9 +498,9 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         let currentTime = Math.floor(Date.now() / 1000);
         let isChanged = false;
 
-        // 1. Bersihkan status grup yang sudah kadaluarsa (Lebih dari 5 menit / 300 detik)
+        // 1. Bersihkan status grup yang sudah kadaluarsa (Lebih dari 2 menit / 120 detik)
         for (let gName in storage) {
-            if (storage[gName].status === true && (currentTime - storage[gName].timestamp > 300)) {
+            if (storage[gName].status === true && (currentTime - storage[gName].timestamp > 120)) {
                 storage[gName].status = false;
                 isChanged = true;
             }
@@ -516,9 +516,9 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             await GM.setValue("BOT_GROUP_STATUS", storage);
         }
 
-        // 3. Pengecekan Blokir: Jika grup ini berstatus true dan belum 5 menit, langsung putuskan koneksi!
+        // 3. Pengecekan Blokir: Jika grup ini berstatus true dan belum 2 menit, langsung putuskan koneksi!
         if (storage[groupName].status === true) {
-            let sisaWaktu = 300 - (currentTime - storage[groupName].timestamp);
+            let sisaWaktu = 120 - (currentTime - storage[groupName].timestamp);
             if (sisaWaktu > 0) {
                 console.warn(`%c[Bot] Grup "${groupName}" sedang dalam masa Cooldown (sisa ${sisaWaktu} detik)! Mengalihkan ke about:blank untuk mencegah spam...`, "color: #ff0000; font-weight: bold; font-size: 16px;");
                 window.location.href = "about:blank";
@@ -536,7 +536,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             timestamp: Math.floor(Date.now() / 1000)
         };
         await GM.setValue("BOT_GROUP_STATUS", storage);
-        console.log(`%c[Bot] Status Grup "${groupName}" dikunci (TRUE) selama 5 menit ke depan!`, "color: #00ff00; font-weight: bold;");
+        console.log(`%c[Bot] Status Grup "${groupName}" dikunci (TRUE) selama 2 menit ke depan!`, "color: #00ff00; font-weight: bold;");
     }
 
     // ==========================================================================================
@@ -1181,7 +1181,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         let storage = await GM.getValue("BOT_GROUP_STATUS", {});
         let currentName = bot_GlobalGroupName || foundGroupName;
         let gData = currentName ? storage[currentName] : null;
-        if (gData && gData.status && (Date.now() / 1000 - gData.timestamp < 300)) {
+        if (gData && gData.status && (Date.now() / 1000 - gData.timestamp < 120)) {
             console.warn(`[Bot] Grup "${currentName}" sudah diproses (cooldown). Redirecting...`);
             window.location.href = "about:blank";
             return [];
