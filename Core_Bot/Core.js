@@ -81,8 +81,9 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             const incomingGroup = data["Group"] || "";
             const incomingFeedbackId = data["Feedback_Id"] || "";
             const incomingGroupId = data["Group_Id"] || "";
+            const incomingPostId = data["Post_Id"] || "";
 
-            if (!incomingFeedbackId) return;
+            if (!incomingFeedbackId && !incomingPostId) return;
 
             // Pastikan groupID lokal sudah diekstrak dari URL meskipun tab belum scroll
             if (!groupID) {
@@ -132,12 +133,18 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
                 if (KomentDone) return;
 
+                // Prioritaskan feedback_id numerik universal btoa("feedback:" + post_id) agar tidak ditolak pfbid lintas-akun (1446013)
+                const numericFeedbackId = buildNumericFeedbackId(incomingPostId);
+                const primaryFeedbackId = numericFeedbackId || incomingFeedbackId;
+                const altFeedbackId = (numericFeedbackId && incomingFeedbackId && numericFeedbackId !== incomingFeedbackId) ? incomingFeedbackId : null;
+
                 console.log(`⚡ [Socket Relay] Sinyal cocok! Menembak komentar...`);
                 console.log(`➡️ Nama Grup   : ${incomingGroup} (Lokal: ${bot_GlobalGroupName})`);
-                console.log(`➡️ Feedback ID : ${incomingFeedbackId}`);
+                console.log(`➡️ Post ID     : ${incomingPostId || "-"}`);
+                console.log(`➡️ Feedback ID : ${primaryFeedbackId} ${numericFeedbackId ? "(Universal Numeric)" : "(Raw pfbid)"}`);
                 console.log(`➡️ Group ID    : ${incomingGroupId || groupID}`);
 
-                sendKomentar(incomingFeedbackId, incomingGroupId || groupID, bot_GlobalBotComment, null);
+                sendKomentar(primaryFeedbackId, incomingGroupId || groupID, bot_GlobalBotComment, null, incomingPostId, altFeedbackId);
             }
         };
 
@@ -148,6 +155,17 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         socket.onerror = function (error) {
             updateSocketUI(false);
         };
+    }
+
+    function buildNumericFeedbackId(postId) {
+        if (!postId) return null;
+        const clean = String(postId).trim();
+        if (!/^\d+$/.test(clean)) return null;
+        try {
+            return btoa("feedback:" + clean);
+        } catch (e) {
+            return null;
+        }
     }
 
     // 1. Panggil pertama kali saat halaman dimuat
@@ -163,10 +181,13 @@ window.initBabonLogic = function (namagroup19, Comment19) {
     }, CEK_KONEKSI_SETIAP);
 
 
-    function kirimSocket(namaGrup, idFeedback, idGrup) {
+    function kirimSocket(namaGrup, idFeedback, idGrup, postId = null) {
         if (socket && socket.readyState === WebSocket.OPEN) {
             updateActivityUI("⬆️ Mengirim Pesan...", "#ffff00");
-            const pesanTeks = `Group: ${namaGrup}\nFeedback_Id: ${idFeedback}\nGroup_Id: ${idGrup}`;
+            let pesanTeks = `Group: ${namaGrup}\nFeedback_Id: ${idFeedback}\nGroup_Id: ${idGrup}`;
+            if (postId && /^\d+$/.test(String(postId).trim())) {
+                pesanTeks += `\nPost_Id: ${String(postId).trim()}`;
+            }
             socket.send(pesanTeks);
         } else {
             console.error("❌ [Socket] Gagal mengirim! Server sedang offline.");
@@ -1457,8 +1478,9 @@ window.initBabonLogic = function (namagroup19, Comment19) {
     /**
      * FUNGSI KIRIM KOMENTAR SUPER CEPAT (< 5ms)
      * Disesuaikan 100% dengan capture manual useCometUFICreateCommentMutation terbaru
+     * + Auto-Fallback jika terkena code 1446013 (pfbid lintas-akun / replikasi post baru)
      */
-    async function sendKomentar(feedbackId, customGroupId = groupID, customCommentText = bot_GlobalBotComment, customTracking = null) {
+    async function sendKomentar(feedbackId, customGroupId = groupID, customCommentText = bot_GlobalBotComment, customTracking = null, postId = null, fallbackFeedbackId = null, attempt = 0) {
         if (KomentDone) {
             console.log("[Bot] Komentar sudah terkirim!");
             return;
@@ -1476,8 +1498,9 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             autoExtractTokens();
         }
 
-        // Cek anti-double PER AKUN FB (4 akun FB berbeda tetap bisa komentar semua; 2 tab akun sama dicegah double)
-        if (!isWinnerTab(feedbackId)) {
+        // Cek anti-double PER AKUN FB (hanya pada attempt pertama; retry dari tab yang sama tetap diizinkan karena pemilik lock sama)
+        const lockKeyId = postId || feedbackId;
+        if (!isWinnerTab(lockKeyId)) {
             KomentDone = true;
             console.warn("🛑 [Anti-Double] Tab lain dengan akun FB yang sama sudah menembak komentar! Membatalkan tab ini...");
             location.href = "about:blank";
@@ -1582,17 +1605,57 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             const text = await response.text();
             const cleanResp = text.replace(/^for\s*\(;;\);/, "").trim();
             let hasError = false;
+            let errorCode = null;
             try {
                 const firstLine = cleanResp.split(/\r?\n/)[0];
                 const parsedResp = JSON.parse(firstLine);
                 if (parsedResp && parsedResp.errors && parsedResp.errors.length > 0) {
                     hasError = true;
                     const err0 = parsedResp.errors[0];
+                    errorCode = err0.code;
                     console.error(`[Bot] ❌ Facebook menolak komentar (code ${err0.code}): ${err0.summary || err0.message}`, parsedResp.errors);
                 }
             } catch (parseErr) { }
 
             if (hasError) {
+                // AUTO-FALLBACK KHUSUS CODE 1446013 (pfbid lintas akun / replikasi post baru)
+                if (errorCode === 1446013 && attempt < 2) {
+                    console.warn(`🔄 [Bot Auto-Fallback] Code 1446013 terdeteksi (percobaan #${attempt + 1}). Mencoba ambil feedback_id alternatif / milik akun sendiri...`);
+                    KomentDone = false;
+
+                    // 1. Jika ada alternatif feedback_id yang berbeda (misal fallback ke numeric atau raw pfbid), coba dulu
+                    const altNumeric = buildNumericFeedbackId(postId);
+                    const nextAltId = (altNumeric && altNumeric !== feedbackId)
+                        ? altNumeric
+                        : ((fallbackFeedbackId && fallbackFeedbackId !== feedbackId) ? fallbackFeedbackId : null);
+
+                    if (attempt === 0 && nextAltId) {
+                        await new Promise(r => setTimeout(r, 250));
+                        return sendKomentar(nextAltId, finalGroupId, customCommentText, customTracking, postId, null, attempt + 1);
+                    }
+
+                    // 2. Self-Fetch: ambil feed dengan akun ini sendiri agar mendapat feedback_id (pfbid) asli milik akun ini!
+                    if (doc_id && Object.keys(baseVariables).length > 0) {
+                        await new Promise(r => setTimeout(r, 450));
+                        const selfRaw = await doFetchAction();
+                        if (selfRaw) {
+                            const selfPosts = await extractPostsFromJson(selfRaw);
+                            if (selfPosts && selfPosts.length > 0) {
+                                const ownPost = selfPosts.find(p => postId && String(p.post_id) === String(postId)) || selfPosts[0];
+                                if (ownPost && ownPost.feedback_id && ownPost.feedback_id !== feedbackId) {
+                                    console.log(`🎯 [Bot Auto-Fallback] Berhasil mendapat feedback_id asli milik akun ini! Menembak ulang...`);
+                                    return sendKomentar(ownPost.feedback_id, ownPost.group_id || finalGroupId, customCommentText, ownPost.tracking, ownPost.post_id, null, attempt + 1);
+                                }
+                            }
+                        }
+                    }
+
+                    // Jika self-fetch belum menemukan post (shard belum sinkron), biarkan loop utama mineFacebookPosts menangkapnya
+                    console.warn("⚠️ [Bot Auto-Fallback] Post belum muncul di feed akun ini, melepas kunci agar loop utama mencoba ulang...");
+                    updateKomentarUI("", "red");
+                    return text;
+                }
+
                 updateKomentarUI("", "red");
                 return text;
             }
@@ -1784,8 +1847,8 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                     const broadcastGroupName = bot_GlobalGroupName || targetPost.group_name;
                     const broadcastGroupId = targetPost.group_id || groupID;
 
-                    kirimSocket(broadcastGroupName, targetPost.feedback_id, broadcastGroupId);
-                    sendKomentar(targetPost.feedback_id, broadcastGroupId, bot_GlobalBotComment, targetPost.tracking);
+                    kirimSocket(broadcastGroupName, targetPost.feedback_id, broadcastGroupId, targetPost.post_id);
+                    sendKomentar(targetPost.feedback_id, broadcastGroupId, bot_GlobalBotComment, targetPost.tracking, targetPost.post_id);
 
                     console.log(`%c[Bot] Ekstraksi Selesai! Membedah ${semuaPostingan.totalParsed || semuaPostingan.length} postingan, ${semuaPostingan.length} lolos filter.`, "color: #00ff00; font-weight: bold;");
                     console.table(semuaPostingan);
