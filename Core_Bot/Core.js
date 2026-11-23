@@ -2,9 +2,45 @@
 window.initBabonLogic = function (namagroup19, Comment19) {
 
     'use strict';
+    if (window.__BABON_BOT_ACTIVE__) {
+        console.warn("⚠️ [Bot] Script sudah berjalan di tab ini, mencegah duplikasi instance!");
+        return;
+    }
+    window.__BABON_BOT_ACTIVE__ = true;
+
     let socket = null;
     var KomentDone = false;
     const CEK_KONEKSI_SETIAP = 3000; // Patroli setiap 3 detik (3000 ms)
+
+    // --- SISTEM PENGUNCI MULTI-TAB SUPER CEPAT (< 0.1 ms) (Sama seperti Core.js) ---
+    const MY_TAB_ID = Math.random().toString(36).substring(2, 10);
+    function isWinnerTab(targetKeyStr) {
+        const globalTimeMs = Date.now();
+        const cleanKey = (targetKeyStr || namagroup19 || groupID || "DEFAULT").toString().replace(/\s+/g, '_');
+        const lockKey = "FB_WIN_LOCK_" + cleanKey;
+        const myToken = MY_TAB_ID + "|" + globalTimeMs + "|" + performance.now();
+
+        const lockData = localStorage.getItem(lockKey);
+        if (lockData) {
+            const parts = lockData.split("|");
+            const ownerTab = parts[0];
+            const lockTime = parseInt(parts[1]);
+
+            if (ownerTab === MY_TAB_ID) {
+                return true;
+            }
+            // Jika lock masih baru (< 20 detik), tab lain di profil yang sama sudah menang!
+            if (globalTimeMs - lockTime < 20000) {
+                return false;
+            }
+        }
+
+        localStorage.setItem(lockKey, myToken);
+        if (localStorage.getItem(lockKey) !== myToken) {
+            return false;
+        }
+        return true;
+    }
 
     function hubungkanSocket() {
         // CEGAH SPAM KONEKSI:
@@ -1258,10 +1294,25 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             console.log("[Bot] Komentar sudah terkirim!");
             return;
         }
-        KomentDone = true;
         if (!feedbackId || !customCommentText) {
             console.error("[Bot] Parameter feedbackId atau commentText kosong!");
             return null;
+        }
+
+        // CEK PENGUNCI MULTI-TAB (< 0.1ms): Cegah 2 tab di profil browser yang sama mengirim komentar dobel!
+        const lockTarget = feedbackId + "_" + (__user || bot_GlobalGroupName || customGroupId);
+        if (!isWinnerTab(lockTarget) || !isWinnerTab(bot_GlobalGroupName || customGroupId)) {
+            KomentDone = true;
+            console.warn("🛑 [Anti-Double] Tab lain di profil yang sama sudah menembak komentar! Membatalkan tab ini...");
+            location.href = "about:blank";
+            return null;
+        }
+
+        KomentDone = true;
+
+        // Langsung kunci status grup di GM storage SEBELUM await fetch agar tab lain langsung tahu
+        if (bot_GlobalGroupName) {
+            markGroupAsDone(bot_GlobalGroupName);
         }
 
         let isProfile = window.location.href.includes('/user/') || window.location.href.includes('profile.php');
@@ -1481,7 +1532,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             }
         });
 
-        while (isLooping) {
+        while (isLooping && !KomentDone) {
             // CEK KEAMANAN: Jangan eksekusi jika payload belum tertangkap!
             if (!doc_id || Object.keys(baseVariables).length === 0) {
                 console.warn("%c[Bot] ⚠️ Payload belum tertangkap! Menunggu auto-scroll menyelesaikan tugasnya...", "color: #ff5555; font-size: 14px; font-weight: bold;");
@@ -1489,12 +1540,14 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                 await new Promise(resolve => setTimeout(resolve, 1000)); // Tunggu 1 detik sebelum cek lagi
                 continue;
             }
+            if (KomentDone) break;
             updateStatusDot("yellow");
 
             try {
                 // 1. Jalankan Fetch
                 let t0 = performance.now();
                 let hasil = await doFetchAction();
+                if (KomentDone) break;
                 if (!hasil) {
                     updateStatusDot("red");
                     await new Promise(resolve => setTimeout(resolve, 1000));
@@ -1505,6 +1558,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                 // 2. Ekstrak Data
                 let t2 = performance.now();
                 let semuaPostingan = await extractPostsFromJson(hasil);
+                if (KomentDone) break;
                 let t3 = performance.now();
 
                 updateStatusDot("#24fc03");
