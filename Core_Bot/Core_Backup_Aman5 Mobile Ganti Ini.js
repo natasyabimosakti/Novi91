@@ -1,5 +1,5 @@
 
-window.initBabonLogic = function (namagroup19, Comment19) {
+window.initBabonLogic = function (namagroup19, Comment19, comment19) {
 
     'use strict';
     if (window.__BABON_BOT_ACTIVE__) {
@@ -11,36 +11,139 @@ window.initBabonLogic = function (namagroup19, Comment19) {
     let socket = null;
     var KomentDone = false;
     const CEK_KONEKSI_SETIAP = 3000; // Patroli setiap 3 detik (3000 ms)
+    const EXPIRATION_MS = 5 * 60 * 1000; // Cooldown 5 menit (sama seperti Core.js)
 
-    // --- SISTEM PENGUNCI MULTI-TAB SUPER CEPAT (< 0.1 ms) (Sama seperti Core.js) ---
-    const MY_TAB_ID = Math.random().toString(36).substring(2, 10);
-    function isWinnerTab(targetKeyStr) {
+    // ==========================================================================================
+    // SISTEM PENGUNCI MULTI-TAB SUPER CEPAT (< 0.1 ms) (Sama seperti Core.js)
+    // ==========================================================================================
+    const MY_TAB_ID = Math.random().toString(36).substring(2, 10); // ID unik untuk tab ini
+
+    function getGroupLockKeys(extraGroupId = "", feedbackId = "") {
+        const keys = [];
+        if (typeof bot_GlobalGroupName === 'string' && bot_GlobalGroupName.trim() !== '') {
+            const normName = normalizeToBasicLatin(bot_GlobalGroupName).toLowerCase().trim().replace(/\s+/g, '_');
+            keys.push("FB_WIN_LOCK_" + normName);
+        }
+
+        let gid = (extraGroupId || (typeof groupID !== 'undefined' ? groupID : "") || "").toString().trim();
+        if (!gid && typeof location !== 'undefined' && location.href.includes('/groups/')) {
+            const match = location.href.match(/\/groups\/([^\/?#]+)/);
+            if (match && match[1]) gid = match[1];
+        }
+        if (gid) {
+            const idKey = "FB_WIN_LOCK_" + gid.toLowerCase().replace(/\s+/g, '_');
+            if (!keys.includes(idKey)) keys.push(idKey);
+        }
+
+        if (feedbackId) {
+            const fbKey = "FB_WIN_LOCK_POST_" + feedbackId.toString().trim();
+            if (!keys.includes(fbKey)) keys.push(fbKey);
+        }
+
+        if (keys.length === 0 && namagroup19) {
+            keys.push("FB_WIN_LOCK_" + normalizeToBasicLatin(namagroup19).toLowerCase().trim().replace(/\s+/g, '_'));
+        }
+        return keys;
+    }
+
+    function markGroupDoneLocal(extraGroupId = "", feedbackId = "") {
+        const lockKeys = getGroupLockKeys(extraGroupId, feedbackId);
+        const now = Date.now();
+        for (const key of lockKeys) {
+            try {
+                localStorage.setItem(key + "_DONE", `${MY_TAB_ID}|${now}`);
+            } catch (e) { }
+        }
+    }
+
+    function isGroupDoneLocal(extraGroupId = "", feedbackId = "") {
+        const lockKeys = getGroupLockKeys(extraGroupId, feedbackId);
+        const now = Date.now();
+        for (const key of lockKeys) {
+            try {
+                const doneData = localStorage.getItem(key + "_DONE");
+                if (doneData) {
+                    const parts = doneData.split("|");
+                    const ownerTab = parts[0];
+                    const doneTime = parseInt(parts[1], 10);
+                    if (ownerTab !== MY_TAB_ID && (now - doneTime < EXPIRATION_MS)) {
+                        return true;
+                    }
+                }
+            } catch (e) { }
+        }
+        return false;
+    }
+
+    function isWinnerTab(extraGroupId = "", feedbackId = "") {
+        const lockKeys = getGroupLockKeys(extraGroupId, feedbackId);
+        if (lockKeys.length === 0) return true;
+
+        const primaryKey = lockKeys[0];
         const globalTimeMs = Date.now();
-        const cleanKey = (targetKeyStr || namagroup19 || groupID || "DEFAULT").toString().replace(/\s+/g, '_');
-        const lockKey = "FB_WIN_LOCK_" + cleanKey;
         const myToken = MY_TAB_ID + "|" + globalTimeMs + "|" + performance.now();
 
-        const lockData = localStorage.getItem(lockKey);
-        if (lockData) {
-            const parts = lockData.split("|");
-            const ownerTab = parts[0];
-            const lockTime = parseInt(parts[1]);
-
-            if (ownerTab === MY_TAB_ID) {
-                return true;
+        // 1. Baca sinkronus (< 0.02ms): cek status _DONE dan lock aktif dari tab lain
+        for (const key of lockKeys) {
+            const doneData = localStorage.getItem(key + "_DONE");
+            if (doneData) {
+                const parts = doneData.split("|");
+                const ownerTab = parts[0];
+                const doneTime = parseInt(parts[1], 10);
+                if (ownerTab !== MY_TAB_ID && (globalTimeMs - doneTime < EXPIRATION_MS)) {
+                    console.log(`🛑 [Multi-Tab] Grup/Post (${key}) sudah selesai dikomentari oleh tab ${ownerTab}.`);
+                    return false;
+                }
             }
-            // Jika lock masih baru (< 20 detik), tab lain di profil yang sama sudah menang!
-            if (globalTimeMs - lockTime < 20000) {
-                return false;
+
+            const lockData = localStorage.getItem(key);
+            if (lockData) {
+                const parts = lockData.split("|");
+                const ownerTab = parts[0];
+                const lockTime = parseInt(parts[1], 10);
+
+                // Jika tab ini adalah pemilik lock sebelumnya, aman
+                if (ownerTab === MY_TAB_ID) {
+                    continue;
+                }
+
+                // Mencegah deadlock: Jika lock masih valid (< 20 detik) dan dipegang tab lain, tab ini KALAH
+                if (globalTimeMs - lockTime < 20000) {
+                    console.log(`🛑 [Multi-Tab] Kalah lock pada (${key}) oleh tab: ${ownerTab}`);
+                    return false;
+                }
             }
         }
 
-        localStorage.setItem(lockKey, myToken);
-        if (localStorage.getItem(lockKey) !== myToken) {
-            return false;
+        // 2. Jika kosong atau lock basi, tab ini MENGAMBIL ALIH (< 0.02ms)
+        for (const key of lockKeys) {
+            localStorage.setItem(key, myToken);
         }
-        return true;
+
+        // 3. Double check mikro-detik
+        if (localStorage.getItem(primaryKey) !== myToken) {
+            return false; // Kalah cepat dalam hitungan mikrodetik
+        }
+
+        return true; // Tab ini MENANG dan berhak komentar!
     }
+
+    // Listener realtime antar-tab: jika tab lain di profil yang sama mengambil lock atau selesai komentar di grup yang sama, segera tutup tab ini
+    window.addEventListener('storage', (event) => {
+        if (!event.key || KomentDone) return;
+        const lockKeys = getGroupLockKeys();
+        const isMatch = lockKeys.some(key => event.key === key || event.key === (key + "_DONE"));
+        if (isMatch && event.newValue) {
+            const parts = event.newValue.split("|");
+            const ownerTab = parts[0];
+            if (ownerTab && ownerTab !== MY_TAB_ID) {
+                console.warn(`🛑 [Multi-Tab Realtime] Tab lain (${ownerTab}) di grup yang sama (${event.key}) sudah aktif/selesai komentar. Menutup tab ini...`);
+                KomentDone = true;
+                if (typeof groupCheckInterval !== "undefined") clearInterval(groupCheckInterval);
+                location.href = "about:blank";
+            }
+        }
+    });
 
     function hubungkanSocket() {
         // CEGAH SPAM KONEKSI:
@@ -59,7 +162,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         };
 
         // ==========================================
-        // BAGIAN PENERIMA (RECEIVER) - ULTRA FAST RELAY
+        // BAGIAN PENERIMA (RECEIVER)
         // ==========================================
         socket.onmessage = function (event) {
             if (KomentDone) return;
@@ -69,16 +172,15 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             let data = {};
             let lines = rawMessage.split('\n');
 
-            for (let i = 0; i < lines.length; i++) {
-                let line = lines[i].trim();
-                if (!line) continue;
-                let colonIdx = line.indexOf(':');
-                if (colonIdx !== -1) {
-                    let key = line.substring(0, colonIdx).trim();
-                    let value = line.substring(colonIdx + 1).trim();
+            lines.forEach(line => {
+                if (line.trim() === "") return;
+                let parts = line.split(':');
+                if (parts.length >= 2) {
+                    let key = parts.shift().trim();
+                    let value = parts.join(':').trim();
                     data[key] = value;
                 }
-            }
+            });
 
             const incomingGroup = data["Group"] || "";
             const incomingFeedbackId = data["Feedback_Id"] || "";
@@ -86,24 +188,21 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
             if (!incomingFeedbackId) return;
 
-            // Pastikan groupID lokal sudah terekstrak dari URL walaupun halaman belum scroll
+            // Pastikan groupID lokal terekstrak dari URL meskipun payload belum tersadap
             if (!groupID) {
                 const gMatch = window.location.href.match(/\/groups\/(\d+)/);
                 if (gMatch && gMatch[1]) groupID = gMatch[1];
             }
 
-            // Pencocokan fleksibel & instan:
-            // Cocok jika Group_Id sama, ATAU nama grup mengandung/sama dengan bot_GlobalGroupName
-            const normIncoming = incomingGroup ? normalizeToBasicLatin(incomingGroup).toLowerCase() : "";
-            const normLocal = bot_GlobalGroupName ? normalizeToBasicLatin(bot_GlobalGroupName).toLowerCase() : "";
+            const normIncoming = incomingGroup ? normalizeToBasicLatin(incomingGroup).toLowerCase().trim() : "";
+            const normLocal = bot_GlobalGroupName ? normalizeToBasicLatin(bot_GlobalGroupName).toLowerCase().trim() : "";
 
             const isGroupIdMatch = incomingGroupId && groupID && incomingGroupId === groupID;
             const isGroupNameMatch = normIncoming && normLocal && (normIncoming === normLocal || normIncoming.includes(normLocal) || normLocal.includes(normIncoming));
-            // Jika tab ini baru terbuka di URL grup yang sama tapi belum sempat mendeteksi nama grup maupun groupID
             const isSameGroupInUrl = incomingGroupId && window.location.href.includes(incomingGroupId);
 
             if (isGroupIdMatch || isGroupNameMatch || isSameGroupInUrl) {
-                // Pastikan komentar sudah siap (jika grup belum sempat di-resolve oleh interval 2 detik, paksa resolve sekarang!)
+                // Jika komentar belum sempat di-resolve oleh interval, resolve langsung dari listComments
                 if (!bot_GlobalBotComment && listComments.length > 0) {
                     const checkName = normIncoming || normLocal;
                     if (checkName) {
@@ -116,14 +215,9 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                         }
                     }
                 }
-                // Fallback pamungkas ke Comment19 jika listComments belum selesai dimuat
-                if (!bot_GlobalBotComment && Comment19) {
-                    bot_GlobalBotComment = Random(normalizeToBasicLatin(Comment19));
-                }
 
-                // Langsung tembak komentar tanpa menunggu!
                 sendKomentar(incomingFeedbackId, incomingGroupId || groupID, bot_GlobalBotComment);
-                console.log(`⚡ [Socket Relay] Tembakan Komentar Dipicu oleh Instance Lain!`);
+                console.log(`✅ [Socket] Variabel berhasil diekstrak!`);
                 console.log(`➡️ Nama Grup   : ${incomingGroup}`);
                 console.log(`➡️ Feedback ID : ${incomingFeedbackId}`);
                 console.log(`➡️ Group ID    : ${incomingGroupId}`);
@@ -266,7 +360,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
     updateStatusDot("red");
 
     // ==========================================================================================
-    // DATA DARI SERVER LOKAL (ADMIN & KOMENTAR)
+    // DATA DARI SERVER LOKAL (ADMIN & KOMENTAR) - Metode Lokal Sama Seperti Core.js
     // ==========================================================================================
     var listAdmins = [];
     var listComments = [];
@@ -275,6 +369,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
     var URLADMIN = "http://127.0.0.1:8080/Admin_group_Baru.json";
     const LOCAL_KEY = "cachedAdminList";
     const VERSION_KEY = "cachedAdminVersion";
+    const GROUP_CACHE_KEY = `cachedGroupList_${Comment19 || "default"}`;
     let isAdminListReady = false;
 
     var List_Keyword = ["ROOM", "R**M", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
@@ -295,6 +390,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
     }
 
     function normalizeToBasicLatin(str) {
+        if (!str || typeof str !== 'string') return "";
         return str.replace(/[\u{1D400}-\u{1D7FF}]/gu, (ch) => {
             const boldA = 0x1D400;
             const normalA = 0x41; // ASCII A
@@ -307,6 +403,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
     }
 
     function Random(comment) {
+        if (!comment || typeof comment !== 'string') return comment;
         const numberRegex = /\d{2}/g;
         const rawNumbers = [...comment.matchAll(numberRegex)];
         const validNumbers = rawNumbers.filter(match => {
@@ -344,7 +441,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
     }
 
     function cleanName(s) {
-        return s
+        return (s || "")
             .normalize("NFKD")
             .replace(/\p{Diacritic}/gu, '')
             .replace(/[\u200B-\u200F\u202A-\u202E]/g, '')
@@ -355,7 +452,10 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
     function isAdminFast(name) {
         const cleanedName = cleanName(name);
-        return listAdmins.some(a => cleanedName.includes(cleanName(a)));
+        return listAdmins.some(a => {
+            const cleanedAdmin = cleanName(a);
+            return cleanedAdmin.length > 0 && cleanedName.includes(cleanedAdmin);
+        });
     }
 
     function kirimDataKeLokal(payloadObj) {
@@ -384,9 +484,9 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         }
     }
 
-    // 1. Ambil Data Admin (Sama seperti Core.js: dengan sistem caching versi localStorage)
-    function fetchAdminListFromGitHub() {
-        return new Promise((resolve, reject) => {
+    // 1. Ambil Data Admin dari Server Lokal + Cache localStorage berversi (sama seperti Core.js)
+    function fetchAdminListLokal() {
+        return new Promise((resolve) => {
             GM_xmlhttpRequest({
                 method: "GET",
                 url: URLADMIN,
@@ -394,135 +494,195 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                     try {
                         const data = JSON.parse(response.responseText);
                         const latestVersion = data.version;
-                        const admins = data.admins;
+                        const admins = Array.isArray(data.admins) ? data.admins : [];
 
                         const currentVersion = localStorage.getItem(VERSION_KEY);
-                        if (currentVersion !== latestVersion) {
-                            console.log("⬆️ New admin version found:", latestVersion);
+                        const cachedAdmins = JSON.parse(localStorage.getItem(LOCAL_KEY) || "null");
+
+                        if (currentVersion !== latestVersion || !Array.isArray(cachedAdmins) || cachedAdmins.length === 0) {
+                            console.log("⬆️ [Lokal] Versi admin baru ditemukan:", latestVersion);
                             localStorage.setItem(LOCAL_KEY, JSON.stringify(admins));
-                            localStorage.setItem(VERSION_KEY, latestVersion);
+                            if (latestVersion !== undefined) localStorage.setItem(VERSION_KEY, latestVersion);
                             listAdmins = admins;
                         } else {
-                            console.log("⏩ Admin list is up-to-date (version:", currentVersion + ")");
-                            listAdmins = JSON.parse(localStorage.getItem(LOCAL_KEY)) || [];
+                            console.log("⏩ [Lokal] Daftar admin up-to-date dari cache localStorage (versi:", currentVersion + ")");
+                            listAdmins = cachedAdmins;
                         }
 
                         isAdminListReady = true;
-                        console.log("%c👥 Daftar Admin Berhasil Dimuat:", "color: #fffa77; font-weight: bold;", listAdmins);
+                        console.log("%c[Bot] Berhasil memuat " + listAdmins.length + " data admin lokal.", "color: #00ff00;");
                         resolve(listAdmins);
                     } catch (e) {
-                        console.error("❌ Failed to parse remote admin list:", e);
-                        reject(e);
+                        console.error("[Bot] Gagal parse JSON Admin Lokal, mencoba cache localStorage:", e);
+                        listAdmins = JSON.parse(localStorage.getItem(LOCAL_KEY) || "[]");
+                        isAdminListReady = listAdmins.length > 0;
+                        resolve(listAdmins);
                     }
                 },
                 onerror: function (err) {
-                    console.error("❌ Failed to load admin list from GitHub:", err);
-                    reject(err);
+                    console.error("[Bot] Server Admin Lokal error, fallback ke cache localStorage:", err);
+                    listAdmins = JSON.parse(localStorage.getItem(LOCAL_KEY) || "[]");
+                    isAdminListReady = listAdmins.length > 0;
+                    resolve(listAdmins);
                 }
             });
         });
     }
 
-    // 2. Ambil Data Grup & Komentar (Sama seperti Core.js: mendukung fallback baseURL & namagroup19)
-    async function fetchGroupsFromGitHub() {
-        return new Promise((resolve, reject) => {
+    // 2. Ambil Data Grup & Komentar dari Server Lokal + Fallback baseURL + Cache localStorage (sama seperti Core.js)
+    function fetchGroupsLokal() {
+        return new Promise((resolve) => {
+            async function applyGroupData(data, sourceLabel) {
+                groupNames = [];
+                CommentList = [];
+                listComments = [];
+
+                const validJsonItems = Array.isArray(data)
+                    ? data.filter(item => item && item.group && item.comment)
+                    : [];
+
+                const addGroup = (group, comment) => {
+                    const normGroup = normalizeToBasicLatin(group).toLowerCase().trim();
+                    groupNames.push(normGroup);
+                    CommentList.push(comment);
+                    listComments.push({ group: normGroup, comment: comment });
+                };
+
+                // Masukkan item 1-18, sisipkan namagroup19 (jika ada), lalu sisa item (sama seperti Core.js)
+                validJsonItems.slice(0, 18).forEach(item => addGroup(item.group, item.comment));
+
+                const targetComment19 = (typeof comment19 !== 'undefined' && comment19)
+                    ? comment19
+                    : ((typeof window !== 'undefined' && window.comment19) ? window.comment19 : Comment19);
+
+                if (namagroup19 && targetComment19) {
+                    addGroup(namagroup19, targetComment19);
+                }
+
+                validJsonItems.slice(18).forEach(item => addGroup(item.group, item.comment));
+
+                console.log(`%c[Bot] Berhasil memuat ${listComments.length} template komentar dari ${sourceLabel}.`, "color: #00ff00;");
+
+                // Daftarkan semua grup dari JSON ke Storage lokal (GM) jika belum ada
+                try {
+                    let storage = await GM.getValue("BOT_GROUP_STATUS", {});
+                    let changed = false;
+                    for (let c of listComments) {
+                        if (c.group && !storage[c.group]) {
+                            storage[c.group] = { status: false, timestamp: Math.floor(Date.now() / 1000) };
+                            changed = true;
+                        }
+                    }
+                    if (changed) {
+                        await GM.setValue("BOT_GROUP_STATUS", storage);
+                        console.log("%c[Bot] Seluruh grup dari JSON lokal telah didaftarkan ke Storage.", "color: #00ff00;");
+                    }
+                } catch (e) { }
+
+                // Langsung cocokan nama grup & komentar tanpa menunggu interval 2 detik
+                try { autoUpdateGroupAndComment(); } catch (e) { }
+            }
+
             function loadGroup(urlToFetch) {
                 GM_xmlhttpRequest({
                     method: "GET",
                     url: urlToFetch,
                     onload: async function (response) {
-                        // Cek HTTP status code untuk fallback (contoh: 404 Not Found)
+                        // Cek HTTP status code untuk fallback ke baseURL (misal file _SG/_SD 404)
                         if (response.status !== 200 && urlToFetch !== baseURL) {
-                            console.log("⚠️ Fallback ke baseURL karena " + urlToFetch + " tidak ditemukan.");
+                            console.log("⚠️ [Lokal] Fallback ke baseURL karena " + urlToFetch + " tidak ditemukan (status " + response.status + ").");
                             return loadGroup(baseURL);
                         }
 
                         try {
                             const data = JSON.parse(response.responseText);
-
-                            data.forEach((item) => {
-                                if (item.group && item.comment) {
-                                    const normGroup = normalizeToBasicLatin(item.group).toLowerCase();
-                                    groupNames.push(normGroup);
-                                    CommentList.push(item.comment);
-                                    listComments.push({ group: normGroup, comment: item.comment });
-                                }
-                            });
-
-                            if (namagroup19 && Comment19) {
-                                const normGroup19 = normalizeToBasicLatin(namagroup19).toLowerCase();
-                                groupNames.push(normGroup19);
-                                CommentList.push(Comment19);
-                                listComments.push({ group: normGroup19, comment: Comment19 });
-                            }
-
-                            console.log("✅ Group list berhasil diambil dari " + urlToFetch + ":", groupNames.length);
-
-                            // Daftarkan semua grup dari JSON ke Storage (jika belum ada)
-                            let storage = await GM.getValue("BOT_GROUP_STATUS", {});
-                            let changed = false;
-                            for (let c of listComments) {
-                                if (c.group && !storage[c.group]) {
-                                    storage[c.group] = { status: false, timestamp: Math.floor(Date.now() / 1000) };
-                                    changed = true;
-                                }
-                            }
-                            if (changed) {
-                                await GM.setValue("BOT_GROUP_STATUS", storage);
-                                console.log("%c[Bot] Seluruh grup dari JSON telah didaftarkan ke Storage lokal.", "color: #00ff00;");
-                            }
-
-                            resolve();
-
+                            try { localStorage.setItem(GROUP_CACHE_KEY, JSON.stringify(data)); } catch (e) { }
+                            await applyGroupData(data, urlToFetch);
+                            resolve(listComments);
                         } catch (e) {
                             if (urlToFetch !== baseURL) {
-                                console.log("⚠️ JSON invalid dari " + urlToFetch + ", fallback ke baseURL.");
+                                console.log("⚠️ [Lokal] JSON invalid dari " + urlToFetch + ", fallback ke baseURL.");
                                 return loadGroup(baseURL);
                             }
-                            console.error("❌ Gagal parse JSON grup:", e);
-                            reject(e);
+                            console.error("[Bot] Gagal parse JSON Komentar Lokal, mencoba cache localStorage:", e);
+                            const cached = JSON.parse(localStorage.getItem(GROUP_CACHE_KEY) || "[]");
+                            await applyGroupData(cached, "cache localStorage");
+                            resolve(listComments);
                         }
                     },
-                    onerror: function (err) {
+                    onerror: async function (err) {
                         if (urlToFetch !== baseURL) {
-                            console.log("⚠️ Error jaringan dari " + urlToFetch + ", fallback ke baseURL.");
+                            console.log("⚠️ [Lokal] Error jaringan dari " + urlToFetch + ", fallback ke baseURL.");
                             return loadGroup(baseURL);
                         }
-                        console.error("❌ Gagal ambil grup:", err);
-                        reject(err);
+                        console.error("[Bot] Gagal ambil komentar dari server lokal, fallback ke cache localStorage:", err);
+                        const cached = JSON.parse(localStorage.getItem(GROUP_CACHE_KEY) || "[]");
+                        await applyGroupData(cached, "cache localStorage");
+                        resolve(listComments);
                     }
                 });
             }
 
-            // Mulai fetch dari URL utama
             loadGroup(URLGROUP);
         });
     }
 
-    fetchAdminListFromGitHub();
-    fetchGroupsFromGitHub();
+    // Ambil data Admin & Grup secara paralel dari server lokal
+    const localDataReady = Promise.all([
+        fetchAdminListLokal(),
+        fetchGroupsLokal()
+    ]).catch((err) => {
+        console.warn("[Bot] Sebagian data lokal gagal dimuat:", err);
+    });
 
     // ==========================================================================================
-    // SISTEM MANAJEMEN STATUS GRUP (Antri & Cegah Spam)
+    // SISTEM MANAJEMEN STATUS GRUP (Antri & Cegah Double Komentar - Sama seperti Core.js)
     // ==========================================================================================
     async function manageGroupStorage(groupName) {
-        if (!groupName) return;
+        if (!groupName) return false;
+        const normGroupKey = normalizeToBasicLatin(groupName).toLowerCase().trim();
 
+        // 1. Pengecekan instan sinkronus via localStorage (_DONE dari tab lain)
+        if (isGroupDoneLocal(groupID)) {
+            console.warn(`%c[Bot] Grup "${normGroupKey}" sudah selesai dikomentari oleh tab lain (localStorage)! Redirect ke about:blank...`, "color: #ff0000; font-weight: bold; font-size: 16px;");
+            KomentDone = true;
+            window.location.href = "about:blank";
+            return true;
+        }
+
+        // 2. Pengecekan GM Storage format Core.js ("group_<nama>" & "group_<nama>_expire")
+        const nowMs = Date.now();
+        const gmCoreKey = `group_${normGroupKey}`;
+        const gmCoreExpireKey = `${gmCoreKey}_expire`;
+        const gmCoreExpireAt = await GM.getValue(gmCoreExpireKey, 0);
+        if (nowMs > gmCoreExpireAt) {
+            await GM.setValue(gmCoreKey, false);
+            await GM.setValue(gmCoreExpireKey, nowMs + EXPIRATION_MS);
+        } else {
+            const sudahKomentarCore = await GM.getValue(gmCoreKey, false);
+            if (sudahKomentarCore) {
+                let sisaDetik = Math.ceil((gmCoreExpireAt - nowMs) / 1000);
+                console.warn(`%c[Bot] Grup "${normGroupKey}" sudah dikomentari (cooldown Core.js sisa ${sisaDetik} detik)! Mengalihkan ke about:blank...`, "color: #ff0000; font-weight: bold; font-size: 16px;");
+                KomentDone = true;
+                window.location.href = "about:blank";
+                return true;
+            }
+        }
+
+        // 3. Pengecekan GM Storage format BOT_GROUP_STATUS (5 menit / 300 detik)
         let storage = await GM.getValue("BOT_GROUP_STATUS", {});
-        let currentTime = Math.floor(Date.now() / 1000);
+        let currentTime = Math.floor(nowMs / 1000);
         let isChanged = false;
 
-        // 1. Bersihkan status grup yang sudah kadaluarsa (Lebih dari 2 menit / 120 detik)
         for (let gName in storage) {
-            if (storage[gName].status === true && (currentTime - storage[gName].timestamp > 120)) {
+            if (storage[gName].status === true && (currentTime - storage[gName].timestamp > 300)) {
                 storage[gName].status = false;
                 isChanged = true;
             }
         }
 
-        // 2. Daftarkan grup saat ini jika belum ada di database
-        if (!storage[groupName]) {
-            storage[groupName] = { status: false, timestamp: Math.floor(Date.now() / 1000) };
+        if (!storage[normGroupKey]) {
+            storage[normGroupKey] = { status: false, timestamp: currentTime };
             isChanged = true;
         }
 
@@ -530,27 +690,34 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             await GM.setValue("BOT_GROUP_STATUS", storage);
         }
 
-        // 3. Pengecekan Blokir: Jika grup ini berstatus true dan belum 2 menit, langsung putuskan koneksi!
-        if (storage[groupName].status === true) {
-            let sisaWaktu = 120 - (currentTime - storage[groupName].timestamp);
+        if (storage[normGroupKey].status === true) {
+            let sisaWaktu = 300 - (currentTime - storage[normGroupKey].timestamp);
             if (sisaWaktu > 0) {
-                console.warn(`%c[Bot] Grup "${groupName}" sedang dalam masa Cooldown (sisa ${sisaWaktu} detik)! Mengalihkan ke about:blank untuk mencegah spam...`, "color: #ff0000; font-weight: bold; font-size: 16px;");
+                console.warn(`%c[Bot] Grup "${normGroupKey}" sedang dalam masa Cooldown (sisa ${sisaWaktu} detik)! Mengalihkan ke about:blank untuk mencegah spam...`, "color: #ff0000; font-weight: bold; font-size: 16px;");
+                KomentDone = true;
                 window.location.href = "about:blank";
-                return;
+                return true;
             }
         }
+        return false;
     }
 
-    // Fungsi untuk menandai bahwa grup ini baru saja berhasil dieksekusi (dipanggil dari script luar)
+    // Fungsi untuk menandai bahwa grup ini baru saja berhasil dieksekusi (sinkron dengan Core.js)
     async function markGroupAsDone(groupName) {
         if (!groupName) return;
+        const normGroupKey = normalizeToBasicLatin(groupName).toLowerCase().trim();
+        const nowMs = Date.now();
         let storage = await GM.getValue("BOT_GROUP_STATUS", {});
-        storage[groupName] = {
+        storage[normGroupKey] = {
             status: true,
-            timestamp: Math.floor(Date.now() / 1000)
+            timestamp: Math.floor(nowMs / 1000)
         };
-        await GM.setValue("BOT_GROUP_STATUS", storage);
-        console.log(`%c[Bot] Status Grup "${groupName}" dikunci (TRUE) selama 2 menit ke depan!`, "color: #00ff00; font-weight: bold;");
+        await Promise.all([
+            GM.setValue("BOT_GROUP_STATUS", storage),
+            GM.setValue(`group_${normGroupKey}`, true),
+            GM.setValue(`group_${normGroupKey}_expire`, nowMs + EXPIRATION_MS)
+        ]);
+        console.log(`%c[Bot] Status Grup "${normGroupKey}" dikunci (TRUE) selama 5 menit ke depan!`, "color: #00ff00; font-weight: bold;");
     }
 
     // ==========================================================================================
@@ -627,7 +794,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                 for (let c of listComments) {
                     if (c.group) {
                         let keyword = normalizeToBasicLatin(c.group).toLowerCase().trim();
-                        // Perbandingan: Apakah NAMA GRUP ASLI mengandung KEYWORD dari JSON / namagroup19?
+                        // Perbandingan: Apakah NAMA GRUP ASLI mengandung KEYWORD dari JSON lokal?
                         if (gNameNormalized.includes(keyword)) {
                             bot_GlobalBotComment = Random(normalizeToBasicLatin(c.comment));
                             bot_GlobalGroupName = c.group; // Ganti nama grup asli dengan nama resmi dari JSON!
@@ -650,7 +817,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                 bot_GlobalGroupName = newGroupName;
             }
 
-            // HENTIKAN INTERVAL HANYA JIKA KOMENTAR & NAMA GRUP SUDAH COCOK DARI JSON / namagroup19
+            // HENTIKAN INTERVAL HANYA JIKA KOMENTAR & NAMA GRUP SUDAH COCOK DARI JSON LOKAL
             if (bot_GlobalBotComment && typeof groupCheckInterval !== "undefined") {
                 clearInterval(groupCheckInterval);
                 console.log("%c[Bot] Interval pencarian nama grup dihentikan.", "color: #aaaaaa; font-style: italic;");
@@ -1201,11 +1368,19 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         }, 100);
 
         // Cek Status Grup (Double Check sebelum melempar data ke script luar)
-        let storage = await GM.getValue("BOT_GROUP_STATUS", {});
         let currentName = bot_GlobalGroupName || foundGroupName;
-        let gData = currentName ? storage[currentName] : null;
-        if (gData && gData.status && (Date.now() / 1000 - gData.timestamp < 120)) {
+        if (isGroupDoneLocal(foundGroupId || groupID)) {
+            console.warn(`[Bot] Grup "${currentName}" sudah selesai dikomentari di tab lain (localStorage). Redirecting...`);
+            KomentDone = true;
+            window.location.href = "about:blank";
+            return [];
+        }
+        let storage = await GM.getValue("BOT_GROUP_STATUS", {});
+        let normCurrentName = currentName ? normalizeToBasicLatin(currentName).toLowerCase().trim() : null;
+        let gData = normCurrentName ? (storage[normCurrentName] || storage[currentName]) : null;
+        if (gData && gData.status && (Date.now() / 1000 - gData.timestamp < 300)) {
             console.warn(`[Bot] Grup "${currentName}" sudah diproses (cooldown). Redirecting...`);
+            KomentDone = true;
             window.location.href = "about:blank";
             return [];
         }
@@ -1213,7 +1388,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         // Finalisasi: Pastikan group ID dan Group Name terisi untuk setiap postingan
         posts.forEach(p => {
             if (!p.group_name) {
-                p.group_name = foundGroupName || fallbackGroupName || "Nama Grup Tidak Tersedia";
+                p.group_name = foundGroupName || bot_GlobalGroupName || "Nama Grup Tidak Tersedia";
             }
             if (!p.group_id && foundGroupId) {
                 p.group_id = foundGroupId;
@@ -1311,12 +1486,11 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
     /**
      * FUNGSI KIRIM KOMENTAR SUPER CEPAT (< 5ms)
-     * (100% Sama dengan /media/veracrypt1/ROBOT_GRAPHQL_BARU/tampermonkey_bot.user.js)
      */
     async function sendKomentar(feedbackId, customGroupId = groupID, customCommentText = bot_GlobalBotComment) {
         if (KomentDone) {
             console.log("[Bot] Komentar sudah terkirim!");
-            return;
+            return null;
         }
         if (!customCommentText) {
             customCommentText = bot_GlobalBotComment;
@@ -1326,9 +1500,11 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             return null;
         }
 
-        // CEK PENGUNCI MULTI-TAB (< 0.1ms): Hanya cegah jika di profil browser yang SAMA ada 2 tab terbuka!
-        const lockTarget = feedbackId + "_" + (__user || MY_TAB_ID);
-        if (!isWinnerTab(lockTarget)) {
+        let finalGroupId = customGroupId || groupID;
+
+        // CEK PENGUNCI MULTI-TAB SUPER CEPAT (< 0.1 ms) (Sama seperti Core.js)
+        // Mencegah 2 tab di profil browser yang sama mengirim komentar dobel pada grup / postingan yang sama!
+        if (!isWinnerTab(finalGroupId, feedbackId)) {
             KomentDone = true;
             console.warn("🛑 [Anti-Double] Tab lain di profil yang sama sudah menembak komentar! Membatalkan tab ini...");
             location.href = "about:blank";
@@ -1336,9 +1512,13 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         }
 
         KomentDone = true;
+        // Langsung kunci status _DONE secara sinkronus di localStorage dan GM storage SEBELUM await fetch
+        markGroupDoneLocal(finalGroupId, feedbackId);
+        if (bot_GlobalGroupName) {
+            markGroupAsDone(bot_GlobalGroupName);
+        }
 
         let isProfile = window.location.href.includes('/user/') || window.location.href.includes('profile.php');
-        let finalGroupId = customGroupId || groupID;
 
         const generateUUID = () => {
             if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();
@@ -1414,7 +1594,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             console.log("Berhasil", "#00ff04ff");
             updateKomentarUI("", "#00ff00"); // Ubah indikator jadi Hijau!
 
-            // Catat di storage (GM_setValue) agar grup ini tidak dikomentari lagi selama 2 menit!
+            // Catat di storage (GM_setValue) agar grup ini tidak dikomentari lagi selama 5 menit!
             if (bot_GlobalGroupName) {
                 await markGroupAsDone(bot_GlobalGroupName);
             }
@@ -1428,6 +1608,8 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             updateKomentarUI("", "red"); // Ubah indikator jadi Merah!
             return null;
         }
+
+
     }
 
     // ==========================================================================================
@@ -1533,6 +1715,9 @@ window.initBabonLogic = function (namagroup19, Comment19) {
     const mineFacebookPosts = async function () {
         let isLooping = true;
 
+        // Pastikan data admin & grup dari server lokal sudah selesai dimuat sebelum mulai memindai
+        await localDataReady;
+        if (KomentDone) return [];
 
         let nama_FB_Global = await getFacebookName();
         let ToastProfile = "";
@@ -1583,15 +1768,12 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
                 updateStatusDot("#24fc03");
 
-                // 3. EKSEKUSI INSTAN (< 0.1 ms) SEBELUM LOGGING CONSOLE!
+                // 3. Tembak komentar & broadcast WebSocket sebelum logging console
                 if (semuaPostingan.length > 0) {
                     const targetPost = semuaPostingan[0];
-                    // 1. Broadcast ke seluruh instance Chrome lain via WebSocket terlebih dahulu!
                     kirimSocket(bot_GlobalGroupName || targetPost.group_name, targetPost.feedback_id, targetPost.group_id || groupID);
-                    // 2. Langsung tembak komentar di instance ini secara paralel!
                     sendKomentar(targetPost.feedback_id, targetPost.group_id || groupID);
 
-                    // 3. Baru cetak log & console.table setelah peluru meluncur
                     console.log(`%c[Bot] Ekstraksi Selesai! Membedah ${semuaPostingan.totalParsed || semuaPostingan.length} postingan, ${semuaPostingan.length} lolos filter.`, "color: #00ff00; font-weight: bold;");
                     console.table(semuaPostingan);
 
@@ -1603,7 +1785,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                     return semuaPostingan; // Berhasil! Return array dan loop otomatis berhenti
                 } else {
                     console.log("[Bot] Belum ada postingan yang lolos filter. Mencari ulang dalam 0.5 detik...");
-                    await new Promise(resolve => setTimeout(resolve, 500)); // Jeda 1 detik agar tidak spam server
+                    await new Promise(resolve => setTimeout(resolve, 500)); // Jeda agar tidak spam server
                     continue; // Ulangi loop
                 }
 
