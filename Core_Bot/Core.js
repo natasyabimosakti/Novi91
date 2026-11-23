@@ -192,6 +192,13 @@ window.initBabonLogic = function (namagroup19, Comment19) {
     // ==========================================================================================
     var listAdmins = [];
     var listComments = [];
+    var groupNames = [];
+    var CommentList = [];
+    var URLADMIN = "http://127.0.0.1:8080/Admin_group_Baru.json";
+    const LOCAL_KEY = "cachedAdminList";
+    const VERSION_KEY = "cachedAdminVersion";
+    let isAdminListReady = false;
+
     var List_Keyword = ["ROOM", "R**M", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
     var List_Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
     // Variabel Global Terbuka agar fungsi lain di dalam script ini bisa mengaksesnya
@@ -208,6 +215,71 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             URLGROUP = `http://127.0.0.1:8080/${Comment19}_SD.json`;
         }
     }
+
+    function normalizeToBasicLatin(str) {
+        return str.replace(/[\u{1D400}-\u{1D7FF}]/gu, (ch) => {
+            const boldA = 0x1D400;
+            const normalA = 0x41; // ASCII A
+            let code = ch.codePointAt(0);
+            if (code >= boldA && code <= boldA + 25) {
+                return String.fromCharCode(normalA + (code - boldA));
+            }
+            return ch;
+        });
+    }
+
+    function Random(comment) {
+        const numberRegex = /\d{2}/g;
+        const rawNumbers = [...comment.matchAll(numberRegex)];
+        const validNumbers = rawNumbers.filter(match => {
+            const i = match.index;
+            const before = comment[i - 1] || '';
+            const after = comment[i + 2] || '';
+            return !(/[a-z0-9]/i.test(before)) && !(/[a-z]/i.test(after));
+        });
+        if (validNumbers.length < 2) return comment;
+        const lastCount = Math.min(3, validNumbers.length);
+        const lastNums = validNumbers.slice(-lastCount);
+        const separators = [];
+        for (let i = 0; i < lastCount - 1; i++) {
+            separators.push(comment.slice(lastNums[i].index + 2, lastNums[i + 1].index));
+        }
+        const angka = lastNums.map(x => x[0]);
+        function shuffleArray(arr) {
+            const copy = [...arr];
+            for (let i = copy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            return copy;
+        }
+        const rotated = lastCount === 2 ? [angka[1], angka[0]] : shuffleArray(angka);
+        const start = comment.slice(0, lastNums[0].index);
+        const end = comment.slice(lastNums[lastCount - 1].index + 2);
+        let result = start;
+        for (let i = 0; i < lastCount; i++) {
+            result += rotated[i];
+            if (i < lastCount - 1) result += separators[i];
+        }
+        result += end;
+        return result;
+    }
+
+    function cleanName(s) {
+        return s
+            .normalize("NFKD")
+            .replace(/\p{Diacritic}/gu, '')
+            .replace(/[\u200B-\u200F\u202A-\u202E]/g, '')
+            .replace(/[\uE000-\uF8FF]/g, '')
+            .replace(/\s+/g, '')
+            .toLowerCase();
+    }
+
+    function isAdminFast(name) {
+        const cleanedName = cleanName(name);
+        return listAdmins.some(a => cleanedName.includes(cleanName(a)));
+    }
+
     function kirimDataKeLokal(payloadObj) {
         try {
             GM_xmlhttpRequest({
@@ -234,56 +306,123 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         }
     }
 
+    // 1. Ambil Data Admin (Sama seperti Core.js: dengan sistem caching versi localStorage)
+    function fetchAdminListFromGitHub() {
+        return new Promise((resolve, reject) => {
+            GM_xmlhttpRequest({
+                method: "GET",
+                url: URLADMIN,
+                onload: function (response) {
+                    try {
+                        const data = JSON.parse(response.responseText);
+                        const latestVersion = data.version;
+                        const admins = data.admins;
 
-    // Mengambil data dari localhost ketika bot pertama kali dimuat
-    function fetchDataLokal() {
-        // 1. Ambil Data Admin
-        GM_xmlhttpRequest({
-            method: "GET",
-            url: "http://127.0.0.1:8080/admin_group_baru.json",
-            onload: function (response) {
-                try {
-                    let data = JSON.parse(response.responseText);
-                    if (data.admins && Array.isArray(data.admins)) {
-                        listAdmins = data.admins;
-                        console.log("%c[Bot] Berhasil memuat " + listAdmins.length + " data admin dari server lokal.", "color: #00ff00;");
-                    }
-                } catch (e) {
-                    console.error("[Bot] Gagal parse JSON Admin Lokal:", e);
-                }
-            }
-        });
-
-        // 2. Ambil Data Komentar berdasarkan NAMESCRIPT
-        GM_xmlhttpRequest({
-            method: "GET",
-            url: URLGROUP,
-            onload: async function (response) {
-                try {
-                    listComments = JSON.parse(response.responseText);
-                    console.log("%c[Bot] Berhasil memuat " + listComments.length + " template komentar dari server lokal.", "color: #00ff00;");
-
-                    // Daftarkan semua grup dari JSON ke Storage (jika belum ada)
-                    let storage = await GM.getValue("BOT_GROUP_STATUS", {});
-                    let changed = false;
-                    for (let c of listComments) {
-                        if (c.group && !storage[c.group]) {
-                            storage[c.group] = { status: false, timestamp: Math.floor(Date.now() / 1000) };
-                            changed = true;
+                        const currentVersion = localStorage.getItem(VERSION_KEY);
+                        if (currentVersion !== latestVersion) {
+                            console.log("⬆️ New admin version found:", latestVersion);
+                            localStorage.setItem(LOCAL_KEY, JSON.stringify(admins));
+                            localStorage.setItem(VERSION_KEY, latestVersion);
+                            listAdmins = admins;
+                        } else {
+                            console.log("⏩ Admin list is up-to-date (version:", currentVersion + ")");
+                            listAdmins = JSON.parse(localStorage.getItem(LOCAL_KEY)) || [];
                         }
+
+                        isAdminListReady = true;
+                        console.log("%c👥 Daftar Admin Berhasil Dimuat:", "color: #fffa77; font-weight: bold;", listAdmins);
+                        resolve(listAdmins);
+                    } catch (e) {
+                        console.error("❌ Failed to parse remote admin list:", e);
+                        reject(e);
                     }
-                    if (changed) {
-                        await GM.setValue("BOT_GROUP_STATUS", storage);
-                        console.log("%c[Bot] Seluruh grup dari JSON telah didaftarkan ke Storage lokal.", "color: #00ff00;");
-                    }
-                } catch (e) {
-                    console.error("[Bot] Gagal parse JSON Komentar Lokal:", e);
+                },
+                onerror: function (err) {
+                    console.error("❌ Failed to load admin list from GitHub:", err);
+                    reject(err);
                 }
-            }
+            });
         });
     }
 
-    fetchDataLokal();
+    // 2. Ambil Data Grup & Komentar (Sama seperti Core.js: mendukung fallback baseURL & namagroup19)
+    async function fetchGroupsFromGitHub() {
+        return new Promise((resolve, reject) => {
+            function loadGroup(urlToFetch) {
+                GM_xmlhttpRequest({
+                    method: "GET",
+                    url: urlToFetch,
+                    onload: async function (response) {
+                        // Cek HTTP status code untuk fallback (contoh: 404 Not Found)
+                        if (response.status !== 200 && urlToFetch !== baseURL) {
+                            console.log("⚠️ Fallback ke baseURL karena " + urlToFetch + " tidak ditemukan.");
+                            return loadGroup(baseURL);
+                        }
+
+                        try {
+                            const data = JSON.parse(response.responseText);
+
+                            data.forEach((item) => {
+                                if (item.group && item.comment) {
+                                    const normGroup = normalizeToBasicLatin(item.group).toLowerCase();
+                                    groupNames.push(normGroup);
+                                    CommentList.push(item.comment);
+                                    listComments.push({ group: normGroup, comment: item.comment });
+                                }
+                            });
+
+                            if (namagroup19 && Comment19) {
+                                const normGroup19 = normalizeToBasicLatin(namagroup19).toLowerCase();
+                                groupNames.push(normGroup19);
+                                CommentList.push(Comment19);
+                                listComments.push({ group: normGroup19, comment: Comment19 });
+                            }
+
+                            console.log("✅ Group list berhasil diambil dari " + urlToFetch + ":", groupNames.length);
+
+                            // Daftarkan semua grup dari JSON ke Storage (jika belum ada)
+                            let storage = await GM.getValue("BOT_GROUP_STATUS", {});
+                            let changed = false;
+                            for (let c of listComments) {
+                                if (c.group && !storage[c.group]) {
+                                    storage[c.group] = { status: false, timestamp: Math.floor(Date.now() / 1000) };
+                                    changed = true;
+                                }
+                            }
+                            if (changed) {
+                                await GM.setValue("BOT_GROUP_STATUS", storage);
+                                console.log("%c[Bot] Seluruh grup dari JSON telah didaftarkan ke Storage lokal.", "color: #00ff00;");
+                            }
+
+                            resolve();
+
+                        } catch (e) {
+                            if (urlToFetch !== baseURL) {
+                                console.log("⚠️ JSON invalid dari " + urlToFetch + ", fallback ke baseURL.");
+                                return loadGroup(baseURL);
+                            }
+                            console.error("❌ Gagal parse JSON grup:", e);
+                            reject(e);
+                        }
+                    },
+                    onerror: function (err) {
+                        if (urlToFetch !== baseURL) {
+                            console.log("⚠️ Error jaringan dari " + urlToFetch + ", fallback ke baseURL.");
+                            return loadGroup(baseURL);
+                        }
+                        console.error("❌ Gagal ambil grup:", err);
+                        reject(err);
+                    }
+                });
+            }
+
+            // Mulai fetch dari URL utama
+            loadGroup(URLGROUP);
+        });
+    }
+
+    fetchAdminListFromGitHub();
+    fetchGroupsFromGitHub();
 
     // ==========================================================================================
     // SISTEM MANAJEMEN STATUS GRUP (Antri & Cegah Spam)
@@ -401,18 +540,18 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
         let newGroupName = fallbackGroupName || "";
 
-        // Cek secara proaktif setiap 2 detik. Update variabel global HANYA JIKA ada perubahan nama grup.
-        if (newGroupName && newGroupName !== bot_GlobalGroupName) {
+        // Cek secara proaktif setiap 2 detik. Update variabel global jika ada perubahan nama grup ATAU komentar belum terisi.
+        if (newGroupName && (newGroupName !== bot_GlobalGroupName || !bot_GlobalBotComment)) {
             bot_GlobalBotComment = null;
 
             if (listComments.length > 0) {
-                let gNameUpper = newGroupName.toUpperCase();
+                let gNameNormalized = normalizeToBasicLatin(newGroupName).toLowerCase();
                 for (let c of listComments) {
                     if (c.group) {
-                        let keyword = c.group.toUpperCase().trim();
-                        // Perbandingan: Apakah NAMA GRUP ASLI mengandung KEYWORD dari JSON?
-                        if (gNameUpper.includes(keyword)) {
-                            bot_GlobalBotComment = c.comment;
+                        let keyword = normalizeToBasicLatin(c.group).toLowerCase().trim();
+                        // Perbandingan: Apakah NAMA GRUP ASLI mengandung KEYWORD dari JSON / namagroup19?
+                        if (gNameNormalized.includes(keyword)) {
+                            bot_GlobalBotComment = Random(normalizeToBasicLatin(c.comment));
                             bot_GlobalGroupName = c.group; // Ganti nama grup asli dengan nama resmi dari JSON!
                             console.log(`%c[Bot] Grup terdeteksi: "${newGroupName}" -> Keyword "${keyword}" cocok! Menggunakan nama JSON: "${bot_GlobalGroupName}"`, "color:#00ff00; font-weight:bold;");
                             console.log(`%c[Bot] Komentar Disiapkan: ${bot_GlobalBotComment}`, "color:#00ffff;");
@@ -433,8 +572,8 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                 bot_GlobalGroupName = newGroupName;
             }
 
-            // HENTIKAN INTERVAL KARENA NAMA GRUP SUDAH BERHASIL DITEMUKAN (Sesuai Permintaan)
-            if (typeof groupCheckInterval !== "undefined") {
+            // HENTIKAN INTERVAL HANYA JIKA KOMENTAR & NAMA GRUP SUDAH COCOK DARI JSON / namagroup19
+            if (bot_GlobalBotComment && typeof groupCheckInterval !== "undefined") {
                 clearInterval(groupCheckInterval);
                 console.log("%c[Bot] Interval pencarian nama grup dihentikan.", "color: #aaaaaa; font-style: italic;");
             }
@@ -847,19 +986,10 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                 // Jika sedang di dalam halaman Profil User, OTOMATIS set is_admin jadi true
                 extracted.is_admin = true;
             } else {
-                // Jika di luar profil (Beranda grup), lakukan pengecekan nama dengan keyword admin
+                // Jika di luar profil (Beranda grup), lakukan pengecekan nama dengan keyword admin (sama seperti Core.js: isAdminFast)
                 extracted.is_admin = false;
                 if (extracted.author_name && listAdmins.length > 0) {
-                    let authorLower = extracted.author_name.toLowerCase();
-
-                    extracted.is_admin = listAdmins.some(adminName => {
-                        let keyword = adminName.trim().toLowerCase();
-                        if (keyword.length === 0) return false;
-
-                        // KEMBALI KE METODE LAMA: Substring Match
-                        // Sengaja dipakai agar keyword seperti "artha" bisa memicu "Dinda Artha Le"
-                        return authorLower.includes(keyword);
-                    });
+                    extracted.is_admin = isAdminFast(extracted.author_name);
                 }
             }
 
