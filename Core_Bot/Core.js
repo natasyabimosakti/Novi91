@@ -81,7 +81,6 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             const incomingGroup = data["Group"] || "";
             const incomingFeedbackId = data["Feedback_Id"] || "";
             const incomingGroupId = data["Group_Id"] || "";
-            const incomingTracking = data["Tracking"] || null;
 
             if (!incomingFeedbackId) return;
 
@@ -138,7 +137,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                 console.log(`➡️ Feedback ID : ${incomingFeedbackId}`);
                 console.log(`➡️ Group ID    : ${incomingGroupId || groupID}`);
 
-                sendKomentar(incomingFeedbackId, incomingGroupId || groupID, bot_GlobalBotComment, incomingTracking);
+                sendKomentar(incomingFeedbackId, incomingGroupId || groupID, bot_GlobalBotComment, null);
             }
         };
 
@@ -164,13 +163,10 @@ window.initBabonLogic = function (namagroup19, Comment19) {
     }, CEK_KONEKSI_SETIAP);
 
 
-    function kirimSocket(namaGrup, idFeedback, idGrup, tracking = null) {
+    function kirimSocket(namaGrup, idFeedback, idGrup) {
         if (socket && socket.readyState === WebSocket.OPEN) {
             updateActivityUI("⬆️ Mengirim Pesan...", "#ffff00");
-            let pesanTeks = `Group: ${namaGrup}\nFeedback_Id: ${idFeedback}\nGroup_Id: ${idGrup}`;
-            if (tracking && typeof tracking === 'string') {
-                pesanTeks += `\nTracking: ${tracking}`;
-            }
+            const pesanTeks = `Group: ${namaGrup}\nFeedback_Id: ${idFeedback}\nGroup_Id: ${idGrup}`;
             socket.send(pesanTeks);
         } else {
             console.error("❌ [Socket] Gagal mengirim! Server sedang offline.");
@@ -1591,7 +1587,8 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                 const parsedResp = JSON.parse(firstLine);
                 if (parsedResp && parsedResp.errors && parsedResp.errors.length > 0) {
                     hasError = true;
-                    console.error("[Bot] ❌ Facebook menolak komentar:", parsedResp.errors);
+                    const err0 = parsedResp.errors[0];
+                    console.error(`[Bot] ❌ Facebook menolak komentar (code ${err0.code}): ${err0.summary || err0.message}`, parsedResp.errors);
                 }
             } catch (parseErr) { }
 
@@ -1787,7 +1784,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                     const broadcastGroupName = bot_GlobalGroupName || targetPost.group_name;
                     const broadcastGroupId = targetPost.group_id || groupID;
 
-                    kirimSocket(broadcastGroupName, targetPost.feedback_id, broadcastGroupId, targetPost.tracking);
+                    kirimSocket(broadcastGroupName, targetPost.feedback_id, broadcastGroupId);
                     sendKomentar(targetPost.feedback_id, broadcastGroupId, bot_GlobalBotComment, targetPost.tracking);
 
                     console.log(`%c[Bot] Ekstraksi Selesai! Membedah ${semuaPostingan.totalParsed || semuaPostingan.length} postingan, ${semuaPostingan.length} lolos filter.`, "color: #00ff00; font-weight: bold;");
