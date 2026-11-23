@@ -133,18 +133,16 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
                 if (KomentDone) return;
 
-                // Prioritaskan feedback_id numerik universal btoa("feedback:" + post_id) agar tidak ditolak pfbid lintas-akun (1446013)
-                const numericFeedbackId = buildNumericFeedbackId(incomingPostId);
-                const primaryFeedbackId = numericFeedbackId || incomingFeedbackId;
-                const altFeedbackId = (numericFeedbackId && incomingFeedbackId && numericFeedbackId !== incomingFeedbackId) ? incomingFeedbackId : null;
+                // WAJIB pakai feedback_id (pfbid) asli dari Facebook (numeric feedback:<id> ditolak FB dengan code 1675002)
+                if (!incomingFeedbackId) return;
 
                 console.log(`⚡ [Socket Relay] Sinyal cocok! Menembak komentar...`);
                 console.log(`➡️ Nama Grup   : ${incomingGroup} (Lokal: ${bot_GlobalGroupName})`);
                 console.log(`➡️ Post ID     : ${incomingPostId || "-"}`);
-                console.log(`➡️ Feedback ID : ${primaryFeedbackId} ${numericFeedbackId ? "(Universal Numeric)" : "(Raw pfbid)"}`);
+                console.log(`➡️ Feedback ID : ${incomingFeedbackId}`);
                 console.log(`➡️ Group ID    : ${incomingGroupId || groupID}`);
 
-                sendKomentar(primaryFeedbackId, incomingGroupId || groupID, bot_GlobalBotComment, null, incomingPostId, altFeedbackId);
+                sendKomentar(incomingFeedbackId, incomingGroupId || groupID, bot_GlobalBotComment, null, incomingPostId);
             }
         };
 
@@ -155,17 +153,6 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         socket.onerror = function (error) {
             updateSocketUI(false);
         };
-    }
-
-    function buildNumericFeedbackId(postId) {
-        if (!postId) return null;
-        const clean = String(postId).trim();
-        if (!/^\d+$/.test(clean)) return null;
-        try {
-            return btoa("feedback:" + clean);
-        } catch (e) {
-            return null;
-        }
     }
 
     // 1. Panggil pertama kali saat halaman dimuat
@@ -1618,42 +1605,30 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             } catch (parseErr) { }
 
             if (hasError) {
-                // AUTO-FALLBACK KHUSUS CODE 1446013 (pfbid lintas akun / replikasi post baru)
-                if (errorCode === 1446013 && attempt < 2) {
-                    console.warn(`🔄 [Bot Auto-Fallback] Code 1446013 terdeteksi (percobaan #${attempt + 1}). Mencoba ambil feedback_id alternatif / milik akun sendiri...`);
+                // AUTO-RETRY KHUSUS CODE 1446013 (postingan baru < 1 detik belum selesai replikasi di shard server akun ini)
+                if (errorCode === 1446013 && attempt < 3) {
+                    const retryDelay = attempt === 0 ? 700 : (attempt === 1 ? 1500 : 2500);
+                    console.warn(`🔄 [Bot Auto-Retry] Code 1446013 terdeteksi (percobaan #${attempt + 1}/3). Menunggu ${retryDelay}ms agar shard FB sinkron lalu tembak ulang...`);
                     KomentDone = false;
+                    await new Promise(r => setTimeout(r, retryDelay));
 
-                    // 1. Jika ada alternatif feedback_id yang berbeda (misal fallback ke numeric atau raw pfbid), coba dulu
-                    const altNumeric = buildNumericFeedbackId(postId);
-                    const nextAltId = (altNumeric && altNumeric !== feedbackId)
-                        ? altNumeric
-                        : ((fallbackFeedbackId && fallbackFeedbackId !== feedbackId) ? fallbackFeedbackId : null);
-
-                    if (attempt === 0 && nextAltId) {
-                        await new Promise(r => setTimeout(r, 250));
-                        return sendKomentar(nextAltId, finalGroupId, customCommentText, customTracking, postId, null, attempt + 1);
-                    }
-
-                    // 2. Self-Fetch: ambil feed dengan akun ini sendiri agar mendapat feedback_id (pfbid) asli milik akun ini!
-                    if (doc_id && Object.keys(baseVariables).length > 0) {
-                        await new Promise(r => setTimeout(r, 450));
+                    // Pada percobaan ke-2+, coba Self-Fetch feed akun ini sendiri agar mendapat feedback_id & tracking segar
+                    if (attempt >= 1 && doc_id && Object.keys(baseVariables).length > 0) {
                         const selfRaw = await doFetchAction();
                         if (selfRaw) {
                             const selfPosts = await extractPostsFromJson(selfRaw);
                             if (selfPosts && selfPosts.length > 0) {
                                 const ownPost = selfPosts.find(p => postId && String(p.post_id) === String(postId)) || selfPosts[0];
-                                if (ownPost && ownPost.feedback_id && ownPost.feedback_id !== feedbackId) {
-                                    console.log(`🎯 [Bot Auto-Fallback] Berhasil mendapat feedback_id asli milik akun ini! Menembak ulang...`);
+                                if (ownPost && ownPost.feedback_id) {
+                                    console.log(`🎯 [Bot Auto-Retry] Self-Fetch berhasil mendapat post! Menembak ulang...`);
                                     return sendKomentar(ownPost.feedback_id, ownPost.group_id || finalGroupId, customCommentText, ownPost.tracking, ownPost.post_id, null, attempt + 1);
                                 }
                             }
                         }
                     }
 
-                    // Jika self-fetch belum menemukan post (shard belum sinkron), biarkan loop utama mineFacebookPosts menangkapnya
-                    console.warn("⚠️ [Bot Auto-Fallback] Post belum muncul di feed akun ini, melepas kunci agar loop utama mencoba ulang...");
-                    updateKomentarUI("", "red");
-                    return text;
+                    // Coba tembak ulang dengan feedback_id (pfbid) yang sama setelah delay replikasi
+                    return sendKomentar(feedbackId, finalGroupId, customCommentText, customTracking, postId, null, attempt + 1);
                 }
 
                 updateKomentarUI("", "red");
