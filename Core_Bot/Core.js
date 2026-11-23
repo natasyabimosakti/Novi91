@@ -23,32 +23,60 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         };
 
         // ==========================================
-        // BAGIAN PENERIMA (RECEIVER)
+        // BAGIAN PENERIMA (RECEIVER) - ULTRA FAST RELAY
         // ==========================================
         socket.onmessage = function (event) {
+            if (KomentDone) return;
             updateActivityUI("⬇️ Menerima Pesan...", "#00ffff");
             const rawMessage = event.data;
 
             let data = {};
             let lines = rawMessage.split('\n');
 
-            lines.forEach(line => {
-                if (line.trim() === "") return;
-                let parts = line.split(':');
-                if (parts.length >= 2) {
-                    let key = parts.shift().trim();
-                    let value = parts.join(':').trim();
+            for (let i = 0; i < lines.length; i++) {
+                let line = lines[i].trim();
+                if (!line) continue;
+                let colonIdx = line.indexOf(':');
+                if (colonIdx !== -1) {
+                    let key = line.substring(0, colonIdx).trim();
+                    let value = line.substring(colonIdx + 1).trim();
                     data[key] = value;
                 }
-            });
+            }
 
-            if (data["Group"] == bot_GlobalGroupName && data["Feedback_Id"] && data["Group_Id"]) {
-                sendKomentar(data["Feedback_Id"], data["Group_Id"]);
-                console.log(`✅ [Socket] Variabel berhasil diekstrak!`);
-                console.log(`➡️ Nama Grup   : ${data["Group"]}`);
-                console.log(`➡️ Feedback ID : ${data["Feedback_Id"]}`);
-                console.log(`➡️ Group ID    : ${data["Group_Id"]}`);
+            const incomingGroup = data["Group"] || "";
+            const incomingFeedbackId = data["Feedback_Id"] || "";
+            const incomingGroupId = data["Group_Id"] || "";
 
+            if (!incomingFeedbackId) return;
+
+            // Pencocokan fleksibel & instan:
+            // Cocok jika Group_Id sama, ATAU nama grup mengandung/sama dengan bot_GlobalGroupName
+            const normIncoming = incomingGroup ? normalizeToBasicLatin(incomingGroup).toLowerCase() : "";
+            const normLocal = bot_GlobalGroupName ? normalizeToBasicLatin(bot_GlobalGroupName).toLowerCase() : "";
+
+            const isGroupIdMatch = incomingGroupId && groupID && incomingGroupId === groupID;
+            const isGroupNameMatch = normIncoming && normLocal && (normIncoming === normLocal || normIncoming.includes(normLocal) || normLocal.includes(normIncoming));
+
+            if (isGroupIdMatch || isGroupNameMatch) {
+                // Pastikan komentar sudah siap (jika grup belum sempat di-resolve oleh interval 2 detik, paksa resolve sekarang!)
+                if (!bot_GlobalBotComment && listComments.length > 0) {
+                    const checkName = normIncoming || normLocal;
+                    for (let c of listComments) {
+                        if (c.group && checkName.includes(c.group)) {
+                            bot_GlobalBotComment = Random(normalizeToBasicLatin(c.comment));
+                            bot_GlobalGroupName = c.group;
+                            break;
+                        }
+                    }
+                }
+
+                // Langsung tembak komentar tanpa menunggu!
+                sendKomentar(incomingFeedbackId, incomingGroupId || groupID);
+                console.log(`⚡ [Socket Relay] Tembakan Komentar Dipicu oleh Instance Lain!`);
+                console.log(`➡️ Nama Grup   : ${incomingGroup}`);
+                console.log(`➡️ Feedback ID : ${incomingFeedbackId}`);
+                console.log(`➡️ Group ID    : ${incomingGroupId}`);
             }
         };
 
@@ -1481,12 +1509,17 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
                 updateStatusDot("#24fc03");
 
-                // 3. Tampilkan di Console
+                // 3. EKSEKUSI INSTAN (< 0.1 ms) SEBELUM LOGGING CONSOLE!
                 if (semuaPostingan.length > 0) {
+                    const targetPost = semuaPostingan[0];
+                    // 1. Broadcast ke seluruh instance Chrome lain via WebSocket terlebih dahulu!
+                    kirimSocket(bot_GlobalGroupName || targetPost.group_name, targetPost.feedback_id, targetPost.group_id || groupID);
+                    // 2. Langsung tembak komentar di instance ini secara paralel!
+                    sendKomentar(targetPost.feedback_id, targetPost.group_id || groupID);
+
+                    // 3. Baru cetak log & console.table setelah peluru meluncur
                     console.log(`%c[Bot] Ekstraksi Selesai! Membedah ${semuaPostingan.totalParsed || semuaPostingan.length} postingan, ${semuaPostingan.length} lolos filter.`, "color: #00ff00; font-weight: bold;");
                     console.table(semuaPostingan);
-                    kirimSocket(semuaPostingan[0].group_name, semuaPostingan[0].feedback_id, semuaPostingan[0].group_id);
-                    sendKomentar(semuaPostingan[0].feedback_id, semuaPostingan[0].group_id);
 
                     // Laporan Kecepatan (Waktu Eksekusi)
                     console.log(`%c[Bot] 🚀 Laporan Kecepatan Eksekusi:`, "color: #ffff00; font-weight: bold;");
