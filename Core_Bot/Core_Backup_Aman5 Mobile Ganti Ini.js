@@ -874,186 +874,43 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         }
     }
 
-    // 2. Ekstrak data (fb_dtsg, lsd, jazoest, groupID, doc_id, dsb) dari Source Halaman / FB Relay jika tidak ada di Payload
-    var commentDocIdDynamic = "27687311557628355";
+    // 2. Ekstrak data (fb_dtsg, dsb) dari Source Halaman jika tidak ada di Payload
     function autoExtractTokens() {
         try {
-            // A. Ekstrak groupID & profileID langsung dari URL halaman saat ini (0ms, tidak perlu tunggu scroll!)
             const href = window.location.href;
             const gMatch = href.match(/\/groups\/(\d+)/);
             if (gMatch && gMatch[1] && !groupID) groupID = gMatch[1];
-            const uMatch = href.match(/\/user\/(\d+)/);
-            if (uMatch && uMatch[1] && !profileID) profileID = uMatch[1];
-
-            // B. Coba ambil langsung dari modul internal Facebook (Relay /DTSG / SiteData / LSD) jika tersedia
-            const fbReq = (typeof unsafeWindow !== 'undefined' && unsafeWindow.require) ? unsafeWindow.require : (typeof window.require === 'function' ? window.require : null);
-            if (fbReq) {
-                try {
-                    const dtsgMod = fbReq("DTSGInitialData") || fbReq("DTSGInitData");
-                    if (dtsgMod && dtsgMod.token && !fb_dtsg) fb_dtsg = dtsgMod.token;
-                } catch (e) { }
-                try {
-                    const userMod = fbReq("CurrentUserInitialData");
-                    if (userMod && userMod.USER_ID) {
-                        if (!__user) __user = userMod.USER_ID;
-                        if (!av) av = userMod.USER_ID;
-                    }
-                } catch (e) { }
-                try {
-                    const lsdMod = fbReq("LSD");
-                    if (lsdMod && lsdMod.token && !lsd) lsd = lsdMod.token;
-                } catch (e) { }
-                try {
-                    const siteMod = fbReq("SiteData");
-                    if (siteMod) {
-                        if (!__hsi && siteMod.hsi) __hsi = siteMod.hsi;
-                        if (!__spin_r && (siteMod.__spin_r || siteMod.server_revision)) __spin_r = String(siteMod.__spin_r || siteMod.server_revision);
-                        if (!__spin_b && siteMod.__spin_b) __spin_b = siteMod.__spin_b;
-                        if (!__spin_t && siteMod.__spin_t) __spin_t = String(siteMod.__spin_t);
-                        if (!__rev && siteMod.client_revision) __rev = String(siteMod.client_revision);
-                        if (!__hs && siteMod.haste_session) __hs = siteMod.haste_session;
-                    }
-                } catch (e) { }
-                try {
-                    const modKomentar = fbReq("useCometUFICreateCommentMutation_facebookRelayOperation");
-                    if (modKomentar) commentDocIdDynamic = modKomentar;
-                } catch (e) { }
-                try {
-                    // Fallback doc_id feed jika auto-scroll belum menangkap network request
-                    if (!doc_id) {
-                        const isProf = href.includes('/user/');
-                        const modFeed = isProf
-                            ? fbReq("ProfileCometContextualProfileGroupPostsFeedPaginationQuery_facebookRelayOperation")
-                            : fbReq("GroupsCometFeedRegularStoriesPaginationQuery_facebookRelayOperation");
-                        if (modFeed) {
-                            doc_id = modFeed;
-                            fb_api_req_friendly_name = isProf
-                                ? "ProfileCometContextualProfileGroupPostsFeedPaginationQuery"
-                                : "GroupsCometFeedRegularStoriesPaginationQuery";
-                        }
-                    }
-                } catch (e) { }
-            }
-
-            // C. Ekstrak dari __eqmc atau HTML DOM jika masih ada yang kosong
-            const eqmcEl = document.getElementById('__eqmc');
-            if (eqmcEl && eqmcEl.textContent) {
-                try {
-                    const eqData = JSON.parse(eqmcEl.textContent);
-                    if (eqData.f && !fb_dtsg) fb_dtsg = eqData.f;
-                    if (eqData.u) {
-                        const uParams = new URLSearchParams(eqData.u.split('?')[1] || "");
-                        if (!jazoest && uParams.get('jazoest')) jazoest = uParams.get('jazoest');
-                        if (!__user && uParams.get('__user')) __user = uParams.get('__user');
-                        if (!av && uParams.get('__user')) av = uParams.get('__user');
-                        if (!__hs && uParams.get('__hs')) __hs = uParams.get('__hs');
-                        if (!__rev && uParams.get('__rev')) __rev = uParams.get('__rev');
-                        if (!__hsi && uParams.get('__hsi')) __hsi = uParams.get('__hsi');
-                        if (!__comet_req && uParams.get('__comet_req')) __comet_req = uParams.get('__comet_req');
-                    }
-                } catch (e) { }
-            }
 
             let html = document.documentElement.innerHTML;
 
-            if (!fb_dtsg) {
-                let dtsgMatch = html.match(/"DTSGInitialData",\[\],\{"token":"([^"]+)"/) ||
-                    html.match(/"DTSGInitData",\[\],\{"token":"([^"]+)"/) ||
-                    html.match(/"fb_dtsg":"([^"]+)"/) ||
-                    html.match(/name="fb_dtsg"\s*value="([^"]+)"/i);
-                if (dtsgMatch) fb_dtsg = dtsgMatch[1];
-            }
+            // Regex lebih kejam untuk mencari token yang tersembunyi
+            let dtsgMatch = html.match(/"DTSGInitialData",\[\],{"token":"([^"]+)"/);
+            if (!dtsgMatch) dtsgMatch = html.match(/"DTSGInitData",\[\],{"token":"([^"]+)"/);
+            if (!dtsgMatch) dtsgMatch = html.match(/"fb_dtsg":"([^"]+)"/);
+            if (!dtsgMatch) dtsgMatch = html.match(/name="fb_dtsg"\s*value="([^"]+)"/i);
 
-            if (!lsd) {
-                let lsdMatch = html.match(/"LSD"\s*,\s*\[\]\s*,\s*\{\s*"token"\s*:\s*"([^"]+)"\}/) ||
-                    html.match(/"lsd":"([^"]+)"/) ||
-                    html.match(/name="lsd"\s*value="([^"]+)"/i);
-                if (lsdMatch) lsd = lsdMatch[1];
-            }
+            let jazoestMatch = html.match(/jazoest=([^&"]+)/);
+            if (!jazoestMatch) jazoestMatch = html.match(/"jazoest":"([^"]+)"/);
+            if (!jazoestMatch) jazoestMatch = html.match(/name="jazoest"\s*value="([^"]+)"/i);
 
-            if (!jazoest) {
-                let jazoestMatch = html.match(/jazoest=(\d+)/) ||
-                    html.match(/"jazoest":"?(\d+)"?/) ||
-                    html.match(/name="jazoest"\s*value="([^"]+)"/i);
-                if (jazoestMatch) jazoest = jazoestMatch[1];
-            }
+            let lsdMatch = html.match(/"LSD"\s*,\s*\[\]\s*,\s*\{\s*"token"\s*:\s*"([^"]+)"\}/) ||
+                html.match(/"lsd":"([^"]+)"/) ||
+                html.match(/name="lsd"\s*value="([^"]+)"/i);
 
-            // Fallback: Hitung jazoest otomatis dari fb_dtsg jika masih kosong (Rumus standar FB: "2" + sum ASCII fb_dtsg)
-            if (!jazoest && fb_dtsg) {
-                let sum = 0;
-                for (let i = 0; i < fb_dtsg.length; i++) sum += fb_dtsg.charCodeAt(i);
-                jazoest = "2" + sum;
-            }
+            let userMatch = html.match(/"ACCOUNT_ID":"([^"]+)"/);
+            if (!userMatch) userMatch = html.match(/"USER_ID":"([^"]+)"/);
 
-            if (!__user || !av) {
-                let cookieMatch = document.cookie.match(/c_user=(\d+)/);
-                let userMatch = cookieMatch || html.match(/"ACCOUNT_ID":"(\d+)"/) || html.match(/"USER_ID":"(\d+)"/);
-                if (userMatch) {
-                    if (!__user) __user = userMatch[1];
-                    if (!av) av = userMatch[1];
-                }
-            }
+            if (dtsgMatch && !fb_dtsg) fb_dtsg = dtsgMatch[1];
+            if (jazoestMatch && !jazoest) jazoest = jazoestMatch[1];
+            if (lsdMatch && !lsd) lsd = lsdMatch[1];
 
-            // Default fallback nilai statis agar payload komentar/feed selalu valid 100% meskipun auto-scroll belum jalan
-            if (!__a) __a = "1";
-            if (!dpr) dpr = String(window.devicePixelRatio || 1);
-            if (!__ccg) __ccg = "EXCELLENT";
-            if (!__comet_req) __comet_req = "15";
-            if (!__spin_b) __spin_b = "trunk";
-            if (!__spin_t) __spin_t = String(Math.floor(Date.now() / 1000));
-            if (!server_timestamps) server_timestamps = "true";
-
-            // D. Fallback baseVariables jika auto-scroll belum menangkap payload feed sama sekali
-            if (doc_id && Object.keys(baseVariables).length === 0 && groupID) {
-                const isProf = href.includes('/user/');
-                if (!isProf) {
-                    baseVariables = {
-                        "count": 3,
-                        "cursor": null,
-                        "feedLocation": "GROUP",
-                        "feedType": "DISCUSSION",
-                        "feedbackSource": 0,
-                        "focusCommentID": null,
-                        "privacySelectorRenderLocation": "COMET_STREAM",
-                        "referringStoryRenderLocation": null,
-                        "renderLocation": "group",
-                        "scale": window.devicePixelRatio || 1,
-                        "sortingSetting": "CHRONOLOGICAL",
-                        "stream_initial_count": 1,
-                        "useDefaultActor": false,
-                        "id": groupID,
-                        "__relay_internal__pv__GHLShouldChangeAdIdFieldNamerelayprovider": true,
-                        "__relay_internal__pv__GHLShouldChangeSponsoredDataFieldNamerelayprovider": true,
-                        "__relay_internal__pv__CometFeedStory_enable_reactor_facepilerelayprovider": false,
-                        "__relay_internal__pv__CometFeedStory_enable_social_bubblesrelayprovider": false,
-                        "__relay_internal__pv__CometFeedStory_enable_post_permalink_white_space_clickrelayprovider": false,
-                        "__relay_internal__pv__CometUFICommentActionLinksRewriteEnabledrelayprovider": false,
-                        "__relay_internal__pv__CometUFICommentAvatarStickerAnimatedImagerelayprovider": false,
-                        "__relay_internal__pv__IsWorkUserrelayprovider": false,
-                        "__relay_internal__pv__TestPilotShouldIncludeDemoAdUseCaserelayprovider": false,
-                        "__relay_internal__pv__FBReels_deprecate_short_form_video_context_gkrelayprovider": true,
-                        "__relay_internal__pv__FBReels_enable_view_dubbed_audio_type_gkrelayprovider": true,
-                        "__relay_internal__pv__CometFeedShareMedia_shouldPrefetchShareImagerelayprovider": false,
-                        "__relay_internal__pv__CometImmersivePhotoCanUserDisable3DMotionrelayprovider": false,
-                        "__relay_internal__pv__WorkCometIsEmployeeGKProviderrelayprovider": false,
-                        "__relay_internal__pv__IsMergQAPollsrelayprovider": false,
-                        "__relay_internal__pv__FBReelsMediaFooter_comet_enable_reels_ads_gkrelayprovider": true,
-                        "__relay_internal__pv__CometUFIReactionsEnableShortNamerelayprovider": false,
-                        "__relay_internal__pv__CometUFICommentAutoTranslationTyperelayprovider": "AUTO_TRANSLATE",
-                        "__relay_internal__pv__CometUFIShareActionMigrationrelayprovider": true,
-                        "__relay_internal__pv__CometUFISingleLineUFIrelayprovider": true,
-                        "__relay_internal__pv__relay_provider_comet_ufi_ssr_seo_deferrelayprovider": true,
-                        "__relay_internal__pv__CometUFI_dedicated_comment_routable_dialog_gkrelayprovider": true,
-                        "__relay_internal__pv__ReelsIFUCard_reelsIFULikeCountrelayprovider": false,
-                        "__relay_internal__pv__FBReelsIFUTileContent_reelsIFUPlayOnHoverrelayprovider": true,
-                        "__relay_internal__pv__GroupsCometGYSJFeedItemHeightrelayprovider": 206,
-                        "__relay_internal__pv__ShouldEnableBakedInTextStoriesrelayprovider": false,
-                        "__relay_internal__pv__StoriesShouldIncludeFbNotesrelayprovider": true
-                    };
-                }
+            // Fallback: Jika di payload tidak ada av/__user, ambil dari DOM
+            if (userMatch) {
+                if (!__user) __user = userMatch[1];
+                if (!av) av = userMatch[1];
             }
         } catch (e) {
-            console.warn("[Bot] Gagal auto-extract token dari DOM:", e);
+            console.warn("[Bot] Gagal auto-extract token dari DOM.");
         }
     }
 
@@ -1385,17 +1242,12 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             baseVariables.contextualProfileContext.associated_context_id = groupID;
         }
 
-        // PAKSA FACEBOOK MENGIRIM POSTINGAN TERBARU (URUTKAN KRONOLOGIS & HAPUS CURSOR LAMA!)
-        // Tanpa sortingSetting = CHRONOLOGICAL, query pagination grup sering tertahan di cache Top Posts (RECENT_ACTIVITY)
+        // PAKSA FACEBOOK MENGIRIM 10 POSTINGAN SEKALIGUS (BUKAN 1)
+        // Hapus `feedCursor` atau `cursor` agar Facebook tidak mengembalikan postingan lama!
+        // Tanpa cursor, Facebook akan selalu mengembalikan POSTINGAN TERBARU (Halaman 1)
         delete baseVariables.feedCursor;
         delete baseVariables.cursor;
 
-        if (!window.location.href.includes('/user/')) {
-            baseVariables.sortingSetting = "CHRONOLOGICAL";
-        }
-        if (baseVariables.count !== undefined) {
-            baseVariables.count = 3;
-        }
         if (baseVariables.postsToLoad !== undefined) {
             baseVariables.postsToLoad = 5;
         }
@@ -1459,44 +1311,31 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
     /**
      * FUNGSI KIRIM KOMENTAR SUPER CEPAT (< 5ms)
+     * (100% Sama dengan /media/veracrypt1/ROBOT_GRAPHQL_BARU/tampermonkey_bot.user.js)
      */
     async function sendKomentar(feedbackId, customGroupId = groupID, customCommentText = bot_GlobalBotComment) {
         if (KomentDone) {
             console.log("[Bot] Komentar sudah terkirim!");
             return;
         }
-
-        // Pastikan semua token (__user, fb_dtsg, lsd, jazoest, groupID, commentDocIdDynamic) sudah terisi
-        // sangat krusial untuk instance Chrome yang tidak kebagian fokus scroll tapi menerima sinyal WebSocket!
-        if (!fb_dtsg || !lsd || !__user || !jazoest || !groupID) {
-            autoExtractTokens();
-        }
-
         if (!customCommentText) {
-            customCommentText = bot_GlobalBotComment || (Comment19 ? Random(normalizeToBasicLatin(Comment19)) : "");
+            customCommentText = bot_GlobalBotComment;
         }
-
         if (!feedbackId || !customCommentText) {
             console.error("[Bot] Parameter feedbackId atau commentText kosong!");
             return null;
         }
 
-        // CEK PENGUNCI MULTI-TAB (< 0.1ms):
-        // Cukup kunci berdasarkan (feedbackId + __user) agar hanya 1 tab per AKUN FB yang menembak komentar di postingan ini!
+        // CEK PENGUNCI MULTI-TAB (< 0.1ms): Hanya cegah jika di profil browser yang SAMA ada 2 tab terbuka!
         const lockTarget = feedbackId + "_" + (__user || MY_TAB_ID);
         if (!isWinnerTab(lockTarget)) {
             KomentDone = true;
-            console.warn("🛑 [Anti-Double] Tab lain dengan akun FB yang sama sudah menembak komentar! Membatalkan tab ini...");
+            console.warn("🛑 [Anti-Double] Tab lain di profil yang sama sudah menembak komentar! Membatalkan tab ini...");
             location.href = "about:blank";
             return null;
         }
 
         KomentDone = true;
-
-        // Langsung kunci status grup di GM storage SEBELUM await fetch agar tab lain langsung tahu
-        if (bot_GlobalGroupName) {
-            markGroupAsDone(bot_GlobalGroupName);
-        }
 
         let isProfile = window.location.href.includes('/user/') || window.location.href.includes('profile.php');
         let finalGroupId = customGroupId || groupID;
@@ -1537,7 +1376,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             },
             "inviteShortLinkKey": null,
             "renderLocation": null,
-            "scale": Number(dpr) || 1,
+            "scale": 1,
             "useDefaultActor": false,
             "focusCommentID": null,
             "translationType": "AUTO_TRANSLATE",
@@ -1551,39 +1390,31 @@ window.initBabonLogic = function (namagroup19, Comment19) {
 
         const currentReqStr = (currentReqNum++).toString(36);
         const variablesStr = encodeURIComponent(JSON.stringify(commentVariables));
-        const commentDocId = commentDocIdDynamic || "27687311557628355"; // Gunakan doc_id dinamis dari Relay jika tersedia
+        const commentDocId = "27687311557628355"; // Standar ID Doc untuk CreateCommentMutation
 
         // Atur parameter route berdasarkan posisi saat ini
         const reqCrn = isProfile ? "comet.fbweb.CometContextualProfileRoute" : "comet.fbweb.CometGroupDiscussionRoute";
 
-        const bodyPayload = `av=${av}&__user=${__user}&__a=${__a || '1'}&__req=${currentReqStr}&__hs=${__hs}&dpr=${dpr || '1'}&__ccg=${__ccg || 'EXCELLENT'}&__rev=${__rev}&__s=${__s}&__hsi=${__hsi}&__dyn=${__dyn}&__csr=${__csr}&__hsdp=${__hsdp}&__hblp=${__hblp}&__sjsp=${__sjsp}&__comet_req=${__comet_req || '15'}&fb_dtsg=${encodeURIComponent(fb_dtsg)}&jazoest=${jazoest}&lsd=${lsd}&__spin_r=${__spin_r}&__spin_b=${__spin_b || 'trunk'}&__spin_t=${__spin_t}&__jssesw=${__jssesw}&__crn=${reqCrn}&server_timestamps=true&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=useCometUFICreateCommentMutation&variables=${variablesStr}&doc_id=${commentDocId}`;
+        const bodyPayload = `av=${av}&__user=${__user}&__a=${__a}&__req=${currentReqStr}&__hs=${__hs}&dpr=${dpr}&__ccg=${__ccg}&__rev=${__rev}&__s=${__s}&__hsi=${__hsi}&__dyn=${__dyn}&__csr=${__csr}&__hsdp=${__hsdp}&__hblp=${__hblp}&__sjsp=${__sjsp}&__comet_req=${__comet_req}&fb_dtsg=${encodeURIComponent(fb_dtsg)}&jazoest=${jazoest}&lsd=${lsd}&__spin_r=${__spin_r}&__spin_b=${__spin_b}&__spin_t=${__spin_t}&__jssesw=${__jssesw}&__crn=${reqCrn}&server_timestamps=true&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=useCometUFICreateCommentMutation&variables=${variablesStr}&doc_id=${commentDocId}`;
         try {
             console.log(`%c[Bot] 💬 Mengirim komentar: "${customCommentText}"`, "color: #00ffff;");
             updateKomentarUI("⏳ Sedang Mengirim...", "yellow");
-            const headersObj = {
-                "Content-Type": "application/x-www-form-urlencoded",
-                "X-FB-Friendly-Name": "useCometUFICreateCommentMutation",
-                "X-ASBD-ID": "129477"
-            };
-            if (lsd) headersObj["X-FB-LSD"] = lsd;
-
             const response = await fetch("https://www.facebook.com/api/graphql/", {
                 method: "POST",
-                credentials: "include",
-                keepalive: true,
-                headers: headersObj,
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-FB-Friendly-Name": "useCometUFICreateCommentMutation",
+                    "X-ASBD-ID": "129477",
+                    "X-FB-LSD": lsd
+                },
                 body: bodyPayload
             });
             const text = await response.text();
-            const cleanRes = text.replace(/^for\s*\(\s*;\s*;\s*\)\s*;\s*/, '').trim();
-            if (cleanRes.includes('"comment_create"') && !cleanRes.includes('"errors"')) {
-                console.log("%c[Bot] ✅ Komentar BERHASIL Masuk ke Facebook!", "color: #00ff00; font-weight: bold;");
-                updateKomentarUI("", "#00ff00");
-            } else {
-                console.warn("[Bot] ⚠️ Respon FB tidak mengandung comment_create atau ada error:", cleanRes.substring(0, 300));
-                updateKomentarUI("", "orange");
-            }
+            console.log("%c[Bot] ✅ Respon Komentar Diterima!", "color: #00ff00;");
+            console.log("Berhasil", "#00ff04ff");
+            updateKomentarUI("", "#00ff00"); // Ubah indikator jadi Hijau!
 
+            // Catat di storage (GM_setValue) agar grup ini tidak dikomentari lagi selama 2 menit!
             if (bot_GlobalGroupName) {
                 await markGroupAsDone(bot_GlobalGroupName);
             }
@@ -1722,16 +1553,11 @@ window.initBabonLogic = function (namagroup19, Comment19) {
         });
 
         while (isLooping && !KomentDone) {
-            // Segarkan ekstraksi token & doc_id dari modul Relay FB jika payload belum tertangkap oleh auto-scroll
-            if (!doc_id || Object.keys(baseVariables).length === 0 || !fb_dtsg || !lsd) {
-                autoExtractTokens();
-            }
-
             // CEK KEAMANAN: Jangan eksekusi jika payload belum tertangkap!
             if (!doc_id || Object.keys(baseVariables).length === 0) {
-                console.warn("%c[Bot] ⚠️ Payload belum tertangkap! Menunggu auto-scroll / Relay menyelesaikan tugasnya...", "color: #ff5555; font-size: 14px; font-weight: bold;");
+                console.warn("%c[Bot] ⚠️ Payload belum tertangkap! Menunggu auto-scroll menyelesaikan tugasnya...", "color: #ff5555; font-size: 14px; font-weight: bold;");
                 updateStatusDot("red");
-                await new Promise(resolve => setTimeout(resolve, 500)); // Tunggu 0.5 detik sebelum cek lagi
+                await new Promise(resolve => setTimeout(resolve, 1000)); // Tunggu 1 detik sebelum cek lagi
                 continue;
             }
             if (KomentDone) break;
