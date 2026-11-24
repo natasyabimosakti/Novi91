@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Anti Spam
 // @namespace    http://tampermonkey.net/
-// @version      3.15
+// @version      3.16
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/refs/heads/main/anti%20spam.js
 // @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/refs/heads/main/anti%20spam.js
@@ -14,48 +14,37 @@
 // @run-at       document-end
 // ==/UserScript==
 
-var lasturlku = 0
+var lasturlku = "";
 var jar = setInterval(function(){
-
-
-
     if(location.href.includes("group")){
-        lasturlku=location.href
+        lasturlku = location.href;
         return;
     }
-
-    if(location.href.length <= 39 ){
-        if(document.getElementsByClassName("vscroller").length > 0){
-            if(document.getElementsByClassName("vscroller")[0].getElementsByTagName("img")[0]){
-                document.getElementsByClassName("vscroller")[0].getElementsByTagName("img")[0].click()
+    if(location.href.length <= 39){
+        var vsc = document.getElementsByClassName("vscroller");
+        if(vsc.length > 0){
+            var img = vsc[0].getElementsByTagName("img")[0];
+            if(img){
+                img.click();
             }
         }
     }
-
-
-},100)
-
-
+}, 500);
 
 var ujar = setInterval(function(){
-
-
-
-    if(lasturlku.length > 10){
-
-        if(location.href.length <= 5 ){
-            location.href = lasturlku
-
+    if(typeof lasturlku === "string" && lasturlku.length > 10){
+        if(location.href.length <= 5){
+            location.href = lasturlku;
             return;
         }
     }
+}, 1500);
 
-},1500)
 setInterval(function(){
-    if(document.getElementsByTagName("button")[0].value.includes("Dismiss")||document.getElementsByTagName("button")[0].value.includes("Tutup")){
-        document.getElementsByTagName("button")[0].click()
+    var btn = document.getElementsByTagName("button")[0];
+    if(btn && typeof btn.value === "string" && (btn.value.includes("Dismiss") || btn.value.includes("Tutup"))){
+        btn.click();
     }
-
-},1500)
+}, 1500);
 
 
