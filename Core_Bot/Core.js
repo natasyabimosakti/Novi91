@@ -1967,14 +1967,17 @@ window.initBabonLogic = function (namagroup19, Comment19) {
             } catch (parseErr) { }
 
             if (hasError) {
-                // AUTO-RETRY CEPAT KHUSUS CODE 1446013 (replikasi shard) TANPA MEMBUKA KomentDone (anti-double 100%)
-                if (errorCode === 1446013 && attempt < 3) {
-                    const retryDelay = attempt === 0 ? 250 : (attempt === 1 ? 600 : 1200);
-                    console.warn(`🔄 [Bot Auto-Retry] Code 1446013 terdeteksi (percobaan #${attempt + 1}/3). Menunggu ${retryDelay}ms agar shard FB sinkron lalu tembak ulang...`);
+                // AUTO-RETRY ULTRA-CEPAT KHUSUS CODE 1446013 (replikasi shard) TANPA MEMBUKA KomentDone (anti-double 100%)
+                // Catatan: saat respon 1446013 kembali, round-trip jaringan sudah memakan ~300-500ms sehingga shard FB hampir siap
+                if (errorCode === 1446013 && attempt < 4) {
+                    const retryDelays = [50, 150, 350, 700];
+                    const retryDelay = retryDelays[attempt] || 700;
+                    console.warn(`🔄 [Bot Auto-Retry] Code 1446013 terdeteksi (percobaan #${attempt + 1}/4). Menunggu ${retryDelay}ms lalu tembak ulang...`);
                     await new Promise(r => setTimeout(r, retryDelay));
 
-                    // Pada percobaan ke-2+, coba Self-Fetch feed akun ini sendiri agar mendapat feedback_id & tracking segar
-                    if (attempt >= 1 && doc_id && Object.keys(baseVariables).length > 0) {
+                    // Percobaan #1 (50ms) & #2 (150ms) langsung tembak ulang tanpa overhead Self-Fetch;
+                    // Mulai percobaan #3+ (attempt >= 2), coba Self-Fetch feed akun ini sendiri sebagai fallback pamungkas
+                    if (attempt >= 2 && doc_id && Object.keys(baseVariables).length > 0) {
                         const selfRaw = await doFetchAction();
                         if (selfRaw) {
                             const selfPosts = extractPostsFromJson(selfRaw);
@@ -1988,7 +1991,7 @@ window.initBabonLogic = function (namagroup19, Comment19) {
                         }
                     }
 
-                    // Coba tembak ulang dengan feedback_id (pfbid) yang sama setelah delay replikasi
+                    // Coba tembak ulang dengan feedback_id (pfbid) yang sama
                     return sendKomentar(feedbackId, finalGroupId, customCommentText, customTracking, postId, null, attempt + 1);
                 }
 
