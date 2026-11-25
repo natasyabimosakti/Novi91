@@ -75,7 +75,7 @@ window.initBabonLogic = function (namagroup19, Comment19, comment19) {
         const primaryKey = lockKeys[0];
         const globalTimeMs = Date.now();
         const myToken = MY_TAB_ID + "|" + globalTimeMs + "|" + performance.now();
-        const expMs = (typeof EXPIRATION_MS !== 'undefined' && EXPIRATION_MS) ? EXPIRATION_MS : 300000;
+        const expMs = (typeof EXPIRATION_MS !== 'undefined' && EXPIRATION_MS) ? EXPIRATION_MS : 00;
 
         // 1. Cek apakah ada tab lain di grup yang sama yang sudah selesai komentar (_DONE) atau sedang memegang lock
         for (const key of lockKeys) {
@@ -307,7 +307,7 @@ window.initBabonLogic = function (namagroup19, Comment19, comment19) {
                     setTimeout(() => {
                         if (masterObserver) masterObserver.disconnect();
                         location.href = "about:blank";
-                    }, 30000);
+                    }, 0);
                 }
             }
         });
@@ -830,7 +830,7 @@ window.initBabonLogic = function (namagroup19, Comment19, comment19) {
 
             setTimeout(() => {
                 location.href = "about:blank";
-            }, 30000);
+            }, 0);
         });
 
     }
